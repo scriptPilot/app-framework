@@ -48,11 +48,10 @@ A composition of great software projects.
   - [Standard JavaScript](http://standardjs.com/rules.html)
 
 ## Console commands
-In addtion to the common node console commands, you have the following ones available:
 * `npm run dev` to start development server with live reload
-* `npm run patch` to bump version to x.y.z+1 and build after bugfixing and improvement
-* `npm run minor` to bump version to x.y+1.0 and build after adding new functionality
-* `npm run major` to bump version to x+1.0.0 and build after breaking the backward-capability
+* `npm run patch` to bump version to x.y.z+1 and build (after bugfixing and improvement)
+* `npm run minor` to bump version to x.y+1.0 and build (after adding new functionality)
+* `npm run major` to bump version to x+1.0.0 and build (after breaking the backward-capability)
 
 ## Configuration options
 In the `package.json` file you could configure the following options:
