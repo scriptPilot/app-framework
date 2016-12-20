@@ -38,14 +38,14 @@ A composition of great software projects.
 5. Upload files to your web server
 
 ## External documentation
-**Essential**
-- [npm and Node](https://docs.npmjs.com/getting-started/what-is-npm)
-- [Vue](https://vuejs.org/)
-- [Framework7](http://framework7.io/)
-**Optional**
-- [Framework7-Vue components](https://github.com/nolimits4web/Framework7-Vue)
-- [Firebase](https://firebase.google.com/docs/web/setup)
-- [Standard JavaScript](http://standardjs.com/rules.html)
+- **Essential**
+  - [npm and Node](https://docs.npmjs.com/getting-started/what-is-npm)
+  - [Vue](https://vuejs.org/)
+  - [Framework7](http://framework7.io/)
+- **Optional**
+  - [Framework7-Vue components](https://github.com/nolimits4web/Framework7-Vue)
+  - [Firebase](https://firebase.google.com/docs/web/setup)
+  - [Standard JavaScript](http://standardjs.com/rules.html)
 
 ## Console commands
 In addtion to the common node console commands, you have the following ones available:
