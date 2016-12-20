@@ -1,12 +1,12 @@
 "use strict"
 
 var pkg = require('./package.json')
-var project = require(pkg.projectPath + 'package.json');
+var project = require('./package.json');
 var app = require(pkg.appPath + 'package.json')
 
-//var saveJson = require('jsonfile').writeFileSync
-//saveJson('project.temp', project)
-//saveJson('app.temp', app)
+var saveJson = require('jsonfile').writeFileSync
+saveJson('project.temp', project)
+saveJson('app.temp', app)
 
 const NODE_ENV = process.env.NODE_ENV || 'development';
 const webpack  = require('webpack');
