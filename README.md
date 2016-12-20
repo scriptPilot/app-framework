@@ -62,6 +62,12 @@ In the `package.json` file you could configure the following options:
 * `icons` icon libraries to be bundled
 * `routes` routes with route as key and page to be rendered as value
 
+## Variables
+To be used from Vue $root object:
+* `$root.lang` keeps the application language (e.g. "en" or "de")
+* `$root.user` keeps the user information (null or object with uid, email, displayName, photoUrl)
+* `$root.theme` keeps the selected application theme ("ios" or "material")
+
 ## Deployment
 Best practice is to upload the build folder to your web server root folder. Then create a file `.htaccess` in the root folder and put the following code in it and change the version according to your latest build:
 
