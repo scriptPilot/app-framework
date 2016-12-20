@@ -3,7 +3,7 @@ Framework to build iOS and Android Apps in minutes ([demo](http://app-framework.
 
 **ATTENTION**: Release 1.0.0 planned for end of January. For now, your initial [feedback](https://github.com/scriptPilot/app-framework/issues/1) is highly appreciated!
 
-## Features
+## Features (work in progress)
 A composition of great software projects.
 - **Beautiful**
  - [x] Native design and animations - [Framework7](http://framework7.io/)
