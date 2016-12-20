@@ -37,7 +37,7 @@ A composition of great software projects.
 4. Run `npm run patch` to build application
 5. Upload files to your web server
 
-### Documentation
+## External documentation
 **Essential**
 - [npm and Node](https://docs.npmjs.com/getting-started/what-is-npm)
 - [Vue](https://vuejs.org/)
@@ -47,20 +47,38 @@ A composition of great software projects.
 - [Firebase](https://firebase.google.com/docs/web/setup)
 - [Standard JavaScript](http://standardjs.com/rules.html)
 
-### Console commands
+## Console commands
 In addtion to the common node console commands, you have the following ones available:
 * `npm run dev` to start development server with live reload
 * `npm run patch` to bump version to x.y.z+1 and build after bugfixing and improvement
 * `npm run minor` to bump version to x.y+1.0 and build after adding new functionality
 * `npm run major` to bump version to x+1.0.0 and build after breaking the backward-capability
 
-### Configuration options
+## Configuration options
 In the `package.json` file you could configure the following options:
 * `title` which is used for the HTML title element
 * `theme` standard theme, *ios* or *material* as option
 * `lang` standard language, e.g. *en*
 * `icons` icon libraries to be bundled
 * `routes` routes with route as key and page to be rendered as value
+
+## Deployment
+Best practice is to upload the build folder to your web server root folder. Then create a file `.htaccess` in the root folder and put the following code in it and change the version according to your latest build:
+
+  ```
+  # Start rewrite engine
+  RewriteEngine On
+
+  # Here you specify the build version to be used (two times!)
+  RewriteCond %{REQUEST_URI} !^/build-x.y.z/
+  RewriteRule ^(.*)$ /build-x.y.z/$1 [L]
+
+  # Forwarding to app home page if file not found
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^build-([0-9.]+)/(.*)?$ /#/$2 [R,L,NE] 
+  ```
+For updates, just upload the build folder and after completion change the version in the `.htaccess` 
 
 ## Feedback, bugs, feature requests
 Please use the [Issues](https://github.com/scriptPilot/app-framework/issues) page or provide a pull request. For more complex changes please let us discuss in the issue list before.
