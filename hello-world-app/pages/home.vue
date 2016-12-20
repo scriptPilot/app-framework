@@ -9,9 +9,9 @@
     
     <f7-list>
      
-      <!-- Language selection - to change app language, you have to update -->
+      <!-- Language selection -->
       <f7-list-item smart-select smart-select-back-on-select :title="text.selectLang" :media="'<img src=\'' + images['flag_' + $root.lang] + '\' width=\'29\' />'">              
-        <select @change="$root.lang=($event.target.value)" v-model="$root.lang">
+        <select @change="changeLanguage" v-model="$root.lang">
           <option value="en" :data-option-image="images.flag_en">{{text.en}}</option>
           <option value="de" :data-option-image="images.flag_de">{{text.de}}</option>
         </select>             
@@ -111,6 +111,14 @@
     computed: {
       text: function() {
         return text[this.$root.lang]
+      }
+    },
+    methods: {
+      changeLanguage: function(e) {
+        this.$root.lang = e.target.value
+        setTimeout(function() {
+          this.$$(e.target).parent().find('.item-after').html(this.text[e.target.value])
+        }.bind(this), 0)
       }
     },
     mounted: function() {
