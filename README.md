@@ -4,28 +4,32 @@
 **ATTENTION**: Release 1.0.0 planned for end of January. For now, your initial [feedback](https://github.com/scriptPilot/app-framework/issues/1) is highly appreciated!
 
 ## Features
-- [x] **Native design** for iOS and Android, powered by the beautiful [Framework7](http://framework7.io/), supported by [iNoBounce](https://github.com/lazd/iNoBounce)
-- [x] **Integrated icons** for [iOS](https://github.com/nolimits4web/Framework7-Icons) and [Android](https://material.io/icons/) 
-- [x] **Powerful user interface** with the magic of [Vue](https://vuejs.org/)
-- [x] **Flexible routing** with folder, parameters and and hash tag, done by [Framework7-Vue](https://github.com/nolimits4web/Framework7-Vue)
-- [x] **Multi-language support** easily to be added
-- [x] **Offline capability** out of the box
-- [x] **One file** approach per page with template, script and style included ([info](https://vuejs.org/v2/guide/single-file-components.html))
-- [x] **Reusable components** to decrease coding effort with [Framework7-Vue](https://github.com/nolimits4web/Framework7-Vue)
-- [x] **Development server** with live reload
-- [x] **Build process** with automatic version bump and compression of HTML, CSS, JavaScript, and image files
-- [x] **Safe deployment** to server without downtime and with fast rollback
-
-**Planned for version 1.0.0 (before Christmas time)**
-- [ ] **State kept** after reload for page, tab, scroll position, form focus, form data and page data
-- [ ] **Favicon generator** for plenty of different devices, based on [Favicons](https://github.com/haydenbleasel/favicons) 
-- [ ] **Clean code** based on [Standard JavaScript Rules](http://standardjs.com/)
-
-**Planned for later version (development wil start mid of January)**
-- [ ] **User management** already integrated with [Firebase](https://firebase.google.com/)
-- [ ] **Data backend** already integrated with [Firebase](https://firebase.google.com/)
-- [ ] **Storage backend** already integrated with [Firebase](https://firebase.google.com/)
-
+A composition of great software projects.
+- **Beautiful**
+ - [x] Native design and animations - [Framework7](http://framework7.io/)
+ - [x] No bouncing on iOS - [iNoBounce](https://github.com/lazd/iNoBounce)
+ - [x] Icon fonts - [iOS](https://github.com/nolimits4web/Framework7-Icons) and [Android](https://material.io/icons/)
+ - [ ] Favicon generator - [Favicons](https://github.com/jantimon/favicons-webpack-plugin)
+- **Powerful**
+ - [x] Reactive user interface - [Vue](https://vuejs.org/)
+ - [x] Flexible routing - [Framework7-Vue](https://github.com/nolimits4web/Framework7-Vue)
+ - [ ] State kept for page, tab, scroll position, form focus, form data and page data
+ - [x] Multi-language support
+ - [x] Offline capability
+ - [ ] User authentication - [Firebase](https://firebase.google.com/)
+ - [ ] Data backend - [Firebase](https://firebase.google.com/)
+ - [ ] Storage backend - [Firebase](https://firebase.google.com/)
+- **Complete**
+ - [x] Quick start - [npm](htthttps://www.npmjs.com)
+ - [x] Development server with live reload - [Webpack-dev-server](https://github.com/webpack/webpack-dev-server)
+ - [x] Single file components - [Vue](https://vuejs.org/v2/guide/single-file-components.html)
+ - [x] Reusable components - [Framework7-Vue](https://github.com/nolimits4web/Framework7-Vue)
+ - [x] Automatic version bump and build process - [Webpack](https://webpack.github.io/)
+ - [x] Compression of HTML, CSS, JavaScript and image files
+ - [x] Deployment without downtime
+ - [x] Fast rollback solution
+ - [ ] Clean code - [Standard JavaScript Rules](http://standardjs.com/)
+ 
 ## Quick start
 1. Save [package.json](https://raw.githubusercontent.com/scriptPilot/app-framework/master/hello-world-app/package.json) to an empty project folder
 2. Run `npm install` to setup project folder
