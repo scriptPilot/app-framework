@@ -4,8 +4,6 @@
     <!-- Multi language pages use bindings instead of fix text patterns -->
   
     <f7-navbar :title="text.title"></f7-navbar>
-  
-    <f7-block inner inset>{{text.homescreenHint}}</f7-block>
     
     <f7-list>
      
@@ -28,12 +26,12 @@
     </f7-list>
     
     <f7-list>
-      <f7-list-item link="minimal" :title="text.minPage"></f7-list-item>
-      <!--
+      <f7-list-item link="minimum" :title="text.minPage"></f7-list-item>
       <f7-list-item link="withComponents" :title="text.withComponents"></f7-list-item>
       <f7-list-item link="withoutComponents" :title="text.withoutComponents"></f7-list-item>
+      <f7-list-item link="routerTest#/dir1/dir2/dir3/?foo=bar#something" :title="text.routerTest"></f7-list-item>
+      <!--
       <f7-list-item link="keepState" :title="text.keepState"></f7-list-item>
-      <f7-list-item link="routerTest/dir1/dir2/dir3/?foo=bar#something" :title="text.routerTest"></f7-list-item>
       -->
     </f7-list>
     
@@ -42,7 +40,7 @@
       <f7-list-item link="http://framework7.io/kitchen-sink-material/" :title="text.examplesFor + ' Material'" linkExternal></f7-list-item>
     </f7-block>
     
-    <f7-block style="text-align: center">
+    <f7-block>
       <small>
         Version {{$root.version}}<br />
         <a href="https://github.com/scriptPilot/app-framework/" class="link external"><f7-icon material="build"></f7-icon>&nbsp;GitHub</a>
@@ -56,7 +54,7 @@
   // Multi language pages need an object (we use "text") with sub-item per language and sub-sub-items per text pattern
   var text = {
     en: {
-      title: 'Hello World',
+      title: 'App Framework Demo',
       de: 'German',
       en: 'English',
       homescreenHint: 'This App Framework demo could be used as template for your own application - add it to your homescreen for best experience.',
@@ -73,7 +71,7 @@
       keepState: 'Restore runtime environment'
     },
     de: {
-      title: 'Hallo Welt',
+      title: 'App Framework Demo',
       de: 'Deutsch',
       en: 'Englisch',
       homescreenHint: 'Dieses Template kannst du als Grundlage für deine eigene App nutzen - füge sie für ein schöneres Erlebnis zum Homescreen hinzu.',
@@ -127,9 +125,8 @@
   }
 
 </script>
-<style>
-  /* This style is not scoped and will affect all pages */
-  .content-block-inner {
+<style scoped>
+  .content-block {
     text-align: center
   }
 </style>

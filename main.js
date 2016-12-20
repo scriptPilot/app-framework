@@ -1,26 +1,19 @@
-// Load files
-var pkg = require('./package.json')
-var project = pkg.appPath == '../../' ? require('../../package.json') : require('./package.json');
-var app = pkg.appPath == '../../' ? require('../../package.json') : require('./hello-world-app/package.json');
-
-/*
 var project = require('json!./project.temp')
 var app = require('json!./app.temp')
 
-
-const appPath = '../../';
-*/
 // Vue
 var Vue = require('vue')
 
 // Framework7
-var Framework7 = require('framework7/dist/js/framework7.js')
+//var Framework7 = require('framework7/dist/js/framework7.js')
+var Framework7 = require('framework7/dist/js/framework7.min.js')
 
 // iNoBounce
 require('inobounce/inobounce.js')
   
 // Framework7-Vue
-var Framework7Vue = require('framework7-vue/dist/framework7-vue.js')
+//var Framework7Vue = require('framework7-vue/dist/framework7-vue.js')
+var Framework7Vue = require('framework7-vue/dist/framework7-vue.min.js')
 Vue.use(Framework7Vue)
 
 // Icons
@@ -35,7 +28,7 @@ if (app.icons.material === true) {
 require('./main.css');
 
 // App component
-var App = pkg.appPath == '../../' ? require('../../app.vue') : require('./hello-world-app/app.vue');
+var App = require(project.appPath + 'app.vue');
   
 // Routes
 var Routes = []
@@ -43,7 +36,7 @@ var routes = app.routes
 for (let path in routes) {
   Routes.push({
     path: path,
-    component: pkg.appPath == '../../' ? require('../../pages/' + routes[path] + '.vue') : require('./hello-world-app/pages/' + routes[path] + '.vue')
+    component: require(project.appPath + 'pages/' + routes[path] + '.vue')
   })
 }
   
@@ -110,13 +103,28 @@ new Vue({
         localStorage.url = e.detail.page.url
       }
     })
-    // Restore url (does not work properly with pushState:true (not really neded for native apps)
-    if (localStorage.url) {
-      if (this.$f7.getCurrentView().url != localStorage.url) {
-        //this.$f7.getCurrentView().router.load({url: localStorage.url, animatePages: false})
-        //this.$f7.getCurrentView().router.back({url:'home', force: true})
-      }
-    }
+    // Restore url (does not work properly with pushState:true, but not really neded for native apps)    
+    /*
+    if (localStorage.url && localStorage.url != this.$f7.getCurrentView().url) {
+      setTimeout(function() {
+        //this.$f7.getCurrentView().router.load({url: localStorage.url, animatePages: false})      
+        //this.$children[0].$children[1].$children[0].f7View.router.load({url: localStorage.url, animatePages: false})
+        this.$children[0].$children[1].$children[0].f7View.router.load({pageName: localStorage.url});
+      }.bind(this), 1000);      
+    }*/
+    // Restore url
+    /*
+    setTimeout(function() {
+      this.$$('a.back').on('click', function() {
+        this.$f7.getCurrentView().router.back({url: app.homepage, force: true})      
+      }.bind(this))
+    }.bind(this), 0)
+    */
+    this.$nextTick(function() {
+      this.$$('a.back').on('click', function() {
+        this.$f7.getCurrentView().router.back({url: app.homepage, force: true})      
+      }.bind(this))
+    })
     // Remember tab
     this.$$(document).on('show', '.tab', function(e) {
       localStorage.tab = this.$$(e.srcElement).attr('id')
@@ -147,6 +155,17 @@ new Vue({
 
   // Change text patterns function
   methods: {
+    /*
+    onF7Init: function() {      
+      if (localStorage.url) {
+        var oldUrl = localStorage.url.substr(0);
+        setTimeout(function() {
+          this.$children[0].$children[1].$children[0].f7View.router.load({url: oldUrl, animatePages: false});  
+          //this.$children[0].$children[1].$children[0].f7View.router.reloadPreviousPage('routerTest');  
+        }.bind(this), 0)
+      }
+    },
+    */
     changeTextPatterns: function() {      
       for (var el in lang[this.lang]) {
         this.$f7.params[el] = lang[this.lang][el]

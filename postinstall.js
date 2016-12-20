@@ -1,17 +1,16 @@
-var cpx = require('cpx')
 var isThere = require('is-there')
-var json = require('jsonfile')
-json.spaces = 2
 
-var pkg = require('./package.json')
-
+// app-framework is installed as dependency
 if (isThere('../../package.json')) {
   
-  //pkg.projectPath = '../../';
-  pkg.appPath = '../../';
-  
-  json.writeFileSync('./package.json', pkg);
+  var saveJSON = require('jsonfile').writeFileSync
+  saveJSON.space = 2  
+  var pkg = require('./package.json')
+  pkg.projectPath = '../../'
+  pkg.appPath = '../../'
+  saveJSON('./package.json', pkg)
 
+  var cpx = require('cpx')
   if (!isThere('../../images')) {
     cpx.copy('hello-world-app/images/*', '../../images')
   }

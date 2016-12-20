@@ -19,6 +19,10 @@
   },
   "routes": {
     "home": "home",
-    "minimal": "minimal"
-  }
+    "minimum": "minimum",
+    "withComponents": "withComponents",
+    "withoutComponents": "withoutComponents",
+    "routerTest": "routerTest"
+  },
+  "homepage": "home"
 }
