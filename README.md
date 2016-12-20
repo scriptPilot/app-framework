@@ -40,8 +40,8 @@ A composition of great software projects.
 ## External documentation
 - **Essential**
   - [npm and Node](https://docs.npmjs.com/getting-started/what-is-npm)
-  - [Vue](https://vuejs.org/)
-  - [Framework7](http://framework7.io/)
+  - [Vue](https://vuejs.org/v2/guide/)
+  - [Framework7](http://framework7.io/docs/)
 - **Optional**
   - [Framework7-Vue components](https://github.com/nolimits4web/Framework7-Vue)
   - [Firebase](https://firebase.google.com/docs/web/setup)
