@@ -22,6 +22,7 @@ A composition of great software projects.
 - **Complete**
  - [x] Quick start - [npm](https://www.npmjs.com)
  - [x] Development server with live reload - [Webpack-dev-server](https://github.com/webpack/webpack-dev-server)
+ - [ ] Code check - [ESLint](http://eslint.org/)
  - [x] Single file components - [Vue](https://vuejs.org/v2/guide/single-file-components.html)
  - [x] Reusable components - [Framework7-Vue](https://github.com/nolimits4web/Framework7-Vue)
  - [x] Automatic version bump and build process - [Webpack](https://webpack.github.io/)
