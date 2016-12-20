@@ -1,5 +1,6 @@
 # App Framework
-Framework to build iOS and Android Apps in minutes ([demo](http://app-framework.scriptpilot.de/))
+:iphone: Framework to build iOS and Android Apps in minutes ([demo](http://app-framework.scriptpilot.de/))
+
 **ATTENTION**: Release 1.0.0 planned for end of January. For now, your initial [feedback](https://github.com/scriptPilot/app-framework/issues/1) is highly appreciated!
 
 ## Features
