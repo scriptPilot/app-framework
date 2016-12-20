@@ -85,5 +85,7 @@ Best practice is to upload the build folder to your web server root folder. Then
   ```
 For updates, just upload the build folder and after completion change the version in the `.htaccess` 
 
+In case of issues, change the version to your last build folder for roll back.
+
 ## Feedback, bugs, feature requests
 Please use the [Issues](https://github.com/scriptPilot/app-framework/issues) page or provide a pull request. For more complex changes please let us discuss in the issue list before.
