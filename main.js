@@ -1,5 +1,5 @@
 // Load files
-const pkg = require('./package.json')
+var pkg = require('./package.json')
 //var project = require('json!./project.temp')
 //var app = require('json!./app.temp')
 var project = require(pkg.projectPath + 'package.json');
