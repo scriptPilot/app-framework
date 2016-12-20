@@ -9,7 +9,7 @@ A composition of great software projects.
  - [x] Native design and animations - [Framework7](http://framework7.io/)
  - [x] No bouncing on iOS - [iNoBounce](https://github.com/lazd/iNoBounce)
  - [x] Icon fonts - [iOS](https://github.com/nolimits4web/Framework7-Icons) and [Android](https://material.io/icons/)
- - [ ] Favicon generator - [Favicons](https://github.com/jantimon/favicons-webpack-plugin)
+ - [ ] Favicon generator - [Favicons](https://github.com/haydenbleasel/favicons)
 - **Powerful**
  - [x] Reactive user interface - [Vue](https://vuejs.org/)
  - [x] Flexible routing - [Framework7-Vue](https://github.com/nolimits4web/Framework7-Vue)
