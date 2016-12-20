@@ -38,7 +38,6 @@ A composition of great software projects.
 5. Upload files to your web server
 
 ### Documentation
-After *Quick start*, please look into the code of the *Hello World App* to understand how to code.
 **Essential**
 - [npm and Node](https://docs.npmjs.com/getting-started/what-is-npm)
 - [Vue](https://vuejs.org/)
@@ -49,10 +48,19 @@ After *Quick start*, please look into the code of the *Hello World App* to under
 - [Standard JavaScript](http://standardjs.com/rules.html)
 
 ### Console commands
+In addtion to the common node console commands, you have the following ones available:
 * `npm run dev` to start development server with live reload
 * `npm run patch` to bump version to x.y.z+1 and build after bugfixing and improvement
 * `npm run minor` to bump version to x.y+1.0 and build after adding new functionality
 * `npm run major` to bump version to x+1.0.0 and build after breaking the backward-capability
+
+### Configuration options
+In the `package.json` file you could configure the following options:
+* `title` which is used for the HTML title element
+* `theme` standard theme, *ios* or *material* as option
+* `lang` standard language, e.g. *en*
+* `icons` icon libraries to be bundled
+* `routes` routes with route as key and page to be rendered as value
 
 ## Feedback, bugs, feature requests
 Please use the [Issues](https://github.com/scriptPilot/app-framework/issues) page or provide a pull request. For more complex changes please let us discuss in the issue list before.
