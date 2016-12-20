@@ -1,8 +1,15 @@
 // Load files
 var pkg = require('./package.json')
+var project = pkg.appPath == '../../' ? require('../../package.json') : require('./package.json');
+var app = pkg.appPath == '../../' ? require('../../package.json') : require('./hello-world-app/package.json');
+
+/*
 var project = require('json!./project.temp')
 var app = require('json!./app.temp')
 
+
+const appPath = '../../';
+*/
 // Vue
 var Vue = require('vue')
 
@@ -28,7 +35,7 @@ if (app.icons.material === true) {
 require('./main.css');
 
 // App component
-var App = require(pkg.appPath + 'app.vue')
+var App = pkg.appPath == '../../' ? require('../../app.vue') : require('./hello-world-app/app.vue');
   
 // Routes
 var Routes = []
@@ -36,7 +43,7 @@ var routes = app.routes
 for (let path in routes) {
   Routes.push({
     path: path,
-    component: require(pkg.appPath + 'pages/' + routes[path] + '.vue')
+    component: pkg.appPath == '../../' ? require('../../pages/' + routes[path] + '.vue') : require('./hello-world-app/pages/' + routes[path] + '.vue')
   })
 }
   

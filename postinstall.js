@@ -7,7 +7,7 @@ var pkg = require('./package.json')
 
 if (isThere('../../package.json')) {
   
-  pkg.projectPath = '../../';
+  //pkg.projectPath = '../../';
   pkg.appPath = '../../';
   
   json.writeFileSync('./package.json', pkg);

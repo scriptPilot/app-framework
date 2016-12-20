@@ -1,13 +1,14 @@
 "use strict"
 
 var pkg = require('./package.json')
-var project = require('./package.json');
-var app = require(pkg.appPath + 'package.json')
-
+var project = pkg.appPath == '../../' ? require('../../package.json') : require('./package.json');
+var app = pkg.appPath == '../../' ? require('../../package.json') : require('./hello-world-app/package.json');
+pkg.projectPath = pkg.appPath == '../../' ? '../../' : './';
+/*
 var saveJson = require('jsonfile').writeFileSync
 saveJson('project.temp', project)
 saveJson('app.temp', app)
-
+*/
 const NODE_ENV = process.env.NODE_ENV || 'development';
 const webpack  = require('webpack');
 const path = require('path') ;
