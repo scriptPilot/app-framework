@@ -20,7 +20,7 @@ A composition of great software projects.
  - [ ] Data backend - [Firebase](https://firebase.google.com/)
  - [ ] Storage backend - [Firebase](https://firebase.google.com/)
 - **Complete**
- - [x] Quick start - [npm](htthttps://www.npmjs.com)
+ - [x] Quick start - [npm](https://www.npmjs.com)
  - [x] Development server with live reload - [Webpack-dev-server](https://github.com/webpack/webpack-dev-server)
  - [x] Single file components - [Vue](https://vuejs.org/v2/guide/single-file-components.html)
  - [x] Reusable components - [Framework7-Vue](https://github.com/nolimits4web/Framework7-Vue)
