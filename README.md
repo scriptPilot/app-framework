@@ -1,5 +1,5 @@
 # App Framework
-Framework to build web applications for iOS and Android within minutes ([demo](http://app-framework.scriptpilot.de/))
+Framework to build iOS and Android Apps in minutes ([demo](http://app-framework.scriptpilot.de/))
 
 ## Features
 - [x] **Native design** for iOS and Android, powered by the beautiful [Framework7](http://framework7.io/), supported by [iNoBounce](https://github.com/lazd/iNoBounce)
