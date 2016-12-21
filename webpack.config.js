@@ -13,7 +13,7 @@ const webpack  = require('webpack');
 const path = require('path') ;
 
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-//var AppCachePlugin = require('appcache-webpack-plugin');
+var AppCachePlugin = require('appcache-webpack-plugin');
 var ExtractTextPlugin = require("extract-text-webpack-plugin")
 
 module.exports = {
