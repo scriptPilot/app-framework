@@ -1,5 +1,5 @@
 <template>
-  <f7-page navbar-fixed>
+  <f7-page>
   
     <!-- Multi language pages use bindings instead of fix text patterns -->
     

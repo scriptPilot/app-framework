@@ -1,5 +1,5 @@
 <template>
-  <div class="page navbar-fixed">
+  <div class="page">
   
     <!-- Multi language pages use bindings instead of fix text patterns -->
     
@@ -8,7 +8,7 @@
         <div class="left">
           <a href="#" class="link back">
             <i class="icon icon-back"></i>
-            <span>{{text.backlink}}</span>
+            <span v-if="$root.theme=='ios'">{{text.backlink}}</span>
           </a>
         </div>
         <div class="center">{{text.title}}</div>

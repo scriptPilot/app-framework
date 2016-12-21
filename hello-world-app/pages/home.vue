@@ -1,5 +1,5 @@
 <template>
-  <f7-page navbar-fixed>
+  <f7-page>
   
     <!-- Multi language pages use bindings instead of fix text patterns -->
   
@@ -29,10 +29,8 @@
       <f7-list-item link="minimum" :title="text.minPage"></f7-list-item>
       <f7-list-item link="withComponents" :title="text.withComponents"></f7-list-item>
       <f7-list-item link="withoutComponents" :title="text.withoutComponents"></f7-list-item>
-      <f7-list-item link="routerTest#/dir1/dir2/dir3/?foo=bar#something" :title="text.routerTest"></f7-list-item>
-      <!--
       <f7-list-item link="keepState" :title="text.keepState"></f7-list-item>
-      -->
+      <f7-list-item link="routerTest#/dir1/dir2/dir3/?foo=bar#something" :title="text.routerTest"></f7-list-item>
     </f7-list>
     
     <f7-list>
@@ -54,7 +52,7 @@
   // Multi language pages need an object (we use "text") with sub-item per language and sub-sub-items per text pattern
   var text = {
     en: {
-      title: 'App Framework Demo',
+      title: 'Hello World',
       de: 'German',
       en: 'English',
       homescreenHint: 'This App Framework demo could be used as template for your own application - add it to your homescreen for best experience.',
@@ -71,7 +69,7 @@
       keepState: 'Restore runtime environment'
     },
     de: {
-      title: 'App Framework Demo',
+      title: 'Hallo Welt',
       de: 'Deutsch',
       en: 'Englisch',
       homescreenHint: 'Dieses Template kannst du als Grundlage für deine eigene App nutzen - füge sie für ein schöneres Erlebnis zum Homescreen hinzu.',

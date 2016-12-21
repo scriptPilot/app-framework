@@ -1,12 +1,12 @@
 <template>
-  <f7-page navbar-fixed>
+  <f7-page>
   
     <!-- Multi language pages use bindings instead of fix text patterns -->
     
     <f7-navbar :back-link="text.backlink" :title="text.title"></f7-navbar>
     
-    <f7-block inner><p>{{text.text}}</p></f7-block>    
-    
+    <f7-block inner><p>{{text.text}}</p></f7-block>  
+
   </f7-page> 
 </template>
 <script>

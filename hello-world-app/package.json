@@ -22,7 +22,7 @@
     "minimum": "minimum",
     "withComponents": "withComponents",
     "withoutComponents": "withoutComponents",
+    "keepState": "keepState",
     "routerTest": "routerTest"
-  },
-  "homepage": "home"
+  }
 }

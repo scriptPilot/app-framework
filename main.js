@@ -102,43 +102,51 @@ new Vue({
       if (e.detail.page.url && e.detail.page.url.substr(0, 1) != '#') {
         localStorage.url = e.detail.page.url
       }
-    })
-    // Restore url (does not work properly with pushState:true, but not really neded for native apps)    
-    /*
-    if (localStorage.url && localStorage.url != this.$f7.getCurrentView().url) {
-      setTimeout(function() {
-        //this.$f7.getCurrentView().router.load({url: localStorage.url, animatePages: false})      
-        //this.$children[0].$children[1].$children[0].f7View.router.load({url: localStorage.url, animatePages: false})
-        this.$children[0].$children[1].$children[0].f7View.router.load({pageName: localStorage.url});
-      }.bind(this), 1000);      
-    }*/
-    // Restore url
-    /*
-    setTimeout(function() {
-      this.$$('a.back').on('click', function() {
-        this.$f7.getCurrentView().router.back({url: app.homepage, force: true})      
-      }.bind(this))
-    }.bind(this), 0)
-    */
-    this.$nextTick(function() {
-      this.$$('a.back').on('click', function() {
-        this.$f7.getCurrentView().router.back({url: app.homepage, force: true})      
-      }.bind(this))
-    })
+    }.bind(this))
     // Remember tab
     this.$$(document).on('show', '.tab', function(e) {
+      //this.$$('.page-content').scrollTop(0)
       localStorage.tab = this.$$(e.srcElement).attr('id')
+      localStorage.scrollPosition = this.$$('.page-on-center .tab.active').scrollTop()
+      this.$nextTick(function() {
+        this.$$('.page-on-center .tab.active').on('scroll', function(e) {
+          localStorage.scrollPosition = e.srcElement.scrollTop
+        })
+      })
     }.bind(this))
     this.$$(document).on('pageInit pageReinit', function(e) {
-      if (e.detail.page.url && e.detail.page.url.substr(0, 1) != '#' && e.detail.page.fromPage) {
+      if (e.detail.page.url && e.detail.page.url.substr(0, 1) != '#') {
         localStorage.removeItem('tab')
+        // Remember scroll postion on page without tabs - does not work so far
+        localStorage.removeItem('scrollPosition')
+        this.$nextTick(function() {
+          console.log(this.$$('.page-on-center .page-content'))
+          this.$$('.page-on-center .page-content').on('scroll', function(e) {
+            console.log(e)
+            localStorage.scrollPosition = e.srcElement.scrollTop
+          })
+        })
       }
     }.bind(this))
-    // Restore tab
-    if (localStorage.tab) {
-      console.log(this.$f7.showTab)
-      console.log('show #' + localStorage.tab)
-    }
+    let oldUrl = localStorage.url ? localStorage.url.substr() : null
+    let oldTab = localStorage.tab ? localStorage.tab.substr() : null
+    let oldScrollPosition = localStorage.scrollPosition ? localStorage.scrollPosition.substr() : null    
+    this.$nextTick(function() {
+      // Restore url
+      if (oldUrl) {
+        this.$f7.getCurrentView().router.load({url: oldUrl, animatePages: false})      
+      }
+      // Restore tab      
+      this.$nextTick(function() {
+        if (oldTab) {                
+          this.$f7.showTab('#' + oldTab)
+          // Remember scroll position in tab
+          this.$nextTick(function() {
+            this.$$('.page-on-center .tab.active').scrollTop(oldScrollPosition)
+          }.bind(this))
+        }
+      })
+    })
   },
 
   // Change text patterns on language change
@@ -155,17 +163,6 @@ new Vue({
 
   // Change text patterns function
   methods: {
-    /*
-    onF7Init: function() {      
-      if (localStorage.url) {
-        var oldUrl = localStorage.url.substr(0);
-        setTimeout(function() {
-          this.$children[0].$children[1].$children[0].f7View.router.load({url: oldUrl, animatePages: false});  
-          //this.$children[0].$children[1].$children[0].f7View.router.reloadPreviousPage('routerTest');  
-        }.bind(this), 0)
-      }
-    },
-    */
     changeTextPatterns: function() {      
       for (var el in lang[this.lang]) {
         this.$f7.params[el] = lang[this.lang][el]

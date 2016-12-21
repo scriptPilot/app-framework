@@ -1,8 +1,9 @@
 <template>
   <div>
     <f7-statusbar></f7-statusbar>
-    <f7-views>
-      <f7-view main :url="url">
+    <f7-views :navbar-fixed="$root.theme=='material'" :navbar-through="$root.theme=='ios'">
+      <f7-view main url="home" :dynamic-navbar="$root.theme=='ios'">
+        <f7-navbar v-if="$root.theme=='ios'"></f7-navbar>
         <f7-pages>          
         </f7-pages>
       </f7-view>
