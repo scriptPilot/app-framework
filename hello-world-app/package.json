@@ -24,5 +24,6 @@
     "withoutComponents": "withoutComponents",
     "keepState": "keepState",
     "routerTest": "routerTest"
-  }
+  },
+  "homepage": "home"  
 }

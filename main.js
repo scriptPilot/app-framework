@@ -96,57 +96,98 @@ new Vue({
     // Show application
     this.$$('#app').show()
     // Resize navbars
-    this.$f7.sizeNavbars()
+    //this.$f7.sizeNavbars()
+    
     // Remember url
     this.$$(document).on('pageInit pageReinit', function(e) {
-      if (e.detail.page.url && e.detail.page.url.substr(0, 1) != '#') {
+      if (e.detail.page.url && e.detail.page.url.substr(0, 1) != '#') {        
         localStorage.url = e.detail.page.url
       }
     }.bind(this))
+    
     // Remember tab
-    this.$$(document).on('show', '.tab', function(e) {
-      //this.$$('.page-content').scrollTop(0)
-      localStorage.tab = this.$$(e.srcElement).attr('id')
-      localStorage.scrollPosition = this.$$('.page-on-center .tab.active').scrollTop()
-      this.$nextTick(function() {
-        this.$$('.page-on-center .tab.active').on('scroll', function(e) {
-          localStorage.scrollPosition = e.srcElement.scrollTop
-        })
-      })
-    }.bind(this))
-    this.$$(document).on('pageInit pageReinit', function(e) {
-      if (e.detail.page.url && e.detail.page.url.substr(0, 1) != '#') {
-        localStorage.removeItem('tab')
-        // Remember scroll postion on page without tabs - does not work so far
-        localStorage.removeItem('scrollPosition')
-        this.$nextTick(function() {
-          console.log(this.$$('.page-on-center .page-content'))
-          this.$$('.page-on-center .page-content').on('scroll', function(e) {
-            console.log(e)
-            localStorage.scrollPosition = e.srcElement.scrollTop
-          })
-        })
-      }
-    }.bind(this))
-    let oldUrl = localStorage.url ? localStorage.url.substr() : null
-    let oldTab = localStorage.tab ? localStorage.tab.substr() : null
-    let oldScrollPosition = localStorage.scrollPosition ? localStorage.scrollPosition.substr() : null    
-    this.$nextTick(function() {
-      // Restore url
-      if (oldUrl) {
-        this.$f7.getCurrentView().router.load({url: oldUrl, animatePages: false})      
-      }
-      // Restore tab      
-      this.$nextTick(function() {
-        if (oldTab) {                
-          this.$f7.showTab('#' + oldTab)
-          // Remember scroll position in tab
-          this.$nextTick(function() {
-            this.$$('.page-on-center .tab.active').scrollTop(oldScrollPosition)
-          }.bind(this))
+    
+      // Reset on page change
+      this.$$(document).on('pageInit pageReinit', function(e) {
+        if (e.detail.page.url && e.detail.page.url.substr(0, 1) != '#') {
+          localStorage.removeItem('tab')
         }
       })
-    })
+    
+      // Remember on tab change
+      this.$$(document).on('show', '.tab', function(e) {
+        localStorage.tab = this.$$(e.srcElement).attr('id')
+      }.bind(this))
+    
+    // Remember scroll position
+    
+      // After page change
+      this.$$(document).on('pageInit pageReinit', function(e) {
+        if (e.detail.page.url && e.detail.page.url.substr(0, 1) != '#') {
+          
+          // Reset
+          localStorage.removeItem('scrollPosition')
+         
+          // Page with tabs
+          if (this.$$(e.srcElement).find('.tab').length > 0) {
+            this.$$(this.$$(e.srcElement).find('.tab')[0]).on('scroll', function(e) {
+              localStorage.scrollPosition = e.srcElement.scrollTop
+            }.bind(this))
+            
+          // Page without tabs
+          } else {
+            this.$$(e.srcElement).find('.page-content').on('scroll', function(e) {
+              localStorage.scrollPosition = e.srcElement.scrollTop
+            }.bind(this))
+          }
+         
+        }
+      }.bind(this))
+      
+      // After tab change
+      this.$$(document).on('show', '.tab', function(e) {
+        localStorage.scrollPosition = e.srcElement.scrollTop
+        this.$$(e.srcElement).on('scroll', function(e) {
+          localStorage.scrollPosition = e.srcElement.scrollTop
+        }.bind(this))
+      }.bind(this))
+      
+    // Restore url, tab, scroll position
+    let url = localStorage.url ? localStorage.url.substr() : null
+    let tab = localStorage.tab ? localStorage.tab.substr() : null
+    let scrollPosition = localStorage.scrollPosition ? localStorage.scrollPosition.substr() : null
+    this.$nextTick(function() {
+      // url
+
+        // not homepage
+        if (url && url != app.homepage) {
+          this.$f7.getCurrentView().router.load({url: url, animatePages: false, reload: false})      
+          
+        // homepage
+        } else {
+          this.$f7.getCurrentView().router.load({url: app.homepage, animatePages: false, reload: true})      
+        }
+        
+      this.$nextTick(function() {
+        // tab
+        if (tab) {
+          this.$f7.showTab('#' + tab)
+        }  
+        this.$nextTick(function() {
+          // scroll position
+          if (scrollPosition && scrollPosition != 0) {
+            // page with tabs
+            if (this.$$('.page-on-center .tab.active').length > 0) {
+              this.$$('.page-on-center .tab.active').scrollTop(scrollPosition)
+            // page without tabs
+            } else {
+             this.$$('.page-on-center .page-content').scrollTop(scrollPosition)
+            }
+          }
+        }.bind(this))
+      }.bind(this))
+    }.bind(this))
+    
   },
 
   // Change text patterns on language change

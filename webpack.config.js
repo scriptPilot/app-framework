@@ -98,14 +98,14 @@ module.exports = {
           removeComments: true        
         }
       }),
-      /*new AppCachePlugin({
+      new AppCachePlugin({
         cache: null,
         network: ['*'],
         fallback: null,
         settings: null,
         exclude: [/\.(js|css)\.map$/],
         output: 'manifest.appcache'
-      }),*/
+      }),
       new ExtractTextPlugin('bundle_[hash].css')
     ]
     
