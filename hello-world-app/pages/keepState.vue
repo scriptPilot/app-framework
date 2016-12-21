@@ -30,6 +30,11 @@
           <p>Autem ullam tempore suscipit consectetur, odit soluta. Neque quasi mollitia culpa autem, quis ab nostrum non distinctio illo magni perspiciatis et consequuntur possimus aliquam reprehenderit reiciendis praesentium consectetur, voluptas obcaecati?</p>
           <p>Quae repellendus aut iste provident consectetur inventore voluptatibus, saepe ad dolorem voluptatum recusandae praesentium animi harum officiis error nulla ullam nobis? Mollitia possimus voluptatum pariatur omnis quibusdam, quidem recusandae velit.</p>
         </f7-block>
+        <f7-list>
+          <f7-list-item>
+            <f7-input type="text" :placeholder="text.placeholder" v-model="input1"></f7-input>
+          </f7-list-item>
+        </f7-list>
       </f7-tab>
       <f7-tab id="tab2">
         <f7-block inner inset>{{text.text}}</f7-block>
@@ -41,6 +46,11 @@
           <p>Autem ullam tempore suscipit consectetur, odit soluta. Neque quasi mollitia culpa autem, quis ab nostrum non distinctio illo magni perspiciatis et consequuntur possimus aliquam reprehenderit reiciendis praesentium consectetur, voluptas obcaecati?</p>
           <p>Quae repellendus aut iste provident consectetur inventore voluptatibus, saepe ad dolorem voluptatum recusandae praesentium animi harum officiis error nulla ullam nobis? Mollitia possimus voluptatum pariatur omnis quibusdam, quidem recusandae velit.</p>
         </f7-block>
+        <f7-list>
+          <f7-list-item>
+            <f7-input type="text" :placeholder="text.placeholder" v-model="input2"></f7-input>
+          </f7-list-item>
+        </f7-list>
       </f7-tab>
       <f7-tab id="tab3">
         <f7-block inner inset>{{text.text}}</f7-block>
@@ -52,6 +62,11 @@
           <p>Autem ullam tempore suscipit consectetur, odit soluta. Neque quasi mollitia culpa autem, quis ab nostrum non distinctio illo magni perspiciatis et consequuntur possimus aliquam reprehenderit reiciendis praesentium consectetur, voluptas obcaecati?</p>
           <p>Quae repellendus aut iste provident consectetur inventore voluptatibus, saepe ad dolorem voluptatum recusandae praesentium animi harum officiis error nulla ullam nobis? Mollitia possimus voluptatum pariatur omnis quibusdam, quidem recusandae velit.</p>
         </f7-block>
+        <f7-list>
+          <f7-list-item>
+            <f7-input type="text" :placeholder="text.placeholder" v-model="input3"></f7-input>
+          </f7-list-item>
+        </f7-list>
       </f7-tab>
     </f7-tabs>    
     
@@ -64,17 +79,26 @@
     en: {
       backlink: 'Back',
       title: 'Runtime environment',
-      text: 'Switch tab, scroll down, put some data in the input ... and then close the App. Come back and see how everything is restored properly: Page, tab, scroll position, form focus and form data'
+      text: 'Switch tab, scroll down, put some data in the input ... and then close the App. Come back and see how everything is restored properly: Page, tab, scroll position, form focus and form data',
+      placeholder: 'Write something ...'
     },
     de: {
       backlink: 'Zurück',
       title: 'Laufzeitumgebung',
-      text: 'Wechsle den Tab, scrolle herunter und schreibe etwas in das Eingabefeld ... und dann schließe die App. Öffne sie erneut und sieh, wie alles wiederhergestellt wird: Seite, Tab, Scrollposition, Formular-Fokus und Formulardaten'
+      text: 'Wechsle den Tab, scrolle herunter und schreibe etwas in das Eingabefeld ... und dann schließe die App. Öffne sie erneut und sieh, wie alles wiederhergestellt wird: Seite, Tab, Scrollposition, Formular-Fokus und Formulardaten',
+      placeholder: 'Schreib etwas ...'
     }
   }
 
   // To keep the text pattern assigned updated with the current selected language, it has to be assigned as computed property
   module.exports = {
+    data: function() {
+      return {
+        input1: '',
+        input2: '',
+        input3: ''
+      }
+    },
     computed: {
       text: function() {
         return text[this.$root.lang]

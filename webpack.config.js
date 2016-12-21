@@ -36,7 +36,7 @@ module.exports = {
     },
     
     resolveLoader:{
-        root: path.join(__dirname, 'node_modules'),
+        root: path.join(__dirname, 'node_modules')
     },
     
     watch: NODE_ENV=='development',
@@ -52,11 +52,6 @@ module.exports = {
           {
             test:/\.vue$/,
             loader: 'vue'
-          },
-          {
-            test:/\.js$/,
-            loader: 'babel',
-            exclude: /node_modules/
           },
           {
             test: /\.css$/, loader: "style-loader!css-loader",
@@ -78,15 +73,12 @@ module.exports = {
             loader: 'json-loader'
           }
         ]
-    },
-    babel: {
-        presets: ['es2015']
-    },
+    },/*
     vue: {
       loaders: {
-        /*css: ExtractTextPlugin.extract("css")*/
+        css: ExtractTextPlugin.extract("css")
       }
-    },
+    },*/
     plugins: [
       new HtmlWebpackPlugin({
         template: './index.ejs',
@@ -103,7 +95,7 @@ module.exports = {
         network: ['*'],
         fallback: null,
         settings: null,
-        exclude: [/\.(js|css)\.map$/],
+        exclude: [/node_modules/, /\.(js|css)\.map$/],
         output: 'manifest.appcache'
       }),
       new ExtractTextPlugin('bundle_[hash].css')

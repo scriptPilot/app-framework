@@ -13,12 +13,12 @@ require('inobounce/inobounce.js')
   
 // Framework7-Vue
 //var Framework7Vue = require('framework7-vue/dist/framework7-vue.js')
-var Framework7Vue = require('framework7-vue/dist/framework7-vue.min.js')
+var Framework7Vue = require('framework7-vue/dist/framework7-vue.js')
 Vue.use(Framework7Vue)
 
 // Icons
 if (app.icons.framework7 === true) {
-  require('framework7-icons/css/framework7-icons.css')
+  require('./node_modules/framework7-icons/css/framework7-icons.css')
 }
 if (app.icons.material === true) {
   require('./libs/material-icons.css')
@@ -60,8 +60,40 @@ config.version = project.version;
 config.lang = localStorage.lang ? localStorage.lang : config.lang;
 config.theme = localStorage.theme ? localStorage.theme : config.theme;
 
-require('framework7/dist/css/framework7.' + config.theme + '.css')
-require('framework7/dist/css/framework7.' + config.theme + '.colors.css')
+require('./node_modules/framework7/dist/css/framework7.' + config.theme + '.css')
+require('./node_modules/framework7/dist/css/framework7.' + config.theme + '.colors.css')
+
+Vue.config.devtools = true
+
+// Save/Restore data
+Vue.mixin({
+  mounted: function() {
+    this.$nextTick(function() {
+      if (this.$el.f7PageData) { 
+        let el = 'pageData_' + this.$el.f7PageData.url.match(/^([0-9a-zA-Z-_]+)/)[0]
+        let dataStr = localStorage[el] ? localStorage[el] : '{}'
+        if (dataStr != '{}') {
+          data = JSON.parse(dataStr)
+          for (d in data) {
+            this.$data[d] = data[d]
+          }             
+        }
+      }
+    }.bind(this), 0)
+  },
+  updated: function() {
+    this.$nextTick(function() {
+      if (this.$el.f7PageData) { 
+        let el = 'pageData_' + this.$el.f7PageData.url.match(/^([0-9a-zA-Z-_]+)/)[0]
+        let dataStr = JSON.stringify(this.$data)
+        console.warn('updated', el, dataStr)
+        if (dataStr != '{}') {
+          localStorage[el] = dataStr
+        }
+      }
+    }.bind(this)) 
+  }
+})
 
 new Vue({
 
@@ -90,7 +122,8 @@ new Vue({
   },
 
   // Do stuff after app is mounted
-  mounted: function() {        
+  mounted: function() {  
+    
     // Set language text patterns    
     this.changeTextPatterns()
     // Show application
@@ -151,6 +184,24 @@ new Vue({
           localStorage.scrollPosition = e.srcElement.scrollTop
         }.bind(this))
       }.bind(this))
+      
+    /*
+    // Remember focus
+    
+      // Remember
+      this.$$(document).on('focusin', function(e) {
+        for (d in this.$$(e.srcElement).parents('.item-input').dataset()) {
+          if (d.length == 9 && d.substr(0, 1) == 'v') {
+            localStorage.formFocus = d
+          }
+        }
+      }.bind(this))
+      
+      // Reset
+      this.$$(document).on('focusout', function(e) {
+        localStorage.removeItem('formFocus')      
+      })
+    */
       
     // Restore url, tab, scroll position
     let url = localStorage.url ? localStorage.url.substr() : null

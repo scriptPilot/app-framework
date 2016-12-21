@@ -99,14 +99,12 @@
   // To keep the text pattern assigned updated with the current selected language, it has to be assigned as computed property
   // If image resources are not changing during runtime, you could assign them as data property instead of computed property
   module.exports = {
-    data: function() {
-      return {
-        images: images
-      }
-    },
     computed: {
       text: function() {
         return text[this.$root.lang]
+      },
+      images: function() {
+        return images
       }
     },
     methods: {
