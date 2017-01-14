@@ -1,12 +1,12 @@
 var isThere = require('is-there');
-var saveJSON = require('jsonfile').writeFileSync
+var saveJSON = require('jsonfile')
 saveJSON.spaces = 2
 
 var project = isThere('../../package.json') ? require('../../package.json') : require('./package.json')
 var app = isThere('../../package.json') ? require('../../package.json') : require('./hello-world-app/package.json')
 
-saveJSON('./project.temp', project)
-saveJSON('./app.temp', app)
+saveJSON.writeFileSync('./project.temp', project)
+saveJSON.writeFileSync('./app.temp', app)
 
 const NODE_ENV = process.env.NODE_ENV || 'development';
 const webpack  = require('webpack');

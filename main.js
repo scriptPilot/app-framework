@@ -33,7 +33,7 @@ var App = require(project.appPath + 'app.vue');
 // Routes
 var Routes = []
 var routes = app.routes
-for (let path in routes) {
+for (var path in routes) {
   Routes.push({
     path: path,
     component: require(project.appPath + 'pages/' + routes[path] + '.vue')
@@ -70,8 +70,8 @@ Vue.mixin({
   mounted: function() {
     this.$nextTick(function() {
       if (this.$el.f7PageData) { 
-        let el = 'pageData_' + this.$el.f7PageData.url.match(/^([0-9a-zA-Z-_]+)/)[0]
-        let dataStr = localStorage[el] ? localStorage[el] : '{}'
+        var el = 'pageData_' + this.$el.f7PageData.url.match(/^([0-9a-zA-Z-_]+)/)[0]
+        var dataStr = localStorage[el] ? localStorage[el] : '{}'
         if (dataStr != '{}') {
           data = JSON.parse(dataStr)
           for (d in data) {
@@ -84,8 +84,8 @@ Vue.mixin({
   updated: function() {
     this.$nextTick(function() {
       if (this.$el.f7PageData) { 
-        let el = 'pageData_' + this.$el.f7PageData.url.match(/^([0-9a-zA-Z-_]+)/)[0]
-        let dataStr = JSON.stringify(this.$data)
+        var el = 'pageData_' + this.$el.f7PageData.url.match(/^([0-9a-zA-Z-_]+)/)[0]
+        var dataStr = JSON.stringify(this.$data)
         console.warn('updated', el, dataStr)
         if (dataStr != '{}') {
           localStorage[el] = dataStr
@@ -204,9 +204,9 @@ new Vue({
     */
       
     // Restore url, tab, scroll position
-    let url = localStorage.url ? localStorage.url.substr() : null
-    let tab = localStorage.tab ? localStorage.tab.substr() : null
-    let scrollPosition = localStorage.scrollPosition ? localStorage.scrollPosition.substr() : null
+    var url = localStorage.url ? localStorage.url.substr() : null
+    var tab = localStorage.tab ? localStorage.tab.substr() : null
+    var scrollPosition = localStorage.scrollPosition ? localStorage.scrollPosition.substr() : null
     this.$nextTick(function() {
       // url
 
