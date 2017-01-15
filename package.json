@@ -67,5 +67,10 @@
   "engines": {
     "node": ">= 4.0.0",
     "npm": ">= 3.0.0"
+  },
+  "routes": {
+    "about": "about",
+    "form": "form",
+    "dynamic-route/blog/:blogId/post/:postId": "dynamic-route"
   }
 }

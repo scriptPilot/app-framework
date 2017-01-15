@@ -24,7 +24,7 @@ A composition of great software projects.
  - [ ] Quick start - [npm](https://www.npmjs.com)
  - [ ] Development server with live reload - [Webpack-dev-server](https://github.com/webpack/webpack-dev-server)
  - [ ] Code check - [ESLint](http://eslint.org/)
- - [ ] Single file components - [Vue](https://vuejs.org/v2/guide/single-file-components.html)
+ - [ ] Single file page components - [Vue](https://vuejs.org/v2/guide/single-file-components.html)
  - [ ] Reusable components - [Framework7-Vue](https://github.com/nolimits4web/Framework7-Vue)
  - [ ] Automatic version bump and build process - [Webpack](https://webpack.github.io/)
  - [ ] Compression of HTML, CSS, JavaScript and image files
@@ -61,13 +61,15 @@ As prerequisite you should be comfortable with [Vue](https://vuejs.org/v2/guide/
  - `npm run major` after breaking backward-capability
 
 In addition you should know about [Framework7-Vue components](https://github.com/nolimits4web/Framework7-Vue), [Firebase](https://firebase.google.com/docs/web/setup) and [Standard JavaScript](http://standardjs.com/rules.html).
+
+Please check all example files to see how it works.
  
 ### Deployment
 
 1. Upload the latest build folder `www/build-...` to your web server
 2. Change version in `www/.htaccess` file and upload it to your web server
 
-For rollback, change version in `www/.htaccess` file to previous version and upload to your web server.
+For rollback, change version in `www/.htaccess` file to previous one and upload it to your web server.
 
 ### Feedback, bugs, feature requests
 Please use the [Issues page](https://github.com/scriptPilot/app-framework/issues) or provide a pull request. For more complex changes please let us discuss before.

@@ -19,7 +19,14 @@ import Framework7ThemeColors from 'framework7/dist/css/framework7.material.color
 //import AppStyles from './css/app.css'
 
 // Import Routes
-import Routes from './src/routes.js'
+//import Routes from './src/routes.js'
+
+// Load routes
+import pkg from './package.json'
+var Routes = []
+for (pkg.routes as path) {
+  Routes.push({path: path, component: require('./src/pages/' + pkg.routes[path] + '.vue')})
+}
 
 // Import App Component
 import App from './src/app'
