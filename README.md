@@ -10,8 +10,8 @@ As prerequisite you should understand the principles of [Node.js and npm](https:
 This framework must be installed as dependency to your project - do not clone or download it directly.
 
 1. Create an empty project folder on your computer
-2. Save [package.json](https://raw.githubusercontent.com/scriptPilot/app-framework/master/hello-world-app/package.json) to the project folder
-3. Run `npm install` to setup project folder
+2. Save [package.json](https://raw.githubusercontent.com/scriptPilot/app-framework/master/hello-world-app/package.json) to your project folder
+3. Run `npm install` to setup your project folder
 
 ### Configuration
 
