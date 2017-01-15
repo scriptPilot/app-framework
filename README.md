@@ -21,14 +21,15 @@ As prerequisite you should be comfortable with [Vue](https://vuejs.org/v2/guide/
 
 1. Run `npm run dev` to start development server at localhost:8080
 2. Change your application
- - App components in `app.vue` file
+ - App component in `app.vue` file
  - Page components in `pages` folder
+ - Images in `images` folder
 3. Build your application with
  - `npm run patch` after bugfixes and improvements
  - `npm run minor` after adding new functionality
  - `npm run major` after breaking backward-capability
 
-In addition you should know about [Framework7-Vue components](https://github.com/nolimits4web/Framework7-Vue), [Firebase](https://firebase.google.com/docs/web/setup) and [Standard JavaScript](http://standardjs.com/rules.html)
+In addition you should know about [Framework7-Vue components](https://github.com/nolimits4web/Framework7-Vue), [Firebase](https://firebase.google.com/docs/web/setup) and [Standard JavaScript](http://standardjs.com/rules.html).
  
 ### Deployment
 
