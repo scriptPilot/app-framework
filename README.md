@@ -34,7 +34,7 @@ In addition you should know about [Framework7-Vue components](https://github.com
 ### Deployment
 
 1. Upload the latest build folder `www/build-...` to your web server
-2. Change version in `www/.htaccess` file and upload to your web server
+2. Change version in `www/.htaccess` file and upload it to your web server
 
 For rollback, change version in `www/.htaccess` file to previous version and upload to your web server.
 
