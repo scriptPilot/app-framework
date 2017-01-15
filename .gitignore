@@ -1,5 +1,3 @@
-www/build-*
 node_modules/
 www/build-*
 npm-debug.log
-*.temp
