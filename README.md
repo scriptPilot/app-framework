@@ -1,8 +1,6 @@
 # App Framework
 Framework to build iOS and Android Apps in minutes ([demo](http://app-framework.scriptpilot.de/))
 
-## Documentation
-
 ### Installation
 
 As prerequisite you should understand the principles of [Node.js and npm](https://docs.npmjs.com/getting-started/what-is-npm).
@@ -10,7 +8,7 @@ As prerequisite you should understand the principles of [Node.js and npm](https:
 This framework must be installed as dependency to your project - do not clone or download it directly.
 
 1. Create an empty project folder on your computer
-2. Save [package.json](https://raw.githubusercontent.com/scriptPilot/app-framework/master/hello-world-app/package.json) to your project folder
+2. Save [package.json](https://raw.githubusercontent.com/scriptPilot/app-framework/master/hello-world-app/package.json) file to your project folder
 3. Run `npm install` to setup your project folder
 
 ### Configuration
@@ -39,8 +37,8 @@ In addition you should know about [Framework7-Vue components](https://github.com
 
 For rollback, change version in `www/.htaccess` file to previous version and upload to your web server.
 
-## Feedback, bugs, feature requests
-Please use the [Issues page](https://github.com/scriptPilot/app-framework/issues) or provide a pull request. For more complex changes please let us discuss on the issues page before.
+### Feedback, bugs, feature requests
+Please use the [Issues page](https://github.com/scriptPilot/app-framework/issues) or provide a pull request. For more complex changes please let us discuss before.
 
 ---
 
