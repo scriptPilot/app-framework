@@ -1,4 +1,4 @@
-build-*/
+www/build-*
 node_modules/
 npm-debug.log
 *.temp
