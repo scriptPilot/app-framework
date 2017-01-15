@@ -1,0 +1,15 @@
+{
+  "name": "demo-app",
+  "version": "0.1.0",
+  "devDependencies": {
+    "app-framework": "*"
+  },
+  "title": "Demo App",
+  "routes": {
+    "about": "about",
+    "form": "form",
+    "image": "image",
+    "dynamic-route/blog/:blogId/post/:postId": "dynamic-route"
+  },
+  "buildSourcemaps": false  
+}
