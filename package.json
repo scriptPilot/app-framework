@@ -1,6 +1,6 @@
 {
   "name": "framework7-vue-webpack-template",
-  "version": "1.0.0",
+  "version": "0.16.1",
   "description": "Framework7 Vue + Webpack starter app template",
   "scripts": {
     "dev": "node build/dev-server.js",
@@ -72,5 +72,6 @@
     "about": "about",
     "form": "form",
     "dynamic-route/blog/:blogId/post/:postId": "dynamic-route"
-  }
+  },
+  "buildSourcemaps": false
 }
