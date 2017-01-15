@@ -1,19 +1,19 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
 var path = require('path')
 
-// TODO appPath
-var appPath = '../'
-
-var pkg = require(appPath + 'package.json')
+var pkg = require('../package.json')
+var proj = require('..' + pkg.projectRoot + 'package.json')
+var app = require('..' + pkg.appRoot + 'package.json')
 
 module.exports = {
   build: {
     env: require('./prod.env'),
-    index: path.resolve(__dirname, appPath + 'www/build-' + pkg.version + '/index.html'),
-    assetsRoot: path.resolve(__dirname, appPath + 'www/build-' + pkg.version),
+    index: path.resolve(__dirname, '..' + pkg.appRoot + 'www/build-' + proj.version + '/index.html'),
+    assetsRoot: path.resolve(__dirname, '..' + pkg.appRoot + 'www/build-' + proj.version),
     assetsSubDirectory: '',
     assetsPublicPath: '',
-    productionSourceMap: pkg.buildSourcemaps === true ? true : false,
+    productionSourceMap: app.buildSourcemaps === true ? true : false,
+    productionSourceMap: false,
     // Gzip off by default as many popular static hosts such as
     // Surge or Netlify already gzip all static assets for you.
     // Before setting to `true`, make sure to:
@@ -24,7 +24,7 @@ module.exports = {
   dev: {
     env: require('./dev.env'),
     port: 8080,
-    assetsSubDirectory: 'static',
+    assetsSubDirectory: '',
     assetsPublicPath: '',
     proxyTable: {},
     // CSS Sourcemaps off by default because relative paths are "buggy"

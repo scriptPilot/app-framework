@@ -16,14 +16,16 @@ import Framework7ThemeColors from 'framework7/dist/css/framework7.material.color
 */
 
 // Load routes
-import pkg from './package.json'
+var pkg = require('./package.json')
+var proj = require('.' + pkg.projectRoot + 'package.json')
+var app = require('.' + pkg.appRoot + 'package.json')
 var Routes = []
-for (var path in pkg.routes) {
-  Routes.push({path: path, component: require('./demo-app/pages/' + pkg.routes[path] + '.vue')})
+for (var page in app.routes) {
+  Routes.push({path: page, component: require('.' + pkg.appRoot + 'pages/' + app.routes[page] + '.vue')})
 }
 
 // Import App Component
-import App from './demo-app/app.vue'
+var App = require('.' + pkg.appRoot + 'app.vue')
 
 // Init F7 Vue Plugin
 Vue.use(Framework7Vue)

@@ -13,9 +13,11 @@ var spinner = ora('building for production...')
 spinner.start()
 
 var assetsPath = path.join(config.build.assetsRoot, config.build.assetsSubDirectory)
+/* not needed as there will not be any special assets path but new folder for each build
 rm('-rf', assetsPath)
 mkdir('-p', assetsPath)
 cp('-R', 'static/*', assetsPath)
+*/
 
 webpack(webpackConfig, function (err, stats) {
   spinner.stop()

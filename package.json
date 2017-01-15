@@ -1,38 +1,16 @@
 {
-  "name": "framework7-vue-webpack-template",
-  "version": "0.16.1",
-  "description": "Framework7 Vue + Webpack starter app template",
+  "name": "app-framework",
+  "description": "Framework to build iOS and Android Apps in minutes",
+  "repository": "https://github.com/scriptPilot/app-framework.git",
+  "version": "0.15.3",
+  "license": "MIT",
   "scripts": {
     "dev": "node build/dev-server.js",
-    "build": "node build/build.js"
+    "patch": "npm version patch && node build/build.js",
+    "minor": "npm version minor && node build/build.js",
+    "major": "npm version major && node build/build.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/nolimits4web/Framework7-Vue-Webpack-Template.git"
-  },
-  "keywords": [
-    "ios",
-    "webpack",
-    "framework7",
-    "vue",
-    "vuejs",
-    "material",
-    "mobile",
-    "app",
-    "f7"
-  ],
-  "author": "Vladimir Kharlampidi",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/nolimits4web/Framework7-Vue-Webpack-Template/issues"
-  },
-  "homepage": "http://framework7.io/vue/",
   "dependencies": {
-    "vue": "^2.1.8",
-    "framework7": "^1.5.2",
-    "framework7-vue": "^0.7.2"
-  },
-  "devDependencies": {
     "autoprefixer": "^6.4.0",
     "babel-core": "^6.0.0",
     "babel-loader": "^6.0.0",
@@ -47,6 +25,8 @@
     "express": "^4.13.3",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
+    "framework7": "^1.5.2",
+    "framework7-vue": "^0.7.2",
     "function-bind": "^1.0.2",
     "html-webpack-plugin": "^2.8.1",
     "http-proxy-middleware": "^0.17.2",
@@ -56,6 +36,7 @@
     "semver": "^5.3.0",
     "shelljs": "^0.7.4",
     "url-loader": "^0.5.7",
+    "vue": "^2.1.8",
     "vue-loader": "^10.0.0",
     "vue-style-loader": "^1.0.0",
     "vue-template-compiler": "^2.1.0",
@@ -68,10 +49,6 @@
     "node": ">= 4.0.0",
     "npm": ">= 3.0.0"
   },
-  "routes": {
-    "about": "about",
-    "form": "form",
-    "dynamic-route/blog/:blogId/post/:postId": "dynamic-route"
-  },
-  "buildSourcemaps": false
+  "projectRoot": "/",
+  "appRoot": "/demo-app/"
 }
