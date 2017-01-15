@@ -8,6 +8,7 @@
   "routes": {
     "about": "about",
     "form": "form",
+    "image": "image",
     "dynamic-route/blog/:blogId/post/:postId": "dynamic-route"
   },
   "buildSourcemaps": false  
