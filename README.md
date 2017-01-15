@@ -12,8 +12,8 @@ A composition of great software projects.
  - [ ] Icon fonts - [iOS](https://github.com/nolimits4web/Framework7-Icons) and [Android](https://material.io/icons/)
  - [ ] Favicon generator - [Favicons](https://github.com/haydenbleasel/favicons)
 - **Powerful**
- - [ ] Reactive user interface - [Vue](https://vuejs.org/)
- - [ ] Flexible routing - [Framework7-Vue](https://github.com/nolimits4web/Framework7-Vue)
+ - [x] Reactive user interface - [Vue](https://vuejs.org/)
+ - [x] Flexible routing - [Framework7-Vue](https://github.com/nolimits4web/Framework7-Vue)
  - [ ] State kept for page, tab, scroll position, form focus, form data and page data
  - [ ] Multi-language support
  - [ ] Offline capability
@@ -22,10 +22,10 @@ A composition of great software projects.
  - [ ] Storage backend - [Firebase](https://firebase.google.com/)
 - **Complete**
  - [ ] Quick start - [npm](https://www.npmjs.com)
- - [ ] Development server with live reload - [Webpack-dev-server](https://github.com/webpack/webpack-dev-server)
+ - [x] Development server with live reload - [Webpack-dev-server](https://github.com/webpack/webpack-dev-server)
  - [ ] Code check - [ESLint](http://eslint.org/)
  - [x] Single file page components - [Vue](https://vuejs.org/v2/guide/single-file-components.html)
- - [c] Reusable components - [Framework7-Vue](https://github.com/nolimits4web/Framework7-Vue)
+ - [x] Reusable components - [Framework7-Vue](https://github.com/nolimits4web/Framework7-Vue)
  - [ ] Automatic version bump and build process - [Webpack](https://webpack.github.io/)
  - [ ] Compression of HTML, CSS, JavaScript and image files
  - [ ] Deployment without downtime
