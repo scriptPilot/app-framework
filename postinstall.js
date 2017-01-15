@@ -8,8 +8,8 @@ if (isThere('../../package.json')) {
   
   var pkg = require('./package.json')
   
-  pkg.projectRoot = '../../'
-  pkg.appRoot = '../../'
+  pkg.projectRoot = '/../../'
+  pkg.appRoot = '/../../'
   
   saveJSON.writeFileSync('./package.json', pkg)
 
