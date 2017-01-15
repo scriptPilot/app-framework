@@ -40,7 +40,7 @@ In addition you should know about [Framework7-Vue components](https://github.com
 For rollback, change version in `www/.htaccess` file to previous version and upload to your web server.
 
 ## Feedback, bugs, feature requests
-Please use the [Issues](https://github.com/scriptPilot/app-framework/issues) page or provide a pull request. For more complex changes please let us discuss in the issue list before.
+Please use the [Github Issues Page](https://github.com/scriptPilot/app-framework/issues) or provide a pull request. For more complex changes please let us discuss in the issue list before.
 
 ---
 
