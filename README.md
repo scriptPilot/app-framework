@@ -7,7 +7,7 @@ Framework to build iOS and Android Apps in minutes ([demo](http://app-framework.
 ### Features (work in progress)
 A composition of great software projects.
 - **Beautiful**
- - [ ] Native design and animations - [Framework7](http://framework7.io/)
+ - [x] Native design and animations - [Framework7](http://framework7.io/)
  - [ ] No bouncing on iOS - [iNoBounce](https://github.com/lazd/iNoBounce)
  - [ ] Icon fonts - [iOS](https://github.com/nolimits4web/Framework7-Icons) and [Android](https://material.io/icons/)
  - [ ] Favicon generator - [Favicons](https://github.com/haydenbleasel/favicons)
@@ -24,8 +24,8 @@ A composition of great software projects.
  - [ ] Quick start - [npm](https://www.npmjs.com)
  - [ ] Development server with live reload - [Webpack-dev-server](https://github.com/webpack/webpack-dev-server)
  - [ ] Code check - [ESLint](http://eslint.org/)
- - [ ] Single file page components - [Vue](https://vuejs.org/v2/guide/single-file-components.html)
- - [ ] Reusable components - [Framework7-Vue](https://github.com/nolimits4web/Framework7-Vue)
+ - [x] Single file page components - [Vue](https://vuejs.org/v2/guide/single-file-components.html)
+ - [c] Reusable components - [Framework7-Vue](https://github.com/nolimits4web/Framework7-Vue)
  - [ ] Automatic version bump and build process - [Webpack](https://webpack.github.io/)
  - [ ] Compression of HTML, CSS, JavaScript and image files
  - [ ] Deployment without downtime

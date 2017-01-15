@@ -24,7 +24,7 @@ import Framework7ThemeColors from 'framework7/dist/css/framework7.material.color
 // Load routes
 import pkg from './package.json'
 var Routes = []
-for (pkg.routes as path) {
+for (var path in pkg.routes) {
   Routes.push({path: path, component: require('./src/pages/' + pkg.routes[path] + '.vue')})
 }
 
