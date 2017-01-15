@@ -19,11 +19,11 @@ import Framework7ThemeColors from 'framework7/dist/css/framework7.material.color
 import pkg from './package.json'
 var Routes = []
 for (var path in pkg.routes) {
-  Routes.push({path: path, component: require('./hello-world-app/pages/' + pkg.routes[path] + '.vue')})
+  Routes.push({path: path, component: require('./demo-app/pages/' + pkg.routes[path] + '.vue')})
 }
 
 // Import App Component
-import App from './hello-world-app/app.vue'
+import App from './demo-app/app.vue'
 
 // Init F7 Vue Plugin
 Vue.use(Framework7Vue)
