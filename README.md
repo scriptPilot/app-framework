@@ -23,7 +23,7 @@ As prerequisite you should be comfortable with [Vue](https://vuejs.org/v2/guide/
 
 1. Run `npm run dev` to start development server at localhost:8080
 2. Change your application
- - App component in `/app.vue` file
+ - App components in `/app.vue` file (add new pages to routes object in `package.json`)
  - Page components in `/pages` folder
 3. Build your application with
  - `npm run patch` after bugfixes and improvements
