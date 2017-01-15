@@ -1,7 +1,9 @@
+var pkg = require('../package.json')
+
 var path = require('path')
 var config = require('../config')
 var utils = require('./utils')
-var projectRoot = path.resolve(__dirname, '../')
+var projectRoot = path.resolve(__dirname, '..' + pkg.projectRoot)
 
 var env = process.env.NODE_ENV
 // check env & config/index.js to decide whether to enable CSS source maps for the
@@ -23,10 +25,7 @@ module.exports = {
     extensions: ['', '.js', '.vue', '.json'],
     fallback: [path.join(__dirname, '../node_modules')],
     alias: {
-      'vue$': 'vue/dist/vue.common.js',
-      'src': path.resolve(__dirname, '../demo-app'),
-      'assets': path.resolve(__dirname, '../demo-app/assets'),
-      'components': path.resolve(__dirname, '../demo-app/components')
+      'vue$': 'vue/dist/vue.common.js'
     }
   },
   resolveLoader: {

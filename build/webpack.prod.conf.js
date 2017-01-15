@@ -1,3 +1,6 @@
+var pkg = require('../package.json')
+var app = require('..' + pkg.appRoot + 'package.json')
+
 var path = require('path')
 var config = require('../config')
 var utils = require('./utils')
@@ -42,7 +45,8 @@ var webpackConfig = merge(baseWebpackConfig, {
     // see https://github.com/ampedandwired/html-webpack-plugin
     new HtmlWebpackPlugin({
       filename: config.build.index,
-      template: 'index.html',
+      template: 'index.ejs',
+      title: app.title,
       inject: true,
       minify: {
         removeComments: true,

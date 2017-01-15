@@ -1,3 +1,6 @@
+var pkg = require('../package.json')
+var app = require('..' + pkg.appRoot + 'package.json')
+
 var config = require('../config')
 var webpack = require('webpack')
 var merge = require('webpack-merge')
@@ -27,7 +30,8 @@ module.exports = merge(baseWebpackConfig, {
     // https://github.com/ampedandwired/html-webpack-plugin
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: 'index.html',
+      template: 'index.ejs',
+      title: app.title,
       inject: true
     })
   ]
