@@ -1,5 +1,36 @@
 # App Framework
+
 Framework to build iOS and Android Apps in minutes ([demo](http://app-framework.scriptpilot.de/))
+
+**ATTENTION**: Release 1.0.0 planned for end of January. For now, your initial [feedback](https://github.com/scriptPilot/app-framework/issues/1) is highly appreciated!
+
+### Features (work in progress)
+A composition of great software projects.
+- **Beautiful**
+ - [ ] Native design and animations - [Framework7](http://framework7.io/)
+ - [ ] No bouncing on iOS - [iNoBounce](https://github.com/lazd/iNoBounce)
+ - [ ] Icon fonts - [iOS](https://github.com/nolimits4web/Framework7-Icons) and [Android](https://material.io/icons/)
+ - [ ] Favicon generator - [Favicons](https://github.com/haydenbleasel/favicons)
+- **Powerful**
+ - [ ] Reactive user interface - [Vue](https://vuejs.org/)
+ - [ ] Flexible routing - [Framework7-Vue](https://github.com/nolimits4web/Framework7-Vue)
+ - [ ] State kept for page, tab, scroll position, form focus, form data and page data
+ - [ ] Multi-language support
+ - [ ] Offline capability
+ - [ ] User authentication - [Firebase](https://firebase.google.com/)
+ - [ ] Data backend - [Firebase](https://firebase.google.com/)
+ - [ ] Storage backend - [Firebase](https://firebase.google.com/)
+- **Complete**
+ - [ ] Quick start - [npm](https://www.npmjs.com)
+ - [ ] Development server with live reload - [Webpack-dev-server](https://github.com/webpack/webpack-dev-server)
+ - [ ] Code check - [ESLint](http://eslint.org/)
+ - [ ] Single file components - [Vue](https://vuejs.org/v2/guide/single-file-components.html)
+ - [ ] Reusable components - [Framework7-Vue](https://github.com/nolimits4web/Framework7-Vue)
+ - [ ] Automatic version bump and build process - [Webpack](https://webpack.github.io/)
+ - [ ] Compression of HTML, CSS, JavaScript and image files
+ - [ ] Deployment without downtime
+ - [ ] Fast rollback solution
+ - [ ] Clean code - [Standard JavaScript Rules](http://standardjs.com/)
 
 ### Installation
 
@@ -40,38 +71,3 @@ For rollback, change version in `www/.htaccess` file to previous version and upl
 
 ### Feedback, bugs, feature requests
 Please use the [Issues page](https://github.com/scriptPilot/app-framework/issues) or provide a pull request. For more complex changes please let us discuss before.
-
----
-
-
-
-**ATTENTION**: Release 1.0.0 planned for end of January. For now, your initial [feedback](https://github.com/scriptPilot/app-framework/issues/1) is highly appreciated!
-
-## Features (work in progress)
-A composition of great software projects.
-- **Beautiful**
- - [x] Native design and animations - [Framework7](http://framework7.io/)
- - [x] No bouncing on iOS - [iNoBounce](https://github.com/lazd/iNoBounce)
- - [x] Icon fonts - [iOS](https://github.com/nolimits4web/Framework7-Icons) and [Android](https://material.io/icons/)
- - [ ] Favicon generator - [Favicons](https://github.com/haydenbleasel/favicons)
-- **Powerful**
- - [x] Reactive user interface - [Vue](https://vuejs.org/)
- - [ ] Flexible routing - [Framework7-Vue](https://github.com/nolimits4web/Framework7-Vue)
- - [ ] State kept for page, tab, scroll position, form focus, form data and page data
- - [x] Multi-language support
- - [x] Offline capability
- - [ ] User authentication - [Firebase](https://firebase.google.com/)
- - [ ] Data backend - [Firebase](https://firebase.google.com/)
- - [ ] Storage backend - [Firebase](https://firebase.google.com/)
-- **Complete**
- - [x] Quick start - [npm](https://www.npmjs.com)
- - [x] Development server with live reload - [Webpack-dev-server](https://github.com/webpack/webpack-dev-server)
- - [ ] Code check - [ESLint](http://eslint.org/)
- - [x] Single file components - [Vue](https://vuejs.org/v2/guide/single-file-components.html)
- - [x] Reusable components - [Framework7-Vue](https://github.com/nolimits4web/Framework7-Vue)
- - [x] Automatic version bump and build process - [Webpack](https://webpack.github.io/)
- - [x] Compression of HTML, CSS, JavaScript and image files
- - [x] Deployment without downtime
- - [x] Fast rollback solution
- - [ ] Clean code - [Standard JavaScript Rules](http://standardjs.com/)
-
