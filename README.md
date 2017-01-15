@@ -5,9 +5,9 @@ Framework to build iOS and Android Apps in minutes ([demo](http://app-framework.
 
 ### Installation
 
-As prerequisite you should understand the principles of [node package manager](https://www.npmjs.com).
+As prerequisite you should understand the principles of [Node and npm](https://docs.npmjs.com/getting-started/what-is-npm).
 
-This framework must be installed as dependecy to your project - do not clone or download it directly.
+This framework must be installed as dependency to your project - do not clone or download it directly.
 
 1. Create an empty project folder on your computer
 2. Save [package.json](https://raw.githubusercontent.com/scriptPilot/app-framework/master/hello-world-app/package.json) to the project folder
