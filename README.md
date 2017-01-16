@@ -28,8 +28,8 @@ A composition of great software projects.
  - [x] Reusable components - [Framework7-Vue](https://github.com/nolimits4web/Framework7-Vue)
  - [x] Automatic version bump and build process - [Webpack](https://webpack.github.io/)
  - [ ] Compression of HTML, CSS, JavaScript and image files
- - [ ] Deployment without downtime
- - [ ] Fast rollback solution
+ - [x] Deployment without downtime
+ - [x] Fast rollback solution
  - [ ] Clean code - [Standard JavaScript Rules](http://standardjs.com/)
 
 ### Installation
