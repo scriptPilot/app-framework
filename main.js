@@ -8,12 +8,13 @@ var Framework7 = require('framework7')
 var Framework7Vue = require('framework7-vue')
 
 // Import F7 iOS Theme Styles
-var Framework7Theme = require('framework7/dist/css/framework7.ios.min.css')
-var Framework7ThemeColors = require('framework7/dist/css/framework7.ios.colors.min.css')
-/* OR for Material Theme:
-import Framework7Theme from 'framework7/dist/css/framework7.material.min.css'
-import Framework7ThemeColors from 'framework7/dist/css/framework7.material.colors.min.css'
-*/
+if (process.env.THEME === 'material') {  
+  var Framework7Theme = require('framework7/dist/css/framework7.material.min.css')
+  var Framework7ThemeColors = require('framework7/dist/css/framework7.material.colors.min.css')
+} else {
+  var Framework7Theme = require('framework7/dist/css/framework7.ios.min.css')
+  var Framework7ThemeColors = require('framework7/dist/css/framework7.ios.colors.min.css')  
+}
 
 // Load app configuration
 var app = require(process.env.ROOT_APP + 'package.json')
@@ -60,6 +61,7 @@ new Vue({
     /* Uncomment to enable Material theme: */
     // material: true,
     routes: Routes,
+    material: process.env.THEME === 'material' ? true : false
   },
   // Register App Component
   components: {

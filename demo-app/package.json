@@ -11,6 +11,7 @@
     "major": "npm version major && cd node_modules/app-framework && node build/build.js"
   },
   "title": "Demo App",
+  "theme": "ios",
   "routes": {
     "about": "about",
     "form": "form",
