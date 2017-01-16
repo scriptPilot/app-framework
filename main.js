@@ -17,7 +17,7 @@ import Framework7ThemeColors from 'framework7/dist/css/framework7.material.color
 
 // Load routes
 var pkg = require('./package.json')
-var proj = require('.' + pkg.projectRoot + 'package.json')
+if (pkg.appRoot === '/../../') pkg.appRoot = './../'
 var app = require('.' + pkg.appRoot + 'package.json')
 var Routes = []
 for (var page in app.routes) {

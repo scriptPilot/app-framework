@@ -23,13 +23,13 @@ module.exports = {
   },
   resolve: {
     extensions: ['', '.js', '.vue', '.json'],
-    fallback: [path.join(__dirname, '../node_modules')],
+    fallback: [path.join(__dirname, '..' + pkg.projectRoot + '/node_modules')],
     alias: {
       'vue$': 'vue/dist/vue.common.js'
     }
   },
   resolveLoader: {
-    fallback: [path.join(__dirname, '../node_modules')]
+    fallback: [path.join(__dirname, '..' + pkg.projectRoot + '/node_modules')]
   },
   module: {
     loaders: [
