@@ -9,7 +9,7 @@ A composition of great software projects.
 - **Beautiful**
  - [x] Native design and animations - [Framework7](http://framework7.io/)
  - [x] No bouncing on iOS - [iNoBounce](https://github.com/lazd/iNoBounce)
- - [ ] Icon fonts - [Framework7](http://framework7.io/icons/), [Material](https://material.io/icons/), [Font Awesome](http://fontawesome.io/) and [ionIcons](http://ionicons.com/)
+ - [x] Icon fonts - [Framework7](http://framework7.io/icons/), [Material](https://material.io/icons/), [Font Awesome](http://fontawesome.io/) and [ionIcons](http://ionicons.com/)
  - [ ] Favicon generator - [Favicons](https://github.com/haydenbleasel/favicons)
 - **Powerful**
  - [x] Reactive user interface - [Vue](https://vuejs.org/)
