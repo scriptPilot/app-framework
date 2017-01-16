@@ -15,6 +15,23 @@ import Framework7Theme from 'framework7/dist/css/framework7.material.min.css'
 import Framework7ThemeColors from 'framework7/dist/css/framework7.material.colors.min.css'
 */
 
+// Load app configuration
+var app = require('./demo-app/package.json')
+
+// Icon fonts
+if (app.loadIconFonts.ios === true) {
+  require('./libs/framework7-icons/css/framework7-icons.css')
+}
+if (app.loadIconFonts.material === true) {
+  require('./libs/material-icons/css/material-icons.css')
+}
+if (app.loadIconFonts.ion === true) {
+  require('./libs/ion-icons/css/ionicons.css')
+}
+if (app.loadIconFonts.fontAwesome === true) {
+  require('./libs/font-awesome/css/font-awesome.css')
+}
+
 // Import iNoBounce
 var inobounce = require('inobounce')
 
@@ -22,7 +39,6 @@ var inobounce = require('inobounce')
 var MainCSS = require('./main.css')
 
 // Load routes
-var app = require('./demo-app/package.json')
 var Routes = []
 for (var page in app.routes) {
   Routes.push({path: page, component: require('./demo-app/pages/' + app.routes[page] + '.vue')})

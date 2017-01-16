@@ -17,5 +17,11 @@
     "image": "image",
     "dynamic-route/blog/:blogId/post/:postId": "dynamic-route"
   },
+  "loadIconFonts": {
+    "ios": false,
+    "material": false,
+    "ion": false,
+    "fontAwesome": true
+  },
   "buildSourcemaps": false  
 }
