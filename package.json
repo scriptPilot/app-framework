@@ -2,7 +2,7 @@
   "name": "app-framework",
   "description": "Framework to build iOS and Android Apps in minutes",
   "repository": "https://github.com/scriptPilot/app-framework.git",
-  "version": "0.17.16",
+  "version": "0.17.17",
   "license": "MIT",
   "scripts": {
     "postinstall": "node postinstall.js",
@@ -32,6 +32,7 @@
     "function-bind": "^1.0.2",
     "html-webpack-plugin": "^2.8.1",
     "http-proxy-middleware": "^0.17.2",
+    "inobounce": "^0.1.4",
     "is-there": "^4.3.6",
     "json-loader": "^0.5.4",
     "jsonfile": "^2.4.0",

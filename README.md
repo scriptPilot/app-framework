@@ -8,7 +8,7 @@ Framework to build iOS and Android Apps in minutes ([demo](http://app-framework.
 A composition of great software projects.
 - **Beautiful**
  - [x] Native design and animations - [Framework7](http://framework7.io/)
- - [ ] No bouncing on iOS - [iNoBounce](https://github.com/lazd/iNoBounce)
+ - [x] No bouncing on iOS - [iNoBounce](https://github.com/lazd/iNoBounce)
  - [ ] Icon fonts - [iOS](https://github.com/nolimits4web/Framework7-Icons) and [Android](https://material.io/icons/)
  - [ ] Favicon generator - [Favicons](https://github.com/haydenbleasel/favicons)
 - **Powerful**

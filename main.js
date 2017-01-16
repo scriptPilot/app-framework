@@ -15,6 +15,12 @@ import Framework7Theme from 'framework7/dist/css/framework7.material.min.css'
 import Framework7ThemeColors from 'framework7/dist/css/framework7.material.colors.min.css'
 */
 
+// Import iNoBounce
+var inobounce = require('inobounce')
+
+// Import main css
+var MainCSS = require('./main.css')
+
 // Load routes
 var app = require('./demo-app/package.json')
 var Routes = []
