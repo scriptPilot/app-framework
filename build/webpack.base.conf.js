@@ -14,7 +14,7 @@ var useCssSourceMap = cssSourceMapDev || cssSourceMapProd
 
 module.exports = {
   entry: {
-    app: pkg.projectRoot === '/' ? './main.js' : './mainModule.js'
+    app: './main.js'
   },
   output: {
     path: config.build.assetsRoot,
@@ -52,7 +52,7 @@ module.exports = {
         loader: 'url',
         query: {
           limit: 1,
-          name: utils.assetsPath('img/[name].[hash:7].[ext]')
+          name: utils.assetsPath('./img/[name].[hash:7].[ext]')
         }
       },
       {
@@ -60,7 +60,7 @@ module.exports = {
         loader: 'url',
         query: {
           limit: 1,
-          name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
+          name: utils.assetsPath('./fonts/[name].[hash:7].[ext]')
         }
       }
     ]

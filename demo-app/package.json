@@ -18,10 +18,10 @@
     "dynamic-route/blog/:blogId/post/:postId": "dynamic-route"
   },
   "loadIconFonts": {
-    "ios": false,
+    "framework7": false,
     "material": false,
     "ion": false,
-    "fontAwesome": true
+    "fontawesome": true
   },
   "buildSourcemaps": false  
 }

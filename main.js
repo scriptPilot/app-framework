@@ -16,20 +16,20 @@ import Framework7ThemeColors from 'framework7/dist/css/framework7.material.color
 */
 
 // Load app configuration
-var app = require('./demo-app/package.json')
+var app = require(process.env.ROOT_APP + 'package.json')
 
 // Icon fonts
-if (app.loadIconFonts.ios === true) {
+if (process.env.FONT_FRAMEWORK7 === 'true') {
   require('./libs/framework7-icons/css/framework7-icons.css')
 }
-if (app.loadIconFonts.material === true) {
+if (process.env.FONT_MATERIAL === 'true') {
   require('./libs/material-icons/css/material-icons.css')
 }
-if (app.loadIconFonts.ion === true) {
-  require('./libs/ion-icons/css/ionicons.css')
+if (process.env.FONT_ION === 'true') {
+  require('./libs/ion-icons/css/ion-icons.css')
 }
-if (app.loadIconFonts.fontAwesome === true) {
-  require('./libs/font-awesome/css/font-awesome.css')
+if (process.env.FONT_AWESOME === 'true') {
+  require('./libs/fontAwesome-icons/css/fontAwesome-icons.css')
 }
 
 // Import iNoBounce
@@ -41,11 +41,11 @@ var MainCSS = require('./main.css')
 // Load routes
 var Routes = []
 for (var page in app.routes) {
-  Routes.push({path: page, component: require('./demo-app/pages/' + app.routes[page] + '.vue')})
+  Routes.push({path: page, component: require(process.env.ROOT_APP + 'pages/' + app.routes[page] + '.vue')})
 }
 
 // Import App Component
-var App = require('./demo-app/app.vue')
+var App = require(process.env.ROOT_APP + 'app.vue')
 
 // Init F7 Vue Plugin
 Vue.use(Framework7Vue)
