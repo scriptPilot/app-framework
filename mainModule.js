@@ -16,14 +16,14 @@ import Framework7ThemeColors from 'framework7/dist/css/framework7.material.color
 */
 
 // Load routes
-var app = require('./demo-app/package.json')
+var app = require('../../package.json')
 var Routes = []
 for (var page in app.routes) {
-  Routes.push({path: page, component: require('./demo-app/pages/' + app.routes[page] + '.vue')})
+  Routes.push({path: page, component: require('../../pages/' + app.routes[page] + '.vue')})
 }
 
 // Import App Component
-var App = require('./demo-app/app.vue')
+var App = require('../../app.vue')
 
 // Init F7 Vue Plugin
 Vue.use(Framework7Vue)

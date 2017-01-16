@@ -5,10 +5,10 @@
     "app-framework": "*"
   },
   "scripts": {
-    "dev": "node node_modules/app-framework/build/dev-server.js",
-    "patch": "npm version patch && node node_modules/app-framework/build/build.js",
-    "minor": "npm version minor && node node_modules/app-framework/build/build.js",
-    "major": "npm version major && node node_modules/app-framework/build/build.js"
+    "dev": "cd node_modules/app-framework && node build/dev-server.js",
+    "patch": "npm version patch && cd node_modules/app-framework && node build/build.js",
+    "minor": "npm version minor && cd node_modules/app-framework && node build/build.js",
+    "major": "npm version major && cd node_modules/app-framework && node build/build.js"
   },
   "title": "Demo App",
   "routes": {

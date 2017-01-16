@@ -2,7 +2,7 @@
   "name": "app-framework",
   "description": "Framework to build iOS and Android Apps in minutes",
   "repository": "https://github.com/scriptPilot/app-framework.git",
-  "version": "0.17.8",
+  "version": "0.17.10",
   "license": "MIT",
   "scripts": {
     "postinstall": "node postinstall.js",
