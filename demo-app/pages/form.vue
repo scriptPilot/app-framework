@@ -128,5 +128,5 @@
 </template>
 
 <script>
-export default {}
+module.exports = {}
 </script>

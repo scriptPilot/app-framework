@@ -12,7 +12,7 @@
   
 var image = require('../images/standard-js-sticker-small.png')
 
-export default {
+module.exports = {
   data: function() {
     return {
       img: image
