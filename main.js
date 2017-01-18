@@ -1,5 +1,6 @@
-// Load app configuration
+// Load project and app configuration
 var app = require(process.env.ROOT_APP + 'package.json')
+var project = require(process.env.ROOT_PROJECT + 'package.json')
 
 // Import and initialize Firebase
 if (process.env.USE_FIREBASE === 'true') {
@@ -65,7 +66,8 @@ new Vue({
   template: '<app/>',
   // Init Framework7 by passing parameters here
   data: {
-    language: localStorage.language ? localStorage.language : app.defaultLanguage
+    language: localStorage.language ? localStorage.language : app.defaultLanguage,
+    version: project.version
   },
   framework7: {
     root: '#app',

@@ -101,6 +101,11 @@
                 </f7-col>
               </f7-grid>
             </f7-block>
+            <f7-block style="text-align: center">
+              <f7-link href="https://github.com/scriptPilot/app-framework" external>
+                <f7-icon fa="github"></fa-icon> App-Framework - v{{$root.version}}
+              </f7-link>
+            </f7-block>
           </f7-page>
         </f7-pages>
       </f7-view>
