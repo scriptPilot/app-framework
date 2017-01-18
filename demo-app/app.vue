@@ -76,7 +76,7 @@
               <f7-list-item link="dynamic-route/blog/45/post/125?foo=bar#about" title="Dynamic Route"></f7-list-item>
               <f7-list-item link="image" title="Icon & Image" badge="new" badge-color="green"></f7-list-item>
               <f7-list-item link="localStorage" title="LocalStorage ToDo" badge="new" badge-color="green"></f7-list-item>
-              <f7-list-item link="firebase" title="Firebase ToDo" badge="wip" badge-color="red"></f7-list-item>
+              <!--<f7-list-item link="firebase" title="Firebase ToDo" badge="wip" badge-color="red"></f7-list-item>-->
               <f7-list-item link="multipleLanguages" title="Multiple languages" badge="new" badge-color="green"></f7-list-item>
             </f7-list>
             <f7-block-title>Side Panels</f7-block-title>
