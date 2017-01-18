@@ -14,8 +14,9 @@ A composition of great software projects.
 - **Powerful**
  - [x] Reactive user interface - [Vue](https://vuejs.org/)
  - [x] Flexible routing - [Framework7-Vue](https://github.com/nolimits4web/Framework7-Vue)
- - [ ] State kept for page, tab, scroll position, form focus, form data and page data
- - [ ] Multi-language support
+ - [x] State kept for views, histories, side panels, popups
+ - [ ] State kept for tabs, scroll positions, form focus, form data and page data
+ - [x] Multi-language support
  - [ ] Offline capability
  - [ ] User authentication - [Firebase](https://firebase.google.com/)
  - [ ] Data backend - [Firebase](https://firebase.google.com/)
@@ -71,5 +72,5 @@ Please check all example files to see how it works.
 
 For rollback, change version in `www/.htaccess` file to previous one and upload it to your web server.
 
-### Feedback, bugs, feature requests
+### Improvements, bugs, feature requests
 Please use the [Issues page](https://github.com/scriptPilot/app-framework/issues) or provide a pull request. For more complex changes please let us discuss before.

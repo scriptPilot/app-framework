@@ -3,3 +3,6 @@
   overflow: auto;
   -webkit-overflow-scrolling: touch;
 }
+.framework7-root {
+  visibility: hidden;
+}

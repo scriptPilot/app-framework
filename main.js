@@ -1,3 +1,14 @@
+// Load app configuration
+var app = require(process.env.ROOT_APP + 'package.json')
+
+// Import and initialize Firebase
+if (process.env.USE_FIREBASE === 'true') {
+  window.firebase = require('firebase')
+  firebase.initializeApp(app.firebase)
+} else {
+  window.firebase = null
+}
+
 // Import Vue
 var Vue = require('vue')
 
@@ -15,9 +26,6 @@ if (process.env.THEME === 'material') {
   var Framework7Theme = require('framework7/dist/css/framework7.ios.min.css')
   var Framework7ThemeColors = require('framework7/dist/css/framework7.ios.colors.min.css')  
 }
-
-// Load app configuration
-var app = require(process.env.ROOT_APP + 'package.json')
 
 // Icon fonts
 if (process.env.FONT_FRAMEWORK7 === 'true') {
@@ -56,6 +64,9 @@ new Vue({
   el: '#app',
   template: '<app/>',
   // Init Framework7 by passing parameters here
+  data: {
+    language: localStorage.language ? localStorage.language : app.defaultLanguage
+  },
   framework7: {
     root: '#app',
     /* Uncomment to enable Material theme: */
@@ -66,5 +77,86 @@ new Vue({
   // Register App Component
   components: {
     app: App
+  },
+  mounted: function() {
+    
+    // Remember histories
+    this.$$(document).on('page:afteranimation', function(e) {
+      setTimeout(function() {
+        let histories = []
+        for (let v=0; v<this.$f7.views.length; v++) {
+          let history = []
+          for (let h=0; h<this.$f7.views[v].history.length; h++) {
+            if (this.$f7.views[v].history[h].substr(0, 1) != '#') {
+              history.push(this.$f7.views[v].history[h])
+            }
+          }
+          histories.push(history)
+        }
+        localStorage.histories = JSON.stringify(histories)
+      }.bind(this), 0)
+    }.bind(this))
+    
+    // Restore histories
+    if (localStorage.histories) {
+      let histories = JSON.parse(localStorage.histories)
+      if (histories.length == this.$f7.views.length) {
+        for (let v=0; v<histories.length; v++) {
+          for (let h=0; h<histories[v].length; h++) {
+            setTimeout(function() {
+              this.$f7.views[v].router.load({url: histories[v][h], animatePages: false})
+            }.bind(this), 0)
+          }
+        }
+      }
+    }
+    
+    // Remember panel/popup/loginscreen
+    this.$$(document).on('panel:opened', function(e) {
+      localStorage.panel = /left/.test(e.path[0]._prevClass) ? 'left' : 'right'
+    })
+    this.$$(document).on('panel:closed', function(e) {
+      localStorage.removeItem('panel')
+    })
+    this.$$(document).on('popup:opened', function(e) {
+      localStorage.popup = e.srcElement.id
+    })
+    this.$$(document).on('popup:closed', function(e) {
+      localStorage.removeItem('popup')
+    })
+    this.$$(document).on('loginscreen:opened', function(e) {
+      localStorage.loginscreen = e.srcElement.id
+    })
+    this.$$(document).on('loginscreen:closed', function(e) {
+      localStorage.removeItem('loginscreen')
+    })
+    
+    // Restore panel/popup/loginscreen
+    if (localStorage.panel) {
+      setTimeout(function() {
+        this.$f7.openPanel(localStorage.panel)
+      }.bind(this), 0)
+    }
+    if (localStorage.popup) {
+      setTimeout(function() {
+        this.$f7.popup('#' + localStorage.popup)
+      }.bind(this), 0)
+    }
+    if (localStorage.loginscreen) {
+      setTimeout(function() {
+        this.$f7.loginScreen('#' + localStorage.loginscreen)
+      }.bind(this), 0)
+    }
+    
+    // Show app
+    setTimeout(function() {
+      this.$$('.framework7-root').css('visibility', 'visible')
+    }.bind(this), 0)
+    
+  },
+  watch: {
+    language: function(newLanguage) {
+      localStorage.language = newLanguage
+    }
   }
 });

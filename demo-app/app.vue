@@ -69,16 +69,15 @@
         <!-- Pages -->
         <f7-pages>
           <f7-page>
-            <f7-block-title>Welcome to my App</f7-block-title>
-            <f7-block inner>
-              <p>Duis sed erat ac eros ultrices pharetra id ut tellus. Praesent rhoncus enim ornare ipsum aliquet ultricies. Pellentesque sodales erat quis elementum sagittis.</p>
-            </f7-block>
-            <f7-block-title>Navigation</f7-block-title>
+            <f7-block-title>Test pages</f7-block-title>
             <f7-list>
               <f7-list-item link="about" title="About"></f7-list-item>
               <f7-list-item link="form" title="Form"></f7-list-item>
-              <f7-list-item link="image" title="Image"></f7-list-item>
               <f7-list-item link="dynamic-route/blog/45/post/125?foo=bar#about" title="Dynamic Route"></f7-list-item>
+              <f7-list-item link="image" title="Icon & Image" badge="new" badge-color="green"></f7-list-item>
+              <f7-list-item link="localStorage" title="LocalStorage ToDo" badge="new" badge-color="green"></f7-list-item>
+              <f7-list-item link="firebase" title="Firebase ToDo" badge="wip" badge-color="red"></f7-list-item>
+              <f7-list-item link="multipleLanguages" title="Multiple languages" badge="new" badge-color="green"></f7-list-item>
             </f7-list>
             <f7-block-title>Side Panels</f7-block-title>
             <f7-block>

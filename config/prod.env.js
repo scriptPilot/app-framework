@@ -9,5 +9,6 @@ module.exports = {
   FONT_FRAMEWORK7: '"' + app.loadIconFonts.framework7 + '"',
   FONT_MATERIAL: '"' + app.loadIconFonts.material + '"',
   FONT_ION: '"' + app.loadIconFonts.ion + '"',
-  FONT_AWESOME: '"' + app.loadIconFonts.fontawesome + '"'
+  FONT_AWESOME: '"' + app.loadIconFonts.fontawesome + '"',
+  USE_FIREBASE: '"' + app.useFirebase + '"'
 }
