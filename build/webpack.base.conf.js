@@ -52,7 +52,7 @@ module.exports = {
         loader: 'url',
         query: {
           limit: 1,
-          name: utils.assetsPath('./img/[name].[hash:7].[ext]')
+          name: 'img/[name].[hash:7].[ext]'
         }
       },
       {

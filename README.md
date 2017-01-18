@@ -28,7 +28,7 @@ A composition of great software projects.
  - [x] Single file page components - [Vue](https://vuejs.org/v2/guide/single-file-components.html)
  - [x] Reusable components - [Framework7-Vue](https://github.com/nolimits4web/Framework7-Vue)
  - [x] Automatic version bump and build process - [Webpack](https://webpack.github.io/)
- - [ ] Compression of HTML, CSS, JavaScript and image files
+ - [x] Compression of HTML, CSS, JavaScript and image files
  - [x] Deployment without downtime
  - [x] Fast rollback solution
  - [ ] Clean code - [Standard JavaScript Rules](http://standardjs.com/)
