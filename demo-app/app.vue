@@ -163,6 +163,5 @@
 </template>
 
 <script>
-require('./images/test.jpg')
 module.exports = {}
 </script>
