@@ -1,4 +1,3 @@
 demo-app/www/build-*
 node_modules/
-_SYNCAPP/
 npm-debug.log
