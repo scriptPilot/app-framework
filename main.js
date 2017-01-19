@@ -91,14 +91,12 @@ new Vue({
             url: ...,
             main: {
               scrollPosition: ...,
-              formFocus: ...,
               formData: ...
             },
             activeTab: ...,
             tabs: {
               '#tab1': {
                 scrollPosition: ...,
-                formFocus: ...,
                 formData: ...
               },
               '#tab2': { ... }
@@ -158,7 +156,7 @@ new Vue({
       }.bind(this), 0)
     }
     
-    // Update runtime:pages
+    // Update runtime: pages
     this.$$(document).on('page:afteranimation', function (e) { 
     
       // Do not consider smart selects
@@ -176,7 +174,6 @@ new Vue({
               }
               tabs[tab.attr('id')] = {
                 scrollPosition: 0,
-                formFocus: null,
                 formData: null
               }
             }.bind(this))
@@ -184,7 +181,6 @@ new Vue({
               url: e.detail.page.url,
               main: {
                 scrollPosition: 0,
-                formFocus: null,
                 formData: null
               },
               activeTab: activeTab,
@@ -204,11 +200,19 @@ new Vue({
       
     }.bind(this))
     
-    // Update runtime:tabs
+    // Update runtime: tabs
     this.$$(document).on('tab:show', function(e) {
       this.runtime[this.$f7.getCurrentView().selector][this.runtime[this.$f7.getCurrentView().selector].length-1].activeTab = e.srcElement.id
       this.saveRuntime()
     }.bind(this))
+    
+    // Remember form focus
+    this.$$(document).on('focusout', function(e) {
+      localStorage.removeItem('formFocus')
+    })
+    this.$$(document).on('focusin', function(e) {
+      localStorage.formFocus = e.srcElement.outerHTML
+    })
     
     /*
     

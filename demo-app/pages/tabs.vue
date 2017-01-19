@@ -14,6 +14,12 @@
         <f7-block inner inset>
           <p>Go to second tab, with <b>click or swipe</b> ...</p>
         </f7-block>
+        <f7-list form>
+          <f7-list-item>
+            <f7-label>Name</f7-label>
+            <f7-input type="text" placeholder="Name"></f7-input>
+          </f7-list-item>
+        </f7-list>
       </f7-tab>
       <f7-tab id="tab2">
         <f7-block inner inset>
