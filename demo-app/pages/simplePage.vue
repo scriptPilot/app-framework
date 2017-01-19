@@ -1,14 +1,12 @@
 <template>
-  <f7-page>  
-  
-    <f7-navbar :title="text.title" :back-link="text.backlink" sliding></f7-navbar>    
-    
+  <f7-page>    
+    <f7-navbar :title="text.title" :back-link="text.backlink" sliding></f7-navbar>      
     <f7-block inner inset>
       <p>{{text.text}}</p>
-    </f7-block>    
-    
+    </f7-block>        
   </f7-page> 
 </template>
+
 <script>
 
   var text = {
@@ -22,7 +20,7 @@
       title: 'Einfache Seite',
       text: 'Einfache, mehrsprachige Seite, mit Framework7-Vue-Komponenten erstellt.'
     }
-  }
+  }  
   
   module.exports = {
     computed: {
@@ -30,6 +28,6 @@
         return text[this.$root.language]
       }
     }
-  }
+  }  
   
 </script>

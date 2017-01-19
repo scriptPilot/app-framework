@@ -14,6 +14,11 @@
   "theme": "ios",
   "defaultLanguage": "en",
   "routes": {
+    "home": "home",
+    "panelLeft": "panelLeft",
+    "panelRight": "panelRight",
+    "loginScreen": "loginScreen",
+    "popup": "popup",
     "about": "about",
     "form": "form",
     "image": "image",    
@@ -21,6 +26,8 @@
     "firebase": "firebase",
     "multipleLanguages": "multipleLanguages",
     "simplePage": "simplePage",
+    "tabs": "tabs",
+    "tabs-sub": "tabs-sub",
     "dynamic-route/blog/:blogId/post/:postId": "dynamic-route"
   },
   "loadIconFonts": {

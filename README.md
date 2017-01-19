@@ -14,8 +14,8 @@ A composition of great software projects.
 - **Powerful**
  - [x] Reactive user interface - [Vue](https://vuejs.org/)
  - [x] Flexible routing - [Framework7-Vue](https://github.com/nolimits4web/Framework7-Vue)
- - [x] State kept for views, history, side panels, popups
- - [ ] State kept for tabs, scroll position, form focus, form data and page data
+ - [x] State kept for side panels and popups
+ - [ ] State kept for page data, history, tabs, scroll positions, form focus and form data
  - [x] Multi-language support
  - [ ] Offline capability
  - [ ] User authentication - [Firebase](https://firebase.google.com/)
@@ -24,9 +24,9 @@ A composition of great software projects.
 - **Complete**
  - [x] Quick start - [npm](https://www.npmjs.com)
  - [x] Development server with live reload - [Webpack-dev-server](https://github.com/webpack/webpack-dev-server)
- - [ ] Code check - [ESLint](http://eslint.org/)
+ - [x] Code check - [ESLint](http://eslint.org/)
  - [x] Single file page components - [Vue](https://vuejs.org/v2/guide/single-file-components.html)
- - [x] Reusable components - [Framework7-Vue](https://github.com/nolimits4web/Framework7-Vue)
+ - [x] Reusable components - [Framework7-Vue](http://framework7.io/vue/)
  - [x] Automatic version bump and build process - [Webpack](https://webpack.github.io/)
  - [x] Compression of HTML, CSS, JavaScript and image files
  - [x] Deployment without downtime
@@ -61,7 +61,7 @@ As prerequisite you should be comfortable with [Vue](https://vuejs.org/v2/guide/
  - `npm run minor` after adding new functionality
  - `npm run major` after breaking backward-capability
 
-In addition you should know about [Framework7-Vue components](https://github.com/nolimits4web/Framework7-Vue), [Firebase](https://firebase.google.com/docs/web/setup) and [Standard JavaScript](http://standardjs.com/rules.html).
+In addition you should know about [Framework7-Vue components](http://framework7.io/vue/), [Firebase](https://firebase.google.com/docs/web/setup) and [Standard JavaScript](http://standardjs.com/rules.html).
 
 Please check all example files to see how it works.
  
