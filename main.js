@@ -93,10 +93,10 @@ new Vue({
               scrollPosition: ...,
               formFocus: ...,
               formData: ...
-            }
+            },
+            activeTab: ...,
             tabs: {
               '#tab1': {
-                active: ...,
                 scrollPosition: ...,
                 formFocus: ...,
                 formData: ...
@@ -126,12 +126,17 @@ new Vue({
     if (!runtimeCheck) {
       setTimeout(function () {
         this.runtime = {}
+        
+        // Loop views
         for (let v = 0; v < this.$f7.views.length; v++) { 
           let tabs = {}
+          let activeTab = null
           this.$$(this.$f7.views[v].container).find('.page-on-center .tab').each(function(id, tab) {
             tab = this.$$(tab)
+            if (tab.hasClass('active')) {
+              activeTab = tab.attr('id')
+            }
             tabs[tab.attr('id')] = {
-              active: tab.hasClass('active'),
               scrollPosition: 0,
               formFocus: null,
               formData: null
@@ -144,9 +149,11 @@ new Vue({
               formFocus: null,
               formData: null
             },
+            activeTab: activeTab,
             tabs: _.size(tabs) > 0 ? tabs : null
           }]
-        }
+        }        
+        
         this.saveRuntime()
       }.bind(this), 0)
     }
@@ -161,10 +168,13 @@ new Vue({
           // Forward (add page)
           if (e.detail.page.from === 'right') {
             let tabs = {}
+            let activeTab = null
             this.$$(e.detail.page.view.selector + ' .page-on-center').find('.page-on-center .tab').each(function(id, tab) {
               tab = this.$$(tab)
+              if (tab.hasClass('active')) {
+                activeTab = tab.attr('id')
+              }
               tabs[tab.attr('id')] = {
-                active: tab.hasClass('active'),
                 scrollPosition: 0,
                 formFocus: null,
                 formData: null
@@ -177,6 +187,7 @@ new Vue({
                 formFocus: null,
                 formData: null
               },
+              activeTab: activeTab,
               tabs: _.size(tabs) > 0 ? tabs : null
             })
             
@@ -193,14 +204,13 @@ new Vue({
       
     }.bind(this))
     
-    
-    /*
-    
-    // Update runtime:tab
+    // Update runtime:tabs
     this.$$(document).on('tab:show', function(e) {
-      this.runtime[this.$f7.getCurrentView().selector][this.runtime[this.$f7.getCurrentView().selector].length-1].tab = '#'+e.srcElement.id
+      this.runtime[this.$f7.getCurrentView().selector][this.runtime[this.$f7.getCurrentView().selector].length-1].activeTab = e.srcElement.id
       this.saveRuntime()
     }.bind(this))
+    
+    /*
     
     
     // Restore runtime
