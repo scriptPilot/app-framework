@@ -71,7 +71,7 @@ new Vue({
   data: {
     language: localStorage.language ? localStorage.language : app.defaultLanguage,
     version: project.version,
-    runtime: localStorage.runtime ? JSON.parse(localStorage.runtime) : [] // {viewSelector: [{url, tab, panel, loginScreen, scrollPosition}]}
+    runtime: localStorage.runtime ? JSON.parse(localStorage.runtime) : {}
   }, 
   framework7: {
     root: '#app',
@@ -83,9 +83,33 @@ new Vue({
   },
   mounted: function () {
     
-    // Remember pages per view, scroll position per tab, 
+    /* runtime
     
-    /*
+      {
+        'view1': [
+          {
+            url: ...,
+            main: {
+              scrollPosition: ...,
+              formFocus: ...,
+              formData: ...
+            }
+            tabs: {
+              '#tab1': {
+                active: ...,
+                scrollPosition: ...,
+                formFocus: ...,
+                formData: ...
+              },
+              '#tab2': { ... }
+            }
+          }
+        ],
+        'view2': [ ... ]
+      }
+    
+    */
+    
     // Check runtime
     let runtimeCheck = true
     if (_.size(this.runtime) !== this.$f7.views.length) {
@@ -100,18 +124,31 @@ new Vue({
     
     // Create/replace runtime
     if (!runtimeCheck) {
-      this.runtime = {}
-      for (let v = 0; v < this.$f7.views.length; v++) { 
-        this.runtime[this.$f7.views[v].selector] = [{
-        url: this.$f7.views[v].history[0],
-          tab: null,
-          panel: null,
-          popup: null,
-          loginScreen: null,
-          scrollPosition: 0
-        }]
-      }
-      this.saveRuntime()
+      setTimeout(function () {
+        this.runtime = {}
+        for (let v = 0; v < this.$f7.views.length; v++) { 
+          let tabs = {}
+          this.$$(this.$f7.views[v].container).find('.page-on-center .tab').each(function(id, tab) {
+            tab = this.$$(tab)
+            tabs[tab.attr('id')] = {
+              active: tab.hasClass('active'),
+              scrollPosition: 0,
+              formFocus: null,
+              formData: null
+            }
+          }.bind(this))
+          this.runtime[this.$f7.views[v].selector] = [{
+            url: this.$f7.views[v].history[0],
+            main: {
+              scrollPosition: 0,
+              formFocus: null,
+              formData: null
+            },
+            tabs: _.size(tabs) > 0 ? tabs : null
+          }]
+        }
+        this.saveRuntime()
+      }.bind(this), 0)
     }
     
     // Update runtime:pages
@@ -119,29 +156,45 @@ new Vue({
     
       // Do not consider smart selects
       if (e.detail.page.url !== '#content-2' && e.detail.page.fromPage.url !== '#content-2') {
+        setTimeout(function () { 
         
-        // Forward (add page)
-        if (e.detail.page.from === 'right') {
-          this.runtime[e.detail.page.view.selector].push({
-            url: e.detail.page.url,
-            tab: null,
-            panel: null,
-            popup: null,
-            loginScreen: null,
-            scrollPosition: 0
-          })
-          
-        // Backward (remove page)
-        } else {
-          if (this.runtime[e.detail.page.view.selector].length > 0) {
-            this.runtime[e.detail.page.view.selector].splice(this.runtime[e.detail.page.view.selector].length - 2, 1)
+          // Forward (add page)
+          if (e.detail.page.from === 'right') {
+            let tabs = {}
+            this.$$(e.detail.page.view.selector + ' .page-on-center').find('.page-on-center .tab').each(function(id, tab) {
+              tab = this.$$(tab)
+              tabs[tab.attr('id')] = {
+                active: tab.hasClass('active'),
+                scrollPosition: 0,
+                formFocus: null,
+                formData: null
+              }
+            }.bind(this))
+            this.runtime[e.detail.page.view.selector].push({
+              url: e.detail.page.url,
+              main: {
+                scrollPosition: 0,
+                formFocus: null,
+                formData: null
+              },
+              tabs: _.size(tabs) > 0 ? tabs : null
+            })
+            
+          // Backward (remove page)
+          } else {
+            if (this.runtime[e.detail.page.view.selector].length > 0) {
+              this.runtime[e.detail.page.view.selector].splice(this.runtime[e.detail.page.view.selector].length - 2, 1)
+            }
           }
-        }
-        
-        this.saveRuntime()        
+          
+          this.saveRuntime()    
+        }.bind(this), 0)          
       }
       
     }.bind(this))
+    
+    
+    /*
     
     // Update runtime:tab
     this.$$(document).on('tab:show', function(e) {
@@ -149,47 +202,6 @@ new Vue({
       this.saveRuntime()
     }.bind(this))
     
-    // Update runtime:panel
-    this.$$(document).on('panel:opened panel:closed', function(e) {      
-    console.
-      this.runtime[this.$f7.getCurrentView().selector][this.runtime[this.$f7.getCurrentView().selector].length-1].panel = e.type === 'panel:opened' ? (/left/.test(e.path[0]._prevClass) ? 'left' : 'right') : null
-      this.saveRuntime()
-    }.bind(this))
-    
-    
-    
-      
-    // Update pages
-    this.$$(document).on('page:afteranimation', function (e) {
-    
-      // Do not consider smart selects
-      if (e.detail.page.url !== '#content-2' && e.detail.page.fromPage.url !== '#content-2') {
-    
-        let runtimeView = this.runtime[e.detail.page.view.selector]
-        
-        // Forward (add page)
-        if (e.detail.page.from === 'right') {
-          runtimeView.push({
-            url: e.detail.page.url,
-            tab: false,
-            panel: false,
-            popup: false,
-            loginScreen: false,
-            scrollPosition: 0
-          })
-          
-        // Backward (remove page)
-        } else {
-          if (runtimeView.length > 0) {
-            runtimeView.splice(runtimeView.length - 2, 1)
-          }
-        }
-        
-        // Update runtime on local storage
-        this.updateRuntime()
-        
-      }
-    }.bind(this))
     
     // Restore runtime
     
@@ -211,41 +223,6 @@ new Vue({
       
     */
     
-    
-    // ---
-  
-    /*
-    // Remember histories
-    this.$$(document).on('page:afteranimation', function (e) {
-      setTimeout(function () {
-        let histories = []
-        for (let v = 0; v < this.$f7.views.length; v++) {
-          let history = []
-          for (let h = 0; h < this.$f7.views[v].history.length; h++) {
-            if (this.$f7.views[v].history[h].substr(0, 1) !== '#') {
-              history.push(this.$f7.views[v].history[h])
-            }
-          }
-          histories.push(history)
-        }
-        localStorage.histories = JSON.stringify(histories)
-      }.bind(this), 0)
-    }.bind(this))
-
-    // Restore histories
-    if (localStorage.histories) {
-      let histories = JSON.parse(localStorage.histories)
-      if (histories.length === this.$f7.views.length) {
-        for (let v = 0; v < histories.length; v++) {
-          for (let h = 0; h < histories[v].length; h++) {
-            setTimeout(function () {
-              this.$f7.views[v].router.load({url: histories[v][h], animatePages: false})
-            }.bind(this), 0)
-          }
-        }
-      }
-    }
-    */
     // Remember panel/popup/loginscreen
     this.$$(document).on('panel:opened', function (e) {
       localStorage.panel = /left/.test(e.path[0]._prevClass) ? 'left' : 'right'
@@ -282,13 +259,6 @@ new Vue({
         this.$f7.loginScreen('#' + localStorage.loginscreen)
       }.bind(this), 0)
     }
-    /*
-    // Remember tabs
-    this.$$(document).on('tab:show', function(e) {
-      console.log(this.$f7)
-      console.log(e)
-    })
-    */
 
     // Show app
     setTimeout(function () {
