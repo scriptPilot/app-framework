@@ -13,7 +13,7 @@ A composition of great software projects.
  - [ ] Favicon generator - [Favicons](https://github.com/haydenbleasel/favicons)
 - **Powerful**
  - [x] Reactive user interface - [Vue](https://vuejs.org/)
- - [x] Flexible routing - [Framework7-Vue](https://github.com/nolimits4web/Framework7-Vue)
+ - [x] Flexible routing - [Framework7-Vue](http://framework7.io/vue/navigation-router.html)
  - [x] State kept for side panels and popups
  - [ ] State kept for page data, history, tabs, scroll positions, form focus and form data
  - [x] Multi-language support
@@ -37,7 +37,7 @@ A composition of great software projects.
 
 As prerequisite you should understand the principles of [Node.js and npm](https://docs.npmjs.com/getting-started/what-is-npm).
 
-This framework must be installed as dependency to your project - do not clone or download it directly.
+:boom: This framework must be installed as dependency to your project - do not clone or download it directly.
 
 1. Create an empty project folder on your computer
 2. Save [package.json](https://raw.githubusercontent.com/scriptPilot/app-framework/master/demo-app/package.json) file to your project folder

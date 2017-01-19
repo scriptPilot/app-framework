@@ -10,7 +10,7 @@
     "minor": "npm version minor && cd node_modules/app-framework && node build/build.js",
     "major": "npm version major && cd node_modules/app-framework && node build/build.js"
   },
-  "title": "Demo App",
+  "title": "App Framework",
   "theme": "ios",
   "defaultLanguage": "en",
   "routes": {
@@ -28,7 +28,7 @@
     "simplePage": "simplePage",
     "tabs": "tabs",
     "tabs-sub": "tabs-sub",
-    "dynamic-route/blog/:blogId/post/:postId": "dynamic-route"
+    "flexibleRouting/blog/:blogId/post/:postId": "flexibleRouting"
   },
   "loadIconFonts": {
     "framework7": false,

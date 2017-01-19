@@ -1,11 +1,14 @@
 <template>
   <f7-page>
-    <f7-navbar title="Dynamic Route" back-link="Back" sliding></f7-navbar>
+    <f7-navbar title="Flexible Routing" back-link="Back" sliding></f7-navbar>
+    <f7-block inner inset>
+      <p style="text-align: center">Use multiple ways to fit the routing perfectly to your application needs.</p>
+    </f7-block>
     <f7-block inner>
       <ul>
+        <li><b>Route:</b> {{$route.route}}</li>
         <li><b>Url:</b> {{$route.url}}</li>
         <li><b>Path:</b> {{$route.path}}</li>
-        <li><b>Hash:</b> {{$route.hash}}</li>
         <li><b>Params:</b>
           <ul>
             <li v-for="(value, key) in $route.params"><b>{{key}}:</b> {{value}}</li>
@@ -16,7 +19,7 @@
             <li v-for="(value, key) in $route.query"><b>{{key}}:</b> {{value}}</li>
           </ul>
         </li>
-        <li><b>Route:</b> {{$route.route}}</li>
+        <li><b>Hash:</b> {{$route.hash}}</li>
       </ul>
     </f7-block>
     <f7-block inner>

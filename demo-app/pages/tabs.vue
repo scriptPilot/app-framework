@@ -10,7 +10,7 @@
       </f7-subnavbar>
     </f7-navbar>
     <f7-tabs swipeable>
-      <f7-tab id="tab1" active class="page-content">
+      <f7-page-content tab active id="tab1">
         <f7-block inner inset>
           <p>Go to second tab, with <b>click or swipe</b> ...</p>
         </f7-block>
@@ -26,18 +26,18 @@
             text
            </p>
         </f7-block>
-      </f7-tab>
-      <f7-tab id="tab2" class="page-content">
+      </f7-page-content>
+      <f7-page-content tab id="tab2">
         <f7-block inner inset>
           Open <f7-link href="tabs-sub">sub page with tabs</f7-link>
         </f7-block>
-      </f7-tab>
-      <f7-tab id="tab3" class="page-content">
+      </f7-page-content>
+      <f7-page-content tab id="tab3">
         <f7-block inner inset>
           <p>Content of <b>third</b> tab ...</p>
         </f7-block>
-      </f7-tab>
-    </f7-tabs>    
+      </f7-page-content>
+    </f7-tabs>
   </f7-page>
 </template>
 

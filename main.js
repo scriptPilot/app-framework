@@ -70,6 +70,7 @@ new Vue({
   template: '<app/>',
   data: {
     language: localStorage.language ? localStorage.language : app.defaultLanguage,
+    title: app.title,
     version: project.version,
     runtime: localStorage.runtime ? JSON.parse(localStorage.runtime) : {}
   }, 
