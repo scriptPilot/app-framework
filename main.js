@@ -95,11 +95,11 @@ new Vue({
             },
             activeTab: ...,
             tabs: {
-              '#tab1': {
+              'tab1': {
                 scrollPosition: ...,
                 formData: ...
               },
-              '#tab2': { ... }
+              'tab2': { ... }
             }
           }
         ],
@@ -142,11 +142,8 @@ new Vue({
           }.bind(this))
           this.runtime[this.$f7.views[v].selector] = [{
             url: this.$f7.views[v].history[0],
-            main: {
-              scrollPosition: 0,
-              formFocus: null,
-              formData: null
-            },
+            scrollPosition: 0,
+            formData: null,
             activeTab: activeTab,
             tabs: _.size(tabs) > 0 ? tabs : null
           }]
@@ -179,10 +176,8 @@ new Vue({
             }.bind(this))
             this.runtime[e.detail.page.view.selector].push({
               url: e.detail.page.url,
-              main: {
-                scrollPosition: 0,
-                formData: null
-              },
+              scrollPosition: 0,
+              formData: null,
               activeTab: activeTab,
               tabs: _.size(tabs) > 0 ? tabs : null
             })
@@ -213,6 +208,25 @@ new Vue({
     this.$$(document).on('focusin', function(e) {
       localStorage.formFocus = e.srcElement.outerHTML
     })
+    
+    // Remember scroll position
+    this.$$(document).on('page:afteranimation tab:show', function (e) { 
+      setTimeout(function() {
+        let view    = this.$f7.getCurrentView().selector
+        let page    = '.page-on-center'
+        let tab     = this.runtime[view][this.runtime[view].length-1].activeTab
+        let content = tab ? '.tab#' + tab : '.page-content'
+        let path    = view + ' ' + page + ' ' + content
+        this.$$(path).on('scroll', function (e) {
+          if (tab) {
+            this.runtime[view][this.runtime[view].length-1].tabs[tab].scrollPosition = e.target.scrollTop
+          } else {
+            this.runtime[view][this.runtime[view].length-1].scrollPosition = e.target.scrollTop
+          }
+          this.saveRuntime()
+        }.bind(this))                
+      }.bind(this), 0)
+    }.bind(this))
     
     /*
     
