@@ -90,15 +90,12 @@ new Vue({
         'view1': [
           {
             url: ...,
-            main: {
-              scrollPosition: ...,
-              formData: ...
-            },
+            scrollPosition: ...,
+            formData: ...,
             activeTab: ...,
             tabs: {
               'tab1': {
-                scrollPosition: ...,
-                formData: ...
+                scrollPosition: ...
               },
               'tab2': { ... }
             }
@@ -128,6 +125,8 @@ new Vue({
         
         // Loop views
         for (let v = 0; v < this.$f7.views.length; v++) { 
+        
+          // Loop tabs
           let tabs = {}
           let activeTab = null
           this.$$(this.$f7.views[v].container).find('.page-on-center .tab').each(function(id, tab) {
@@ -136,11 +135,11 @@ new Vue({
               activeTab = tab.attr('id')
             }
             tabs[tab.attr('id')] = {
-              scrollPosition: 0,
-              formFocus: null,
-              formData: null
+              scrollPosition: 0
             }
           }.bind(this))
+          
+          // Add view to runtime
           this.runtime[this.$f7.views[v].selector] = [{
             url: this.$f7.views[v].history[0],
             scrollPosition: 0,
@@ -148,6 +147,7 @@ new Vue({
             activeTab: activeTab,
             tabs: _.size(tabs) > 0 ? tabs : null
           }]
+          
         }        
         
         this.saveRuntime()
@@ -163,6 +163,8 @@ new Vue({
         
           // Forward (add page)
           if (e.detail.page.from === 'right') {
+            
+            // Loop tabs
             let tabs = {}
             let activeTab = null
             this.$$(e.detail.page.view.selector + ' .page-on-center').find('.page-on-center .tab').each(function(id, tab) {
@@ -171,10 +173,11 @@ new Vue({
                 activeTab = tab.attr('id')
               }
               tabs[tab.attr('id')] = {
-                scrollPosition: 0,
-                formData: null
+                scrollPosition: 0
               }
             }.bind(this))
+            
+            // Add page to runtime
             this.runtime[e.detail.page.view.selector].push({
               url: e.detail.page.url,
               scrollPosition: 0,
@@ -202,15 +205,7 @@ new Vue({
       this.saveRuntime()
     }.bind(this))
     
-    // Remember form focus
-    this.$$(document).on('focusout', function(e) {
-      localStorage.removeItem('formFocus')
-    })
-    this.$$(document).on('focusin', function(e) {
-      localStorage.formFocus = e.srcElement.outerHTML
-    })
-    
-    // Remember scroll position
+    // Remember scroll positions
     this.$$(document).on('page:afteranimation tab:show', function (e) { 
       setTimeout(function() {
         let view    = this.$f7.getCurrentView().selector
@@ -228,6 +223,53 @@ new Vue({
         }.bind(this))                
       }.bind(this), 0)
     }.bind(this))
+    
+    // Remember form data
+    this.$$(document).on('keyup change', function (e) {
+      let view = this.$f7.getCurrentView().selector
+      let page = '.page-on-center'
+      let data = []
+      this.$$(view + ' ' + page).find('form').each(function (i, el) {
+        data.push(this.$f7.formToData(el))
+      }.bind(this))
+      this.runtime[view][this.runtime[view].length-1].data = data
+      this.saveRuntime()
+    }.bind(this))
+    
+    // Remember form focus
+    this.$$(document).on('focusout', function(e) {
+      localStorage.removeItem('formFocus')
+    })
+    this.$$(document).on('focusin', function(e) {
+      localStorage.formFocus = e.srcElement.outerHTML
+    })
+    
+    // Remember panel/popup/loginscreen
+    this.$$(document).on('panel:opened', function (e) {
+      localStorage.panel = /left/.test(e.path[0]._prevClass) ? 'left' : 'right'
+    })
+    this.$$(document).on('panel:closed', function (e) {
+      localStorage.removeItem('panel')
+    })
+    this.$$(document).on('popup:opened', function (e) {
+      localStorage.popup = e.srcElement.id
+    })
+    this.$$(document).on('popup:closed', function (e) {
+      localStorage.removeItem('popup')
+    })
+    this.$$(document).on('loginscreen:opened', function (e) {
+      localStorage.loginscreen = e.srcElement.id
+    })
+    this.$$(document).on('loginscreen:closed', function (e) {
+      localStorage.removeItem('loginscreen')
+    })
+
+    // Restore pages, form data, tabs, scroll positions, form focus
+    setTimeout(function() {
+      
+      
+      
+    }.bind(this), 0)
     
     /*
     
@@ -252,27 +294,7 @@ new Vue({
       
     */
     
-    // Remember panel/popup/loginscreen
-    this.$$(document).on('panel:opened', function (e) {
-      localStorage.panel = /left/.test(e.path[0]._prevClass) ? 'left' : 'right'
-    })
-    this.$$(document).on('panel:closed', function (e) {
-      localStorage.removeItem('panel')
-    })
-    this.$$(document).on('popup:opened', function (e) {
-      localStorage.popup = e.srcElement.id
-    })
-    this.$$(document).on('popup:closed', function (e) {
-      localStorage.removeItem('popup')
-    })
-    this.$$(document).on('loginscreen:opened', function (e) {
-      localStorage.loginscreen = e.srcElement.id
-    })
-    this.$$(document).on('loginscreen:closed', function (e) {
-      localStorage.removeItem('loginscreen')
-    })
-
-    // Restore panel/popup/loginscreen
+    // Restore panel, popup, loginscreen
     if (localStorage.panel) {
       setTimeout(function () {
         this.$f7.openPanel(localStorage.panel)
@@ -298,7 +320,6 @@ new Vue({
   methods: {
     saveRuntime: function() {
       localStorage.runtime = JSON.stringify(this.runtime)
-      console.log(JSON.parse(localStorage.runtime))
     }
   },
   watch: {
