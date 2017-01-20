@@ -14,8 +14,7 @@ A composition of great software projects.
 - **Powerful**
  - [x] Reactive user interface - [Vue](https://vuejs.org/)
  - [x] Flexible routing - [Framework7-Vue](http://framework7.io/vue/navigation-router.html)
- - [x] State kept for side panels and popups
- - [ ] State kept for page data, history, tabs, scroll positions, form focus and form data
+ - [ ] State kept for pages, tabs, panels, popups, scroll positions, form focus and form data
  - [x] Multi-language support
  - [ ] Offline capability
  - [ ] User authentication - [Firebase](https://firebase.google.com/)

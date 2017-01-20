@@ -84,151 +84,156 @@ new Vue({
   },
   mounted: function () {
     
-    /* runtime
+    // runtime: {viewId: [{url, scrollPosition, formData, tabs: {tabId: scrollPosition}, activeTab}]}
     
-      {
-        'view1': [
-          {
-            url: ...,
-            scrollPosition: ...,
-            formData: ...,
-            activeTab: ...,
-            tabs: {
-              'tab1': {
-                scrollPosition: ...
-              },
-              'tab2': { ... }
-            }
-          }
-        ],
-        'view2': [ ... ]
+    // List views
+    let views = {}
+    this.$$('.view').each(function (i, view) {
+      let viewId = this.$$(view).attr('id')
+      if (viewId !== null && viewId !== '' && !views[viewId]) {
+        views[viewId] = []
+      } else {
+        console.error('Please assign a unique ID to each view component!')
       }
-    
-    */
+    }.bind(this))
     
     // Check runtime
     let runtimeCheck = true
-    if (_.size(this.runtime) !== this.$f7.views.length) {
+    if (_.size(this.runtime) !== _.size(views)) {
       runtimeCheck = false
     } else {
-      for (let v = 0; v < this.$f7.views.length; v++) {
-        if (Object.keys(this.runtime)[v] !== this.$f7.views[v].selector) {
+      for (let view in views) {
+        if (!this.runtime[view]) {
           runtimeCheck = false
         }
       }
     }
     
-    // Create/replace runtime
-    if (!runtimeCheck) {
-      //setTimeout(function () {
-        this.runtime = {}
-        
-        // Loop views
-        for (let v = 0; v < this.$f7.views.length; v++) { 
-        
-          // Loop tabs
-          let tabs = {}
-          let activeTab = null
-          this.$$(this.$f7.views[v].container).find('.page-on-center .tab').each(function(id, tab) {
-            tab = this.$$(tab)
-            if (tab.hasClass('active')) {
-              activeTab = tab.attr('id')
-            }
-            tabs[tab.attr('id')] = {
-              scrollPosition: 0
-            }
-          }.bind(this))
-          
-          // Add view to runtime
-          this.runtime[this.$f7.views[v].selector] = []
-          
-        }        
-        
-        this.saveRuntime()
-      //}.bind(this), 0)
+    // Create/Replace runtime
+    if (runtimeCheck === false) {
+      this.runtime = views
+      this.saveRuntime()
     }
     
-    // Update runtime: pages
-    
-      // Forward - add page
-      this.$$(document).on('page:init', function (e) {
+    // Remember pages, tabs, scroll positions
+    this.$$(document).on('page:init page:reinit', function (ePage) {
+      console.log(ePage.detail.page.from)
+      let realPage = ePage.detail.page.url !== '#content-2' && ePage.detail.page.fromPage.url !== '#content-2'
+      
+      // Real page change
+      if (realPage) {
+        let view = this.$$(ePage.target).parents('.view').attr('id')
         
-        // Is no smart select
-        if (e.detail.page.url !== '#content-2' && e.detail.page.fromPage.url !== '#content-2') {
+        // Forward - add page
+        if (ePage.type === 'page:init') {
+          let url = ePage.detail.page.url
           
           // Loop tabs
           let tabs = {}
           let activeTab = null
-          this.$$(e.detail.page.container).find('.tab').each(function(id, tab) {
-            tab = this.$$(tab)
-            if (tab.hasClass('active')) {
-              activeTab = tab.attr('id')
+          this.$$(ePage.target).find('.tab.page-content').each(function(i, elTab) {
+            let tabId = this.$$(elTab).attr('id')
+            if (tabId !== null && tabId !== '' && tabs[tabId] === undefined) {
+              tabs[tabId] = 0
+            } else {
+              consolePage.error('Please assign a unique ID to each tab component!')
             }
-            tabs[tab.attr('id')] = {
-              scrollPosition: 0
+            if (this.$$(elTab).hasClass('active')) {
+              activeTab = tabId
             }
           }.bind(this))
+          tabs = _.size(tabs) > 0 ? tabs : null
           
           // Add page to runtime
-          this.runtime[e.detail.page.view.selector].push({
-            url: e.detail.page.url,
+          this.runtime[view].push({
+            url: url,
             scrollPosition: 0,
             formData: null,
-            activeTab: activeTab,
-            tabs: _.size(tabs) > 0 ? tabs : null
-          }) 
+            tabs: tabs,
+            activeTab: activeTab          
+          })
 
-          // Save to local storage
-          this.saveRuntime()
+          // Attach tab watcher
+          if (tabs) {
+            this.$$(ePage.target).on('tab:show', function (eTab) {
+              this.runtime[view][pageNo - 1].activeTab = this.$$(eTab.target).attr('id')
+              this.saveRuntime()
+            }.bind(this))
+          }
           
-        }      
-        
-      }.bind(this))
-      
-      // Backward - remove page    
-      this.$$(document).on('page:reinit', function (e) {
-        
-        // Is no smart select
-        if (e.detail.page.url !== '#content-2' && e.detail.page.fromPage.url !== '#content-2') {        
-          if (this.runtime[e.detail.page.view.selector].length > 0) {
-            this.runtime[e.detail.page.view.selector].splice(this.runtime[e.detail.page.view.selector].length - 1, 1)
-            this.saveRuntime()
-          }          
-        }
-        
-      }.bind(this))
-    
-    // Update runtime: tabs
-    this.$$(document).on('tab:show', function(e) {
-      this.runtime[this.$f7.getCurrentView().selector][this.runtime[this.$f7.getCurrentView().selector].length-1].activeTab = e.srcElement.id
+          // Attach scroll position watcher
+          let pageNo = _.size(this.runtime[view])
+          if (tabs) {
+            this.$$(ePage.target).find('.page-content').on('scroll', function (ePageContent) {
+              this.runtime[view][pageNo - 1].scrollPosition = ePageContent.target.scrollTop
+              this.saveRuntime()
+            }.bind(this))
+          } else {
+            for (let tab in tabs) {
+              this.$$(ePage.target).find('.tab.page-content#' + tab).on('scroll', function (ePageContent) {
+                this.runtime[view][pageNo - 1].tabs[tab] = ePageContent.target.scrollTop
+                this.saveRuntime()
+              }.bind(this))
+            }
+          }
+          
+          // Attach form data watcher
+          // todo ...
+          
+        // Backward - remove page
+        } else {
+          this.runtime[view].pop()          
+        }   
+      }        
       this.saveRuntime()
     }.bind(this))
     
-    // Update runtime: scroll positions
-    this.$$(document).on('page:afteranimation tab:show', function (e) { 
-      setTimeout(function() {
-        let view    = this.$f7.getCurrentView().selector
-        let page    = '.page-on-center'
-        let tab     = this.runtime[view][this.runtime[view].length-1].activeTab
-        let content = tab ? '.tab#' + tab : '.page-content'
-        let path    = view + ' ' + page + ' ' + content
-        this.$$(path).on('scroll', function (e) {
-          if (tab) {
-            this.runtime[view][this.runtime[view].length-1].tabs[tab].scrollPosition = e.target.scrollTop
-          } else {
-            this.runtime[view][this.runtime[view].length-1].scrollPosition = e.target.scrollTop
-          }
-          this.saveRuntime()
-        }.bind(this))                
-      }.bind(this), 0)
+    // Remember panel
+    this.$$(document).on('panel:opened panel:closed', function (ePanel) {
+      if (ePanel.type === 'panel:opened') {
+        localStorage.panel = /left/.test(ePanel.path[0]._prevClass) ? 'left' : 'right'
+      } else {
+        localStorage.removeItem('panel')
+      }
+    })
+    
+    // Remember popup
+    this.$$(document).on('popup:opened popup:closed', function (ePopup) {
+      if (ePopup.type === 'popup:opened') {
+        localStorage.popup = this.$$(ePopup.target).attr('id')
+      } else {
+        localStorage.removeItem('popup')
+      }
     }.bind(this))
+    
+    // Remember loginScreen
+    this.$$(document).on('loginscreen:opened loginscreen:closed', function (eLoginScreen) {
+      if (eLoginScreen.type === 'loginscreen:opened') {
+        localStorage.loginScreen = this.$$(eLoginScreen.target).attr('id')
+      } else {
+        localStorage.removeItem('loginScreen')
+      }
+    }.bind(this))
+    
+    // Remember form focus
+    this.$$(document).on('focusin focusout', function (eFocus) {
+      let focusId = this.$$(eFocus.target).attr('name')
+      if (eFocus.type === 'focusin' && focusId !== null && focusId !== '') {
+        localStorage.formFocus = focusId
+      } else {
+        localStorage.removeItem('formFocus')
+      }
+    }.bind(this))
+    
+    
+    /*
     
     // Update runtime: form data
     this.$$(document).on('keyup change', function (e) {
-      let view = this.$f7.getCurrentView().selector
-      let page = '.page-on-center'
+      let view = this.$$(e.target).parents('.view').attr('id')
+      let page = this.$$(e.target).parents('.page')
       let data = []
-      this.$$(view + ' ' + page).find('form').each(function (i, el) {
+      this.$$(e.target).parents('.page').find('form').each(function (i, el) {
         data.push(this.$f7.formToData(el))
       }.bind(this))
       this.runtime[view][this.runtime[view].length-1].formData = data
@@ -246,24 +251,7 @@ new Vue({
     })
     
     // Remember panel/popup/loginscreen
-    this.$$(document).on('panel:opened', function (e) {
-      localStorage.panel = /left/.test(e.path[0]._prevClass) ? 'left' : 'right'
-    })
-    this.$$(document).on('panel:closed', function (e) {
-      localStorage.removeItem('panel')
-    })
-    this.$$(document).on('popup:opened', function (e) {
-      localStorage.popup = e.srcElement.id
-    })
-    this.$$(document).on('popup:closed', function (e) {
-      localStorage.removeItem('popup')
-    })
-    this.$$(document).on('loginscreen:opened', function (e) {
-      localStorage.loginscreen = e.srcElement.id
-    })
-    this.$$(document).on('loginscreen:closed', function (e) {
-      localStorage.removeItem('loginscreen')
-    })
+    
 
     // Restore runtime: pages, form data, tabs, scroll positions
     if (runtimeCheck) {
@@ -273,11 +261,12 @@ new Vue({
     
       // Loop views
       for (let v in this.$f7.views) {        
-        let view = initialRuntime[this.$f7.views[v].selector]
+        let viewId = Object.keys(initialRuntime)[v]
+        let view = initialRuntime[viewId]
         if (view) {
           
           // Reset runtime to avoid double listing of pages
-          this.runtime[this.$f7.views[v].selector] = []
+          this.runtime[viewId] = []
           
           // Loop pages          
           for (let p = 0; p < view.length; p++) {            
@@ -297,10 +286,10 @@ new Vue({
             for (let p = 0; p < view.length; p++) {
               
               // Scroll position
-              if (view[p].scrollPosition !== 0) {
-                this.$$(this.$$(this.$f7.views[v].selector + ' .page .page-content')[p]).scrollTop(view[p].scrollPosition)
-                this.runtime[this.$f7.views[v].selector][p].scrollPosition = view[p].scrollPosition
-              }
+              if (view[p].scrollPosition !== 0) {                
+                this.$$(this.$$('.view#' + viewId + ' .page')[p]).find('.page-content').scrollTop(view[p].scrollPosition)
+                this.runtime[viewId][p].scrollPosition = view[p].scrollPosition
+              }   
               
             }
             
@@ -338,16 +327,21 @@ new Vue({
         this.$f7.loginScreen('#' + localStorage.loginscreen)
       }.bind(this), 0)
     }
-
+  
+  
+    
     // Show app
     setTimeout(function () {
       this.$$('.framework7-root').css('visibility', 'visible')
     }.bind(this), 0)
     
+    */
+    
   },
   methods: {
     saveRuntime: function() {
       localStorage.runtime = JSON.stringify(this.runtime)
+      console.log(JSON.stringify(JSON.parse(localStorage.runtime)['main-view']))
     }
   },
   watch: {
