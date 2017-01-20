@@ -117,8 +117,10 @@ new Vue({
     
     // Remember pages, tabs, scroll positions
     this.$$(document).on('page:init page:reinit', function (ePage) {
-      console.log(ePage.detail.page.from)
-      let realPage = ePage.detail.page.url !== '#content-2' && ePage.detail.page.fromPage.url !== '#content-2'
+      
+      // todo ...
+      let realPage = ePage.detail.page.url !== '#content-2' && (!ePage.detail.page.fromPage || ePage.detail.page.fromPage.url !== '#content-2')
+      console.log(realPage)
       
       // Real page change
       if (realPage) {
