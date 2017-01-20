@@ -25,13 +25,13 @@
 
     <!-- Popup -->
     <f7-popup id="popup">
-      <f7-view navbar-fixed url="popup">
+      <f7-view id="popup" navbar-fixed url="popup">
       </f7-view>
     </f7-popup>
 
     <!-- Login Screen -->
     <f7-login-screen id="login-screen">
-      <f7-view url="loginScreen">
+      <f7-view id="loginScreen" url="loginScreen">
       </f7-view>
     </f7-login-screen>
 

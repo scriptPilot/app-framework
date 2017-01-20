@@ -59,28 +59,28 @@
     <f7-list form>
       <f7-list-item>
         <f7-label floating>Name</f7-label>
-        <f7-input name="name" type="text" placeholder="Name"></f7-input>
+        <f7-input name="name2" type="text" placeholder="Name"></f7-input>
       </f7-list-item>
       <f7-list-item>
         <f7-label floating>Password</f7-label>
-        <f7-input name="password" type="password" placeholder="Password"></f7-input>
+        <f7-input name="password2" type="password" placeholder="Password"></f7-input>
       </f7-list-item>
       <f7-list-item>
         <f7-label floating>E-mail</f7-label>
-        <f7-input name="email" type="email" placeholder="E-mail"></f7-input>
+        <f7-input name="email2" type="email" placeholder="E-mail"></f7-input>
       </f7-list-item>
     </f7-list>
 
     <f7-block-title>Form Without Labels</f7-block-title>
     <f7-list form>
       <f7-list-item>
-        <f7-input name="name" type="text" placeholder="Name"></f7-input>
+        <f7-input name="name3" type="text" placeholder="Name"></f7-input>
       </f7-list-item>
       <f7-list-item>
-        <f7-input name="password" type="password" placeholder="Password"></f7-input>
+        <f7-input name="password3" type="password" placeholder="Password"></f7-input>
       </f7-list-item>
       <f7-list-item>
-        <f7-input name="email" type="email" placeholder="E-mail"></f7-input>
+        <f7-input name="email3" type="email" placeholder="E-mail"></f7-input>
       </f7-list-item>
     </f7-list>
 
