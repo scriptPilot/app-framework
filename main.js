@@ -269,7 +269,7 @@ new Vue({
       }
       if (localStorage.formFocus) {
         setTimeout(function () {
-          this.$$(this.$f7.getCurrentView().activePage.container).find('input[name=' + localStorage.formFocus + ']').focus()
+          this.$$(this.$f7.getCurrentView().activePage.container).find('[name=' + localStorage.formFocus + ']').focus()
         }.bind(this), 200)
       }
     }.bind(this), 0)   

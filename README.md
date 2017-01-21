@@ -36,7 +36,7 @@ A composition of great software projects.
 
 As prerequisite you should understand the principles of [Node.js and npm](https://docs.npmjs.com/getting-started/what-is-npm).
 
-:boom: **This framework must be installed as dependency to your project - do not clone or download it directly.**
+:boom: **This framework must be installed as dependency to your project - do not clone or download it directly!**
 
 1. Create an empty project folder on your computer
 2. Save [package.json](https://raw.githubusercontent.com/scriptPilot/app-framework/master/demo-app/package.json) file to your project folder
