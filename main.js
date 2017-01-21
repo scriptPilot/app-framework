@@ -138,6 +138,7 @@ new Vue({
         // Forward - add page
         if (ePage.type === 'page:init') {
           let url = ePage.detail.page.url
+          let pageNo = _.size(this.runtime[view])
           
           // Loop tabs
           let tabs = {}
@@ -147,7 +148,7 @@ new Vue({
             if (tabId !== null && tabId !== '' && tabs[tabId] === undefined) {
               tabs[tabId] = 0
             } else {
-              consolePage.error('Please assign a unique ID to each tab component!')
+              console.error('Please assign a unique "id" attribute to each tab component on page "' + url + '"!')
             }
             if (this.$$(elTab).hasClass('active')) {
               activeTab = tabId
@@ -167,25 +168,46 @@ new Vue({
           // Attach tab watcher
           if (tabs) {
             this.$$(ePage.target).on('tab:show', function (eTab) {
-              this.runtime[view][pageNo - 1].activeTab = this.$$(eTab.target).attr('id')
+              this.runtime[view][pageNo].activeTab = this.$$(eTab.target).attr('id')
               this.saveRuntime()
             }.bind(this))
           }
           
           // Attach scroll position watcher
-          let pageNo = _.size(this.runtime[view])
           if (!tabs) {
             this.$$(ePage.target).find('.page-content').on('scroll', function (ePageContent) {
-              this.runtime[view][pageNo - 1].scrollPosition = ePageContent.target.scrollTop
+              this.runtime[view][pageNo].scrollPosition = ePageContent.target.scrollTop
               this.saveRuntime()
             }.bind(this))
           } else {
             for (let tab in tabs) {
               this.$$(ePage.target).find('.tab.page-content#' + tab).on('scroll', function (ePageContent) {
-                this.runtime[view][pageNo - 1].tabs[tab] = ePageContent.target.scrollTop
+                this.runtime[view][pageNo].tabs[tab] = ePageContent.target.scrollTop
                 this.saveRuntime()
               }.bind(this))
             }
+          }
+          
+          // Attach form data watcher
+          let fields = []
+          let fieldCheck = true
+          this.$$(ePage.target).find(['input', 'select', 'textarea']).each(function (fieldNo, fieldEl) {
+            let fieldName = this.$$(fieldEl).attr('name')
+            let fieldType = this.$$(fieldEl).attr('type')
+            if (fieldName !== '' && fieldName !== null && fieldName !== undefined
+                && (fields.indexOf(fieldName) === -1 || fieldType === 'checkbox' || fieldType === 'radio')) {
+              fields.push(fieldName)              
+            } else {
+              fieldCheck = false
+            }
+          }.bind(this))
+          if (fieldCheck) {
+            this.$$(ePage.target).on('keyup change', function (eField) {
+              this.runtime[view][pageNo].formData = this.$f7.formToData(ePage.target)
+              this.saveRuntime()
+            }.bind(this))
+          } else {
+            console.error('Please assign a unique "name" attribute to each form field on page "' + url + '"!')
           }
           
         // Backward - remove page
@@ -233,7 +255,7 @@ new Vue({
       }
     }.bind(this))
     
-    // Restore pages, tabs, scroll positions      
+    // Restore pages, tabs, scroll positions, form data      
       _.map(this.runtime, function (pages, viewId) {
         this.runtime[viewId] = []
         this.saveRuntime()
@@ -250,7 +272,12 @@ new Vue({
                 if (page.scrollPosition > 0) {
                   this.$$(this.$$('.view#' + viewId + ' .page')[pageNo]).find('.page-content').scrollTop(page.scrollPosition)
                 }
-              }                
+              } 
+              if (page.formData) {
+                this.$f7.formFromData(this.$$(this.$$('.view#' + viewId + ' .page')[pageNo]), page.formData)
+                this.runtime[viewId][pageNo].formData = page.formData
+              }
+              this.saveRuntime()
             }.bind(this), 0)
           }.bind(this), 0)
         }.bind(this))

@@ -5,7 +5,7 @@
       <p style="text-align: center">Enter some data, close and reopen this app - and see how all forms on this page have kept their data - and the scroll position and the form focus as well.</p>
     </f7-block>
     <f7-block-title>Form</f7-block-title>
-    <f7-list form>
+    <f7-list>
       <f7-list-item>
         <f7-label>Name</f7-label>
         <f7-input name="name" type="text" placeholder="Name"></f7-input>
