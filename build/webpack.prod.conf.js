@@ -10,6 +10,7 @@ var baseWebpackConfig = require('./webpack.base.conf')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ImageminPlugin = require('imagemin-webpack-plugin').default
+var AppCachePlugin = require('appcache-webpack-plugin')
 var env = config.build.env
 
 var webpackConfig = merge(baseWebpackConfig, {
@@ -48,6 +49,7 @@ var webpackConfig = merge(baseWebpackConfig, {
       filename: config.build.index,
       template: 'index.ejs',
       title: app.title,
+      manifest: ' manifest="manifest.appcache"',
       inject: true,
       minify: {
         removeComments: true,
@@ -61,6 +63,14 @@ var webpackConfig = merge(baseWebpackConfig, {
     }),
     new ImageminPlugin({
       svgo: null
+    }),
+    new AppCachePlugin({
+      cache: null,
+      network: ['*'],
+      fallback: null,
+      settings: null,
+      exclude: [/\.(js|css)\.map$/],
+      output: 'manifest.appcache'
     })
     
     /*,

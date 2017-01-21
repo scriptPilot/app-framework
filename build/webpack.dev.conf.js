@@ -32,6 +32,7 @@ module.exports = merge(baseWebpackConfig, {
       filename: 'index.html',
       template: 'index.ejs',
       title: app.title,
+      manifest: '',
       inject: true
     })
   ]
