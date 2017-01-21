@@ -20,7 +20,7 @@
       <f7-list-item link="localStorage" title="LocalStorage ToDo"></f7-list-item>
       <!--<f7-list-item link="firebase" title="Firebase ToDo" badge="wip" badge-color="red"></f7-list-item>-->
       <f7-list-item link="multipleLanguages" title="Multiple languages"></f7-list-item>
-      <f7-list-item link="tabs" title="Tabs" badge="work in progress" badge-color="red"></f7-list-item>
+      <f7-list-item link="tabs" title="Tabs"></f7-list-item>
       <f7-list-item link="https://framework7.io/kitchen-sink-ios" title="iOS Showcase" badge="Framework7" link-external></f7-list-item>
       <f7-list-item link="https://framework7.io/kitchen-sink-material" title="Material Showcase" badge="Framework7" link-external></f7-list-item>
     </f7-list>

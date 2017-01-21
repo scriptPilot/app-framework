@@ -15,20 +15,11 @@
     <f7-tabs swipeable>
       <f7-page-content tab active id="tab1">
         <f7-block inner inset>
-          <p>Go to second tab, with <b>click or swipe</b> ...</p>
+          <p>Scroll a little bit down and then go to second tab, with <b>click or swipe</b> ...</p>
         </f7-block>
-        <f7-list form>
-          <f7-list-item>
-            <f7-label>Name</f7-label>
-            <f7-input type="text" placeholder="Name"></f7-input>
-          </f7-list-item>
+        <f7-list>
+          <f7-list-item v-for="n in 9" :title="'List item no ' + n"></f7-list-item>
         </f7-list>
-        <f7-block inner>
-           <p>
-            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-            text
-           </p>
-        </f7-block>
       </f7-page-content>
       <f7-page-content tab id="tab2">
         <f7-block inner inset>

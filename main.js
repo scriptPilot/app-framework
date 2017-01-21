@@ -72,6 +72,7 @@ new Vue({
     language: localStorage.language ? localStorage.language : app.defaultLanguage,
     title: app.title,
     version: project.version,
+    // Runtime {viewId: [{url, scrollPosition, formData, tabs: {tabId: scrollPosition}, activeTab}]}
     runtime: localStorage.runtime ? JSON.parse(localStorage.runtime) : {}
   }, 
   framework7: {
@@ -83,8 +84,6 @@ new Vue({
     app: App
   },
   mounted: function () {
-    
-    // runtime: {viewId: [{url, scrollPosition, formData, tabs: {tabId: scrollPosition}, activeTab}]}
     
     // List views
     let views = {}
@@ -118,13 +117,23 @@ new Vue({
     // Remember pages, tabs, scroll positions
     this.$$(document).on('page:init page:reinit', function (ePage) {
       
-      // todo ...
-      let realPage = ePage.detail.page.url !== '#content-2' && (!ePage.detail.page.fromPage || ePage.detail.page.fromPage.url !== '#content-2')
-      console.log(realPage)
+      // Get view
+      let view = this.$$(ePage.target).parents('.view').attr('id')
+      
+      // Filter improper page changes
+        let realPage = true
+        
+        // Smart selects
+        if (ePage.detail.page.url === '#content-2' || (ePage.detail.page.fromPage && ePage.detail.page.fromPage.url === '#content-2')) {
+          realPage = false
+          
+        // Display of popups and login screens
+        } else if (this.runtime[view].length > 0 && ePage.detail.page.from === 'center') {
+          realPage = false
+        }
       
       // Real page change
       if (realPage) {
-        let view = this.$$(ePage.target).parents('.view').attr('id')
         
         // Forward - add page
         if (ePage.type === 'page:init') {
@@ -165,7 +174,7 @@ new Vue({
           
           // Attach scroll position watcher
           let pageNo = _.size(this.runtime[view])
-          if (tabs) {
+          if (!tabs) {
             this.$$(ePage.target).find('.page-content').on('scroll', function (ePageContent) {
               this.runtime[view][pageNo - 1].scrollPosition = ePageContent.target.scrollTop
               this.saveRuntime()
@@ -178,9 +187,6 @@ new Vue({
               }.bind(this))
             }
           }
-          
-          // Attach form data watcher
-          // todo ...
           
         // Backward - remove page
         } else {
@@ -227,123 +233,56 @@ new Vue({
       }
     }.bind(this))
     
-    
-    /*
-    
-    // Update runtime: form data
-    this.$$(document).on('keyup change', function (e) {
-      let view = this.$$(e.target).parents('.view').attr('id')
-      let page = this.$$(e.target).parents('.page')
-      let data = []
-      this.$$(e.target).parents('.page').find('form').each(function (i, el) {
-        data.push(this.$f7.formToData(el))
-      }.bind(this))
-      this.runtime[view][this.runtime[view].length-1].formData = data
-      this.saveRuntime()
-    }.bind(this))
-    
-    // Remember form focus
-    this.$$(document).on('focusout', function(e) {
-      localStorage.removeItem('formFocus')
-    })
-    this.$$(document).on('focusin', function(e) {
-      if (e.srcElement.name !== '') {
-        localStorage.formFocus = e.srcElement.name
-      }
-    })
-    
-    // Remember panel/popup/loginscreen
-    
-
-    // Restore runtime: pages, form data, tabs, scroll positions
-    if (runtimeCheck) {
-      
-      // Make snapshot of initial runtime
-      let initialRuntime = JSON.parse(JSON.stringify(this.runtime))
-    
-      // Loop views
-      for (let v in this.$f7.views) {        
-        let viewId = Object.keys(initialRuntime)[v]
-        let view = initialRuntime[viewId]
-        if (view) {
-          
-          // Reset runtime to avoid double listing of pages
-          this.runtime[viewId] = []
-          
-          // Loop pages          
-          for (let p = 0; p < view.length; p++) {            
-            let page = view[p]
-            
-            // Restore page
-            setTimeout(function () {
-              this.$f7.views[v].router.load({url: page.url, animatePages: false})              
-            }.bind(this), 0)
-            
-          }
-        
-          // Restore form data, tabs, scroll positions
+    // Restore pages, tabs, scroll positions      
+      _.map(this.runtime, function (pages, viewId) {
+        this.runtime[viewId] = []
+        this.saveRuntime()
+        _.map(pages, function (page, pageNo) {
           setTimeout(function () {
-            
-            // Loop pages
-            for (let p = 0; p < view.length; p++) {
-              
-              // Scroll position
-              if (view[p].scrollPosition !== 0) {                
-                this.$$(this.$$('.view#' + viewId + ' .page')[p]).find('.page-content').scrollTop(view[p].scrollPosition)
-                this.runtime[viewId][p].scrollPosition = view[p].scrollPosition
-              }   
-              
-            }
-            
-            // Save runtime
-            this.saveRuntime()
-            
-          }.bind(this), 50)
-          
-        }
-        
-      }
-      
-    }
+            this.$f7.views[Object.keys(views).indexOf(viewId)].router.load({url: page.url, animatePages: false})
+            setTimeout(function () {
+              if (page.activeTab) {                
+                this.$f7.showTab('#' + page.activeTab)                
+                _.map(page.tabs, function (scrollPosition, tabId) {
+                  this.$$(this.$$('.view#' + viewId + ' .page')[pageNo]).find('.tab.page-content#' + tabId).scrollTop(scrollPosition)
+                }.bind(this))
+              } else {
+                if (page.scrollPosition > 0) {
+                  this.$$(this.$$('.view#' + viewId + ' .page')[pageNo]).find('.page-content').scrollTop(page.scrollPosition)
+                }
+              }                
+            }.bind(this), 0)
+          }.bind(this), 0)
+        }.bind(this))
+      }.bind(this)) 
     
-    // Restore form focus
-    if (localStorage.formFocus) {
-      setTimeout(function () {        
-        this.$$('input[name=' + localStorage.formFocus + ']')[0].focus()
-      }.bind(this), 100)
-    }
-    
-    // Restore panel, popup, loginscreen
-    if (localStorage.panel) {
-      setTimeout(function () {
+    // Restore panel, popup, login screen, form focus
+    setTimeout(function () {      
+      if (localStorage.panel) {
         this.$f7.openPanel(localStorage.panel)
-      }.bind(this), 0)
-    }
-    if (localStorage.popup) {
-      setTimeout(function () {
+      }
+      if (localStorage.popup) {
         this.$f7.popup('#' + localStorage.popup)
-      }.bind(this), 0)
-    }
-    if (localStorage.loginscreen) {
-      setTimeout(function () {
-        this.$f7.loginScreen('#' + localStorage.loginscreen)
-      }.bind(this), 0)
-    }
-  
-  
-    
+      }
+      if (localStorage.loginScreen) {
+        this.$f7.loginScreen('#' + localStorage.loginScreen)
+      }
+      if (localStorage.formFocus) {
+        setTimeout(function () {
+          this.$$(this.$f7.getCurrentView().activePage.container).find('input[name=' + localStorage.formFocus + ']').focus()
+        }.bind(this), 200)
+      }
+    }.bind(this), 0)   
+      
     // Show app
     setTimeout(function () {
       this.$$('.framework7-root').css('visibility', 'visible')
     }.bind(this), 0)
     
-    */
-    
   },
   methods: {
     saveRuntime: function() {
       localStorage.runtime = JSON.stringify(this.runtime)
-      console.log(JSON.stringify(JSON.parse(localStorage.runtime)['main-view']))
     }
   },
   watch: {

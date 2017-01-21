@@ -12,24 +12,15 @@
     <f7-tabs swipeable>
       <f7-page-content tab active id="tab2-1">
         <f7-block inner inset>
-          <p>Go to second sub tab, with <b>click or swipe</b> ...</p>
+          <p>Scroll again a little bit and then go to second sub tab, with <b>click or swipe</b> ...</p>
         </f7-block>
-        <f7-list form>
-          <f7-list-item>
-            <f7-label>Name</f7-label>
-            <f7-input type="text" placeholder="Name"></f7-input>
-          </f7-list-item>
+        <f7-list>
+          <f7-list-item v-for="n in 9" :title="'Sub list item no ' + n"></f7-list-item>
         </f7-list>
-        <f7-block inner>
-           <p>
-            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-            text
-           </p>
-        </f7-block>
       </f7-page-content>
       <f7-page-content tab id="tab2-2">
         <f7-block inner inset>
-          <p><b>Close app and reopen it</b> - you will see, this tab and the tab of the page before will be restored properly <f7-icon fa="smile-o"></f7-icon></p>
+          <p><b>Close app and reopen it</b> - you will see, selected tabs and scroll positions will be restored properly <f7-icon fa="smile-o"></f7-icon></p>
         </f7-block>
       </f7-page-content>
       <f7-page-content tab id="tab2-3">
