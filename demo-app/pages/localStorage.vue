@@ -13,7 +13,7 @@
     <!-- Input field for new todo -->    
     <f7-list>    
       <f7-list-item>
-        <div slot="inner-start"><f7-input type="text" placeholder="What is to do?" v-model="newTodo" @keydown.13="saveTodo"></f7-input></div>
+        <div slot="inner-start"><f7-input type="text" placeholder="What is to do?" v-model="newTodo" @keydown.13="saveTodo" name="newTodo"></f7-input></div>
         <span slot="after" v-show="newTodo"><f7-link @click="saveTodo">Save</f7-link></span>
       </f7-list-item>      
     </f7-list>

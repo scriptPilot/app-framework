@@ -22,7 +22,7 @@
     "form": "form",
     "image": "image",    
     "localStorage": "localStorage",
-    "firebase": "firebase",
+    "firebasePublic": "firebasePublic",
     "multipleLanguages": "multipleLanguages",
     "simplePage": "simplePage",
     "tabs": "tabs",
@@ -35,13 +35,16 @@
     "ion": false,
     "fontawesome": true
   },
-  "useFirebase": false,
+  "useFirebase": true,
   "firebase": {
     "apiKey": "AIzaSyAvzTiqd9fKR-h47Uxl4iXwqSMU1VjGdII",
     "authDomain": "app-framework-9045a.firebaseapp.com",
     "databaseURL": "https://app-framework-9045a.firebaseio.com",
     "storageBucket": "app-framework-9045a.appspot.com",
     "messagingSenderId": "690341427128"
+  },
+  "firebaseRefs": {
+    "publicData/test": "test"
   },
   "buildSourcemaps": false
 }

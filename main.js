@@ -17,18 +17,18 @@ if (process.env.USE_FIREBASE === 'true') {
 var Vue = require('vue')
 
 // Import F7
-require('framework7')
+require('./libs/framework7/js/framework7.min.js')
 
 // Import F7 Vue Plugin
-var Framework7Vue = require('framework7-vue')
+var Framework7Vue = require('./libs/framework7-vue.min.js')
 
 // Import F7 iOS Theme Styles
 if (process.env.THEME === 'material') {
-  require('framework7/dist/css/framework7.material.min.css')
-  require('framework7/dist/css/framework7.material.colors.min.css')
+  require('./libs/framework7/css/framework7.material.min.css')
+  require('./libs/framework7/css/framework7.material.colors.min.css')
 } else {
-  require('framework7/dist/css/framework7.ios.min.css')
-  require('framework7/dist/css/framework7.ios.colors.min.css')
+  require('./libs/framework7/css/framework7.ios.min.css')
+  require('./libs/framework7/css/framework7.ios.colors.min.css')
 }
 
 // Icon fonts
@@ -72,8 +72,10 @@ new Vue({
     language: localStorage.language ? localStorage.language : app.defaultLanguage,
     title: app.title,
     version: project.version,
-    // Runtime {viewId: [{url, scrollPosition, formData, tabs: {tabId: scrollPosition}, activeTab}]}
-    runtime: localStorage.runtime ? JSON.parse(localStorage.runtime) : {}
+    // Runtime {viewId: [{url, scrollPosition, tabs: {tabId: scrollPosition}, activeTab}]}
+    runtime: localStorage.runtime ? JSON.parse(localStorage.runtime) : {}/*,
+    db: {}, // reserved for firebase data
+    dbRef: {} // reserved for firebase refs     */
   }, 
   framework7: {
     root: '#app',
@@ -84,6 +86,20 @@ new Vue({
     app: App
   },
   mounted: function () {
+    
+    /*
+    // Update db with cached data, create ref and attach listener
+    _.map(app.firebaseRefs, function (name, path) {      
+      this.db[name] = localStorage['db_' + name] ? JSON.parse(localStorage['db_' + name]) : null
+      this.dbRef[name] = firebase.database().ref(path)
+      if (path.indexOf('$uid') === -1) {
+        this.dbRef[name].on('value', function (snapshot) {
+          this.db[name] = snapshot.val()
+          console.log(this.db)
+        }.bind(this))
+      }
+    }.bind(this))
+    */
     
     // List views
     let views = {}
@@ -159,8 +175,8 @@ new Vue({
           // Add page to runtime
           this.runtime[view].push({
             url: url,
-            scrollPosition: 0,
-            formData: null,
+            scrollPosition: 0,/*
+            formData: null,*/
             tabs: tabs,
             activeTab: activeTab          
           })
@@ -188,6 +204,7 @@ new Vue({
             }
           }
           
+          /*
           // Attach form data watcher
           let fields = []
           let fieldCheck = true
@@ -209,6 +226,7 @@ new Vue({
           } else {
             console.error('Please assign a unique "name" attribute to each form field on page "' + url + '"!')
           }
+          */
           
         // Backward - remove page
         } else {
@@ -273,10 +291,12 @@ new Vue({
                   this.$$(this.$$('.view#' + viewId + ' .page')[pageNo]).find('.page-content').scrollTop(page.scrollPosition)
                 }
               } 
+              /*
               if (page.formData) {
                 this.$f7.formFromData(this.$$(this.$$('.view#' + viewId + ' .page')[pageNo]), page.formData)
                 this.runtime[viewId][pageNo].formData = page.formData
               }
+              */
               this.saveRuntime()
             }.bind(this), 0)
           }.bind(this), 0)
