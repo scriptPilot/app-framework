@@ -1,4 +1,7 @@
 <template>
+
+  <!-- To keep state of form element (and work with them) you have to assign v-model attributes -->
+
   <f7-page>
     <f7-navbar title="Form" back-link="Back" sliding></f7-navbar>
     <f7-block inner inset>
@@ -8,90 +11,83 @@
     <f7-list>
       <f7-list-item>
         <f7-label>Name</f7-label>
-        <f7-input name="name" type="text" placeholder="Name"></f7-input>
+        <f7-input v-model="name" name="name" type="text" placeholder="Name"></f7-input>
       </f7-list-item>
       <f7-list-item>
         <f7-label>Password</f7-label>
-        <f7-input name="password" type="password" placeholder="Password"></f7-input>
+        <!-- State of password field won't be kept for security reasons (to be read in local storage) -->
+        <f7-input type="password" name="password" placeholder="Password"></f7-input>
       </f7-list-item>
       <f7-list-item>
         <f7-label>E-mail</f7-label>
-        <f7-input name="email" type="email" placeholder="E-mail"></f7-input>
+        <f7-input v-model="email" name="email" type="email" placeholder="E-mail"></f7-input>
       </f7-list-item>
       <f7-list-item>
         <f7-label>URL</f7-label>
-        <f7-input name="url" type="url" placeholder="URL"></f7-input>
+        <f7-input v-model="url" name="url" type="url" placeholder="URL"></f7-input>
       </f7-list-item>
       <f7-list-item>
         <f7-label>Phone</f7-label>
-        <f7-input name="phone" type="tel" placeholder="Phone"></f7-input>
+        <f7-input v-model="phone" name="phone" type="tel" placeholder="Phone"></f7-input>
       </f7-list-item>
       <f7-list-item>
         <f7-label>Birth date</f7-label>
-        <f7-input name="birthday" type="date" placeholder="Birth date" value="2014-04-30"></f7-input>
-      </f7-list-item>
+        <f7-input v-model="birthday" name="birthday" type="date" placeholder="Birth date"></f7-input>
+      </f7-list-item>      
       <f7-list-item>
         <f7-label>Date time</f7-label>
-        <f7-input name="date" type="datetime-local"></f7-input>
+        <f7-input v-model="date" name="date" type="datetime-local"></f7-input>
       </f7-list-item>
       <f7-list-item>
         <f7-label>Gender</f7-label>
-        <f7-input name="gender" type="select">
+        <f7-input v-model="gender" name="gender" type="select">
           <option value="male">Male</option>
           <option value="female">Female</option>
         </f7-input>
       </f7-list-item>
       <f7-list-item>
         <f7-label>Switch</f7-label>
-        <f7-input name="switch" type="switch"></f7-input>
+        <f7-input v-model="switchbox" name="switchbox" type="switch"></f7-input>
       </f7-list-item>
       <f7-list-item>
         <f7-label>Range</f7-label>
-        <f7-input name="range" type="range" min="0" max="100" step="1" value="90"></f7-input>
+        <f7-input v-model="range" name="range" type="range" min="0" max="100" step="1"></f7-input>
       </f7-list-item>
       <f7-list-item>
         <f7-label>Textarea</f7-label>
-        <f7-input name="text" type="textarea" placeholder="Textarea"></f7-input>
+        <f7-input v-model="text" name="text" type="textarea" placeholder="Textarea"></f7-input>
       </f7-list-item>
     </f7-list>
-
+    
     <f7-block-title>Form With Floating Labels</f7-block-title>
     <f7-list form>
       <f7-list-item>
         <f7-label floating>Name</f7-label>
-        <f7-input name="name2" type="text" placeholder="Name"></f7-input>
+        <f7-input v-model="name2" name="name2" type="text" placeholder="Name"></f7-input>
       </f7-list-item>
       <f7-list-item>
         <f7-label floating>Password</f7-label>
-        <f7-input name="password2" type="password" placeholder="Password"></f7-input>
+        <!-- State of password field won't be kept for security reasons (to be read in local storage) -->
+        <f7-input type="password" name="password" placeholder="Password"></f7-input>
       </f7-list-item>
       <f7-list-item>
         <f7-label floating>E-mail</f7-label>
-        <f7-input name="email2" type="email" placeholder="E-mail"></f7-input>
+        <f7-input v-model="email2" name="email2" type="email" placeholder="E-mail"></f7-input>
       </f7-list-item>
     </f7-list>
-
+    
     <f7-block-title>Form Without Labels</f7-block-title>
     <f7-list form>
       <f7-list-item>
-        <f7-input name="name3" type="text" placeholder="Name"></f7-input>
+        <f7-input v-model="name3" name="name3" type="text" placeholder="Name"></f7-input>
       </f7-list-item>
       <f7-list-item>
-        <f7-input name="password3" type="password" placeholder="Password"></f7-input>
+        <!-- State of password field won't be kept for security reasons (to be read in local storage) -->
+        <f7-input type="password" name="password" placeholder="Password"></f7-input>
       </f7-list-item>
       <f7-list-item>
-        <f7-input name="email3" type="email" placeholder="E-mail"></f7-input>
+        <f7-input v-model="email3" name="email3" type="email" placeholder="E-mail"></f7-input>
       </f7-list-item>
-    </f7-list>
-
-    <f7-block-title>Checkboxes</f7-block-title>
-    <f7-list form>
-      <f7-list-item v-for="n in 3" checkbox name="my-checkbox" :value="n" :title="'Checkbox ' + n"></f7-list-item>
-    </f7-list>
-
-    <f7-block-title>Radios</f7-block-title>
-    <f7-list form>
-      <f7-list-item v-for="n in 3" radio name="my-radio" :checked="n === 1" :value="n" :title="'Radio ' + n"></f7-list-item>
     </f7-list>
 
     <f7-block-title>Buttons</f7-block-title>
@@ -131,5 +127,24 @@
 </template>
 
 <script>
-module.exports = {}
+  module.exports = {
+    data: function () {
+      return {
+        name: '',
+        email: '',
+        url: '',
+        phone: '',
+        birthday: '',
+        date: '',
+        gender: '',
+        switchbox: '',
+        range: '',
+        text: '',
+        name2: '',
+        email2: '',
+        name3: '',
+        email3: ''
+      }      
+    }
+  }
 </script>

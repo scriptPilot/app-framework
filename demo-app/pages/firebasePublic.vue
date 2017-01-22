@@ -1,9 +1,8 @@
 <template>
-
   <f7-page>
   
     <!-- Navbar and backlink -->
-    <f7-navbar title="Firebase Public ToDo" back-link="Back" sliding></f7-navbar>
+    <f7-navbar title="Public Firebase ToDo" back-link="Back" sliding></f7-navbar>
     
     <!-- Description box -->
     <f7-block inner inset style="text-align: center">
@@ -49,8 +48,7 @@
       <p style="text-align: center"><f7-icon fa="smile-o"></f7-icon> &nbsp;Nothing to do</p>
     </f7-block>
     
-  </f7-page>
-  
+  </f7-page>  
 </template>
 <script>
 
@@ -61,32 +59,18 @@
       return {
         newTodo: '',
         todos: null,
-        maxEntries: 10
+        maxEntries: 10  
       }
     },
+          
+    // Attach data change listener to firebase todo list
+    mounted: function() {      
+      firebase.database().ref('publicData/todos').orderByChild('created').limitToLast(this.maxEntries).on('value', function (snapshot) {        
       
-    // Firebase + localStorage test
-    mounted: function() {
-      let view = this.$$(this.$el).parents('.view').attr('id')
-      let url = this.$route.url
-      let pageNo = this.$$(this.$el).parents('.view').find('.page').length - 1
-      let vueId = 'db/' + view + '/' + pageNo + '/' + url      
-      this.$vueId = vueId
-      if (localStorage[this.$vueId]) {
-        let data = JSON.parse(localStorage[this.$vueId])
-        for (let key in data) {
-          this[key] = data[key]
-        }
-      }
-      firebase.database().ref('publicData/todos').orderByChild('created').limitToLast(this.maxEntries).on('value', function (snapshot) {
-        this.todos = snapshot.val()
-      }.bind(this))
-    },
-    beforeUpdate: function () {
-      localStorage[this.$vueId] = JSON.stringify(this.$data)
-    },
-    beforeDestroy: function() {
-      localStorage.removeItem[this.$vueId]
+        // Integrated function: sortObject(object, sortByAttribute [, descendingOrder])
+        this.todos = sortObject(snapshot.val(), 'created', true)
+        
+      }.bind(this))      
     },
     
     // Compute number of completed todos
@@ -102,23 +86,25 @@
       }
     },
     
-    // Methods
+    // Methods - With error handling
     methods: {
     
       // Save new todo
       saveTodo: function(e) {
-        firebase.database().ref('publicData/todos')
-          .push({
-            text: this.newTodo,
-            completed: false,
-            created: firebase.database.ServerValue.TIMESTAMP            
-          })
-          .then(function() {
-            this.newTodo = ''
-          }.bind(this))
-          .catch(function() {
-            this.$f7.alert('Cannot save new task :-(<br />Please try again later', 'Trouble with Firebase')
-          }.bind(this))
+        if (this.newTodo !== '') {
+          firebase.database().ref('publicData/todos')
+            .push({
+              text: this.newTodo,
+              completed: false,
+              created: firebase.database.ServerValue.TIMESTAMP            
+            })
+            .then(function() {
+              this.newTodo = ''
+            }.bind(this))
+            .catch(function() {
+              this.$f7.alert('Cannot save new task :-(<br />Please try again later', 'Trouble with Firebase')
+            }.bind(this))
+        }
       },
       
       // Mark todo as completed / not completed

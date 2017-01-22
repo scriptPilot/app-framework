@@ -14,11 +14,11 @@ A composition of great software projects.
 - **Powerful**
  - [x] Reactive user interface - [Vue](https://vuejs.org/)
  - [x] Flexible routing - [Framework7-Vue](http://framework7.io/vue/navigation-router.html)
- - [x] State kept for pages, tabs, panels, popups, scroll positions, form focus and form data
+ - [x] State kept for pages, page data, tabs, panels, popups, scroll positions, form inputs and focus
  - [x] Multi-language support
  - [x] Offline capability
  - [ ] User authentication - [Firebase](https://firebase.google.com/)
- - [ ] Data backend - [Firebase](https://firebase.google.com/)
+ - [x] Data backend - [Firebase](https://firebase.google.com/)
  - [ ] Storage backend - [Firebase](https://firebase.google.com/)
 - **Complete**
  - [x] Quick start - [npm](https://www.npmjs.com)

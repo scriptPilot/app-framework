@@ -21,7 +21,7 @@
     "popup": "popup",
     "form": "form",
     "image": "image",    
-    "localStorage": "localStorage",
+    "simpleTodo": "simpleTodo",
     "firebasePublic": "firebasePublic",
     "multipleLanguages": "multipleLanguages",
     "simplePage": "simplePage",

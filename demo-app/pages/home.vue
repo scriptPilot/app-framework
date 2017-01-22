@@ -17,9 +17,8 @@
       <f7-list-item link="form" title="Form"></f7-list-item>
       <f7-list-item link="flexibleRouting/blog/45/post/125?foo=bar#about" title="Flexible Routing"></f7-list-item>
       <f7-list-item link="image" title="Icon & Image"></f7-list-item>
-      <f7-list-item link="localStorage" title="LocalStorage ToDo"></f7-list-item>
-      <f7-list-item link="firebasePublic" title="Firebase Public ToDo"></f7-list-item>
-      <!--<f7-list-item link="firebase" title="Firebase ToDo" badge="wip" badge-color="red"></f7-list-item>-->
+      <f7-list-item link="simpleTodo" title="Simple ToDo list"></f7-list-item>
+      <f7-list-item link="firebasePublic" title="Public Firebase ToDo list"></f7-list-item>
       <f7-list-item link="multipleLanguages" title="Multiple languages"></f7-list-item>
       <f7-list-item link="tabs" title="Tabs"></f7-list-item>
       <f7-list-item link="https://framework7.io/kitchen-sink-ios" title="iOS Showcase" badge="Framework7" link-external></f7-list-item>

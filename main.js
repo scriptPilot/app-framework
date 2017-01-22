@@ -3,7 +3,7 @@ var app = require(process.env.ROOT_APP + 'package.json')
 var project = require(process.env.ROOT_PROJECT + 'package.json')
 
 // Import underscore
-var _ = require('underscore')
+window['_'] = require('underscore')
 
 // Import and initialize Firebase
 if (process.env.USE_FIREBASE === 'true') {
@@ -16,13 +16,8 @@ if (process.env.USE_FIREBASE === 'true') {
 // Import Vue
 var Vue = require('vue')
 
-// Import F7
+// Import Framework7
 require('./libs/framework7/js/framework7.min.js')
-
-// Import F7 Vue Plugin
-var Framework7Vue = require('./libs/framework7-vue.min.js')
-
-// Import F7 iOS Theme Styles
 if (process.env.THEME === 'material') {
   require('./libs/framework7/css/framework7.material.min.css')
   require('./libs/framework7/css/framework7.material.colors.min.css')
@@ -31,7 +26,11 @@ if (process.env.THEME === 'material') {
   require('./libs/framework7/css/framework7.ios.colors.min.css')
 }
 
-// Icon fonts
+// Init Framework7 Vue Plugin
+var Framework7Vue = require('framework7-vue')
+Vue.use(Framework7Vue)
+
+// Import icon fonts
 if (process.env.FONT_FRAMEWORK7 === 'true') {
   require('./libs/framework7-icons/css/framework7-icons.css')
 }
@@ -57,11 +56,190 @@ for (var page in app.routes) {
   Routes.push({path: page, component: require(process.env.ROOT_APP + 'pages/' + app.routes[page] + '.vue')})
 }
 
-// Import App Component
+// Import app Component
 var App = require(process.env.ROOT_APP + 'app.vue')
 
-// Init F7 Vue Plugin
-Vue.use(Framework7Vue)
+// Function to sort object by attribute
+window.sortObject = function (obj, sortBy, sortDesc) {
+  let arr = []
+  for (let el in obj) {
+    arr.push({
+      '.key': el,
+      '.sort': obj[el][sortBy] ? obj[el][sortBy] : ''
+    })
+  }
+  arr.sort(function (a, b) {
+    let result = null
+    if (a['.sort'] === b['.sort'] === '') {
+      result = 0
+    } else if (a['.sort'] === '') {
+      result = -1
+    } else if (b['.sort'] === '') {
+      result = 1
+    } else {
+      result = a['.sort'] - b['.sort']
+    }
+    result = sortDesc === true ? -1 * result : result
+    return result
+  })
+  let sortedObj = {}
+  for (let e = 0; e < arr.length; e++) {
+    sortedObj[arr[e]['.key']] = obj[arr[e]['.key']]      
+  }
+  return sortedObj
+}
+
+// Mixin for local storage handling of page objects
+Vue.mixin({
+  
+  // Define page runtime data
+  data: function () {
+    return {
+      'runtimeView': null,
+      'runtimePageNo': null,
+      'runtimeUrl': null,      
+      'runtimePageId': null,
+      'runtimeTabs': null,
+      'runtimeActiveTab': null,
+      'runtimeScrollPosition': 0
+    }
+  },
+  
+  // Method to save page data to local storage
+  methods: {
+    saveRuntime: function () {
+      if (this.runtimePageId) {
+        let data = {}
+        for (let el in this.$data) {
+          data[el] = this.$data[el]
+        }
+        localStorage[this.runtimePageId] = JSON.stringify(data)
+      }
+    }
+  },
+  
+  // Get runtime page data and attach event listener
+  mounted: function () {    
+  
+    // Page with Framework7 route object
+    if (this.$route) {  
+
+      // Get views from local storage
+      let views = localStorage.views ? JSON.parse(localStorage.views) : {}      
+      
+      // Get view
+      this.runtimeView = this.$$(this.$el).parents('.view').attr('id')
+      
+      // Get page number
+      if (!views[this.runtimeView]) {
+        views[this.runtimeView] = []
+      }
+      this.runtimePageNo = views[this.runtimeView].length
+      
+      // Get url
+      this.runtimeUrl = this.$route.url
+      
+      // Get page id
+      this.runtimePageId = 'runtime/' + this.runtimeView + '/' + this.runtimePageNo + '/' + this.runtimeUrl
+      
+      // Copy initial runtime
+      let initialRuntime = localStorage[this.runtimePageId] ? JSON.parse(localStorage[this.runtimePageId]) : null
+      
+      // Update views
+      views[this.runtimeView].push({
+        url: this.runtimeUrl,
+        pageId: this.runtimePageId
+      })
+      localStorage.views = JSON.stringify(views)
+      
+      // Loop tabs
+      this.$$(this.$el).find('.tab.page-content').each(function(i, elTab) {
+        if (!this.runtimeTabs) {
+          this.runtimeTabs = {}
+        }
+        let tabId = this.$$(elTab).attr('id')
+        if (tabId !== null && tabId !== '' && this.runtimeTabs[tabId] === undefined) {
+          this.runtimeTabs[tabId] = 0
+        } else {
+          console.error('Please assign a unique "id" attribute to each tab component on page "' + this.runtimeUrl + '"!')
+        }
+        if (this.$$(elTab).hasClass('active')) {
+          this.runtimeActiveTab = tabId
+        }
+      }.bind(this))
+      
+      // Attach tab listener
+      if (this.runtimeTabs) {
+        this.$$(this.$el).on('tab:show', function (eTab) {
+          this.runtimeActiveTab = this.$$(eTab.target).attr('id')
+          this.saveRuntime()
+        }.bind(this))
+      }
+      
+      // Attach scroll position listener
+      if (!this.runtimeTabs) {
+        this.$$(this.$el).find('.page-content').on('scroll', function (ePageContent) {
+          this.runtimeScrollPosition = ePageContent.target.scrollTop
+          this.saveRuntime()
+        }.bind(this))
+      } else {
+        for (let tab in this.runtimeTabs) {
+          this.$$(this.$el).find('.tab.page-content#' + tab).on('scroll', function (ePageContent) {
+            this.runtimeTabs[tab] = ePageContent.target.scrollTop
+            this.saveRuntime()
+          }.bind(this))
+        }
+      }
+      
+      // Restore initial runtime      
+      if (initialRuntime) {
+        
+        // Data
+        for (let el in initialRuntime) {
+          if (!/^runtime(.*)/.test(el)) {
+            this.$data[el] = initialRuntime[el]
+          }
+        }
+        
+        // Tabs, scroll position
+        if (initialRuntime.runtimeTabs) {
+          setTimeout(function () {
+            this.$f7.showTab('.tab#' + initialRuntime.runtimeActiveTab)
+          }.bind(this), 0)
+          for (let tab in initialRuntime.runtimeTabs) {
+            setTimeout(function () {
+              this.$$(this.$el).find('.tab#' + tab).scrollTop(initialRuntime.runtimeTabs[tab])
+            }.bind(this), 0)
+          }
+        } else {
+          this.$$(this.$el).find('.page-content').scrollTop(initialRuntime.runtimeScrollPosition)
+        }
+        
+      }
+      
+      // Save page in local storage
+      this.saveRuntime()      
+      
+    } 
+    
+  },
+  
+  // Update runtime on Dom update
+  beforeUpdate: function () {
+    this.saveRuntime()
+  },
+  
+  // Remove page from views and local storage on destroy
+  beforeDestroy: function () {
+    if (this.runtimePageId) {
+      let views = localStorage.views ? JSON.parse(localStorage.views) : {}      
+      views[this.runtimeView].splice(this.runtimePageNo, 1)      
+      localStorage.views = JSON.stringify(views)
+      localStorage.removeItem(this.runtimePageId)      
+    }
+  }
+  
+})
 
 // Init App
 var localStorage = window.localStorage
@@ -71,12 +249,8 @@ new Vue({
   data: {
     language: localStorage.language ? localStorage.language : app.defaultLanguage,
     title: app.title,
-    version: project.version,
-    // Runtime {viewId: [{url, scrollPosition, tabs: {tabId: scrollPosition}, activeTab}]}
-    runtime: localStorage.runtime ? JSON.parse(localStorage.runtime) : {}/*,
-    db: {}, // reserved for firebase data
-    dbRef: {} // reserved for firebase refs     */
-  }, 
+    version: project.version
+  },  
   framework7: {
     root: '#app',
     routes: Routes,
@@ -86,155 +260,6 @@ new Vue({
     app: App
   },
   mounted: function () {
-    
-    /*
-    // Update db with cached data, create ref and attach listener
-    _.map(app.firebaseRefs, function (name, path) {      
-      this.db[name] = localStorage['db_' + name] ? JSON.parse(localStorage['db_' + name]) : null
-      this.dbRef[name] = firebase.database().ref(path)
-      if (path.indexOf('$uid') === -1) {
-        this.dbRef[name].on('value', function (snapshot) {
-          this.db[name] = snapshot.val()
-          console.log(this.db)
-        }.bind(this))
-      }
-    }.bind(this))
-    */
-    
-    // List views
-    let views = {}
-    this.$$('.view').each(function (i, view) {
-      let viewId = this.$$(view).attr('id')
-      if (viewId !== null && viewId !== '' && !views[viewId]) {
-        views[viewId] = []
-      } else {
-        console.error('Please assign a unique ID to each view component!')
-      }
-    }.bind(this))
-    
-    // Check runtime
-    let runtimeCheck = true
-    if (_.size(this.runtime) !== _.size(views)) {
-      runtimeCheck = false
-    } else {
-      for (let view in views) {
-        if (!this.runtime[view]) {
-          runtimeCheck = false
-        }
-      }
-    }
-    
-    // Create/Replace runtime
-    if (runtimeCheck === false) {
-      this.runtime = views
-      this.saveRuntime()
-    }
-    
-    // Remember pages, tabs, scroll positions
-    this.$$(document).on('page:init page:reinit', function (ePage) {
-      
-      // Get view
-      let view = this.$$(ePage.target).parents('.view').attr('id')
-      
-      // Filter improper page changes
-        let realPage = true
-        
-        // Smart selects
-        if (ePage.detail.page.url === '#content-2' || (ePage.detail.page.fromPage && ePage.detail.page.fromPage.url === '#content-2')) {
-          realPage = false
-          
-        // Display of popups and login screens
-        } else if (this.runtime[view].length > 0 && ePage.detail.page.from === 'center') {
-          realPage = false
-        }
-      
-      // Real page change
-      if (realPage) {
-        
-        // Forward - add page
-        if (ePage.type === 'page:init') {
-          let url = ePage.detail.page.url
-          let pageNo = _.size(this.runtime[view])
-          
-          // Loop tabs
-          let tabs = {}
-          let activeTab = null
-          this.$$(ePage.target).find('.tab.page-content').each(function(i, elTab) {
-            let tabId = this.$$(elTab).attr('id')
-            if (tabId !== null && tabId !== '' && tabs[tabId] === undefined) {
-              tabs[tabId] = 0
-            } else {
-              console.error('Please assign a unique "id" attribute to each tab component on page "' + url + '"!')
-            }
-            if (this.$$(elTab).hasClass('active')) {
-              activeTab = tabId
-            }
-          }.bind(this))
-          tabs = _.size(tabs) > 0 ? tabs : null
-          
-          // Add page to runtime
-          this.runtime[view].push({
-            url: url,
-            scrollPosition: 0,/*
-            formData: null,*/
-            tabs: tabs,
-            activeTab: activeTab          
-          })
-
-          // Attach tab watcher
-          if (tabs) {
-            this.$$(ePage.target).on('tab:show', function (eTab) {
-              this.runtime[view][pageNo].activeTab = this.$$(eTab.target).attr('id')
-              this.saveRuntime()
-            }.bind(this))
-          }
-          
-          // Attach scroll position watcher
-          if (!tabs) {
-            this.$$(ePage.target).find('.page-content').on('scroll', function (ePageContent) {
-              this.runtime[view][pageNo].scrollPosition = ePageContent.target.scrollTop
-              this.saveRuntime()
-            }.bind(this))
-          } else {
-            for (let tab in tabs) {
-              this.$$(ePage.target).find('.tab.page-content#' + tab).on('scroll', function (ePageContent) {
-                this.runtime[view][pageNo].tabs[tab] = ePageContent.target.scrollTop
-                this.saveRuntime()
-              }.bind(this))
-            }
-          }
-          
-          /*
-          // Attach form data watcher
-          let fields = []
-          let fieldCheck = true
-          this.$$(ePage.target).find(['input', 'select', 'textarea']).each(function (fieldNo, fieldEl) {
-            let fieldName = this.$$(fieldEl).attr('name')
-            let fieldType = this.$$(fieldEl).attr('type')
-            if (fieldName !== '' && fieldName !== null && fieldName !== undefined
-                && (fields.indexOf(fieldName) === -1 || fieldType === 'checkbox' || fieldType === 'radio')) {
-              fields.push(fieldName)              
-            } else {
-              fieldCheck = false
-            }
-          }.bind(this))
-          if (fieldCheck) {
-            this.$$(ePage.target).on('keyup change', function (eField) {
-              this.runtime[view][pageNo].formData = this.$f7.formToData(ePage.target)
-              this.saveRuntime()
-            }.bind(this))
-          } else {
-            console.error('Please assign a unique "name" attribute to each form field on page "' + url + '"!')
-          }
-          */
-          
-        // Backward - remove page
-        } else {
-          this.runtime[view].pop()          
-        }   
-      }        
-      this.saveRuntime()
-    }.bind(this))
     
     // Remember panel
     this.$$(document).on('panel:opened panel:closed', function (ePanel) {
@@ -273,35 +298,22 @@ new Vue({
       }
     }.bind(this))
     
-    // Restore pages, tabs, scroll positions, form data      
-      _.map(this.runtime, function (pages, viewId) {
-        this.runtime[viewId] = []
-        this.saveRuntime()
-        _.map(pages, function (page, pageNo) {
+    // Restore pages
+    if (localStorage.views) {
+      let views = JSON.parse(localStorage.views)
+      localStorage.removeItem('views')
+      this.$$('.view').each(function (viewNo, viewEl) {
+        let viewId = this.$$(viewEl).attr('id')
+        for (let pageNo in views[viewId]) {
           setTimeout(function () {
-            this.$f7.views[Object.keys(views).indexOf(viewId)].router.load({url: page.url, animatePages: false})
-            setTimeout(function () {
-              if (page.activeTab) {                
-                this.$f7.showTab('#' + page.activeTab)                
-                _.map(page.tabs, function (scrollPosition, tabId) {
-                  this.$$(this.$$('.view#' + viewId + ' .page')[pageNo]).find('.tab.page-content#' + tabId).scrollTop(scrollPosition)
-                }.bind(this))
-              } else {
-                if (page.scrollPosition > 0) {
-                  this.$$(this.$$('.view#' + viewId + ' .page')[pageNo]).find('.page-content').scrollTop(page.scrollPosition)
-                }
-              } 
-              /*
-              if (page.formData) {
-                this.$f7.formFromData(this.$$(this.$$('.view#' + viewId + ' .page')[pageNo]), page.formData)
-                this.runtime[viewId][pageNo].formData = page.formData
-              }
-              */
-              this.saveRuntime()
-            }.bind(this), 0)
+            this.$f7.views[viewNo].router.load({
+              url: views[viewId][pageNo].url,
+              animatePages: false
+            })
           }.bind(this), 0)
-        }.bind(this))
-      }.bind(this)) 
+        }
+      }.bind(this))
+    }    
     
     // Restore panel, popup, login screen, form focus
     setTimeout(function () {      
@@ -316,8 +328,16 @@ new Vue({
       }
       if (localStorage.formFocus) {
         setTimeout(function () {
-          this.$$(this.$f7.getCurrentView().activePage.container).find('[name=' + localStorage.formFocus + ']').focus()
-        }.bind(this), 200)
+          let elType = this.$$(this.$f7.getCurrentView().activePage.container).find('[name=' + localStorage.formFocus + ']')[0].tagName
+          if (elType === 'INPUT') {
+            let val = this.$$(this.$f7.getCurrentView().activePage.container).find('[name=' + localStorage.formFocus + ']').val()
+            this.$$(this.$f7.getCurrentView().activePage.container).find('[name=' + localStorage.formFocus + ']').val('')
+            this.$$(this.$f7.getCurrentView().activePage.container).find('[name=' + localStorage.formFocus + ']').focus()
+            this.$$(this.$f7.getCurrentView().activePage.container).find('[name=' + localStorage.formFocus + ']').val(val)
+          } else {
+            this.$$(this.$f7.getCurrentView().activePage.container).find('[name=' + localStorage.formFocus + ']').focus()
+          }
+        }.bind(this), 0)
       }
     }.bind(this), 0)   
       
@@ -326,11 +346,6 @@ new Vue({
       this.$$('.framework7-root').css('visibility', 'visible')
     }.bind(this), 0)
     
-  },
-  methods: {
-    saveRuntime: function() {
-      localStorage.runtime = JSON.stringify(this.runtime)
-    }
   },
   watch: {
     language: function (newLanguage) {

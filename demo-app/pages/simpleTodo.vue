@@ -3,11 +3,11 @@
   <f7-page>
   
     <!-- Navbar and backlink -->
-    <f7-navbar title="LocalStorage ToDo" back-link="Back" sliding></f7-navbar>
+    <f7-navbar title="Simple ToDo list" back-link="Back" sliding></f7-navbar>
     
     <!-- Description box -->
     <f7-block inner inset>
-      <p>ToDo list, saved in local storage. You can close and reopen this application and all todos will still be there.</p>
+      <p>Everything you store in the data object will be kept automatically! You can close and reopen this application and all todos will still be there.</p>
     </f7-block>
     
     <!-- Input field for new todo -->    
@@ -59,7 +59,7 @@
     data: function() {
       return {
         newTodo: '',
-        todos: localStorage.todos ? JSON.parse(localStorage.todos) : []
+        todos: []
       }
     },
     
@@ -81,17 +81,15 @@
     
       // Save new todo
       saveTodo: function(e) {
-        if (this.newTodo != '') {          
+        if (this.newTodo !== '') {          
           this.todos.push({text: this.newTodo, completed: false})          
-          this.newTodo = ''          
-          this.updateLocalStorage()
+          this.newTodo = ''      
         }
       },
       
       // Mark todo as completed / not completed
       toggleTodo: function(key) {
-        this.todos[key].completed = !this.todos[key].completed  
-        this.updateLocalStorage()
+        this.todos[key].completed = !this.todos[key].completed 
       },
       
       // Delete todo
@@ -103,12 +101,6 @@
           }
         }
         this.todos = newTodos  
-        this.updateLocalStorage()
-      },
-      
-      // Update local storage
-      updateLocalStorage: function() {
-         localStorage.todos = JSON.stringify(this.todos)  
       }
       
     },

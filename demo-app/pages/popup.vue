@@ -5,10 +5,22 @@
         <f7-link close-popup>Close</f7-link>
       </f7-nav-right>
     </f7-navbar>
-    <f7-block>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, architecto. Cupiditate laudantium rem nesciunt numquam, ipsam. Voluptates omnis, a inventore atque ratione aliquam. Omnis iusto nemo quos ullam obcaecati, quod.</f7-block>
+    <f7-block>Popup and text will be restored after app restart.</f7-block>
+    <f7-list inset form>
+      <f7-list-item>
+        <f7-label>Text</f7-label>
+        <f7-input v-model="text" placeholder="Some text ..." type="text"></f7-input>
+      </f7-list-item>
+    </f7-list>
   </f7-page>
 </template>
 
 <script>
-  module.exports = {}
+  module.exports = {
+    data: function () {
+      return {
+        text: ''
+      }
+    }
+  }
 </script>
