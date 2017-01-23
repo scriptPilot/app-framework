@@ -1,6 +1,6 @@
 <template>
   <f7-page no-page-content with-subnavbar>
-    <f7-navbar title="Tabs" back-link="Back" sliding>    
+    <f7-navbar title="Tab Handling" back-link="Back" sliding>    
       <f7-nav-right>
         <f7-link icon="icon-bars" open-panel="right"></f7-link>
       </f7-nav-right>

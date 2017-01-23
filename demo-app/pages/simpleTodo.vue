@@ -3,7 +3,7 @@
   <f7-page>
   
     <!-- Navbar and backlink -->
-    <f7-navbar title="Simple ToDo list" back-link="Back" sliding></f7-navbar>
+    <f7-navbar title="Simple ToDo List" back-link="Back" sliding></f7-navbar>
     
     <!-- Description box -->
     <f7-block inner inset>

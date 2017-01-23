@@ -64,8 +64,9 @@
     },
           
     // Attach data change listener to firebase todo list
-    mounted: function() {      
-      firebase.database().ref('publicData/todos').orderByChild('created').limitToLast(this.maxEntries).on('value', function (snapshot) {        
+    mounted: function() {    
+      // Use db() as shortlink to firebase.database().ref()    
+      db('publicData/todos').orderByChild('created').limitToLast(this.maxEntries).on('value', function (snapshot) {        
       
         // Integrated function: sortObject(object, sortByAttribute [, descendingOrder])
         this.todos = sortObject(snapshot.val(), 'created', true)
@@ -92,7 +93,7 @@
       // Save new todo
       saveTodo: function(e) {
         if (this.newTodo !== '') {
-          firebase.database().ref('publicData/todos')
+          db('publicData/todos')
             .push({
               text: this.newTodo,
               completed: false,
@@ -109,7 +110,7 @@
       
       // Mark todo as completed / not completed
       toggleTodo: function(key) {
-        firebase.database().ref('publicData/todos/' + key + '/completed')
+        db('publicData/todos/' + key + '/completed')
           .set(!this.todos[key].completed)
           .catch(function() {
             this.$f7.alert('Cannot update task :-(<br />Please try again later', 'Trouble with Firebase')
@@ -124,7 +125,7 @@
             deletes[key] = null
           }
         }
-        firebase.database().ref('publicData/todos')
+        db('publicData/todos')
             .update(deletes)
             .catch(function() {
               this.$f7.alert('Cannot delete task' + (this.completedTodos > 1 ? 's' : '') + ' :-(<br />Please try again later', 'Trouble with Firebase')

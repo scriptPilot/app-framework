@@ -4,7 +4,7 @@
     <f7-block inner>
       <p style="text-align: center"><f7-icon fa="spinner fa-spin" size="25" class="color-red"></f7-icon></p>
       <p style="text-align: center"><img :src="img" /></p>
-      <p>Colored icon and image added to the page, please see source code for details.</p>
+      <p>Colored, animated icon and image added to the page, please see source code for details.</p>
     </f7-block>
   </f7-page>
 </template>
