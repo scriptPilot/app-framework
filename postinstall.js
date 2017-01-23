@@ -1,5 +1,5 @@
 var isThere = require('is-there')
-var rename = require('rename')
+var rename = require('fs').renameSync
 
 // app-framework is installed as dependency
 if (isThere('../../package.json')) {
@@ -30,7 +30,7 @@ if (isThere('../../package.json')) {
       cpx.copy('demo-app/.gitignore', '../../')
     } else {
       cpx.copy('demo-app/.npmignore', '../../')
-      rename('../../.npmignore', '.gitignore')
+      rename('../../.npmignore', '../../.gitignore')
     }
   }
   if (!isThere('../../www/.htaccess')) {
