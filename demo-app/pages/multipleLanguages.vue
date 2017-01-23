@@ -32,7 +32,7 @@
   var text = {
     en: {
       backlink: 'Back',
-      title: 'Multiple languages',
+      title: 'Multiple Languages',
       text: 'This page is made with Framework7-vue components and ready for multiple languages. Your selection is saved in the local storage and restored after you reopen the application. Please check the source code to see how it\'s done.',
       selectLang: 'Select language',
       de: 'German',

@@ -14,13 +14,14 @@
     </f7-block>
     <f7-block-title>Test pages</f7-block-title>            
     <f7-list>
-      <f7-list-item link="form" title="Form"></f7-list-item>
+      <f7-list-item link="simpleTodo" title="Simple ToDo List"></f7-list-item>
+      <f7-list-item link="firebasePublic" title="Public Firebase ToDo List"></f7-list-item>
+      <f7-list-item link="firebasePrivate" title="Private Firebase Notes"></f7-list-item>
+      <f7-list-item link="multipleLanguages" title="Multiple Languages"></f7-list-item>
+      <f7-list-item link="tabs" title="Tab Handling"></f7-list-item>
+      <f7-list-item link="form" title="Form Handling"></f7-list-item>
       <f7-list-item link="flexibleRouting/blog/45/post/125?foo=bar#about" title="Flexible Routing"></f7-list-item>
       <f7-list-item link="image" title="Icon & Image"></f7-list-item>
-      <f7-list-item link="simpleTodo" title="Simple ToDo list"></f7-list-item>
-      <f7-list-item link="firebasePublic" title="Public Firebase ToDo list"></f7-list-item>
-      <f7-list-item link="multipleLanguages" title="Multiple languages"></f7-list-item>
-      <f7-list-item link="tabs" title="Tabs"></f7-list-item>
       <f7-list-item link="https://framework7.io/kitchen-sink-ios" title="iOS Showcase" badge="Framework7" link-external></f7-list-item>
       <f7-list-item link="https://framework7.io/kitchen-sink-material" title="Material Showcase" badge="Framework7" link-external></f7-list-item>
     </f7-list>

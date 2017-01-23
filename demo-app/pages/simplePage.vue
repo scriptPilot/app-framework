@@ -12,7 +12,7 @@
   var text = {
     en: {
       backlink: 'Back',
-      title: 'Simple page',
+      title: 'Simple Page',
       text: 'Simple multi-language page, created with Framework7-Vue components.'
     },
     de: {

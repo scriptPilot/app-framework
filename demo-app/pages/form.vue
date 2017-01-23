@@ -3,7 +3,7 @@
   <!-- To keep state of form element (and work with them) you have to assign v-model attributes -->
 
   <f7-page>
-    <f7-navbar title="Form" back-link="Back" sliding></f7-navbar>
+    <f7-navbar title="Form Handling" back-link="Back" sliding></f7-navbar>
     <f7-block inner inset>
       <p style="text-align: center">Enter some data, close and reopen this app - and see how all forms on this page have kept their data - and the scroll position and the form focus as well.</p>
     </f7-block>

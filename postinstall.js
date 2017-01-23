@@ -24,6 +24,9 @@ if (isThere('../../package.json')) {
   if (!isThere('../../app.vue')) {
     cpx.copy('demo-app/app.vue', '../../')
   }
+  if (!isThere('../../.gitignore')) {
+    cpx.copy('demo-app/.gitignore', '../../')
+  }
   if (!isThere('../../www/.htaccess')) {
     cpx.copy('demo-app/www/.htaccess', '../../www')
   }
