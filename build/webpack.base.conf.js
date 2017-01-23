@@ -12,6 +12,8 @@ var cssSourceMapDev = (env === 'development' && config.dev.cssSourceMap)
 var cssSourceMapProd = (env === 'production' && config.build.productionSourceMap)
 var useCssSourceMap = cssSourceMapDev || cssSourceMapProd
 
+var isThere = require('is-there')
+
 module.exports = {
   entry: {
     app: './main.js'
@@ -40,7 +42,8 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel',
-        exclude: /node_modules/
+        include: isThere('../../package.json') ? path.resolve(projectRoot + '/node_modules/app-framework') : projectRoot,
+        exclude: isThere('../../package.json') ? [] : /node_modules/
       },
       {
         test: /\.json$/,
