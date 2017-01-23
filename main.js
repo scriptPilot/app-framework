@@ -10,7 +10,7 @@ if (process.env.USE_FIREBASE === 'true') {
   window.firebase = require('firebase')
   window.firebase.initializeApp(app.firebase)
   window.db = function (path) {    
-    return window.db(path ? path : '/')
+    return window.firebase.database().ref(path ? path : '/')
   }
 } else {
   window.firebase = null
