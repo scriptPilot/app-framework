@@ -10,7 +10,7 @@
     "minor": "npm version minor && cd node_modules/app-framework && node build/build.js",
     "major": "npm version major && cd node_modules/app-framework && node build/build.js"
   },
-  "title": "Demo App",
+  "title": "Demo App 2",
   "theme": "ios",
   "defaultLanguage": "en",
   "routes": {
