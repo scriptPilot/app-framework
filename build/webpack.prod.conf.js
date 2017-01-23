@@ -11,8 +11,20 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ImageminPlugin = require('imagemin-webpack-plugin').default
 var AppCachePlugin = require('appcache-webpack-plugin')
-var FaviconsWebpackPlugin = require('favicons-webpack-plugin')
+/*var FaviconsWebpackPlugin = require('favicons-webpack-plugin')*/
 var env = config.build.env
+
+// Update app-framework version in demo app package.json
+var isThere = require('is-there')
+if (!isThere('../../package.json')) {
+  var saveJSON = require('jsonfile')
+  saveJSON.spaces = 2  
+  var demoApp = require('../demo-app/package.json')
+  demoApp.devDependencies['app-framework'] = '^' + pkg.version
+  saveJSON.writeFileSync('./demo-app/package.json', demoApp)
+}
+
+/*new FaviconsWebpackPlugin(pkg.appRoot + 'images/faviconIcon.png'),*/
 
 var webpackConfig = merge(baseWebpackConfig, {
   module: {
@@ -42,8 +54,7 @@ var webpackConfig = merge(baseWebpackConfig, {
     }),
     new webpack.optimize.OccurrenceOrderPlugin(),
     // extract css into its own file
-    new ExtractTextPlugin('[name].[contenthash].css'),
-    /*new FaviconsWebpackPlugin(pkg.appRoot + 'images/faviconIcon.png'),*/
+    new ExtractTextPlugin('[name].[contenthash].css'),    
     new HtmlWebpackPlugin({
       filename: config.build.index,
       template: 'index.ejs',
