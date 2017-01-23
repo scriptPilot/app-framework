@@ -1,4 +1,5 @@
 var isThere = require('is-there')
+var rename = require('rename')
 
 // app-framework is installed as dependency
 if (isThere('../../package.json')) {
@@ -25,7 +26,12 @@ if (isThere('../../package.json')) {
     cpx.copy('demo-app/app.vue', '../../')
   }
   if (!isThere('../../.gitignore')) {
-    cpx.copy('demo-app/.gitignore', '../../')
+    if (isThere('demo-app/.gitignore')) {
+      cpx.copy('demo-app/.gitignore', '../../')
+    } else {
+      cpx.copy('demo-app/.npmignore', '../../')
+      rename('../../.npmignore', '.gitignore')
+    }
   }
   if (!isThere('../../www/.htaccess')) {
     cpx.copy('demo-app/www/.htaccess', '../../www')
