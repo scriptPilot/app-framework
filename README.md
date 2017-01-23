@@ -10,7 +10,7 @@ A composition of great software projects.
  - [x] Native design and animations - [Framework7](http://framework7.io/)
  - [x] No bouncing on iOS - [iNoBounce](https://github.com/lazd/iNoBounce)
  - [x] Icon fonts - [Framework7](http://framework7.io/icons/), [Material](https://material.io/icons/), [Font Awesome](http://fontawesome.io/) and [ionIcons](http://ionicons.com/)
- - [ ] Favicon generator - [Favicons](https://github.com/haydenbleasel/favicons)
+ - [x] Icon generator - for favicons, touch icons and startup images
 - **Powerful**
  - [x] Reactive user interface - [Vue](https://vuejs.org/)
  - [x] Flexible routing - [Framework7-Vue](http://framework7.io/vue/navigation-router.html)
