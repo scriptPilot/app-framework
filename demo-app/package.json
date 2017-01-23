@@ -2,7 +2,7 @@
   "name": "demo-app",
   "version": "0.1.0",
   "devDependencies": {
-    "app-framework": "*"
+    "app-framework": "^0.29.3"
   },
   "scripts": {
     "dev": "cd node_modules/app-framework && node build/dev-server.js",
@@ -20,7 +20,7 @@
     "loginScreen": "loginScreen",
     "popup": "popup",
     "form": "form",
-    "image": "image",    
+    "image": "image",
     "simpleTodo": "simpleTodo",
     "firebasePublic": "firebasePublic",
     "firebasePrivate": "firebasePrivate",
@@ -38,7 +38,7 @@
     "fontawesome": true
   },
   "faviconIcon": "images/faviconIcon.png",
-  "faviconBackgroundColor": "#3f51b5",  
+  "faviconBackgroundColor": "#3f51b5",
   "useFirebase": true,
   "firebase": {
     "apiKey": "AIzaSyAvzTiqd9fKR-h47Uxl4iXwqSMU1VjGdII",
@@ -47,6 +47,8 @@
     "storageBucket": "app-framework-9045a.appspot.com",
     "messagingSenderId": "690341427128"
   },
-  "loginRequired": ["privateFirebase"],
+  "loginRequired": [
+    "privateFirebase"
+  ],
   "buildSourcemaps": false
 }
