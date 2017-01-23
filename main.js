@@ -30,8 +30,7 @@ if (process.env.THEME === 'material') {
 }
 
 // Init Framework7 Vue Plugin
-var Framework7Vue = require('framework7-vue')
-Vue.use(Framework7Vue)
+Vue.use(require('framework7-vue'))
 
 // Import icon fonts
 if (process.env.FONT_FRAMEWORK7 === 'true') {
@@ -58,9 +57,6 @@ var Routes = []
 for (var page in app.routes) {
   Routes.push({path: page, component: require(process.env.ROOT_APP + 'pages/' + app.routes[page] + '.vue')})
 }
-
-// Import app Component
-var App = require(process.env.ROOT_APP + 'app.vue')
 
 // Import sortObject function
 require('./sortObject.js')
@@ -108,7 +104,7 @@ new Vue({
     }
   },
   components: {
-    app: App
+    app: require(process.env.ROOT_APP + 'app.vue')
   },
   mounted: require('./appMounted.js'),
   watch: {
