@@ -43,7 +43,7 @@ var webpackConfig = merge(baseWebpackConfig, {
     new webpack.optimize.OccurrenceOrderPlugin(),
     // extract css into its own file
     new ExtractTextPlugin('[name].[contenthash].css'),
-    /*new FaviconsWebpackPlugin(pkg.appRoot + 'images/faviconIcon.png'),*/
+    new FaviconsWebpackPlugin('../' + pkg.appRoot + 'images/faviconIcon.png'),
     new HtmlWebpackPlugin({
       filename: config.build.index,
       template: 'index.ejs',
