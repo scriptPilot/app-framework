@@ -28,7 +28,7 @@ if (isThere('../../package.json')) {
   if (!isThere('../../.gitignore')) {
     if (isThere('demo-app/.gitignore')) {
       cpx.copy('demo-app/.gitignore', '../../')
-    } else {
+    } else if (isThere('demo-app/.npmignore')) {
       cpx.copy('demo-app/.npmignore', '../../')
       rename('../../.npmignore', '../../.gitignore')
     }
