@@ -2,7 +2,7 @@
   "name": "demo-app",
   "version": "0.1.0",
   "devDependencies": {
-    "app-framework": "^0.29.3"
+    "app-framework": "^0.29.10"
   },
   "scripts": {
     "dev": "cd node_modules/app-framework && node build/dev-server.js",
@@ -38,7 +38,7 @@
     "fontawesome": true
   },
   "faviconIcon": "images/faviconIcon.png",
-  "faviconBackgroundColor": "#3f51b5",
+  "faviconBackgroundColor": "#ffffff",
   "useFirebase": true,
   "firebase": {
     "apiKey": "AIzaSyAvzTiqd9fKR-h47Uxl4iXwqSMU1VjGdII",
