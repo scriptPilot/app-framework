@@ -1,0 +1,15 @@
+{
+  "rules": {
+    "privateData": {
+      ".read": "auth !== null",
+      ".write": "auth !== null"
+    },
+    "publicData": {
+      ".read": "true",
+      ".write": "true",
+      "todos": {
+        ".indexOn": "created"
+      }
+    }
+  }
+}
