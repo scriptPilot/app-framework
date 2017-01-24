@@ -10,7 +10,7 @@
     "patch": "npm version patch && node build/build.js",
     "minor": "npm version minor && node build/build.js",
     "major": "npm version major && node build/build.js",
-    "deploy": "node build/prepareFirebaseDeploy.js && cd demo-app && firebase login && firebase deploy"
+    "deploy": "node build/prepareFirebaseDeploy.js && cd demo-app && firebase login && firebase deploy && cd ../ && node build/cleanupFirebaseDeploy.js"
   },
   "dependencies": {
     "appcache-webpack-plugin": "^1.3.0",

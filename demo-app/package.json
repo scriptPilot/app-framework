@@ -9,7 +9,7 @@
     "patch": "npm version patch && cd node_modules/app-framework && node build/build.js",
     "minor": "npm version minor && cd node_modules/app-framework && node build/build.js",
     "major": "npm version major && cd node_modules/app-framework && node build/build.js",
-    "deploy": "node node_modules/app-framework/build/prepareFirebaseDeploy.js && firebase login && firebase deploy"
+    "deploy": "node node_modules/app-framework/build/prepareFirebaseDeploy.js && firebase login && firebase deploy && node node_modules/app-framework/build/cleanupFirebaseDeploy.js"
   },
   "title": "Demo App",
   "theme": "ios",
