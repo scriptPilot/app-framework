@@ -48,7 +48,7 @@ After the build process has finished successfully, you find all static files in 
 
 #### Deploy application
 
-*App Framework* supports you for deployment to your own server or [Firebase Hosting Service](https://firebase.google.com/docs/hosting/). Before you deploy your application, you have to test and build it.
+*App Framework* supports deployment to your own server as well as [Firebase Hosting Service](https://firebase.google.com/docs/hosting/). Before you deploy your application, you have to test and build it.
 
 Deployment to your own server
 
