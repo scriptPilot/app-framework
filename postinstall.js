@@ -1,6 +1,7 @@
 var isThere = require('is-there')
 var fs = require('fs')
 var replace = require('replace-in-file')
+var path = require('path')
 
 // app-framework is installed as dependency
 if (isThere('../../package.json')) {
