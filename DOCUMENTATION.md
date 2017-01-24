@@ -2,6 +2,8 @@
 
 > Your first contact with *App Framework*? Please take a look at the [readme file](README.md) first!
 
+> Your question is not answered? You have feature requests or found any bug or typo? Please use our [GitHub Issue list](https://github.com/scriptPilot/app-framework/issues)!
+
 - [Install App Framework](#install-app-framework)
 - [Update App Framework](#update-app-framework)
 - [Test application](#test-application)
@@ -39,5 +41,3 @@ Before you deploy your application, you have to test and build it. Then you do t
 2. Change version in `www/.htaccess` file and upload it to your web server
 
 For rollback, change version in `www/.htaccess` file to previous one and upload it to your web server.
-
-> Your question is not answered? You have feature requests or found any bug or typo? Please use our [GitHub Issue list](https://github.com/scriptPilot/app-framework/issues)!
