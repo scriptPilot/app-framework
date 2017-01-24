@@ -1,7 +1,7 @@
 # App Framework - Documentation
 
 > Your first contact with *App Framework*? Please take a look at the [readme file](README.md) first!
-<br />
+
 - [Install App Framework](#install-app-framework)
 - [Update App Framework](#update-app-framework)
 - Project folder structure
@@ -20,7 +20,6 @@
 - [Deploy application](#deploy-application)
 - Firebase - Hosting service
 - Project backup
-<br />
 
 #### Install App Framework
 
@@ -55,5 +54,4 @@ Before you deploy your application, you have to test and build it. Then you do t
 
 For rollback, change version in `www/.htaccess` file to previous one and upload it to your web server.
 
-<br />
 > Your question is not answered? You have feature requests or found any bug or typo? Please use our [GitHub Issue list](https://github.com/scriptPilot/app-framework/issues)!
