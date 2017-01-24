@@ -1,8 +1,0 @@
-{
-  "hosting": {
-    "public": "www/build-0.32.1"
-  },
-  "database": {
-    "rules": "firebaseDatabaseRules.json"
-  }
-}
