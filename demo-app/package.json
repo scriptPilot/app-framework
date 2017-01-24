@@ -2,13 +2,14 @@
   "name": "demo-app",
   "version": "0.1.0",
   "devDependencies": {
-    "app-framework": "^0.31.0"
+    "app-framework": "^0.31.14"
   },
   "scripts": {
     "dev": "cd node_modules/app-framework && node build/dev-server.js",
     "patch": "npm version patch && cd node_modules/app-framework && node build/build.js",
     "minor": "npm version minor && cd node_modules/app-framework && node build/build.js",
-    "major": "npm version major && cd node_modules/app-framework && node build/build.js"
+    "major": "npm version major && cd node_modules/app-framework && node build/build.js",
+    "deploy": "firebase login && firebase deploy"
   },
   "title": "Demo App",
   "theme": "ios",
@@ -47,7 +48,7 @@
     "storageBucket": "app-framework-9045a.appspot.com",
     "messagingSenderId": "690341427128",
     "useDatabaseService": true,
-    "useStorageService": true,
+    "useStorageService": false,
     "useHostingService": true,
     "useDatabaseRules": true
   },

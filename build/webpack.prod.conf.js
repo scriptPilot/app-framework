@@ -17,6 +17,7 @@ var AppCachePlugin = require('appcache-webpack-plugin')
 var FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 var isThere = require('is-there')
 var deleteFiles = require('delete')
+var write = require('write')
 var env = config.build.env
 
 // Update copyright year in license
@@ -37,38 +38,56 @@ if (!isThere('../../package.json')) {
 // Update Firebase tool configuration
 if (app.firebase.useHostingService === true || app.firebase.useDatabaseRules === true) {
   
+  // Write project config
+  if (!isThere(path.resolve(__dirname, '..' + pkg.appRoot + '.firebaserc'))) {
+    write.sync(path.resolve(__dirname, '..' + pkg.appRoot + '.firebaserc'), '{}')
+  }
+  saveJSON.writeFileSync(path.resolve(__dirname, '..' + pkg.appRoot + '.firebaserc'), {        
+    'projects': {
+      'default': app.firebase.authDomain.substr(0, app.firebase.authDomain.indexOf('.firebaseapp.com'))
+    }       
+  })
+
   // Create firebase config object
   let firebaseConfig = {}
   
   // Update hosting
   if (app.firebase.useHostingService === true) {
     firebaseConfig.hosting = {
-      'public': '..' + pkg.appRoot + 'www/build-' + pkg.version
+      'public': 'www/build-' + pkg.version
     }      
   }    
   
   // Update database rules
   if (app.firebase.useDatabaseRules === true) {
-    if (
-    firebaseConfig.database: {
-      rules: '..' + pkg.appRoot + 'firebaseDatabaseRules.json'
+    firebaseConfig.database = {
+      rules: 'firebaseDatabaseRules.json'
     }
-    if (!isThere('..' + pkg.appRoot + 'firebaseDatabaseRules.json')) {
-      saveJSON.writeFileSync('..' + pkg.appRoot + 'firebaseDatabaseRules.json', {        
+    
+    // Create file with standard rules
+    if (!isThere(path.resolve(__dirname, '..' + pkg.appRoot + 'firebaseDatabaseRules.json'))) {
+      write.sync(path.resolve(__dirname, '..' + pkg.appRoot + 'firebaseDatabaseRules.json'), '{}')
+      saveJSON.writeFileSync(path.resolve(__dirname, '..' + pkg.appRoot + 'firebaseDatabaseRules.json'), {        
         'rules': {
           '.read': 'auth != null',
           '.write': 'auth != null'
         }        
       })
     }
+    
   }
   
   // Save config
-  saveJSON.writeFileSync('..' + pkg.appRoot + 'firebase.json', firebaseConfig)
+  saveJSON.writeFileSync(path.resolve(__dirname, '..' + pkg.appRoot + 'firebase.json'), firebaseConfig)
   
 // Delete Firebase tool configuration
-} else if (isThere('..' + pkg.appRoot + 'firebase.json')) {
-  deleteFiles.sync(['..' + pkg.appRoot + 'firebase.json'])
+} else {
+  if (isThere(path.resolve(__dirname, '..' + pkg.appRoot + 'firebase.json'))) {
+    deleteFiles.sync([path.resolve(__dirname, '..' + pkg.appRoot + 'firebase.json')])
+  }
+  if (isThere(path.resolve(__dirname, '..' + pkg.appRoot + '.firebaserc'))) {
+    deleteFiles.sync([path.resolve(__dirname, '..' + pkg.appRoot + '.firebaserc')])
+  }
 }
 
 var webpackConfig = merge(baseWebpackConfig, {
