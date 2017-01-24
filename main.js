@@ -78,7 +78,7 @@ new Vue({
   data: {
     language: localStorage.language ? localStorage.language : app.defaultLanguage,
     title: app.title,
-    version: project.version
+    version: app.version
   },  
   framework7: {
     root: '#app',
