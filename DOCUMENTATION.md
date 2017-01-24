@@ -32,7 +32,7 @@ The allowed *App Framework* [version](https://docs.npmjs.com/misc/semver) is def
 #### Test application
 
 - To test the user interface and functionality, you have to start the development server with `npm run dev`. Open your web browser if not done automatically and navigate to *localhost:8080* to open your application.
-- If you use Google Chrome as webbrowser, you have already a great [developer tool](https://developers.google.com/web/tools/chrome-devtools/) available
+- If you use [Google Chrome](https://www.google.de/chrome/) as web browser, you have already a great [developer tool](https://developers.google.com/web/tools/chrome-devtools/) available
 - The code will be checked for correctness on build process, please take a look in the console.
 
 #### Build application
