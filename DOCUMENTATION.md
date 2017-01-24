@@ -2,6 +2,9 @@
 
 > Your first contact with *App Framework*? Please take a look at the [readme file](README.md) first!
 
+- [Install App Framework](#install-app-framework)
+- [Update App Framework](#update-app-framework)
+
 **Install App Framework**
 
 As prerequisite you should understand the principles of [Node.js and npm](https://docs.npmjs.com/getting-started/what-is-npm). After you have installed both to your computer, you have to save the prepared [package.json file](https://raw.githubusercontent.com/scriptPilot/app-framework/master/demo-app/package.json) to an empty folder. To install *App Framework* and create the application template, run `npm install` in your command line tool.
