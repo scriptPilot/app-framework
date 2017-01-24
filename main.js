@@ -8,7 +8,13 @@ window['_'] = require('underscore')
 // Import and initialize Firebase
 if (process.env.USE_FIREBASE === 'true') {
   window.firebase = require('firebase')
-  window.firebase.initializeApp(app.firebase)
+  window.firebase.initializeApp({
+    apiKey: app.firebase.apiKey,
+    authDomain: app.firebase.authDomain,
+    databaseURL: app.firebase.databaseURL,
+    storageBucket: app.firebase.storageBucket,
+    messagingSenderId: app.firebase.messagingSenderId
+  })
   window.db = function (path) {    
     return window.firebase.database().ref(path ? path : '/')
   }

@@ -18,7 +18,7 @@
 - [Test application](#test-application)
 - [Build application](#build-application)
 - [Deploy application](#deploy-application)
-- Firebase - Hosting service
+- [Firebase - Hosting service](#firebase---hosting-service)
 - Project backup
 
 #### Install App Framework
@@ -39,6 +39,8 @@ The allowed *App Framework* [version](https://docs.npmjs.com/misc/semver) is def
 
 Before you build your application it should be tested well. Then you start the version bump and build process as follows:
 
+Doc: https://firebase.google.com/docs/cli/
+
 - `npm run patch` after bugfixes and improvements
 - `npm run minor` after adding new functionality
 - `npm run major` after breaking backward-capability
@@ -53,5 +55,16 @@ Before you deploy your application, you have to test and build it. Then you do t
 2. Change version in `www/.htaccess` file and upload it to your web server
 
 For rollback, change version in `www/.htaccess` file to previous one and upload it to your web server.
+
+#### Firebase - Hosting service
+
+Firebase hosting must be 
+
+- save 
+
+
+`npm install -g firebase-tools`  ... bei install
+`firebase login && firebase deploy` ... confirm n/y, confirm auth
+`firebase login` ... `n`
 
 > Your question is not answered? You have feature requests or found any bug or typo? Please use our [GitHub Issue list](https://github.com/scriptPilot/app-framework/issues)!

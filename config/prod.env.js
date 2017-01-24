@@ -11,5 +11,5 @@ module.exports = {
   FONT_MATERIAL: '"' + app.loadIconFonts.material + '"',
   FONT_ION: '"' + app.loadIconFonts.ion + '"',
   FONT_AWESOME: '"' + app.loadIconFonts.fontawesome + '"',
-  USE_FIREBASE: '"' + app.useFirebase + '"'
+  USE_FIREBASE: '"' + (app.firebase.useDatabaseService === true || app.firebase.useStorageService === true) + '"'
 }
