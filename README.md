@@ -1,5 +1,7 @@
 # App Framework
 
+> Please keep in mind that *App Framework* is still under initial development, [open features and bugs could be seen here](https://github.com/scriptPilot/app-framework/issues).
+
 **What is App Framework?**
 
 *App Framework* is a [JavaScript package](https://docs.npmjs.com/getting-started/what-is-npm), which does all the recurring stuff for you, which is needed to develop, test, build and deploy a web application. Using *App Framework*, you could start to realize your next amazing application immediately.
@@ -23,5 +25,3 @@ Because any tricky aspect of application development works well out of the box. 
 3. Run `npm install` to setup the project folder
 4. Run `npm run dev` to start the development server
 5. Read the [Documentation](DOCUMENTATION.md)
-
-> Please keep in mind that *App Framework* is still under initial development, [open features and bugs could be seen here](https://github.com/scriptPilot/app-framework/issues).
