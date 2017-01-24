@@ -2,7 +2,7 @@
 
 **What is App Framework?**
 
-*App Framework* is a JavaScript package, which does all the recurring stuff for you, which is needed to develop, test, build and deploy a web application. Using *App Framework*, you could start to realize your amazing application immediately.
+*App Framework* is a JavaScript package, which does all the recurring stuff for you, which is needed to develop, test, build and deploy a web application. Using *App Framework*, you could start to realize your next amazing application immediately.
 
 **Why is it beautiful?**
 
