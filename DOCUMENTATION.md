@@ -33,7 +33,7 @@ After the build process has finished successfully, you find all static files in 
 
 #### Deploy application
 
-1. Upload the latest build folder `www/build-...` to your web server
+1. Upload the latest build folder `www/build-<version>` to your web server
 2. Change version in `www/.htaccess` file and upload it to your web server
 
 For rollback, change version in `www/.htaccess` file to previous one and upload it to your web server.
