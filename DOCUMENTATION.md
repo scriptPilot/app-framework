@@ -1,43 +1,28 @@
-# App Framework - Documentation
-> First contact with **App Framework**? Please take a look at the [readme file](README.md) first!
+# App Framework - Documentation - WORK IN PROGRESS
 
-**Installation**
+> Your first contact with *App Framework*? Please take a look at the [readme file](README.md) first!
 
+**Install App Framework**
 
+As prerequisite you should understand the principles of [Node.js and npm](https://docs.npmjs.com/getting-started/what-is-npm). After you have installed both to your computer, you have to save the prepared [package.json file](https://raw.githubusercontent.com/scriptPilot/app-framework/master/demo-app/package.json) to an empty folder. To install *App Framework* and create the application template, run `npm install` in your command line tool.
 
+**Update App Framework**
 
+The allowed *App Framework* [version](https://docs.npmjs.com/misc/semver) is defined in the `package.json` file. Run `npm update` to start the update process. Run `npm update --save-dev` if you like to have the updated version copied to `package.json`.
 
-Framework to build iOS and Android Apps in minutes ([demo](http://app-framework.scriptpilot.de/))
+---
 
-**ATTENTION**: Release 1.0.0 planned for end of January. For now, your initial [feedback](https://github.com/scriptPilot/app-framework/issues/1) is highly appreciated!
-
-### Features (work in progress)
-A composition of great software projects.
-- **Beautiful**
- - [x] Native design and animations - [Framework7](http://framework7.io/)
- - [x] No bouncing on iOS - [iNoBounce](https://github.com/lazd/iNoBounce)
- - [x] Icon fonts - [Framework7](http://framework7.io/icons/), [Material](https://material.io/icons/), [Font Awesome](http://fontawesome.io/) and [ionIcons](http://ionicons.com/)
+ 
  - [ ] Favicon generator - [Favicons](https://github.com/haydenbleasel/favicons)
 - **Powerful**
  - [x] Reactive user interface - [Vue](https://vuejs.org/)
- - [x] Flexible routing - [Framework7-Vue](http://framework7.io/vue/navigation-router.html)
- - [x] State kept for pages, page data, tabs, panels, popups, scroll positions, form inputs and focus
- - [x] Multi-language support
- - [x] Offline capability
+ 
  - [ ] User authentication - [Firebase](https://firebase.google.com/)
- - [x] Data backend - [Firebase](https://firebase.google.com/)
- - [ ] Storage backend - [Firebase](https://firebase.google.com/)
+ 
 - **Complete**
- - [x] Quick start - [npm](https://www.npmjs.com)
- - [x] Development server with live reload - [Webpack-dev-server](https://github.com/webpack/webpack-dev-server)
- - [x] Code check - [ESLint](http://eslint.org/)
- - [x] Single file page components - [Vue](https://vuejs.org/v2/guide/single-file-components.html)
  - [x] Reusable components - [Framework7-Vue](http://framework7.io/vue/)
- - [x] Automatic version bump and build process - [Webpack](https://webpack.github.io/)
- - [x] Compression of HTML, CSS, JavaScript and image files
- - [x] Deployment without downtime
- - [x] Fast rollback solution
- - [ ] Clean code - [Standard JavaScript Rules](http://standardjs.com/)
+ 
+ 
 
 ### Installation
 
