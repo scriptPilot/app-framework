@@ -18,7 +18,7 @@ The allowed *App Framework* [version](https://docs.npmjs.com/misc/semver) is def
 
 #### Test application
 
-* To test the user interface and functionality, you have to start the develeopment server with `npm run dev`. Open your web browser if not done automatically and navigate to *localhost:8080* to open your application.
+* To test the user interface and functionality, you have to start the development server with `npm run dev`. Open your web browser if not done automatically and navigate to *localhost:8080* to open your application.
 * The code will be checked for correctness on build process, please take a look in the console.
 
 #### Build application
@@ -38,4 +38,4 @@ After the build process has finished successful, a new folder `www/build-...` wa
 
 For rollback, change version in `www/.htaccess` file to previous one and upload it to your web server.
 
-> Your question is not answered? You have feature requests or found some bug? Please use our [Github Issue list](https://github.com/scriptPilot/app-framework/issues)!
+> Your question is not answered? You have feature requests or found some bugs or typos? Please use our [Github Issue list](https://github.com/scriptPilot/app-framework/issues)!
