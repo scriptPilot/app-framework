@@ -10,7 +10,11 @@ Based on Framework7, with *App Framework* you have all the well known iOS and Ma
 
 **Why is it powerful?**
 
+Based on Vue, you
+
 **Why will I code with joy?**
+
+Because *App Framework* does all the common tasks, you can focus on 
 
 **How do I start?**
 
