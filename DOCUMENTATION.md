@@ -11,6 +11,8 @@ As prerequisite you should understand the principles of [Node.js and npm](https:
 
 ####Update App Framework
 
+####Install App Framework
+
 The allowed *App Framework* [version](https://docs.npmjs.com/misc/semver) is defined in the `package.json` file. Run `npm update` to start the update process. Run `npm update --save-dev` if you like to have the updated version copied to `package.json`.
 
 ---
