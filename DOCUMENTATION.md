@@ -2,6 +2,7 @@
 
 > Your first contact with *App Framework*? Please take a look at the [readme file](README.md) first!
 
+<br />
 - [Install App Framework](#install-app-framework)
 - [Update App Framework](#update-app-framework)
 - Project folder structure
@@ -20,8 +21,7 @@
 - [Deploy application](#deploy-application)
 - Firebase - Hosting service
 - Project backup
-
-> Your question is not answered? You have feature requests or found any bug or typo? Please use our [GitHub Issue list](https://github.com/scriptPilot/app-framework/issues)!
+<br />
 
 #### Install App Framework
 
@@ -33,8 +33,9 @@ The allowed *App Framework* [version](https://docs.npmjs.com/misc/semver) is def
 
 #### Test application
 
-* To test the user interface and functionality, you have to start the development server with `npm run dev`. Open your web browser if not done automatically and navigate to *localhost:8080* to open your application.
-* The code will be checked for correctness on build process, please take a look in the console.
+- To test the user interface and functionality, you have to start the development server with `npm run dev`. Open your web browser if not done automatically and navigate to *localhost:8080* to open your application.
+- If you use Google Chrome as webbrowser, you have already a great [developer tool](https://developers.google.com/web/tools/chrome-devtools/) available
+- The code will be checked for correctness on build process, please take a look in the console.
 
 #### Build application
 
@@ -54,3 +55,6 @@ Before you deploy your application, you have to test and build it. Then you do t
 2. Change version in `www/.htaccess` file and upload it to your web server
 
 For rollback, change version in `www/.htaccess` file to previous one and upload it to your web server.
+
+<br />
+> Your question is not answered? You have feature requests or found any bug or typo? Please use our [GitHub Issue list](https://github.com/scriptPilot/app-framework/issues)!
