@@ -57,4 +57,4 @@ For rollback, change version in `www/.htaccess` file to previous one and upload 
 
 <br />
 
-[<< GO BACK TO THE TOP](#app-framework---documentation)
+[< Go back to the top](#app-framework---documentation)
