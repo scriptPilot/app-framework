@@ -4,15 +4,28 @@
 
 - [Install App Framework](#install-app-framework)
 - [Update App Framework](#update-app-framework)
+- Project folder structure
+- Configuration file
+- App component
+- Page components
+- Add a new page
+- Add an image
+- Firebase - User authentication
+- Firebase - Realtime database
+- Firebase - Storage service
+- Using the router
+- Using the favicon generator
 - [Test application](#test-application)
 - [Build application](#build-application)
 - [Deploy application](#deploy-application)
+- Firebase - Hosting service
+- Project backup
 
 > Your question is not answered? You have feature requests or found any bug or typo? Please use our [GitHub Issue list](https://github.com/scriptPilot/app-framework/issues)!
 
 #### Install App Framework
 
-As prerequisite you should understand the principles of [Node.js and npm](https://docs.npmjs.com/getting-started/what-is-npm). After you have installed both to your computer, you have to save the prepared [package.json file](https://raw.githubusercontent.com/scriptPilot/app-framework/master/demo-app/package.json) to an empty folder. To install *App Framework* and create the application template, run `npm install` in your command line tool.
+As prerequisite you should understand the principles of [Node.js and npm](https://docs.npmjs.com/getting-started/what-is-npm). After you have installed both to your computer, you have to save the prepared [package.json file](https://raw.githubusercontent.com/scriptPilot/app-framework/master/demo-app/package.json) to an empty folder. To install *App Framework* and create the application template, run `npm install` in your command line tool. By the way: Your project folder is preconfigured for publishing to GitHub!
 
 #### Update App Framework
 
