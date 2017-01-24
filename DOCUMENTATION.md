@@ -1,7 +1,6 @@
 # App Framework - Documentation
 
 > Your first contact with *App Framework*? Please take a look at the [readme file](README.md) first!
-
 > Your question is not answered? You have feature requests or found any bug or typo? Please use our [GitHub Issue list](https://github.com/scriptPilot/app-framework/issues)!
 
 - [Install App Framework](#install-app-framework)
