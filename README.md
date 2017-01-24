@@ -10,7 +10,7 @@ Based on Framework7, with *App Framework* you have all the well known iOS and Ma
 
 **Why is it powerful?**
 
-Because any tricky aspect of application development works well out of the box. The runtime environment of your application is kept after reload - including pages, tabs, side panels, popups, scroll positions and all the data of your page components and inputs. Firebase is integrated well with user registration and authentication processes as well as realtime database and file storage services. Based on Vue, building reactive and state-based user intefaces is a waltz. Offline capability, use of multiple languages and flexible routing are part of *App Framework* as well.
+Because any tricky aspect of application development works well out of the box. The runtime environment of your application is kept after reload - including pages, tabs, side panels, popups, scroll positions and all the data of your page components and inputs. Firebase is integrated well with user registration and authentication processes as well as realtime database and file storage services. Based on Vue, building reactive and state-based user intefaces is a waltz. Offline capability, the use of multiple languages and a flexible routing are part of *App Framework* as well.
 
 **Why will I code with joy?**
 
