@@ -27,7 +27,7 @@ Before you build your application it should be tested well. Then you start the v
 
 - `npm run patch` after bugfixes and improvements
 - `npm run minor` after adding new functionality
-- `npm run major` after breaking backward-capabiliy
+- `npm run major` after breaking backward-capabiltiy
 
 After the build process has finished successful, a new folder `www/build-...` was created with all static files.
 
