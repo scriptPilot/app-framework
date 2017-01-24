@@ -54,3 +54,5 @@ Before you deploy your application, you have to test and build it. Then you do t
 2. Change version in `www/.htaccess` file and upload it to your web server
 
 For rollback, change version in `www/.htaccess` file to previous one and upload it to your web server.
+
+[<< GO BACK TO THE TOP](#app-framework---documentation)
