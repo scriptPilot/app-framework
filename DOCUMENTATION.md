@@ -1,5 +1,5 @@
 # App Framework - Documentation
-> First contact with **App Framework**? Please take a look to the [readme file](README.md) first!
+> First contact with **App Framework**? Please take a look at the [readme file](README.md) first!
 
 **Installation**
 
