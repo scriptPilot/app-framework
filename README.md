@@ -1,7 +1,5 @@
 # App Framework
 
-[Find **Demo App** here](http://app-framework.scriptpilot.de/)
-
 > Please keep in mind that *App Framework* is still under initial development, [open features and bugs could be seen here](https://github.com/scriptPilot/app-framework/issues).
 
 **What is App Framework?**
