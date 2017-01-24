@@ -58,7 +58,7 @@ Deployment to your own server
 
 Deployment to Firebase Hosting Service
 
-1. Update `firebase.authDomain` in `package.json`
+1. Update `firebase` project credentials in `package.json`
 2. Set `firebase.useHostingService: true` in `package.json` to upload your build folder
 3. Set `firebase.useDatabaseRules: true` in `package.json` to overwrite Firebase rules with `firebaseDatabaseRules.json`
 4. Run `npm run deploy` to start login and deployment process
