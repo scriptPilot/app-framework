@@ -1,5 +1,6 @@
 var pkg = require('../package.json')
 var app = require('..' + pkg.appRoot + 'package.json')
+var proj = require('..' + pkg.projectRoot + 'package.json')
 
 var saveJSON = require('jsonfile')
 saveJSON.spaces = 2  
@@ -28,7 +29,7 @@ if (app.firebase.useHostingService === true || app.firebase.useDatabaseRules ===
   // Update hosting
   if (app.firebase.useHostingService === true) {
     firebaseConfig.hosting = {
-      'public': 'www/build-' + pkg.version
+      'public': 'www/build-' + (isThere('../../../package.json') ? app.version : proj.version)
     }      
   }    
   
