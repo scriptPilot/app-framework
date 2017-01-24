@@ -1,7 +1,6 @@
 # App Framework - Documentation
 
 > Your first contact with *App Framework*? Please take a look at the [readme file](README.md) first!
-
 <br />
 - [Install App Framework](#install-app-framework)
 - [Update App Framework](#update-app-framework)
