@@ -33,7 +33,7 @@ After the build process has finished successfully, you find all static files in 
 
 #### Deploy application
 
-Before you deploy your application, you have to test and build it.
+Before you deploy your application, you have to test and build it. Then you do the deployment as follows:
 
 1. Upload the latest build folder `www/build-<version>` to your web server
 2. Change version in `www/.htaccess` file and upload it to your web server
