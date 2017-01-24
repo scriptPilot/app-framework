@@ -5,11 +5,11 @@
 - [Install App Framework](#install-app-framework)
 - [Update App Framework](#update-app-framework)
 
-##Install App Framework
+###Install App Framework
 
 As prerequisite you should understand the principles of [Node.js and npm](https://docs.npmjs.com/getting-started/what-is-npm). After you have installed both to your computer, you have to save the prepared [package.json file](https://raw.githubusercontent.com/scriptPilot/app-framework/master/demo-app/package.json) to an empty folder. To install *App Framework* and create the application template, run `npm install` in your command line tool.
 
-**Update App Framework**
+###Update App Framework
 
 The allowed *App Framework* [version](https://docs.npmjs.com/misc/semver) is defined in the `package.json` file. Run `npm update` to start the update process. Run `npm update --save-dev` if you like to have the updated version copied to `package.json`.
 
