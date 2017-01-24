@@ -10,11 +10,11 @@ Based on [Framework7](http://framework7.io/), with *App Framework* you have all 
 
 **Why is it powerful?**
 
-Because any tricky aspect of application development works well out of the box. The runtime environment of your application is kept after reload - including pages, tabs, side panels, popups, scroll positions and all the data of your page components and inputs. Firebase is integrated well with user registration and authentication processes as well as realtime database and file storage services. Based on Vue, building reactive and state-based user intefaces is a waltz. Offline capability, the use of multiple languages and a flexible routing are part of *App Framework* as well.
+Because any tricky aspect of application development works well out of the box. The runtime environment of your application is kept after reload - including pages, tabs, side panels, popups, scroll positions and all the data of your page components and inputs. [Firebase](https://firebase.google.com/) is integrated well with user registration and authentication processes as well as realtime database, file storage and application hosting services. Based on [Vue](https://vuejs.org/), building reactive and state-based user intefaces is a waltz. Offline capability, the use of multiple languages and a flexible routing are part of *App Framework* as well.
 
 **Why will I code with joy?**
 
-*App Framework* does all the common tasks and manages all external libaries for you. Your working directory is lightweight and well-arranged. Your application is splitted up in easy to maintain single file components. You are supported by a development server with live reload and checks for code correctness and standard conformity. *App Framework* bumps your version automatically before any build process and optimizes all your code and image files with merging and compression. At the end you could deploy your new build without any downtime and have a fast rollback solution readily available.
+*App Framework* does all the common tasks and manages all external libaries for you. Your working directory is lightweight and well-arranged. Your application is splitted up in easy to maintain [single file components](https://vuejs.org/v2/guide/single-file-components.html). You are supported by a development server with live reload and checks for [code correctness](http://eslint.org/) and [standard conformity](http://standardjs.com/). *App Framework* bumps your version automatically before any build process and optimizes all your code and image files with merging and compression. At the end you could deploy your new build without any downtime and have a fast rollback solution readily available.
 
 **How do I start?**
 
