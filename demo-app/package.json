@@ -2,7 +2,7 @@
   "name": "demo-app",
   "version": "0.1.0",
   "devDependencies": {
-    "app-framework": "^0.30.3"
+    "app-framework": "^0.31.0"
   },
   "scripts": {
     "dev": "cd node_modules/app-framework && node build/dev-server.js",
@@ -13,6 +13,7 @@
   "title": "Demo App",
   "theme": "ios",
   "defaultLanguage": "en",
+  "showFrameOnDesktop": true,
   "routes": {
     "home": "home",
     "panelLeft": "panelLeft",
@@ -47,6 +48,7 @@
     "storageBucket": "app-framework-9045a.appspot.com",
     "messagingSenderId": "690341427128"
   },
+  "useFirebaseHosting": true,
   "loginRequired": [
     "privateFirebase"
   ],
