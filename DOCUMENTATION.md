@@ -38,4 +38,4 @@ After the build process has finished successful, a new folder `www/build-...` wa
 
 For rollback, change version in `www/.htaccess` file to previous one and upload it to your web server.
 
-> Your question is not answered? You have feature requests or found some bugs or typos? Please use our [GitHub Issue list](https://github.com/scriptPilot/app-framework/issues)!
+> Your question is not answered? You have feature requests or found any bug or typo? Please use our [GitHub Issue list](https://github.com/scriptPilot/app-framework/issues)!
