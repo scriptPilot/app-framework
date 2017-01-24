@@ -18,7 +18,6 @@
 - [Test application](#test-application)
 - [Build application](#build-application)
 - [Deploy application](#deploy-application)
-- [Firebase - Hosting service](#firebase---hosting-service)
 - Project backup
 
 #### Install App Framework
@@ -49,22 +48,20 @@ After the build process has finished successfully, you find all static files in 
 
 #### Deploy application
 
-Before you deploy your application, you have to test and build it. Then you do the deployment as follows:
+*App Framework* supports you for deployment to your own server or [Firebase Hosting Service](https://firebase.google.com/docs/hosting/). Before you deploy your application, you have to test and build it.
+
+Deployment to your own server
 
 1. Upload the latest build folder `www/build-<version>` to your web server
-2. Change version in `www/.htaccess` file and upload it to your web server
+2. Update `www/.htaccess` file to your web server, replace old version
+3. For rollback, change version in `www/.htaccess` file to previous one and upload it to your web server.
 
-For rollback, change version in `www/.htaccess` file to previous one and upload it to your web server.
+Deployment to Firebase Hosting Service
 
-#### Firebase - Hosting service
-
-Firebase hosting must be 
-
-- save 
-
-
-`npm install -g firebase-tools`  ... bei install
-`firebase login && firebase deploy` ... confirm n/y, confirm auth
-`firebase login` ... `n`
+1. Update `firebase.authDomain` in `package.json`
+2. Set `firebase.useHostingService: true` in `package.json` to upload your build folder
+3. Set `firebase.useDatabaseRules: true` in `package.json` to overwrite Firebase rules with `firebaseDatabaseRules.json`
+4. Run `npm run deploy` to start login and deployment process
+5. For rollback, go to the [Firebase Console](https://console.firebase.google.com/) > Hosting
 
 > Your question is not answered? You have feature requests or found any bug or typo? Please use our [GitHub Issue list](https://github.com/scriptPilot/app-framework/issues)!

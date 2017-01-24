@@ -2,14 +2,14 @@
   "name": "demo-app",
   "version": "0.1.0",
   "devDependencies": {
-    "app-framework": "^0.31.14"
+    "app-framework": "^0.32.2"
   },
   "scripts": {
     "dev": "cd node_modules/app-framework && node build/dev-server.js",
     "patch": "npm version patch && cd node_modules/app-framework && node build/build.js",
     "minor": "npm version minor && cd node_modules/app-framework && node build/build.js",
     "major": "npm version major && cd node_modules/app-framework && node build/build.js",
-    "deploy": "firebase login && firebase deploy"
+    "deploy": "node node_modules/app-framework/build/prepareFirebaseDeploy.js && firebase login && firebase deploy"
   },
   "title": "Demo App",
   "theme": "ios",
