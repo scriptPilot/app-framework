@@ -25,5 +25,3 @@ Because any tricky aspect of application development works well out of the box. 
 3. Run `npm install` to setup the project folder
 4. Run `npm run dev` to start the development server
 5. Read the [Documentation](DOCUMENTATION.md)
-
-> See the [Demo App](https://app-framework.scriptpilot.de/) in action!
