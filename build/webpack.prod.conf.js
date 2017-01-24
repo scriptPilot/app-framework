@@ -14,6 +14,14 @@ var AppCachePlugin = require('appcache-webpack-plugin')
 var FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 var env = config.build.env
 
+// Update copyright year in license
+var replace = require('replace-in-file')
+replace.sync({
+  files: path.resolve(__dirname, '../LICENSE'),
+  replace: /Copyright \(c\) ([0-9]{4}) scriptPilot/,
+  with: 'Copyright (c) ' + (new Date()).getFullYear() + ' scriptPilot'
+})
+
 // Update app-framework version in demo app package.json
 var isThere = require('is-there')
 if (!isThere('../../package.json')) {
