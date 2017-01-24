@@ -14,7 +14,7 @@ Based on Vue, you
 
 **Why will I code with joy?**
 
-Because *App Framework* does all the common tasks and manages all external libaries for you. Your working directory is clean and well-arranged. Your application is splitted up in easy to maintain single file components per page. You are supported by a development server with live reload and check for code correctness and, if you like, coding standard conformity. 
+*App Framework* does all the common tasks and manages all external libaries for you. Your working directory is clean and well-arranged. Your application is splitted up in easy to maintain single file components per page. You are supported by a development server with live reload and check for code correctness and, if you like, coding standard conformity. *App Framework* bumps your version automatically before any build process and optimizes all your code and image files with merging and compression. At the end you could deploy your new build without downtime and have a fast rollback solution readily available.
 
 **How do I start?**
 
