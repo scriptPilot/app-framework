@@ -1,75 +1,27 @@
 # App Framework
 
-Framework to build iOS and Android Apps in minutes ([demo](http://app-framework.scriptpilot.de/))
+**What is App Framework?**
 
-**ATTENTION**: Release 1.0.0 planned for end of January. For now, your initial [feedback](https://github.com/scriptPilot/app-framework/issues/1) is highly appreciated!
+*App Framework* is a [JavaScript package](https://docs.npmjs.com/getting-started/what-is-npm), which does all the recurring stuff for you, which is needed to develop, test, build and deploy a web application. Using *App Framework*, you could start to realize your next amazing application immediately.
 
-### Features (work in progress)
-A composition of great software projects.
-- **Beautiful**
- - [x] Native design and animations - [Framework7](http://framework7.io/)
- - [x] No bouncing on iOS - [iNoBounce](https://github.com/lazd/iNoBounce)
- - [x] Icon fonts - [Framework7](http://framework7.io/icons/), [Material](https://material.io/icons/), [Font Awesome](http://fontawesome.io/) and [ionIcons](http://ionicons.com/)
- - [x] Icon generator - for favicons, touch icons and startup images
-- **Powerful**
- - [x] Reactive user interface - [Vue](https://vuejs.org/)
- - [x] Flexible routing - [Framework7-Vue](http://framework7.io/vue/navigation-router.html)
- - [x] State kept for pages, page data, tabs, panels, popups, scroll positions, form inputs and focus
- - [x] Multi-language support
- - [x] Offline capability
- - [ ] User authentication - [Firebase](https://firebase.google.com/)
- - [x] Data backend - [Firebase](https://firebase.google.com/)
- - [ ] Storage backend - [Firebase](https://firebase.google.com/)
-- **Complete**
- - [x] Quick start - [npm](https://www.npmjs.com)
- - [x] Development server with live reload - [Webpack-dev-server](https://github.com/webpack/webpack-dev-server)
- - [x] Code check - [ESLint](http://eslint.org/)
- - [x] Single file page components - [Vue](https://vuejs.org/v2/guide/single-file-components.html)
- - [x] Reusable components - [Framework7-Vue](http://framework7.io/vue/)
- - [x] Automatic version bump and build process - [Webpack](https://webpack.github.io/)
- - [x] Compression of HTML, CSS, JavaScript and image files
- - [x] Deployment without downtime
- - [x] Fast rollback solution
- - [ ] Clean code - [Standard JavaScript Rules](http://standardjs.com/)
+**Why is it beautiful?**
 
-### Installation
+Based on [Framework7](http://framework7.io/), with *App Framework* you have all the well known [iOS](http://framework7.io/kitchen-sink-ios/) and [Material](http://framework7.io/kitchen-sink-material/) components and stunning transitions available to build gorgeous user interfaces. Some improvements have been applied to fit the native behaviour as much as possible. Out of the box you can use several icon fonts, like [FontAwesome](http://fontawesome.io/), [Framework7](http://framework7.io/icons/), [Ion](http://ionicons.com/) or [Material Icons](https://material.io/icons/).
 
-As prerequisite you should understand the principles of [Node.js and npm](https://docs.npmjs.com/getting-started/what-is-npm).
+**Why is it powerful?**
 
-:boom: **This framework must be installed as dependency to your project - do not clone or download it directly!**
+Because any tricky aspect of application development works well out of the box. The runtime environment of your application is kept after reload - including pages, tabs, side panels, popups, scroll positions and all the data of your page components and inputs. [Firebase](https://firebase.google.com/) is integrated well with user registration and authentication processes as well as realtime database, file storage and application hosting services. Based on [Vue](https://vuejs.org/), building reactive and state-based user intefaces is a waltz. Offline capability, the use of multiple languages, a favicon generator and a flexible routing are part of *App Framework* as well.
 
-1. Create an empty project folder on your computer
-2. Save [package.json](https://raw.githubusercontent.com/scriptPilot/app-framework/master/demo-app/package.json) file to your project folder
-3. Run `npm install` to setup your project folder
+**Why will I code with joy?**
 
-### Configuration
+*App Framework* does all the common tasks and manages all external libaries for you. Your working directory is lightweight and well-arranged. Your application is splitted up in easy to maintain [single file components](https://vuejs.org/v2/guide/single-file-components.html). You are supported by a development server with live reload and checks for [code correctness](http://eslint.org/) and [standard conformity](http://standardjs.com/). *App Framework* bumps your version automatically before any build process and optimizes all your code and image files with merging and compression. At the end you could deploy your new build without any downtime and have a fast rollback solution readily available.
 
-You can configure your application in the `package.json` file.
+**How do I start?**
 
-### Development
+1. Install [Node.js with npm](https://docs.npmjs.com/getting-started/what-is-npm) and learn the basics
+2. Save [package.json](https://raw.githubusercontent.com/scriptPilot/app-framework/master/demo-app/package.json) to an empty folder on your computer
+3. Run `npm install` to setup the project folder
+4. Run `npm run dev` to start the development server
+5. Read our [Documentation](DOCUMENTATION.md)
 
-As prerequisite you should be comfortable with [Vue](https://vuejs.org/v2/guide/) and  [Framework7](http://framework7.io/docs/).
-
-1. Run `npm run dev` to start development server at localhost:8080
-2. Change your application
- - App component in `app.vue` file
- - Page components in `pages` folder
- - Images in `images` folder
-3. Build your application with
- - `npm run patch` after bugfixes and improvements
- - `npm run minor` after adding new functionality
- - `npm run major` after breaking backward-capability
-
-In addition you should know about [Framework7-Vue components](http://framework7.io/vue/), [Firebase](https://firebase.google.com/docs/web/setup) and [Standard JavaScript](http://standardjs.com/rules.html).
-
-Please check all example files to see how it works.
- 
-### Deployment
-
-1. Upload the latest build folder `www/build-...` to your web server
-2. Change version in `www/.htaccess` file and upload it to your web server
-
-For rollback, change version in `www/.htaccess` file to previous one and upload it to your web server.
-
-### Improvements, bugs, feature requests
-Please use the [Issues page](https://github.com/scriptPilot/app-framework/issues) or provide a pull request. For more complex changes please let us discuss before.
+> Please keep in mind that *App Framework* is still under initial development, [open features and bugs could be seen here](https://github.com/scriptPilot/app-framework/issues).

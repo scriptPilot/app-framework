@@ -51,7 +51,6 @@ var webpackConfig = merge(baseWebpackConfig, {
       }
     }),
     new webpack.optimize.OccurrenceOrderPlugin(),
-    // extract css into its own file
     new ExtractTextPlugin('[name].[contenthash].css'),    
     new FaviconsWebpackPlugin({
       logo: path.resolve(__dirname, '..' + pkg.appRoot, app.faviconIcon),
