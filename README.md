@@ -22,6 +22,6 @@ Because any tricky aspect of application development works well out of the box. 
 2. Save [package.json](https://raw.githubusercontent.com/scriptPilot/app-framework/master/demo-app/package.json) to an empty folder on your computer
 3. Run `npm install` to setup the project folder
 4. Run `npm run dev` to start the development server
-5. Read our [Documentation](DOCUMENTATION.md)
+5. Read the [Documentation](DOCUMENTATION.md)
 
 > Please keep in mind that *App Framework* is still under initial development, [open features and bugs could be seen here](https://github.com/scriptPilot/app-framework/issues).
