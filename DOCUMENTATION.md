@@ -29,7 +29,7 @@ Before you build your application it should be tested well. Then you start the v
 - `npm run minor` after adding new functionality
 - `npm run major` after breaking backward-capability
 
-After the build process has finished successful, you find all static files in the new folder `www/build-<version>`
+After the build process has finished successfully, you find all static files in the new folder `www/build-<version>`
 
 #### Deploy application
 
