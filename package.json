@@ -5,7 +5,7 @@
   "version": "0.30.3",
   "license": "MIT",
   "scripts": {
-    "postinstall": "node postinstall.js",
+    "postinstall": "node postinstall.js && npm install -g firebase-tools",
     "dev": "node build/dev-server.js",
     "patch": "npm version patch && node build/build.js",
     "minor": "npm version minor && node build/build.js",
@@ -24,6 +24,7 @@
     "connect-history-api-fallback": "^1.1.0",
     "cpx": "^1.5.0",
     "css-loader": "^0.25.0",
+    "delete": "^0.3.2",
     "eventsource-polyfill": "^0.9.6",
     "express": "^4.13.3",
     "extract-text-webpack-plugin": "^1.0.1",

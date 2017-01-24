@@ -1,6 +1,9 @@
 var pkg = require('../package.json')
 var app = require('..' + pkg.appRoot + 'package.json')
 
+var saveJSON = require('jsonfile')
+saveJSON.spaces = 2  
+
 var path = require('path')
 var config = require('../config')
 var utils = require('./utils')
@@ -12,6 +15,8 @@ var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ImageminPlugin = require('imagemin-webpack-plugin').default
 var AppCachePlugin = require('appcache-webpack-plugin')
 var FaviconsWebpackPlugin = require('favicons-webpack-plugin')
+var isThere = require('is-there')
+var deleteFiles = require('delete')
 var env = config.build.env
 
 // Update copyright year in license
@@ -23,13 +28,47 @@ replace.sync({
 })
 
 // Update app-framework version in demo app package.json
-var isThere = require('is-there')
 if (!isThere('../../package.json')) {
-  var saveJSON = require('jsonfile')
-  saveJSON.spaces = 2  
   var demoApp = require('../demo-app/package.json')
   demoApp.devDependencies['app-framework'] = '^' + pkg.version
   saveJSON.writeFileSync('./demo-app/package.json', demoApp)
+}
+
+// Update Firebase tool configuration
+if (app.firebase.useHostingService === true || app.firebase.useDatabaseRules === true) {
+  
+  // Create firebase config object
+  let firebaseConfig = {}
+  
+  // Update hosting
+  if (app.firebase.useHostingService === true) {
+    firebaseConfig.hosting = {
+      'public': '..' + pkg.appRoot + 'www/build-' + pkg.version
+    }      
+  }    
+  
+  // Update database rules
+  if (app.firebase.useDatabaseRules === true) {
+    if (
+    firebaseConfig.database: {
+      rules: '..' + pkg.appRoot + 'firebaseDatabaseRules.json'
+    }
+    if (!isThere('..' + pkg.appRoot + 'firebaseDatabaseRules.json')) {
+      saveJSON.writeFileSync('..' + pkg.appRoot + 'firebaseDatabaseRules.json', {        
+        'rules': {
+          '.read': 'auth != null',
+          '.write': 'auth != null'
+        }        
+      })
+    }
+  }
+  
+  // Save config
+  saveJSON.writeFileSync('..' + pkg.appRoot + 'firebase.json', firebaseConfig)
+  
+// Delete Firebase tool configuration
+} else if (isThere('..' + pkg.appRoot + 'firebase.json')) {
+  deleteFiles.sync(['..' + pkg.appRoot + 'firebase.json'])
 }
 
 var webpackConfig = merge(baseWebpackConfig, {

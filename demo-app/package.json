@@ -40,15 +40,17 @@
   },
   "faviconIcon": "images/faviconIcon.png",
   "faviconBackgroundColor": "#ffffff",
-  "useFirebase": true,
   "firebase": {
     "apiKey": "AIzaSyAvzTiqd9fKR-h47Uxl4iXwqSMU1VjGdII",
     "authDomain": "app-framework-9045a.firebaseapp.com",
     "databaseURL": "https://app-framework-9045a.firebaseio.com",
     "storageBucket": "app-framework-9045a.appspot.com",
-    "messagingSenderId": "690341427128"
+    "messagingSenderId": "690341427128",
+    "useDatabaseService": true,
+    "useStorageService": true,
+    "useHostingService": true,
+    "useDatabaseRules": true
   },
-  "useFirebaseHosting": true,
   "loginRequired": [
     "privateFirebase"
   ],
