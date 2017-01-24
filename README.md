@@ -2,11 +2,11 @@
 
 **What is App Framework?**
 
-*App Framework* is a JavaScript package, which does all the recurring stuff for you, which is needed to develop, test, build and deploy a web application. Using *App Framework*, you could start to realize your next amazing application immediately.
+*App Framework* is a [JavaScript package](https://docs.npmjs.com/getting-started/what-is-npm), which does all the recurring stuff for you, which is needed to develop, test, build and deploy a web application. Using *App Framework*, you could start to realize your next amazing application immediately.
 
 **Why is it beautiful?**
 
-Based on Framework7, with *App Framework* you have all the well known iOS and Material components and stunning transitions available to build gorgeous user interfaces. Some improvements have been applied to fit the native behaviour as much as possible. Out of the box you can use several icon fonts, like FontAwesome, Framework7, Ion or Material Icons.
+Based on [Framework7](http://framework7.io/), with *App Framework* you have all the well known [iOS](http://framework7.io/kitchen-sink-ios/) and [Material](http://framework7.io/kitchen-sink-material/) components and stunning transitions available to build gorgeous user interfaces. Some improvements have been applied to fit the native behaviour as much as possible. Out of the box you can use several icon fonts, like [FontAwesome](http://fontawesome.io/), [Framework7](http://framework7.io/icons/), [Ion](http://ionicons.com/) or [Material Icons](https://material.io/icons/).
 
 **Why is it powerful?**
 
