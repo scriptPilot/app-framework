@@ -1,4 +1,11 @@
-# App Framework
+# App Framework - Documentation
+> First contact with **App Framework**? Please read the [Readme file](README.md) first!
+
+**Installation**
+
+
+
+
 
 Framework to build iOS and Android Apps in minutes ([demo](http://app-framework.scriptpilot.de/))
 
