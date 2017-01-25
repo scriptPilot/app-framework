@@ -1,14 +1,12 @@
 // Load configuration
 var cfg = require('../config.js')
-var pkg = require('../package.json')
 var app = require(cfg.appRoot + 'package.json')
 
 // Load packages
 var path = require('path')
 var utils = require('./utils')
-var replace = require('replace-in-file')
 var saveJSON = require('jsonfile')
-saveJSON.spaces = 2  
+saveJSON.spaces = 2
 
 // Set options
 var cssSourceMapDev = (process.env.NODE_ENV === 'development' && cfg.dev.cssSourceMap)
@@ -44,7 +42,7 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel',
-        include: [          
+        include: [
           path.resolve(cfg.packageRoot, 'scripts'),
           path.resolve(cfg.appRoot, 'pages'),
           path.resolve(cfg.appRoot, 'www')

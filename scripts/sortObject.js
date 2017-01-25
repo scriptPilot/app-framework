@@ -22,7 +22,7 @@ window.sortObject = function (obj, sortBy, sortDesc) {
   })
   let sortedObj = {}
   for (let e = 0; e < arr.length; e++) {
-    sortedObj[arr[e]['.key']] = obj[arr[e]['.key']]      
+    sortedObj[arr[e]['.key']] = obj[arr[e]['.key']]
   }
   return sortedObj
 }

@@ -1,6 +1,6 @@
 // Load packages
 var saveJSON = require('jsonfile')
-saveJSON.spaces = 2  
+saveJSON.spaces = 2
 var path = require('path')
 var utils = require('./utils')
 var webpack = require('webpack')
@@ -12,8 +12,6 @@ var ImageminPlugin = require('imagemin-webpack-plugin').default
 var AppCachePlugin = require('appcache-webpack-plugin')
 var FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 var OnBuildPlugin = require('on-build-webpack')
-var deleteFiles = require('delete')
-var write = require('write')
 var replace = require('replace-in-file')
 
 // Load configuration
@@ -98,7 +96,7 @@ var webpackConfig = merge(baseWebpackConfig, {
         removeAttributeQuotes: true
       },
       chunksSortMode: 'dependency'
-    }),  
+    }),
     new ImageminPlugin({
       svgo: null
     }),
@@ -110,15 +108,13 @@ var webpackConfig = merge(baseWebpackConfig, {
       exclude: [/\.(js|css)\.map$/],
       output: 'manifest.appcache'
     }),
-    new OnBuildPlugin(function(stats) {
-      
+    new OnBuildPlugin(function (stats) {
       // Update version in .htaccess file after successful build
       replace.sync({
         files: cfg.appRoot + 'www/.htaccess',
         replace: /\/build-([0-9]+)\.([0-9]+)\.([0-9]+)\//g,
         with: '/build-' + app.version + '/'
       })
-      
     })
   ]
 })

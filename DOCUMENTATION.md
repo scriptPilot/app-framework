@@ -45,7 +45,9 @@ As prerequisite you should understand the principles of [Node.js and npm](https:
 - To test the user interface and functionality, you have to start the development server with `npm run dev`. Open your web browser if not done automatically and navigate to *localhost:8080* to open your application
 - If you use [Google Chrome](https://www.google.de/chrome/) as web browser, you have already a great [developer tool](https://developers.google.com/web/tools/chrome-devtools/) available
 - The code will be checked for correctness on build process, please take a look in the console
-- To check for [Standard JavaScript](http://standardjs.com/) conformity, run `npm run standard`
+- To check for [Standard JavaScript](http://standardjs.com/) conformity, run `npm run check`
+- To make code as far as possible conform with [Standard JavaScript](http://standardjs.com/), run `npm run fix`
+- Result of the check will be saved to `standard-check.log`
 
 ### Build application
 

@@ -26,7 +26,7 @@ module.exports = merge(baseWebpackConfig, {
     }),
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),    
+    new webpack.NoErrorsPlugin(),
     new FaviconsWebpackPlugin({
       logo: path.resolve(__dirname, '..' + pkg.appRoot, app.faviconIcon),
       background: app.faviconBackgroundColor,

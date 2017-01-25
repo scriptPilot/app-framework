@@ -1,10 +1,7 @@
 // https://github.com/shelljs/shelljs
 require('./check-versions')()
 require('shelljs/global')
-env.NODE_ENV = 'production'
 
-var path = require('path')
-var config = require('../config.js')
 var ora = require('ora')
 var webpack = require('webpack')
 var webpackConfig = require('./webpack.prod.conf')

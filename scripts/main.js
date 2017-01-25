@@ -14,8 +14,8 @@ if (process.env.USE_FIREBASE === 'true') {
     storageBucket: app.firebase.storageBucket,
     messagingSenderId: app.firebase.messagingSenderId
   })
-  window.db = function (path) {    
-    return window.firebase.database().ref(path ? path : '/')
+  window.db = function (path) {
+    return window.firebase.database().ref(path || '/')
   }
 } else {
   window.firebase = null
@@ -71,14 +71,14 @@ Vue.mixin(require('./pageMixin.js'))
 
 // Init App
 var localStorage = window.localStorage
-new Vue({
+new Vue({ // eslint-disable-line
   el: '#app',
   template: '<app/>',
   data: {
     language: localStorage.language ? localStorage.language : app.defaultLanguage,
     title: app.title,
     version: app.version
-  },  
+  },
   framework7: {
     root: '#app',
     routes: Routes,
@@ -86,21 +86,18 @@ new Vue({
     preroute: function (view, options) {
       /*
       let url = !options.isBack ? options.url : views[(view.selector.indexOf('.') === -1 ? view.selector : view.selector.substr(1, view.selector.indexOf('.') - 1))][]
-      
-      
+
       let pageName = null
       if (!options.isBack) {
         pageName = options.url.indexOf('/') === -1 ? options.url : options.url.substr(0, options.url.indexOf('/'))
       } else {
-        let viewId = view.selector.indexOf('.') === -1 ? view.selector : view.selector.substr(1, view.selector.indexOf('.') - 1)  
+        let viewId = view.selector.indexOf('.') === -1 ? view.selector : view.selector.substr(1, view.selector.indexOf('.') - 1)
         pageName = views[viewId]
       }
-      
-      
-      
+
       let pageName = null
       if (!options.isBack) {
-        
+
       }
       let views = localStorage.views ? JSON.parse(localStorage.views) : {}
       console.log(viewId, pageName, )
@@ -111,8 +108,7 @@ new Vue({
   components: {
     app: require(process.env.APP_ROOT_FROM_SCRIPTS + 'app.vue')
   },
-  mounted: function() {
-    
+  mounted: function () {
     // Remember panel
     this.$$(document).on('panel:opened panel:closed', function (ePanel) {
       if (ePanel.type === 'panel:opened') {
@@ -121,7 +117,7 @@ new Vue({
         localStorage.removeItem('panel')
       }
     })
-    
+
     // Remember popup
     this.$$(document).on('popup:opened popup:closed', function (ePopup) {
       if (ePopup.type === 'popup:opened') {
@@ -130,7 +126,7 @@ new Vue({
         localStorage.removeItem('popup')
       }
     }.bind(this))
-    
+
     // Remember loginScreen
     this.$$(document).on('loginscreen:opened loginscreen:closed', function (eLoginScreen) {
       if (eLoginScreen.type === 'loginscreen:opened') {
@@ -139,7 +135,7 @@ new Vue({
         localStorage.removeItem('loginScreen')
       }
     }.bind(this))
-    
+
     // Remember form focus
     this.$$(document).on('focusin focusout', function (eFocus) {
       let focusId = this.$$(eFocus.target).attr('name')
@@ -149,7 +145,7 @@ new Vue({
         localStorage.removeItem('formFocus')
       }
     }.bind(this))
-    
+
     // Restore pages
     if (localStorage.views) {
       let views = JSON.parse(localStorage.views)
@@ -165,10 +161,10 @@ new Vue({
           }.bind(this), 0)
         }
       }.bind(this))
-    }    
-    
+    }
+
     // Restore panel, popup, login screen, form focus
-    setTimeout(function () {      
+    setTimeout(function () {
       if (localStorage.panel) {
         this.$f7.openPanel(localStorage.panel)
       }
@@ -191,48 +187,46 @@ new Vue({
           }
         }.bind(this), 0)
       }
-    }.bind(this), 0)   
-      
+    }.bind(this), 0)
+
     // Show app
     setTimeout(function () {
       this.$$('.framework7-root').css('visibility', 'visible')
-      
+
       // Update phone frame function
       var updatePhoneFrame = function () {
-        
         // Show frame on desktop
         if (app.showFrameOnDesktop && !this.$f7.device.os) {
-          
           // Show frame
           if (window.innerWidth > 370 && window.innerHeight > 778) {
             this.$$('#frame').addClass('phone')
             this.$$('#frame').removeClass('limitWidth')
             this.$$('#frame').removeClass('limitHeight')
             this.$$('body').removeClass('bodyDark')
-            
+
           // Limit width and height
-          } else if (window.innerWidth > 320 && window.innerHeight > 568) {  
+          } else if (window.innerWidth > 320 && window.innerHeight > 568) {
             this.$$('#frame').removeClass('phone')
             this.$$('#frame').addClass('limitWidth')
-            this.$$('#frame').addClass('limitHeight') 
+            this.$$('#frame').addClass('limitHeight')
             this.$$('body').addClass('bodyDark')
-            
+
           // Limit width
-          } else if (window.innerWidth > 320) {  
+          } else if (window.innerWidth > 320) {
             this.$$('#frame').removeClass('phone')
             this.$$('#frame').addClass('limitWidth')
             this.$$('#frame').removeClass('limitHeight')
-            this.$$('body').addClass('bodyDark')    
-            
+            this.$$('body').addClass('bodyDark')
+
           // Limit height
-          } else if (window.innerHeight > 568) {  
+          } else if (window.innerHeight > 568) {
             this.$$('#frame').removeClass('phone')
             this.$$('#frame').removeClass('limitWidth')
             this.$$('#frame').addClass('limitHeight')
             this.$$('body').addClass('bodyDark')
 
           // No limitation
-          } else { 
+          } else {
             this.$$('#frame').removeClass('phone')
             this.$$('#frame').removeClass('limitWidth')
             this.$$('#frame').removeClass('limitHeight')
@@ -240,12 +234,12 @@ new Vue({
           }
 
         // Don't show frame
-        } else { 
+        } else {
           this.$$('#frame').removeClass('phone')
           this.$$('#frame').removeClass('limitWidth')
           this.$$('#frame').removeClass('limitHeight')
-            this.$$('body').removeClass('bodyDark')
-        }        
+          this.$$('body').removeClass('bodyDark')
+        }
 
         // Resize navbars
         setTimeout(function () {
@@ -254,21 +248,18 @@ new Vue({
             this.$f7.sizeNavbars('#' + view)
           }
         }.bind(this), 400)
-        
       }.bind(this)
-      
+
       // Resize initially
       updatePhoneFrame()
-      
+
       // Resize again on windows resize
       this.$$(window).resize(updatePhoneFrame)
-      
     }.bind(this), 0)
-    
   },
   watch: {
     language: function (newLanguage) {
       localStorage.language = newLanguage
     }
-  }  
+  }
 })
