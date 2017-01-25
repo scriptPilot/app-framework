@@ -208,30 +208,35 @@ new Vue({
             this.$$('#frame').addClass('phone')
             this.$$('#frame').removeClass('limitWidth')
             this.$$('#frame').removeClass('limitHeight')
+            this.$$('body').removeClass('bodyDark')
             
           // Limit width and height
           } else if (window.innerWidth > 320 && window.innerHeight > 568) {  
             this.$$('#frame').removeClass('phone')
             this.$$('#frame').addClass('limitWidth')
             this.$$('#frame').addClass('limitHeight') 
+            this.$$('body').addClass('bodyDark')
             
           // Limit width
           } else if (window.innerWidth > 320) {  
             this.$$('#frame').removeClass('phone')
             this.$$('#frame').addClass('limitWidth')
-            this.$$('#frame').removeClass('limitHeight')    
+            this.$$('#frame').removeClass('limitHeight')
+            this.$$('body').addClass('bodyDark')    
             
           // Limit height
           } else if (window.innerHeight > 568) {  
             this.$$('#frame').removeClass('phone')
             this.$$('#frame').removeClass('limitWidth')
             this.$$('#frame').addClass('limitHeight')
+            this.$$('body').addClass('bodyDark')
 
           // No limitation
           } else { 
             this.$$('#frame').removeClass('phone')
             this.$$('#frame').removeClass('limitWidth')
             this.$$('#frame').removeClass('limitHeight')
+            this.$$('body').removeClass('bodyDark')
           }
 
         // Don't show frame
@@ -239,6 +244,7 @@ new Vue({
           this.$$('#frame').removeClass('phone')
           this.$$('#frame').removeClass('limitWidth')
           this.$$('#frame').removeClass('limitHeight')
+            this.$$('body').removeClass('bodyDark')
         }        
 
         // Resize navbars
