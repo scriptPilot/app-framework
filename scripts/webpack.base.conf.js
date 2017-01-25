@@ -49,8 +49,7 @@ module.exports = {
           cfg.projectRoot + 'pages',
           cfg.projectRoot + 'scripts',
           cfg.projectRoot + 'www'
-        ],
-        exclude: /node_modules/
+        ]
       },
       {
         test: /\.json$/,
