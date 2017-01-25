@@ -44,11 +44,10 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel',
-        include: [
-          cfg.projectRoot + 'node_modules/app-framework',
-          cfg.projectRoot + 'pages',
-          cfg.projectRoot + 'scripts',
-          cfg.projectRoot + 'www'
+        include: [          
+          path.resolve(cfg.packageRoot, 'scripts'),
+          path.resolve(cfg.appRoot, 'pages'),
+          path.resolve(cfg.appRoot, 'www')
         ]
       },
       {

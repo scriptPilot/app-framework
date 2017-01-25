@@ -1,6 +1,8 @@
 {
   "name": "demo-app",
+  "version": "0.35.4",
   "devDependencies": {
+    "app-framework": "^0.35.4"
   },
   "scripts": {
     "dev": "cd node_modules/app-framework && node scripts/dev-server.js",
