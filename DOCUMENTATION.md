@@ -61,6 +61,9 @@ Deployment to Firebase Hosting Service
 1. Update `firebase` project credentials in `package.json`
 2. Set `firebase.useHostingService: true` in `package.json` to upload your build folder
 3. Set `firebase.useDatabaseRules: true` in `package.json` to overwrite Firebase rules with `firebaseDatabaseRules.json`
+
+ If `firebaseDatabaseRules.json` does not exist, it will be created with standard rules. If you already have edited rules in the Firebase console, download these first, because they will be overwritten with no chance for rollback!
+  
 4. Run `npm run deploy` to start login and deployment process
 5. For rollback, go to the [Firebase Console](https://console.firebase.google.com/) > Hosting
 
