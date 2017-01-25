@@ -11,6 +11,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ImageminPlugin = require('imagemin-webpack-plugin').default
 var AppCachePlugin = require('appcache-webpack-plugin')
 var FaviconsWebpackPlugin = require('favicons-webpack-plugin')
+var OnBuildPlugin = require('on-build-webpack')
 var deleteFiles = require('delete')
 var write = require('write')
 var replace = require('replace-in-file')
@@ -36,13 +37,6 @@ if (!cfg.isInstalled) {
 
 // Load app configuration
 var app = require(cfg.appRoot + 'package.json')
-
-// Update version in .htaccess file
-replace.sync({
-  files: cfg.appRoot + 'www/.htaccess',
-  replace: /\/build-([0-9]+)\.([0-9]+)\.([0-9]+)\//g,
-  with: '/build-' + app.version + '/'
-})
 
 // Define production webpack configuration
 var webpackConfig = merge(baseWebpackConfig, {
@@ -115,6 +109,16 @@ var webpackConfig = merge(baseWebpackConfig, {
       settings: null,
       exclude: [/\.(js|css)\.map$/],
       output: 'manifest.appcache'
+    }),
+    new OnBuildPlugin(function(stats) {
+      
+      // Update version in .htaccess file after successful build
+      replace.sync({
+        files: cfg.appRoot + 'www/.htaccess',
+        replace: /\/build-([0-9]+)\.([0-9]+)\.([0-9]+)\//g,
+        with: '/build-' + app.version + '/'
+      })
+      
     })
   ]
 })

@@ -1,5 +1,5 @@
 // Load application configuration
-var app = require(process.env.appRoot + 'package.json')
+var app = require(process.env.APP_ROOT_FROM_SCRIPTS + 'package.json')
 
 // Import underscore
 window['_'] = require('underscore')
@@ -39,35 +39,35 @@ Vue.use(require('framework7-vue'))
 
 // Import icon fonts
 if (process.env.FONT_FRAMEWORK7 === 'true') {
-  require('./libs/framework7-icons/css/framework7-icons.css')
+  require('../libs/framework7-icons/css/framework7-icons.css')
 }
 if (process.env.FONT_MATERIAL === 'true') {
-  require('./libs/material-icons/css/material-icons.css')
+  require('../libs/material-icons/css/material-icons.css')
 }
 if (process.env.FONT_ION === 'true') {
-  require('./libs/ion-icons/css/ion-icons.css')
+  require('../libs/ion-icons/css/ion-icons.css')
 }
 if (process.env.FONT_AWESOME === 'true') {
-  require('./libs/fontAwesome-icons/css/fontAwesome-icons.css')
+  require('../libs/fontAwesome-icons/css/fontAwesome-icons.css')
 }
 
 // Import iNoBounce
 require('inobounce')
 
 // Import main css
-require('./main.css')
+require('../main.css')
 
 // Load routes
 var Routes = []
 for (var page in app.routes) {
-  Routes.push({path: page, component: require(process.env.appRoot + 'pages/' + app.routes[page] + '.vue')})
+  Routes.push({path: page, component: require(process.env.APP_ROOT_FROM_SCRIPTS + 'pages/' + app.routes[page] + '.vue')})
 }
 
 // Import sortObject function
-require('./sortObject.js')
+require('../sortObject.js')
 
 // Import mixin for page runtime management
-Vue.mixin(require('./pageMixin.js'))
+Vue.mixin(require('../pageMixin.js'))
 
 // Init App
 var localStorage = window.localStorage
@@ -109,7 +109,7 @@ new Vue({
     }
   },
   components: {
-    app: require(process.env.appRoot + 'app.vue')
+    app: require(process.env.APP_ROOT_FROM_SCRIPTS + 'app.vue')
   },
   mounted: function() {
     

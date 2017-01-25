@@ -14,7 +14,7 @@ var app = require(appRoot + 'package.json')
 // Create webpack environment variables
 var env = {
   THEME: '"' + app.theme + '"',
-  appRoot: '"' + (isThere('../../package.json') ? '../../' : './demo-app/') + '"',
+  APP_ROOT_FROM_SCRIPTS: '"' + (isInstalled ? '../../../' : '../demo-app/') + '"',
   FONT_FRAMEWORK7: '"' + app.loadIconFonts.framework7 + '"',
   FONT_MATERIAL: '"' + app.loadIconFonts.material + '"',
   FONT_ION: '"' + app.loadIconFonts.ion + '"',

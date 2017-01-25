@@ -18,7 +18,7 @@ var useCssSourceMap = cssSourceMapDev || cssSourceMapProd
 // Export base webpack configuration
 module.exports = {
   entry: {
-    app: './main.js'
+    app: cfg.projectRoot + 'scripts/main.js'
   },
   output: {
     path: cfg.appRoot + 'www/build-' + app.version,
@@ -44,7 +44,7 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel',
-        include: cfg.isInstalled ? cfg.projectRoot + 'node_modules/app-framework' : cfg.projectRoot,
+        include: cfg.isInstalled ? [cfg.projectRoot + 'scripts', cfg.projectRoot + 'node_modules/app-framework'] : cfg.projectRoot,
         exclude: cfg.isInstalled ? [] : /node_modules/
       },
       {
