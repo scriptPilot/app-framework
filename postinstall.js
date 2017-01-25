@@ -1,25 +1,21 @@
+// Load packages
 var isThere = require('is-there')
 var fs = require('fs')
 var replace = require('replace-in-file')
 var path = require('path')
+var saveJSON = require('jsonfile')
+var cpx = require('cpx')
+saveJSON.spaces = 2  
 
-// app-framework is installed as dependency
-if (isThere('../../package.json')) {
-  
-  var saveJSON = require('jsonfile')
-  saveJSON.spaces = 2  
-  
-  var pkg = require('./package.json')
-  
-  pkg.projectRoot = '/../../'
-  pkg.appRoot = '/../../'
-  
-  var app = require('../../package.json')
-  
-  saveJSON.writeFileSync('./package.json', pkg)
+// Load configuration
+var cfg = require('./config.json')
+var pkg = require('./package.json')
+var app = require(cfg.appRoot + 'package.json')
 
-  var cpx = require('cpx')
+// App Framework is installed as dependency
+if (cfg.isInstalled) {
   
+  // Copy non-existing files
   if (!isThere('../../images')) {
     cpx.copySync('demo-app/images/*', '../../images')
   }
@@ -40,11 +36,17 @@ if (isThere('../../package.json')) {
   }
   if (!isThere('../../www/.htaccess')) {
     cpx.copySync('demo-app/www/.htaccess', '../../www')
-    replace.sync({
-      files: path.resolve('../../www/.htaccess'),
-      replace: /\/build-(.+)\//,
-      with: '/build-' + app.version + '/'
-    })
   }
+  
+  // Reset version in template
+  app.version = '0.1.0'
+  saveJSON.writeFileSync(cfg.appRoot + 'package.json', app)
+  
+  // Reset version in .htaccess file
+  replace.sync({
+    files: cfg.appRoot + 'www/.htaccess',
+    replace: /\/build-([0-9]+)\.([0-9]+)\.([0-9]+)\//g,
+    with: '/build-0.0.0/'
+  })
   
 }

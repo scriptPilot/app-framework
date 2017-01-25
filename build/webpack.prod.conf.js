@@ -1,11 +1,7 @@
-var pkg = require('../package.json')
-var app = require('..' + pkg.appRoot + 'package.json')
-
+// Load packages
 var saveJSON = require('jsonfile')
 saveJSON.spaces = 2  
-
 var path = require('path')
-var config = require('../config')
 var utils = require('./utils')
 var webpack = require('webpack')
 var merge = require('webpack-merge')
@@ -15,55 +11,59 @@ var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ImageminPlugin = require('imagemin-webpack-plugin').default
 var AppCachePlugin = require('appcache-webpack-plugin')
 var FaviconsWebpackPlugin = require('favicons-webpack-plugin')
-var isThere = require('is-there')
 var deleteFiles = require('delete')
 var write = require('write')
-var env = config.build.env
+var replace = require('replace-in-file')
+
+// Load configuration (app configuration after version updates!)
+var cfg = require('../config.js')
+var pkg = require('../package.json')
 
 // Update copyright year in license
-var replace = require('replace-in-file')
 replace.sync({
   files: path.resolve(__dirname, '../LICENSE'),
   replace: /Copyright \(c\) ([0-9]{4}) scriptPilot/,
   with: 'Copyright (c) ' + (new Date()).getFullYear() + ' scriptPilot'
 })
 
-// Update app-framework version in demo app package.json
-if (!isThere('../../package.json')) {
+// Update versions in demo app
+if (!cfg.isInstalled) {
   var demoApp = require('../demo-app/package.json')
+  demoApp.version = pkg.version
   demoApp.devDependencies['app-framework'] = '^' + pkg.version
   saveJSON.writeFileSync('./demo-app/package.json', demoApp)
 }
 
-// Update app-framework version demo .htaccess file
-if (isThere('../demo-app/www/.htaccess')) {  
-  replace.sync({
-    files: path.resolve('../demo-app/www/.htaccess'),
-    replace: /\/build-(.+)\//,
-    with: '/build-' + proj.version + '/'
-  })
-}
+// Update version in .htaccess file
+replace.sync({
+  files: cfg.appRoot + 'www/.htaccess',
+  replace: /\/build-([0-9]+)\.([0-9]+)\.([0-9]+)\//g,
+  with: '/build-' + pkg.version + '/'
+})
 
+// Load app configuration
+var app = require(cfg.appRoot + 'package.json')
+
+// Define production webpack configuration
 var webpackConfig = merge(baseWebpackConfig, {
   module: {
-    loaders: utils.styleLoaders({ sourceMap: config.build.productionSourceMap, extract: true })
+    loaders: utils.styleLoaders({ sourceMap: cfg.build.productionSourceMap, extract: true })
   },
-  devtool: config.build.productionSourceMap ? '#source-map' : false,
+  devtool: cfg.build.productionSourceMap ? '#source-map' : false,
   output: {
-    path: config.build.assetsRoot,
+    path: cfg.appRoot + 'www/build-' + app.version,
     filename: utils.assetsPath('[name].[chunkhash].js'),
     chunkFilename: utils.assetsPath('[id].[chunkhash].js')
   },
   vue: {
     loaders: utils.cssLoaders({
-      sourceMap: config.build.productionSourceMap,
+      sourceMap: cfg.build.productionSourceMap,
       extract: true
     })
   },
   plugins: [
-    // http://vuejs.github.io/vue-loader/en/workflow/production.html
     new webpack.DefinePlugin({
-      'process.env': env
+      'process.env': cfg.build.env
     }),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
@@ -93,7 +93,7 @@ var webpackConfig = merge(baseWebpackConfig, {
       emitStats: false
     }),
     new HtmlWebpackPlugin({
-      filename: config.build.index,
+      filename: cfg.appRoot + 'www/build-' + app.version + '/index.html',
       template: 'index.ejs',
       title: app.title,
       manifest: ' manifest="manifest.appcache"',
@@ -102,10 +102,7 @@ var webpackConfig = merge(baseWebpackConfig, {
         removeComments: true,
         collapseWhitespace: true,
         removeAttributeQuotes: true
-        // more options:
-        // https://github.com/kangax/html-minifier#options-quick-reference
       },
-      // necessary to consistently work with multiple chunks via CommonsChunkPlugin
       chunksSortMode: 'dependency'
     }),    
     new ImageminPlugin({
@@ -119,41 +116,19 @@ var webpackConfig = merge(baseWebpackConfig, {
       exclude: [/\.(js|css)\.map$/],
       output: 'manifest.appcache'
     })
-    
-    /*,
-    // split vendor js into its own file
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      minChunks: function (module, count) {
-        // any required modules inside node_modules are extracted to vendor
-        return (
-          module.resource &&
-          /\.js$/.test(module.resource) &&
-          module.resource.indexOf(
-            path.join(__dirname, '..' + pkg.projectRoot + 'node_modules')
-          ) === 0
-        )
-      }
-    }),
-    // extract webpack runtime and module manifest to its own file in order to
-    // prevent vendor hash from being updated whenever app bundle is updated
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'manifest',
-      chunks: ['vendor']
-    })*/
   ]
 })
 
-if (config.build.productionGzip) {
+// Optionally, add compression plugin
+if (cfg.build.productionGzip) {
   var CompressionWebpackPlugin = require('compression-webpack-plugin')
-
   webpackConfig.plugins.push(
     new CompressionWebpackPlugin({
       asset: '[path].gz[query]',
       algorithm: 'gzip',
       test: new RegExp(
         '\\.(' +
-        config.build.productionGzipExtensions.join('|') +
+        cfg.build.productionGzipExtensions.join('|') +
         ')$'
       ),
       threshold: 10240,

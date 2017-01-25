@@ -2,7 +2,7 @@ var pkg = require('../package.json')
 var app = require('..' + pkg.appRoot + 'package.json')
 
 var path = require('path')
-var config = require('../config')
+var config = require('../config.js')
 var webpack = require('webpack')
 var merge = require('webpack-merge')
 var utils = require('./utils')
@@ -19,13 +19,11 @@ module.exports = merge(baseWebpackConfig, {
   module: {
     loaders: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap })
   },
-  // eval-source-map is faster for development
   devtool: '#eval-source-map',
   plugins: [
     new webpack.DefinePlugin({
       'process.env': config.dev.env
     }),
-    // https://github.com/glenjamin/webpack-hot-middleware#installation--usage
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),    
@@ -49,7 +47,6 @@ module.exports = merge(baseWebpackConfig, {
       persistentCache: true,
       emitStats: false
     }),
-    // https://github.com/ampedandwired/html-webpack-plugin
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: 'index.ejs',

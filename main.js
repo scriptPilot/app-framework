@@ -1,6 +1,5 @@
-// Load project and app configuration
-var app = require(process.env.ROOT_APP + 'package.json')
-var project = require(process.env.ROOT_PROJECT + 'package.json')
+// Load application configuration
+var app = require(process.env.appRoot + 'package.json')
 
 // Import underscore
 window['_'] = require('underscore')
@@ -61,7 +60,7 @@ require('./main.css')
 // Load routes
 var Routes = []
 for (var page in app.routes) {
-  Routes.push({path: page, component: require(process.env.ROOT_APP + 'pages/' + app.routes[page] + '.vue')})
+  Routes.push({path: page, component: require(process.env.appRoot + 'pages/' + app.routes[page] + '.vue')})
 }
 
 // Import sortObject function
@@ -110,7 +109,7 @@ new Vue({
     }
   },
   components: {
-    app: require(process.env.ROOT_APP + 'app.vue')
+    app: require(process.env.appRoot + 'app.vue')
   },
   mounted: function() {
     

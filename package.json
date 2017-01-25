@@ -2,7 +2,7 @@
   "name": "app-framework",
   "description": "Powerful framework to build beautiful iOS and Material like web applications with joy.",
   "repository": "https://github.com/scriptPilot/app-framework.git",
-  "version": "0.32.6",
+  "version": "0.33.0",
   "license": "MIT",
   "scripts": {
     "postinstall": "node postinstall.js && npm install -g firebase-tools",
@@ -22,6 +22,7 @@
     "babel-preset-stage-2": "^6.0.0",
     "babel-register": "^6.0.0",
     "chalk": "^1.1.3",
+    "compression-webpack-plugin": "^0.3.2",
     "connect-history-api-fallback": "^1.1.0",
     "cpx": "^1.5.0",
     "css-loader": "^0.25.0",
@@ -67,6 +68,5 @@
     "node": ">= 4.0.0",
     "npm": ">= 3.0.0"
   },
-  "projectRoot": "/",
   "appRoot": "/demo-app/"
 }

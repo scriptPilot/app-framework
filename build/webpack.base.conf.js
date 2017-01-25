@@ -1,37 +1,39 @@
+// Load configuration
+var cfg = require('../config.js')
 var pkg = require('../package.json')
+var app = require(cfg.appRoot + 'package.json')
 
+// Load packages
 var path = require('path')
-var config = require('../config')
 var utils = require('./utils')
-var projectRoot = path.resolve(__dirname, '..' + pkg.projectRoot)
+var replace = require('replace-in-file')
+var saveJSON = require('jsonfile')
+saveJSON.spaces = 2  
 
-var env = process.env.NODE_ENV
-// check env & config/index.js to decide whether to enable CSS source maps for the
-// various preprocessor loaders added to vue-loader at the end of this file
-var cssSourceMapDev = (env === 'development' && config.dev.cssSourceMap)
-var cssSourceMapProd = (env === 'production' && config.build.productionSourceMap)
+// Set options
+var cssSourceMapDev = (process.env.NODE_ENV === 'development' && cfg.dev.cssSourceMap)
+var cssSourceMapProd = (process.env.NODE_ENV === 'production' && cfg.build.productionSourceMap)
 var useCssSourceMap = cssSourceMapDev || cssSourceMapProd
 
-var isThere = require('is-there')
-
+// Export base webpack configuration
 module.exports = {
   entry: {
     app: './main.js'
   },
   output: {
-    path: config.build.assetsRoot,
-    publicPath: process.env.NODE_ENV === 'production' ? config.build.assetsPublicPath : config.dev.assetsPublicPath,
+    path: cfg.appRoot + 'www/build-' + app.version,
+    publicPath: process.env.NODE_ENV === 'production' ? cfg.build.assetsPublicPath : cfg.dev.assetsPublicPath,
     filename: '[name].js'
   },
   resolve: {
     extensions: ['', '.js', '.vue', '.json'],
-    fallback: [path.join(__dirname, '..' + pkg.projectRoot + 'node_modules')],
+    fallback: [cfg.projectRoot + 'node_modules'],
     alias: {
       'vue$': 'vue/dist/vue.common.js'
     }
   },
   resolveLoader: {
-    fallback: [path.join(__dirname, '..' + pkg.projectRoot + 'node_modules')]
+    fallback: [cfg.projectRoot + 'node_modules']
   },
   module: {
     loaders: [
@@ -42,8 +44,8 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel',
-        include: isThere('../../package.json') ? path.resolve(projectRoot + '/node_modules/app-framework') : projectRoot,
-        exclude: isThere('../../package.json') ? [] : /node_modules/
+        include: cfg.isInstalled ? cfg.projectRoot + 'node_modules/app-framework' : cfg.projectRoot,
+        exclude: cfg.isInstalled ? [] : /node_modules/
       },
       {
         test: /\.json$/,

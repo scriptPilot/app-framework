@@ -1,14 +1,27 @@
-var pkg = require('../package.json')
-var app = require('..' + pkg.appRoot + 'package.json')
-var proj = require('..' + pkg.projectRoot + 'package.json')
-
-var saveJSON = require('jsonfile')
-saveJSON.spaces = 2  
-
+// Require packages
+var path = require('path')
 var isThere = require('is-there')
 var write = require('write')
+var saveJSON = require('jsonfile')
 var deleteFiles = require('delete')
-var path = require('path')
+
+// Require configuration
+var config = require('../config.js')
+var appConfig = require(path.resolve(config.appRoot, 'package.json'))
+
+
+
+
+
+
+
+var pkg = require('../package.json')
+var app = require('..' + pkg.appRoot + 'package.json')
+
+
+saveJSON.spaces = 2  
+
+
 
 // Update Firebase tool configuration
 if (app.firebase.useHostingService === true || app.firebase.useDatabaseRules === true) {
@@ -29,7 +42,7 @@ if (app.firebase.useHostingService === true || app.firebase.useDatabaseRules ===
   // Update hosting
   if (app.firebase.useHostingService === true) {
     firebaseConfig.hosting = {
-      'public': 'www/build-' + (isThere('../../../package.json') ? app.version : proj.version)
+      'public': 'www/build-' + app.version
     }      
   }    
   
