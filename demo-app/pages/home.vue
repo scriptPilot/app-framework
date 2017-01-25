@@ -10,7 +10,7 @@
       </f7-nav-right>
     </f7-navbar>
     <f7-block inner inset style="text-align: center">
-      <p><b>For native App feeling, pin this page to your homescreen and reopen it!</b></p>
+      <p><b>For native App feeling, please pin this page to your homescreen and open it from there!</b></p>
     </f7-block>
     <f7-block-title>Test pages</f7-block-title>            
     <f7-list>

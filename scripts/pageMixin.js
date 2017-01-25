@@ -30,6 +30,12 @@ module.exports = {
   mounted: function () {
     // Page with Framework7 route object
     if (this.$route) {
+      // Assign firebase db object
+      this.db = window.db
+      if (window.firebase) {
+        this.timestamp = window.firebase.database.ServerValue.TIMESTAMP
+      }
+
       // Get views from local storage
       let views = window.localStorage.views ? JSON.parse(window.localStorage.views) : {}
 

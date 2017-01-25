@@ -56,18 +56,18 @@
   module.exports = {
   
     // Return data as a function
-    data: function() {
+    data: function () {
       return {
         newTodo: '',
         todos: []
       }
     },
-    
+  
     // Compute number of completed todos
     computed: {
-      completedTodos: function() {
+      completedTodos: function () {
         let completed = 0
-        for (let n=0; n<this.todos.length; n++) {
+        for (let n = 0; n < this.todos.length; n++) {
           if (this.todos[n].completed) {
             completed++
           }
@@ -75,35 +75,35 @@
         return completed
       }
     },
-    
+  
     // Methods
     methods: {
-    
+  
       // Save new todo
-      saveTodo: function(e) {
-        if (this.newTodo !== '') {          
-          this.todos.push({text: this.newTodo, completed: false})          
-          this.newTodo = ''      
+      saveTodo: function (e) {
+        if (this.newTodo !== '') {
+          this.todos.push({text: this.newTodo, completed: false})
+          this.newTodo = ''
         }
       },
-      
+  
       // Mark todo as completed / not completed
-      toggleTodo: function(key) {
-        this.todos[key].completed = !this.todos[key].completed 
+      toggleTodo: function (key) {
+        this.todos[key].completed = !this.todos[key].completed
       },
-      
+  
       // Delete todo
-      deleteCompleted: function() {
+      deleteCompleted: function () {
         let newTodos = []
-        for (let n=0; n<this.todos.length; n++) {
+        for (let n = 0; n < this.todos.length; n++) {
           if (!this.todos[n].completed) {
             newTodos.push(this.todos[n])
           }
         }
-        this.todos = newTodos  
+        this.todos = newTodos
       }
-      
-    },
-    
+  
+    }
+  
   }
 </script>

@@ -14,11 +14,11 @@
 var image = require('../images/standard-js-sticker-small.png')
 
 module.exports = {
-  data: function() {
-    return {
-      img: image
+    data: function () {
+      return {
+        img: image
+      }
     }
-  }
 }
 
 </script>

@@ -20,14 +20,14 @@
       title: 'Einfache Seite',
       text: 'Einfache, mehrsprachige Seite, mit Framework7-Vue-Komponenten erstellt.'
     }
-  }  
+  }
   
   module.exports = {
     computed: {
-      text: function() {
+      text: function () {
         return text[this.$root.language]
       }
     }
-  }  
+  }
   
 </script>

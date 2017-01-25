@@ -2,7 +2,7 @@
   "name": "app-framework",
   "description": "Powerful framework to build beautiful iOS and Material like web applications with joy.",
   "repository": "https://github.com/scriptPilot/app-framework.git",
-  "version": "0.36.0",
+  "version": "0.37.0",
   "license": "MIT",
   "scripts": {
     "postinstall": "node scripts/postinstall.js && npm update -g firebase-tools && npm update -g standard",
@@ -11,8 +11,8 @@
     "minor": "npm run fix && npm version minor && node scripts/build.js",
     "major": "npm run fix && npm version major && node scripts/build.js",
     "deploy": "npm run fix && node scripts/prepareFirebaseDeploy.js && cd demo-app && firebase login && firebase deploy && cd ../ && node scripts/cleanupFirebaseDeploy.js",
-    "check": "standard >standard-check.log \"config.js\" \"scripts/*.js\"",
-    "fix": "standard >standard-check.log \"config.js\" \"scripts/*.js\" --fix"
+    "check": "standard >standard-check.log \"config.js\" \"scripts/*.js\" \"demo-app/**/*.vue\" --plugin html",
+    "fix": "standard >standard-check.log \"config.js\" \"scripts/*.js\" \"demo-app/**/*.vue\" --plugin html --fix"
   },
   "dependencies": {
     "appcache-webpack-plugin": "^1.3.0",
@@ -29,6 +29,7 @@
     "cpx": "^1.5.0",
     "css-loader": "^0.25.0",
     "delete": "^0.3.2",
+    "eslint-plugin-html": "^2.0.0",
     "eventsource-polyfill": "^0.9.6",
     "express": "^4.13.3",
     "extract-text-webpack-plugin": "^1.0.1",

@@ -53,34 +53,34 @@
   // Assign images (flags)
   let images = {
     flag_en: require('../images/flag_en.png'),
-    flag_de: require('../images/flag_de.png'),
+    flag_de: require('../images/flag_de.png')
   }
   
   module.exports = {
   
     // Assign images
-    data: function() {
+    data: function () {
       return {
         images: images
       }
     },
-    
+  
     // To keep the text pattern assigned updated with the current selected language, it has to be assigned as computed property
     computed: {
-      text: function() {
+      text: function () {
         return text[this.$root.language]
       }
     },
-    
+  
     // To change selected language text right after change, it has to be updated with this helper function
     methods: {
-      updateLanguageText: function(e) {
-        setTimeout(function() {
+      updateLanguageText: function (e) {
+        setTimeout(function () {
           this.$$(e.target).parent().find('.item-after').html(this.text[e.target.value])
         }.bind(this), 0)
       }
-    },
-    
+    }
+  
   }
   
 </script>

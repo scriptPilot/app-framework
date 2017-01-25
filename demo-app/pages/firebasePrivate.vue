@@ -23,29 +23,29 @@
   module.exports = {
   
     // Define intial data as a function
-    data: function() {
+    data: function () {
       return {
-        notes: '' 
+        notes: ''
       }
     },
-          
+  
     // Attach data change listener to firebase
-    mounted: function() {    
-      // Use db() as shortlink to firebase.database().ref()    
-      db('privateDate/notes/' + this.$root.uid).on('value', function (snapshot) {  
+    mounted: function () {
+      // Use db() as shortlink to firebase.database().ref()
+      this.db('privateDate/notes/' + this.$root.uid).on('value', function (snapshot) {
         this.notes = snapshot.val() ? snapshot.val() : ''
-      }.bind(this))      
+      }.bind(this))
     },
-    
+  
     // Save notes after change immediately
     changed: function () {
-      db('privateDate/notes/' + this.$root.uid)
+      this.db('privateDate/notes/' + this.$root.uid)
         .set(this.notes)
         .catch(function () {
           this.$f7.alert('Cannot update notes :-(<br />Please try again later', 'Trouble with Firebase')
         }.bind(this))
     }
-    
+  
   }
   
 </script>

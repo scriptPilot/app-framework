@@ -55,28 +55,26 @@
   module.exports = {
   
     // Define intial data as a function
-    data: function() {
+    data: function () {
       return {
         newTodo: '',
         todos: null,
-        maxEntries: 10  
+        maxEntries: 10
       }
     },
-          
+  
     // Attach data change listener to firebase todo list
-    mounted: function() {    
-      // Use db() as shortlink to firebase.database().ref()    
-      db('publicData/todos').orderByChild('created').limitToLast(this.maxEntries).on('value', function (snapshot) {        
-      
-        // Integrated function: sortObject(object, sortByAttribute [, descendingOrder])
-        this.todos = sortObject(snapshot.val(), 'created', true)
-        
-      }.bind(this))      
+    mounted: function () {
+      // Use this.db() as shortlink to firebase.database().ref()
+      this.db('publicData/todos').orderByChild('created').limitToLast(this.maxEntries).on('value', function (snapshot) {
+      // Integrated function: sortObject(object, sortByAttribute [, descendingOrder])
+        this.todos = window.sortObject(snapshot.val(), 'created', true)
+      }.bind(this))
     },
-    
+  
     // Compute number of completed todos
     computed: {
-      completedTodos: function() {
+      completedTodos: function () {
         let completed = 0
         for (let key in this.todos) {
           if (this.todos[key].completed) {
@@ -86,67 +84,66 @@
         return completed
       }
     },
-    
+  
     // Methods - With error handling
     methods: {
-    
+  
       // Save new todo
-      saveTodo: function(e) {
+      saveTodo: function (e) {
         if (this.newTodo !== '') {
-        
-          // Show loading indicator with delay
+        // Show loading indicator with delay
           let saved = false
           setTimeout(function () {
             if (!saved) {
               this.$f7.showIndicator()
             }
           }.bind(this), 1000)
-          
-          db('publicData/todos')
+  
+          this.db('publicData/todos')
             .push({
               text: this.newTodo,
               completed: false,
-              created: firebase.database.ServerValue.TIMESTAMP            
+              created: this.timestamp
             })
-            .then(function() {
+            .then(function () {
               this.newTodo = ''
               saved = true
               this.$f7.hideIndicator()
             }.bind(this))
-            .catch(function() {
+            .catch(function () {
               this.$f7.alert('Cannot save new task :-(<br />Please try again later', 'Trouble with Firebase')
               saved = true
               this.$f7.hideIndicator()
             }.bind(this))
         }
       },
-      
+  
       // Mark todo as completed / not completed
-      toggleTodo: function(key) {
-        db('publicData/todos/' + key + '/completed')
+      toggleTodo: function (key) {
+        this.db('publicData/todos/' + key + '/completed')
           .set(!this.todos[key].completed)
-          .catch(function() {
+          .catch(function () {
             this.$f7.alert('Cannot update task :-(<br />Please try again later', 'Trouble with Firebase')
           }.bind(this))
       },
-      
+  
       // Delete todo
-      deleteCompleted: function() {
+      deleteCompleted: function () {
         let deletes = {}
         for (let key in this.todos) {
           if (this.todos[key].completed) {
             deletes[key] = null
           }
         }
-        db('publicData/todos')
+        this.db('publicData/todos')
             .update(deletes)
-            .catch(function() {
+            .catch(function () {
               this.$f7.alert('Cannot delete task' + (this.completedTodos > 1 ? 's' : '') + ' :-(<br />Please try again later', 'Trouble with Firebase')
-            }.bind(this)) 
+            }.bind(this))
       }
-      
-    },
-    
+  
+    }
+  
   }
   
 </script>
