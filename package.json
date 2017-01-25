@@ -2,15 +2,15 @@
   "name": "app-framework",
   "description": "Powerful framework to build beautiful iOS and Material like web applications with joy.",
   "repository": "https://github.com/scriptPilot/app-framework.git",
-  "version": "0.34.13",
+  "version": "0.35.2",
   "license": "MIT",
   "scripts": {
-    "postinstall": "node postinstall.js && npm update -g firebase-tools",
-    "dev": "node build/dev-server.js",
-    "patch": "npm version patch && node build/build.js",
-    "minor": "npm version minor && node build/build.js",
-    "major": "npm version major && node build/build.js",
-    "deploy": "node build/prepareFirebaseDeploy.js && cd demo-app && firebase login && firebase deploy && cd ../ && node build/cleanupFirebaseDeploy.js"
+    "postinstall": "node scripts/postinstall.js && npm update -g firebase-tools",
+    "dev": "node scripts/dev-server.js",
+    "patch": "npm version patch && node scripts/build.js",
+    "minor": "npm version minor && node scripts/build.js",
+    "major": "npm version major && node scripts/build.js",
+    "deploy": "node scripts/prepareFirebaseDeploy.js && cd demo-app && firebase login && firebase deploy && cd ../ && node scripts/cleanupFirebaseDeploy.js"
   },
   "dependencies": {
     "appcache-webpack-plugin": "^1.3.0",

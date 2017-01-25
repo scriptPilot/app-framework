@@ -93,6 +93,15 @@
       // Save new todo
       saveTodo: function(e) {
         if (this.newTodo !== '') {
+        
+          // Show loading indicator with delay
+          let saved = false
+          setTimeout(function () {
+            if (!saved) {
+              this.$f7.showIndicator()
+            }
+          }.bind(this), 1000)
+          
           db('publicData/todos')
             .push({
               text: this.newTodo,
@@ -101,9 +110,13 @@
             })
             .then(function() {
               this.newTodo = ''
+              saved = true
+              this.$f7.hideIndicator()
             }.bind(this))
             .catch(function() {
               this.$f7.alert('Cannot save new task :-(<br />Please try again later', 'Trouble with Firebase')
+              saved = true
+              this.$f7.hideIndicator()
             }.bind(this))
         }
       },

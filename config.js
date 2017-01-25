@@ -5,8 +5,9 @@ var merge = require('webpack-merge')
 
 // Define installation status and root path
 var isInstalled = isThere('../../package.json')
-var appRoot = (isInstalled ? path.resolve(__dirname, '../../') : path.resolve(__dirname, 'demo-app/')) + path.sep
+var packageRoot = path.resolve(__dirname) + path.sep
 var projectRoot = (isInstalled ? path.resolve(__dirname, '../../') : path.resolve(__dirname)) + path.sep
+var appRoot = (isInstalled ? path.resolve(__dirname, '../../') : path.resolve(__dirname, 'demo-app/')) + path.sep
 
 // Load application configuration
 var app = require(appRoot + 'package.json')
@@ -41,6 +42,7 @@ module.exports = {
     cssSourceMap: false
   },
   isInstalled: isInstalled,
+  packageRoot: packageRoot,
   projectRoot: projectRoot,
   appRoot: appRoot
 }

@@ -65,7 +65,7 @@ var webpackConfig = merge(baseWebpackConfig, {
       }
     }),
     new webpack.optimize.OccurrenceOrderPlugin(),
-    new ExtractTextPlugin('[name].[contenthash].css'),    
+    new ExtractTextPlugin('[name].[contenthash].css'),
     new FaviconsWebpackPlugin({
       logo: path.resolve(__dirname, '..' + pkg.appRoot, app.faviconIcon),
       background: app.faviconBackgroundColor,
@@ -98,7 +98,7 @@ var webpackConfig = merge(baseWebpackConfig, {
         removeAttributeQuotes: true
       },
       chunksSortMode: 'dependency'
-    }),    
+    }),  
     new ImageminPlugin({
       svgo: null
     }),

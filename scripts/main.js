@@ -64,10 +64,10 @@ for (var page in app.routes) {
 }
 
 // Import sortObject function
-require('../sortObject.js')
+require('./sortObject.js')
 
 // Import mixin for page runtime management
-Vue.mixin(require('../pageMixin.js'))
+Vue.mixin(require('./pageMixin.js'))
 
 // Init App
 var localStorage = window.localStorage

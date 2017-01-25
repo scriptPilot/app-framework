@@ -1,15 +1,15 @@
 {
   "name": "demo-app",
-  "version": "0.34.13",
+  "version": "0.35.2",
   "devDependencies": {
-    "app-framework": "^0.34.13"
+    "app-framework": "^0.35.2"
   },
   "scripts": {
-    "dev": "cd node_modules/app-framework && node build/dev-server.js",
-    "patch": "npm version patch && cd node_modules/app-framework && node build/build.js",
-    "minor": "npm version minor && cd node_modules/app-framework && node build/build.js",
-    "major": "npm version major && cd node_modules/app-framework && node build/build.js",
-    "deploy": "node node_modules/app-framework/build/prepareFirebaseDeploy.js && firebase login && firebase deploy && node node_modules/app-framework/build/cleanupFirebaseDeploy.js"
+    "dev": "cd node_modules/app-framework && node scripts/dev-server.js",
+    "patch": "npm version patch && cd node_modules/app-framework && node scripts/build.js",
+    "minor": "npm version minor && cd node_modules/app-framework && node scripts/build.js",
+    "major": "npm version major && cd node_modules/app-framework && node scripts/build.js",
+    "deploy": "node node_modules/app-framework/scripts/prepareFirebaseDeploy.js && firebase login && firebase deploy && node node_modules/app-framework/scripts/cleanupFirebaseDeploy.js"
   },
   "title": "Demo App",
   "theme": "ios",
@@ -50,7 +50,8 @@
     "useDatabaseService": true,
     "useStorageService": false,
     "useHostingService": true,
-    "useDatabaseRules": true
+    "useDatabaseRules": true,
+    "userRegistration": true
   },
   "loginRequired": [
     "privateFirebase"
