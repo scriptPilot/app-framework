@@ -15,7 +15,7 @@ var deleteFiles = require('delete')
 var write = require('write')
 var replace = require('replace-in-file')
 
-// Load configuration (app configuration after version updates!)
+// Load configuration
 var cfg = require('../config.js')
 var pkg = require('../package.json')
 
@@ -28,21 +28,21 @@ replace.sync({
 
 // Update versions in demo app
 if (!cfg.isInstalled) {
-  var demoApp = require('../demo-app/package.json')
+  var demoApp = require(cfg.appRoot + 'package.json')
   demoApp.version = pkg.version
   demoApp.devDependencies['app-framework'] = '^' + pkg.version
-  saveJSON.writeFileSync('./demo-app/package.json', demoApp)
+  saveJSON.writeFileSync(cfg.appRoot + 'package.json', demoApp)
 }
+
+// Load app configuration
+var app = require(cfg.appRoot + 'package.json')
 
 // Update version in .htaccess file
 replace.sync({
   files: cfg.appRoot + 'www/.htaccess',
   replace: /\/build-([0-9]+)\.([0-9]+)\.([0-9]+)\//g,
-  with: '/build-' + pkg.version + '/'
+  with: '/build-' + app.version + '/'
 })
-
-// Load app configuration
-var app = require(cfg.appRoot + 'package.json')
 
 // Define production webpack configuration
 var webpackConfig = merge(baseWebpackConfig, {
