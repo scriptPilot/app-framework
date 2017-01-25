@@ -72,10 +72,9 @@ Deployment to Firebase Hosting Service
 2. Set `firebase.useHostingService: true` in `package.json` to upload your build folder
 3. Set `firebase.useDatabaseRules: true` in `package.json` to overwrite Firebase rules with `firebaseDatabaseRules.json`
 
- If `firebaseDatabaseRules.json` does not exist, it will be created with standard rules. If you already have edited rules in the Firebase console, download these first, because they will be overwritten with no chance for rollback!
-  
+ If `firebaseDatabaseRules.json` does not exist, it will be created with standard rules. If you already have edited rules in the Firebase console, download these first, because they will be overwritten with no chance for rollback!  
 4. Run `npm run deploy` to start login and deployment process
 5. Close the web browser after successful Firebase login, *App Framework* will do the rest
-5. For rollback, go to the [Firebase Console](https://console.firebase.google.com/) > Hosting
+6. For rollback, go to the [Firebase Console](https://console.firebase.google.com/) > Hosting
 
 > Your question is not answered? You have feature requests or found any bug or typo? Please use our [GitHub Issue list](https://github.com/scriptPilot/app-framework/issues)!
