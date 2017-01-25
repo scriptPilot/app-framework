@@ -1,6 +1,6 @@
 # App Framework
 > Please keep in mind that *App Framework* is still under initial development, [open features and bugs could be seen here](https://github.com/scriptPilot/app-framework/issues).
-> Most work is done in the background - but for sure, ther is [Demo App](https://app-framework.scriptpilot.de/) for you!
+> Most work is done in the background - but for sure, there is [Demo App](https://app-framework.scriptpilot.de/) for you!
 
 #### What is App Framework?
 *App Framework* is a [JavaScript package](https://docs.npmjs.com/getting-started/what-is-npm), which does all the recurring stuff for you, which is needed to develop, test, build and deploy a web application. Using *App Framework*, you could start to realize your next amazing application immediately.
