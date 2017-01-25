@@ -75,6 +75,9 @@ Deployment to Firebase Hosting Service
  If `firebaseDatabaseRules.json` does not exist, it will be created with standard rules. If you already have edited rules in the Firebase console, download these first, because they will be overwritten with no chance for rollback!
   
 4. Run `npm run deploy` to start login and deployment process
+
+ After login, you can close the Browser, the rest is done by *App Framework* automatically.
+ 
 5. For rollback, go to the [Firebase Console](https://console.firebase.google.com/) > Hosting
 
 > Your question is not answered? You have feature requests or found any bug or typo? Please use our [GitHub Issue list](https://github.com/scriptPilot/app-framework/issues)!
