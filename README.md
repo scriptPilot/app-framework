@@ -1,5 +1,5 @@
 # App Framework
-**Does all the tricky stuff for you to develop, test, build and deploy iOS and Android like web applications.**
+:boom: **Does all the tricky stuff for you to develop, test, build and deploy iOS and Android like web applications.**
 
 ## Features
 > The power is under the hood - but for sure, we have a [Demo App](https://app-framework.scriptpilot.de/).
@@ -10,16 +10,22 @@
 
 **Powerful**
 
-- ... wip ...
+- Easy realization of state based, reactive user interfaces with the power of [Vue.js](https://vuejs.org/)
+- After restart, pages, tabs, scroll positions, panels, popups, form data and page component data will be restored
+- User registration, password reset and login processes with [Firebase Authentication](https://firebase.google.com/docs/auth/)
+- [Realtime database](https://firebase.google.com/docs/database/) and [file storage](https://firebase.google.com/docs/storage/) services with Firebase
+- Application hosting with [Firebase Hosting](https://firebase.google.com/docs/hosting/)
+- Offline capabilty, flexible routing and multi-language support
 
 **Timesaving**
 
 - Creation of a lightweight and well-organized project folder, prepared to push to [GitHub](https://github.com/about)
 - Development server with live reload, perfectly to use together with [Google Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools/) 
 - Your application is splitted up in easy to maintain [single file components](https://vuejs.org/v2/guide/single-file-components.html)
+- Generation of favicons, touch icons and splash screens out of a single image file
 - Integrated code checks for [correctness](http://eslint.org/) and [standard conformity](http://standardjs.com/)
 - Build process with version bump and compression of all your HTML, CSS, JavaScript and image files
-- Deployment to [Firebase Hosting](https://firebase.google.com/docs/hosting/) or your own server without downtime and easy rollback solution
+- Deployment to [Firebase Hosting](https://firebase.google.com/docs/hosting/) or your own server without downtime and with easy rollback solution
 
 ## Documentation
 
