@@ -1,4 +1,4 @@
-# App Framework
+# App Framework - [Initial Release will come soon!](https://github.com/scriptPilot/app-framework/milestone/1)
 :boom: **Does all the tricky stuff for you to develop, test, build and deploy iOS and Android like web applications.**
 
 ## Features
