@@ -35,14 +35,12 @@ if (cfg.isInstalled) {
     cpx.copySync(cfg.packageRoot + 'demo-app/pages/*', cfg.appRoot + 'pages')
   }
 
-  // Copy/rename gitignore
-  if (!isThere(cfg.appRoot + '.gitignore')) {
-    if (isThere(cfg.packageRoot + 'demo-app/.gitignore')) {
-      cpx.copySync(cfg.packageRoot + 'demo-app/.gitignore', cfg.appRoot)
-    } else if (isThere(cfg.packageRoot + 'demo-app/.npmignore')) {
-      cpx.copySync(cfg.packageRoot + 'demo-app/.npmignore', cfg.appRoot)
-      fs.renameSync(cfg.appRoot + '.npmignore', cfg.appRoot + '.gitignore')
-    }
+  // Copy/update gitignore
+  if (isThere(cfg.packageRoot + 'demo-app/.gitignore')) {
+    cpx.copySync(cfg.packageRoot + 'demo-app/.gitignore', cfg.appRoot)
+  } else if (isThere(cfg.packageRoot + 'demo-app/.npmignore')) {
+    cpx.copySync(cfg.packageRoot + 'demo-app/.npmignore', cfg.appRoot)
+    fs.renameSync(cfg.appRoot + '.npmignore', cfg.appRoot + '.gitignore')
   }
 
   // Copy .htaccess file, reset version

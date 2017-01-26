@@ -2,7 +2,7 @@
   "name": "app-framework",
   "description": "Powerful framework to build beautiful iOS and Material like web applications with joy.",
   "repository": "https://github.com/scriptPilot/app-framework.git",
-  "version": "0.38.0",
+  "version": "0.38.4",
   "license": "MIT",
   "scripts": {
     "postinstall": "node scripts/postinstall.js && npm update -g firebase-tools && npm update -g standard",

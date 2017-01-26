@@ -5,6 +5,7 @@ var path = require('path')
 var utils = require('./utils')
 var webpack = require('webpack')
 var merge = require('webpack-merge')
+var isThere = require('is-there')
 var deleteFiles = require('delete')
 var baseWebpackConfig = require('./webpack.base.conf')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
@@ -118,8 +119,8 @@ var webpackConfig = merge(baseWebpackConfig, {
       })
 
       // Delete .babelrc file
-      if (cfg.isInstalled) {
-        deleteFiles.sync([cfg.projectRoot + '.babelrc'])
+      if (cfg.isInstalled && isThere(cfg.projectRoot + '.babelrc')) {
+        deleteFiles.sync([cfg.projectRoot + '.babelrc'], {force: true})
       }
     })
   ]

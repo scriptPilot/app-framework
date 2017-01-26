@@ -1,22 +1,21 @@
-// Require packages
-var path = require('path')
+// Import config
+var cfg = require('../config.js')
+var app = require(cfg.appRoot + 'package.json')
+
+// Import packages
 var isThere = require('is-there')
 var write = require('write')
 var saveJSON = require('jsonfile')
 var deleteFiles = require('delete')
-
-var pkg = require('../package.json')
-var app = require('..' + pkg.appRoot + 'package.json')
-
 saveJSON.spaces = 2
 
 // Update Firebase tool configuration
 if (app.firebase.useHostingService === true || app.firebase.useDatabaseRules === true) {
   // Write project config
-  if (!isThere(path.resolve(__dirname, '..' + pkg.appRoot + '.firebaserc'))) {
-    write.sync(path.resolve(__dirname, '..' + pkg.appRoot + '.firebaserc'), '{}')
+  if (!isThere(cfg.appRoot + '.firebaserc')) {
+    write.sync(cfg.appRoot + '.firebaserc', '{}')
   }
-  saveJSON.writeFileSync(path.resolve(__dirname, '..' + pkg.appRoot + '.firebaserc'), {
+  saveJSON.writeFileSync(cfg.appRoot + '.firebaserc', {
     'projects': {
       'default': app.firebase.authDomain.substr(0, app.firebase.authDomain.indexOf('.firebaseapp.com'))
     }
@@ -39,9 +38,9 @@ if (app.firebase.useHostingService === true || app.firebase.useDatabaseRules ===
     }
 
     // Create file with standard rules
-    if (!isThere(path.resolve(__dirname, '..' + pkg.appRoot + 'firebaseDatabaseRules.json'))) {
-      write.sync(path.resolve(__dirname, '..' + pkg.appRoot + 'firebaseDatabaseRules.json'), '{}')
-      saveJSON.writeFileSync(path.resolve(__dirname, '..' + pkg.appRoot + 'firebaseDatabaseRules.json'), {
+    if (!isThere(cfg.appRoot + 'firebaseDatabaseRules.json')) {
+      write.sync(cfg.appRoot + 'firebaseDatabaseRules.json', '{}')
+      saveJSON.writeFileSync(cfg.appRoot + 'firebaseDatabaseRules.json', {
         'rules': {
           '.read': 'auth != null',
           '.write': 'auth != null'
@@ -51,15 +50,15 @@ if (app.firebase.useHostingService === true || app.firebase.useDatabaseRules ===
   }
 
   // Save config
-  saveJSON.writeFileSync(path.resolve(__dirname, '..' + pkg.appRoot + 'firebase.json'), firebaseConfig)
+  saveJSON.writeFileSync(cfg.appRoot + 'firebase.json', firebaseConfig)
 
 // Delete Firebase tool configuration
 } else {
-  if (isThere(path.resolve(__dirname, '..' + pkg.appRoot + 'firebase.json'))) {
-    deleteFiles.sync([path.resolve(__dirname, '..' + pkg.appRoot + 'firebase.json')])
+  if (isThere(cfg.appRoot + 'firebase.json')) {
+    deleteFiles.sync([cfg.appRoot + 'firebase.json'], {force: true})
   }
-  if (isThere(path.resolve(__dirname, '..' + pkg.appRoot + '.firebaserc'))) {
-    deleteFiles.sync([path.resolve(__dirname, '..' + pkg.appRoot + '.firebaserc')])
+  if (isThere(cfg.appRoot + '.firebaserc')) {
+    deleteFiles.sync([cfg.appRoot + '.firebaserc'], {force: true})
   }
 }
 

@@ -3,6 +3,7 @@ require('./check-versions')()
 require('shelljs/global')
 
 var ora = require('ora')
+var isThere = require('is-there')
 var webpack = require('webpack')
 var webpackConfig = require('./webpack.prod.conf')
 
@@ -11,7 +12,7 @@ spinner.start()
 
 // Copy babelrc file (will be deleted after build)
 var cfg = require('../config')
-if (cfg.isInstalled) {
+if (cfg.isInstalled && !isThere(cfg.projectRoot + '.babelrc')) {
   var cpx = require('cpx')
   cpx.copySync(cfg.packageRoot + '.babelrc', cfg.projectRoot + '.babelrc')
 }

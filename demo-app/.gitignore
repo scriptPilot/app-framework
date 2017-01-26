@@ -1,4 +1,7 @@
 www/build-*
 node_modules/
+.babelrc
+.firebaserc
+firebase.json
 firebase-debug.log
 npm-debug.log

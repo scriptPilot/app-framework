@@ -1,14 +1,15 @@
-var pkg = require('../package.json')
+// Import config
+var cfg = require('../config.js')
 
+// Import packages
 var isThere = require('is-there')
 var deleteFiles = require('delete')
-var path = require('path')
 
-if (isThere(path.resolve(__dirname, '..' + pkg.appRoot + '.firebaserc'))) {
-  deleteFiles.sync([path.resolve(__dirname, '..' + pkg.appRoot + '.firebaserc')])
+if (isThere(cfg.appRoot + '.firebaserc') && !isThere(cfg.appRoot + '.firebaserc')) {
+  deleteFiles.sync([cfg.appRoot + '.firebaserc'], {force: true})
 }
-if (isThere(path.resolve(__dirname, '..' + pkg.appRoot + 'firebase.json'))) {
-  deleteFiles.sync([path.resolve(__dirname, '..' + pkg.appRoot + 'firebase.json')])
+if (isThere(cfg.appRoot + 'firebase.json')) {
+  deleteFiles.sync([cfg.appRoot + 'firebase.json'])
 }
 
 module.exports = {}
