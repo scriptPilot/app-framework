@@ -4,7 +4,6 @@
 #### Install
 
 - `npm install`
-- `npm update`
 
 #### Develop
 
