@@ -3,11 +3,8 @@
 
 ### Required knowledge
 - [Node.js with npm](https://docs.npmjs.com/getting-started/what-is-npm)
-- [Framework7](https://framework7.io/docs/)
-
-Optional
 - [Vue](https://vuejs.org/v2/guide/)
-- [Framework7-Vue](https://framework7.io/vue/)
+- [Framework7](https://framework7.io/docs/) / [Framework7-Vue](https://framework7.io/vue/)
 - [Firebase](https://firebase.google.com/docs/web/setup)
 
 ### Setup your development environment
