@@ -64,6 +64,7 @@ if (app.firebase.useHostingService === true || app.firebase.useDatabaseRules ===
   if (isThere(cfg.appRoot + '.firebaserc')) {
     deleteFiles.sync([cfg.appRoot + '.firebaserc'], {force: true})
   }
+  throw new Error('Please check your configuration for Firebase hosting')
 }
 
 module.exports = {}

@@ -2,7 +2,7 @@
   "name": "app-framework",
   "description": "Powerful framework to build beautiful iOS and Material like web applications with joy.",
   "repository": "https://github.com/scriptPilot/app-framework.git",
-  "version": "0.38.10",
+  "version": "0.38.12",
   "license": "MIT",
   "scripts": {
     "postinstall": "node scripts/postinstall.js && npm update -g firebase-tools && npm update -g standard",
@@ -51,6 +51,7 @@
     "on-build-webpack": "^0.1.0",
     "opn": "^4.0.2",
     "ora": "^0.3.0",
+    "read-file": "^0.2.0",
     "replace-in-file": "^2.1.0",
     "semver": "^5.3.0",
     "shelljs": "^0.7.4",
