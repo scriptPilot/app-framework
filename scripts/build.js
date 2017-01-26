@@ -9,6 +9,13 @@ var webpackConfig = require('./webpack.prod.conf')
 var spinner = ora('building for production...')
 spinner.start()
 
+// Copy babelrc file (will be deleted after build)
+var cfg = require('../config')
+if (cfg.isInstalled) {
+  var cpx = require('cpx')
+  cpx.copySync(cfg.packageRoot + '.babelrc', cfg.projectRoot + '.babelrc')
+}
+
 webpack(webpackConfig, function (err, stats) {
   spinner.stop()
   if (err) throw err
