@@ -24,7 +24,7 @@
 - Your application is splitted up in easy to maintain [single file components](https://vuejs.org/v2/guide/single-file-components.html)
 - Generation of favicons, touch icons and splash screens out of a single image file
 - Integrated code checks for [correctness](http://eslint.org/) and [standard conformity](http://standardjs.com/)
-- Build process with version bump and compression of all your HTML, CSS, JavaScript and image files
+- Build process with version bump and compression of all HTML, CSS, JavaScript and image files
 - Deployment to [Firebase Hosting](https://firebase.google.com/docs/hosting/) or your own server without downtime and with easy rollback solution
 
 ## Documentation
