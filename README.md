@@ -1,23 +1,77 @@
-# App Framework
-> Most work is done in the background - but for sure, there is [Demo App](https://app-framework.scriptpilot.de/) available!
+# App Framework - [Initial Release will come soon!](https://github.com/scriptPilot/app-framework/milestone/1)
+:boom: **Does all the tricky stuff for you to develop, test, build and deploy iOS and Android like web applications.**
 
-> Please keep in mind that *App Framework* is still under initial development, [open features and bugs could be seen here](https://github.com/scriptPilot/app-framework/issues).
+## Features
+> The power is under the hood - but for sure, we have a [Demo App](https://app-framework.scriptpilot.de/).
 
-#### What is App Framework?
-*App Framework* is a [JavaScript package](https://docs.npmjs.com/getting-started/what-is-npm), which does all the recurring stuff for you, which is needed to develop, test, build and deploy a web application. Using *App Framework*, you could start to realize your next amazing application immediately.
+**Beautiful**
+- All well known [iOS](http://framework7.io/kitchen-sink-ios/) and [Material](http://framework7.io/kitchen-sink-material/) user interface components as well as native transitions
+- Comprehensive icon fonts like [FontAwesome](http://fontawesome.io/), [Framework7](http://framework7.io/icons/), [Ion](http://ionicons.com/) and [Material Icons](https://material.io/icons/)
 
-#### Why is it beautiful?
-Based on [Framework7](http://framework7.io/), with *App Framework* you have all the well known [iOS](http://framework7.io/kitchen-sink-ios/) and [Material](http://framework7.io/kitchen-sink-material/) components and stunning transitions available to build gorgeous user interfaces. Some improvements have been applied to fit the native behaviour as much as possible. Out of the box you can use several icon fonts, like [FontAwesome](http://fontawesome.io/), [Framework7](http://framework7.io/icons/), [Ion](http://ionicons.com/) or [Material Icons](https://material.io/icons/).
+**Powerful**
 
-#### Why is it powerful?
-Because any tricky aspect of application development works well out of the box. The runtime environment of your application is kept after reload - including pages, tabs, side panels, popups, scroll positions and all the data of your page components and inputs. [Firebase](https://firebase.google.com/) is integrated well with user registration and authentication processes as well as realtime database, file storage and application hosting services. Based on [Vue](https://vuejs.org/), building reactive and state-based user intefaces is a waltz. Offline capability, the use of multiple languages, a favicon generator and a flexible routing are parts of *App Framework* as well.
+- Easy realization of state based, reactive user interfaces with the power of [Vue.js](https://vuejs.org/)
+- After restart, pages, tabs, scroll positions, panels, popups, form data and page component data will be restored
+- User registration, password reset and login processes with [Firebase Authentication](https://firebase.google.com/docs/auth/)
+- [Realtime database](https://firebase.google.com/docs/database/) and [file storage](https://firebase.google.com/docs/storage/) services with Firebase
+- Application hosting with [Firebase Hosting](https://firebase.google.com/docs/hosting/)
+- Offline capabilty, flexible routing and multi-language support
 
-#### Why will I code with joy?
-*App Framework* does all the common tasks and manages all external libraries for you. Your working directory is lightweight and well-arranged. Your application is splitted up in easy to maintain [single file components](https://vuejs.org/v2/guide/single-file-components.html). You are supported by a development server with live reload and checks for [code correctness](http://eslint.org/) and [standard conformity](http://standardjs.com/). *App Framework* bumps your version automatically before any build process and optimizes all your code and image files with merging and compression. At the end you could deploy your new build without any downtime and have a fast rollback solution readily available.
+**Timesaving**
 
-#### How do I start?
-1. Install [Node.js with npm](https://docs.npmjs.com/getting-started/what-is-npm) and learn the basics
-2. Save [package.json](https://raw.githubusercontent.com/scriptPilot/app-framework/master/demo-app/package.json) to an empty folder on your computer
-3. Run `npm install` to setup the project folder
-4. Run `npm run dev` to start the development server
-5. Read the [Documentation](DOCUMENTATION.md)
+- Creation of a lightweight and well-organized project folder, prepared to push to [GitHub](https://github.com/about)
+- Development server with live reload, perfectly to use together with [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools/) 
+- Your application is splitted up in easy to maintain [single file components](https://vuejs.org/v2/guide/single-file-components.html)
+- Generation of favicons, touch icons and splash screens out of a single image file
+- Integrated code checks for [correctness](http://eslint.org/) and [standard conformity](http://standardjs.com/)
+- Build process with version bump and compression of all HTML, CSS, JavaScript and image files
+- Deployment to [Firebase Hosting](https://firebase.google.com/docs/hosting/) or your own server without downtime and with easy rollback solution
+
+## Documentation
+
+> Read less, do more - please open a ticket for any open question in our [Issue List](https://github.com/scriptPilot/app-framework/issues).
+
+### Required knowledge
+
+- [Node.js with npm](https://docs.npmjs.com/getting-started/what-is-npm)
+- [Framework7](https://framework7.io/docs/) / [Framework7-Vue](https://framework7.io/vue/)
+
+Optional
+
+- [Vue](https://vuejs.org/v2/guide/)
+- [Firebase](https://firebase.google.com/docs/web/setup)
+
+### Setup your development environment
+
+- Download *[package.json](https://raw.githubusercontent.com/scriptPilot/app-framework/master/demo-app/package.json)* file to an empty folder
+- Run `npm install` to setup project folder
+
+### Develop your application
+
+- Run `npm run dev` to start development server at localhost:8080
+- Adjust configuration in *package.json* file
+- Save images to *images* folder
+- Edit main component in *app.vue* file
+- Edit page components in *pages* folder
+
+### Test your application
+
+- Run `npm run check` to check files according [Standard JavaScript](http://standardjs.com/index.html)
+- Run `npm run fix` to fix files as far as possible according [Standard JavaScript](http://standardjs.com/index.html)
+- Use [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools/) to debug your application
+
+### Build your application
+
+- Run `npm run patch` after bugfixes and improvements
+- Run `npm run minor` after adding new functionality
+- Run `npm run major` after breaking backward-capability
+
+### Deploy your application
+
+- Run `npm run database` to overwrite the Firebase database rules with the content of *databaseRules.json*
+- Run `npm run deploy` to push newest build to [Firebase Hosting](https://firebase.google.com/docs/hosting/)
+ - For rollback go to the Firebase Console > Hosting
+- *or* upload the content of the *www* folder to your own server
+ - For rollback change the version in *www/.htaccess* file and upload this to your server
+- Run `npm run backup` to save the Firebase database content to *databaseBackup.json* file
+ 
