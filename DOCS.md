@@ -9,11 +9,11 @@
 
 **Powerful**
 
-- ...
+- ... wip ...
 
 **Timesaving**
 
-- ...
+- ... wip ...
 
 ## Documentation
 
@@ -56,8 +56,10 @@ Optional
 
 ### Deploy your application
 
+- Run `npm run database` to overwrite the Firebase database rules with the content of *databaseRules.json*
 - Run `npm run deploy` to push newest build to [Firebase Hosting](https://firebase.google.com/docs/hosting/)
  - For rollback go to the Firebase Console > Hosting
 - *or* upload the content of the *www* folder to your own server
  - For rollback change the version in *www/.htaccess* file and upload this to your server
+- Run `npm run backup` to save the Firebase database content to *databaseBackup.json* file
  
