@@ -51,15 +51,12 @@ As prerequisite you should understand the principles of [Node.js and npm](https:
 
 ### Build application
 
-Before you build your application it should be tested well. Then you start the version bump and build process as follows:
-
-Doc: https://firebase.google.com/docs/cli/
-
-- `npm run patch` after bugfixes and improvements
-- `npm run minor` after adding new functionality
-- `npm run major` after breaking backward-capability
-
-After the build process has finished successfully, you find all static files in the new folder `www/build-<version>`
+- Before you build your application it should be tested well. Then you start the version bump and build process as follows:
+ - `npm run patch` after bugfixes and improvements
+ - `npm run minor` after adding new functionality
+ - `npm run major` after breaking backward-capability
+- After the build process has finished successfully, you find all static files in the new folder `www/build-<version>`
+- The build process will take a while, because there are a lot of image rendering and text manipulation tasks to do - relax, take a cookie
 
 ### Deploy application
 
