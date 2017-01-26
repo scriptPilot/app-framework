@@ -3,8 +3,10 @@ var cfg = require('../config.js')
 var app = require(cfg.appRoot + 'package.json')
 
 // Import packages
+var path = require('path')
 var isThere = require('is-there')
 var write = require('write')
+var read = require('read-file')
 var saveJSON = require('jsonfile')
 var deleteFiles = require('delete')
 saveJSON.spaces = 2
@@ -26,8 +28,10 @@ if (app.firebase.useHostingService === true || app.firebase.useDatabaseRules ===
 
   // Update hosting
   if (app.firebase.useHostingService === true) {
+    let htaccess = read.sync(path.resolve(cfg.appRoot, 'www/.htaccess'), 'utf8')
+    let versionSearch = htaccess.match(/build-(.+)\//)
     firebaseConfig.hosting = {
-      'public': 'www/build-' + app.version
+      'public': 'www/build-' + versionSearch[1]
     }
   }
 

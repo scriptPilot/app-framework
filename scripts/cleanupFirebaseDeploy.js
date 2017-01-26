@@ -5,7 +5,7 @@ var cfg = require('../config.js')
 var isThere = require('is-there')
 var deleteFiles = require('delete')
 
-if (isThere(cfg.appRoot + '.firebaserc') && !isThere(cfg.appRoot + '.firebaserc')) {
+if (isThere(cfg.appRoot + '.firebaserc')) {
   deleteFiles.sync([cfg.appRoot + '.firebaserc'], {force: true})
 }
 if (isThere(cfg.appRoot + 'firebase.json')) {
