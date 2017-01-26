@@ -15,11 +15,11 @@
 **Timesaving**
 
 - Creation of a lightweight and well-organized project folder, prepared to push to [GitHub](https://github.com/about)
-- Development server with live reload, perfectly to use together with [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools/) 
+- Development server with live reload, perfectly to use together with [Google Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools/) 
 - Your application is splitted up in easy to maintain [single file components](https://vuejs.org/v2/guide/single-file-components.html)
 - Integrated code checks for [correctness](http://eslint.org/) and [standard conformity](http://standardjs.com/)
 - Build process with version bump and compression of all your HTML, CSS, JavaScript and image files
-- Automatic deployment of your application to [Firebase hosting](https://firebase.google.com/docs/hosting/)
+- Deployment to [Firebase Hosting](https://firebase.google.com/docs/hosting/) or your own server without downtime and easy rollback solution
 
 ## Documentation
 
