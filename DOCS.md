@@ -17,7 +17,7 @@
 
 ## Documentation
 
-> Read less, do more - please open a ticket for any open question, bug or feature request in our [Issue List](https://github.com/scriptPilot/app-framework/issues).
+> Read less, do more - please open a ticket for any open question in our [Issue List](https://github.com/scriptPilot/app-framework/issues).
 
 ### Required knowledge
 
