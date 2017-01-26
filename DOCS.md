@@ -1,12 +1,12 @@
 # App Framework - Documentation
 > Read less, do more - please open a ticket for any open question in our [Issue List](https://github.com/scriptPilot/app-framework/issues).
 
-#### Installation
+#### Install
 
 - `npm install`
 - `npm update`
 
-#### Development
+#### Develop
 
 - `npm run dev`
 
