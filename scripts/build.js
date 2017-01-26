@@ -14,7 +14,7 @@ spinner.start()
 var cfg = require('../config')
 if (cfg.isInstalled && !isThere(cfg.projectRoot + '.babelrc')) {
   var cpx = require('cpx')
-  cpx.copySync(cfg.packageRoot + '.babelrc', cfg.projectRoot + '.babelrc')
+  cpx.copySync(cfg.packageRoot + '.babelrc', cfg.projectRoot)
 }
 
 webpack(webpackConfig, function (err, stats) {
