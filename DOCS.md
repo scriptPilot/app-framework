@@ -1,7 +1,8 @@
 # App Framework
-> Does all the tricky stuff for you to develop, test, build and deploy iOS and Android like web applications.
+**Does all the tricky stuff for you to develop, test, build and deploy iOS and Android like web applications.**
 
 ## Features
+> The power is under the hood - but for sure, we have a [Demo App](https://app-framework.scriptpilot.de/).
 
 **Beautiful**
 - All well known [iOS](http://framework7.io/kitchen-sink-ios/) and [Material](http://framework7.io/kitchen-sink-material/) user interface components as well as native transitions
@@ -13,7 +14,12 @@
 
 **Timesaving**
 
-- ... wip ...
+- Creation of a lightweight and well-organized project folder, prepared to push to [GitHub](https://github.com/about)
+- Development server with live reload, perfectly to use together with [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools/) 
+- Your application is splitted up in easy to maintain [single file components](https://vuejs.org/v2/guide/single-file-components.html)
+- Integrated code checks for [correctness](http://eslint.org/) and [standard conformity](http://standardjs.com/)
+- Build process with version bump and compression of all your HTML, CSS, JavaScript and image files
+- Automatic deployment of your application to [Firebase hosting](https://firebase.google.com/docs/hosting/)
 
 ## Documentation
 
