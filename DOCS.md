@@ -1,4 +1,6 @@
-# App Framework - Documentation
+# App Framework
+
+## Documentation
 > Read less, do more - please open a ticket for any open question in our [Issue List](https://github.com/scriptPilot/app-framework/issues).
 
 ### Required knowledge
@@ -10,10 +12,12 @@ Optional
 - [Firebase](https://firebase.google.com/docs/web/setup)
 
 ### Setup your development environment
-- `npm install`
+- Download *[package.json](https://raw.githubusercontent.com/scriptPilot/app-framework/master/demo-app/package.json)* file to an empty folder
+- Run `npm install` to setup project folder
 
 ### Develop your application
-- `npm run dev`
+- Run `npm run dev` to start development server at localhost:8080
+- Edit your main *app.vue* 
 
 ### Test your application
 - `npm run check`
