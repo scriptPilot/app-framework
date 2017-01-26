@@ -1,26 +1,27 @@
 # App Framework - Documentation
 > Read less, do more - please open a ticket for any open question in our [Issue List](https://github.com/scriptPilot/app-framework/issues).
 
-#### Setup your development environment
-> asdkasdd
+### Required knowledge
+- [Node.js with npm](https://docs.npmjs.com/getting-started/what-is-npm)
+- [Vue](https://vuejs.org/v2/guide/)
+- [Framework7](https://framework7.io/docs/)
+- [Framework7-Vue](https://framework7.io/vue/)
+- [Firebase](https://firebase.google.com/docs/web/setup)
 
+### Setup your development environment
 - `npm install`
 
-#### Develop your application
-
+### Develop your application
 - `npm run dev`
 
-#### Test your application
-
+### Test your application
 - `npm run check`
 - `npm run fix`
 
-#### Build your application
-
+### Build your application
 - `npm run patch`
 - `npm run minor`
 - `npm run major`
 
-#### Deploy your application
-
+### Deploy your application
 - `npm run deploy`
