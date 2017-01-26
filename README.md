@@ -50,9 +50,9 @@ Optional
 
 - Run `npm run dev` to start development server at localhost:8080
 - Adjust configuration in *package.json* file
+- Save images to *images* folder
 - Edit main component in *app.vue* file
 - Edit page components in *pages* folder
-- Save images to *images* folder
 
 ### Test your application
 
