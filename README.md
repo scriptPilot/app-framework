@@ -78,4 +78,6 @@ Optional
 
 - Run `npm run backup` to save the Firebase database content to *databaseBackup.json* file
 - Run `npm run zip` to save your project folder without *node_modules* and *build* folders to a zip file
- 
+- Backup your project folder frequently by
+ - Pushing and synchronizing your changes to GitHub
+ - Copying the zip file to any external drive or cloud
