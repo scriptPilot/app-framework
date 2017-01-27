@@ -55,7 +55,7 @@ if (process.env.FONT_AWESOME === 'true') {
 require('inobounce')
 
 // Import main css
-// require('../main.css')
+require('../main.css')
 
 // Load routes
 var Routes = []
@@ -150,19 +150,15 @@ new Vue({ // eslint-disable-line
           this.$$('#frame').removeClass('limitHeight')
           this.$$('body').removeClass('bodyDark')
         }
-
-          // Don't show frame
       }
 
-        /*
-        // Resize navbars
-        setTimeout(function () {
-          let views = JSON.parse(localStorage.views)
-          for (let view in views) {
-            this.$f7.sizeNavbars('#' + view)
-          }
-        }.bind(this), 0)
-        */
+      // Resize navbars
+      setTimeout(function () {
+        let views = JSON.parse(localStorage.views)
+        for (let view in views) {
+          this.$f7.sizeNavbars('#' + view)
+        }
+      }.bind(this), 0)
     }.bind(this)
 
       // Resize initially
