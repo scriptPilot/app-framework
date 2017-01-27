@@ -2,9 +2,6 @@
   <!-- App -->
   <div id="app">
 
-    <!-- Statusbar -->
-    <f7-statusbar></f7-statusbar>
-
     <!-- Left Panel -->
     <f7-panel left reveal layout="dark">
       <f7-view id="left-panel-view" navbar-through :dynamic-navbar="true" url="panelLeft">
