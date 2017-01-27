@@ -35,6 +35,11 @@ if (cfg.isInstalled) {
     cpx.copySync(cfg.packageRoot + 'demo-app/pages/*', cfg.appRoot + 'pages')
   }
 
+  // Copy database rules file
+  if (!isThere(cfg.appRoot + 'databaseRules.json')) {
+    cpx.copySync(cfg.packageRoot + 'demo-app/databaseRules.json', cfg.appRoot)
+  }
+
   // Copy/update gitignore
   if (isThere(cfg.packageRoot + 'demo-app/.gitignore')) {
     cpx.copySync(cfg.packageRoot + 'demo-app/.gitignore', cfg.appRoot)

@@ -38,13 +38,13 @@ if (app.firebase.useHostingService === true || app.firebase.useDatabaseRules ===
   // Update database rules
   if (app.firebase.useDatabaseRules === true) {
     firebaseConfig.database = {
-      rules: 'firebaseDatabaseRules.json'
+      rules: 'databaseRules.json'
     }
 
     // Create file with standard rules
-    if (!isThere(cfg.appRoot + 'firebaseDatabaseRules.json')) {
-      write.sync(cfg.appRoot + 'firebaseDatabaseRules.json', '{}')
-      saveJSON.writeFileSync(cfg.appRoot + 'firebaseDatabaseRules.json', {
+    if (!isThere(cfg.appRoot + 'databaseRules.json')) {
+      write.sync(cfg.appRoot + 'databaseRules.json', '{}')
+      saveJSON.writeFileSync(cfg.appRoot + 'databaseRules.json', {
         'rules': {
           '.read': 'auth != null',
           '.write': 'auth != null'
