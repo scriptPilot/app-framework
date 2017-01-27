@@ -1,8 +1,8 @@
 <template>
   <!-- App -->
   <div id="app">
-
-    <!-- Statusbar -->
+  
+    <!-- Status bar -->
     <f7-statusbar></f7-statusbar>
 
     <!-- Left Panel -->
@@ -43,6 +43,7 @@ module.exports = {}
 </script>
 
 <style>
+  /* Icon sizes */
   .item-media .fa,
   .swipeout-actions-left .fa,
   .swipeout-actions-right .fa  {
