@@ -73,8 +73,8 @@ Optional
  - For rollback: Go to the Firebase Console > Hosting
 - *or* upload the latest *www/build* folder to your own server and after that the *www/.htaccess* file
  - For rollback
-   - Change the version in *.htaccess* file on your server to previous one
-   - Modify the string in *build-<previous>/manifest.appcache* file on your server as you want
+  - Change the version in *.htaccess* file on your server to previous one
+  - Modify the string in *build-<previous>/manifest.appcache* file on your server as you want
  
 ### Backup your application
 
