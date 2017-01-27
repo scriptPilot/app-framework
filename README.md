@@ -29,7 +29,7 @@
 
 ## Documentation
 
-> Read less, do more - please open a ticket for any open question in our [Issue List](https://github.com/scriptPilot/app-framework/issues).
+> Read less, code more - please open a ticket for any open question in our [Issue List](https://github.com/scriptPilot/app-framework/issues).
 
 ### Required knowledge
 
@@ -68,10 +68,14 @@ Optional
 
 ### Deploy your application
 
-- Run `npm run database` to overwrite the Firebase database rules with the content of *databaseRules.json*
+- Run `npm run dbrules` to overwrite the Firebase database rules with the content of *databaseRules.json*
 - Run `npm run deploy` to push newest build to [Firebase Hosting](https://firebase.google.com/docs/hosting/)
- - For rollback go to the Firebase Console > Hosting
+ - For rollback: Go to the Firebase Console > Hosting
 - *or* upload the content of the *www* folder to your own server
- - For rollback change the version in *www/.htaccess* file and upload this to your server
+ - For rollback: Change the version in *www/.htaccess* file and upload this to your server
+ 
+### Backup your application
+
 - Run `npm run backup` to save the Firebase database content to *databaseBackup.json* file
+- Run `npm run zip` to save your project folder without *node_modules* and *build* folders to a zip file
  
