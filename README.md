@@ -71,8 +71,10 @@ Optional
 - Run `npm run dbrules` to overwrite the Firebase database rules with the content of *databaseRules.json*
 - Run `npm run deploy` to push newest build to [Firebase Hosting](https://firebase.google.com/docs/hosting/)
  - For rollback: Go to the Firebase Console > Hosting
-- *or* upload the content of the *www* folder to your own server
- - For rollback: Change the version in *www/.htaccess* file and upload this to your server
+- *or* upload the latest *www/build* folder to your own server and after that the *www/.htaccess* file
+ - For rollback
+   - Change the version in *.htaccess* file on your server to previous one
+   - Modify the string in *build-<previous>/manifest.appcache* file on your server as you want
  
 ### Backup your application
 
