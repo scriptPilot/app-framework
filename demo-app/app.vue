@@ -1,9 +1,12 @@
 <template>
   <!-- App -->
   <div id="app">
+  
+    <!-- Status bar -->
+    <!--<f7-statusbar></f7-statusbar>-->
 
     <!-- Left Panel -->
-    <f7-panel left reveal layout="dark">
+    <f7-panel left cover>
       <f7-view id="left-panel-view" navbar-through :dynamic-navbar="true" url="panelLeft">
       </f7-view>
     </f7-panel>
@@ -44,5 +47,10 @@ module.exports = {}
   .swipeout-actions-left .fa,
   .swipeout-actions-right .fa  {
     font-size: 20px;
+  }
+  .statusbar-overlay {
+    //position: absolute;
+    //top: -15pxpx !important;
+    //background: #000000;
   }
 </style>

@@ -10,9 +10,9 @@ var deleteFiles = require('delete')
 var baseWebpackConfig = require('./webpack.base.conf')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
-var ImageminPlugin = require('imagemin-webpack-plugin').default
+// var ImageminPlugin = require('imagemin-webpack-plugin').default
 var AppCachePlugin = require('appcache-webpack-plugin')
-var FaviconsWebpackPlugin = require('favicons-webpack-plugin')
+// var FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 var OnBuildPlugin = require('on-build-webpack')
 var replace = require('replace-in-file')
 
@@ -66,6 +66,7 @@ var webpackConfig = merge(baseWebpackConfig, {
     }),
     new webpack.optimize.OccurrenceOrderPlugin(),
     new ExtractTextPlugin('[name].[contenthash].css'),
+    /*
     new FaviconsWebpackPlugin({
       logo: path.resolve(__dirname, '..' + pkg.appRoot, app.faviconIcon),
       background: app.faviconBackgroundColor,
@@ -86,6 +87,7 @@ var webpackConfig = merge(baseWebpackConfig, {
       persistentCache: true,
       emitStats: false
     }),
+    */
     new HtmlWebpackPlugin({
       filename: cfg.appRoot + 'www/build-' + app.version + '/index.html',
       template: 'index.ejs',
@@ -99,9 +101,11 @@ var webpackConfig = merge(baseWebpackConfig, {
       },
       chunksSortMode: 'dependency'
     }),
+    /*
     new ImageminPlugin({
       svgo: null
     }),
+    */
     new AppCachePlugin({
       cache: null,
       network: ['*'],

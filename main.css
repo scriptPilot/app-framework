@@ -3,11 +3,11 @@
   overflow: auto;
   -webkit-overflow-scrolling: touch;
 }
-.framework7-root {
-  visibility: hidden;
-}
 body {
   background: #F2F2F2;
+}
+.framework7-root {
+  visibility: hidden;
 }
 .bodyDark {
   background: #333 !important;
@@ -18,6 +18,10 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
+}
+.with-statusbar-overlay #frame {
+  top: 20px !important;
+  height: calc(100% - 20px) !important;
 }
 .phone {
   position: absolute;
