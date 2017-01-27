@@ -109,6 +109,71 @@ new Vue({ // eslint-disable-line
     app: require(process.env.APP_ROOT_FROM_SCRIPTS + 'app.vue')
   },
   mounted: function () {
+    // Set phone frame
+
+      // Update phone frame function
+    var updatePhoneFrame = function () {
+        // Show frame on desktop
+      if (app.showFrameOnDesktop && !this.$f7.device.os) {
+          // Show frame
+        if (window.innerWidth > 370 && window.innerHeight > 778) {
+          this.$$('#frame').addClass('phone')
+          this.$$('#frame').removeClass('limitWidth')
+          this.$$('#frame').removeClass('limitHeight')
+          this.$$('body').removeClass('bodyDark')
+
+          // Limit width and height
+        } else if (window.innerWidth > 320 && window.innerHeight > 568) {
+          this.$$('#frame').removeClass('phone')
+          this.$$('#frame').addClass('limitWidth')
+          this.$$('#frame').addClass('limitHeight')
+          this.$$('body').addClass('bodyDark')
+
+          // Limit width
+        } else if (window.innerWidth > 320) {
+          this.$$('#frame').removeClass('phone')
+          this.$$('#frame').addClass('limitWidth')
+          this.$$('#frame').removeClass('limitHeight')
+          this.$$('body').addClass('bodyDark')
+
+          // Limit height
+        } else if (window.innerHeight > 568) {
+          this.$$('#frame').removeClass('phone')
+          this.$$('#frame').removeClass('limitWidth')
+          this.$$('#frame').addClass('limitHeight')
+          this.$$('body').addClass('bodyDark')
+
+          // No limitation
+        } else {
+          this.$$('#frame').removeClass('phone')
+          this.$$('#frame').removeClass('limitWidth')
+          this.$$('#frame').removeClass('limitHeight')
+          this.$$('body').removeClass('bodyDark')
+        }
+
+        // Don't show frame
+      } else {
+        this.$$('#frame').removeClass('phone')
+        this.$$('#frame').removeClass('limitWidth')
+        this.$$('#frame').removeClass('limitHeight')
+        this.$$('body').removeClass('bodyDark')
+      }
+
+        // Resize navbars
+      setTimeout(function () {
+        let views = JSON.parse(localStorage.views)
+        for (let view in views) {
+          this.$f7.sizeNavbars('#' + view)
+        }
+      }.bind(this), 400)
+    }.bind(this)
+
+      // Resize initially
+    updatePhoneFrame()
+
+      // Resize again on windows resize
+    this.$$(window).resize(updatePhoneFrame)
+
     // Remember panel
     this.$$(document).on('panel:opened panel:closed', function (ePanel) {
       if (ePanel.type === 'panel:opened') {
@@ -192,69 +257,6 @@ new Vue({ // eslint-disable-line
     // Show app
     setTimeout(function () {
       this.$$('.framework7-root').css('visibility', 'visible')
-
-      // Update phone frame function
-      var updatePhoneFrame = function () {
-        // Show frame on desktop
-        if (app.showFrameOnDesktop && !this.$f7.device.os) {
-          // Show frame
-          if (window.innerWidth > 370 && window.innerHeight > 778) {
-            this.$$('#frame').addClass('phone')
-            this.$$('#frame').removeClass('limitWidth')
-            this.$$('#frame').removeClass('limitHeight')
-            this.$$('body').removeClass('bodyDark')
-
-          // Limit width and height
-          } else if (window.innerWidth > 320 && window.innerHeight > 568) {
-            this.$$('#frame').removeClass('phone')
-            this.$$('#frame').addClass('limitWidth')
-            this.$$('#frame').addClass('limitHeight')
-            this.$$('body').addClass('bodyDark')
-
-          // Limit width
-          } else if (window.innerWidth > 320) {
-            this.$$('#frame').removeClass('phone')
-            this.$$('#frame').addClass('limitWidth')
-            this.$$('#frame').removeClass('limitHeight')
-            this.$$('body').addClass('bodyDark')
-
-          // Limit height
-          } else if (window.innerHeight > 568) {
-            this.$$('#frame').removeClass('phone')
-            this.$$('#frame').removeClass('limitWidth')
-            this.$$('#frame').addClass('limitHeight')
-            this.$$('body').addClass('bodyDark')
-
-          // No limitation
-          } else {
-            this.$$('#frame').removeClass('phone')
-            this.$$('#frame').removeClass('limitWidth')
-            this.$$('#frame').removeClass('limitHeight')
-            this.$$('body').removeClass('bodyDark')
-          }
-
-        // Don't show frame
-        } else {
-          this.$$('#frame').removeClass('phone')
-          this.$$('#frame').removeClass('limitWidth')
-          this.$$('#frame').removeClass('limitHeight')
-          this.$$('body').removeClass('bodyDark')
-        }
-
-        // Resize navbars
-        setTimeout(function () {
-          let views = JSON.parse(localStorage.views)
-          for (let view in views) {
-            this.$f7.sizeNavbars('#' + view)
-          }
-        }.bind(this), 400)
-      }.bind(this)
-
-      // Resize initially
-      updatePhoneFrame()
-
-      // Resize again on windows resize
-      this.$$(window).resize(updatePhoneFrame)
     }.bind(this), 0)
   },
   watch: {

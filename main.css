@@ -8,11 +8,9 @@
 }
 body {
   background: #F2F2F2;
-  transition: 0.4s;
 }
 .bodyDark {
   background: #333 !important;
-  transition: 0.4s;
 }
 #frame {
   position: absolute;
@@ -31,7 +29,6 @@ body {
   border-radius: 55px;
   box-shadow: 0px 0px 0px 2px #aaa;
   padding: 105px 25px;
-  transition: 0.4s;
 }
 .phone:after {
   content: '';
@@ -55,17 +52,14 @@ body {
   width: 60px;
   height: 10px;
   border-radius: 10px;
-  transition: 0.4s;
 }
 .limitWidth {
   position: absolute;
   left: calc((100% - 320px) / 2) !important;
   width: 320px !important;
-  transition: 0.4s;
 }
 .limitHeight {
   position: absolute;
   top: calc((100% - 568px) / 2) !important;
   height: 568px !important;
-  transition: 0.4s;
 }
