@@ -79,7 +79,7 @@ To your own server
 - Upload the latest *www/build* folder to your server and after that the *www/.htaccess* file
 - For rollback: 
  - Change the version in *.htaccess* file on your server to previous one
- - Modify the string in *build-previous/manifest.appcache* file on your server as you want
+ - Modify the string in *build-previous/manifest.appcache* file on your server a little bit
  
 ### Backup your application
 
