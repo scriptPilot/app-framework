@@ -115,7 +115,11 @@ new Vue({ // eslint-disable-line
     var updatePhoneFrame = function () {
           // Show frame on desktop
       if (app.showPhoneFrameOnDesktop && !this.$f7.device.os) {
-            // Show frame
+        // Adjust web look to phone look
+        this.$$('html').addClass('pixel-ratio-2')
+        this.$$('html').addClass('ios-gt-8')
+
+        // Show frame
         if (window.innerWidth > 370 && window.innerHeight > 778) {
           this.$$('#frame').addClass('phone')
           this.$$('#frame').removeClass('limitWidth')
@@ -224,13 +228,13 @@ new Vue({ // eslint-disable-line
     // Restore panel, popup, login screen, form focus
     setTimeout(function () {
       if (localStorage.panel) {
-        this.$f7.openPanel(localStorage.panel)
+        this.$f7.openPanel(localStorage.panel, false)
       }
       if (localStorage.popup) {
-        this.$f7.popup('#' + localStorage.popup)
+        this.$f7.popup('#' + localStorage.popup, false, false)
       }
       if (localStorage.loginScreen) {
-        this.$f7.loginScreen('#' + localStorage.loginScreen)
+        this.$f7.loginScreen('#' + localStorage.loginScreen, false)
       }
       if (localStorage.formFocus) {
         setTimeout(function () {

@@ -115,7 +115,7 @@ module.exports = {
         // Tabs, scroll position
         if (initialRuntime.runtimeTabs) {
           setTimeout(function () {
-            this.$f7.showTab('.tab#' + initialRuntime.runtimeActiveTab)
+            this.$f7.showTab('.tab#' + initialRuntime.runtimeActiveTab, false)
           }.bind(this), 0)
           for (let tab in initialRuntime.runtimeTabs) {
             setTimeout(function () {

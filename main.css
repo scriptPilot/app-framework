@@ -71,3 +71,9 @@ body {
   top: calc((100% - 568px) / 2) !important;
   height: 568px !important;
 }
+/* Hide scrollbars with phone frame or size limitation */
+.phone ::-webkit-scrollbar,
+.limitWidth ::-webkit-scrollbar,
+.limitHeight ::-webkit-scrollbar {
+  width: 0;
+}

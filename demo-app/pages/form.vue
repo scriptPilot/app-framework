@@ -8,7 +8,7 @@
       <p style="text-align: center">Enter some data, close and reopen this app - and see how all forms on this page have kept their data - and the scroll position and the form focus as well.</p>
     </f7-block>
     <f7-block-title>Form</f7-block-title>
-    <f7-list>
+    <f7-list form>
       <f7-list-item>
         <f7-label>Name</f7-label>
         <f7-input v-model="name" name="name" type="text" placeholder="Name"></f7-input>
@@ -134,11 +134,11 @@
         email: '',
         url: '',
         phone: '',
-        birthday: '',
-        date: '',
-        gender: '',
-        switchbox: '',
-        range: '',
+        birthday: '2012-11-10',
+        date: '2013-12-11T10:09',
+        gender: 'male',
+        switchbox: false,
+        range: 50,
         text: '',
         name2: '',
         email2: '',
