@@ -17,8 +17,8 @@ var OnBuildPlugin = require('on-build-webpack')
 var replace = require('replace-in-file')
 
 // Load configuration
-var cfg = require('../config.js')
-var pkg = require('../package.json')
+var cfg = require('./config.js')
+var pkg = require(cfg.packageRoot + 'package.json')
 
 // Update copyright year in license
 replace.sync({
@@ -45,9 +45,9 @@ var webpackConfig = merge(baseWebpackConfig, {
   },
   devtool: cfg.build.productionSourceMap ? '#source-map' : false,
   output: {
-    path: cfg.appRoot + 'www/build-' + app.version,
-    filename: utils.assetsPath('[name].[chunkhash].js'),
-    chunkFilename: utils.assetsPath('[id].[chunkhash].js')
+    path: path.resolve(cfg.appRoot, 'www/build-' + app.version),
+    filename: '[name].[chunkhash].js',
+    chunkFilename: '[id].[chunkhash].js'
   },
   vue: {
     loaders: utils.cssLoaders({
@@ -67,7 +67,7 @@ var webpackConfig = merge(baseWebpackConfig, {
     new webpack.optimize.OccurrenceOrderPlugin(),
     new ExtractTextPlugin('[name].[contenthash].css'),
     new FaviconsWebpackPlugin({
-      logo: path.resolve(__dirname, '..' + pkg.appRoot, app.faviconIcon),
+      logo: path.resolve(cfg.appRoot, app.faviconIcon),
       background: app.faviconBackgroundColor,
       title: app.title,
       prefix: 'img/icons-[hash:7]/',
@@ -87,7 +87,7 @@ var webpackConfig = merge(baseWebpackConfig, {
       emitStats: false
     }),
     new HtmlWebpackPlugin({
-      filename: cfg.appRoot + 'www/build-' + app.version + '/index.html',
+      filename: path.resolve(cfg.appRoot, 'www/build-' + app.version + '/index.html'),
       template: 'index.ejs',
       title: app.title,
       manifest: ' manifest="manifest.appcache"',

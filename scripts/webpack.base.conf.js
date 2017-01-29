@@ -1,5 +1,5 @@
 // Load configuration
-var cfg = require('../config.js')
+var cfg = require('./config.js')
 var app = require(cfg.appRoot + 'package.json')
 
 // Load packages
@@ -16,10 +16,10 @@ var useCssSourceMap = cssSourceMapDev || cssSourceMapProd
 // Export base webpack configuration
 module.exports = {
   entry: {
-    app: cfg.packageRoot + 'scripts/main.js'
+    app: path.resolve(cfg.packageRoot, 'scripts/main.js')
   },
   output: {
-    path: cfg.appRoot + 'www/build-' + app.version,
+    path: path.resolve(cfg.appRoot, 'www/build-' + app.version),
     publicPath: process.env.NODE_ENV === 'production' ? cfg.build.assetsPublicPath : cfg.dev.assetsPublicPath,
     filename: '[name].js'
   },
@@ -44,7 +44,6 @@ module.exports = {
         loader: 'babel',
         include: [
           path.resolve(cfg.packageRoot, 'scripts'),
-          path.resolve(cfg.appRoot, 'pages'),
           path.resolve(cfg.appRoot, 'www')
         ]
       },
@@ -65,7 +64,7 @@ module.exports = {
         loader: 'url',
         query: {
           limit: 1,
-          name: utils.assetsPath('./fonts/[name].[hash:7].[ext]')
+          name: 'fonts/[name].[hash:7].[ext]'
         }
       }
     ]
