@@ -12,7 +12,7 @@
 **Powerful**
 
 - Easy realization of state based, reactive user interfaces with the power of [Vue.js](https://vuejs.org/)
-- Applicaion state kept for history, tabs, scroll positions, panels, popups, form data and page component data
+- Application state kept for history, tabs, scroll positions, panels, popups, form data and page component data
 - User registration, password reset and login processes with [Firebase Authentication](https://firebase.google.com/docs/auth/)
 - [Realtime database](https://firebase.google.com/docs/database/) and [file storage](https://firebase.google.com/docs/storage/) services with Firebase
 - Application hosting with [Firebase Hosting](https://firebase.google.com/docs/hosting/)
