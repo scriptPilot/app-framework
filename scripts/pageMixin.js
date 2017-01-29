@@ -1,90 +1,56 @@
+let localStorage = window.localStorage
+
 module.exports = {
 
-  // Define page runtime data
+  // Define runtime page data attributes
   data: function () {
     return {
-      'runtimeView': null,
-      'runtimePageNo': null,
+      'runtimeViewId': null,
       'runtimeUrl': null,
-      'runtimePageId': null,
       'runtimeTabs': null,
       'runtimeActiveTab': null,
       'runtimeScrollPosition': 0
     }
   },
 
-  // Method to save page data to local storage
-  methods: {
-    saveRuntime: function () {
-      if (this.runtimePageId) {
-        let data = {}
-        for (let el in this.$data) {
-          data[el] = this.$data[el]
-        }
-        window.localStorage[this.runtimePageId] = JSON.stringify(data)
-      }
-    }
-  },
-
-  // Get runtime page data and attach event listener
   mounted: function () {
-    // Page with Framework7 route object
+    // Framework7 routed page
     if (this.$route) {
-      // Assign firebase db object
+      // Assign firebase database ref and timestamp shortcut
       this.db = window.db
       if (window.firebase) {
         this.timestamp = window.firebase.database.ServerValue.TIMESTAMP
       }
 
-      // Get views from local storage
-      let views = window.localStorage.views ? JSON.parse(window.localStorage.views) : {}
-
-      // Get view
-      this.runtimeView = this.$$(this.$el).parents('.view').attr('id')
-
-      // Get page number
-      if (!views[this.runtimeView]) {
-        views[this.runtimeView] = []
-      }
-      this.runtimePageNo = views[this.runtimeView].length
-
-      // Get url
+      // Save view id and url in page data
+      this.runtimeViewId = this.$$(this.$el).parents('.view').attr('id')
       this.runtimeUrl = this.$route.url
 
-      // Get page id
-      this.runtimePageId = 'runtime/' + this.runtimeView + '/' + this.runtimePageNo + '/' + this.runtimeUrl
+      // Get initial state
+      let initialState = localStorage['page:' + this.runtimeViewId + '/' + this.runtimeUrl] ? JSON.parse(localStorage['page:' + this.runtimeViewId + '/' + this.runtimeUrl]) : null
 
-      // Copy initial runtime
-      let initialRuntime = window.localStorage[this.runtimePageId] ? JSON.parse(window.localStorage[this.runtimePageId]) : null
-
-      // Update views
-      views[this.runtimeView].push({
-        url: this.runtimeUrl,
-        pageId: this.runtimePageId
-      })
-      window.localStorage.views = JSON.stringify(views)
-
-      // Loop tabs
-      this.$$(this.$el).find('.tab.page-content').each(function (i, elTab) {
+      // Get tabs
+      this.$$(this.$el).find('.tab.page-content').each(function (i, tabEl) {
         if (!this.runtimeTabs) {
           this.runtimeTabs = {}
         }
-        let tabId = this.$$(elTab).attr('id')
+        let tabId = this.$$(tabEl).attr('id')
         if (tabId !== null && tabId !== '' && this.runtimeTabs[tabId] === undefined) {
           this.runtimeTabs[tabId] = 0
         } else {
           console.error('Please assign a unique "id" attribute to each tab component on page "' + this.runtimeUrl + '"!')
         }
-        if (this.$$(elTab).hasClass('active')) {
+        if (this.$$(tabEl).hasClass('active')) {
           this.runtimeActiveTab = tabId
         }
+        this.$forceUpdate()
       }.bind(this))
 
       // Attach tab listener
       if (this.runtimeTabs) {
         this.$$(this.$el).on('tab:show', function (eTab) {
           this.runtimeActiveTab = this.$$(eTab.target).attr('id')
-          this.saveRuntime()
+          this.$forceUpdate()
         }.bind(this))
       }
 
@@ -92,58 +58,47 @@ module.exports = {
       if (!this.runtimeTabs) {
         this.$$(this.$el).find('.page-content').on('scroll', function (ePageContent) {
           this.runtimeScrollPosition = ePageContent.target.scrollTop
-          this.saveRuntime()
+          this.$forceUpdate()
         }.bind(this))
       } else {
         for (let tab in this.runtimeTabs) {
           this.$$(this.$el).find('.tab.page-content#' + tab).on('scroll', function (ePageContent) {
             this.runtimeTabs[tab] = ePageContent.target.scrollTop
-            this.saveRuntime()
+            this.$forceUpdate()
           }.bind(this))
         }
       }
 
-      // Restore initial runtime
-      if (initialRuntime) {
+      // Restore initial state
+      if (initialState) {
         // Data
-        for (let el in initialRuntime) {
-          if (!/^runtime(.*)/.test(el)) {
-            this.$data[el] = initialRuntime[el]
+        for (let key in initialState) {
+          if (key.substr(0, 7) !== 'runtime') {
+            this[key] = initialState[key]
           }
         }
 
-        // Tabs, scroll position
-        if (initialRuntime.runtimeTabs) {
+        // Tabs, scroll positions
+        if (initialState.runtimeTabs) {
           setTimeout(function () {
-            this.$f7.showTab('.tab#' + initialRuntime.runtimeActiveTab, false)
+            this.$f7.showTab('.tab#' + initialState.runtimeActiveTab, false)
           }.bind(this), 0)
-          for (let tab in initialRuntime.runtimeTabs) {
+          for (let tab in initialState.runtimeTabs) {
             setTimeout(function () {
-              this.$$(this.$el).find('.tab#' + tab).scrollTop(initialRuntime.runtimeTabs[tab])
+              this.$$(this.$el).find('.tab#' + tab).scrollTop(initialState.runtimeTabs[tab])
             }.bind(this), 0)
           }
         } else {
-          this.$$(this.$el).find('.page-content').scrollTop(initialRuntime.runtimeScrollPosition)
+          this.$$(this.$el).find('.page-content').scrollTop(initialState.runtimeScrollPosition)
         }
       }
-
-      // Save page in local storage
-      this.saveRuntime()
     }
   },
 
-  // Update runtime on Dom update
+  // Update page data in local storage on change
   beforeUpdate: function () {
-    this.saveRuntime()
-  },
-
-  // Remove page from views and local storage on destroy
-  beforeDestroy: function () {
-    if (this.runtimePageId) {
-      let views = window.localStorage.views ? JSON.parse(window.localStorage.views) : {}
-      views[this.runtimeView].splice(this.runtimePageNo, 1)
-      window.localStorage.views = JSON.stringify(views)
-      window.localStorage.removeItem(this.runtimePageId)
+    if (this.runtimeUrl) {
+      localStorage['page:' + this.runtimeViewId + '/' + this.runtimeUrl] = JSON.stringify(this.$data)
     }
   }
 

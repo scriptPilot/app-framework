@@ -88,9 +88,8 @@ new Vue({ // eslint-disable-line
   framework7: {
     root: '#app',
     routes: Routes,
-    material: process.env.THEME === 'material',
+    material: process.env.THEME === 'material'/*,
     preroute: function (view, options) {
-      /*
       let url = !options.isBack ? options.url : views[(view.selector.indexOf('.') === -1 ? view.selector : view.selector.substr(1, view.selector.indexOf('.') - 1))][]
 
       let pageName = null
@@ -107,14 +106,97 @@ new Vue({ // eslint-disable-line
       }
       let views = localStorage.views ? JSON.parse(localStorage.views) : {}
       console.log(viewId, pageName, )
-      */
       return true
-    }
+    } */
   },
   components: {
     app: require(process.env.APP_ROOT_FROM_SCRIPTS + 'app.vue')
   },
   mounted: function () {
+    /*
+    // Get views and load state
+    console.log(this.$f7.views)
+
+    this.$$(document).on('page:init page:reinit', function (ePage) {
+      console.log(JSON.stringify(this.$f7.views[2].history))
+    }.bind(this))
+    */
+
+    // Copy initial
+
+    // Get views
+    window.views = {}
+    let viewsToRestore = {}
+    this.$$('.view').each(function (viewNo, viewEl) {
+      let viewId = this.$$(viewEl).attr('id')
+      if (viewId !== null && viewId !== '' && window.views[viewId] === undefined) {
+        window.views[viewId] = {no: viewNo, pages: []}
+        viewsToRestore[viewId] = localStorage['view:' + viewId] ? JSON.parse(localStorage['view:' + viewId]) : null
+      } else {
+        console.error('Please assign an unique ID attribute for each view component!')
+      }
+    }.bind(this))
+
+    // Remember history
+    this.$$(document).on('page:init page:reinit', function (ePage) {
+      if (ePage.detail.page.url !== '#content-2' && (!ePage.detail.page.fromPage || ePage.detail.page.fromPage.url !== '#content-2')) {
+        let viewId = this.$$(ePage.target).parents('.view').attr('id')
+        if (window.views[viewId]) {
+          // Forward
+          if (ePage.type === 'page:init') {
+            window.views[viewId].pages.push(ePage.detail.page.url)
+          // Backward
+          } else {
+            window.views[viewId].pages.pop()
+          }
+          // Update local storage
+          localStorage['view:' + viewId] = JSON.stringify(window.views[viewId])
+        }
+      }
+    }.bind(this))
+
+    // Restore history
+    for (let v in viewsToRestore) {
+      if (viewsToRestore[v]) {
+        for (let p = 1; p < viewsToRestore[v].pages.length; p++) {
+          setTimeout(function () {
+            this.$f7.views[viewsToRestore[v].no].router.load({url: viewsToRestore[v].pages[p], animatePages: false})
+          }.bind(this), 0)
+        }
+      }
+    }
+
+    /*
+    // Restore state
+
+    // Get views and ad saved state
+    window.views = {}
+    this.$$('.view').each(function (i, viewEl) {
+      let viewId = this.$$(viewEl).attr('id')
+      window.views[viewId] = localStorage['view:' + viewId] ? JSON.parse(localStorage['view:' + viewId]) : []
+      // Restore pages
+
+    }.bind(this))
+
+    // On each new page load
+    this.$$(document).on('page:init', function (pageEv) {
+      let url = pageEv.detail.page.url
+      let realPage = url !== '#content-2'
+      // On each real page load
+      if (realPage) {
+        let viewId = this.$$(pageEv.target).parents('.view').attr('id')
+        // Restore saved state
+        if (localStorage['page:' + viewId + '/' + url]) {
+          // todo ...
+        }
+        // Remember state changes
+        // todo ...
+      }
+    }.bind(this))
+
+    console.log(window.views)
+    */
+
     // Set phone frame
 
       // Update phone frame function
@@ -163,12 +245,14 @@ new Vue({ // eslint-disable-line
       }
 
       // Resize navbars
+      /*
       setTimeout(function () {
         let views = JSON.parse(localStorage.views)
         for (let view in views) {
           this.$f7.sizeNavbars('#' + view)
         }
       }.bind(this), 0)
+      */
     }.bind(this)
 
       // Resize initially
