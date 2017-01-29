@@ -2,10 +2,11 @@
   "name": "app-framework",
   "description": "Powerful framework to build beautiful iOS and Material like web applications with joy.",
   "repository": "https://github.com/scriptPilot/app-framework.git",
-  "version": "0.40.5",
+  "version": "0.40.8",
   "license": "MIT",
   "scripts": {
     "postinstall": "node scripts/postinstall.js && npm install -g firebase-tools && npm install -g standard && npm install eslint-plugin-html -g",
+    "postpublish": "node scripts/postpublish.js",
     "dev": "npm run fix && node scripts/dev-server.js",
     "patch": "npm run fix && npm version patch && node scripts/build.js",
     "minor": "npm run fix && npm version minor && node scripts/build.js",

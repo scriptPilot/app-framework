@@ -242,6 +242,7 @@ new Vue({ // eslint-disable-line
       if (localStorage.loginScreen) {
         this.$f7.loginScreen('#' + localStorage.loginScreen, false)
       }
+      /*
       if (localStorage.formFocus) {
         setTimeout(function () {
           let elType = this.$$(this.$f7.getCurrentView().activePage.container).find('[name=' + localStorage.formFocus + ']')[0].tagName
@@ -255,6 +256,7 @@ new Vue({ // eslint-disable-line
           }
         }.bind(this), 0)
       }
+      */
     }.bind(this), 0)
 
     // Show app
