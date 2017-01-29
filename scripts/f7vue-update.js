@@ -12,10 +12,10 @@ let f7vueFolder = path.resolve(cfg.packageRoot, '..', 'Framework7-Vue')
 if (isThere(f7vueFolder)) {
   
   // Build
-  ora('Build Framework7-Vue ...').start()
+  let spin = ora('Build Framework7-Vue ...').start()
   run('cd "' + f7vueFolder + '" && npm run build', function (err, stdOut, errOut) {
     if (!err) {
-      console.log('Build done')
+      spin.succeed('Framework7-Vue build done')
     } else {
       console.log(errOut)
     }
