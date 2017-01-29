@@ -12,7 +12,8 @@
     "major": "npm run fix && npm version major && node scripts/build.js",
     "deploy": "npm run fix && node scripts/prepareFirebaseDeploy.js && cd demo-app && firebase login && firebase deploy && cd ../ && node scripts/cleanupFirebaseDeploy.js",
     "check": "standard >standard-check.log \"config.js\" \"scripts/*.js\" \"demo-app/**/*.vue\" --plugin html",
-    "fix": "standard >standard-check.log \"config.js\" \"scripts/*.js\" \"demo-app/**/*.vue\" --plugin html --fix"
+    "fix": "standard >standard-check.log \"config.js\" \"scripts/*.js\" \"demo-app/**/*.vue\" --plugin html --fix",
+    "f7vue": "node scripts/f7vue-update.js"
   },
   "dependencies": {
     "appcache-webpack-plugin": "^1.3.0",
