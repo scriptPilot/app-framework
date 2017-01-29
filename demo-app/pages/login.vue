@@ -27,6 +27,9 @@
       return {
         username: ''
       }
+    },
+    mounted: function() {
+      
     }
   }
 </script>
