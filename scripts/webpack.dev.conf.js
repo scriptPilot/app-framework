@@ -1,8 +1,7 @@
-var pkg = require('../package.json')
-var app = require('..' + pkg.appRoot + 'package.json')
+var cfg = require('./config.js')
+var app = require(cfg.appRoot + 'package.json')
 
 var path = require('path')
-var config = require('./config.js')
 var webpack = require('webpack')
 var merge = require('webpack-merge')
 var utils = require('./utils')
@@ -17,18 +16,18 @@ Object.keys(baseWebpackConfig.entry).forEach(function (name) {
 
 module.exports = merge(baseWebpackConfig, {
   module: {
-    loaders: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap })
+    loaders: utils.styleLoaders({ sourceMap: cfg.dev.cssSourceMap })
   },
   devtool: '#eval-source-map',
   plugins: [
     new webpack.DefinePlugin({
-      'process.env': config.dev.env
+      'process.env': cfg.dev.env
     }),
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
     new FaviconsWebpackPlugin({
-      logo: path.resolve(__dirname, '..' + pkg.appRoot, app.faviconIcon),
+      logo: path.resolve(cfg.appRoot, app.faviconIcon),
       background: app.faviconBackgroundColor,
       title: app.title,
       prefix: 'img/icons-[hash:7]/',
