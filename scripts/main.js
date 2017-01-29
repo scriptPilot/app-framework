@@ -25,17 +25,17 @@ if (process.env.USE_FIREBASE === 'true') {
 var Vue = require('vue')
 
 // Import Framework7
-require('framework7/dist/js/framework7.min.js')
+require('../libs/framework7/js/framework7.min.js')
 if (process.env.THEME === 'material') {
-  require('framework7/dist/css/framework7.material.min.css')
-  require('framework7/dist/css/framework7.material.colors.min.css')
+  require('../libs/framework7/css/framework7.material.min.css')
+  require('../libs/framework7/css/framework7.material.colors.min.css')
 } else {
-  require('framework7/dist/css/framework7.ios.min.css')
-  require('framework7/dist/css/framework7.ios.colors.min.css')
+  require('../libs/framework7/css/framework7.ios.min.css')
+  require('../libs/framework7/css/framework7.ios.colors.min.css')
 }
 
 // Init Framework7 Vue Plugin
-Vue.use(require('framework7-vue'))
+Vue.use(require('../libs/framework7-vue.min.js'))
 
 // Import icon fonts
 if (process.env.FONT_FRAMEWORK7 === 'true') {

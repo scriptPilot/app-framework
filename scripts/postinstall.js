@@ -4,6 +4,7 @@ var fs = require('fs')
 var replace = require('replace-in-file')
 var saveJSON = require('jsonfile')
 var cpx = require('cpx')
+var run = require('child_process').exec
 saveJSON.spaces = 2
 
 // Load configuration
@@ -57,4 +58,9 @@ if (cfg.isInstalled) {
       with: '/build-0.0.0/'
     })
   }
+
+// App Framework is installed for development
+} else {
+  // Install Gulp (to build Framework7/Framework7-Vue)
+  run('npm install -g gulp')
 }
