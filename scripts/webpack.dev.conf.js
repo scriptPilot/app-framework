@@ -2,7 +2,7 @@ var pkg = require('../package.json')
 var app = require('..' + pkg.appRoot + 'package.json')
 
 var path = require('path')
-var config = require('../config.js')
+var config = require('./config.js')
 var webpack = require('webpack')
 var merge = require('webpack-merge')
 var utils = require('./utils')

@@ -1,5 +1,5 @@
 // Load configuration
-var cfg = require('../config.js')
+var cfg = require('./config.js')
 
 // Load packages
 var path = require('path')

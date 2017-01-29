@@ -8,7 +8,7 @@ var run = require('child_process').exec
 saveJSON.spaces = 2
 
 // Load configuration
-var cfg = require('../config.js')
+var cfg = require('./config.js')
 
 // App Framework is installed as dependency
 if (cfg.isInstalled) {

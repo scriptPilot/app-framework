@@ -17,7 +17,7 @@ var OnBuildPlugin = require('on-build-webpack')
 var replace = require('replace-in-file')
 
 // Load configuration
-var cfg = require('../config.js')
+var cfg = require('./config.js')
 var pkg = require('../package.json')
 
 // Update copyright year in license

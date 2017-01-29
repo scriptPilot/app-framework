@@ -1,5 +1,5 @@
 // Import config
-var cfg = require('../config.js')
+var cfg = require('./config.js')
 
 // Import packages
 var isThere = require('is-there')

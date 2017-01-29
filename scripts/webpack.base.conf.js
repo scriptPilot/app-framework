@@ -1,5 +1,5 @@
 // Load configuration
-var cfg = require('../config.js')
+var cfg = require('./config.js')
 var app = require(cfg.appRoot + 'package.json')
 
 // Load packages
