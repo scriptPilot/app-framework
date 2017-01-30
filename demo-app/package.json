@@ -1,8 +1,8 @@
 {
   "name": "demo-app",
-  "version": "0.41.0",
+  "version": "0.42.0",
   "devDependencies": {
-    "app-framework": "^0.41.0"
+    "app-framework": "^0.42.0"
   },
   "scripts": {
     "dev": "cd node_modules/app-framework && node scripts/dev-server",
@@ -20,23 +20,8 @@
   "defaultLanguage": "en",
   "showPhoneFrameOnDesktop": true,
   "resetLocalStorageOnVersionChange": true,
-  "routes": {
-    "home": "home",
-    "panelLeft": "panelLeft",
-    "panelRight": "panelRight",
-    "loginScreen": "loginScreen",
-    "popup": "popup",
-    "form": "form",
-    "image": "image",
-    "simpleTodo": "simpleTodo",
-    "firebasePublic": "firebasePublic",
-    "firebasePrivate": "firebasePrivate",
-    "multipleLanguages": "multipleLanguages",
-    "simplePage": "simplePage",
-    "tabs": "tabs",
-    "tabs-sub": "tabs-sub",
-    "flexibleRouting/blog/:blogId/post/:postId": "flexibleRouting",
-    "login": "login"
+  "specialRoutes": {
+    "flexibleRouting/blog/:blogId/post/:postId": "flexibleRouting"
   },
   "loadIconFonts": {
     "framework7": false,

@@ -64,10 +64,18 @@ require('inobounce')
 // Import main css
 require('../main.css')
 
-// Load routes
+// Load special routes from config
 var Routes = []
-for (var page in app.routes) {
-  Routes.push({path: page, component: require(process.env.APP_ROOT_FROM_SCRIPTS + 'pages/' + app.routes[page] + '.vue')})
+for (let page in app.specialRoutes) {
+  Routes.push({path: page, component: require(process.env.APP_ROOT_FROM_SCRIPTS + 'pages/' + app.specialRoutes[page] + '.vue')})
+}
+// Load all pages as standard route
+let pages = process.env.PAGES
+pages = pages.split(',')
+for (let p = 0; p < pages.length; p++) {
+  if (Routes[pages[p]] === undefined) {
+    Routes.push({path: pages[p], component: require(process.env.APP_ROOT_FROM_SCRIPTS + 'pages/' + pages[p] + '.vue')})
+  }
 }
 
 // Import sortObject function
@@ -103,7 +111,6 @@ var text = {
 }
 
 // Init App
-var merge = require('object-merge')
 var localStorage = window.localStorage
 new Vue({ // eslint-disable-line
   el: '#app',
@@ -125,7 +132,7 @@ new Vue({ // eslint-disable-line
   mounted: function () {
     // Update text patterns
     this.updateTextPatterns()
-    
+
     /*
     // Get views and load state
     console.log(this.$f7.views)

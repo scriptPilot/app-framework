@@ -4,5 +4,5 @@ node_modules/
 .firebaserc
 firebase.json
 firebase-debug.log
-npm-debug.log
+npm-debug.log*
 standard-check.log

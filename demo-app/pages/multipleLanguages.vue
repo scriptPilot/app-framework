@@ -81,21 +81,20 @@
       }
     },
   
-    
     methods: {
-      
+  
       // To change selected language text right after change, it has to be updated with this helper function
       updateLanguageText: function (e) {
         setTimeout(function () {
           this.$$(e.target).parent().find('.item-after').html(this.text[e.target.value])
         }.bind(this), 0)
       },
-      
+  
       // Open modal
       modal: function () {
         this.$f7.confirm()
       }
-      
+  
     }
   
   }
