@@ -1,20 +1,6 @@
 {
   "name": "demo-app",
-  "version": "0.42.0",
-  "devDependencies": {
-    "app-framework": "^0.42.0"
-  },
-  "scripts": {
-    "dev": "cd node_modules/app-framework && node scripts/dev-server",
-    "patch": "npm version patch && cd node_modules/app-framework && node scripts/build",
-    "minor": "npm version minor && cd node_modules/app-framework && node scripts/build",
-    "major": "npm version major && cd node_modules/app-framework && node scripts/build",
-    "deploy": "node node_modules/app-framework/scripts/prepareFirebase && firebase login && firebase deploy && node node_modules/app-framework/scripts/cleanupFirebase",
-    "check": "node node_modules/app-framework/scripts/check",
-    "fix": "node node_modules/app-framework/scripts/fix",
-    "backup": "node node_modules/app-framework/scripts/prepareFirebase && firebase login && firebase database:get / >databaseBackup.json && node node_modules/app-framework/scripts/cleanupFirebase",
-    "zip": "node node_modules/app-framework/scripts/zip"
-  },
+  "version": "0.43.0",
   "title": "Demo App",
   "theme": "ios",
   "defaultLanguage": "en",
@@ -37,14 +23,29 @@
     "databaseURL": "https://app-framework-9045a.firebaseio.com",
     "storageBucket": "app-framework-9045a.appspot.com",
     "messagingSenderId": "690341427128",
+    "allowUserRegistration": true,
     "useDatabaseService": true,
     "useStorageService": false,
     "useHostingService": true,
     "useDatabaseRules": true,
     "userRegistration": true
   },
-  "loginRequired": [
+  "loginRequiredForPages": [
     "privateFirebase"
   ],
-  "buildSourcemaps": false
+  "buildSourcemaps": false,
+  "devDependencies": {
+    "app-framework": "^0.43.0"
+  },
+  "scripts": {
+    "dev": "cd node_modules/app-framework && node scripts/dev-server",
+    "patch": "npm version patch && cd node_modules/app-framework && node scripts/build",
+    "minor": "npm version minor && cd node_modules/app-framework && node scripts/build",
+    "major": "npm version major && cd node_modules/app-framework && node scripts/build",
+    "deploy": "node node_modules/app-framework/scripts/prepareFirebase && firebase login && firebase deploy && node node_modules/app-framework/scripts/cleanupFirebase",
+    "check": "node node_modules/app-framework/scripts/check",
+    "fix": "node node_modules/app-framework/scripts/fix",
+    "backup": "node node_modules/app-framework/scripts/prepareFirebase && firebase login && firebase database:get / >databaseBackup.json && node node_modules/app-framework/scripts/cleanupFirebase",
+    "zip": "node node_modules/app-framework/scripts/zip"
+  }
 }

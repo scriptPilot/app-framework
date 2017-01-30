@@ -22,7 +22,6 @@
       <f7-list-item link="form" title="Form Handling"></f7-list-item>
       <f7-list-item link="flexibleRouting/blog/45/post/125?foo=bar#about" title="Flexible Routing"></f7-list-item>
       <f7-list-item link="image" title="Icon & Image"></f7-list-item>
-      <!--<f7-list-item link="login" title="Login test" badge="work in progress" badge-color="red"></f7-list-item>-->
       <f7-list-item link="https://framework7.io/kitchen-sink-ios" title="iOS Showcase" badge="Framework7" link-external></f7-list-item>
       <f7-list-item link="https://framework7.io/kitchen-sink-material" title="Material Showcase" badge="Framework7" link-external></f7-list-item>
     </f7-list>
