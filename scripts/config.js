@@ -6,8 +6,8 @@ var merge = require('webpack-merge')
 // Define installation status and root path
 var isInstalled = isThere(path.resolve(__dirname, '../../../package.json'))
 var packageRoot = path.resolve(__dirname, '..') + path.sep
-var projectRoot = (isInstalled ? path.resolve(__dirname, '../../../') : path.resolve(__dirname, '../')) + path.sep
-var appRoot = (isInstalled ? path.resolve(__dirname, '../../../') : path.resolve(__dirname, '../demo-app/')) + path.sep
+var projectRoot = (isInstalled ? path.resolve(__dirname, '../../..') : path.resolve(__dirname, '..')) + path.sep
+var appRoot = (isInstalled ? path.resolve(__dirname, '../../..') : path.resolve(__dirname, '../demo-app')) + path.sep
 
 // Load application configuration
 var pkg = require(packageRoot + 'package.json')

@@ -7,14 +7,18 @@ var saveJSON = require('jsonfile')
 var cpx = require('cpx')
 var run = require('child_process').exec
 saveJSON.spaces = 2
+var showOnly = require('./show-only')
 
 // Load configuration
 var cfg = require('./config.js')
 
+// Show message
+showOnly('App Framework installation ongoing - please wait ...')
+
 // App Framework is installed as dependency
 if (cfg.isInstalled) {
   // Fix package.json (implement updates from demo app to already existing app package.json)
-  let newApp = require(cfg.appRoot, 'package.json')
+  let newApp = require(cfg.appRoot + 'package.json')
   let demoApp = require(path.resolve(cfg.packageRoot, 'demo-app/package.json'))
   newApp.scripts = demoApp.scripts
   saveJSON.writeFileSync(cfg.appRoot + 'package.json', newApp)
@@ -65,3 +69,13 @@ if (cfg.isInstalled) {
   // Install Gulp (to build Framework7/Framework7-Vue)
   run('npm install -g gulp')
 }
+
+// Install common global packages
+run('npm install -g firebase-tools && npm install -g standard && npm install eslint-plugin-html -g', function (err, stdOut, errOut) {
+  if (err) {
+    console.log(errOut)
+    console.log('Error: Cannot install global dependencies')
+  } else {
+    showOnly('App Framework installed successfully')
+  }
+})
