@@ -14,7 +14,7 @@ showOnly('Standard JavaScript fix ongoing - please wait ...')
 let files = cfg.isInstalled ? 'app.vue" "pages/*.vue"' : '"scripts/*.js" "demo-app/app.vue" "demo-app/pages/*.vue"'
 run('standard >standard-check.log ' + files + ' --plugin html --fix', function (err, stdOut, errOut) {
   if (err) {
-    showOnly('Error: Standard JavaScript fix must be completed manually - please check "standard-check.log" for detailed information.')
+    throw new Error('Standard JavaScript fix must be completed manually - please check "standard-check.log" for detailed information.')
   } else {
     showOnly('Standard JavaScript fix completed')
     if (isThere(cfg.projectRoot + 'standard-check.log')) {
