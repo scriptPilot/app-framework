@@ -1,5 +1,6 @@
 demo-app/www/build-*
 node_modules/
+*.zip
 .firebaserc
 firebase.json
 firebase-debug.log

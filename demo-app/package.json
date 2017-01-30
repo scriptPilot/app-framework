@@ -12,7 +12,8 @@
     "deploy": "node node_modules/app-framework/scripts/prepareFirebase && firebase login && firebase deploy && node node_modules/app-framework/scripts/cleanupFirebase",
     "check": "node node_modules/app-framework/scripts/check",
     "fix": "node node_modules/app-framework/scripts/fix",
-    "backup": "node node_modules/app-framework/scripts/prepareFirebase && firebase login && firebase database:get / >databaseBackup.json && node node_modules/app-framework/scripts/cleanupFirebase"
+    "backup": "node node_modules/app-framework/scripts/prepareFirebase && firebase login && firebase database:get / >databaseBackup.json && node node_modules/app-framework/scripts/cleanupFirebase",
+    "zip": "node node_modules/app-framework/scripts/zip"
   },
   "title": "Demo App",
   "theme": "ios",
