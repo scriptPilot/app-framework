@@ -1,7 +1,8 @@
 demo-app/www/build-*
 node_modules/
+*.zip
 .firebaserc
 firebase.json
 firebase-debug.log
-npm-debug.log
+npm-debug.log*
 standard-check.log

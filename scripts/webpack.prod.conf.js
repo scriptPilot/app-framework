@@ -27,11 +27,10 @@ replace.sync({
   with: 'Copyright (c) ' + (new Date()).getFullYear() + ' scriptPilot'
 })
 
-// Update versions in demo app
+// Update version in demo app
 if (!cfg.isInstalled) {
   var demoApp = require(cfg.appRoot + 'package.json')
   demoApp.version = pkg.version
-  demoApp.devDependencies['app-framework'] = '^' + pkg.version
   saveJSON.writeFileSync(cfg.appRoot + 'package.json', demoApp)
 }
 

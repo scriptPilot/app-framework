@@ -12,7 +12,7 @@
 **Powerful**
 
 - Easy realization of state based, reactive user interfaces with the power of [Vue.js](https://vuejs.org/)
-- After restart, pages, tabs, scroll positions, panels, popups, form data and page component data will be restored
+- State kept for history, tabs, scroll positions, panels, popups, form inputs, form focus and component data
 - User registration, password reset and login processes with [Firebase Authentication](https://firebase.google.com/docs/auth/)
 - [Realtime database](https://firebase.google.com/docs/database/) and [file storage](https://firebase.google.com/docs/storage/) services with Firebase
 - Application hosting with [Firebase Hosting](https://firebase.google.com/docs/hosting/)
@@ -54,6 +54,7 @@ Optional
 - Save images to *images* folder
 - Edit app component in *app.vue* file
 - Edit page components in *pages* folder
+ - After adding new pages you have to run `npm run dev` again
 
 ### Test your application
 
@@ -85,7 +86,7 @@ To your own server
 ### Backup your application
 
 - Run `npm run backup` to save the Firebase database content to *databaseBackup.json* file
-- Run `npm run zip` to save your project folder without *node_modules* and *build* folders to a zip file
+- Run `npm run zip` to save your project files and latest build to a zip file
 - Backup your project folder frequently by
  - Pushing and synchronizing your changes to GitHub
- - Copying the zip file to any external drive or cloud
+ - Moving the zip file to any external drive or cloud

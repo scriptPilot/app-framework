@@ -3,6 +3,7 @@
     <f7-navbar title="Flexible Routing" back-link="Back" sliding></f7-navbar>
     <f7-block inner inset>
       <p style="text-align: center">Use multiple ways to fit the routing perfectly to your application needs.</p>
+      <p style="text-align: center">By default, routes for all pages will be created automatically!</p>
     </f7-block>
     <f7-block inner>
       <ul>

@@ -1,39 +1,27 @@
 {
   "name": "demo-app",
-  "version": "0.40.5",
+  "version": "0.42.0",
   "devDependencies": {
-    "app-framework": "^0.40.5"
+    "app-framework": "^0.42.0"
   },
   "scripts": {
-    "dev": "cd node_modules/app-framework && node scripts/dev-server.js",
-    "patch": "npm version patch && cd node_modules/app-framework && node scripts/build.js",
-    "minor": "npm version minor && cd node_modules/app-framework && node scripts/build.js",
-    "major": "npm version major && cd node_modules/app-framework && node scripts/build.js",
-    "deploy": "node node_modules/app-framework/scripts/prepareFirebaseDeploy.js && firebase login && firebase deploy && node node_modules/app-framework/scripts/cleanupFirebaseDeploy.js",
-    "check": "standard >standard-check.log \"app.vue\" \"pages/*.vue\" --plugin html",
-    "fix": "standard >standard-check.log \"app.vue\" \"pages/*.vue\" --plugin html --fix"
+    "dev": "cd node_modules/app-framework && node scripts/dev-server",
+    "patch": "npm version patch && cd node_modules/app-framework && node scripts/build",
+    "minor": "npm version minor && cd node_modules/app-framework && node scripts/build",
+    "major": "npm version major && cd node_modules/app-framework && node scripts/build",
+    "deploy": "node node_modules/app-framework/scripts/prepareFirebase && firebase login && firebase deploy && node node_modules/app-framework/scripts/cleanupFirebase",
+    "check": "node node_modules/app-framework/scripts/check",
+    "fix": "node node_modules/app-framework/scripts/fix",
+    "backup": "node node_modules/app-framework/scripts/prepareFirebase && firebase login && firebase database:get / >databaseBackup.json && node node_modules/app-framework/scripts/cleanupFirebase",
+    "zip": "node node_modules/app-framework/scripts/zip"
   },
   "title": "Demo App",
   "theme": "ios",
   "defaultLanguage": "en",
   "showPhoneFrameOnDesktop": true,
-  "routes": {
-    "home": "home",
-    "panelLeft": "panelLeft",
-    "panelRight": "panelRight",
-    "loginScreen": "loginScreen",
-    "popup": "popup",
-    "form": "form",
-    "image": "image",
-    "simpleTodo": "simpleTodo",
-    "firebasePublic": "firebasePublic",
-    "firebasePrivate": "firebasePrivate",
-    "multipleLanguages": "multipleLanguages",
-    "simplePage": "simplePage",
-    "tabs": "tabs",
-    "tabs-sub": "tabs-sub",
-    "flexibleRouting/blog/:blogId/post/:postId": "flexibleRouting",
-    "login": "login"
+  "resetLocalStorageOnVersionChange": true,
+  "specialRoutes": {
+    "flexibleRouting/blog/:blogId/post/:postId": "flexibleRouting"
   },
   "loadIconFonts": {
     "framework7": false,

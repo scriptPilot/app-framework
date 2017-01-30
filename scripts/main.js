@@ -2,7 +2,8 @@
 var app = require(process.env.APP_ROOT_FROM_SCRIPTS + 'package.json')
 
 // Reset local storage after App Framework version change
-if (!window.localStorage['app-framework-version'] || window.localStorage['app-framework-version'] !== process.env.FRAMEWORK_VERSION) {
+if (process.env.RESET_LOCAL_STORAGE === 'true' &&
+    (!window.localStorage['app-framework-version'] || window.localStorage['app-framework-version'] !== process.env.FRAMEWORK_VERSION)) {
   window.localStorage.clear()
   window.localStorage['app-framework-version'] = process.env.FRAMEWORK_VERSION
 }
@@ -63,10 +64,18 @@ require('inobounce')
 // Import main css
 require('../main.css')
 
-// Load routes
+// Load special routes from config
 var Routes = []
-for (var page in app.routes) {
-  Routes.push({path: page, component: require(process.env.APP_ROOT_FROM_SCRIPTS + 'pages/' + app.routes[page] + '.vue')})
+for (let page in app.specialRoutes) {
+  Routes.push({path: page, component: require(process.env.APP_ROOT_FROM_SCRIPTS + 'pages/' + app.specialRoutes[page] + '.vue')})
+}
+// Load all pages as standard route
+let pages = process.env.PAGES
+pages = pages.split(',')
+for (let p = 0; p < pages.length; p++) {
+  if (Routes[pages[p]] === undefined) {
+    Routes.push({path: pages[p], component: require(process.env.APP_ROOT_FROM_SCRIPTS + 'pages/' + pages[p] + '.vue')})
+  }
 }
 
 // Import sortObject function
@@ -74,6 +83,32 @@ require('./sortObject.js')
 
 // Import mixin for page runtime management
 Vue.mixin(require('./pageMixin.js'))
+
+// Language patterns
+var text = {
+  en: {
+    modalButtonOk: 'OK',
+    modalButtonCancel: 'Cancel',
+    modalPreloaderTitle: 'Loading... ',
+    modalUsernamePlaceholder: 'Username',
+    modalPasswordPlaceholder: 'Password',
+    smartSelectBackText: 'Back',
+    smartSelectPopupCloseText: 'Close',
+    smartSelectPickerCloseText: 'Done',
+    notificationCloseButtonText: 'Close'
+  },
+  de: {
+    modalButtonOk: 'OK',
+    modalButtonCancel: 'Abbrechen',
+    modalPreloaderTitle: 'Lädt... ',
+    modalUsernamePlaceholder: 'Benutzername',
+    modalPasswordPlaceholder: 'Passwort',
+    smartSelectBackText: 'Zurück',
+    smartSelectPopupCloseText: 'Fertig',
+    smartSelectPickerCloseText: 'Fertig',
+    notificationCloseButtonText: 'OK'
+  }
+}
 
 // Init App
 var localStorage = window.localStorage
@@ -89,32 +124,99 @@ new Vue({ // eslint-disable-line
     root: '#app',
     routes: Routes,
     material: process.env.THEME === 'material',
-    preroute: function (view, options) {
-      /*
-      let url = !options.isBack ? options.url : views[(view.selector.indexOf('.') === -1 ? view.selector : view.selector.substr(1, view.selector.indexOf('.') - 1))][]
-
-      let pageName = null
-      if (!options.isBack) {
-        pageName = options.url.indexOf('/') === -1 ? options.url : options.url.substr(0, options.url.indexOf('/'))
-      } else {
-        let viewId = view.selector.indexOf('.') === -1 ? view.selector : view.selector.substr(1, view.selector.indexOf('.') - 1)
-        pageName = views[viewId]
-      }
-
-      let pageName = null
-      if (!options.isBack) {
-
-      }
-      let views = localStorage.views ? JSON.parse(localStorage.views) : {}
-      console.log(viewId, pageName, )
-      */
-      return true
-    }
+    modalTitle: app.title
   },
   components: {
     app: require(process.env.APP_ROOT_FROM_SCRIPTS + 'app.vue')
   },
   mounted: function () {
+    // Update text patterns
+    this.updateTextPatterns()
+
+    /*
+    // Get views and load state
+    console.log(this.$f7.views)
+
+    this.$$(document).on('page:init page:reinit', function (ePage) {
+      console.log(JSON.stringify(this.$f7.views[2].history))
+    }.bind(this))
+    */
+
+    // Copy initial
+
+    // Get views
+    window.views = {}
+    let viewsToRestore = {}
+    this.$$('.view').each(function (viewNo, viewEl) {
+      let viewId = this.$$(viewEl).attr('id')
+      if (viewId !== null && viewId !== '' && window.views[viewId] === undefined) {
+        window.views[viewId] = {no: viewNo, pages: []}
+        viewsToRestore[viewId] = localStorage['view:' + viewId] ? JSON.parse(localStorage['view:' + viewId]) : null
+      } else {
+        console.error('Please assign an unique ID attribute for each view component!')
+      }
+    }.bind(this))
+
+    // Remember history
+    this.$$(document).on('page:init page:reinit', function (ePage) {
+      if (ePage.detail.page.url.substr(0, 9) !== '#content-' && (!ePage.detail.page.fromPage || ePage.detail.page.fromPage.url.substr(0, 9) !== '#content-')) {
+        let viewId = this.$$(ePage.target).parents('.view').attr('id')
+        if (window.views[viewId]) {
+          // Forward
+          if (ePage.type === 'page:init') {
+            window.views[viewId].pages.push(ePage.detail.page.url)
+          // Backward
+          } else {
+            window.views[viewId].pages.pop()
+          }
+          // Update local storage
+          localStorage['view:' + viewId] = JSON.stringify(window.views[viewId])
+        }
+      }
+    }.bind(this))
+
+    // Restore history
+    for (let v in viewsToRestore) {
+      if (viewsToRestore[v]) {
+        for (let p = 1; p < viewsToRestore[v].pages.length; p++) {
+          setTimeout(function () {
+            this.$f7.views[viewsToRestore[v].no].router.load({url: viewsToRestore[v].pages[p], animatePages: false})
+          }.bind(this), 0)
+        }
+      }
+    }
+
+    /*
+    // Restore state
+
+    // Get views and ad saved state
+    window.views = {}
+    this.$$('.view').each(function (i, viewEl) {
+      let viewId = this.$$(viewEl).attr('id')
+      window.views[viewId] = localStorage['view:' + viewId] ? JSON.parse(localStorage['view:' + viewId]) : []
+      // Restore pages
+
+    }.bind(this))
+
+    // On each new page load
+    this.$$(document).on('page:init', function (pageEv) {
+      let url = pageEv.detail.page.url
+      let realPage = url !== '#content-2'
+      // On each real page load
+      if (realPage) {
+        let viewId = this.$$(pageEv.target).parents('.view').attr('id')
+        // Restore saved state
+        if (localStorage['page:' + viewId + '/' + url]) {
+          // todo ...
+        }
+        // Remember state changes
+        // todo ...
+      }
+    }.bind(this))
+
+    console.log(window.views)
+    */
+
     // Set phone frame
 
       // Update phone frame function
@@ -163,12 +265,14 @@ new Vue({ // eslint-disable-line
       }
 
       // Resize navbars
+      /*
       setTimeout(function () {
         let views = JSON.parse(localStorage.views)
         for (let view in views) {
           this.$f7.sizeNavbars('#' + view)
         }
       }.bind(this), 0)
+      */
     }.bind(this)
 
       // Resize initially
@@ -242,6 +346,7 @@ new Vue({ // eslint-disable-line
       if (localStorage.loginScreen) {
         this.$f7.loginScreen('#' + localStorage.loginScreen, false)
       }
+      /*
       if (localStorage.formFocus) {
         setTimeout(function () {
           let elType = this.$$(this.$f7.getCurrentView().activePage.container).find('[name=' + localStorage.formFocus + ']')[0].tagName
@@ -255,6 +360,7 @@ new Vue({ // eslint-disable-line
           }
         }.bind(this), 0)
       }
+      */
     }.bind(this), 0)
 
     // Show app
@@ -262,9 +368,18 @@ new Vue({ // eslint-disable-line
       this.$$('.framework7-root').css('visibility', 'visible')
     }.bind(this), 0)
   },
+  methods: {
+    updateTextPatterns: function () {
+      let patterns = text[this.language] ? text[this.language] : text['en']
+      for (let p in patterns) {
+        this.$f7.params[p] = patterns[p]
+      }
+    }
+  },
   watch: {
     language: function (newLanguage) {
       localStorage.language = newLanguage
+      this.updateTextPatterns()
     }
   }
 })
