@@ -4,8 +4,8 @@
     <f7-list form v-if="!$root.user">
       
       <f7-list-item v-if="showEmail">
-        <f7-label>E-Mail</f7-label>
-        <f7-input v-model="email" placeholder="E-Mail" type="text"></f7-input>
+        <f7-label>Email</f7-label>
+        <f7-input v-model="email" placeholder="Email" type="text"></f7-input>
       </f7-list-item>
       
       <f7-list-item v-if="showPassword">
