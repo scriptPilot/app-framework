@@ -1,6 +1,9 @@
 // Load application configuration
 var app = require(process.env.APP_ROOT_FROM_SCRIPTS + 'package.json')
 
+// Shortlink to local storage
+var localStorage = window.localStorage
+
 // Reset local storage after App Framework version change
 if (process.env.RESET_LOCAL_STORAGE === 'true' &&
     (!window.localStorage['app-framework-version'] || window.localStorage['app-framework-version'] !== process.env.FRAMEWORK_VERSION)) {
@@ -111,14 +114,15 @@ var text = {
 }
 
 // Init App
-var localStorage = window.localStorage
 new Vue({ // eslint-disable-line
   el: '#app',
   template: '<app/>',
   data: {
     language: localStorage.language ? localStorage.language : app.defaultLanguage,
     title: app.title,
-    version: app.version
+    version: app.version,
+    config: app,
+    user: null
   },
   framework7: {
     root: '#app',
@@ -130,6 +134,26 @@ new Vue({ // eslint-disable-line
     app: require(process.env.APP_ROOT_FROM_SCRIPTS + 'app.vue')
   },
   mounted: function () {
+    // Monitor Firebase user
+    if (window.firebase) {
+      // Get user data from cache
+      this.user = localStorage.user ? JSON.parse(localStorage.user) : null
+
+      // Monitor user changes
+      window.firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
+          this.user = {
+            uid: user.uid,
+            email: user.email
+          }
+          localStorage.user = JSON.stringify(this.user)
+        } else {
+          this.user = null
+          localStorage.removeItem('user')
+        }
+      }.bind(this))
+    }
+
     // Update text patterns
     this.updateTextPatterns()
 

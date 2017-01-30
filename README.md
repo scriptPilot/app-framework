@@ -54,7 +54,7 @@ Optional
 - Save images to *images* folder
 - Edit app component in *app.vue* file
 - Edit page components in *pages* folder
- - After adding new pages you have to run `npm run dev` again
+ - After adding, removing or renaming pages you have to run `npm run dev` again
 
 ### Test your application
 

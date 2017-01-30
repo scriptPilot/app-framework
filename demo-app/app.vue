@@ -31,7 +31,7 @@
 
     <!-- Login Screen -->
     <f7-login-screen id="login-screen">
-      <f7-view id="login-screen" url="loginScreen">
+      <f7-view id="login-screen" url="login-screen">
       </f7-view>
     </f7-login-screen>
 
