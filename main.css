@@ -9,13 +9,6 @@ body {
 .statusbar-overlay {
   background: #000000;
 }
-/* Status bar fix */
-.with-statusbar-overlay body {
-  padding-top: 0px !important;    
-}
-.with-statusbar-overlay #app {
-  padding-top: 20px;
-}
 /* initial reload splash fix */
 .framework7-root {  
   visibility: hidden;
