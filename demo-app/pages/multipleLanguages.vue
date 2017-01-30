@@ -6,9 +6,8 @@
     <f7-navbar :title="text.title" :back-link="text.backlink" sliding></f7-navbar>
     
     <!-- Language selection > $root.language must be changed to update language -->
-    <f7-list>
+    <f7-list inset>
       <f7-list-item smart-select smart-select-back-on-select
-        :smart-select-back-text="text.backlink"
         :title="text.selectLang"
         :media="'<img src=\'' + images['flag_' + $root.language] + '\' width=\'29\' />'">              
         <select @change="updateLanguageText" v-model="$root.language">
@@ -18,10 +17,18 @@
       </f7-list-item>
     </f7-list>
     
-    <f7-block inner><p>{{text.text}}</p></f7-block>    
+    <f7-block inner inset><p>{{text.text}}</p></f7-block>    
     
     <f7-block inset>
       <f7-button :text="text.openPage" href="simplePage"></f7-button>
+    </f7-block>
+    
+    <f7-block inset>
+      <f7-button @click="modal()">Modal</f7-button></f7-col>
+    </f7-block>
+    
+    <f7-block inner inset style="text-align: center">
+      <p>Standard text patterns will change their language as well - currently English and German are supported - Please request other in our <f7-link href="https://github.com/scriptPilot/app-framework/issues" external>GitHub Issue List</f7-link>.</p>
     </f7-block>
     
   </f7-page> 
@@ -37,7 +44,8 @@
       selectLang: 'Select language',
       de: 'German',
       en: 'English',
-      openPage: 'Open simple sub page'
+      openPage: 'Open simple sub page',
+      message: 'Wow - You clicked the button!'
     },
     de: {
       backlink: 'Zurück',
@@ -46,7 +54,8 @@
       selectLang: 'Sprache wählen',
       de: 'Deutsch',
       en: 'Englisch',
-      openPage: 'Einfache Unterseite öffnen'
+      openPage: 'Einfache Unterseite öffnen',
+      message: 'Wow - Du hast geklickt!'
     }
   }
   
@@ -72,13 +81,21 @@
       }
     },
   
-    // To change selected language text right after change, it has to be updated with this helper function
+    
     methods: {
+      
+      // To change selected language text right after change, it has to be updated with this helper function
       updateLanguageText: function (e) {
         setTimeout(function () {
           this.$$(e.target).parent().find('.item-after').html(this.text[e.target.value])
         }.bind(this), 0)
+      },
+      
+      // Open modal
+      modal: function () {
+        this.$f7.confirm()
       }
+      
     }
   
   }

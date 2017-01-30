@@ -51,6 +51,7 @@
     "is-there": "^4.3.6",
     "json-loader": "^0.5.4",
     "jsonfile": "^2.4.0",
+    "object-merge": "^2.5.1",
     "on-build-webpack": "^0.1.0",
     "opn": "^4.0.2",
     "ora": "^0.3.0",

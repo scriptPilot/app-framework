@@ -76,7 +76,34 @@ require('./sortObject.js')
 // Import mixin for page runtime management
 Vue.mixin(require('./pageMixin.js'))
 
+// Language patterns
+var text = {
+  en: {
+    modalButtonOk: 'OK',
+    modalButtonCancel: 'Cancel',
+    modalPreloaderTitle: 'Loading... ',
+    modalUsernamePlaceholder: 'Username',
+    modalPasswordPlaceholder: 'Password',
+    smartSelectBackText: 'Back',
+    smartSelectPopupCloseText: 'Close',
+    smartSelectPickerCloseText: 'Done',
+    notificationCloseButtonText: 'Close'
+  },
+  de: {
+    modalButtonOk: 'OK',
+    modalButtonCancel: 'Abbrechen',
+    modalPreloaderTitle: 'Lädt... ',
+    modalUsernamePlaceholder: 'Benutzername',
+    modalPasswordPlaceholder: 'Passwort',
+    smartSelectBackText: 'Zurück',
+    smartSelectPopupCloseText: 'Fertig',
+    smartSelectPickerCloseText: 'Fertig',
+    notificationCloseButtonText: 'OK'
+  }
+}
+
 // Init App
+var merge = require('object-merge')
 var localStorage = window.localStorage
 new Vue({ // eslint-disable-line
   el: '#app',
@@ -89,31 +116,16 @@ new Vue({ // eslint-disable-line
   framework7: {
     root: '#app',
     routes: Routes,
-    material: process.env.THEME === 'material'/*,
-    preroute: function (view, options) {
-      let url = !options.isBack ? options.url : views[(view.selector.indexOf('.') === -1 ? view.selector : view.selector.substr(1, view.selector.indexOf('.') - 1))][]
-
-      let pageName = null
-      if (!options.isBack) {
-        pageName = options.url.indexOf('/') === -1 ? options.url : options.url.substr(0, options.url.indexOf('/'))
-      } else {
-        let viewId = view.selector.indexOf('.') === -1 ? view.selector : view.selector.substr(1, view.selector.indexOf('.') - 1)
-        pageName = views[viewId]
-      }
-
-      let pageName = null
-      if (!options.isBack) {
-
-      }
-      let views = localStorage.views ? JSON.parse(localStorage.views) : {}
-      console.log(viewId, pageName, )
-      return true
-    } */
+    material: process.env.THEME === 'material',
+    modalTitle: app.title
   },
   components: {
     app: require(process.env.APP_ROOT_FROM_SCRIPTS + 'app.vue')
   },
   mounted: function () {
+    // Update text patterns
+    this.updateTextPatterns()
+    
     /*
     // Get views and load state
     console.log(this.$f7.views)
@@ -140,7 +152,7 @@ new Vue({ // eslint-disable-line
 
     // Remember history
     this.$$(document).on('page:init page:reinit', function (ePage) {
-      if (ePage.detail.page.url !== '#content-2' && (!ePage.detail.page.fromPage || ePage.detail.page.fromPage.url !== '#content-2')) {
+      if (ePage.detail.page.url.substr(0, 9) !== '#content-' && (!ePage.detail.page.fromPage || ePage.detail.page.fromPage.url.substr(0, 9) !== '#content-')) {
         let viewId = this.$$(ePage.target).parents('.view').attr('id')
         if (window.views[viewId]) {
           // Forward
@@ -349,9 +361,18 @@ new Vue({ // eslint-disable-line
       this.$$('.framework7-root').css('visibility', 'visible')
     }.bind(this), 0)
   },
+  methods: {
+    updateTextPatterns: function () {
+      let patterns = text[this.language] ? text[this.language] : text['en']
+      for (let p in patterns) {
+        this.$f7.params[p] = patterns[p]
+      }
+    }
+  },
   watch: {
     language: function (newLanguage) {
       localStorage.language = newLanguage
+      this.updateTextPatterns()
     }
   }
 })
