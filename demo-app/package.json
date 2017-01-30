@@ -19,6 +19,7 @@
   "theme": "ios",
   "defaultLanguage": "en",
   "showPhoneFrameOnDesktop": true,
+  "resetLocalStorageOnVersionChange": true,
   "routes": {
     "home": "home",
     "panelLeft": "panelLeft",

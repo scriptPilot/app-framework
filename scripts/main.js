@@ -2,7 +2,8 @@
 var app = require(process.env.APP_ROOT_FROM_SCRIPTS + 'package.json')
 
 // Reset local storage after App Framework version change
-if (!window.localStorage['app-framework-version'] || window.localStorage['app-framework-version'] !== process.env.FRAMEWORK_VERSION) {
+if (process.env.RESET_LOCAL_STORAGE === 'true' &&
+    (!window.localStorage['app-framework-version'] || window.localStorage['app-framework-version'] !== process.env.FRAMEWORK_VERSION)) {
   window.localStorage.clear()
   window.localStorage['app-framework-version'] = process.env.FRAMEWORK_VERSION
 }
