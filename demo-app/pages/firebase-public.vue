@@ -55,14 +55,14 @@
 
   /*
   
-     Each page component has the following Firebase shortlinks:     
-     
+     Each page component has the following Firebase shortlinks:
+  
      - "this.db()" as shortlink to "window.firebase.database().ref()"
      - "this.store()" as shortlink to "window.firebase.database().storage()"
      - "this.timestamp" as shortlink to "window.firebase.database.ServerValue.TIMESTAMP"
-     
+  
      Each page component has the following functions:
-     
+  
      - sortObject([Object]object, [String]sortByKey, [Boolean, optional, default=false]descendingOrder)
   
   */
