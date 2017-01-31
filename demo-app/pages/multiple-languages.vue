@@ -20,7 +20,7 @@
     <f7-block inner inset><p>{{text.text}}</p></f7-block>    
     
     <f7-block inset>
-      <f7-button :text="text.openPage" href="simplePage"></f7-button>
+      <f7-button :text="text.openPage" href="simple-page"></f7-button>
     </f7-block>
     
     <f7-block inset>
@@ -61,8 +61,8 @@
   
   // Assign images (flags)
   let images = {
-    flag_en: require('../images/flag_en.png'),
-    flag_de: require('../images/flag_de.png')
+    'flag_en': require('../images/flag-en.png'),
+    'flag_de': require('../images/flag-de.png')
   }
   
   module.exports = {

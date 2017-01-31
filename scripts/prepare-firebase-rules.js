@@ -19,9 +19,9 @@ saveJSON.writeFileSync(cfg.appRoot + '.firebaserc', {
 })
 
 // Create file with standard rules
-if (!isThere(cfg.appRoot + 'databaseRules.json')) {
-  write.sync(cfg.appRoot + 'databaseRules.json', '{}')
-  saveJSON.writeFileSync(cfg.appRoot + 'databaseRules.json', {
+if (!isThere(cfg.appRoot + 'database-rules.json')) {
+  write.sync(cfg.appRoot + 'database-rules.json', '{}')
+  saveJSON.writeFileSync(cfg.appRoot + 'database-rules.json', {
     'rules': {
       '.read': 'auth != null',
       '.write': 'auth != null'
@@ -32,7 +32,7 @@ if (!isThere(cfg.appRoot + 'databaseRules.json')) {
 // Write Firebase config
 var firebaseConfig = {
   database: {
-    rules: 'databaseRules.json'
+    rules: 'database-rules.json'
   }
 }
 saveJSON.writeFileSync(cfg.appRoot + 'firebase.json', firebaseConfig)

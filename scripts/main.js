@@ -58,7 +58,7 @@ if (process.env.FONT_ION === 'true') {
   require('../libs/ion-icons/css/ion-icons.css')
 }
 if (process.env.FONT_AWESOME === 'true') {
-  require('../libs/fontAwesome-icons/css/fontAwesome-icons.css')
+  require('../libs/font-awesome-icons/css/fontAwesome-icons.css')
 }
 
 // Import iNoBounce
@@ -69,8 +69,12 @@ require('../main.css')
 
 // Load special routes from config
 var Routes = []
-for (let page in app.specialRoutes) {
-  Routes.push({path: page, component: require(process.env.APP_ROOT_FROM_SCRIPTS + 'pages/' + app.specialRoutes[page] + '.vue')})
+for (let p = 0; p < app.specialRoutes.length; p++) {
+  let page = app.specialRoutes[p].substr(0, app.specialRoutes[p].indexOf('/'))
+  Routes.push({
+    path: app.specialRoutes[p],
+    component: require(process.env.APP_ROOT_FROM_SCRIPTS + 'pages/' + page + '.vue')
+  })
 }
 // Load all pages as standard route
 let pages = process.env.PAGES
@@ -82,10 +86,10 @@ for (let p = 0; p < pages.length; p++) {
 }
 
 // Import sortObject function
-require('./sortObject.js')
+require('./sort-object.js')
 
 // Import mixin for page runtime management
-Vue.mixin(require('./pageMixin.js'))
+Vue.mixin(require('./mixin-page.js'))
 
 // Language patterns
 var text = {

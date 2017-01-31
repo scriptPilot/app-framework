@@ -7,13 +7,13 @@
 
     <!-- Left Panel -->
     <f7-panel left reveal layout="dark">
-      <f7-view id="left-panel-view" navbar-through :dynamic-navbar="true" url="panelLeft">
+      <f7-view id="left-panel-view" navbar-through :dynamic-navbar="true" url="panel-left">
       </f7-view>
     </f7-panel>
 
     <!-- Right Panel -->
     <f7-panel right cover layout="dark">
-      <f7-view id="right-panel-view" navbar-through :dynamic-navbar="true" url="panelRight">
+      <f7-view id="right-panel-view" navbar-through :dynamic-navbar="true" url="panel-right">
       </f7-view>
     </f7-panel>
 

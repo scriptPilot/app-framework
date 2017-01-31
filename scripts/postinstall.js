@@ -42,8 +42,8 @@ if (cfg.isInstalled) {
   }
 
   // Copy database rules file
-  if (!isThere(cfg.appRoot + 'databaseRules.json')) {
-    cpx.copySync(path.resolve(cfg.packageRoot, 'demo-app/databaseRules.json'), cfg.appRoot)
+  if (!isThere(cfg.appRoot + 'database-rules.json')) {
+    cpx.copySync(path.resolve(cfg.packageRoot, 'demo-app/database-rules.json'), cfg.appRoot)
   }
 
   // Copy/update gitignore
