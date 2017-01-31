@@ -20,7 +20,7 @@ if (cfg.isInstalled) {
   // Fix package.json (implement updates from demo app to already existing app package.json)
   var newApp = require(cfg.appRoot + 'package.json')
   var demoApp = require(path.resolve(cfg.packageRoot, 'demo-app/package.json'))
-  newApp.scripts = demoApp.scripts
+  newApp.scripts = demoApp.scripts /* update scripts */
   saveJSON.writeFileSync(cfg.appRoot + 'package.json', newApp)
 
   // Copy template app.vue and reset version in package.json
