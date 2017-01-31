@@ -15,8 +15,7 @@
       </f7-list-item>
       <f7-list-item>
         <f7-label>Password</f7-label>
-        <!-- State of password field won't be kept for security reasons (to be read in local storage) -->
-        <f7-input type="password" name="password" placeholder="Password"></f7-input>
+        <f7-input v-model="password" type="password" name="password" placeholder="Password"></f7-input>
       </f7-list-item>
       <f7-list-item>
         <f7-label>E-mail</f7-label>
@@ -67,8 +66,7 @@
       </f7-list-item>
       <f7-list-item>
         <f7-label floating>Password</f7-label>
-        <!-- State of password field won't be kept for security reasons (to be read in local storage) -->
-        <f7-input type="password" name="password" placeholder="Password"></f7-input>
+        <f7-input v-model="password2" type="password" name="password2" placeholder="Password"></f7-input>
       </f7-list-item>
       <f7-list-item>
         <f7-label floating>E-mail</f7-label>
@@ -82,8 +80,7 @@
         <f7-input v-model="name3" name="name3" type="text" placeholder="Name"></f7-input>
       </f7-list-item>
       <f7-list-item>
-        <!-- State of password field won't be kept for security reasons (to be read in local storage) -->
-        <f7-input type="password" name="password" placeholder="Password"></f7-input>
+        <f7-input v-model="password3" type="password" name="password3" placeholder="Password"></f7-input>
       </f7-list-item>
       <f7-list-item>
         <f7-input v-model="email3" name="email3" type="email" placeholder="E-mail"></f7-input>
