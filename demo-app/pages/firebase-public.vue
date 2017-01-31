@@ -1,4 +1,5 @@
 <template>
+
   <f7-page>
   
     <!-- Navbar and backlink -->
@@ -52,6 +53,20 @@
 </template>
 <script>
 
+  /*
+  
+     Each page component has the following Firebase shortlinks:     
+     
+     - "this.db()" as shortlink to "window.firebase.database().ref()"
+     - "this.store()" as shortlink to "window.firebase.database().storage()"
+     - "this.timestamp" as shortlink to "window.firebase.database.ServerValue.TIMESTAMP"
+     
+     Each page component has the following functions:
+     
+     - sortObject([Object]object, [String]sortByKey, [Boolean, optional, default=false]descendingOrder)
+  
+  */
+
   module.exports = {
   
     // Define intial data as a function
@@ -67,7 +82,6 @@
     mounted: function () {
       // Use this.db() as shortlink to firebase.database().ref()
       this.db('publicData/todos').orderByChild('created').limitToLast(this.maxEntries).on('value', function (snapshot) {
-        // To sort object, use integrated function: sortObject(object, sortByAttribute [, descendingOrder])
         this.todos = this.sortObject(snapshot.val(), 'created', true)
       }.bind(this))
     },
