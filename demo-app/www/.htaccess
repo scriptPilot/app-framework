@@ -2,8 +2,8 @@
 RewriteEngine On
 
 # Here you specify the build version to be used (two times!)
-RewriteCond %{REQUEST_URI} !^/build-0.43.6/
-RewriteRule ^(.*)$ /build-0.43.6/$1 [L]
+RewriteCond %{REQUEST_URI} !^/build-0.43.7/
+RewriteRule ^(.*)$ /build-0.43.7/$1 [L]
 
 # Forwarding to app home page if file not found
 RewriteCond %{REQUEST_FILENAME} !-f
