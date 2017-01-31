@@ -3,8 +3,10 @@ var cfg = require('./config.js')
 var app = require(cfg.appRoot + 'package.json')
 
 // Import packages
+var path = require('path')
 var isThere = require('is-there')
 var write = require('write')
+var read = require('read-file')
 var saveJSON = require('jsonfile')
 saveJSON.spaces = 2
 
@@ -18,23 +20,11 @@ saveJSON.writeFileSync(cfg.appRoot + '.firebaserc', {
   }
 })
 
-// Create file with standard rules
-if (!isThere(cfg.appRoot + 'databaseRules.json')) {
-  write.sync(cfg.appRoot + 'databaseRules.json', '{}')
-  saveJSON.writeFileSync(cfg.appRoot + 'databaseRules.json', {
-    'rules': {
-      '.read': 'auth != null',
-      '.write': 'auth != null'
-    }
-  })
-}
+// Get build version to be used
+var htaccess = read.sync(path.resolve(cfg.appRoot, 'www/.htaccess'), 'utf8')
+var versionSearch = htaccess.match(/build-(.+)\//)
 
 // Write Firebase config
-var firebaseConfig = {
-  database: {
-    rules: 'databaseRules.json'
-  }
-}
-saveJSON.writeFileSync(cfg.appRoot + 'firebase.json', firebaseConfig)
+saveJSON.writeFileSync(cfg.appRoot + 'firebase.json', {})
 
 module.exports = {}

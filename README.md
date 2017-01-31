@@ -84,7 +84,7 @@ To your own server
  
 ### Backup your application
 
-- Run `npm run backup` to save the Firebase database content to *databaseBackup.json* file
+- Run `npm run dbbackup` to save the Firebase database content to *databaseBackup.json* file
 - Run `npm run zip` to save your project files and latest build to a zip file
 - Backup your project folder frequently by
  - Pushing and synchronizing your changes to GitHub

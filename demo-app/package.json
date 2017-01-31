@@ -1,6 +1,6 @@
 {
   "name": "demo-app",
-  "version": "0.43.8",
+  "version": "0.43.9",
   "title": "Demo App",
   "theme": "ios",
   "defaultLanguage": "en",
@@ -43,7 +43,7 @@
     "dbrules": "node node_modules/app-framework/scripts/prepareFirebaseRules && firebase login && firebase deploy && node node_modules/app-framework/scripts/cleanupFirebase",
     "check": "node node_modules/app-framework/scripts/check",
     "fix": "node node_modules/app-framework/scripts/fix",
-    "backup": "node node_modules/app-framework/scripts/prepareFirebase && firebase login && firebase database:get / >databaseBackup.json && node node_modules/app-framework/scripts/cleanupFirebase",
+    "dbbackup": "node node_modules/app-framework/scripts/prepareFirebaseBackup && firebase login && firebase database:get / >databaseBackup.json && node node_modules/app-framework/scripts/cleanupFirebase",
     "zip": "node node_modules/app-framework/scripts/zip"
   }
 }
