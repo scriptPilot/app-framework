@@ -1,8 +1,20 @@
-demo-app/www/build-*
+# Exclude node modules
 node_modules/
-*.zip
+
+# Exclude build folders
+demo-app/www/build-*
+
+# Exclude temporary files
 .firebaserc
 firebase.json
-firebase-debug.log
-npm-debug.log*
-standard-check.log
+
+# Exclude log files
+*.log
+
+# Exclude zip files
+*.zip
+
+# Exclude database backup
+databaseBackup.json
+
+

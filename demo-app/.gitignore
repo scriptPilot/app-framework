@@ -1,8 +1,19 @@
-www/build-*
+# Exclude node modules
 node_modules/
+
+# Exclude build folders
+www/build-*
+
+# Exclude temporary files
 .babelrc
 .firebaserc
-databaseBackup.json
 firebase.json
-firebase-debug.log
-npm-debug.log
+
+# Exclude log files
+*.log
+
+# Exclude zip files
+*.zip
+
+# Exclude database backup
+databaseBackup.json
