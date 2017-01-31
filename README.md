@@ -74,7 +74,7 @@ Optional
 To [Firebase Hosting](https://firebase.google.com/docs/hosting/)
 
 - Run `npm run dbrules` to overwrite the Firebase database rules with the content of *databaseRules.json*
-- Run `npm run deploy` to push newest build to [Firebase Hosting](https://firebase.google.com/docs/hosting/)
+- Run `npm run deploy` to push newest build to Firebase Hosting
 - For rollback: Change the version in *www/.htaccess* file to the previous one and run `npm run deploy`
 
 To your own server
