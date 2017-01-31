@@ -1,6 +1,21 @@
 {
   "name": "demo-app",
-  "version": "0.43.9",
+  "version": "0.43.11",
+  "scripts": {
+    "dev": "cd node_modules/app-framework && node scripts/dev-server",
+    "check": "node node_modules/app-framework/scripts/check",
+    "fix": "node node_modules/app-framework/scripts/fix",
+    "patch": "npm version patch && cd node_modules/app-framework && node scripts/build",
+    "minor": "npm version minor && cd node_modules/app-framework && node scripts/build",
+    "major": "npm version major && cd node_modules/app-framework && node scripts/build",
+    "dbrules": "node node_modules/app-framework/scripts/prepareFirebaseRules && firebase login && firebase deploy && node node_modules/app-framework/scripts/cleanupFirebase",
+    "deploy": "node node_modules/app-framework/scripts/prepareFirebaseDeploy && firebase login && firebase deploy && node node_modules/app-framework/scripts/cleanupFirebase",
+    "dbbackup": "node node_modules/app-framework/scripts/prepareFirebaseBackup && firebase login && firebase database:get / >databaseBackup.json && node node_modules/app-framework/scripts/cleanupFirebase",
+    "zip": "node node_modules/app-framework/scripts/zip"
+  },
+  "devDependencies": {
+    "app-framework": "^0.43.11"
+  },
   "title": "Demo App",
   "theme": "ios",
   "defaultLanguage": "en",
@@ -9,14 +24,9 @@
   "specialRoutes": {
     "flexibleRouting/blog/:blogId/post/:postId": "flexibleRouting"
   },
-  "loadIconFonts": {
-    "framework7": false,
-    "material": false,
-    "ion": false,
-    "fontawesome": true
-  },
-  "faviconIcon": "images/faviconIcon.png",
-  "faviconBackgroundColor": "#ffffff",
+  "loginRequiredForPages": [
+    "privateFirebase"
+  ],
   "firebase": {
     "apiKey": "AIzaSyAvzTiqd9fKR-h47Uxl4iXwqSMU1VjGdII",
     "authDomain": "app-framework-9045a.firebaseapp.com",
@@ -27,23 +37,13 @@
     "useDatabaseService": true,
     "useStorageService": false
   },
-  "loginRequiredForPages": [
-    "privateFirebase"
-  ],
-  "buildSourcemaps": false,
-  "devDependencies": {
-    "app-framework": "^0.43.6"
+  "loadIconFonts": {
+    "framework7": false,
+    "material": false,
+    "ion": false,
+    "fontawesome": true
   },
-  "scripts": {
-    "dev": "cd node_modules/app-framework && node scripts/dev-server",
-    "patch": "npm version patch && cd node_modules/app-framework && node scripts/build",
-    "minor": "npm version minor && cd node_modules/app-framework && node scripts/build",
-    "major": "npm version major && cd node_modules/app-framework && node scripts/build",
-    "deploy": "node node_modules/app-framework/scripts/prepareFirebaseDeploy && firebase login && firebase deploy && node node_modules/app-framework/scripts/cleanupFirebase",
-    "dbrules": "node node_modules/app-framework/scripts/prepareFirebaseRules && firebase login && firebase deploy && node node_modules/app-framework/scripts/cleanupFirebase",
-    "check": "node node_modules/app-framework/scripts/check",
-    "fix": "node node_modules/app-framework/scripts/fix",
-    "dbbackup": "node node_modules/app-framework/scripts/prepareFirebaseBackup && firebase login && firebase database:get / >databaseBackup.json && node node_modules/app-framework/scripts/cleanupFirebase",
-    "zip": "node node_modules/app-framework/scripts/zip"
-  }
+  "faviconIcon": "images/faviconIcon.png",
+  "faviconBackgroundColor": "#ffffff",
+  "buildSourcemaps": false
 }
