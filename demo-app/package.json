@@ -1,6 +1,6 @@
 {
   "name": "demo-app",
-  "version": "0.43.5",
+  "version": "0.43.6",
   "title": "Demo App",
   "theme": "ios",
   "defaultLanguage": "en",
@@ -35,7 +35,7 @@
   ],
   "buildSourcemaps": false,
   "devDependencies": {
-    "app-framework": "^0.43.5"
+    "app-framework": "^0.43.6"
   },
   "scripts": {
     "dev": "cd node_modules/app-framework && node scripts/dev-server",
