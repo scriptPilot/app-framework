@@ -14,23 +14,6 @@ if (process.env.RESET_LOCAL_STORAGE === 'true' &&
 // Import underscore
 window['_'] = require('underscore')
 
-// Import and initialize Firebase
-if (process.env.USE_FIREBASE === 'true') {
-  window.firebase = require('firebase')
-  window.firebase.initializeApp({
-    apiKey: app.firebase.apiKey,
-    authDomain: app.firebase.authDomain,
-    databaseURL: app.firebase.databaseURL,
-    storageBucket: app.firebase.storageBucket,
-    messagingSenderId: app.firebase.messagingSenderId
-  })
-  window.db = function (path) {
-    return window.firebase.database().ref(path || '/')
-  }
-} else {
-  window.firebase = null
-}
-
 // Import Vue
 var Vue = require('vue')
 
@@ -76,6 +59,7 @@ for (let p = 0; p < app.specialRoutes.length; p++) {
     component: require(process.env.APP_ROOT_FROM_SCRIPTS + 'pages/' + page + '.vue')
   })
 }
+
 // Load all pages as standard route
 let pages = process.env.PAGES
 pages = pages.split(',')
@@ -84,9 +68,6 @@ for (let p = 0; p < pages.length; p++) {
     Routes.push({path: pages[p], component: require(process.env.APP_ROOT_FROM_SCRIPTS + 'pages/' + pages[p] + '.vue')})
   }
 }
-
-// Import sortObject function
-require('./sort-object.js')
 
 // Import mixin for page runtime management
 Vue.mixin(require('./mixin-page.js'))
@@ -126,7 +107,11 @@ new Vue({ // eslint-disable-line
     title: app.title,
     version: app.version,
     config: app,
-    user: null
+    user: null,
+    db: null,
+    store: null,
+    timestamp: null,
+    sortObject: require('./sort-object.js')
   },
   framework7: {
     root: '#app',
@@ -138,13 +123,16 @@ new Vue({ // eslint-disable-line
     app: require(process.env.APP_ROOT_FROM_SCRIPTS + 'app.vue')
   },
   mounted: function () {
-    // Monitor Firebase user
-    if (window.firebase) {
-      // Get user data from cache
+    // Mount Firebase with shortlinks
+    if (process.env.USE_DATABASE === 'true' || process.env.USE_STORAGE === 'true') {
+      // Import Firebase
+      var firebase = require('firebase')
+      // Init Firebase
+      firebase.initializeApp(app.firebase)
+      // User data from cache
       this.user = localStorage.user ? JSON.parse(localStorage.user) : null
-
       // Monitor user changes
-      window.firebase.auth().onAuthStateChanged(function (user) {
+      firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
           this.user = {
             uid: user.uid,
@@ -156,6 +144,20 @@ new Vue({ // eslint-disable-line
           localStorage.removeItem('user')
         }
       }.bind(this))
+      // Database shortlink
+      if (process.env.USE_DATABASE === 'true') {
+        this.db = function (path) {
+          return firebase.database().ref(path)
+        }
+      }
+      // Storage shortlink
+      if (process.env.USE_STORAGE === 'true') {
+        this.store = function (path) {
+          return firebase.storage().ref(path)
+        }
+      }
+      // Timestamp
+      this.timestamp = firebase.database.ServerValue.TIMESTAMP
     }
 
     // Update text patterns

@@ -1,4 +1,4 @@
-window.sortObject = function (obj, sortBy, sortDesc) {
+module.exports = function (obj, sortBy, sortDesc) {
   let arr = []
   for (let el in obj) {
     arr.push({
@@ -26,5 +26,3 @@ window.sortObject = function (obj, sortBy, sortDesc) {
   }
   return sortedObj
 }
-
-module.exports = {}
