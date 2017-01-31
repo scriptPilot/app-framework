@@ -44,6 +44,7 @@ Optional
 
 ### Setup your development environment
 
+- Install [Node.js with npm](https://docs.npmjs.com/getting-started/what-is-npm)
 - Download *[package.json](https://raw.githubusercontent.com/scriptPilot/app-framework/master/demo-app/package.json)* file to an empty folder
 - Run `npm install` to setup project folder
 
