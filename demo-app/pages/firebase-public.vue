@@ -67,8 +67,8 @@
     mounted: function () {
       // Use this.db() as shortlink to firebase.database().ref()
       this.db('publicData/todos').orderByChild('created').limitToLast(this.maxEntries).on('value', function (snapshot) {
-      // Integrated function: sortObject(object, sortByAttribute [, descendingOrder])
-        this.todos = window.sortObject(snapshot.val(), 'created', true)
+        // To sort object, use integrated function: sortObject(object, sortByAttribute [, descendingOrder])
+        this.todos = this.sortObject(snapshot.val(), 'created', true)
       }.bind(this))
     },
   
