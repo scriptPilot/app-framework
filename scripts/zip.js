@@ -9,25 +9,24 @@ var app = require(cfg.appRoot + 'package.json')
 
 // Installed as package
 if (cfg.isInstalled) {
-  
   // Show message
   showOnly('ZIP file creation ongoing - please wait ...')
 
   // Define output file name
   var zipFilename = app.name + '_' + (new Date()).getFullYear() + '-' + ((new Date()).getMonth() + 1 < 10 ? '0' : '') + ((new Date()).getMonth() + 1) + '-' + ((new Date()).getDate() < 10 ? '0' : '') + (new Date()).getDate() + '.zip'
-  
+
   // Define last build folder (to include)
   var lastBuildFolder = path.join('www', 'build-' + app.devDependencies['app-framework'].substr(1))
-  
+
   // Add files to zip
   zipdir(cfg.appRoot, {
     saveTo: zipFilename,
-    
+
     // Filter files
-    filter: function (filepath, stat) {      
-      var filepath = filepath.substr(cfg.appRoot.length)
-      return filepath.substr(filepath.length-4, 4) !== '.zip' && /* exclude other zip files */
-             filepath.substr(filepath.length-4, 4) !== '.log' && /* exclude log files */
+    filter: function (filepath, stat) {
+      filepath = filepath.substr(cfg.appRoot.length)
+      return filepath.substr(filepath.length - 4, 4) !== '.zip' && /* exclude other zip files */
+             filepath.substr(filepath.length - 4, 4) !== '.log' && /* exclude log files */
              filepath !== 'node_modules' && /* exclude node modules */
              (filepath.substr(0, 3) !== 'www' || filepath.length === 3 || filepath === path.join('www/.htaccess') || filepath.substr(0, lastBuildFolder.length) === lastBuildFolder) /* exclude older build folders */
     }

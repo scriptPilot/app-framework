@@ -2,7 +2,7 @@
   "name": "app-framework",
   "description": "Powerful framework to build beautiful iOS and Material like web applications with joy.",
   "repository": "https://github.com/scriptPilot/app-framework.git",
-  "version": "0.43.7",
+  "version": "0.43.8",
   "license": "MIT",
   "scripts": {
     "postinstall": "node scripts/postinstall",
@@ -11,7 +11,8 @@
     "patch": "npm run fix && npm version patch && node scripts/build",
     "minor": "npm run fix && npm version minor && node scripts/build",
     "major": "npm run fix && npm version major && node scripts/build",
-    "deploy": "npm run fix && node scripts/prepareFirebase && cd demo-app && firebase login && firebase deploy && cd ../ && node scripts/cleanupFirebase",
+    "dbrules": "node scripts/prepareFirebaseRules && cd demo-app && firebase login && firebase deploy && cd ../ && node scripts/cleanupFirebase",
+    "deploy": "npm run fix && node scripts/prepareFirebaseDeploy && cd demo-app && firebase login && firebase deploy && cd ../ && node scripts/cleanupFirebase",
     "check": "node scripts/check",
     "fix": "node scripts/fix",
     "f7": "node scripts/f7-update",

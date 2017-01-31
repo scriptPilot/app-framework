@@ -1,6 +1,6 @@
 {
   "name": "demo-app",
-  "version": "0.43.7",
+  "version": "0.43.8",
   "title": "Demo App",
   "theme": "ios",
   "defaultLanguage": "en",
@@ -25,10 +25,7 @@
     "messagingSenderId": "690341427128",
     "allowUserRegistration": true,
     "useDatabaseService": true,
-    "useStorageService": false,
-    "useHostingService": true,
-    "useDatabaseRules": true,
-    "userRegistration": true
+    "useStorageService": false
   },
   "loginRequiredForPages": [
     "privateFirebase"
@@ -42,7 +39,8 @@
     "patch": "npm version patch && cd node_modules/app-framework && node scripts/build",
     "minor": "npm version minor && cd node_modules/app-framework && node scripts/build",
     "major": "npm version major && cd node_modules/app-framework && node scripts/build",
-    "deploy": "node node_modules/app-framework/scripts/prepareFirebase && firebase login && firebase deploy && node node_modules/app-framework/scripts/cleanupFirebase",
+    "deploy": "node node_modules/app-framework/scripts/prepareFirebaseDeploy && firebase login && firebase deploy && node node_modules/app-framework/scripts/cleanupFirebase",
+    "dbrules": "node node_modules/app-framework/scripts/prepareFirebaseRules && firebase login && firebase deploy && node node_modules/app-framework/scripts/cleanupFirebase",
     "check": "node node_modules/app-framework/scripts/check",
     "fix": "node node_modules/app-framework/scripts/fix",
     "backup": "node node_modules/app-framework/scripts/prepareFirebase && firebase login && firebase database:get / >databaseBackup.json && node node_modules/app-framework/scripts/cleanupFirebase",
