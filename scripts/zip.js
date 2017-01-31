@@ -2,6 +2,7 @@
 var path = require('path')
 var showOnly = require('./show-only')
 var zipdir = require('zip-dir')
+var read = require('read-file')
 
 // Load configuration
 var cfg = require('./config.js')
@@ -16,7 +17,9 @@ if (cfg.isInstalled) {
   var zipFilename = app.name + '_' + (new Date()).getFullYear() + '-' + ((new Date()).getMonth() + 1 < 10 ? '0' : '') + ((new Date()).getMonth() + 1) + '-' + ((new Date()).getDate() < 10 ? '0' : '') + (new Date()).getDate() + '.zip'
 
   // Define last build folder (to include)
-  var lastBuildFolder = path.join('www', 'build-' + app.devDependencies['app-framework'].substr(1))
+  var htaccess = read.sync(path.resolve(cfg.appRoot, 'www/.htaccess'), 'utf8')
+  var versionSearch = htaccess.match(/build-(.+)\//)
+  var lastBuildFolder = path.join('www/build-' + versionSearch[1])
 
   // Add files to zip
   zipdir(cfg.appRoot, {
