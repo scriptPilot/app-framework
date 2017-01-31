@@ -12,11 +12,11 @@ if (cfg.isInstalled) {
   // Show message
   showOnly('ZIP file creation ongoing - please wait ...')
 
-  let zipFilename = app.name + '_' + (new Date()).getFullYear() + '-' + ((new Date()).getMonth() + 1 < 10 ? '0' : '') + ((new Date()).getMonth() + 1) + '-' + ((new Date()).getDate() < 10 ? '0' : '') + (new Date()).getDate() + '.zip'
+  var zipFilename = app.name + '_' + (new Date()).getFullYear() + '-' + ((new Date()).getMonth() + 1 < 10 ? '0' : '') + ((new Date()).getMonth() + 1) + '-' + ((new Date()).getDate() < 10 ? '0' : '') + (new Date()).getDate() + '.zip'
   zipdir('./demo-app', {
     saveTo: zipFilename,
     filter: function (filepath, stat) {
-      let lastBuildFolder = path.join('www', 'build-' + app.devDependencies['app-framework'].substr(1))
+      var lastBuildFolder = path.join('www', 'build-' + app.devDependencies['app-framework'].substr(1))
       filepath = filepath.substr(path.resolve(cfg.appRoot).length + 1)
       return (filepath.substr(0, 3) !== 'www' && filepath.substr(filepath.length - 3, 3) !== 'zip') ||
               filepath === 'www' ||

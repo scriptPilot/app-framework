@@ -15,9 +15,9 @@ var pkg = require(packageRoot + 'package.json')
 var app = require(appRoot + 'package.json')
 
 // Create string with array of all vue page components
-let pageFiles = list(appRoot + 'pages')
-let pageStr = ''
-for (let p = 0; p < pageFiles.length; p++) {
+var pageFiles = list(appRoot + 'pages')
+var pageStr = ''
+for (var p = 0; p < pageFiles.length; p++) {
   if (pageFiles[p].substr(pageFiles[p].length - 4, 4) === '.vue') {
     if (p > 0) {
       pageStr += ','

@@ -24,12 +24,12 @@ if (app.firebase.useHostingService === true || app.firebase.useDatabaseRules ===
   })
 
   // Create firebase config object
-  let firebaseConfig = {}
+  var firebaseConfig = {}
 
   // Update hosting
   if (app.firebase.useHostingService === true) {
-    let htaccess = read.sync(path.resolve(cfg.appRoot, 'www/.htaccess'), 'utf8')
-    let versionSearch = htaccess.match(/build-(.+)\//)
+    var htaccess = read.sync(path.resolve(cfg.appRoot, 'www/.htaccess'), 'utf8')
+    var versionSearch = htaccess.match(/build-(.+)\//)
     firebaseConfig.hosting = {
       'public': 'www/build-' + versionSearch[1]
     }

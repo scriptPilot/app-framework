@@ -11,7 +11,7 @@ var cfg = require('./config.js')
 showOnly('Standard JavaScript fix ongoing - please wait ...')
 
 // Do the fix
-let files = cfg.isInstalled ? 'app.vue" "pages/*.vue"' : '"scripts/*.js" "demo-app/app.vue" "demo-app/pages/*.vue"'
+var files = cfg.isInstalled ? 'app.vue" "pages/*.vue"' : '"scripts/*.js" "demo-app/app.vue" "demo-app/pages/*.vue"'
 run('standard >standard-check.log ' + files + ' --plugin html', function (err, stdOut, errOut) {
   if (err) {
     throw new Error('Standard JavaScript check failed - please check "standard-check.log" for detailed information or run "npm run fix".')

@@ -18,15 +18,15 @@ showOnly('App Framework installation ongoing - please wait ...')
 // App Framework is installed as dependency
 if (cfg.isInstalled) {
   // Fix package.json (implement updates from demo app to already existing app package.json)
-  let newApp = require(cfg.appRoot + 'package.json')
-  let demoApp = require(path.resolve(cfg.packageRoot, 'demo-app/package.json'))
+  var newApp = require(cfg.appRoot + 'package.json')
+  var demoApp = require(path.resolve(cfg.packageRoot, 'demo-app/package.json'))
   newApp.scripts = demoApp.scripts
   saveJSON.writeFileSync(cfg.appRoot + 'package.json', newApp)
 
   // Copy template app.vue and reset version in package.json
   if (!isThere(cfg.appRoot + 'app.vue')) {
     cpx.copySync(path.resolve(cfg.packageRoot, 'demo-app/app.vue'), cfg.appRoot)
-    let app = require(cfg.appRoot + 'package.json')
+    var app = require(cfg.appRoot + 'package.json')
     app.version = '0.1.0'
     saveJSON.writeFileSync(cfg.appRoot + 'package.json', app)
   }

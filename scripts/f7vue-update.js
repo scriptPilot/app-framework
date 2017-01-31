@@ -9,7 +9,7 @@ var copy = require('cpx').copySync
 var showOnly = require('./show-only.js')
 
 // Framework7-Vue folder exists
-let f7vueFolder = path.resolve(cfg.packageRoot, '..', 'Framework7-Vue')
+var f7vueFolder = path.resolve(cfg.packageRoot, '..', 'Framework7-Vue')
 if (isThere(f7vueFolder)) {
   // Build
   showOnly('Framework7-Vue build ongoing ... please wait')
