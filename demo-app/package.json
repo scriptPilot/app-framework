@@ -1,6 +1,6 @@
 {
   "name": "demo-app",
-  "version": "0.43.11",
+  "version": "0.43.12",
   "scripts": {
     "dev": "cd node_modules/app-framework && node scripts/dev-server",
     "check": "node node_modules/app-framework/scripts/check",
@@ -8,9 +8,9 @@
     "patch": "npm version patch && cd node_modules/app-framework && node scripts/build",
     "minor": "npm version minor && cd node_modules/app-framework && node scripts/build",
     "major": "npm version major && cd node_modules/app-framework && node scripts/build",
-    "dbrules": "node node_modules/app-framework/scripts/prepareFirebaseRules && firebase login && firebase deploy && node node_modules/app-framework/scripts/cleanupFirebase",
-    "deploy": "node node_modules/app-framework/scripts/prepareFirebaseDeploy && firebase login && firebase deploy && node node_modules/app-framework/scripts/cleanupFirebase",
-    "dbbackup": "node node_modules/app-framework/scripts/prepareFirebaseBackup && firebase login && firebase database:get / >databaseBackup.json && node node_modules/app-framework/scripts/cleanupFirebase",
+    "dbrules": "node node_modules/app-framework/scripts/prepare-firebase-rules && firebase login && firebase deploy && node node_modules/app-framework/scripts/cleanup-firebase",
+    "deploy": "node node_modules/app-framework/scripts/prepare-firebase-deploy && firebase login && firebase deploy && node node_modules/app-framework/scripts/cleanup-firebase",
+    "dbbackup": "node node_modules/app-framework/scripts/prepare-firebase-backup && firebase login && firebase database:get / >database-backup.json && node node_modules/app-framework/scripts/cleanup-firebase",
     "zip": "node node_modules/app-framework/scripts/zip"
   },
   "devDependencies": {
@@ -21,9 +21,9 @@
   "defaultLanguage": "en",
   "showPhoneFrameOnDesktop": true,
   "resetLocalStorageOnVersionChange": true,
-  "specialRoutes": {
-    "flexibleRouting/blog/:blogId/post/:postId": "flexibleRouting"
-  },
+  "specialRoutes": [
+    "flexible-routing/blog/:blogId/post/:postId"
+  ],
   "loginRequiredForPages": [
     "privateFirebase"
   ],
@@ -43,7 +43,7 @@
     "ion": false,
     "fontawesome": true
   },
-  "faviconIcon": "images/faviconIcon.png",
+  "faviconIcon": "images/favicon-icon.png",
   "faviconBackgroundColor": "#ffffff",
   "buildSourcemaps": false
 }
