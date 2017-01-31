@@ -14,7 +14,7 @@
     "zip": "node node_modules/app-framework/scripts/zip"
   },
   "devDependencies": {
-    "app-framework": "^0.43.15"
+    "app-framework": "^0.43.16"
   },
   "title": "Demo App",
   "theme": "ios",
