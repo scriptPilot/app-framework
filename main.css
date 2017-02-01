@@ -1,18 +1,26 @@
+/* Body */
+body {
+  background: #F2F2F2;
+}
+
+/* App container */
 #app: {
   height: 100%;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
 }
-body {
-  background: #F2F2F2;
-}
+
+/* Statusbar */
 .statusbar-overlay {
   background: #000000;
 }
+
 /* initial reload splash fix */
 .framework7-root {  
   visibility: hidden;
 }
+
+/* Phone frame */
 .bodyDark {
   background: #333 !important;
 }
@@ -64,7 +72,6 @@ body {
   top: calc((100% - 568px) / 2) !important;
   height: 568px !important;
 }
-/* Hide scrollbars with phone frame or size limitation */
 .phone ::-webkit-scrollbar,
 .limitWidth ::-webkit-scrollbar,
 .limitHeight ::-webkit-scrollbar {
