@@ -1,6 +1,8 @@
+<!-- You can use this template for multi-lingual pages -->
+
 <template>
-  <f7-page>    
-    <f7-navbar :title="text.title" :back-link="text.backlink" sliding></f7-navbar>      
+  <f7-page>
+    <f7-navbar :title="text.title" :back-link="text.backlink" sliding></f7-navbar>   
     <f7-block inner inset>
       <p>{{text.text}}</p>
     </f7-block>        
