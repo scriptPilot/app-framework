@@ -1,6 +1,6 @@
 {
   "name": "app-framework",
-  "description": "Powerful framework to build beautiful iOS and Material like web applications with joy.",
+  "description": "Does all the tricky stuff for you to develop, test, build and deploy iOS and Android like web applications.",
   "repository": "https://github.com/scriptPilot/app-framework.git",
   "version": "0.43.16",
   "license": "MIT",
