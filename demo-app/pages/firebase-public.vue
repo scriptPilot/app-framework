@@ -8,7 +8,6 @@
     
     <!-- Description box -->
     <f7-block inner inset style="text-align: center">
-      <p>{{$user}}</p>
       <p>Open this page from multiple devices. This public task list is synchronized in real time and shows newest {{maxEntries}} tasks.</p>
     </f7-block>
     
