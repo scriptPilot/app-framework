@@ -1,8 +1,18 @@
+<!--
+  
+  DO NOT MODIFY THIS FILE - IT WILL BE OVERWRITTEN AFTER EACH APP FRAMEWORK UPDATE
+  
+  This page is managing all the authentication topics with Firebase
+  
+-->
+
 <template>  
   <f7-page login-screen>
     <f7-login-screen-title>{{title}}</f7-login-screen-title>
+    
+    <!-- Show form, if user is not logged in -->
     <f7-list form v-if="!$root.user">
-      
+    
       <f7-list-item v-if="showEmail">
         <f7-label>Email</f7-label>
         <f7-input v-model="email" placeholder="Email" type="text"></f7-input>
@@ -19,6 +29,8 @@
       </f7-list-item>
       
     </f7-list>
+    
+    <!-- Show buttons, if user is not logged in -->
     <f7-list form v-if="!$root.user">
     
       <f7-list-button
@@ -58,7 +70,9 @@
         </f7-list-button>  
         
     </f7-list>
-    <f7-block inner inset style="text-align: center" v-if="$root.user">
+    
+    <!-- Show logout link, if user is logged in -->
+    <f7-block inner inset style="text-align: center" v-if="user">
       <p>You are signed in as</p>
       <p><b>{{$root.user.email}}</b></p>
       <p>&nbsp;</p>
@@ -70,6 +84,7 @@
       <p>&nbsp;</p>
       <p><f7-link @click="resetView" close-login-screen>Cancel</f7-link></p>
     </f7-block>
+    
   </f7-page>
 </template>
 
