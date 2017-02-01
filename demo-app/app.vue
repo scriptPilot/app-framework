@@ -1,4 +1,13 @@
-<!-- Template for the app component - You can define the initial page for each view with the URL attribute -->
+<!--
+
+  Take this template as base for your own application.
+  
+  For real modularization, all pages are extracted to their own page component in /pages folder.
+  You can define the initial page for each view with the URL attribute.
+  
+  Read more about application layouts: https://framework7.io/vue/app-layout.html
+  
+-->
 
 <template>
 
