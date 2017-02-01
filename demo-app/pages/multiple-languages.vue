@@ -9,10 +9,10 @@
     <f7-list inset>
       <f7-list-item smart-select smart-select-back-on-select
         :title="text.selectLang"
-        :media="'<img src=../images/flag-' + $root.language + '.png" width=\'29\' />'">              
+        :media="'<img src=\'' + images['flag_' + $root.language] + '\' width=\'29\' />'">              
         <select @change="updateLanguageText" v-model="$root.language">
-          <option value="en" :data-option-image="../images/flag-en.png">{{text.en}}</option>
-          <option value="de" :data-option-image="../images/flag-de.png">{{text.de}}</option>
+          <option value="en" :data-option-image="images.flag_en">{{text.en}}</option>
+          <option value="de" :data-option-image="images.flag_de">{{text.de}}</option>
         </select>             
       </f7-list-item>
     </f7-list>
@@ -59,7 +59,20 @@
     }
   }
   
+  // Load images (flags)
+  let images = {
+    'flag_en': require('../images/flag-en.png'),
+    'flag_de': require('../images/flag-de.png')
+  }
+  
   module.exports = {
+  
+    // Assign images
+    data: function () {
+      return {
+        images: images
+      }
+    },
   
     // To keep the text pattern assigned updated with the current selected language, it has to be assigned as computed property
     computed: {
