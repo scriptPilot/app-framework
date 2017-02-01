@@ -1,5 +1,6 @@
-<template>
+<!-- Example todo list to demonstrate the way of working with the Firebase realtime database service -->
 
+<template>
   <f7-page>
   
     <!-- Navbar and backlink -->
@@ -57,6 +58,7 @@
   
      Each page component has the following Firebase shortlinks:
   
+     - "this.user" as object with user data (uid, email) or null
      - "this.db()" as shortlink to "window.firebase.database().ref()"
      - "this.store()" as shortlink to "window.firebase.database().storage()"
      - "this.timestamp" as shortlink to "window.firebase.database.ServerValue.TIMESTAMP"
