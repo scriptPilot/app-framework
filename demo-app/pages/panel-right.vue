@@ -1,3 +1,5 @@
+<!-- Page content for right panel -->
+
 <template>  
   <f7-page>
     <f7-navbar title="Right Panel" sliding></f7-navbar>
