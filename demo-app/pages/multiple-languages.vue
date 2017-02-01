@@ -59,7 +59,7 @@
     }
   }
   
-  // Assign images (flags)
+  // Load images (flags)
   let images = {
     'flag_en': require('../images/flag-en.png'),
     'flag_de': require('../images/flag-de.png')
@@ -90,7 +90,7 @@
         }.bind(this), 0)
       },
   
-      // Open modal
+      // Open simple modal, text patterns will be updated according selected language automatically
       modal: function () {
         this.$f7.confirm()
       }
