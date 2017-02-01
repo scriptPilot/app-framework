@@ -1,4 +1,4 @@
-<!-- Example, how a todo app could look like. Be aware, that data will be lost after cache reset -->
+<!-- Example, how a todo app could look like. Be aware, that data will be lost after local storage reset -->
 
 <template>
 
