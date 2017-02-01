@@ -16,4 +16,4 @@ firebase.json
 *.zip
 
 # Exclude database backup
-databaseBackup.json
+database-backup.json
