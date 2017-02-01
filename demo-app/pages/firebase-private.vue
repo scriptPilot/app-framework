@@ -1,3 +1,7 @@
+<!-- WORK IN PROGRESS - THIS COMMENT WILL BE REMOVED AFTER FINISHING THIS PAGE -->
+
+<!-- Example of a login-requiring page with Firebase realtime database and storage service -->
+
 <template>
   <f7-page>
   
