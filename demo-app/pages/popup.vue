@@ -1,4 +1,4 @@
-<!-- Page content for popup --<
+<!-- Page content for popup -->
 
 <template>  
   <f7-page>
