@@ -77,7 +77,7 @@ var text = {
   en: {
     modalButtonOk: 'OK',
     modalButtonCancel: 'Cancel',
-    modalPreloaderTitle: 'Loading... ',
+    modalPreloaderTitle: 'Loading ... ',
     modalUsernamePlaceholder: 'Username',
     modalPasswordPlaceholder: 'Password',
     smartSelectBackText: 'Back',
@@ -88,7 +88,7 @@ var text = {
   de: {
     modalButtonOk: 'OK',
     modalButtonCancel: 'Abbrechen',
-    modalPreloaderTitle: 'Lädt... ',
+    modalPreloaderTitle: 'Lädt ... ',
     modalUsernamePlaceholder: 'Benutzername',
     modalPasswordPlaceholder: 'Passwort',
     smartSelectBackText: 'Zurück',
