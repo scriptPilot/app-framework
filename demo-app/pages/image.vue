@@ -23,11 +23,11 @@
 
   // Assign image to data function
   module.exports = {
-      data: function () {
-        return {
-          img: image
-        }
+    data: function () {
+      return {
+        img: image
       }
+    }
   }
 
 </script>
