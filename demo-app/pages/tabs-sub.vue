@@ -1,3 +1,5 @@
+<!-- Sub tabs page to demonstrate state recovery -->
+
 <template>
   <f7-page tabs no-page-content with-subnavbar>
     <f7-navbar title="Tab Handling Sub" back-link="Back" sliding>
