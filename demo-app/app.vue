@@ -27,7 +27,7 @@
       <f7-view id="popup" navbar-fixed url="popup"></f7-view>
     </f7-popup>
 
-    <!-- Login Screen -->
+    <!-- Login screen -->
     <f7-login-screen id="login-screen">
       <f7-view id="login-screen" url="login-screen"></f7-view>
     </f7-login-screen>
