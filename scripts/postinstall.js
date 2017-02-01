@@ -54,6 +54,11 @@ if (cfg.isInstalled) {
     fs.renameSync(cfg.appRoot + '.npmignore', cfg.appRoot + '.gitignore')
   }
 
+  // Copy/update login-screen.vue
+  if (isThere(path.resolve(cfg.packageRoot, 'demo-app/pages/login-screen.vue'))) {
+    cpx.copySync(path.resolve(cfg.packageRoot, 'demo-app/pages/login-screen.vue'), cfg.appRoot + 'pages')
+  }
+
   // Copy .htaccess file, reset version
   if (!isThere(path.resolve(cfg.appRoot, 'www/.htaccess'))) {
     cpx.copySync(path.resolve(cfg.packageRoot, 'demo-app/www/.htaccess'), cfg.appRoot + 'www')
