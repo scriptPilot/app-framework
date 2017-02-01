@@ -15,7 +15,7 @@ body {
   background: #000000;
 }
 
-/* initial reload splash fix */
+/* Initial reload splash fix */
 .framework7-root {  
   visibility: hidden;
 }
