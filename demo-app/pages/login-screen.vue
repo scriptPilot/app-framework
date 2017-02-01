@@ -72,7 +72,7 @@
     </f7-list>
     
     <!-- Show logout link, if user is logged in -->
-    <f7-block inner inset style="text-align: center" v-if="user">
+    <f7-block inner inset style="text-align: center" v-if="$root.user">
       <p>You are signed in as</p>
       <p><b>{{$root.user.email}}</b></p>
       <p>&nbsp;</p>

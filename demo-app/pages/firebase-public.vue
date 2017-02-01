@@ -8,6 +8,7 @@
     
     <!-- Description box -->
     <f7-block inner inset style="text-align: center">
+      <p>{{$user}}</p>
       <p>Open this page from multiple devices. This public task list is synchronized in real time and shows newest {{maxEntries}} tasks.</p>
     </f7-block>
     
@@ -56,16 +57,16 @@
 
   /*
   
-     Each page component has the following Firebase shortlinks:
+     You can use the following Firebase shortlinks:
   
-     - "this.user" as object with user data (uid, email) or null
-     - "this.db()" as shortlink to "window.firebase.database().ref()"
-     - "this.store()" as shortlink to "window.firebase.database().storage()"
-     - "this.timestamp" as shortlink to "window.firebase.database.ServerValue.TIMESTAMP"
+     - "window.user" as object with user data (uid, email) or null
+     - "window.db()" as shortlink to "window.firebase.database().ref()"
+     - "window.store()" as shortlink to "window.firebase.database().storage()"
+     - "window.timestamp" as shortlink to "window.firebase.database.ServerValue.TIMESTAMP"
   
-     Each page component has the following functions:
+     You can use the following functions:
   
-     - sortObject([Object]object, [String]sortByKey, [Boolean, optional, default=false]descendingOrder)
+     - window.sortObject([Object]object, [String]sortByKey, [Boolean, optional, default=false]descendingOrder)
   
   */
 
@@ -82,9 +83,8 @@
   
     // Attach data change listener to firebase todo list
     mounted: function () {
-      // Use this.db() as shortlink to firebase.database().ref()
-      this.db('publicData/todos').orderByChild('created').limitToLast(this.maxEntries).on('value', function (snapshot) {
-        this.todos = this.sortObject(snapshot.val(), 'created', true)
+      window.db('publicData/todos').orderByChild('created').limitToLast(this.maxEntries).on('value', function (snapshot) {
+        this.todos = window.sortObject(snapshot.val(), 'created', true)
       }.bind(this))
     },
   
@@ -115,11 +115,11 @@
             }
           }.bind(this), 1000)
   
-          this.db('publicData/todos')
+          window.db('publicData/todos')
             .push({
               text: this.newTodo,
               completed: false,
-              created: this.timestamp
+              created: window.timestamp
             })
             .then(function () {
               this.newTodo = ''
@@ -136,7 +136,7 @@
   
       // Mark todo as completed / not completed
       toggleTodo: function (key) {
-        this.db('publicData/todos/' + key + '/completed')
+        window.db('publicData/todos/' + key + '/completed')
           .set(!this.todos[key].completed)
           .catch(function () {
             this.$f7.alert('Cannot update task :-(<br />Please try again later', 'Trouble with Firebase')
@@ -151,7 +151,7 @@
             deletes[key] = null
           }
         }
-        this.db('publicData/todos')
+        window.db('publicData/todos')
             .update(deletes)
             .catch(function () {
               this.$f7.alert('Cannot delete task' + (this.completedTodos > 1 ? 's' : '') + ' :-(<br />Please try again later', 'Trouble with Firebase')

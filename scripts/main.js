@@ -107,11 +107,7 @@ new Vue({ // eslint-disable-line
     title: app.title,
     version: app.version,
     config: app,
-    user: null,
-    db: null,
-    store: null,
-    timestamp: null,
-    sortObject: require('./sort-object.js')
+    user: null
   },
   framework7: {
     root: '#app',
@@ -123,43 +119,49 @@ new Vue({ // eslint-disable-line
     app: require(process.env.APP_ROOT_FROM_SCRIPTS + 'app.vue')
   },
   mounted: function () {
+
     // Mount Firebase with shortlinks
+    window.user = null
+    window.db = null
+    window.store = null
+    window.timestamp = null
     if (process.env.USE_DATABASE === 'true' || process.env.USE_STORAGE === 'true') {
       // Import Firebase
-      var firebase = require('firebase')
+      var firebase = window.firebase = require('firebase')
       // Init Firebase
       firebase.initializeApp(app.firebase)
       // User data from cache
-      this.user = localStorage.user ? JSON.parse(localStorage.user) : null
+      window.user = this.user = localStorage.user ? JSON.parse(localStorage.user) : null
       // Monitor user changes
       firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
-          this.user = {
+          window.user = this.user = {
             uid: user.uid,
             email: user.email
           }
-          localStorage.user = JSON.stringify(this.user)
+          localStorage.user = JSON.stringify(window.user)
         } else {
-          this.user = null
+          window.user = this.user = null
           localStorage.removeItem('user')
         }
       }.bind(this))
       // Database shortlink
       if (process.env.USE_DATABASE === 'true') {
-        this.db = function (path) {
+        window.db = function (path) {
           return firebase.database().ref(path)
         }
       }
       // Storage shortlink
       if (process.env.USE_STORAGE === 'true') {
-        this.store = function (path) {
+        window.store = function (path) {
           return firebase.storage().ref(path)
         }
       }
       // Timestamp
-      this.timestamp = firebase.database.ServerValue.TIMESTAMP
+      window.timestamp = firebase.database.ServerValue.TIMESTAMP
     }
-
+    window.sortObject = require('./sort-object.js')
+    
     // Update text patterns
     this.updateTextPatterns()
 

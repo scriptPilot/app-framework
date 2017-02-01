@@ -16,15 +16,6 @@ module.exports = {
   mounted: function () {
     // Framework7 routed page
     if (this.$route) {
-      // Firebase shortlinks
-      this.user = this.$root.user
-      this.db = this.$root.db
-      this.store = this.$root.store
-      this.timestamp = this.$root.timestamp
-
-      // Shortlinks to functions
-      this.sortObject = this.$root.sortObject
-
       // Save view id and url in page data
       this.runtimeViewId = this.$$(this.$el).parents('.view').attr('id')
       this.runtimeUrl = this.$route.url
