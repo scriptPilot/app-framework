@@ -119,7 +119,6 @@ new Vue({ // eslint-disable-line
     app: require(process.env.APP_ROOT_FROM_SCRIPTS + 'app.vue')
   },
   mounted: function () {
-
     // Mount Firebase with shortlinks
     window.user = null
     window.db = null
@@ -161,20 +160,9 @@ new Vue({ // eslint-disable-line
       window.timestamp = firebase.database.ServerValue.TIMESTAMP
     }
     window.sortObject = require('./sort-object.js')
-    
+
     // Update text patterns
     this.updateTextPatterns()
-
-    /*
-    // Get views and load state
-    console.log(this.$f7.views)
-
-    this.$$(document).on('page:init page:reinit', function (ePage) {
-      console.log(JSON.stringify(this.$f7.views[2].history))
-    }.bind(this))
-    */
-
-    // Copy initial
 
     // Get views
     window.views = {}
@@ -217,37 +205,6 @@ new Vue({ // eslint-disable-line
         }
       }
     }
-
-    /*
-    // Restore state
-
-    // Get views and ad saved state
-    window.views = {}
-    this.$$('.view').each(function (i, viewEl) {
-      let viewId = this.$$(viewEl).attr('id')
-      window.views[viewId] = localStorage['view:' + viewId] ? JSON.parse(localStorage['view:' + viewId]) : []
-      // Restore pages
-
-    }.bind(this))
-
-    // On each new page load
-    this.$$(document).on('page:init', function (pageEv) {
-      let url = pageEv.detail.page.url
-      let realPage = url !== '#content-2'
-      // On each real page load
-      if (realPage) {
-        let viewId = this.$$(pageEv.target).parents('.view').attr('id')
-        // Restore saved state
-        if (localStorage['page:' + viewId + '/' + url]) {
-          // todo ...
-        }
-        // Remember state changes
-        // todo ...
-      }
-    }.bind(this))
-
-    console.log(window.views)
-    */
 
     // Set phone frame
 
@@ -295,16 +252,6 @@ new Vue({ // eslint-disable-line
           this.$$('body').removeClass('bodyDark')
         }
       }
-
-      // Resize navbars
-      /*
-      setTimeout(function () {
-        let views = JSON.parse(localStorage.views)
-        for (let view in views) {
-          this.$f7.sizeNavbars('#' + view)
-        }
-      }.bind(this), 0)
-      */
     }.bind(this)
 
       // Resize initially
@@ -378,7 +325,6 @@ new Vue({ // eslint-disable-line
       if (localStorage.loginScreen) {
         this.$f7.loginScreen('#' + localStorage.loginScreen, false)
       }
-      /*
       if (localStorage.formFocus) {
         setTimeout(function () {
           let elType = this.$$(this.$f7.getCurrentView().activePage.container).find('[name=' + localStorage.formFocus + ']')[0].tagName
@@ -392,7 +338,6 @@ new Vue({ // eslint-disable-line
           }
         }.bind(this), 0)
       }
-      */
     }.bind(this), 0)
 
     // Show app
