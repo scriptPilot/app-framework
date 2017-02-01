@@ -1,4 +1,5 @@
 <!-- Template for app component - You can define the initial pages for each view with the URL attribute -->
+
 <template>
 
   <!-- Will replace app container -->
