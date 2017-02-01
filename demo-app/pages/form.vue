@@ -1,7 +1,6 @@
+<!-- To keep state of form element (and work with them) you have to assign v-model attributes -->
+
 <template>
-
-  <!-- To keep state of form element (and work with them) you have to assign v-model attributes -->
-
   <f7-page>
     <f7-navbar title="Form Handling" back-link="Back" sliding></f7-navbar>
     <f7-block inner inset>
