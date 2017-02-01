@@ -9,7 +9,7 @@
       <p style="text-align: center"><f7-icon fa="spinner fa-spin" size="25" class="color-red"></f7-icon></p>
       
       <!-- Image -->
-      <p style="text-align: center"><img :src="img" /></p>
+      <p style="text-align: center"><img src="../images/standard-js-sticker-small.png" /></p>
       
       <p>Colored, animated icon and image added to the page, please see source code for details.</p>
     </f7-block>
@@ -17,17 +17,5 @@
 </template>
 
 <script>
-  
-  // Require image
-  var image = require('../images/standard-js-sticker-small.png')
-
-  // Assign image to data function
-  module.exports = {
-    data: function () {
-      return {
-        img: image
-      }
-    }
-  }
-
+  module.exports = {}
 </script>
