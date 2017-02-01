@@ -1,3 +1,5 @@
+<!-- Page content for left panel -->
+
 <template>  
   <f7-page>
    <f7-navbar title="Left Panel"></f7-navbar>
