@@ -1,3 +1,5 @@
+<!-- For details about routing, please see https://framework7.io/vue/navigation-router.html -->
+
 <template>
   <f7-page>
     <f7-navbar title="Flexible Routing" back-link="Back" sliding></f7-navbar>
@@ -31,5 +33,5 @@
 </template>
 
 <script>
-module.exports = {}
+  module.exports = {}
 </script>
