@@ -2,6 +2,7 @@
 RewriteEngine On
 
 # Here you specify the build version to be used (two times!)
+# Please do it manually only for rollback, it is updated automatically after each successful build process
 RewriteCond %{REQUEST_URI} !^/build-0.43.16/
 RewriteRule ^(.*)$ /build-0.43.16/$1 [L]
 
