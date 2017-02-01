@@ -1,5 +1,9 @@
+<!-- Initial page of the main view, please see ../app.vue for more information about the application layout -->
+
 <template>
   <f7-page>
+  
+    <!-- Navbar -->
     <f7-navbar>
       <f7-nav-left>
         <f7-link icon="icon-bars" open-panel="left"></f7-link>
@@ -9,9 +13,13 @@
         <f7-link icon="icon-bars" open-panel="right"></f7-link>
       </f7-nav-right>
     </f7-navbar>
+    
+    <!-- Content block -->
     <f7-block inner inset style="text-align: center">
       <p><b>For native App feeling, please pin this page to your homescreen and open it from there!</b></p>
     </f7-block>
+    
+    <!-- List with test pages -->
     <f7-block-title>Test pages</f7-block-title>            
     <f7-list>
       <f7-list-item link="simple-todo" title="Simple ToDo List"></f7-list-item>
@@ -26,6 +34,8 @@
       <f7-list-item link="https://framework7.io/kitchen-sink-material" title="Material Showcase" badge="Framework7" link-external></f7-list-item>
     </f7-list>
     <f7-block-title>Side Panels</f7-block-title>
+    
+    <!-- Some test buttons for panels and modals -->
     <f7-block>
       <f7-grid>
         <f7-col width="50">
@@ -47,11 +57,14 @@
         </f7-col>
       </f7-grid>
     </f7-block>
+    
+    <!-- Link to GitHub repository -->
     <f7-block style="text-align: center">
       <f7-link href="https://github.com/scriptPilot/app-framework" external>
         <f7-icon fa="github"></f7-icon> App Framework - v{{$root.version}}
       </f7-link>
     </f7-block>
+    
   </f7-page>
 </template>
 
