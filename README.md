@@ -22,7 +22,7 @@
 
 - Creation of a lightweight and well-organized project folder, prepared to push to [GitHub](https://github.com/about)
 - Development server with live reload, perfectly to use together with [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools/) 
-- Your application is splitted up in easy to maintain [single file components](https://vuejs.org/v2/guide/single-file-components.html)
+- Your application is splitted up in easy to maintain [single file components](https://vuejs.org/v2/guide/single-file-components.html) with [ES2015 support](https://babeljs.io/learn-es2015/)
 - Generation of favicons, touch icons and splash screens out of a single image file
 - Integrated code checks for [correctness](http://eslint.org/) and [standard conformity](http://standardjs.com/)
 - Build process with version bump and compression of all HTML, CSS, JavaScript and image files
