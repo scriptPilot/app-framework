@@ -24,7 +24,7 @@
     <f7-list>
       <f7-list-item link="simple-todo" title="Simple ToDo List"></f7-list-item>
       <f7-list-item link="firebase-public" title="Public Firebase ToDo List"></f7-list-item>
-      <!--<f7-list-item link="firebase-private" title="Private Firebase Notes"></f7-list-item>-->
+      <f7-list-item link="firebase-private" title="Private Firebase Storage"></f7-list-item>
       <f7-list-item link="multiple-languages" title="Multiple Languages"></f7-list-item>
       <f7-list-item link="tabs" title="Tab Handling"></f7-list-item>
       <f7-list-item link="form" title="Form Handling"></f7-list-item>

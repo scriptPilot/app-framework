@@ -6,7 +6,7 @@
   <f7-page>
   
     <!-- Navbar and backlink -->
-    <f7-navbar title="Private Firebase Notes" back-link="Back" sliding></f7-navbar>
+    <f7-navbar title="Private Firebase Storage" back-link="Back" sliding></f7-navbar>
     
     <!-- Description box -->
     <f7-block inner inset style="text-align: center">
@@ -20,6 +20,14 @@
       </f7-list-item>
     </f7-list>
     
+    <!-- Private photo selection -->
+    <f7-list inset>
+      <f7-list-item>
+        <f7-label>Photo</f7-label>
+        <f7-input type="file" class="custom-file-input" @change="uploadPhoto" accept="image/*;capture=camera"></f7-input>
+      </f7-list-item>
+    </f7-list>
+    
   </f7-page>  
 </template>
 <script>
@@ -29,24 +37,34 @@
     // Define intial data as a function
     data: function () {
       return {
-        notes: ''
+        notes: '',
+        photo: ''
+      }
+    },
+    
+    // Methods
+    methods: {
+      uploadPhoto: function (el) {
+        console.log('PHOTO', el)
       }
     },
   
     // Attach data change listener to firebase
     mounted: function () {
-      window.db('privateDate/notes/' + window.user.uid).on('value', function (snapshot) {
+      window.db('privateData/notes/' + window.user.uid).on('value', function (snapshot) {
         this.notes = snapshot.val() ? snapshot.val() : ''
       }.bind(this))
     },
   
     // Save notes after change immediately
-    changed: function () {
-      window.db('privateDate/notes/' + window.user.uid)
-        .set(this.notes)
-        .catch(function () {
-          this.$f7.alert('Cannot update notes :-(<br />Please try again later', 'Trouble with Firebase')
-        }.bind(this))
+    watch: {
+      notes: function () {
+        window.db('privateData/notes/' + window.user.uid)
+          .set(this.notes)
+          .catch(function () {
+            this.$f7.alert('Cannot update notes :-(<br />Please try again later', 'Trouble with Firebase')
+          }.bind(this))
+      }
     }
   
   }
