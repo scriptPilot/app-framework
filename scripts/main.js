@@ -219,7 +219,7 @@ new Vue({ // eslint-disable-line
     // Restore history
     for (let v in viewsToRestore) {
       if (viewsToRestore[v]) {
-        for (let p = 1; p < viewsToRestore[v].pages.length; p++) {
+        for (let p = 0; p < viewsToRestore[v].pages.length; p++) {
           setTimeout(function () {
             this.$f7.views[viewsToRestore[v].no].router.load({url: viewsToRestore[v].pages[p], animatePages: false})
           }.bind(this), 0)
