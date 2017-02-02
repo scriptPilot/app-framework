@@ -59,7 +59,7 @@
         
       <f7-list-button
         title="Send"
-        v-if="mode === 'reset'"
+        v-if="mode === 'reset' && email !== ''"
         @click="sendResetLink">
         </f7-list-button>
         
