@@ -1,0 +1,7 @@
+service firebase.storage {
+  match /b/app-framework-9045a.appspot.com/o {
+    match /{allPaths=**} {
+      allow read, write: if request.auth != null;
+    }
+  }
+}
