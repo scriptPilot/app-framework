@@ -9,6 +9,7 @@ if (process.env.RESET_LOCAL_STORAGE === 'true' &&
     (!window.localStorage['app-framework-version'] || window.localStorage['app-framework-version'] !== process.env.FRAMEWORK_VERSION)) {
   window.localStorage.clear()
   window.localStorage['app-framework-version'] = process.env.FRAMEWORK_VERSION
+  window.localStorage['showCacheResetAlert'] = true
 }
 
 // Import underscore
@@ -73,7 +74,7 @@ for (let p = 0; p < pages.length; p++) {
 Vue.mixin(require('./mixin-page.js'))
 
 // Language patterns
-var text = {
+var f7Text = {
   en: {
     modalButtonOk: 'OK',
     modalButtonCancel: 'Cancel',
@@ -83,7 +84,8 @@ var text = {
     smartSelectBackText: 'Back',
     smartSelectPopupCloseText: 'Close',
     smartSelectPickerCloseText: 'Done',
-    notificationCloseButtonText: 'Close'
+    notificationCloseButtonText: 'Close',
+    cacheResetAlert: 'The application has been updated and the cache has been reset.'
   },
   de: {
     modalButtonOk: 'OK',
@@ -94,7 +96,17 @@ var text = {
     smartSelectBackText: 'Zurück',
     smartSelectPopupCloseText: 'Fertig',
     smartSelectPickerCloseText: 'Fertig',
-    notificationCloseButtonText: 'OK'
+    notificationCloseButtonText: 'OK',
+    cacheResetAlert: 'Die Anwendung wurde aktualisiert und der Cache wurde zurückgesetzt.'
+  }
+}
+
+var text = {
+  en: {
+    cacheResetAlert: 'The application has been updated and the cache has been reset.'
+  },
+  de: {
+    cacheResetAlert: 'Die Anwendung wurde aktualisiert und der Cache wurde zurückgesetzt.'
   }
 }
 
@@ -108,6 +120,11 @@ new Vue({ // eslint-disable-line
     version: app.version,
     config: app,
     user: null
+  },
+  computed: {
+    text: function () {
+      return text[this.language] ? text[this.language] : text['en']
+    }
   },
   framework7: {
     root: '#app',
@@ -343,11 +360,18 @@ new Vue({ // eslint-disable-line
     // Show app
     setTimeout(function () {
       this.$$('.framework7-root').css('visibility', 'visible')
+
+      // Show cache reset alert
+      if (localStorage['showCacheResetAlert'] === 'true') {
+        this.$f7.alert(this.text.cacheResetAlert, function () {
+          localStorage.removeItem('showCacheResetAlert')
+        })
+      }
     }.bind(this), 0)
   },
   methods: {
     updateTextPatterns: function () {
-      let patterns = text[this.language] ? text[this.language] : text['en']
+      let patterns = f7Text[this.language] ? f7Text[this.language] : f7Text['en']
       for (let p in patterns) {
         this.$f7.params[p] = patterns[p]
       }
