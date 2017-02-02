@@ -7,13 +7,14 @@ var localStorage = window.localStorage
 // Reset local storage after App Framework version change
 if (process.env.RESET_LOCAL_STORAGE === 'true' &&
     (!window.localStorage['app-framework-version'] || window.localStorage['app-framework-version'] !== process.env.FRAMEWORK_VERSION)) {
+  let showMessage = window.localStorage['app-framework-version'] !== undefined
   for (let item in window.localStorage) {
     if (!/firebase:(.+)/.test(item) && item !== 'user') {
       window.localStorage.removeItem(item)
     }
   }
   window.localStorage['app-framework-version'] = process.env.FRAMEWORK_VERSION
-  window.localStorage['showCacheResetAlert'] = true
+  window.localStorage['showCacheResetAlert'] = showMessage
 }
 
 // Import underscore
