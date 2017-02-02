@@ -1,6 +1,6 @@
 {
   "name": "demo-app",
-  "version": "0.43.16",
+  "version": "0.43.20",
   "scripts": {
     "dev": "cd node_modules/app-framework && node scripts/dev-server",
     "check": "node node_modules/app-framework/scripts/check",
@@ -14,7 +14,7 @@
     "zip": "node node_modules/app-framework/scripts/zip"
   },
   "devDependencies": {
-    "app-framework": "^0.43.16"
+    "app-framework": "^0.43.20"
   },
   "title": "Demo App",
   "theme": "ios",

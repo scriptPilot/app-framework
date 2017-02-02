@@ -9,7 +9,7 @@
     </f7-block>
     <f7-block inner>
       <ul>
-        <li><b>Route:</b> {{$route.route}}</li>
+        <li><b>Route:</b> {{$route.route.pagePath}}</li>
         <li><b>Url:</b> {{$route.url}}</li>
         <li><b>Path:</b> {{$route.path}}</li>
         <li><b>Params:</b>

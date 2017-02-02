@@ -127,6 +127,7 @@
     data: function () {
       return {
         name: '',
+        password: '',
         email: '',
         url: '',
         phone: '',
@@ -137,8 +138,10 @@
         range: 50,
         text: '',
         name2: '',
+        password2: '',
         email2: '',
         name3: '',
+        password3: '',
         email3: ''
       }
     }
