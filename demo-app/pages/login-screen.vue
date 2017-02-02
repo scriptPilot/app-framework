@@ -15,7 +15,7 @@
     
       <f7-list-item v-if="showEmail">
         <f7-label>Email</f7-label>
-        <f7-input v-model="email" placeholder="Email" type="text"></f7-input>
+        <f7-input v-model="email" placeholder="Email" type="email"></f7-input>
       </f7-list-item>
       
       <f7-list-item v-if="showPassword">
@@ -73,7 +73,7 @@
     
     <!-- Show logout link, if user is logged in -->
     <f7-block inner inset style="text-align: center" v-if="$root.user">
-      <p>You are signed in as</p>
+      <p>You are logged in as</p>
       <p><b>{{$root.user.email}}</b></p>
       <p>&nbsp;</p>
       <f7-grid>
