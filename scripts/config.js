@@ -3,6 +3,8 @@ var path = require('path')
 var isThere = require('is-there')
 var merge = require('webpack-merge')
 var list = require('list-dir').sync
+var _ = require('underscore')
+var showOnly = require('./show-only')
 
 // Define installation status and root path
 var isInstalled = isThere(path.resolve(__dirname, '../../../package.json'))
@@ -13,6 +15,48 @@ var appRoot = (isInstalled ? path.resolve(__dirname, '../../..') : path.resolve(
 // Load application configuration
 var pkg = require(packageRoot + 'package.json')
 var app = require(appRoot + 'package.json')
+
+// Check application configuration file
+var io = function (el) {
+  if (!_.isObject(app[el])) {
+    showOnly('Error in package.json: Element "' + el + '" must be an object.')
+    throw new Error()
+  }
+}
+var ia = function (el) {
+  if (!_.isArray(app[el])) {
+    showOnly('Error in package.json: Element "' + el + '" must be an array.')
+    throw new Error()
+  }
+}
+var is = function (el) {
+  if (!_.isString(app[el])) {
+    showOnly('Error in package.json: Element "' + el + '" must be a string.')
+    throw new Error()
+  }
+}
+var ib = function (el) {
+  if (!_.isBoolean(app[el])) {
+    showOnly('Error in package.json: Element "' + el + '" must be true or false.')
+    throw new Error()
+  }
+}
+is('name')
+is('version')
+io('scripts')
+io('devDependencies')
+is('title')
+is('theme')
+is('defaultLanguage')
+ib('showPhoneFrameOnDesktop')
+ib('resetLocalStorageOnVersionChange')
+ia('specialRoutes')
+ia('loginRequiredForPages')
+io('firebase')
+io('loadIconFonts')
+is('faviconIcon')
+is('faviconBackgroundColor')
+ib('buildSourcemaps')
 
 // Create string with array of all vue page components
 var pageStr = ''
