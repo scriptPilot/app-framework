@@ -1,6 +1,6 @@
 {
   "name": "demo-app",
-  "version": "0.43.20",
+  "version": "0.43.26",
   "scripts": {
     "dev": "cd node_modules/app-framework && node scripts/dev-server",
     "check": "node node_modules/app-framework/scripts/check",
@@ -35,7 +35,7 @@
     "messagingSenderId": "690341427128",
     "allowUserRegistration": true,
     "useDatabaseService": true,
-    "useStorageService": false
+    "useStorageService": true
   },
   "loadIconFonts": {
     "framework7": false,
