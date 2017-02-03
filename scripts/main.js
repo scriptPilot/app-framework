@@ -197,7 +197,19 @@ new Vue({ // eslint-disable-line
                 }
               }
             }
-          }          
+          }
+          // After logout - remove all login requiring pages from local storage
+          if (localStorage.user) {
+            for (let el in localStorage) {
+              if (/page:(.+)/.test(el)) {
+                let page = el.substr(el.indexOf('/') + 1)
+                page = page.substr(0, page.indexOf('/') === -1 ? page.length : page.indexOf('/'))
+                if (app.pagesWithRequiredLogin.indexOf(page) !== -1) {
+                  localStorage.removeItem(el)
+                }
+              }
+            }
+          }
           window.user = this.user = null
           localStorage.removeItem('user')
         }
