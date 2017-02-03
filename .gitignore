@@ -10,7 +10,7 @@ firebase.json
 
 # Exclude log files
 *.log
-*.log.*
+npm-debug.log.*
 
 # Exclude zip files
 *.zip
