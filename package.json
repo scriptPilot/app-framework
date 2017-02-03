@@ -2,7 +2,7 @@
   "name": "app-framework",
   "description": "Does all the tricky stuff for you to develop, test, build and deploy iOS and Android like web applications.",
   "repository": "https://github.com/scriptPilot/app-framework.git",
-  "version": "0.45.0",
+  "version": "0.45.1",
   "license": "MIT",
   "scripts": {
     "postinstall": "node scripts/postinstall",
@@ -11,13 +11,14 @@
     "patch": "npm run fix && npm version patch && node scripts/build",
     "minor": "npm run fix && npm version minor && node scripts/build",
     "major": "npm run fix && npm version major && node scripts/build",
-    "dbrules": "node scripts/prepare-firebase-rules && cd demo-app && firebase login && firebase deploy && cd ../ && node scripts/cleanup-firebase",
-    "deploy": "npm run fix && node scripts/prepare-firebase-deploy && cd demo-app && firebase login && firebase deploy && cd ../ && node scripts/cleanup-firebase",
+    "database": "node scripts/prepare-firebase-database && cd demo-app && firebase login && firebase deploy --only database && cd ../ && node scripts/cleanup-firebase",
+    "storage": "node scripts/prepare-firebase-storage && cd demo-app && firebase login && firebase deploy --only storage && cd ../ && node scripts/cleanup-firebase",
+    "hosting": "npm run fix && node scripts/prepare-firebase-deploy && cd demo-app && firebase login && firebase deploy --only hosting && cd ../ && node scripts/cleanup-firebase",
     "check": "node scripts/check",
     "fix": "node scripts/fix",
     "f7": "node scripts/f7-update",
     "f7vue": "node scripts/f7vue-update",
-    "dbbackup": "node scripts/prepare-firebase-backup && cd demo-app && firebase login && firebase database:get / >database-backup.json && cd ../ && node scripts/cleanup-firebase",
+    "backup": "node scripts/prepare-firebase-backup && cd demo-app && firebase login && firebase database:get / >database-backup.json && cd ../ && node scripts/cleanup-firebase",
     "zip": "node scripts/zip"
   },
   "dependencies": {

@@ -76,8 +76,9 @@ Optional
 
 To [Firebase Hosting](https://firebase.google.com/docs/hosting/)
 
-- Run `npm run dbrules` to overwrite the Firebase database rules with the content of *databaseRules.json*
-- Run `npm run deploy` to push newest build to Firebase Hosting
+- Run `npm run database` to overwrite the Firebase database rules with the content of *database-rules.json*
+- Run `npm run storage` to overwrite the Firebase storage rules with the content of *storage-rules.json*
+- Run `npm run hosting` to push newest build to Firebase Hosting
 - For rollback: Change the version in *www/.htaccess* file to the previous one and run `npm run deploy`
 
 To your own server
@@ -87,7 +88,7 @@ To your own server
  
 ### Backup your application
 
-- Run `npm run dbbackup` to save the Firebase database content to *databaseBackup.json* file
+- Run `npm run backup` to save the Firebase database content to *databaseBackup.json* file
 - Run `npm run zip` to save your project files and latest build to a zip file
 - Backup your project folder frequently by
  - Moving the zip file to any external drive or cloud
