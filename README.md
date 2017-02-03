@@ -28,6 +28,8 @@
 - Build process with version bump and compression of all HTML, CSS, JavaScript and image files
 - Deployment to [Firebase Hosting](https://firebase.google.com/docs/hosting/) or your own server without downtime and with easy rollback solution
 
+[![NPM](https://nodei.co/npm/app-framework.png?downloads=true&downloadRank=true)](https://nodei.co/npm/app-framework/)
+
 ## Documentation
 
 > Read less, code more - please open a ticket for any open question in our [Issue List](https://github.com/scriptPilot/app-framework/issues).
