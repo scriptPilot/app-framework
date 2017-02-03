@@ -1,5 +1,8 @@
-# App Framework - [Initial release coming soon!](https://github.com/scriptPilot/app-framework/milestone/1)
-:boom: **Does all the tricky stuff for you to develop, test, build and deploy iOS and Android like web applications.**
+# App Framework &nbsp; &nbsp; [![Latest Stable Version](https://img.shields.io/npm/v/app-framework.svg)](https://www.npmjs.com/package/app-framework) [![License](https://img.shields.io/npm/l/app-framework.svg)](https://www.npmjs.com/package/app-framework) [![NPM Downloads](https://img.shields.io/npm/dt/app-framework.svg)](https://www.npmjs.com/package/app-framework)
+
+:boom: **Does all the tricky stuff for you to develop, test, build and deploy iOS and Android like web applications.** 
+
+**[Initial release coming soon - Take a look at the milestone!](https://github.com/scriptPilot/app-framework/milestone/1)**
 
 ## Features
 > The power is under the hood - but for sure, we have a [Demo App](https://app-framework.scriptpilot.de/).
