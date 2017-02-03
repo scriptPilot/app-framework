@@ -1,4 +1,5 @@
 <!-- Example of a login-requiring page with Firebase realtime database and storage service -->
+<!-- Login requiring pages could be defined easily in the package.json file -->
 
 <template>
   <f7-page>
