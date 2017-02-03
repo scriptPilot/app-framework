@@ -136,7 +136,7 @@ new Vue({ // eslint-disable-line
     routes: Routes,
     material: process.env.THEME === 'material',
     modalTitle: app.title,
-    preroute: function (view, options) {      
+    preroute: function (view, options) {
       let url = options.isBack ? view.history[view.history.length - (options.preloadOnly ? 1 : 2)] : options.url
       let page = url.substr(0, url.indexOf('/') === -1 ? url.length : url.indexOf('/'))
       if (window.user || app.pagesWithRequiredLogin.indexOf(page) === -1) {
@@ -180,8 +180,8 @@ new Vue({ // eslint-disable-line
             let viewsToReduce = window.views
             for (let v in viewsToReduce) {
               if (viewsToReduce[v]) {
-                let openPageSeries = 0  
-                // Loop pages, count number of non-login-requiring pages                
+                let openPageSeries = 0
+                // Loop pages, count number of non-login-requiring pages
                 for (let p = 0; p < viewsToReduce[v].pages.length; p++) {
                   if (app.pagesWithRequiredLogin.indexOf(viewsToReduce[v].pages[p]) === -1) {
                     openPageSeries += 1

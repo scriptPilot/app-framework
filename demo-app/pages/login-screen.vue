@@ -89,6 +89,9 @@
 </template>
 
 <script>
+
+  let localStorage = window.localStorage
+
   module.exports = {
     data: function () {
       return {
@@ -117,10 +120,10 @@
         this.email = ''
         this.mode = 'login'
         if (localStorage.requestedView) {
-          localStorage.removeItem('requestedView')          
+          localStorage.removeItem('requestedView')
         }
         if (localStorage.requestedUrl) {
-          localStorage.removeItem('requestedUrl')          
+          localStorage.removeItem('requestedUrl')
         }
       },
       createAccount: function () {
@@ -170,16 +173,16 @@
           window.firebase.auth().signInWithEmailAndPassword(this.email, this.password)
             .then(function (user) {
               // Forward to requested page
-              if (localStorage.requestedView && localStorage.requestedUrl) {                               
-                setTimeout(function () {         
-                  this.$f7.views[window.views[localStorage.requestedView].no].router.load({url: localStorage.requestedUrl, animatePages: false})  
+              if (localStorage.requestedView && localStorage.requestedUrl) {
+                setTimeout(function () {
+                  this.$f7.views[window.views[localStorage.requestedView].no].router.load({url: localStorage.requestedUrl, animatePages: false})
                   this.resetView()
-                  this.$f7.closeModal('.login-screen')              
+                  this.$f7.closeModal('.login-screen')
                 }.bind(this), 0)
               // Close modal, no requested page before
               } else {
                 this.resetView()
-                this.$f7.closeModal('.login-screen')              
+                this.$f7.closeModal('.login-screen')
               }
             }.bind(this))
             .catch(function (err) {
@@ -192,7 +195,7 @@
           .then(function () {
             setTimeout(function () {
               this.resetView()
-              this.$f7.closeModal('.login-screen')  
+              this.$f7.closeModal('.login-screen')
             }.bind(this), 0)
           }.bind(this))
       }
