@@ -135,7 +135,19 @@ new Vue({ // eslint-disable-line
     root: '#app',
     routes: Routes,
     material: process.env.THEME === 'material',
-    modalTitle: app.title
+    modalTitle: app.title,
+    preroute: function (view, options) {      
+      let url = options.isBack ? view.history[view.history.length - (options.preloadOnly ? 1 : 2)] : options.url
+      let page = url.substr(0, url.indexOf('/') === -1 ? url.length : url.indexOf('/'))
+      if (window.user || app.pagesWithRequiredLogin.indexOf(page) === -1) {
+        return true
+      } else {
+        localStorage.requestedView = view.container.id
+        localStorage.requestedUrl = url
+        window.f7.loginScreen()
+        return false
+      }
+    }
   },
   components: {
     app: require(process.env.APP_ROOT_FROM_SCRIPTS + 'app.vue')
@@ -162,6 +174,30 @@ new Vue({ // eslint-disable-line
           }
           localStorage.user = JSON.stringify(window.user)
         } else {
+          // After logout - browse back in history to last page series which does not require login
+          if (localStorage.user) {
+            // Loop views
+            let viewsToReduce = window.views
+            for (let v in viewsToReduce) {
+              if (viewsToReduce[v]) {
+                let openPageSeries = 0  
+                // Loop pages, count number of non-login-requiring pages                
+                for (let p = 0; p < viewsToReduce[v].pages.length; p++) {
+                  if (app.pagesWithRequiredLogin.indexOf(viewsToReduce[v].pages[p]) === -1) {
+                    openPageSeries += 1
+                  }
+                }
+                // Get number of pages to browse back
+                let browseBack = viewsToReduce[v].pages.length - openPageSeries
+                // Browse back
+                for (let b = 0; b < browseBack; b++) {
+                  setTimeout(function () {
+                    this.$f7.views[viewsToReduce[v].no].router.back({animatePages: false})
+                  }.bind(this), 0)
+                }
+              }
+            }
+          }          
           window.user = this.user = null
           localStorage.removeItem('user')
         }

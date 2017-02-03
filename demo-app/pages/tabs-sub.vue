@@ -42,7 +42,10 @@
               <f7-button open-popup="#popup">Popup</f7-button>
             </f7-col>
             <f7-col width="50">
-              <f7-button open-login-screen="#login-screen">Login Screen</f7-button>
+            
+              <!-- Show login / logout button, depending on the user status -->
+              <f7-button open-login-screen="#login-screen" :text="$root.user ? 'Logout' : 'Login Screen'"></f7-button>
+              
             </f7-col>
           </f7-grid>
         </f7-block>

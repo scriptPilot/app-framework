@@ -92,7 +92,6 @@
   module.exports = {
     data: function () {
       return {
-        title: 'Login',
         password: '',
         passwordConfirmation: '',
         email: '',
@@ -100,6 +99,9 @@
       }
     },
     computed: {
+      title: function () {
+        return this.$root.user ? 'Logout' : 'Login'
+      },
       showEmail: function () {
         return this.mode === 'login' || this.mode === 'create' || this.mode === 'reset'
       },
@@ -114,6 +116,12 @@
         this.passwordConfirmation = ''
         this.email = ''
         this.mode = 'login'
+        if (localStorage.requestedView) {
+          localStorage.removeItem('requestedView')          
+        }
+        if (localStorage.requestedUrl) {
+          localStorage.removeItem('requestedUrl')          
+        }
       },
       createAccount: function () {
         if (this.email === '') {
@@ -161,8 +169,18 @@
         } else {
           window.firebase.auth().signInWithEmailAndPassword(this.email, this.password)
             .then(function (user) {
-              this.resetView()
-              this.$f7.closeModal('.login-screen')
+              // Forward to requested page
+              if (localStorage.requestedView && localStorage.requestedUrl) {                               
+                setTimeout(function () {         
+                  this.$f7.views[window.views[localStorage.requestedView].no].router.load({url: localStorage.requestedUrl, animatePages: false})  
+                  this.resetView()
+                  this.$f7.closeModal('.login-screen')              
+                }.bind(this), 0)
+              // Close modal, no requested page before
+              } else {
+                this.resetView()
+                this.$f7.closeModal('.login-screen')              
+              }
             }.bind(this))
             .catch(function (err) {
               this.$f7.alert(err.message, 'Error')
@@ -172,7 +190,10 @@
       logout: function () {
         window.firebase.auth().signOut()
           .then(function () {
-            this.resetView()
+            setTimeout(function () {
+              this.resetView()
+              this.$f7.closeModal('.login-screen')  
+            }.bind(this), 0)
           }.bind(this))
       }
     }

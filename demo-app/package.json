@@ -24,8 +24,8 @@
   "specialRoutes": [
     "flexible-routing/blog/:blogId/post/:postId"
   ],
-  "loginRequiredForPages": [
-    "privateFirebase"
+  "pagesWithRequiredLogin": [
+    "firebase-private"
   ],
   "firebase": {
     "apiKey": "AIzaSyAvzTiqd9fKR-h47Uxl4iXwqSMU1VjGdII",

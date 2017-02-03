@@ -24,10 +24,7 @@
     <f7-list>
       <f7-list-item link="simple-todo" title="Simple ToDo List"></f7-list-item>
       <f7-list-item link="firebase-public" title="Public Firebase ToDo List"></f7-list-item>
-      
-      <!-- Show login requiring page only to logged in users -->
-      <f7-list-item link="firebase-private" title="Private Firebase Storage" badge="private" badge-color="red" v-if="$root.user"></f7-list-item>
-      
+      <f7-list-item link="firebase-private" title="Private Firebase Storage"></f7-list-item>
       <f7-list-item link="multiple-languages" title="Multiple Languages"></f7-list-item>
       <f7-list-item link="tabs" title="Tab Handling"></f7-list-item>
       <f7-list-item link="form" title="Form Handling"></f7-list-item>
@@ -56,7 +53,10 @@
           <f7-button open-popup="#popup">Popup</f7-button>
         </f7-col>
         <f7-col width="50">
-          <f7-button open-login-screen="#login-screen">Login Screen</f7-button>
+        
+          <!-- Show login / logout button, depending on the user status -->
+          <f7-button open-login-screen="#login-screen" :text="$root.user ? 'Logout' : 'Login Screen'"></f7-button>
+          
         </f7-col>
       </f7-grid>
     </f7-block>

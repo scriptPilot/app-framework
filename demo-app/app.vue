@@ -4,6 +4,7 @@
   
   For real modularization, all pages are extracted to their own page component in /pages folder.
   You can define the initial page for each view with the URL attribute.
+  Initial pages should not require a login (to configure in package.json file).
   
   Read more about application layouts: https://framework7.io/vue/app-layout.html
   
@@ -37,10 +38,11 @@
       <f7-view id="popup" navbar-fixed url="popup"></f7-view>
     </f7-popup>
 
-    <!-- Login screen -->
+    <!-- Login screen - Do not change this block! -->
     <f7-login-screen id="login-screen">
       <f7-view id="login-screen" url="login-screen"></f7-view>
     </f7-login-screen>
+    <!-- End of login screen -->
 
   </div>
 </template>
