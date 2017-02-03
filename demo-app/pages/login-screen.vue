@@ -136,11 +136,7 @@
         } else {
           window.firebase.auth().createUserWithEmailAndPassword(this.email, this.password)
             .then(function (user) {
-              this.$f7.addNotification({
-                title: 'Account created',
-                message: 'Now you can proceed to login'
-              })
-              this.resetView()
+              this.login()
             }.bind(this))
             .catch(function (err) {
               this.$f7.alert(err.message, 'Error')
