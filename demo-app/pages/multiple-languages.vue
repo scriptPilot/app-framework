@@ -24,11 +24,11 @@
     </f7-block>
     
     <f7-block inset>
-      <f7-button @click="modal()">Modal</f7-button></f7-col>
-    </f7-block>
+      <f7-button open-login-screen="#login-screen" :text="$root.user ? text.logout : text.login"></f7-button>
+    </f7-block inset>
     
     <f7-block inner inset style="text-align: center">
-      <p>Standard text patterns will change their language as well - currently English and German are supported - Please request other in our <f7-link href="https://github.com/scriptPilot/app-framework/issues" external>GitHub Issue List</f7-link>.</p>
+      <p>Standard text patterns and the login screen will change their language as well - currently English and German are supported - Please request other in our <f7-link href="https://github.com/scriptPilot/app-framework/issues" external>GitHub Issue List</f7-link>.</p>
     </f7-block>
     
   </f7-page> 
@@ -45,7 +45,8 @@
       de: 'German',
       en: 'English',
       openPage: 'Open simple sub page',
-      message: 'Wow - You clicked the button!'
+      login: 'Open login screen',
+      logout: 'Open logout screen'
     },
     de: {
       backlink: 'Zurück',
@@ -55,7 +56,8 @@
       de: 'Deutsch',
       en: 'Englisch',
       openPage: 'Einfache Unterseite öffnen',
-      message: 'Wow - Du hast geklickt!'
+      login: 'Anmeldebildschirm öffnen',
+      logout: 'Abmeldebildschirm öffnen'
     }
   }
   
@@ -88,11 +90,6 @@
         setTimeout(function () {
           this.$$(e.target).parent().find('.item-after').html(this.text[e.target.value])
         }.bind(this), 0)
-      },
-  
-      // Open simple modal, text patterns will be updated according selected language automatically
-      modal: function () {
-        this.$f7.confirm()
       }
   
     }

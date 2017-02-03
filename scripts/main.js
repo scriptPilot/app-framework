@@ -89,8 +89,7 @@ var f7Text = {
     smartSelectBackText: 'Back',
     smartSelectPopupCloseText: 'Close',
     smartSelectPickerCloseText: 'Done',
-    notificationCloseButtonText: 'Close',
-    cacheResetAlert: 'The application has been updated and the cache has been reset.'
+    notificationCloseButtonText: 'Close'
   },
   de: {
     modalButtonOk: 'OK',
@@ -101,8 +100,7 @@ var f7Text = {
     smartSelectBackText: 'Zurück',
     smartSelectPopupCloseText: 'Fertig',
     smartSelectPickerCloseText: 'Fertig',
-    notificationCloseButtonText: 'OK',
-    cacheResetAlert: 'Die Anwendung wurde aktualisiert und der Cache wurde zurückgesetzt.'
+    notificationCloseButtonText: 'OK'
   }
 }
 
@@ -138,6 +136,10 @@ new Vue({ // eslint-disable-line
     modalTitle: app.title,
     preroute: function (view, options) {
       let url = options.isBack ? view.history[view.history.length - (options.preloadOnly ? 1 : 2)] : options.url
+      /* Consider dynamic content, e.g. smart selects */
+      if (!url) {
+        return true
+      }
       let page = url.substr(0, url.indexOf('/') === -1 ? url.length : url.indexOf('/'))
       if (window.user || app.pagesWithRequiredLogin.indexOf(page) === -1) {
         return true
