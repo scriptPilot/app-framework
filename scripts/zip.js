@@ -43,5 +43,5 @@ if (cfg.isInstalled) {
 
 // Not installed as package
 } else {
-  showOnly('Error: Zip file can be created only after App Framework is installed as package')
+  showOnly('Error: Zip file can be created only after App Framework is installed as a package')
 }
