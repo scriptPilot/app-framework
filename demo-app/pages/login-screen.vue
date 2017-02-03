@@ -219,7 +219,7 @@
                 title: this.text.emailSent,
                 message: this.text.checkYourInbox,
                 hold: 3000,
-                closeIcon: false                
+                closeIcon: false
               })
               this.resetView()
             }.bind(this))
