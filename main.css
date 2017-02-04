@@ -3,21 +3,21 @@ body {
   background: #F2F2F2;
 }
 
-/* App container */
-#app: {
-  height: 100%;
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
-}
-
-/* Initial reload splash fix */
-.framework7-root {  
-  opacity: 0;
-}
-
 /* Statusbar */
 .statusbar-overlay {
   background: #000000;
+}
+
+/* Statusbar fix */
+.with-statusbar-overlay body {
+  padding-top: 0px !important;    
+}
+.with-statusbar-overlay #frame {
+  background: #000000;
+  padding-top: 20px !important;    
+}
+.with-statusbar-overlay #app {
+  padding-top: 0px !important;
 }
 
 /* Phone frame */
@@ -88,15 +88,27 @@ body {
 
 /* iPhone alike scrollbars */
 .light-scrollbars div::-webkit-scrollbar {
-  width: 3px;
+  width: 5px;
 }
 .light-scrollbars div::-webkit-scrollbar-thumb:vertical {
-  margin: 3px;
+  margin: 5px;
   background-color: #999;
-  -webkit-border-radius: 3px;
+  -webkit-border-radius: 5px;
 }
 .light-scrollbars div::-webkit-scrollbar-button:start:decrement,
 .light-scrollbars div::-webkit-scrollbar-button:end:increment {
-  height: 3px;
+  height: 5px;
   display: block;
+}
+
+/* App container */
+#app: {
+  height: 100%;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Initial reload splash fix */
+.framework7-root {  
+  opacity: 0;
 }
