@@ -49,7 +49,7 @@ Optional
 - Download *[package.json](https://raw.githubusercontent.com/scriptPilot/app-framework/master/demo-app/package.json)* file to an empty folder (keep extension .json!)
 - Run `npm install` to setup project folder
 
-## Design your application
+### Design your application
 - Use our printable [smartphone template](smartphone-template.pdf) to sketch your application
 - Use our icon template as [PDF to sketch](smartphone-template.pdf) and [PPTX to draw](smartphone-template.pptx) your application icon
 
