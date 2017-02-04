@@ -8,8 +8,22 @@
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
   <body>
-    <div id="frame">
-      <div id="app"></div> 
-    </div>
+    <noscript>Please activate JavaScript!</noscript>
+    <!--<div id="overlay" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: 10; background: #F2F2F2;"></div>-->
+    <div id="f7-frame-root" style="width: 0; height: 0;"></div>
+    <script>
+      function inIframe() {
+        try {
+          return window.self !== window.top;
+        } catch (e) {
+          return true;
+        }
+      }      
+      if (!inIframe()) {
+        document.writeln('<div id="frame" style="opacity: 0"><iframe src="index.html" id="app-iframe"></iframe></div>')
+      } else {
+        document.writeln('<div id="app"></div>')
+      }
+    </script>
   </body>
 </html>

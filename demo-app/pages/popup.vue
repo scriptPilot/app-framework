@@ -17,9 +17,6 @@
         
       </f7-list-item>
     </f7-list>
-    <f7-block style="text-align: center">
-      <f7-link close-popup>Close popup</f7-link>
-    </f7-block>
   </f7-page>
 </template>
 
