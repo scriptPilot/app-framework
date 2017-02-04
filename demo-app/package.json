@@ -1,22 +1,6 @@
 {
   "name": "demo-app",
   "version": "1.0.9",
-  "scripts": {
-    "dev": "cd node_modules/app-framework && node scripts/dev-server",
-    "check": "node node_modules/app-framework/scripts/check",
-    "fix": "node node_modules/app-framework/scripts/fix",
-    "patch": "npm version patch && cd node_modules/app-framework && node scripts/build",
-    "minor": "npm version minor && cd node_modules/app-framework && node scripts/build",
-    "major": "npm version major && cd node_modules/app-framework && node scripts/build",
-    "database": "node node_modules/app-framework/scripts/prepare-firebase-database && firebase login && firebase deploy --only database && node node_modules/app-framework/scripts/cleanup-firebase",
-    "storage": "node node_modules/app-framework/scripts/prepare-firebase-storage && firebase login && firebase deploy --only storage && node node_modules/app-framework/scripts/cleanup-firebase",
-    "hosting": "node node_modules/app-framework/scripts/prepare-firebase-deploy && firebase login && firebase deploy --only hosting && node node_modules/app-framework/scripts/cleanup-firebase",
-    "backup": "node node_modules/app-framework/scripts/prepare-firebase-backup && firebase login && firebase database:get / >database-backup.json && node node_modules/app-framework/scripts/cleanup-firebase",
-    "zip": "node node_modules/app-framework/scripts/zip"
-  },
-  "devDependencies": {
-    "app-framework": "^1.0.7"
-  },
   "title": "Demo App",
   "theme": "ios",
   "defaultLanguage": "en",
@@ -46,5 +30,21 @@
   },
   "faviconIcon": "images/icon.png",
   "faviconBackgroundColor": "#ffffff",
-  "buildSourcemaps": false
+  "buildSourcemaps": false,
+  "devDependencies": {
+    "app-framework": "^1.0.9"
+  },
+  "scripts": {
+    "dev": "cd node_modules/app-framework && node scripts/dev-server",
+    "check": "node node_modules/app-framework/scripts/check",
+    "fix": "node node_modules/app-framework/scripts/fix",
+    "patch": "npm version patch && cd node_modules/app-framework && node scripts/build",
+    "minor": "npm version minor && cd node_modules/app-framework && node scripts/build",
+    "major": "npm version major && cd node_modules/app-framework && node scripts/build",
+    "database": "node node_modules/app-framework/scripts/prepare-firebase-database && firebase login && firebase deploy --only database && node node_modules/app-framework/scripts/cleanup-firebase",
+    "storage": "node node_modules/app-framework/scripts/prepare-firebase-storage && firebase login && firebase deploy --only storage && node node_modules/app-framework/scripts/cleanup-firebase",
+    "hosting": "node node_modules/app-framework/scripts/prepare-firebase-deploy && firebase login && firebase deploy --only hosting && node node_modules/app-framework/scripts/cleanup-firebase",
+    "backup": "node node_modules/app-framework/scripts/prepare-firebase-backup && firebase login && firebase database:get / >database-backup.json && node node_modules/app-framework/scripts/cleanup-firebase",
+    "zip": "node node_modules/app-framework/scripts/zip"
+  }
 }
