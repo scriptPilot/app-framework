@@ -49,9 +49,13 @@ Optional
 - Download *[package.json](https://raw.githubusercontent.com/scriptPilot/app-framework/master/demo-app/package.json)* file to an empty folder (keep extension .json!)
 - Run `npm install` to setup project folder
 
+## Design your application
+- Use our printable [smartphone template](smartphone-template.pptx) to sketch your application
+- Use our [icon template](icon-template.pptx) to sketch and create your application logo
+
+
 ### Develop your application
 
-- Use our printable [smartphone template](smartphone-template.pptx) to sketch your application
 - Run `npm run dev` to start development server at localhost:8080
 - Update the configuration in *package.json* file - first of all for Firebase!
 - Save images to *images* folder
