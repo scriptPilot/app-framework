@@ -2,7 +2,7 @@
   "name": "app-framework",
   "description": "Does all the tricky stuff for you to develop, test, build and deploy iOS and Android like web applications.",
   "repository": "https://github.com/scriptPilot/app-framework.git",
-  "version": "0.45.1",
+  "version": "1.0.1",
   "license": "MIT",
   "scripts": {
     "postinstall": "node scripts/postinstall",
@@ -47,7 +47,6 @@
     "function-bind": "^1.0.2",
     "html-webpack-plugin": "^2.8.1",
     "http-proxy-middleware": "^0.17.2",
-    "image-webpack-loader": "^3.1.0",
     "imagemin-webpack-plugin": "^1.4.4",
     "inobounce": "^0.1.4",
     "is-there": "^4.3.6",
