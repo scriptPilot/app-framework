@@ -57,6 +57,7 @@ Optional
 - Edit app component in *app.vue* file
 - Edit page components in *pages* folder
  - After adding, removing or renaming pages you have to run `npm run dev` again
+ - See the code of the example pages to learn how to realize things in App Framework
 
 ### Test your application
 
