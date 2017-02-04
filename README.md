@@ -51,6 +51,7 @@ Optional
 
 ### Develop your application
 
+- Use our printable [smartphone template](smartphone-template.pptx) to sketch your application
 - Run `npm run dev` to start development server at localhost:8080
 - Update the configuration in *package.json* file - first of all for Firebase!
 - Save images to *images* folder
