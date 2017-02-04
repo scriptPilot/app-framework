@@ -59,7 +59,7 @@ Optional
   - After adding, removing or renaming pages you have to run `npm run dev` again
   - Study the code of the example pages to learn how to realize things in App Framework
 - Edit [database rules](https://firebase.google.com/docs/database/security/quickstart) in *database-rules.json* file
-- Edit [storage-rules](https://firebase.google.com/docs/storage/security/) in *storage-rules.txt* file
+- Edit [storage rules](https://firebase.google.com/docs/storage/security/) in *storage-rules.txt* file
 
 ### Test your application
 
