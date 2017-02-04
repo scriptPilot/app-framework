@@ -52,7 +52,7 @@ Optional
 ### Develop your application
 
 - Run `npm run dev` to start development server at localhost:8080
-- Update configuration in *package.json* file - first of all for Firebase!
+- Update the configuration in *package.json* file - first of all for Firebase!
 - Save images to *images* folder
 - Edit app component in *app.vue* file
 - Edit page components in *pages* folder
