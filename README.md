@@ -79,7 +79,7 @@ To [Firebase Hosting](https://firebase.google.com/docs/hosting/)
 - Run `npm run database` to overwrite the Firebase database rules with the content of *database-rules.json*
 - Run `npm run storage` to overwrite the Firebase storage rules with the content of *storage-rules.txt*
 - Run `npm run hosting` to push newest build to Firebase Hosting
-- For rollback: Change the version in *www/.htaccess* file to the previous one and run `npm run deploy`
+- For rollback: Change the version in *www/.htaccess* file to the previous one and run `npm run hosting`
 
 To your own server
 
