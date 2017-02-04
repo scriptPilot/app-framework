@@ -84,7 +84,7 @@ To [Firebase Hosting](https://firebase.google.com/docs/hosting/)
 
 To your own server
 
-- Upload the latest *www/build* folder to your server and after that the *www/.htaccess* file
+- Upload the latest *www/build* folder to your server and then the *www/.htaccess* file
 - For rollback: Change the version in *www/.htaccess* file to the previous one and upload it to your server
  
 ### Backup your application
