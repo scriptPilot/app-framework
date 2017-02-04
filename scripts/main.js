@@ -398,66 +398,72 @@ if (document.querySelector('#app')) {
 
 // Do only on page with iFrame
 } else if (document.querySelector('#frame')) {
-  setTimeout(function () {
-    let $$ = window.frames[0].Dom7
-    let f7 = window.frames[0].f7
-    let statusbar = $$(window.frames[0].document).find('html').hasClass('with-statusbar-overlay')
-    let $$2 = function (selector) {
-      return $$(document).find(selector)
-    }
-    if (statusbar) {
-      $$2('html').addClass('with-statusbar-overlay')
-    }
+  var frameLoaded = false
+  var checker = setInterval(function () {
+    if (!frameLoaded && window.frames[0].Dom7) {
+      frameLoaded = true
+      clearInterval(checker)
 
-    // Update phone frame function
-    var updatePhoneFrame = function () {
-      // Show frame on desktop
-      if (!f7.device.os && app.showPhoneFrameOnDesktop) {
-        // Show frame
-        if (window.innerWidth > 370 && window.innerHeight > 778) {
-          $$2('#frame').addClass('phone')
-          $$2('#frame').removeClass('limitWidth')
-          $$2('#frame').removeClass('limitHeight')
-          $$2('body').removeClass('bodyDark')
+      let $$ = window.frames[0].Dom7
+      let f7 = window.frames[0].f7
+      let statusbar = $$(window.frames[0].document).find('html').hasClass('with-statusbar-overlay')
+      let $$2 = function (selector) {
+        return $$(document).find(selector)
+      }
+      if (statusbar) {
+        $$2('html').addClass('with-statusbar-overlay')
+      }
 
-            // Limit width and height
-        } else if (window.innerWidth > 320 && window.innerHeight > 568) {
-          $$2('#frame').removeClass('phone')
-          $$2('#frame').addClass('limitWidth')
-          $$2('#frame').addClass('limitHeight')
-          $$2('body').addClass('bodyDark')
+      // Update phone frame function
+      var updatePhoneFrame = function () {
+        // Show frame on desktop
+        if (!f7.device.os && app.showPhoneFrameOnDesktop) {
+          // Show frame
+          if (window.innerWidth > 370 && window.innerHeight > 778) {
+            $$2('#frame').addClass('phone')
+            $$2('#frame').removeClass('limitWidth')
+            $$2('#frame').removeClass('limitHeight')
+            $$2('body').removeClass('bodyDark')
 
-            // Limit width
-        } else if (window.innerWidth > 320) {
-          $$2('#frame').removeClass('phone')
-          $$2('#frame').addClass('limitWidth')
-          $$2('#frame').removeClass('limitHeight')
-          $$2('body').addClass('bodyDark')
+              // Limit width and height
+          } else if (window.innerWidth > 320 && window.innerHeight > 568) {
+            $$2('#frame').removeClass('phone')
+            $$2('#frame').addClass('limitWidth')
+            $$2('#frame').addClass('limitHeight')
+            $$2('body').addClass('bodyDark')
 
-            // Limit height
-        } else if (window.innerHeight > 568) {
-          $$2('#frame').removeClass('phone')
-          $$2('#frame').removeClass('limitWidth')
-          $$2('#frame').addClass('limitHeight')
-          $$2('body').addClass('bodyDark')
+              // Limit width
+          } else if (window.innerWidth > 320) {
+            $$2('#frame').removeClass('phone')
+            $$2('#frame').addClass('limitWidth')
+            $$2('#frame').removeClass('limitHeight')
+            $$2('body').addClass('bodyDark')
 
-            // No limitation
-        } else {
-          $$2('#frame').removeClass('phone')
-          $$2('#frame').removeClass('limitWidth')
-          $$2('#frame').removeClass('limitHeight')
-          $$2('body').removeClass('bodyDark')
+              // Limit height
+          } else if (window.innerHeight > 568) {
+            $$2('#frame').removeClass('phone')
+            $$2('#frame').removeClass('limitWidth')
+            $$2('#frame').addClass('limitHeight')
+            $$2('body').addClass('bodyDark')
+
+              // No limitation
+          } else {
+            $$2('#frame').removeClass('phone')
+            $$2('#frame').removeClass('limitWidth')
+            $$2('#frame').removeClass('limitHeight')
+            $$2('body').removeClass('bodyDark')
+          }
         }
       }
+
+      // Resize initially
+      updatePhoneFrame()
+
+      // Resize again on windows resize
+      $$(window).resize(updatePhoneFrame)
+
+      // Show frame
+      $$2('#frame').addClass('visible')
     }
-
-    // Resize initially
-    updatePhoneFrame()
-
-    // Resize again on windows resize
-    $$(window).resize(updatePhoneFrame)
-
-    // Show frame
-    $$2('#frame').addClass('visible')
-  }, 0)
+  }, 10)
 }
