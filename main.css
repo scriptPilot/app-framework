@@ -8,18 +8,6 @@ body {
   background: #000000;
 }
 
-/* Statusbar fix */
-.with-statusbar-overlay body {
-  padding-top: 0px !important;    
-}
-.with-statusbar-overlay #frame {
-  background: #000000;
-  padding-top: 20px !important;    
-}
-.with-statusbar-overlay #app {
-  padding-top: 0px !important;
-}
-
 /* Phone frame */
 .bodyDark {
   background: #333 !important;
@@ -30,18 +18,6 @@ body {
   height: 100%;
 }
 
-/* iFrame */
-#app-iframe {
-  width: 100%;
-  height: 100%;
-  border: 0;
-  background: #151515;
-}
-
-.visible {
-  opacity: 1 !important;
-  transition: opacity 0.4s;
-}
 .phone {
   top: calc((100% - 568px - 210px) / 2) !important;
   left: calc((100% - 320px - 50px) / 2) !important;
@@ -110,5 +86,5 @@ body {
 
 /* Initial reload splash fix */
 .framework7-root {  
-  opacity: 0;
+  visibility: hidden;
 }
