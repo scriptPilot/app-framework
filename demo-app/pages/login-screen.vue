@@ -91,7 +91,7 @@
 <script>
   
   // Text patterns
-  let text = {
+  var text = {
     en: {
       email: 'Email',
       password: 'Password',
@@ -153,7 +153,7 @@
   }
 
   // Shortlink to local storage
-  let localStorage = window.localStorage
+  var localStorage = window.localStorage
 
   module.exports = {
     data: function () {
