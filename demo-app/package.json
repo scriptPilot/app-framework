@@ -1,0 +1,50 @@
+{
+  "name": "demo-app",
+  "version": "1.0.3",
+  "scripts": {
+    "dev": "cd node_modules/app-framework && node scripts/dev-server",
+    "check": "node node_modules/app-framework/scripts/check",
+    "fix": "node node_modules/app-framework/scripts/fix",
+    "patch": "npm version patch && cd node_modules/app-framework && node scripts/build",
+    "minor": "npm version minor && cd node_modules/app-framework && node scripts/build",
+    "major": "npm version major && cd node_modules/app-framework && node scripts/build",
+    "database": "node node_modules/app-framework/scripts/prepare-firebase-database && firebase login && firebase deploy --only database && node node_modules/app-framework/scripts/cleanup-firebase",
+    "storage": "node node_modules/app-framework/scripts/prepare-firebase-storage && firebase login && firebase deploy --only storage && node node_modules/app-framework/scripts/cleanup-firebase",
+    "hosting": "node node_modules/app-framework/scripts/prepare-firebase-deploy && firebase login && firebase deploy --only hosting && node node_modules/app-framework/scripts/cleanup-firebase",
+    "backup": "node node_modules/app-framework/scripts/prepare-firebase-backup && firebase login && firebase database:get / >database-backup.json && node node_modules/app-framework/scripts/cleanup-firebase",
+    "zip": "node node_modules/app-framework/scripts/zip"
+  },
+  "devDependencies": {
+    "app-framework": "^1.0.3"
+  },
+  "title": "Demo App",
+  "theme": "ios",
+  "defaultLanguage": "en",
+  "showPhoneFrameOnDesktop": true,
+  "resetLocalStorageOnVersionChange": true,
+  "specialRoutes": [
+    "flexible-routing/blog/:blogId/post/:postId"
+  ],
+  "pagesWithRequiredLogin": [
+    "firebase-private"
+  ],
+  "firebase": {
+    "apiKey": "AIzaSyAvzTiqd9fKR-h47Uxl4iXwqSMU1VjGdII",
+    "authDomain": "app-framework-9045a.firebaseapp.com",
+    "databaseURL": "https://app-framework-9045a.firebaseio.com",
+    "storageBucket": "app-framework-9045a.appspot.com",
+    "messagingSenderId": "690341427128",
+    "allowUserRegistration": true,
+    "useDatabaseService": true,
+    "useStorageService": true
+  },
+  "loadIconFonts": {
+    "framework7": false,
+    "material": false,
+    "ion": false,
+    "fontawesome": true
+  },
+  "faviconIcon": "images/favicon-icon.png",
+  "faviconBackgroundColor": "#ffffff",
+  "buildSourcemaps": false
+}
