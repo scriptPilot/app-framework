@@ -56,8 +56,10 @@ Optional
 - Save images to *images* folder
 - Edit app component in *app.vue* file
 - Edit page components in *pages* folder
- - After adding, removing or renaming pages you have to run `npm run dev` again
- - Study the code of the example pages to learn how to realize things in App Framework
+  - After adding, removing or renaming pages you have to run `npm run dev` again
+  - Study the code of the example pages to learn how to realize things in App Framework
+- Edit database rules in *database-rules.json* file
+- Edit storage-rules in *storage-rules.txt* file
 
 ### Test your application
 
