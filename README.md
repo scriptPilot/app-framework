@@ -50,8 +50,8 @@ Optional
 - Run `npm install` to setup project folder
 
 ## Design your application
-- Use our printable [smartphone template](smartphone-template.pptx) to sketch your application
-- Use our [icon template](icon-template.pptx) to sketch and create your application logo
+- Use our printable [smartphone template](smartphone-template.pdf) to sketch your application
+- Use our icon template as [PDF to sketch](smartphone-template.pdf) and [PPTX to draw](smartphone-template.pptx) your application icon
 
 
 ### Develop your application
