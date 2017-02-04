@@ -63,7 +63,7 @@
     
     <!-- Link to GitHub repository -->
     <f7-block style="text-align: center">
-      <f7-link href="https://github.com/scriptPilot/app-framework" external>
+      <f7-link href="#" external @click="openGithub">
         <f7-icon fa="github"></f7-icon> App Framework - v{{$root.version}}
       </f7-link>
     </f7-block>
@@ -72,5 +72,11 @@
 </template>
 
 <script>
-  module.exports = {}
+  module.exports = {
+    methods: {
+      openGithub: function () {
+        window.open('https://github.com/scriptPilot/app-framework')
+      }
+    }
+  }
 </script>
