@@ -2,7 +2,7 @@
   "name": "app-framework",
   "description": "Does all the tricky stuff for you to develop, test, build and deploy iOS and Android like web applications.",
   "repository": "https://github.com/scriptPilot/app-framework.git",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "license": "MIT",
   "scripts": {
     "postinstall": "node scripts/postinstall",

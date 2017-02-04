@@ -1,6 +1,6 @@
 {
   "name": "demo-app",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "scripts": {
     "dev": "cd node_modules/app-framework && node scripts/dev-server",
     "check": "node node_modules/app-framework/scripts/check",
@@ -44,7 +44,7 @@
     "ion": false,
     "fontawesome": true
   },
-  "faviconIcon": "images/favicon-icon.png",
+  "faviconIcon": "images/icon.png",
   "faviconBackgroundColor": "#ffffff",
   "buildSourcemaps": false
 }
