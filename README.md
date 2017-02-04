@@ -2,8 +2,6 @@
 
 :boom: **Does all the tricky stuff for you to develop, test, build and deploy iOS and Android like web applications.** 
 
-**[Initial release coming soon - Take a look at the milestone!](https://github.com/scriptPilot/app-framework/milestone/1)**
-
 ## Features
 > The power is under the hood - but for sure, we have a [Demo App](https://app-framework.scriptpilot.de/).
 
