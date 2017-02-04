@@ -46,6 +46,11 @@ if (cfg.isInstalled) {
     cpx.copySync(path.resolve(cfg.packageRoot, 'demo-app/database-rules.json'), cfg.appRoot)
   }
 
+  // Copy stoarge rules file
+  if (!isThere(cfg.appRoot + 'storage-rules.txt')) {
+    cpx.copySync(path.resolve(cfg.packageRoot, 'demo-app/storage-rules.txt'), cfg.appRoot)
+  }
+
   // Copy/update gitignore
   if (isThere(path.resolve(cfg.packageRoot, 'demo-app/.gitignore'))) {
     cpx.copySync(path.resolve(cfg.packageRoot, 'demo-app/.gitignore'), cfg.appRoot)
