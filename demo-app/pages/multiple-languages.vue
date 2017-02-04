@@ -28,7 +28,7 @@
     </f7-block inset>
     
     <f7-block inner inset style="text-align: center">
-      <p>Standard text patterns and the login screen will change their language as well - currently English and German are supported - Please request other in our <f7-link href="https://github.com/scriptPilot/app-framework/issues" external>GitHub Issue List</f7-link>.</p>
+      <p>Standard text patterns and the login screen will change their language as well - currently English and German are supported - Please request other in our <f7-link href="https://github.com/scriptPilot/app-framework/issues" target="_top">GitHub Issue List</f7-link>.</p>
     </f7-block>
     
   </f7-page> 

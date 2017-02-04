@@ -30,8 +30,8 @@
       <f7-list-item link="form" title="Form Handling"></f7-list-item>
       <f7-list-item link="flexible-routing/blog/45/post/125?foo=bar#about" title="Flexible Routing"></f7-list-item>
       <f7-list-item link="image" title="Icon & Image"></f7-list-item>
-      <f7-list-item link="https://framework7.io/kitchen-sink-ios" title="iOS Showcase" badge="Framework7" link-external></f7-list-item>
-      <f7-list-item link="https://framework7.io/kitchen-sink-material" title="Material Showcase" badge="Framework7" link-external></f7-list-item>
+      <f7-list-item link="https://framework7.io/kitchen-sink-ios" title="iOS Showcase" badge="Framework7" target="_top"></f7-list-item>
+      <f7-list-item link="https://framework7.io/kitchen-sink-material" title="Material Showcase" badge="Framework7" target="_top"></f7-list-item>
     </f7-list>
     <f7-block-title>Side Panels</f7-block-title>
     
@@ -63,7 +63,7 @@
     
     <!-- Link to GitHub repository -->
     <f7-block style="text-align: center">
-      <f7-link href="https://github.com/scriptPilot/app-framework" external>
+      <f7-link href="https://github.com/scriptPilot/app-framework" target="_top">
         <f7-icon fa="github"></f7-icon> App Framework - v{{$root.version}}
       </f7-link>
     </f7-block>
