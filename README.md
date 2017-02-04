@@ -46,7 +46,7 @@ Optional
 ### Setup your development environment
 
 - Install [Node.js with npm](https://docs.npmjs.com/getting-started/what-is-npm)
-- Download *[package.json](https://raw.githubusercontent.com/scriptPilot/app-framework/master/demo-app/package.json)* file to an empty folder (keep extension .json!)
+- Download *[package.json](https://github.com/scriptPilot/app-framework/blob/master/demo-app/package.json)* file to an empty folder (keep extension .json!)
 - Run `npm install` to setup project folder
 
 ### Develop your application
