@@ -19,15 +19,17 @@ module.exports = {
       // iOS > Material theme corrections
       if (this.$root.theme === 'material' && this.$root.config.materialSubnavbarFix) {
         // Subnavbar
-        this.$$(this.$el).addClass('toolbar-fixed')
-        this.$$(this.$el).removeClass('with-subnavbar')
         let subnavbar = this.$$(this.$el).find('.subnavbar')
-        subnavbar.prependTo(this.$el)
-        subnavbar.find('.buttons-row').addClass('toolbar-inner')
-        subnavbar.find('.buttons-row').removeClass('buttons-row')
-        subnavbar.addClass('toolbar')
-        subnavbar.addClass('tabbar')
-        subnavbar.removeClass('subnavbar')
+        if (subnavbar.length > 0) {
+          this.$$(this.$el).addClass('toolbar-fixed')
+          this.$$(this.$el).removeClass('with-subnavbar')
+          subnavbar.prependTo(this.$el)
+          subnavbar.find('.buttons-row').addClass('toolbar-inner')
+          subnavbar.find('.buttons-row').removeClass('buttons-row')
+          subnavbar.addClass('toolbar')
+          subnavbar.addClass('tabbar')
+          subnavbar.removeClass('subnavbar')
+        }
       }
 
       // Save view id and url in page data
