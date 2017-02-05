@@ -1,6 +1,6 @@
 # App Framework &nbsp; &nbsp; &nbsp; [![NPM Downloads](https://img.shields.io/npm/dt/app-framework.svg)](https://www.npmjs.com/package/app-framework) [![Latest Stable Version](https://img.shields.io/npm/v/app-framework.svg)](https://www.npmjs.com/package/app-framework) [![License](https://img.shields.io/npm/l/app-framework.svg)](https://www.npmjs.com/package/app-framework)
 
-**Does all the tricky stuff for you to develop, test, build and deploy iOS and Android like web applications.** 
+**Does all the tricky stuff for you to develop, build and deploy iOS and Android like web applications.** 
 
 ## Features
 > The power is under the hood - but for sure, we have a [Demo App](https://app-framework.scriptpilot.de/).
@@ -52,6 +52,7 @@ Optional
 - Install [Node.js with npm](https://docs.npmjs.com/getting-started/what-is-npm)
 - Download *[package.json](https://raw.githubusercontent.com/scriptPilot/app-framework/master/demo-app/package.json)* file to an empty folder (keep extension .json!)
 - Run `npm install` to setup project folder
+- Run `npm update` to update *App Framework* to latest sub version
 
 ### Develop your application
 
