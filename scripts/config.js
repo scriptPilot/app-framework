@@ -82,8 +82,6 @@ var env = {
   FONT_MATERIAL: '"' + app.loadIconFonts.material + '"',
   FONT_ION: '"' + app.loadIconFonts.ion + '"',
   FONT_AWESOME: '"' + app.loadIconFonts.fontawesome + '"',
-  USE_DATABASE: '"' + (app.firebase.useDatabaseService === true) + '"',
-  USE_STORAGE: '"' + (app.firebase.useStorageService === true) + '"',
   RESET_LOCAL_STORAGE: '"' + app.resetLocalStorageOnVersionChange + '"',
   PAGES: '"' + pageStr + '"'
 }

@@ -211,82 +211,79 @@ new Vue({ // eslint-disable-line
     // Resize again on windows resize
     this.$$(window).resize(updatePhoneFrame)
 
-    // Mount Firebase with shortlinks
-    window.user = null
-    window.db = null
-    window.store = null
-    window.timestamp = null
-    if (process.env.USE_DATABASE === 'true' || process.env.USE_STORAGE === 'true') {
-      // Import Firebase
-      var firebase = window.firebase = require('firebase')
-      // Init Firebase
-      firebase.initializeApp(app.firebase)
-      // User data from cache
-      window.user = this.user = localStorage.user ? JSON.parse(localStorage.user) : null
-      // Monitor user changes
-      firebase.auth().onAuthStateChanged(function (user) {
-        if (user) {
-          window.user = this.user = {
-            uid: user.uid,
-            email: user.email
-          }
-          localStorage.user = JSON.stringify(window.user)
-        } else {
-          // After logout - browse back in history to last page series which does not require login
-          if (localStorage.user) {
-            // Loop views
-            let viewsToReduce = window.views
-            for (let v in viewsToReduce) {
-              if (viewsToReduce[v]) {
-                let openPageSeries = 0
-                // Loop pages, count number of non-login-requiring pages
-                for (let p = 0; p < viewsToReduce[v].pages.length; p++) {
-                  if (app.pagesWithRequiredLogin.indexOf(viewsToReduce[v].pages[p]) === -1) {
-                    openPageSeries += 1
-                  }
+    // Import Firebase
+    var firebase = window.firebase = require('firebase')
+
+    // Init Firebase
+    firebase.initializeApp(app.firebase)
+
+    // User data from cache
+    window.user = this.user = localStorage.user ? JSON.parse(localStorage.user) : null
+
+    // Monitor user changes
+    firebase.auth().onAuthStateChanged(function (user) {
+      if (user) {
+        window.user = this.user = {
+          uid: user.uid,
+          email: user.email
+        }
+        localStorage.user = JSON.stringify(window.user)
+      } else {
+        // After logout - browse back in history to last page series which does not require login
+        if (localStorage.user) {
+          // Loop views
+          let viewsToReduce = window.views
+          for (let v in viewsToReduce) {
+            if (viewsToReduce[v]) {
+              let openPageSeries = 0
+              // Loop pages, count number of non-login-requiring pages
+              for (let p = 0; p < viewsToReduce[v].pages.length; p++) {
+                if (app.pagesWithRequiredLogin.indexOf(viewsToReduce[v].pages[p]) === -1) {
+                  openPageSeries += 1
                 }
-                // Get number of pages to browse back
-                let browseBack = viewsToReduce[v].pages.length - openPageSeries
-                // Browse back
-                for (let b = 0; b < browseBack; b++) {
-                  setTimeout(function () {
-                    this.$f7.views[viewsToReduce[v].no].router.back({animatePages: false})
-                  }.bind(this), 0)
-                }
+              }
+              // Get number of pages to browse back
+              let browseBack = viewsToReduce[v].pages.length - openPageSeries
+              // Browse back
+              for (let b = 0; b < browseBack; b++) {
+                setTimeout(function () {
+                  this.$f7.views[viewsToReduce[v].no].router.back({animatePages: false})
+                }.bind(this), 0)
               }
             }
           }
-          // After logout - remove all login requiring pages from local storage
-          if (localStorage.user) {
-            for (let el in localStorage) {
-              if (/page:(.+)/.test(el)) {
-                let page = el.substr(el.indexOf('/') + 1)
-                page = page.substr(0, page.indexOf('/') === -1 ? page.length : page.indexOf('/'))
-                if (app.pagesWithRequiredLogin.indexOf(page) !== -1) {
-                  localStorage.removeItem(el)
-                }
+        }
+        // After logout - remove all login requiring pages from local storage
+        if (localStorage.user) {
+          for (let el in localStorage) {
+            if (/page:(.+)/.test(el)) {
+              let page = el.substr(el.indexOf('/') + 1)
+              page = page.substr(0, page.indexOf('/') === -1 ? page.length : page.indexOf('/'))
+              if (app.pagesWithRequiredLogin.indexOf(page) !== -1) {
+                localStorage.removeItem(el)
               }
             }
           }
-          window.user = this.user = null
-          localStorage.removeItem('user')
         }
-      }.bind(this))
-      // Database shortlink
-      if (process.env.USE_DATABASE === 'true') {
-        window.db = function (path) {
-          return firebase.database().ref(path)
-        }
+        window.user = this.user = null
+        localStorage.removeItem('user')
       }
-      // Storage shortlink
-      if (process.env.USE_STORAGE === 'true') {
-        window.store = function (path) {
-          return firebase.storage().ref(path)
-        }
-      }
-      // Timestamp
-      window.timestamp = firebase.database.ServerValue.TIMESTAMP
+    }.bind(this))
+
+    // Database shortlink
+    window.db = function (path) {
+      return firebase.database().ref(path)
     }
+
+    // Storage shortlink
+    window.store = function (path) {
+      return firebase.storage().ref(path)
+    }
+
+    // Timestamp
+    window.timestamp = firebase.database.ServerValue.TIMESTAMP
+
+    // Sort object shortlink
     window.sortObject = require('./sort-object.js')
 
     // Update text patterns
