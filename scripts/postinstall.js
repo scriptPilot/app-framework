@@ -21,6 +21,9 @@ if (cfg.isInstalled) {
   var newApp = require(cfg.appRoot + 'package.json')
   var demoApp = require(path.resolve(cfg.packageRoot, 'demo-app/package.json'))
   newApp.scripts = demoApp.scripts /* update scripts */
+  if (!newApp.materialSubnavbarFix) {
+    newApp.materialSubnavbarFix = demoApp.materialSubnavbarFix
+  }
   saveJSON.writeFileSync(cfg.appRoot + 'package.json', newApp)
 
   // Copy template app.vue and reset version in package.json
@@ -28,9 +31,6 @@ if (cfg.isInstalled) {
     cpx.copySync(path.resolve(cfg.packageRoot, 'demo-app/app.vue'), cfg.appRoot)
     var app = require(cfg.appRoot + 'package.json')
     app.version = '0.1.0'
-    if (!app.materialSubnavbarFix) {
-      app.materialSubnavbarFix = true
-    }
     saveJSON.writeFileSync(cfg.appRoot + 'package.json', app)
   }
 
