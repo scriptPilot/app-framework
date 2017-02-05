@@ -33,7 +33,7 @@
   "faviconBackgroundColor": "#ffffff",
   "buildSourcemaps": false,
   "devDependencies": {
-    "app-framework": "^1.0.9"
+    "app-framework": "^1.0.10"
   },
   "scripts": {
     "dev": "cd node_modules/app-framework && node scripts/dev-server",
