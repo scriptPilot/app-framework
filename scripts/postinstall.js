@@ -24,6 +24,12 @@ if (cfg.isInstalled) {
   if (!newApp.materialSubnavbarFix) {
     newApp.materialSubnavbarFix = demoApp.materialSubnavbarFix
   }
+  if (newApp.firebase && newApp.firebase.useDatabaseService) {
+    delete newApp.firebase.useDatabaseService
+  }
+  if (newApp.firebase && newApp.firebase.useStorageService) {
+    delete newApp.firebase.useStorageService
+  }
   saveJSON.writeFileSync(cfg.appRoot + 'package.json', newApp)
 
   // Copy template app.vue and reset version in package.json
