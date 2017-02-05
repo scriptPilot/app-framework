@@ -120,6 +120,7 @@ new Vue({ // eslint-disable-line
   data: {
     language: localStorage.language ? localStorage.language : app.defaultLanguage,
     title: app.title,
+    theme: app.theme,
     version: app.version,
     config: app,
     user: null

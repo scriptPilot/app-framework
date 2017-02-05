@@ -28,6 +28,9 @@ if (cfg.isInstalled) {
     cpx.copySync(path.resolve(cfg.packageRoot, 'demo-app/app.vue'), cfg.appRoot)
     var app = require(cfg.appRoot + 'package.json')
     app.version = '0.1.0'
+    if (!app.materialSubnavbarFix) {
+      app.materialSubnavbarFix = true
+    }
     saveJSON.writeFileSync(cfg.appRoot + 'package.json', app)
   }
 

@@ -57,6 +57,7 @@ io('loadIconFonts')
 is('faviconIcon')
 is('faviconBackgroundColor')
 ib('buildSourcemaps')
+if (app.theme !== 'ios' && app.theme !== 'material') showOnly('Error in package.json: Theme must be "ios" or "material".')
 
 // Create string with array of all vue page components
 var pageStr = ''
