@@ -2,7 +2,7 @@
 
 > Does all the tricky stuff for you, to develop, build and deploy iOS and Android Apps - free and open source!
 
-![Process](process.png)
+![Process](media/process.png)
 
 ## Features
 
