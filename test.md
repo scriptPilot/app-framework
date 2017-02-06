@@ -29,7 +29,3 @@ Run app in Android emulator
 - 
 
 
-
-# App Framework
-
-![Process](process.png)
