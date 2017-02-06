@@ -1,6 +1,6 @@
 # App Framework &nbsp; &nbsp; &nbsp; [![](https://img.shields.io/npm/dt/app-framework.svg)](https://www.npmjs.com/package/app-framework) [![](https://img.shields.io/npm/v/app-framework.svg)](https://www.npmjs.com/package/app-framework) [![](https://img.shields.io/npm/l/app-framework.svg)](https://www.npmjs.com/package/app-framework)
 
-> Does all the tricky stuff for you, to develop, build and deploy iOS and Android Apps - for free and open source!
+> Does all the tricky stuff for you, to develop, build and deploy iOS and Android Apps - free and open source!
 
 ![Process](process.png)
 
@@ -17,11 +17,10 @@
 
 - Realize beautiful user interfaces with all well-known components and typical transitions, based on [Framework7](https://framework7.io/)
 - Make your user interface state-based and reactive with the power and simplicity of [Vue.js](https://vuejs.org/)
-- Save time with reusable components, powered by [Framework7-Vue components](https://framework7.io/vue/)
 - Comprehensive icon fonts out of the box like [FontAwesome](http://fontawesome.io/), [Framework7](http://framework7.io/icons/), [Ion](http://ionicons.com/) and [Material Icons](https://material.io/icons/)
-- Easy to maintain single file components, based on 
+- Easy to maintain [single file components](https://vuejs.org/guide/single-file-components) and reusable components, powered by [Framework7-Vue components](https://framework7.io/vue/)
 - One code base for all devices with HTML, CSS and JavaScript - realized with [Cordova](https://cordova.apache.org/)
-- Well prepared to use [Firebase Authentication](https://firebase.google.com/docs/auth/), [realtime database](https://firebase.google.com/docs/database/) and [storage services](https://firebase.google.com/docs/storage/)
+- Well prepared to use [Firebase authentication](https://firebase.google.com/docs/auth/), [realtime database](https://firebase.google.com/docs/database/) and [storage services](https://firebase.google.com/docs/storage/)
 
 Easy integration of Firebase User registration, password reset and login processes with [Firebase Authentication]()
 - [Realtime database]() and [file storage]() services with Firebase
