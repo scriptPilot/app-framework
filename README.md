@@ -27,7 +27,7 @@
 - One code base for all devices with HTML, CSS and JavaScript - realized with [Cordova](https://cordova.apache.org/), supporting [Babel / ES2015](https://babeljs.io/learn-es2015/)
 - Well prepared to use [Firebase authentication](https://firebase.google.com/docs/auth/), [realtime database](https://firebase.google.com/docs/database/) and [storage services](https://firebase.google.com/docs/storage/)
 - State kept for history, tabs, scroll positions, focus, panels, modals, form inputs and page component data
-- Offline capabilty, flexible routing and multi-language support out of the box
+- Offline capability, flexible routing and multi-language support out of the box
 
 ### Testing
 
