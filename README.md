@@ -15,7 +15,7 @@
 
 ### Design
 
-- Printable [templates](media/smartphone-template.pdf) to design your application with paper and pencil
+- Printable [template](media/smartphone-template.pdf) to design your application with paper and pencil
 - Template for your icon design - as [PDF for sketching](media/icon-template.pdf) and [PPTX](media/icon-template.pptx) for drawing
 
 ### Development
