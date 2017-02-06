@@ -1,0 +1,3 @@
+- Install Android SDK
+- Install JavaSDK
+- Set ANDROID_HOME
