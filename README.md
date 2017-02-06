@@ -31,8 +31,8 @@
 
 ## Quick start
 
-- Install [Node.js with npm](https://docs.npmjs.com/getting-started/what-is-npm)
-- Download *[package.json](https://raw.githubusercontent.com/scriptPilot/app-framework/master/demo-app/package.json)* file to an empty folder (keep extension .json!)
-- Run `npm install` to setup the project folder
-- Run `npm run dev` to start the Demo App at localhost:8080
-- Read our [Documentation](DOCUMENTATION.md)
+1. Install [Node.js with npm](https://docs.npmjs.com/getting-started/what-is-npm)
+2. Download *[package.json](https://raw.githubusercontent.com/scriptPilot/app-framework/master/demo-app/package.json)* file to an empty folder (keep extension .json!)
+3. Run `npm install` to setup the project folder
+4. Run `npm run dev` to start the Demo App at localhost:8080
+5. Read our [Documentation](DOCUMENTATION.md)
