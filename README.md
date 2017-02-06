@@ -21,7 +21,7 @@
 ### Development
 
 - Realize beautiful user interfaces with all well-known components and transitions, based on [Framework7](https://framework7.io/)
-- Comprehensive icon fonts out of the box like [FontAwesome](http://fontawesome.io/), [Framework7](http://framework7.io/icons/), [Ion](http://ionicons.com/) and [Material Icons](https://material.io/icons/)
+- Use comprehensive icon fonts like [FontAwesome](http://fontawesome.io/), [Framework7](http://framework7.io/icons/), [Ion](http://ionicons.com/) and [Material Icons](https://material.io/icons/)
 - Make your user interface state-based and reactive with the power and simplicity of [Vue.js](https://vuejs.org/)
 - Easy to maintain [single file components](https://vuejs.org/guide/single-file-components) and reusable components, powered by [Framework7-Vue components](https://framework7.io/vue/)
 - One code base for all devices with HTML, CSS and JavaScript - realized with [Cordova](https://cordova.apache.org/), supporting [Babel / ES2015](https://babeljs.io/learn-es2015/)
