@@ -50,6 +50,11 @@
   - To the [Google Play Store](https://play.google.com/) (work in progress)
 - Easy rollback solution
 
+### Backup
+
+- Download your [Firebase database content](https://firebase.google.com/docs/database/) to a local JSON file
+- Create a ZIP file of all important project files for backup on any external drive or cloud service
+
 ## Quick start
 
 1. Install [Node.js with npm](https://docs.npmjs.com/getting-started/what-is-npm)
