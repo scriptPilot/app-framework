@@ -1,4 +1,4 @@
-# App Framework
+# App Framework &nbsp; &nbsp; &nbsp; [![](https://img.shields.io/npm/dt/app-framework.svg)](https://www.npmjs.com/package/app-framework) [![](https://img.shields.io/npm/v/app-framework.svg)](https://www.npmjs.com/package/app-framework) [![](https://img.shields.io/npm/l/app-framework.svg)](https://www.npmjs.com/package/app-framework)
 
 > Does all the tricky stuff for you, to develop, build and deploy iOS and Android Apps - for free and open source!
 
