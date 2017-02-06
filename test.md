@@ -15,4 +15,6 @@ Run app in Android emulator
 - Restart console
 - `cd C:\Programmierung\cordova`
 - `cordova run android`
-- 
+
+
+> iOS and Android Apps with HTML and JavaScript - App Framework does all the tricky things for you!
