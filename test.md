@@ -2,6 +2,8 @@
 
 > iOS and Android Apps with HTML and JavaScript - App Framework does all the tricky things for you!
 
++ Process as graphic
+
 Run app in browser
 - Open console
 - `npm install -g cordova`
