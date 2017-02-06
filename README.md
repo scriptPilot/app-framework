@@ -23,7 +23,7 @@
 - Realize beautiful user interfaces with all well-known components and transitions, based on [Framework7](https://framework7.io/)
 - Use comprehensive icon fonts like [FontAwesome](http://fontawesome.io/), [Framework7](http://framework7.io/icons/), [Ion](http://ionicons.com/) and [Material Icons](https://material.io/icons/)
 - Make your user interface state-based and reactive with the power and simplicity of [Vue.js](https://vuejs.org/)
-- Easy to maintain [single file components](https://vuejs.org/guide/single-file-components) and time-saving [UI components](https://framework7.io/vue/)
+- Easy to maintain [single page components](https://vuejs.org/guide/single-file-components) and time-saving [UI components](https://framework7.io/vue/)
 - One code base for all devices with HTML, CSS and JavaScript - realized with [Cordova](https://cordova.apache.org/), supporting [Babel / ES2015](https://babeljs.io/learn-es2015/)
 - Well prepared to use [Firebase authentication](https://firebase.google.com/docs/auth/), [realtime database](https://firebase.google.com/docs/database/) and [storage services](https://firebase.google.com/docs/storage/)
 - State kept for history, tabs, scroll positions, focus, panels, modals, form and page component data
