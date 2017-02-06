@@ -4,20 +4,38 @@
 
 ![Process](process.png)
 
+### Setup
+
+- Creation of a lightweight and well-organized project folder, prepared to push to [GitHub](https://github.com/about)
+
+### Design
+
+- Printable templates to design your application with paper and pencil
+
+### Development
+
+
+- Realize beautiful user interfaces with [Framework7](https://framework7.io/)
+- Comprehensive icon fonts like [FontAwesome](http://fontawesome.io/), [Framework7](http://framework7.io/icons/), [Ion](http://ionicons.com/) and [Material Icons](https://material.io/icons/)
+- One code base for all devices - realized with [Cordova](https://cordova.apache.org/)
+
+### Testing
+
+- 
+
+### Building
+
+### Deployment
+
 ---
 
-
-
-# App Framework &nbsp; &nbsp; &nbsp; [![](https://img.shields.io/npm/dt/app-framework.svg) ![](https://img.shields.io/npm/v/app-framework.svg)] ![](https://img.shields.io/npm/l/app-framework.svg)](https://www.npmjs.com/package/app-framework)
-
-**Does all the tricky stuff for you to develop, build and deploy iOS and Android like web applications for free.** 
 
 ## Features
 > The power is under the hood - but for sure, we have a [Demo App](https://app-framework.scriptpilot.de/).
 
 **Beautiful**
 - All well known [iOS](http://framework7.io/kitchen-sink-ios/) and [Material](http://framework7.io/kitchen-sink-material/) user interface components as well as native transitions
-- Comprehensive icon fonts like [FontAwesome](http://fontawesome.io/), [Framework7](http://framework7.io/icons/), [Ion](http://ionicons.com/) and [Material Icons](https://material.io/icons/)
+
 - Phone frame around your application on big screens
 
 **Powerful**
@@ -31,7 +49,7 @@
 
 **Timesaving**
 
-- Creation of a lightweight and well-organized project folder, prepared to push to [GitHub](https://github.com/about)
+- 
 - Development server with live reload, perfectly to use together with [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools/) 
 - Your application is splitted up in easy to maintain [single file components](https://vuejs.org/v2/guide/single-file-components.html) with [ES2015 support](https://babeljs.io/learn-es2015/)
 - Generation of favicons, touch icons and splash screens out of a single image file
