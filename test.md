@@ -13,7 +13,7 @@ Run app in browser
 - `cordova platform add browser`
 - `cordova run browser`
 
-Run app in Android emulator
+Run app in Android emulator (first try)
 - Install Android SDK tools - C:\android\tools
 - Set ANDROID_HOME - C:\android
 - Install JavaSDK
@@ -22,3 +22,8 @@ Run app in Android emulator
 - `cd C:\Programmierung\cordova`
 - `cordova run android`
 - ...
+
+Run app in Android emulator
+- Install Android Studio
+- Run Android Studio for component setup
+- 
