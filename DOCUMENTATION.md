@@ -14,16 +14,16 @@ Optional
 - [Vue](https://vuejs.org/v2/guide/)
 - [Firebase](https://firebase.google.com/docs/web/setup)
 
-### Design your application
-- Use our printable [smartphone template](smartphone-template.pdf) to sketch your application
-- Use our icon template as [PDF to sketch](icon-template.pdf) and [PPTX to draw](icon-template.pptx) your application icon
-
 ### Setup your development environment
 
 - Install [Node.js with npm](https://docs.npmjs.com/getting-started/what-is-npm)
 - Download *[package.json](https://raw.githubusercontent.com/scriptPilot/app-framework/master/demo-app/package.json)* file to an empty folder (keep extension .json!)
 - Run `npm install` to setup project folder
 - Run `npm update` to update *App Framework* to latest sub version
+
+### Design your application
+- Use our printable [smartphone template](smartphone-template.pdf) to sketch your application
+- Use our icon template as [PDF to sketch](icon-template.pdf) and [PPTX to draw](icon-template.pptx) your application icon
 
 ### Develop your application
 
