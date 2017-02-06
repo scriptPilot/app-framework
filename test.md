@@ -27,3 +27,9 @@ Run app in Android emulator
 - Install Android Studio
 - Run Android Studio for component setup
 - 
+
+
+
+# App Framework
+
+![Process](process.png)
