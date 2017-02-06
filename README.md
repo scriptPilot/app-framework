@@ -11,11 +11,11 @@
 
 ### Design
 
-- Printable templates to design your application with paper and pencil
+- Printable [templates](smartphone-template.pdf) to design your application with paper and pencil
 
 ### Development
 
-- Realize beautiful user interfaces with all well-known components and typical transitions, based on [Framework7](https://framework7.io/), for [iOS](http://framework7.io/kitchen-sink-ios/) and [Material](http://framework7.io/kitchen-sink-material/)
+- Realize beautiful user interfaces with all well-known components and typical transitions, based on [Framework7](https://framework7.io/)
 - Make your user interface state-based and reactive with the power and simplicity of [Vue.js](https://vuejs.org/)
 - Save time with reusable components, powered by [Framework7-Vue components](https://framework7.io/vue/)
 - Comprehensive icon fonts out of the box like [FontAwesome](http://fontawesome.io/), [Framework7](http://framework7.io/icons/), [Ion](http://ionicons.com/) and [Material Icons](https://material.io/icons/)
