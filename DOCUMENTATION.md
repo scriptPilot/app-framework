@@ -1,6 +1,6 @@
 # Documentation
 
-> First contact with App Framework? Please read the [README file](README.md) first!
+> First contact with App Framework? Please read the [Readme file](README.md) first!
 
 Read less, code more - please open a ticket for any open question in our [Issue List](https://github.com/scriptPilot/app-framework/issues).
 
