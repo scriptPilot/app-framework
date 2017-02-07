@@ -65,8 +65,8 @@
 
 ## Roadmap
 
-- v1.3 - Tutorial: ToDo App
-- v1.4 - Robustness improvements
-- v1.5 - Extensions
-- v1.1 - Apple App Store deployment
-- v1.2 - Google Play Store deployment
+- [v1.1 - Apple App Store deployment](https://github.com/scriptPilot/app-framework/milestone/4)
+- [v1.2 - Google Play Store deployment](https://github.com/scriptPilot/app-framework/milestone/5)
+- [v1.3 - Tutorial: ToDo App](https://github.com/scriptPilot/app-framework/milestone/3)
+- [v1.4 - Robustness improvements](https://github.com/scriptPilot/app-framework/milestone/6)
+- [v1.5 - Extensions](https://github.com/scriptPilot/app-framework/milestone/7)
