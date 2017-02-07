@@ -15,8 +15,12 @@
 - cordova platform add browser
 - cordova run browser
 
-// Run ios
+// Run ios in simulator
 - sudo npm -g install ios-deploy --unsafe-perm=true
 - cordova platform add ios
 - open cordova/platforms/ios/HelloCordova.xcodeproj in Xcode
 - Select device, start simulator
+
+// Run ios on own device
+- Buy Apple developer program membership: https://developer.apple.com/programs/ios/
+- ...
