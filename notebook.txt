@@ -22,5 +22,6 @@
 - Select device, start simulator
 
 // Run ios on own device
-- Buy Apple developer program membership: https://developer.apple.com/programs/ios/
-- ...
+- Sign to Apple developer program - 99€ per year
+- Select project > select target > General > Signing: Automatically manage signing
+- Select own device, start
