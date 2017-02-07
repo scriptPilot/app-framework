@@ -63,7 +63,7 @@
 4. Run `npm run dev` to start the Demo App at localhost:8080
 5. Read our [Documentation](DOCUMENTATION.md)
 
-## Roadmap
+## Milestones
 
 - [v1.1 - Apple App Store deployment](https://github.com/scriptPilot/app-framework/milestone/4)
 - [v1.2 - Google Play Store deployment](https://github.com/scriptPilot/app-framework/milestone/5)
