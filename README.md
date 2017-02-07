@@ -53,7 +53,7 @@
 ### Backup
 
 - Download your [Firebase database content](https://firebase.google.com/docs/database/) to a local JSON file
-- Create a ZIP file of all important project files for backup on any external drive or cloud service
+- Create a ZIP file with all important project files to backup on any external drive or cloud service
 
 ## Quick start
 
