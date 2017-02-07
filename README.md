@@ -63,3 +63,10 @@
 4. Run `npm run dev` to start the Demo App at localhost:8080
 5. Read our [Documentation](DOCUMENTATION.md)
 
+## Roadmap
+
+- v1.3 - Tutorial: ToDo App
+- v1.4 - Robustness improvements
+- v1.5 - Extensions
+- v1.1 - Apple App Store deployment
+- v1.2 - Google Play Store deployment
