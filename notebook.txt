@@ -1,0 +1,22 @@
+// Install app-framework
+- Clone app-framework
+- sudo npm install  --unsafe-perm=true
+- npm run patch
+
+// Install cordova
+- Install Xcode
+- Open console window in project folder
+- sudo npm -g install cordova
+- cordova create cordova
+- copy latest build folder content to cordova/www
+
+// Run browser
+- cd cordova
+- cordova platform add browser
+- cordova run browser
+
+// Run ios
+- sudo npm -g install ios-deploy --unsafe-perm=true
+- cordova platform add ios
+- open cordova/platforms/ios/HelloCordova.xcodeproj in Xcode
+- Select device, start simulator

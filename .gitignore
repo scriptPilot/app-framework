@@ -1,6 +1,9 @@
 # Exclude node modules
 node_modules/
 
+# Exclude cordova
+cordova/
+
 # Exclude build folders
 demo-app/www/build-*
 
