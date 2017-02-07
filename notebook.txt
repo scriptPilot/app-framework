@@ -31,3 +31,6 @@ cordova plugin save
 cordova platform rm ios
 cordova platform add ios
 cordova run ios
+
+// Run android on OSX
+- Install Android Studio
