@@ -25,3 +25,9 @@
 - Sign to Apple developer program - 99€ per year
 - Select project > select target > General > Signing: Automatically manage signing
 - Select own device, start
+
+// Update cordova
+cordova plugin save
+cordova platform rm ios
+cordova platform add ios
+cordova run ios
