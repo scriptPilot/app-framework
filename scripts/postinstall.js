@@ -90,7 +90,7 @@ if (cfg.isInstalled) {
 }
 
 // Install common global packages
-run('npm install -g firebase-tools && npm install -g standard && npm install eslint-plugin-html -g', function (err, stdOut, errOut) {
+run('npm install -g firebase-tools standard eslint-plugin-html cordova', function (err, stdOut, errOut) {
   if (err) {
     console.log(errOut)
     console.log('Error: Cannot install global dependencies')

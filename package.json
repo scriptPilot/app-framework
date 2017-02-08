@@ -11,6 +11,7 @@
     "patch": "npm run fix && npm version patch && node scripts/build",
     "minor": "npm run fix && npm version minor && node scripts/build",
     "major": "npm run fix && npm version major && node scripts/build",
+    "ios": "node scripts/ios",
     "database": "node scripts/prepare-firebase-database && cd demo-app && firebase login && firebase deploy --only database && cd ../ && node scripts/cleanup-firebase",
     "storage": "node scripts/prepare-firebase-storage && cd demo-app && firebase login && firebase deploy --only storage && cd ../ && node scripts/cleanup-firebase",
     "hosting": "npm run fix && node scripts/prepare-firebase-deploy && cd demo-app && firebase login && firebase deploy --only hosting && cd ../ && node scripts/cleanup-firebase",
