@@ -1,6 +1,6 @@
 {
   "name": "demo-app",
-  "version": "1.0.20",
+  "version": "1.0.21",
   "title": "Demo App",
   "theme": "ios",
   "materialSubnavbarFix": true,
@@ -31,7 +31,7 @@
   "faviconBackgroundColor": "#ffffff",
   "buildSourcemaps": false,
   "devDependencies": {
-    "app-framework": "^1.0.20"
+    "app-framework": "^1.0.21"
   },
   "scripts": {
     "dev": "cd node_modules/app-framework && node scripts/dev-server",
