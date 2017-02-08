@@ -33,4 +33,4 @@ cordova platform add ios
 cordova run ios
 
 // Run android on OSX
-- Install Android Studio (default options, with virtual device)
+- Install Android Studio (default options, with virtual device and HAXM)
