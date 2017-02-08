@@ -72,6 +72,7 @@
     "webpack-hot-middleware": "^2.12.2",
     "webpack-merge": "^0.14.1",
     "write": "^0.3.2",
+    "xml2js": "^0.4.17",
     "zip-dir": "^1.0.2"
   },
   "engines": {

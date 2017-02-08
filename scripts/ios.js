@@ -6,9 +6,12 @@ var run = require('./run')
 var showOnly = require('./show-only')
 var read = require('read-file')
 var deleteFiles = require('delete')
+var xml = require('xml2js')
+var write = require('write')
 
 // Load configuration
 var cfg = require('./config.js')
+var app = require(cfg.appRoot + 'package.json')
 
 // Show message
 showOnly('iOS build ongoing - please wait ...')
@@ -21,16 +24,43 @@ function updateCordovaBuild (callback) {
   // Build folder exists
   if (isThere(path.resolve(cfg.appRoot, 'www/build-' + version))) {
     // Delete cordova www folder
-    deleteFiles(path.resolve(cfg.packageRoot, 'cordova/www'), function (err) {
+    deleteFiles(path.resolve(cfg.packageRoot, 'cordova/www/**/*'), function (err) {
       if (err) {
         throw new Error(err)
       } else {
         // Copy build files
-        copy(path.resolve(cfg.appRoot, 'www/build-' + version), path.resolve(cfg.packageRoot, 'cordova/www'), function (err) {
+        copy(path.resolve(cfg.appRoot, 'www/build-' + version + '/**/*'), path.resolve(cfg.packageRoot, 'cordova/www'), function (err) {
           if (err) {
             throw new Error(err)
           } else {
-            callback()
+            // Read cordova config file
+            read(path.resolve(cfg.packageRoot, 'cordova/config.xml'), 'utf-8', function (err, content) {
+              if (err) {
+                throw new Error(err)
+              } else {
+                // Parse cordova config file
+                let xmlParser = new xml.Parser()
+                xmlParser.parseString(content, function (err, cordovaConfig) {
+                  if (err) {
+                    throw new Error(err)
+                  } else {
+                    // Update application name
+                    cordovaConfig.widget.name = app.title
+                    // Build cordova config file
+                    let builder = new xml.Builder()
+                    let cordovaConfigXml = builder.buildObject(cordovaConfig)
+                    // Save cordova config file
+                    write(path.resolve(cfg.packageRoot, 'cordova/config.xml'), cordovaConfigXml, function (err) {
+                      if (err) {
+                        throw new Error(err)
+                      } else {
+                        callback()
+                      }
+                    })
+                  }
+                })
+              }
+            })
           }
         })
       }
@@ -42,7 +72,7 @@ function updateCordovaBuild (callback) {
 
 // Create cordova project folder
 function createCordovaProject (callback) {
-  if (!isThere(cfg.packageRoot + 'cordova')) {
+  if (!isThere(cfg.packageRoot, 'cordova')) {
     run('cd "' + cfg.packageRoot + '" && cordova create cordova', updateCordovaBuild(callback))
   } else {
     updateCordovaBuild(callback)
@@ -62,5 +92,6 @@ function buildCordovaIos (callback) {
 // Start build process
 buildCordovaIos(function () {
   // run('cd "' + path.resolve(cfg.packageRoot, 'cordova') + '" && cordova run ios')
-  showOnly('iOS build done! Please open Xcode to run the simulator or to comit your application to the App Store.')
+  run('open -a Xcode "' + path.resolve(cfg.packageRoot, 'cordova/platforms/ios', app.title + '.xcodeproj') + '"')
+  showOnly('iOS build done! Please open Xcode to run the simulator or to publish your application to the App Store.')
 })
