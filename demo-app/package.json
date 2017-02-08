@@ -1,6 +1,6 @@
 {
   "name": "demo-app",
-  "version": "1.0.26",
+  "version": "1.0.27",
   "title": "Demo App",
   "theme": "ios",
   "materialSubnavbarFix": true,
@@ -27,8 +27,7 @@
     "ion": false,
     "fontawesome": true
   },
-  "useCordovaPlugins": [
-  ],
+  "useCordovaPlugins": [],
   "faviconIcon": "images/icon.png",
   "faviconBackgroundColor": "#ffffff",
   "buildSourcemaps": false,

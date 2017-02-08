@@ -8,6 +8,8 @@ var read = require('read-file')
 var deleteFiles = require('delete')
 var xml = require('xml2js')
 var write = require('write')
+var img = require('lwip')
+var fs = require('fs-extra')
 
 // Load configuration
 var cfg = require('./config.js')
@@ -16,9 +18,20 @@ var app = require(cfg.appRoot + 'package.json')
 // Show message
 showOnly('iOS build ongoing - please wait ...')
 
+// Create cordova project folder
+function createCordovaProject (callback) {
+  if (!isThere(path.resolve(cfg.packageRoot, 'cordova/config.xml'))) {
+    run('cd "' + cfg.packageRoot + '" && cordova create cordova', function () {
+      callback()
+    })
+  } else {
+    callback()
+  }
+}
+
 // Install cordova plugins
-let currentPlugins = require(cfg.packageRoot + 'cordova/plugins/fetch.json')
 function updateCordovaPlugins (callback) {
+  let currentPlugins = isThere(path.resolve(cfg.packageRoot, 'cordova/plugins/fetch.json')) ? require(path.resolve(cfg.packageRoot, 'cordova/plugins/fetch.json')) : {}
   let pluginChanges = []
   for (let p = 0; p < app.useCordovaPlugins.length; p++) {
     if (currentPlugins[app.useCordovaPlugins[p]] === undefined) {
@@ -33,17 +46,6 @@ function updateCordovaPlugins (callback) {
   if (pluginChanges.length > 0) {
     let command = 'cd "' + path.resolve(cfg.packageRoot, 'cordova') + '" && ' + pluginChanges.join(' && ')
     run(command, function () {
-      callback()
-    })
-  } else {
-    callback()
-  }
-}
-
-// Create cordova project folder
-function createCordovaProject (callback) {
-  if (!isThere(cfg.packageRoot + 'cordova/config.xml')) {
-    run('cd "' + cfg.packageRoot + '" && cordova create cordova', function () {
       callback()
     })
   } else {
@@ -79,19 +81,71 @@ function updateCordovaBuild (callback) {
                   if (err) {
                     throw new Error(err)
                   } else {
+                    // Clean-up cordova config
+                    for (let i in cordovaConfig.widget) {
+                      if (i === 'platform') {
+                        for (let i2 in cordovaConfig.widget[i]) {
+                          // Remove icons
+                          if (cordovaConfig.widget[i][i2].icon !== undefined) {
+                            delete cordovaConfig.widget[i][i2].icon
+                          }
+                        }
+                      }
+                    }
                     // Update application name
                     cordovaConfig.widget.name = app.title
-                    // Build cordova config file
-                    let builder = new xml.Builder()
-                    let cordovaConfigXml = builder.buildObject(cordovaConfig)
-                    // Save cordova config file
-                    write(path.resolve(cfg.packageRoot, 'cordova/config.xml'), cordovaConfigXml, function (err) {
-                      if (err) {
-                        throw new Error(err)
+                    // Function to save cordova config
+                    function saveCordovaConfig(config) {
+                      // Build cordova config file
+                      let builder = new xml.Builder()
+                      let cordovaConfigXml = builder.buildObject(cordovaConfig)
+                      // Save cordova config file
+                      write(path.resolve(cfg.packageRoot, 'cordova/config.xml'), cordovaConfigXml, function (err) {
+                        if (err) {
+                          throw new Error(err)
+                        } else {
+                          callback()
+                        }
+                      })
+                    }
+                    // Update ios icons and startup images
+                    if (isThere(path.resolve(cfg.appRoot, app.faviconIcon))) {
+                      if (!isThere(path.resolve(cfg.packageRoot, 'cordova/icons'))) {
+                        fs.mkdir(path.resolve(cfg.packageRoot, 'cordova/icons'))
                       } else {
-                        callback()
+                        deleteFiles.sync(path.resolve(cfg.packageRoot, 'cordova/icons/**/*'))
                       }
-                    })
+                      cordovaConfig.widget.platform[1].icon = []
+                      let sizes = [20, 29, 29, 40, 50, 57, 58, 60, 72, 76, 80, 87, 100, 114, 120, 144, 152, 167, 170, 180]
+                      img.open(path.resolve(cfg.appRoot, app.faviconIcon), function (err, image) {
+                        img.create(image.width(), image.height(), 'white', function (err, canvas) {
+                          canvas.paste(0, 0, image, function (err, canvas) {
+                            for (let s = 0; s < sizes.length; s++) {
+                              canvas.clone(function (err, thumbnail) {
+                                thumbnail.resize(sizes[s], sizes[s], function (err, thumbnail) {
+                                  thumbnail.writeFile(path.resolve(cfg.packageRoot, 'cordova/icons/icon-' + sizes[s] + '.png'), function (err) {
+                                    if (!err) {
+                                      cordovaConfig.widget.platform[1].icon.push({
+                                        $: {
+                                          src: 'icons/icon-' + sizes[s] + '.png',
+                                          width: sizes[s],
+                                          height: sizes[s]
+                                        }
+                                      })
+                                    }
+                                    if (s + 1 === sizes.length) {
+                                      saveCordovaConfig()
+                                    }
+                                  })
+                                })
+                              })
+                            }
+                          })
+                        })
+                      })
+                    } else {
+                      saveCordovaConfig()
+                    }
                   }
                 })
               }
