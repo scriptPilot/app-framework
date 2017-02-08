@@ -53,7 +53,7 @@
 ### Backup
 
 - Download your [Firebase database content](https://firebase.google.com/docs/database/) to a local JSON file
-- Create a ZIP file of all important project files for backup on any external drive or cloud service
+- Create a ZIP file with all important project files to backup on any external drive or cloud service
 
 ## Quick start
 
@@ -63,3 +63,11 @@
 4. Run `npm run dev` to start the Demo App at localhost:8080
 5. Read our [Documentation](DOCUMENTATION.md)
 
+## Milestones
+
+- [v1.1 - Apple App Store deployment](https://github.com/scriptPilot/app-framework/milestone/4)
+- [v1.2 - Google Play Store deployment](https://github.com/scriptPilot/app-framework/milestone/5)
+- [v1.3 - Tutorial: ToDo App](https://github.com/scriptPilot/app-framework/milestone/3)
+- [v1.4 - Robustness improvements](https://github.com/scriptPilot/app-framework/milestone/6)
+- [v1.5 - Extensions](https://github.com/scriptPilot/app-framework/milestone/7)
+- [v2.0 - GUI helper tool](https://github.com/scriptPilot/app-framework/milestone/8)
