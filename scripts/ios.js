@@ -53,6 +53,21 @@ function updateCordovaPlugins (callback) {
   }
 }
 
+// Function to save cordova config
+function saveCordovaConfig (config, callback) {
+  // Build cordova config file
+  let builder = new xml.Builder()
+  let cordovaConfigXml = builder.buildObject(config)
+  // Save cordova config file
+  write(path.resolve(cfg.packageRoot, 'cordova/config.xml'), cordovaConfigXml, function (err) {
+    if (err) {
+      throw new Error(err)
+    } else {
+      callback()
+    }
+  })
+}
+
 // Update cordova www folder and config.xml
 function updateCordovaBuild (callback) {
   // Get version of last build to be used
@@ -94,20 +109,6 @@ function updateCordovaBuild (callback) {
                     }
                     // Update application name
                     cordovaConfig.widget.name = app.title
-                    // Function to save cordova config
-                    function saveCordovaConfig(config) {
-                      // Build cordova config file
-                      let builder = new xml.Builder()
-                      let cordovaConfigXml = builder.buildObject(cordovaConfig)
-                      // Save cordova config file
-                      write(path.resolve(cfg.packageRoot, 'cordova/config.xml'), cordovaConfigXml, function (err) {
-                        if (err) {
-                          throw new Error(err)
-                        } else {
-                          callback()
-                        }
-                      })
-                    }
                     // Update ios icons and startup images
                     if (isThere(path.resolve(cfg.appRoot, app.faviconIcon))) {
                       if (!isThere(path.resolve(cfg.packageRoot, 'cordova/icons'))) {
@@ -118,11 +119,26 @@ function updateCordovaBuild (callback) {
                       cordovaConfig.widget.platform[1].icon = []
                       let sizes = [20, 29, 29, 40, 50, 57, 58, 60, 72, 76, 80, 87, 100, 114, 120, 144, 152, 167, 170, 180]
                       img.open(path.resolve(cfg.appRoot, app.faviconIcon), function (err, image) {
+                        if (err) {
+                          throw new Error(err)
+                        }
                         img.create(image.width(), image.height(), 'white', function (err, canvas) {
+                          if (err) {
+                            throw new Error(err)
+                          }
                           canvas.paste(0, 0, image, function (err, canvas) {
+                            if (err) {
+                              throw new Error(err)
+                            }
                             for (let s = 0; s < sizes.length; s++) {
                               canvas.clone(function (err, thumbnail) {
+                                if (err) {
+                                  throw new Error(err)
+                                }
                                 thumbnail.resize(sizes[s], sizes[s], function (err, thumbnail) {
+                                  if (err) {
+                                    throw new Error(err)
+                                  }
                                   thumbnail.writeFile(path.resolve(cfg.packageRoot, 'cordova/icons/icon-' + sizes[s] + '.png'), function (err) {
                                     if (!err) {
                                       cordovaConfig.widget.platform[1].icon.push({
@@ -134,7 +150,7 @@ function updateCordovaBuild (callback) {
                                       })
                                     }
                                     if (s + 1 === sizes.length) {
-                                      saveCordovaConfig()
+                                      saveCordovaConfig(cordovaConfig, callback)
                                     }
                                   })
                                 })
@@ -144,7 +160,7 @@ function updateCordovaBuild (callback) {
                         })
                       })
                     } else {
-                      saveCordovaConfig()
+                      saveCordovaConfig(cordovaConfig, callback)
                     }
                   }
                 })
