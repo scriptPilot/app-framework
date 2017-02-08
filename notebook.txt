@@ -36,3 +36,5 @@ cordova run ios
 - Install Android Studio (default options, with virtual device and HAXM)
 
 Error: Git working directory not clean. >> Commit changes in GitHub desktop
+
+Update app framework on ios: sudo npm update --unsafe-perm=true
