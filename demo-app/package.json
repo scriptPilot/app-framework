@@ -1,6 +1,6 @@
 {
   "name": "demo-app",
-  "version": "1.0.15",
+  "version": "1.0.17",
   "title": "Demo App",
   "theme": "ios",
   "materialSubnavbarFix": true,
