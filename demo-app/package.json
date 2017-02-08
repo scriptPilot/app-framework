@@ -1,6 +1,6 @@
 {
   "name": "demo-app",
-  "version": "1.0.22",
+  "version": "1.0.26",
   "title": "Demo App",
   "theme": "ios",
   "materialSubnavbarFix": true,
@@ -28,7 +28,6 @@
     "fontawesome": true
   },
   "useCordovaPlugins": [
-    "cordova-plugin-statusbar"
   ],
   "faviconIcon": "images/icon.png",
   "faviconBackgroundColor": "#ffffff",

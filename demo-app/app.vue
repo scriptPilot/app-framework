@@ -1,20 +1,20 @@
 <!--
 
   Take this template as base for your own application.
-  
+
   For real modularization, all pages are extracted to their own page component in /pages folder.
   You can define the initial page for each view with the URL attribute.
   Initial pages should not require a login (to configure in package.json file).
-  
+
   Read more about application layouts: https://framework7.io/vue/app-layout.html
-  
+
 -->
 
 <template>
 
   <!-- Will replace app container -->
   <div id="app">
-  
+
     <!-- Statusbar -->
     <f7-statusbar></f7-statusbar>
 
@@ -61,5 +61,5 @@
   .swipeout-actions-right .fa  {
     font-size: 20px;
   }
-  
+
 </style>
