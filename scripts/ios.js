@@ -72,7 +72,7 @@ function updateCordovaBuild (callback) {
 
 // Create cordova project folder
 function createCordovaProject (callback) {
-  if (!isThere(cfg.packageRoot + 'cordova')) {    
+  if (!isThere(cfg.packageRoot + 'cordova')) {
     run('cd "' + cfg.packageRoot + '" && cordova create cordova', updateCordovaBuild(callback))
   } else {
     updateCordovaBuild(callback)
