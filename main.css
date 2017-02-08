@@ -5,7 +5,7 @@ body {
 
 /* Statusbar */
 .statusbar-overlay {
-  background: #000000;
+  background: #F7F7F8;
 }
 
 /* Phone frame */
@@ -85,6 +85,6 @@ body {
 }
 
 /* Initial reload splash fix */
-.framework7-root {  
+.framework7-root {
   visibility: hidden;
 }

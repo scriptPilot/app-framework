@@ -16,58 +16,18 @@ var app = require(cfg.appRoot + 'package.json')
 // Show message
 showOnly('iOS build ongoing - please wait ...')
 
-// Update cordova www folder with last build files
-function updateCordovaBuild (callback) {
-  // Get version of last build to be used
-  var htaccess = read.sync(path.resolve(cfg.appRoot, 'www/.htaccess'), 'utf8')
-  var version = htaccess.match(/build-(.+)\//)[1]
-  // Build folder exists
-  if (isThere(path.resolve(cfg.appRoot, 'www/build-' + version))) {
-    // Delete cordova www folder
-    deleteFiles(path.resolve(cfg.packageRoot, 'cordova/www/**/*'), function (err) {
-      if (err) {
-        throw new Error(err)
-      } else {
-        // Copy build files
-        copy(path.resolve(cfg.appRoot, 'www/build-' + version + '/**/*'), path.resolve(cfg.packageRoot, 'cordova/www'), function (err) {
-          if (err) {
-            throw new Error(err)
-          } else {
-            // Read cordova config file
-            read(path.resolve(cfg.packageRoot, 'cordova/config.xml'), 'utf-8', function (err, content) {
-              if (err) {
-                throw new Error(err)
-              } else {
-                // Parse cordova config file
-                let xmlParser = new xml.Parser()
-                xmlParser.parseString(content, function (err, cordovaConfig) {
-                  if (err) {
-                    throw new Error(err)
-                  } else {
-                    // Update application name
-                    cordovaConfig.widget.name = app.title
-                    // Build cordova config file
-                    let builder = new xml.Builder()
-                    let cordovaConfigXml = builder.buildObject(cordovaConfig)
-                    // Save cordova config file
-                    write(path.resolve(cfg.packageRoot, 'cordova/config.xml'), cordovaConfigXml, function (err) {
-                      if (err) {
-                        throw new Error(err)
-                      } else {
-                        callback()
-                      }
-                    })
-                  }
-                })
-              }
-            })
-          }
-        })
-      }
-    })
-  } else {
-    throw new Error(version === '0.0.0' ? 'You must build your application first.' : 'Build folder "www/build-' + version + '" not found.')
+// Install cordova plugins
+// let currentPlugins = require(cfg.packageRoot + 'cordova/plugins/fetch.json')
+function installCordovaPlugins (callback) {
+  callback()
+  /*
+  pluginNo = pluginNo || 0
+  for (let p = pluginNo; p < app.useCordovaPlugins; p++) {
+    if (currentPlugins) {
+      console.log('isInstalled')
+    }
   }
+  */
 }
 
 // Create cordova project folder
@@ -79,6 +39,63 @@ function createCordovaProject (callback) {
   } else {
     updateCordovaBuild(callback)
   }
+}
+
+// Update cordova www folder,  config.xml and plugins
+function updateCordovaBuild (callback) {
+  // Install cordova plugins
+  installCordovaPlugins(function () {
+    // Get version of last build to be used
+    var htaccess = read.sync(path.resolve(cfg.appRoot, 'www/.htaccess'), 'utf8')
+    var version = htaccess.match(/build-(.+)\//)[1]
+    // Build folder exists
+    if (isThere(path.resolve(cfg.appRoot, 'www/build-' + version))) {
+      // Delete cordova www folder
+      deleteFiles(path.resolve(cfg.packageRoot, 'cordova/www/**/*'), function (err) {
+        if (err) {
+          throw new Error(err)
+        } else {
+          // Copy build files
+          copy(path.resolve(cfg.appRoot, 'www/build-' + version + '/**/*'), path.resolve(cfg.packageRoot, 'cordova/www'), function (err) {
+            if (err) {
+              throw new Error(err)
+            } else {
+              // Read cordova config file
+              read(path.resolve(cfg.packageRoot, 'cordova/config.xml'), 'utf-8', function (err, content) {
+                if (err) {
+                  throw new Error(err)
+                } else {
+                  // Parse cordova config file
+                  let xmlParser = new xml.Parser()
+                  xmlParser.parseString(content, function (err, cordovaConfig) {
+                    if (err) {
+                      throw new Error(err)
+                    } else {
+                      // Update application name
+                      cordovaConfig.widget.name = app.title
+                      // Build cordova config file
+                      let builder = new xml.Builder()
+                      let cordovaConfigXml = builder.buildObject(cordovaConfig)
+                      // Save cordova config file
+                      write(path.resolve(cfg.packageRoot, 'cordova/config.xml'), cordovaConfigXml, function (err) {
+                        if (err) {
+                          throw new Error(err)
+                        } else {
+                          callback()
+                        }
+                      })
+                    }
+                  })
+                }
+              })
+            }
+          })
+        }
+      })
+    } else {
+      throw new Error(version === '0.0.0' ? 'You must build your application first.' : 'Build folder "www/build-' + version + '" not found.')
+    }
+  })
 }
 
 // (Re)build cordova ios platform

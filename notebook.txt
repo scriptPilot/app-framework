@@ -37,4 +37,5 @@ cordova run ios
 
 Error: Git working directory not clean. >> Commit changes in GitHub desktop
 
+Commit all changes in Github Desktop
 Update app framework on ios: sudo npm update --unsafe-perm=true

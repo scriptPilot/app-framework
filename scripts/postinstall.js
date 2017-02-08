@@ -24,6 +24,9 @@ if (cfg.isInstalled) {
   if (!newApp.materialSubnavbarFix) {
     newApp.materialSubnavbarFix = demoApp.materialSubnavbarFix
   }
+  if (!newApp.useCordovaPlugins) {
+    newApp.useCordovaPlugins = demoApp.useCordovaPlugins
+  }
   if (newApp.firebase && newApp.firebase.useDatabaseService) {
     delete newApp.firebase.useDatabaseService
   }

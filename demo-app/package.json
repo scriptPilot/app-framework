@@ -27,6 +27,9 @@
     "ion": false,
     "fontawesome": true
   },
+  "useCordovaPlugins": [
+    "cordova-plugin-statusbar"
+  ],
   "faviconIcon": "images/icon.png",
   "faviconBackgroundColor": "#ffffff",
   "buildSourcemaps": false,
