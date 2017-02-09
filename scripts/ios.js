@@ -82,7 +82,10 @@ function updateCordovaBuild (callback) {
                   } else {
                     // Update application name
                     cordovaConfig.widget.name = app.title
-
+                    // Update build version
+                    var htaccess = read.sync(path.resolve(cfg.appRoot, 'www/.htaccess'), 'utf8')
+                    var version = htaccess.match(/build-(.+)\//)[1]
+                    cordovaConfig.widget.$.version = version
                     // Add icons and splashscreens
                     cordovaConfig.widget.platform[1].icon = []
                     cordovaConfig.widget.platform[1].splash = []
