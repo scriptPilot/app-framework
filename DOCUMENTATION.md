@@ -64,19 +64,19 @@ Optional
 
 With *App Framework* you could start to develop a Web App first and build it as native App later on without any problem.
 
-To your own server (Web App)
+Deployment to your own server (Web App)
 
 - Upload the latest *www/build* folder to your server and then the *www/.htaccess* file
 - For rollback: Change the version in *www/.htaccess* file to the previous one and upload it to your server
 
-To [Firebase Hosting](https://firebase.google.com/docs/hosting/) (Web App)
+Deployment to [Firebase Hosting](https://firebase.google.com/docs/hosting/) (Web App)
 
 - Run `npm run database` to overwrite the Firebase database rules with the content of *database-rules.json*
 - Run `npm run storage` to overwrite the Firebase storage rules with the content of *storage-rules.txt*
 - Run `npm run hosting` to push newest build to Firebase Hosting
 - For rollback: Change the version in *www/.htaccess* file to the previous one and run `npm run hosting`
 
-To the Apple App Store (native App)
+Deployment to the Apple App Store (native App)
 
 - You need a Mac with [macOS](http://www.apple.com/de/macos/) and installed [Xcode](https://developer.apple.com/xcode/) (free)
 - You need to sign to the [Apple developer program](https://developer.apple.com/programs/) (around 99€ per year)
@@ -86,6 +86,10 @@ To the Apple App Store (native App)
 - Make screenshots on the biggest iPhone (you will need them in iTunes Connect later on)
 - Create an archive of the Xcode project and upload it within Xcode to iTunes Connect
 - Send your App in iTunes Connect for the review to Apple
+
+Deployment to the Google Play Store (native App)
+
+- Coming soon ...
  
 ### Backup your application
 
