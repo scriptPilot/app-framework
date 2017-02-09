@@ -40,14 +40,16 @@
 - Build process with version bump and compression of all HTML, CSS, JavaScript and image files
 - Generation of favicons, touch icons and splash screens out of a single image file
 - Phone frame around your application on big screens, so you can offer desktop access with charm 
+- Automatic build as web application, to be used online and offline in the browser
+- Automatic [Apple Xcode](https://developer.apple.com/xcode/) project build with [Cordova](https://cordova.apache.org/)
 
 ### Deployment
 
 - Deployment without downtime
-  - To your own server or web space
-  - To the [Firebase Hosting service](https://firebase.google.com/docs/hosting/)
-  - To the [Apple App Store](https://itunes.apple.com/de/) (work in progress)
-  - To the [Google Play Store](https://play.google.com/) (work in progress)
+  - To your own server or web space as Web App
+  - To the [Firebase Hosting service](https://firebase.google.com/docs/hosting/) as Web App
+  - To the [Apple App Store](https://itunes.apple.com/de/) as native iOS App
+  - To the [Google Play Store](https://play.google.com/) (work in progress) as native Android App
 - Easy rollback solution
 
 ### Backup
