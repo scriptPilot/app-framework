@@ -33,7 +33,7 @@
 
 - Integrated code checks for [correctness](http://eslint.org/) and [standard conformity](http://standardjs.com/)
 - Development server with live reload, perfectly to use together with [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools/)
-- Test your application on your own phone or any iOS or Android device with an simulator (work in progress)
+- Test your application on your own phone or any iOS or Android device with a simulator (work in progress)
 
 ### Building
 
