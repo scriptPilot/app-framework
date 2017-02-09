@@ -60,7 +60,7 @@ Optional
 |Capability|Only browser features.|Access to the device hardware and OS features.|
 |Deployment|In seconds.|Approval process takes some time and could be refused.|
 |Costs|Firebase hosting service is free for small apps.|Apple requires developer program (around 99€ per year). For selling apps, Apple and Google charge around 30% of the sales.|
-|Promoting|All regular ways.|All regular ways plus special promotions and ratings in the store.|
+|Promotion|All regular ways.|All regular ways plus special promotions and ratings in the store.|
 
 Deployment to your own server (Web App)
 
