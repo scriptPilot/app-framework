@@ -1,6 +1,6 @@
 {
   "name": "demo-app",
-  "version": "1.0.36",
+  "version": "1.0.37",
   "title": "Demo App",
   "theme": "ios",
   "iconImage": "images/icon.png",
@@ -29,7 +29,9 @@
     "ion": false,
     "fontawesome": true
   },
-  "useCordovaPlugins": [],
+  "useCordovaPlugins": [
+    "cordova-plugin-badge"
+  ],
   "buildSourcemaps": false,
   "devDependencies": {
     "app-framework": "file:../app-framework"
