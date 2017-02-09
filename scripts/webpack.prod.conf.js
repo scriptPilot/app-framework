@@ -12,7 +12,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ImageminPlugin = require('imagemin-webpack-plugin').default
 var AppCachePlugin = require('appcache-webpack-plugin')
-//var FaviconsWebpackPlugin = require('favicons-webpack-plugin')
+// var FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 var OnBuildPlugin = require('on-build-webpack')
 var replace = require('replace-in-file')
 
