@@ -19,6 +19,7 @@ Optional
 - Install [Node.js with npm](https://docs.npmjs.com/getting-started/what-is-npm)
 - Download *[package.json](https://raw.githubusercontent.com/scriptPilot/app-framework/master/demo-app/package.json)* file to an empty folder (keep extension .json!)
 - Run `npm install` to setup project folder
+  - on macOS you maybe need to run `sudo npm install --unsafe-perm=true` for proper installation
 - Run `npm update` to update *App Framework* to latest sub version
 
 ### Design your application
@@ -88,7 +89,7 @@ Deployment to the Apple App Store (native App)
 Deployment to the Google Play Store (native App)
 
 - Coming soon ...
- 
+
 ### Backup your application
 
 - Run `npm run backup` to save the Firebase database content to *database-backup.json* file

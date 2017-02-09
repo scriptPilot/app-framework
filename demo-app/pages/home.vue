@@ -72,15 +72,5 @@
 </template>
 
 <script>
-  module.exports = {
-    mounted: function () {
-      [1,2,3].map(n => {
-        console.log(n)
-      });
-      [4, 5, 6].map(function (n) {
-        console.log(n)
-      });
-      console.log("hello")
-    }
-  }
+  module.exports = {}
 </script>

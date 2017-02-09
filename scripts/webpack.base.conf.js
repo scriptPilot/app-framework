@@ -42,12 +42,10 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel',
-        exclude: /node_modules//*,
         include: [
           path.resolve(cfg.packageRoot, 'scripts'),
-          path.resolve(cfg.appRoot, 'www'),
-          path.resolve(cfg.appRoot, 'app.js')
-        ] */
+          path.resolve(cfg.appRoot, 'www')
+        ]
       },
       {
         test: /\.json$/,

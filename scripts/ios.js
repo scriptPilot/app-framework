@@ -82,6 +82,12 @@ function updateCordovaBuild (callback) {
                   } else {
                     // Update application name
                     cordovaConfig.widget.name = app.title
+                    // Update description
+                    if (app.description) {
+                      cordovaConfig.widget.description = app.description
+                    } else {
+                      delete cordovaConfig.widget.description
+                    }
                     // Update build version
                     var htaccess = read.sync(path.resolve(cfg.appRoot, 'www/.htaccess'), 'utf8')
                     var version = htaccess.match(/build-(.+)\//)[1]
