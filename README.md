@@ -68,7 +68,7 @@
 
 ## Milestones
 
-> See what has changed in our [Changelog file](CHANGELOG.md) - update *App Framework* with `npm update`.
+> Follow the [Changelog file](CHANGELOG.md) for new features, bugfixes and improvements - update *App Framework* with `npm update`.
 
 - [v1.1 - Apple App Store deployment](https://github.com/scriptPilot/app-framework/milestone/4)
 - [v1.2 - Google Play Store deployment](https://github.com/scriptPilot/app-framework/milestone/5)
