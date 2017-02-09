@@ -8,9 +8,9 @@
 
 ### New
 
-- [Cordova](https://cordova.apache.org/) integration
-  - Run `npm run ios` to create a [Xcode project](https://developer.apple.com/xcode/) of your last build
-  - Run `npm run android` to create a [Android Studio project](https://developer.android.com/studio/) of your last build
+- Run `npm run ios` to create a [Xcode project](https://developer.apple.com/xcode/) of your last build
+  - ... to test your application on your iOS device or in a simulator
+  - ... to publish your application to the official Apple App Store
 
 ### Fixed
 
