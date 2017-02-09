@@ -80,22 +80,12 @@ function updateCordovaBuild (callback) {
                   if (err) {
                     throw new Error(err)
                   } else {
-                    // Clean-up cordova config
-                    for (let i in cordovaConfig.widget) {
-                      if (i === 'platform') {
-                        for (let i2 in cordovaConfig.widget[i]) {
-                          // Remove icons
-                          if (cordovaConfig.widget[i][i2].icon !== undefined) {
-                            delete cordovaConfig.widget[i][i2].icon
-                          }
-                        }
-                      }
-                    }
                     // Update application name
                     cordovaConfig.widget.name = app.title
 
-                    // Add icons
+                    // Add icons and splashscreens
                     cordovaConfig.widget.platform[1].icon = []
+                    cordovaConfig.widget.platform[1].splash = []
                     let iconFolder = path.resolve(cfg.packageRoot, 'icons')
                     let icons = list.sync(iconFolder)
                     for (let i = 0; i < icons.length; i++) {
@@ -106,6 +96,14 @@ function updateCordovaBuild (callback) {
                             src: path.join('..', 'icons', icon),
                             width: icon.match(/icon-with-background-([0-9]+)\.png/)[1],
                             height: icon.match(/icon-with-background-([0-9]+)\.png/)[1]
+                          }
+                        })
+                      } else if (/splashscreen-([0-9]+)x([0-9]+)\.png/.test(icon)) {
+                        cordovaConfig.widget.platform[1].splash.push({
+                          $: {
+                            src: path.join('..', 'icons', icon),
+                            width: icon.match(/splashscreen-([0-9]+)x([0-9]+)\.png/)[1],
+                            height: icon.match(/splashscreen-([0-9]+)x([0-9]+)\.png/)[2]
                           }
                         })
                       }
