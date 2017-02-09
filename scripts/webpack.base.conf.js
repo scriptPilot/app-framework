@@ -44,7 +44,8 @@ module.exports = {
         loader: 'babel',
         include: [
           path.resolve(cfg.packageRoot, 'scripts'),
-          path.resolve(cfg.appRoot, 'www')
+          path.resolve(cfg.appRoot, 'www'),
+          path.resolve(cfg.appRoot, 'app.js')
         ]
       },
       {
