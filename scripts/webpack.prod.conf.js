@@ -66,8 +66,8 @@ var webpackConfig = merge(baseWebpackConfig, {
     new webpack.optimize.OccurrenceOrderPlugin(),
     new ExtractTextPlugin('[name].[contenthash].css'),
     new FaviconsWebpackPlugin({
-      logo: path.resolve(cfg.appRoot, app.faviconIcon),
-      background: app.faviconBackgroundColor,
+      logo: path.resolve(cfg.appRoot, app.iconImage),
+      background: app.iconBackgroundColor,
       title: app.title,
       prefix: 'img/icons-[hash:7]/',
       icons: {

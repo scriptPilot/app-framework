@@ -8,8 +8,7 @@ var read = require('read-file')
 var deleteFiles = require('delete')
 var xml = require('xml2js')
 var write = require('write')
-var img = require('lwip')
-var fs = require('fs-extra')
+var list = require('list-dir')
 
 // Load configuration
 var cfg = require('./config.js')
@@ -53,21 +52,6 @@ function updateCordovaPlugins (callback) {
   }
 }
 
-// Function to save cordova config
-function saveCordovaConfig (config, callback) {
-  // Build cordova config file
-  let builder = new xml.Builder()
-  let cordovaConfigXml = builder.buildObject(config)
-  // Save cordova config file
-  write(path.resolve(cfg.packageRoot, 'cordova/config.xml'), cordovaConfigXml, function (err) {
-    if (err) {
-      throw new Error(err)
-    } else {
-      callback()
-    }
-  })
-}
-
 // Update cordova www folder and config.xml
 function updateCordovaBuild (callback) {
   // Get version of last build to be used
@@ -109,59 +93,34 @@ function updateCordovaBuild (callback) {
                     }
                     // Update application name
                     cordovaConfig.widget.name = app.title
-                    // Update ios icons and startup images
-                    if (isThere(path.resolve(cfg.appRoot, app.faviconIcon))) {
-                      if (!isThere(path.resolve(cfg.packageRoot, 'cordova/icons'))) {
-                        fs.mkdir(path.resolve(cfg.packageRoot, 'cordova/icons'))
-                      } else {
-                        deleteFiles.sync(path.resolve(cfg.packageRoot, 'cordova/icons/**/*'))
-                      }
-                      cordovaConfig.widget.platform[1].icon = []
-                      let sizes = [20, 29, 29, 40, 50, 57, 58, 60, 72, 76, 80, 87, 100, 114, 120, 144, 152, 167, 170, 180, 1024]
-                      img.open(path.resolve(cfg.appRoot, app.faviconIcon), function (err, image) {
-                        if (err) {
-                          throw new Error(err)
-                        }
-                        img.create(image.width(), image.height(), 'white', function (err, canvas) {
-                          if (err) {
-                            throw new Error(err)
+
+                    // Add icons
+                    cordovaConfig.widget.platform[1].icon = []
+                    let iconFolder = path.resolve(cfg.packageRoot, 'icons')
+                    let icons = list.sync(iconFolder)
+                    for (let i = 0; i < icons.length; i++) {
+                      let icon = icons[i]
+                      if (/icon-with-background-([0-9]+)\.png/.test(icon)) {
+                        cordovaConfig.widget.platform[1].icon.push({
+                          $: {
+                            src: path.join('..', 'icons', icon),
+                            width: icon.match(/icon-with-background-([0-9]+)\.png/)[1],
+                            height: icon.match(/icon-with-background-([0-9]+)\.png/)[1]
                           }
-                          canvas.paste(0, 0, image, function (err, canvas) {
-                            if (err) {
-                              throw new Error(err)
-                            }
-                            for (let s = 0; s < sizes.length; s++) {
-                              canvas.clone(function (err, thumbnail) {
-                                if (err) {
-                                  throw new Error(err)
-                                }
-                                thumbnail.resize(sizes[s], sizes[s], function (err, thumbnail) {
-                                  if (err) {
-                                    throw new Error(err)
-                                  }
-                                  thumbnail.writeFile(path.resolve(cfg.packageRoot, 'cordova/icons/icon-' + sizes[s] + '.png'), function (err) {
-                                    if (!err) {
-                                      cordovaConfig.widget.platform[1].icon.push({
-                                        $: {
-                                          src: 'icons/icon-' + sizes[s] + '.png',
-                                          width: sizes[s],
-                                          height: sizes[s]
-                                        }
-                                      })
-                                    }
-                                    if (s + 1 === sizes.length) {
-                                      saveCordovaConfig(cordovaConfig, callback)
-                                    }
-                                  })
-                                })
-                              })
-                            }
-                          })
                         })
-                      })
-                    } else {
-                      saveCordovaConfig(cordovaConfig, callback)
+                      }
                     }
+                    // Build cordova config file
+                    let builder = new xml.Builder()
+                    let cordovaConfigXml = builder.buildObject(cordovaConfig)
+                    // Save cordova config file
+                    write(path.resolve(cfg.packageRoot, 'cordova/config.xml'), cordovaConfigXml, function (err) {
+                      if (err) {
+                        throw new Error(err)
+                      } else {
+                        callback()
+                      }
+                    })
                   }
                 })
               }
