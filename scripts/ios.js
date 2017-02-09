@@ -117,7 +117,7 @@ function updateCordovaBuild (callback) {
                         deleteFiles.sync(path.resolve(cfg.packageRoot, 'cordova/icons/**/*'))
                       }
                       cordovaConfig.widget.platform[1].icon = []
-                      let sizes = [20, 29, 29, 40, 50, 57, 58, 60, 72, 76, 80, 87, 100, 114, 120, 144, 152, 167, 170, 180]
+                      let sizes = [20, 29, 29, 40, 50, 57, 58, 60, 72, 76, 80, 87, 100, 114, 120, 144, 152, 167, 170, 180, 1024]
                       img.open(path.resolve(cfg.appRoot, app.faviconIcon), function (err, image) {
                         if (err) {
                           throw new Error(err)
