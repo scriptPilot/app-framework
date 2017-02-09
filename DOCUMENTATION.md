@@ -51,7 +51,7 @@ Optional
 
 ### Deploy your application
 
-*App Framework* does many adjustments in the background to enable you to deploy your App easily as Web App or as native App. But what are the differences?
+*App Framework* does many adjustments in the background to enable you to deploy your App easily as Web App or as native App. So you could start fast and become professional later on without any change. But what are the differences?
 
 ||Web App|Native App|
 |---|---|---|
@@ -61,8 +61,6 @@ Optional
 |Deployment|In seconds.|Approval process takes some time and could be refused.|
 |Costs|Firebase hosting service is free for small apps.|Apple requires developer program (around 99€ per year). For selling apps, Apple and Google charge around 30% of the sales.|
 |Promoting|All regular ways.|All regular ways plus special promotions and ratings in the store.|
-
-With *App Framework* you could start to develop a Web App first and build it as native App later on without any problem.
 
 Deployment to your own server (Web App)
 
