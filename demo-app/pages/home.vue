@@ -15,8 +15,7 @@
     </f7-navbar>
 
     <!-- Content block -->
-    <f7-block inner inset style="text-align: center">
-      <p>Device: {{device}}</p>
+    <f7-block inner inset style="text-align: center" v-if="!$root.webView">
       <p><b>For native App feeling, please pin this page to your homescreen and open it from there!</b></p>
     </f7-block>
 
@@ -73,11 +72,5 @@
 </template>
 
 <script>
-  module.exports = {
-    data: function () {
-      return {
-        device: this.$f7.device
-      }
-    }
-  }
+  module.exports = {}
 </script>
