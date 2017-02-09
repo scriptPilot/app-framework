@@ -1,4 +1,4 @@
-# Changelog
+# Changelog &nbsp;&nbsp;&nbsp; [![](https://img.shields.io/npm/v/app-framework.svg)](https://www.npmjs.com/package/app-framework)
 
 **More details are to find in the [Readme file](README.md) and in our [Documentation](DOCUMENTATION.md)!**
 
