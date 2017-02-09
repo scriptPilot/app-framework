@@ -33,7 +33,7 @@
 
 - Integrated code checks for [correctness](http://eslint.org/) and [standard conformity](http://standardjs.com/)
 - Development server with live reload, perfectly to use together with [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools/)
-- Test your application on your own phone or any iOS or Android device with an emulator (work in progress)
+- Test your application on your own phone or any iOS or Android device with an simulator (work in progress)
 
 ### Building
 
@@ -42,6 +42,7 @@
 - Phone frame around your application on big screens, so you can offer desktop access with charm 
 - Automatic build as web application, to be used online and offline in the browser
 - Automatic [Apple Xcode](https://developer.apple.com/xcode/) project build with [Cordova](https://cordova.apache.org/)
+- Automatic [Android Studio](https://developer.android.com/studio) project build with [Cordova](https://cordova.apache.org/)
 
 ### Deployment
 
@@ -49,7 +50,7 @@
   - To your own server or web space as Web App
   - To the [Firebase Hosting service](https://firebase.google.com/docs/hosting/) as Web App
   - To the [Apple App Store](https://itunes.apple.com/de/) as native iOS App
-  - To the [Google Play Store](https://play.google.com/) (work in progress) as native Android App
+  - To the [Google Play Store](https://play.google.com/) as native Android App (work in progress)
 - Easy rollback solution
 
 ### Backup
