@@ -63,13 +63,13 @@ To [Firebase Hosting](https://firebase.google.com/docs/hosting/)
 - Run `npm run hosting` to push newest build to Firebase Hosting
 - For rollback: Change the version in *www/.htaccess* file to the previous one and run `npm run hosting`
 
-To the Apple App Store (more details will follow in the Tutorial)
+To the Apple App Store (more details will follow in our Tutorial)
 
 - You need a Mac with [macOS](http://www.apple.com/de/macos/) and installed [Xcode](https://developer.apple.com/xcode/) (free)
 - You need to sign to the [Apple developer program](https://developer.apple.com/programs/) (around 99€ per year)
 - You need to prepare the publishing in [iTunes Connect](https://itunesconnect.apple.com/)
 - Run `npm run ios` to create a project file for Xcode, based on [Cordova](https://cordova.apache.org/)
-- Test your application on several devices, make screenshot on biggest iPhone (you will need them in iTunes connect)
+- Test your application on several devices, make screenshot on biggest iPhone (you will need them in iTunes Connect later on)
 - Create archive of the Xcode project and upload it within Xcode to iTunes Connect
 - Send your App in iTunes Connect for review
  
