@@ -42,7 +42,7 @@
 - Phone frame around your application on big screens, so you can offer desktop access with charm 
 - Automatic build as web application, to be used online and offline in the browser
 - Automatic [Apple Xcode](https://developer.apple.com/xcode/) project build with [Cordova](https://cordova.apache.org/)
-- Automatic [Android Studio](https://developer.android.com/studio) project build with [Cordova](https://cordova.apache.org/)
+- Automatic [Android Studio](https://developer.android.com/studio) project build with [Cordova](https://cordova.apache.org/) (work in progress)
 
 ### Deployment
 
