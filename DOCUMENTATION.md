@@ -69,9 +69,9 @@ To the Apple App Store (more details will follow in the Tutorial)
 - You need to sign to the [Apple developer program](https://developer.apple.com/programs/) (around 99€ per year)
 - You need to prepare the publishing in [iTunes Connect](https://itunesconnect.apple.com/)
 - Run `npm run ios` to create a project file for Xcode, based on [Cordova](https://cordova.apache.org/)
-  - Test your application on several devices, make screenshot on biggest iPhone (you will need them in iTunes connect)
-  - Create archive of the Xcode project and upload it within Xcode to iTunes Connect
-  - Send your App in iTunes Connect for review
+- Test your application on several devices, make screenshot on biggest iPhone (you will need them in iTunes connect)
+- Create archive of the Xcode project and upload it within Xcode to iTunes Connect
+- Send your App in iTunes Connect for review
  
 ### Backup your application
 
