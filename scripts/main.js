@@ -166,7 +166,7 @@ new Vue({ // eslint-disable-line
     // Update phone frame function
     var updatePhoneFrame = function () {
       // Show frame on desktop
-      if (!this.$f7.device.os && app.showPhoneFrameOnDesktop) {
+      if (this.$f7.device.os === undefined && app.showPhoneFrameOnDesktop === true) {
         // Show frame
         if (window.innerWidth > 370 && window.innerHeight > 778) {
           this.$$('#frame').addClass('phone')
