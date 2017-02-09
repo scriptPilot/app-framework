@@ -48,6 +48,12 @@ img.open(iconFile, function (err, icon) {
     canvas.paste(0, 0, icon, function (err, iconWithBackground) {
       if (err) throw new Error(err)
 
+      // Calculate panoramic splash screen sizes
+      let splashscreens = launchScreenSizes.length
+      for (let ls = 0; ls < splashscreens; ls++) {
+        launchScreenSizes.push([launchScreenSizes[ls][1], launchScreenSizes[ls][0]])
+      }
+
       // Create splash screens
       for (let ls = 0; ls < launchScreenSizes.length; ls++) {
         let width = launchScreenSizes[ls][0]
@@ -63,13 +69,15 @@ img.open(iconFile, function (err, icon) {
 
             // Calculate icon size and position
             let third = Math.floor(width / 3)
+            let left = Math.floor((width - third) / 2)
+            let top = Math.floor((height - third) / 2)
 
             // Resize
             thisIcon.resize(third, third, function (err, thisIcon) {
               if (err) throw new Error(err)
 
               // Paste to splash screen canvas
-              lsCanvas.paste(third, third, thisIcon, function (err, lsCanvas) {
+              lsCanvas.paste(left, top, thisIcon, function (err, lsCanvas) {
                 if (err) throw new Error(err)
 
                 // Save splash sreen
