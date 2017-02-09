@@ -133,7 +133,7 @@ new Vue({ // eslint-disable-line
       return this.$f7.device.os !== undefined
     },
     webView: function () {
-      return this.$f7.device.webView === true
+      return this.$f7.device.webView !== null
     }
   },
   framework7: {

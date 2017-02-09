@@ -16,7 +16,6 @@
 
     <!-- Content block -->
     <f7-block inner inset style="text-align: center" v-if="!$root.webView">
-      <p>{{test}}</p>
       <p><b>For native App feeling, please pin this page to your homescreen and open it from there!</b></p>
     </f7-block>
 
@@ -73,11 +72,5 @@
 </template>
 
 <script>
-  module.exports = {
-    data: function () {
-      return {
-        test: this.$f7.device
-      }
-    }
-  }
+  module.exports = {}
 </script>
