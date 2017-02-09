@@ -71,8 +71,8 @@ To the Apple App Store (more details will follow in our Tutorial)
 - Run `npm run ios` to create a project file for Xcode, based on [Cordova](https://cordova.apache.org/)
 - Test your application on several device simulators
 - Make screenshots on the biggest iPhone (you will need them in iTunes Connect later on)
-- Create archive of the Xcode project and upload it within Xcode to iTunes Connect
-- Send your App in iTunes Connect for review
+- Create an archive of the Xcode project and upload it within Xcode to iTunes Connect
+- Send your App in iTunes Connect for the review to Apple
  
 ### Backup your application
 
