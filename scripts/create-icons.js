@@ -70,7 +70,7 @@ img.open(iconFile, function (err, icon) {
             // Calculate icon size and position
             let factorWidth = width / 3 / icon.width()
             let factorHeight = height / 3 / icon.height()
-            let size = Math.floor(Math.max(factorWidth, factorHeight) * canvas.width())
+            let size = Math.floor(Math.min(0.5, Math.max(factorWidth, factorHeight)) * canvas.width())
             let left = Math.floor((width - size) / 2)
             let top = Math.floor((height - size) / 2)
 
