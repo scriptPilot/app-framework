@@ -51,19 +51,25 @@ Optional
 
 ### Deploy your application
 
-To your own server
+*App Framework* does many adjustments in the background to enable you to deploy your App easily as Web App or as native App. But what are the differences?
+
+||Web App|Native App|
+|---|---|---|
+|Installation|As a web page, it runs in the device browser but could be pinned to the homescreen.|Are installed from an App Store or manually to the device (Android only).|
+
+To your own server (Web App)
 
 - Upload the latest *www/build* folder to your server and then the *www/.htaccess* file
 - For rollback: Change the version in *www/.htaccess* file to the previous one and upload it to your server
 
-To [Firebase Hosting](https://firebase.google.com/docs/hosting/)
+To [Firebase Hosting](https://firebase.google.com/docs/hosting/) (Web App)
 
 - Run `npm run database` to overwrite the Firebase database rules with the content of *database-rules.json*
 - Run `npm run storage` to overwrite the Firebase storage rules with the content of *storage-rules.txt*
 - Run `npm run hosting` to push newest build to Firebase Hosting
 - For rollback: Change the version in *www/.htaccess* file to the previous one and run `npm run hosting`
 
-To the Apple App Store (more details will follow in our Tutorial)
+To the Apple App Store (native App)
 
 - You need a Mac with [macOS](http://www.apple.com/de/macos/) and installed [Xcode](https://developer.apple.com/xcode/) (free)
 - You need to sign to the [Apple developer program](https://developer.apple.com/programs/) (around 99€ per year)
