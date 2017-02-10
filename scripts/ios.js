@@ -8,7 +8,8 @@ var read = require('read-file')
 var deleteFiles = require('delete')
 var xml = require('xml2js')
 var write = require('write')
-// var list = require('list-dir')
+var list = require('list-dir')
+var replace = require('replace-in-file')
 
 // Load configuration
 var cfg = require('./config.js')
@@ -66,6 +67,12 @@ function updateCordovaBuild (callback) {
           if (err) {
             throw new Error(err)
           } else {
+            // Attach cordova js files to HTML
+            replace.sync({
+              files: path.resolve(cfg.packageRoot, 'cordova/www/index.html'),
+              replace: /<\body>/,
+              with: '<script type=text/javascript src=cordova_plugins.js></script><script type=text/javascript src=cordova.js></script></body>'
+            })
             // Read cordova config file
             read(path.resolve(cfg.packageRoot, 'cordova/config.xml'), 'utf-8', function (err, content) {
               if (err) {
@@ -88,6 +95,7 @@ function updateCordovaBuild (callback) {
                       delete cordovaConfig.widget.description
                     }
                     // Add plugins
+                    /*
                     for (let p = 0; p < app.useCordovaPlugins.length; p++) {
                       cordovaConfig.widget.plugin.push({
                         $: {
@@ -95,6 +103,7 @@ function updateCordovaBuild (callback) {
                         }
                       })
                     }
+                    */
                     // Define preferences
                     cordovaConfig.widget.preference = [/*
                       {
@@ -112,10 +121,11 @@ function updateCordovaBuild (callback) {
                       {
                         $: {
                           name: 'StatusBarStyle',
-                          value: app.statusbarTextColor === 'white' ? 'lightcontent' : 'blacktranslucent'
+                          value: app.statusbarTextColor === 'white' ? 'lightcontent' : 'default'
                         }
                       }
                     ]
+                    /*
                     cordovaConfig.widget.feature = [
                       {
                         $: {
@@ -132,9 +142,9 @@ function updateCordovaBuild (callback) {
                         ]
                       }
                     ]
+                    */
 
                     // Add icons and splashscreens
-                    /*
                     cordovaConfig.widget.platform[1].icon = []
                     cordovaConfig.widget.platform[1].splash = []
                     let iconFolder = path.resolve(cfg.packageRoot, 'icons')
@@ -159,7 +169,6 @@ function updateCordovaBuild (callback) {
                         })
                       }
                     }
-                    */
                     // Build cordova config file
                     let builder = new xml.Builder()
                     let cordovaConfigXml = builder.buildObject(cordovaConfig)
