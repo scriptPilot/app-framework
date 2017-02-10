@@ -16,7 +16,7 @@
   <div id="app">
 
     <!-- Statusbar -->
-    <f7-statusbar></f7-statusbar>
+    <!--<f7-statusbar></f7-statusbar>-->
 
     <!-- Left panel -->
     <f7-panel left reveal layout="dark">

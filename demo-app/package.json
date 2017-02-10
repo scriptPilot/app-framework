@@ -29,7 +29,9 @@
     "ion": false,
     "fontawesome": true
   },
-  "useCordovaPlugins": [],
+  "useCordovaPlugins": [
+    "cordova-plugin-statusbar"
+  ],
   "buildSourcemaps": false,
   "devDependencies": {
     "app-framework": "file:../app-framework"
