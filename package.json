@@ -1,6 +1,6 @@
 {
   "name": "app-framework",
-  "description": "Does all the tricky stuff for you to develop, test, build and deploy iOS and Android like web applications.",
+  "description": "iOS and Android Apps with HTML & JavaScript - develop, build and deploy - free and open source!",
   "repository": "https://github.com/scriptPilot/app-framework.git",
   "version": "1.0.50",
   "license": "MIT",
