@@ -60,34 +60,17 @@
 
 ## Quick start
 
+> A Tutorial for the complete workflow in detail is planned!
+
 1. Install [Node.js with npm](https://docs.npmjs.com/getting-started/what-is-npm)
 2. Download *[package.json](https://raw.githubusercontent.com/scriptPilot/app-framework/master/demo-app/package.json)* file to an empty folder (keep extension .json!)
 3. Run `npm install` to setup the project folder
 4. Run `npm run dev` to start the Demo App at localhost:8080
 5. Read our [Documentation](DOCUMENTATION.md)
 
-# Documentation
-
-Tutorial (work in progress)
-
-- ...
-
-References
-
-- Command Line Interface
-
-External
-
-- Framework7
-- Framework7-Vue
-- Vue
-- Firebase
-
 ## Milestones
 
-> Follow the [Changelog file](CHANGELOG.md) for new features, bugfixes and improvements - update *App Framework* with `npm update`.
-
-Upcoming milestones:
+Upcoming:
 
 - [v1.1 - Apple App Store deployment](https://github.com/scriptPilot/app-framework/milestone/4)
 - [v1.2 - Google Play Store deployment](https://github.com/scriptPilot/app-framework/milestone/5)
@@ -95,3 +78,7 @@ Upcoming milestones:
 - [v1.4 - Robustness improvements](https://github.com/scriptPilot/app-framework/milestone/6)
 - [v1.5 - Extensions](https://github.com/scriptPilot/app-framework/milestone/7)
 - [v2.0 - GUI helper tool](https://github.com/scriptPilot/app-framework/milestone/8)
+
+Closed:
+
+- [v1.0 - Initial Release](https://github.com/scriptPilot/app-framework/milestone/1?closed=1) (2017-02-05)
