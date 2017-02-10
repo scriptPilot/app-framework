@@ -14,15 +14,12 @@ var list = require('list-dir')
 var cfg = require('./config.js')
 var app = require(cfg.appRoot + 'package.json')
 
-// Show message
-showOnly('Xcode project build ongoing with application build version ' + version + ' - please wait ...')
-
-// Check build version
+// Get build version
 var htaccess = read.sync(path.resolve(cfg.appRoot, 'www/.htaccess'), 'utf8')
 var version = htaccess.match(/build-(.+)\//)[1]
-if (version === '0.0.0') {
-  throw new Error('Please build your application first!')
-}
+
+// Show message
+showOnly('Xcode project build ongoing with application build version ' + version + ' - please wait ...')
 
 // Create cordova project folder
 function createCordovaProject (callback) {
@@ -61,9 +58,6 @@ function updateCordovaPlugins (callback) {
 
 // Update cordova www folder and config.xml
 function updateCordovaBuild (callback) {
-  // Get version of last build to be used
-  var htaccess = read.sync(path.resolve(cfg.appRoot, 'www/.htaccess'), 'utf8')
-  var version = htaccess.match(/build-(.+)\//)[1]
   // Build folder exists
   if (isThere(path.resolve(cfg.appRoot, 'www/build-' + version))) {
     // Delete cordova www folder
