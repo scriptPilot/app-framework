@@ -15,7 +15,14 @@ var cfg = require('./config.js')
 var app = require(cfg.appRoot + 'package.json')
 
 // Show message
-showOnly('iOS build ongoing - please wait ...')
+showOnly('Xcode project build ongoing with application build version ' + version + ' - please wait ...')
+
+// Check build version
+var htaccess = read.sync(path.resolve(cfg.appRoot, 'www/.htaccess'), 'utf8')
+var version = htaccess.match(/build-(.+)\//)[1]
+if (version === '0.0.0') {
+  throw new Error('Please build your application first!')
+}
 
 // Create cordova project folder
 function createCordovaProject (callback) {
@@ -89,8 +96,6 @@ function updateCordovaBuild (callback) {
                       delete cordovaConfig.widget.description
                     }
                     // Update build version
-                    var htaccess = read.sync(path.resolve(cfg.appRoot, 'www/.htaccess'), 'utf8')
-                    var version = htaccess.match(/build-(.+)\//)[1]
                     cordovaConfig.widget.$.version = version
                     // Add icons and splashscreens
                     cordovaConfig.widget.platform[1].icon = []
@@ -155,7 +160,7 @@ createCordovaProject(function () {
     updateCordovaBuild(function () {
       buildCordovaIos(function () {
         run('open -a Xcode "' + path.resolve(cfg.packageRoot, 'cordova/platforms/ios', app.title + '.xcodeproj') + '"')
-        showOnly('iOS build done! Please open Xcode to run the simulator or to publish your application to the App Store.')
+        showOnly('Xcode project build done, based on application build version ' + version + '! Please open Xcode to run the simulator or to publish your application to the App Store.')
       })
     })
   })
