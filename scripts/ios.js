@@ -8,7 +8,7 @@ var read = require('read-file')
 var deleteFiles = require('delete')
 var xml = require('xml2js')
 var write = require('write')
-var list = require('list-dir')
+// var list = require('list-dir')
 
 // Load configuration
 var cfg = require('./config.js')
