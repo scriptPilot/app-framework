@@ -66,6 +66,23 @@
 4. Run `npm run dev` to start the Demo App at localhost:8080
 5. Read our [Documentation](DOCUMENTATION.md)
 
+# Documentation
+
+Tutorial (work in progress)
+
+- ...
+
+References
+
+- Command Line Interface
+
+External
+
+- Framework7
+- Framework7-Vue
+- Vue
+- Firebase
+
 ## Milestones
 
 > Follow the [Changelog file](CHANGELOG.md) for new features, bugfixes and improvements - update *App Framework* with `npm update`.
