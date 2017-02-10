@@ -1,8 +1,11 @@
 {
   "name": "demo-app",
-  "version": "1.0.15",
+  "version": "1.1.1",
   "title": "Demo App",
   "theme": "ios",
+  "iconImage": "images/icon.png",
+  "iconBackgroundColor": "#ffffff",
+  "statusbarTextColor": "white",
   "materialSubnavbarFix": true,
   "defaultLanguage": "en",
   "showPhoneFrameOnDesktop": true,
@@ -27,19 +30,21 @@
     "ion": false,
     "fontawesome": true
   },
-  "faviconIcon": "images/icon.png",
-  "faviconBackgroundColor": "#ffffff",
+  "useCordovaPlugins": [
+    "cordova-plugin-statusbar"
+  ],
   "buildSourcemaps": false,
   "devDependencies": {
-    "app-framework": "^1.0.15"
+    "app-framework": "^1.1.1"
   },
   "scripts": {
     "dev": "cd node_modules/app-framework && node scripts/dev-server",
     "check": "node node_modules/app-framework/scripts/check",
     "fix": "node node_modules/app-framework/scripts/fix",
-    "patch": "npm version patch && cd node_modules/app-framework && node scripts/build",
-    "minor": "npm version minor && cd node_modules/app-framework && node scripts/build",
-    "major": "npm version major && cd node_modules/app-framework && node scripts/build",
+    "patch": "npm version patch && cd node_modules/app-framework && node scripts/create-icons && node scripts/build",
+    "minor": "npm version minor && cd node_modules/app-framework && node scripts/create-icons && node scripts/build",
+    "major": "npm version major && cd node_modules/app-framework && node scripts/create-icons && node scripts/build",
+    "ios": "node node_modules/app-framework/scripts/ios",
     "database": "node node_modules/app-framework/scripts/prepare-firebase-database && firebase login && firebase deploy --only database && node node_modules/app-framework/scripts/cleanup-firebase",
     "storage": "node node_modules/app-framework/scripts/prepare-firebase-storage && firebase login && firebase deploy --only storage && node node_modules/app-framework/scripts/cleanup-firebase",
     "hosting": "node node_modules/app-framework/scripts/prepare-firebase-deploy && firebase login && firebase deploy --only hosting && node node_modules/app-framework/scripts/cleanup-firebase",

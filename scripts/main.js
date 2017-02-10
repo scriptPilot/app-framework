@@ -128,6 +128,12 @@ new Vue({ // eslint-disable-line
   computed: {
     text: function () {
       return text[this.language] ? text[this.language] : text['en']
+    },
+    mobileDevice: function () {
+      return this.$f7.device.os !== undefined
+    },
+    webView: function () {
+      return this.$f7.device.webView !== null
     }
   },
   framework7: {
@@ -166,7 +172,7 @@ new Vue({ // eslint-disable-line
     // Update phone frame function
     var updatePhoneFrame = function () {
       // Show frame on desktop
-      if (!this.$f7.device.os && app.showPhoneFrameOnDesktop) {
+      if (!this.mobileDevice && app.showPhoneFrameOnDesktop === true) {
         // Show frame
         if (window.innerWidth > 370 && window.innerHeight > 778) {
           this.$$('#frame').addClass('phone')

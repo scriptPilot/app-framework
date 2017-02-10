@@ -85,6 +85,11 @@ body {
 }
 
 /* Initial reload splash fix */
-.framework7-root {  
+.framework7-root {
   visibility: hidden;
+}
+
+/* Temorary fix for navbar in side panels */
+.navbar {
+  transform: translate3d(0,0,0);
 }
