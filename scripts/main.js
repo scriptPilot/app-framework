@@ -141,6 +141,7 @@ new Vue({ // eslint-disable-line
     routes: Routes,
     material: process.env.THEME === 'material',
     modalTitle: app.title,
+    statusbarOverlay: false,
     preroute: function (view, options) {
       let url = options.isBack ? view.history[view.history.length - (options.preloadOnly ? 1 : 2)] : options.url
       /* Consider dynamic content, e.g. smart selects */

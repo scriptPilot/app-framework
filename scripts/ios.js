@@ -87,30 +87,54 @@ function updateCordovaBuild (callback) {
                     } else {
                       delete cordovaConfig.widget.description
                     }
-                    // Add statusbar information
-                    if (app.useCordovaPlugins.indexOf('cordova-plugin-statusbar') !== -1) {
-                      cordovaConfig.widget.preference = [
-                        {
-                          $: {
-                            name: 'StatusBarOverlaysWebView',
-                            value: false
-                          }
-                        }, /*
-                        {
-                          $: {
-                            name: 'StatusBarBackgroundColor',
-                            value: '#006699'
-                          }
-                        }, */
-                        {
-                          $: {
-                            name: 'StatusBarStyle',
-                            value: 'default'
-                          }
+                    // Add plugins
+                    for (let p = 0; p < app.useCordovaPlugins.length; p++) {
+                      cordovaConfig.widget.plugin.push({
+                        $: {
+                          name: app.useCordovaPlugins[p]
                         }
-                      ]
+                      })
                     }
+                    // Define preferences
+                    cordovaConfig.widget.preference = [/*
+                      {
+                        $: {
+                          name: 'StatusBarOverlaysWebView',
+                          value: true
+                        }
+                      },
+                      {
+                        $: {
+                          name: 'StatusBarBackgroundColor',
+                          value: '#006699'
+                        }
+                      }, */
+                      {
+                        $: {
+                          name: 'StatusBarStyle',
+                          value: app.statusbarTextColor === 'white' ? 'lightcontent' : 'blacktranslucent'
+                        }
+                      }
+                    ]
+                    cordovaConfig.widget.feature = [
+                      {
+                        $: {
+                          name: 'StatusBar'
+                        },
+                        param: [
+                          {
+                            $: {
+                              name: 'ios-package',
+                              value: 'CDVStatusBar',
+                              onload: true
+                            }
+                          }
+                        ]
+                      }
+                    ]
+
                     // Add icons and splashscreens
+                    /*
                     cordovaConfig.widget.platform[1].icon = []
                     cordovaConfig.widget.platform[1].splash = []
                     let iconFolder = path.resolve(cfg.packageRoot, 'icons')
@@ -135,6 +159,7 @@ function updateCordovaBuild (callback) {
                         })
                       }
                     }
+                    */
                     // Build cordova config file
                     let builder = new xml.Builder()
                     let cordovaConfigXml = builder.buildObject(cordovaConfig)

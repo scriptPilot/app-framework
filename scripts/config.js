@@ -30,6 +30,7 @@ app.iconBackgroundColor = app.iconBackgroundColor || demoApp.iconBackgroundColor
 app.materialSubnavbarFix = app.materialSubnavbarFix || demoApp.materialSubnavbarFix
 app.useCordovaPlugins = app.useCordovaPlugins || demoApp.useCordovaPlugins
 app.firebase = app.firebase || demoApp.firebase
+app.statusbarTextColor = app.statusbarTextColor || demoApp.statusbarTextColor
 
   // Removed items
 if (app.faviconIcon) delete app.faviconIcon
