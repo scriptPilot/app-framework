@@ -70,7 +70,7 @@
 
 ## Milestones
 
-Upcoming
+Upcoming:
 
 - [v1.1 - Apple App Store deployment](https://github.com/scriptPilot/app-framework/milestone/4)
 - [v1.2 - Google Play Store deployment](https://github.com/scriptPilot/app-framework/milestone/5)
@@ -79,6 +79,6 @@ Upcoming
 - [v1.5 - Extensions](https://github.com/scriptPilot/app-framework/milestone/7)
 - [v2.0 - GUI helper tool](https://github.com/scriptPilot/app-framework/milestone/8)
 
-Closed
+Closed:
 
 - [v1.0 - Initial Release](https://github.com/scriptPilot/app-framework/milestone/1?closed=1) (2017-02-05)
