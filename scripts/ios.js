@@ -23,13 +23,13 @@ showOnly('Xcode project build ongoing with application build version ' + version
 
 // Create cordova project folder
 function createCordovaProject (callback) {
-  if (!isThere(path.resolve(cfg.packageRoot, 'cordova/config.xml'))) {
-    run('cd "' + cfg.packageRoot + '" && cordova create cordova', function () {
-      callback()
-    })
-  } else {
-    callback()
+  let cordovaFolder = path.resolve(cfg.packageRoot, 'cordova')
+  if (isThere(cordovaFolder)) {
+    deleteFiles.sync([path.resolve(cordovaFolder, '**/**')])
   }
+  run('cd "' + cfg.packageRoot + '" && cordova create cordova', function () {
+    callback()
+  })
 }
 
 // Install cordova plugins
@@ -48,6 +48,7 @@ function updateCordovaPlugins (callback) {
   }
   if (pluginChanges.length > 0) {
     let command = 'cd "' + path.resolve(cfg.packageRoot, 'cordova') + '" && ' + pluginChanges.join(' && ')
+    console.log(command)
     run(command, function () {
       callback()
     })

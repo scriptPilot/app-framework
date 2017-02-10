@@ -29,9 +29,7 @@
     "ion": false,
     "fontawesome": true
   },
-  "useCordovaPlugins": [
-    "cordova-plugin-badge"
-  ],
+  "useCordovaPlugins": [],
   "buildSourcemaps": false,
   "devDependencies": {
     "app-framework": "file:../app-framework"
