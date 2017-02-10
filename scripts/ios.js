@@ -41,13 +41,6 @@ function updateCordovaPlugins (callback) {
       pluginChanges.push('cordova plugin add ' + app.useCordovaPlugins[p])
     }
   }
-  /*
-  for (let p in currentPlugins) {
-    if (app.useCordovaPlugins.indexOf(p) === -1 && p !== 'cordova-plugin-whitelist') {
-      pluginChanges.push('cordova plugin rm ' + p)
-    }
-  }
-  */
   if (pluginChanges.length > 0) {
     let command = 'cd "' + path.resolve(cfg.packageRoot, 'cordova') + '" && ' + pluginChanges.join(' && ')
     console.log(command)
@@ -102,17 +95,17 @@ function updateCordovaBuild (callback) {
                             name: 'StatusBarOverlaysWebView',
                             value: false
                           }
-                        },
+                        },/*
                         {
                           $: {
                             name: 'StatusBarBackgroundColor',
                             value: '#006699'
                           }
-                        },
+                        },*/
                         {
                           $: {
                             name: 'StatusBarStyle',
-                            value: 'lightcontent'
+                            value: 'default'
                           }
                         }
                       ]
