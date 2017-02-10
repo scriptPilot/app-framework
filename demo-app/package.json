@@ -1,11 +1,11 @@
 {
   "name": "demo-app",
-  "version": "1.0.54",
+  "version": "1.0.55",
   "title": "Demo App",
   "theme": "ios",
   "iconImage": "images/icon.png",
   "iconBackgroundColor": "#ffffff",
-  "statusbarTextColor": "white",
+  "statusbarTextColor": "black",
   "materialSubnavbarFix": true,
   "defaultLanguage": "en",
   "showPhoneFrameOnDesktop": true,

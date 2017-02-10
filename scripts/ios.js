@@ -70,8 +70,8 @@ function updateCordovaBuild (callback) {
             // Attach cordova js files to HTML
             replace.sync({
               files: path.resolve(cfg.packageRoot, 'cordova/www/index.html'),
-              replace: /<\body>/,
-              with: '<script type=text/javascript src=cordova_plugins.js></script><script type=text/javascript src=cordova.js></script></body>'
+              replace: /<script/,
+              with: '<script type=text/javascript src=cordova.js></script><script'
             })
             // Read cordova config file
             read(path.resolve(cfg.packageRoot, 'cordova/config.xml'), 'utf-8', function (err, content) {
@@ -94,16 +94,6 @@ function updateCordovaBuild (callback) {
                     } else {
                       delete cordovaConfig.widget.description
                     }
-                    // Add plugins
-                    /*
-                    for (let p = 0; p < app.useCordovaPlugins.length; p++) {
-                      cordovaConfig.widget.plugin.push({
-                        $: {
-                          name: app.useCordovaPlugins[p]
-                        }
-                      })
-                    }
-                    */
                     // Define preferences
                     cordovaConfig.widget.preference = [/*
                       {
@@ -125,25 +115,6 @@ function updateCordovaBuild (callback) {
                         }
                       }
                     ]
-                    /*
-                    cordovaConfig.widget.feature = [
-                      {
-                        $: {
-                          name: 'StatusBar'
-                        },
-                        param: [
-                          {
-                            $: {
-                              name: 'ios-package',
-                              value: 'CDVStatusBar',
-                              onload: true
-                            }
-                          }
-                        ]
-                      }
-                    ]
-                    */
-
                     // Add icons and splashscreens
                     cordovaConfig.widget.platform[1].icon = []
                     cordovaConfig.widget.platform[1].splash = []
