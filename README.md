@@ -72,7 +72,6 @@
 
 Upcoming:
 
-- [v1.1 - Apple App Store deployment](https://github.com/scriptPilot/app-framework/milestone/4)
 - [v1.2 - Google Play Store deployment](https://github.com/scriptPilot/app-framework/milestone/5)
 - [v1.3 - Tutorial: ToDo App](https://github.com/scriptPilot/app-framework/milestone/3)
 - [v1.4 - Robustness improvements](https://github.com/scriptPilot/app-framework/milestone/6)
@@ -81,4 +80,5 @@ Upcoming:
 
 Closed:
 
+- [v1.1 - Apple App Store deployment](https://github.com/scriptPilot/app-framework/milestone/4?closed=1) (2017-02-10)
 - [v1.0 - Initial Release](https://github.com/scriptPilot/app-framework/milestone/1?closed=1) (2017-02-05)
