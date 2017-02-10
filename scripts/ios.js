@@ -95,13 +95,13 @@ function updateCordovaBuild (callback) {
                             name: 'StatusBarOverlaysWebView',
                             value: false
                           }
-                        },/*
+                        }, /*
                         {
                           $: {
                             name: 'StatusBarBackgroundColor',
                             value: '#006699'
                           }
-                        },*/
+                        }, */
                         {
                           $: {
                             name: 'StatusBarStyle',
