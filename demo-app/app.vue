@@ -62,8 +62,4 @@
     font-size: 20px;
   }
 
-  .statusbar-overlay {
-    background-color: yellow;
-  }
-
 </style>

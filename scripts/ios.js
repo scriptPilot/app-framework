@@ -95,19 +95,7 @@ function updateCordovaBuild (callback) {
                       delete cordovaConfig.widget.description
                     }
                     // Define preferences
-                    cordovaConfig.widget.preference = [/*
-                      {
-                        $: {
-                          name: 'StatusBarOverlaysWebView',
-                          value: true
-                        }
-                      },
-                      {
-                        $: {
-                          name: 'StatusBarBackgroundColor',
-                          value: '#006699'
-                        }
-                      }, */
+                    cordovaConfig.widget.preference = [
                       {
                         $: {
                           name: 'StatusBarStyle',
@@ -177,8 +165,8 @@ createCordovaProject(function () {
   updateCordovaPlugins(function () {
     updateCordovaBuild(function () {
       buildCordovaIos(function () {
-        run('open -a Xcode "' + path.resolve(cfg.packageRoot, 'cordova/platforms/ios', app.title + '.xcodeproj') + '"')
-        showOnly('Xcode project build done, based on application build version ' + version + '! Please open Xcode to run the simulator or to publish your application to the App Store.')
+        run('cd "' + path.resolve(cfg.packageRoot, 'cordova') + '" && cordova run ios')
+        showOnly('Xcode project version ' + version + ' build!')
       })
     })
   })
