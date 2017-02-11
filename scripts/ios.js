@@ -165,9 +165,9 @@ createCordovaProject(function () {
   updateCordovaPlugins(function () {
     updateCordovaBuild(function () {
       buildCordovaIos(function () {
-        showOnly('Xcode project version ' + version + ' build, iOS simulator is starting ...')
-        run('cd "' + path.resolve(cfg.packageRoot, 'cordova') + '" && cordova run ios', function () {
-          showOnly('iOS simulator started with build version ' + version + '.')
+        showOnly('Xcode project version ' + version + ' build, Xcode is starting ...')
+        run('open -a Xcode "' + path.resolve(cfg.packageRoot, 'cordova/platforms/ios', app.title + '.xcodeproj') + '"', function () {
+          showOnly('Xcode started with build version ' + version + '.')
         })
       })
     })
