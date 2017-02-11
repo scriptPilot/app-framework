@@ -45,9 +45,9 @@ Optional
 
 ### Build your application
 
-- Run `npm run patch` after bugfixes and improvements
-- Run `npm run minor` after adding new functionality
-- Run `npm run major` after breaking backward-capability
+- Run `npm run patch` (Windows) or `sudo npm run patch` (macOS) after bugfixes and improvements
+- Run `npm run minor` (Windows) or `sudo npm run minor` (macOS) after adding new functionality
+- Run `npm run major` (Windows) or `sudo npm run major` (macOS) after breaking backward-capability
 
 ### Deploy your application
 
