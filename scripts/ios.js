@@ -148,7 +148,7 @@ function updateCordovaBuild (callback) {
       }
     })
   } else {
-    throw new Error(version === '0.0.0' ? 'You must build your application first.' : 'Build folder "www/build-' + version + '" not found.')
+    showOnly(version === '0.0.0' ? 'You must build your application first.' : 'Build folder "www/build-' + version + '" not found.')
   }
 }
 
