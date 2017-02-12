@@ -8,13 +8,13 @@ var localStorage = window.localStorage
 window['_'] = require('underscore')
 
 // Import Framework7
-require('../libs/framework7/js/framework7.min.js')
+require('framework7/dist/js/framework7.min.js')
 if (process.env.THEME === 'material') {
-  require('../libs/framework7/css/framework7.material.min.css')
-  require('../libs/framework7/css/framework7.material.colors.min.css')
+  require('framework7/dist/css/framework7.material.min.css')
+  require('framework7/dist/css/framework7.material.colors.min.css')
 } else {
-  require('../libs/framework7/css/framework7.ios.min.css')
-  require('../libs/framework7/css/framework7.ios.colors.min.css')
+  require('framework7/dist/css/framework7.ios.min.css')
+  require('framework7/dist/css/framework7.ios.colors.min.css')
 }
 
 // Import icon fonts
