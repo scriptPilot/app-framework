@@ -8,17 +8,17 @@
 
 > The power is under the hood - but for sure, we have a [Demo App](https://app-framework.scriptpilot.de/).
 
-### Setup
+### Features - Setup
 
 - Creation of a lightweight and well-organized project folder, prepared to push to [GitHub](https://github.com/about)
 - [Demo App](https://app-framework.scriptpilot.de/) to use as base for your own application with typical use cases
 
-### Design
+### Features - Design
 
 - Printable [template](media/smartphone-template.pdf) to design your application with paper and pencil
 - Template for your icon design - as [PDF for sketching](media/icon-template.pdf) and [PPTX](media/icon-template.pptx) for drawing
 
-### Development
+### Features - Development
 
 - Realize beautiful user interfaces with all well-known components and transitions, based on [Framework7](https://framework7.io/)
 - Use comprehensive icon fonts like [FontAwesome](http://fontawesome.io/), [Framework7](http://framework7.io/icons/), [Ion](http://ionicons.com/) and [Material Icons](https://material.io/icons/)
@@ -29,31 +29,31 @@
 - State kept for history, tabs, scroll positions, focus, panels, modals, form inputs and page component data
 - Offline capability, flexible routing and multi-language support out of the box
 
-### Testing
+### Features - Testing
 
 - Integrated code checks for [correctness](http://eslint.org/) and [standard conformity](http://standardjs.com/)
 - Development server with live reload, perfectly to use together with [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools/)
-- Test your application on your own phone or any iOS or Android device with a simulator (work in progress)
+- Test your application on your own phone or any iOS or Android device with a simulator
 
-### Building
+### Features - Building
 
 - Build process with version bump and compression of all HTML, CSS, JavaScript and image files
 - Generation of favicons, touch icons and splash screens out of a single image file
-- Phone frame around your application on big screens, so you can offer desktop access with charm 
+- Phone frame around your application on big screens, so you can offer desktop access with charm
 - Automatic build as web application, to be used online and offline in the browser
 - Automatic [Apple Xcode](https://developer.apple.com/xcode/) project build with [Cordova](https://cordova.apache.org/)
-- Automatic [Android Studio](https://developer.android.com/studio) project build with [Cordova](https://cordova.apache.org/) (work in progress)
+- Automatic [Android Studio](https://developer.android.com/studio) project build with [Cordova](https://cordova.apache.org/)
 
-### Deployment
+### Features - Deployment
 
 - Deployment without downtime
   - To your own server or web space as Web App
   - To the [Firebase Hosting service](https://firebase.google.com/docs/hosting/) as Web App
   - To the [Apple App Store](https://itunes.apple.com/de/) as native iOS App
-  - To the [Google Play Store](https://play.google.com/) as native Android App (work in progress)
+  - To the [Google Play Store](https://play.google.com/) as native Android App
 - Easy rollback solution
 
-### Backup
+### Features - Backup
 
 - Download your [Firebase database content](https://firebase.google.com/docs/database/) to a local JSON file
 - Create a ZIP file with all important project files to backup on any external drive or cloud service
@@ -72,7 +72,6 @@
 
 Upcoming:
 
-- [v1.2 - Google Play Store deployment](https://github.com/scriptPilot/app-framework/milestone/5)
 - [v1.3 - Tutorial: ToDo App](https://github.com/scriptPilot/app-framework/milestone/3)
 - [v1.4 - Robustness improvements](https://github.com/scriptPilot/app-framework/milestone/6)
 - [v1.5 - Extensions](https://github.com/scriptPilot/app-framework/milestone/7)
@@ -80,5 +79,6 @@ Upcoming:
 
 Closed:
 
+- [v1.2 - Google Play Store deployment](https://github.com/scriptPilot/app-framework/milestone/5?closed=1)
 - [v1.1 - Apple App Store deployment](https://github.com/scriptPilot/app-framework/milestone/4?closed=1) (2017-02-10)
 - [v1.0 - Initial Release](https://github.com/scriptPilot/app-framework/milestone/1?closed=1) (2017-02-05)

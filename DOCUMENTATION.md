@@ -58,8 +58,8 @@ Optional
 |Installation|Are running in the device browser and could be pinned to the homescreen.|Are installed from an App Store or manually to the device (Android only).|
 |Performance|Reload on reopen, but could be cached for offline usage.|Kept in runtime of the device, smoother usage.|
 |Capability|Only browser features.|Access to the device hardware and OS features.|
-|Deployment|In seconds.|Approval process takes some time and could be refused.|
-|Costs|Firebase hosting service is free for small apps.|Apple requires developer program (around 99€ per year). For selling apps, Apple and Google charge around 30% of the sales.|
+|Deployment|In seconds.|Additional native build plus approval process, which takes some time and could be refused at the Apple App Store.|
+|Costs|Firebase hosting service is free for small apps.|Apple requires developer program (around 99€ per year), Google Play store requires registration fee (around 25 USD). For selling apps, Apple and Google charge around 30% of the sales.|
 |Promotion|All regular ways.|All regular ways plus special promotions and user ratings in the store.|
 
 Deployment to your own server (Web App)
@@ -87,7 +87,13 @@ Deployment to the Apple App Store (native App)
 
 Deployment to the Google Play Store (native App)
 
-- Coming soon ...
+- You need to install the [Android Studio](https://developer.android.com/studio/)
+- You need to register at the [Google Play Developer Console](https://play.google.com/apps/publish/signup/) (around 25 USD)
+- Run `npm run android` to create a project file for Android Studio, based on [Cordova](https://cordova.apache.org/)
+- Select your project, confirm Gradle sync and test your application on several device simulators
+- Make screenshots, you will need them later in the Google Play Developer Console
+- Generate signed APK
+- Log in to the Google Play Developer console to deploy your application
 
 ### Backup your application
 

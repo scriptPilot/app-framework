@@ -10,6 +10,7 @@ var xml = require('xml2js')
 var write = require('write')
 var list = require('list-dir')
 var replace = require('replace-in-file')
+var fs = require('fs-extra')
 
 // Load configuration
 var cfg = require('./config.js')
@@ -20,7 +21,7 @@ var htaccess = read.sync(path.resolve(cfg.appRoot, 'www/.htaccess'), 'utf8')
 var version = htaccess.match(/build-(.+)\//)[1]
 
 // Show message
-showOnly('Xcode project build ongoing with application build version ' + version + ' - please wait ...')
+showOnly('Android Studio project build ongoing with application build version ' + version + ' - please wait ...')
 
 // Create cordova project folder
 function createCordovaProject (callback) {
@@ -85,7 +86,7 @@ function updateCordovaBuild (callback) {
                     throw new Error(err)
                   } else {
                     // Update project id
-                    cordovaConfig.widget.$.id = app.appStoreId
+                    cordovaConfig.widget.$.id = app.playStoreId
                     // Update build version
                     cordovaConfig.widget.$.version = version
                     // Update application name
@@ -106,26 +107,27 @@ function updateCordovaBuild (callback) {
                       }
                     ]
                     // Add icons and splashscreens
-                    cordovaConfig.widget.platform[1].icon = []
-                    cordovaConfig.widget.platform[1].splash = []
+                    cordovaConfig.widget.platform[0].icon = []
+                    cordovaConfig.widget.platform[0].splash = []
                     let iconFolder = path.resolve(cfg.packageRoot, 'icons')
                     let icons = list.sync(iconFolder)
                     for (let i = 0; i < icons.length; i++) {
                       let icon = icons[i]
-                      if (/ios-icon-([0-9]+)\.png/.test(icon)) {
-                        cordovaConfig.widget.platform[1].icon.push({
+                      if (/android-icon-([a-z]+)dpi-([0-9]+)\.png/.test(icon)) {
+                        cordovaConfig.widget.platform[0].icon.push({
                           $: {
                             src: path.join('..', 'icons', icon),
-                            width: icon.match(/ios-icon-([0-9]+)\.png/)[1],
-                            height: icon.match(/ios-icon-([0-9]+)\.png/)[1]
+                            density: icon.match(/android-icon-([a-z]+)dpi-([0-9]+)\.png/)[1] + 'dpi'
                           }
                         })
-                      } else if (/ios-launchscreen-([0-9]+)x([0-9]+)\.png/.test(icon)) {
-                        cordovaConfig.widget.platform[1].splash.push({
+                      } else if (/android-launchscreen-([a-z]+)dpi-([0-9]+)x([0-9]+)\.png/.test(icon)) {
+                        let width = icon.match(/android-launchscreen-([a-z]+)dpi-([0-9]+)x([0-9]+)\.png/)[2]
+                        let height = icon.match(/android-launchscreen-([a-z]+)dpi-([0-9]+)x([0-9]+)\.png/)[3]
+                        let dens = icon.match(/android-launchscreen-([a-z]+)dpi-([0-9]+)x([0-9]+)\.png/)[1]
+                        cordovaConfig.widget.platform[0].splash.push({
                           $: {
                             src: path.join('..', 'icons', icon),
-                            width: icon.match(/ios-launchscreen-([0-9]+)x([0-9]+)\.png/)[1],
-                            height: icon.match(/ios-launchscreen-([0-9]+)x([0-9]+)\.png/)[2]
+                            density: (width > height ? 'port' : 'land') + '-' + dens + 'dpi'
                           }
                         })
                       }
@@ -154,10 +156,11 @@ function updateCordovaBuild (callback) {
   }
 }
 
-// (Re)build cordova ios platform
-function buildCordovaIos (callback) {
-  let removePlatform = isThere(path.resolve(cfg.packageRoot, 'cordova/platforms/ios')) ? 'cordova platform rm ios && ' : ''
-  run('cd "' + path.resolve(cfg.packageRoot, 'cordova') + '" && ' + removePlatform + 'cordova platform add ios', function () {
+// (Re)build cordova android platform
+function buildCordovaAndroid (callback) {
+  let removePlatform = isThere(path.resolve(cfg.packageRoot, 'cordova/platforms/android')) ? 'cordova platform rm android && ' : ''
+  run('cd "' + path.resolve(cfg.packageRoot, 'cordova') + '" && ' + removePlatform + 'cordova platform add android', function () {
+    fs.mkdir(path.resolve(cfg.packageRoot, 'cordova/platforms/android/.idea'))
     callback()
   })
 }
@@ -166,10 +169,10 @@ function buildCordovaIos (callback) {
 createCordovaProject(function () {
   updateCordovaPlugins(function () {
     updateCordovaBuild(function () {
-      buildCordovaIos(function () {
-        showOnly('Xcode project version ' + version + ' build, Xcode is starting ...')
-        run('open -a Xcode "' + path.resolve(cfg.packageRoot, 'cordova/platforms/ios', app.title + '.xcodeproj') + '"', function () {
-          showOnly('Xcode started with build version ' + version + '.')
+      buildCordovaAndroid(function () {
+        showOnly('Android Studio project version ' + version + ' build, Android Studio is starting ...')
+        run('open -a "/Applications/Android Studio.app" "' + path.resolve(cfg.packageRoot, 'cordova/platforms/android') + '"', function () {
+          showOnly('Android Studio started with build version ' + version + '.')
         })
       })
     })
