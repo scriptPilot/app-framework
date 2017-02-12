@@ -15,6 +15,9 @@
     </f7-navbar>
 
     <!-- Content block -->
+    <f7-block>
+        <pre>{{data}}</pre>
+    </f7-block>
     <f7-block inner inset style="text-align: center" v-if="!$root.isHomescreenApp">
       <p><b>For native App feeling, please pin this page to your homescreen and open it from there!</b></p>
     </f7-block>
@@ -72,5 +75,13 @@
 </template>
 
 <script>
-  module.exports = {}
+  module.exports = {
+    data: {
+      data: {
+        isMobileDevice: this.$root.isMobileDevice,
+        isNativeApp: this.$root.isNativeApp,
+        isHomescreenApp: this.$root.isHomescreenApp
+      }
+    }
+  }
 </script>
