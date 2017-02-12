@@ -62,7 +62,7 @@
 
 ## Quick start
 
-> A Tutorial for the complete workflow in detail is planned!
+> A Tutorial for the complete workflow is coming soon!
 
 1. Install [Node.js with npm](https://docs.npmjs.com/getting-started/what-is-npm)
 2. Download *[package.json](https://raw.githubusercontent.com/scriptPilot/app-framework/master/demo-app/package.json)* file to an empty folder (keep extension .json!)
