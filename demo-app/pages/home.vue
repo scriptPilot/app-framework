@@ -79,7 +79,7 @@
   module.exports = {
     computed: {
       device: function () {
-        return [this.$f7.device, navigator.cordova]
+        return [this.$f7.device, window.cordova]
       }
     }
   }
