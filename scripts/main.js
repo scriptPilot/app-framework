@@ -166,7 +166,7 @@ new Vue({ // eslint-disable-line
   },
   mounted: function () {
     // Adjust web look to iPhone
-    if (!this.isNativeApp && !this.$f7.device.ios && app.showPhoneFrameOnDesktop) {
+    if (!this.isMobileDevice && app.showPhoneFrameOnDesktop === true && this.$f7.device.ios === false) {
       this.$$('html').addClass('pixel-ratio-2')
       this.$$('html').addClass('ios-gt-8')
       this.$$('html').addClass('light-scrollbars')
