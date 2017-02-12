@@ -130,13 +130,13 @@ new Vue({ // eslint-disable-line
       return text[this.language] ? text[this.language] : text['en']
     },
     isMobileDevice: function () {
-      return this.$f7.device.ios === false && this.$f7.device.android === false
+      return this.$f7.device.ios !== false || this.$f7.device.android !== false
     },
     isNativeApp: function () {
       return window.cordova !== undefined
     },
     isHomescreenApp: function () {
-      return window.cordova === undefined && this.$f7.device.webView === null
+      return this.$f7.device.webView !== null
     }
   },
   framework7: {
