@@ -38,7 +38,7 @@
   ],
   "buildSourcemaps": false,
   "devDependencies": {
-    "app-framework": "^1.1.2"
+    "app-framework": "^1.2.0"
   },
   "scripts": {
     "dev": "cd node_modules/app-framework && node scripts/dev-server",
