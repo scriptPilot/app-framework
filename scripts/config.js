@@ -31,6 +31,7 @@ app.materialSubnavbarFix = app.materialSubnavbarFix || demoApp.materialSubnavbar
 app.useCordovaPlugins = app.useCordovaPlugins || demoApp.useCordovaPlugins
 app.firebase = app.firebase || demoApp.firebase
 app.statusbarTextColor = app.statusbarTextColor || demoApp.statusbarTextColor
+app.appStoreId = app.appStoreId || demoApp.appStoreId
 app.playStoreId = app.playStoreId || demoApp.playStoreId
 
   // Removed items

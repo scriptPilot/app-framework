@@ -84,6 +84,8 @@ function updateCordovaBuild (callback) {
                   if (err) {
                     throw new Error(err)
                   } else {
+                    // Update project id
+                    cordovaConfig.widget.$.id = app.appStoreId
                     // Update build version
                     cordovaConfig.widget.$.version = version
                     // Update application name
@@ -110,20 +112,20 @@ function updateCordovaBuild (callback) {
                     let icons = list.sync(iconFolder)
                     for (let i = 0; i < icons.length; i++) {
                       let icon = icons[i]
-                      if (/icon-with-background-([0-9]+)\.png/.test(icon)) {
+                      if (/ios-icon-([0-9]+)\.png/.test(icon)) {
                         cordovaConfig.widget.platform[1].icon.push({
                           $: {
                             src: path.join('..', 'icons', icon),
-                            width: icon.match(/icon-with-background-([0-9]+)\.png/)[1],
-                            height: icon.match(/icon-with-background-([0-9]+)\.png/)[1]
+                            width: icon.match(/ios-icon-([0-9]+)\.png/)[1],
+                            height: icon.match(/ios-icon-([0-9]+)\.png/)[1]
                           }
                         })
-                      } else if (/splashscreen-([0-9]+)x([0-9]+)\.png/.test(icon)) {
+                      } else if (/ios-launchscreen-([0-9]+)x([0-9]+)\.png/.test(icon)) {
                         cordovaConfig.widget.platform[1].splash.push({
                           $: {
                             src: path.join('..', 'icons', icon),
-                            width: icon.match(/splashscreen-([0-9]+)x([0-9]+)\.png/)[1],
-                            height: icon.match(/splashscreen-([0-9]+)x([0-9]+)\.png/)[2]
+                            width: icon.match(/ios-launchscreen-([0-9]+)x([0-9]+)\.png/)[1],
+                            height: icon.match(/ios-launchscreen-([0-9]+)x([0-9]+)\.png/)[2]
                           }
                         })
                       }

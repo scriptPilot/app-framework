@@ -10,6 +10,7 @@ var xml = require('xml2js')
 var write = require('write')
 var list = require('list-dir')
 var replace = require('replace-in-file')
+var fs = require('fs-extra')
 
 // Load configuration
 var cfg = require('./config.js')
@@ -106,26 +107,27 @@ function updateCordovaBuild (callback) {
                       }
                     ]
                     // Add icons and splashscreens
-                    cordovaConfig.widget.platform[1].icon = []
-                    cordovaConfig.widget.platform[1].splash = []
+                    cordovaConfig.widget.platform[0].icon = []
+                    cordovaConfig.widget.platform[0].splash = []
                     let iconFolder = path.resolve(cfg.packageRoot, 'icons')
                     let icons = list.sync(iconFolder)
                     for (let i = 0; i < icons.length; i++) {
                       let icon = icons[i]
-                      if (/icon-with-background-([0-9]+)\.png/.test(icon)) {
-                        cordovaConfig.widget.platform[1].icon.push({
+                      if (/android-icon-([a-z]+)dpi-([0-9]+)\.png/.test(icon)) {
+                        cordovaConfig.widget.platform[0].icon.push({
                           $: {
                             src: path.join('..', 'icons', icon),
-                            width: icon.match(/icon-with-background-([0-9]+)\.png/)[1],
-                            height: icon.match(/icon-with-background-([0-9]+)\.png/)[1]
+                            density: icon.match(/android-icon-([a-z]+)dpi-([0-9]+)\.png/)[1] + 'dpi'
                           }
                         })
-                      } else if (/splashscreen-([0-9]+)x([0-9]+)\.png/.test(icon)) {
-                        cordovaConfig.widget.platform[1].splash.push({
+                      } else if (/android-launchscreen-([a-z]+)dpi-([0-9]+)x([0-9]+)\.png/.test(icon)) {
+                        let width = icon.match(/android-launchscreen-([a-z]+)dpi-([0-9]+)x([0-9]+)\.png/)[2]
+                        let height = icon.match(/android-launchscreen-([a-z]+)dpi-([0-9]+)x([0-9]+)\.png/)[3]
+                        let dens = icon.match(/android-launchscreen-([a-z]+)dpi-([0-9]+)x([0-9]+)\.png/)[1]
+                        cordovaConfig.widget.platform[0].splash.push({
                           $: {
                             src: path.join('..', 'icons', icon),
-                            width: icon.match(/splashscreen-([0-9]+)x([0-9]+)\.png/)[1],
-                            height: icon.match(/splashscreen-([0-9]+)x([0-9]+)\.png/)[2]
+                            density: (width > height ? 'port' : 'land') + '-' + dens + 'dpi'
                           }
                         })
                       }
@@ -158,6 +160,7 @@ function updateCordovaBuild (callback) {
 function buildCordovaAndroid (callback) {
   let removePlatform = isThere(path.resolve(cfg.packageRoot, 'cordova/platforms/android')) ? 'cordova platform rm android && ' : ''
   run('cd "' + path.resolve(cfg.packageRoot, 'cordova') + '" && ' + removePlatform + 'cordova platform add android', function () {
+    fs.mkdir(path.resolve(cfg.packageRoot, 'cordova/platforms/android/.idea'))
     callback()
   })
 }

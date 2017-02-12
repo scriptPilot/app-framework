@@ -14,6 +14,10 @@
       </f7-nav-right>
     </f7-navbar>
 
+    <f7-block>
+      <pre>{{device}}</pre>
+    </f7-block>
+
     <!-- Content block -->
     <f7-block inner inset style="text-align: center" v-if="!$root.webView">
       <p><b>For native App feeling, please pin this page to your homescreen and open it from there!</b></p>
@@ -72,5 +76,11 @@
 </template>
 
 <script>
-  module.exports = {}
+  module.exports = {
+    computed: {
+      device: function () {
+        return this.$f7.device
+      }
+    }
+  }
 </script>

@@ -134,6 +134,14 @@ new Vue({ // eslint-disable-line
     },
     webView: function () {
       return this.$f7.device.webView !== null
+    },
+    isMobileDevice: function () {
+      return this.$f7.device.ios === false && this.$f7.device.android === false
+    },
+    isNativeApp: function () {
+    },
+    isHomescreenApp: function () {
+      return null
     }
   },
   framework7: {

@@ -88,14 +88,12 @@ Deployment to the Apple App Store (native App)
 Deployment to the Google Play Store (native App)
 
 - You need to install the [Android Studio](https://developer.android.com/studio/)
-- You need to register at the [Google Play Store](https://play.google.com/apps/publish/signup/) (around 25 USD)
+- You need to register at the [Google Play Developer Console](https://play.google.com/apps/publish/signup/) (around 25 USD)
 - Run `npm run android` to create a project file for Android Studio, based on [Cordova](https://cordova.apache.org/)
 - Select your project, confirm Gradle sync and test your application on several device simulators
+- Make screenshots, you will need them later in the Google Play Developer Console
 - Generate signed APK
-
-- Make screenshots on the biggest iPhone (you will need them in iTunes Connect later on)
-- Create an archive of the Xcode project and upload it within Xcode to iTunes Connect
-- Send your App in iTunes Connect for the review to Apple
+- Log in to the Google Play Developer console to deploy your application
 
 ### Backup your application
 
