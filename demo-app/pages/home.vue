@@ -14,12 +14,8 @@
       </f7-nav-right>
     </f7-navbar>
 
-    <f7-block>
-      <pre>{{device}}</pre>
-    </f7-block>
-
     <!-- Content block -->
-    <f7-block inner inset style="text-align: center" v-if="!$root.webView">
+    <f7-block inner inset style="text-align: center" v-if="!$root.isHomescreenApp">
       <p><b>For native App feeling, please pin this page to your homescreen and open it from there!</b></p>
     </f7-block>
 
@@ -76,11 +72,5 @@
 </template>
 
 <script>
-  module.exports = {
-    computed: {
-      device: function () {
-        return [this.$f7.device, window.cordova]
-      }
-    }
-  }
+  module.exports = {}
 </script>

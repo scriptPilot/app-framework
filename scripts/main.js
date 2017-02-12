@@ -129,40 +129,15 @@ new Vue({ // eslint-disable-line
     text: function () {
       return text[this.language] ? text[this.language] : text['en']
     },
-    mobileDevice: function () {
-      return this.$f7.device.os !== undefined
-    },
-    webView: function () {
-      return this.$f7.device.webView !== null
-    },
-
     isMobileDevice: function () {
       return this.$f7.device.ios === false && this.$f7.device.android === false
     },
     isNativeApp: function () {
+      return window.cordova !== undefined
     },
     isHomescreenApp: function () {
-      return null
+      return window.cordova === undefined && this.$f7.device.webView === null
     }
-    /*
-
-    browser/ios/android/homescreen
-
-    {
-  "androidChrome": false/false/true
-  "ipad": false,
-  "ipod": false,
-  "iphone": false / true,/false
-  "android": false,/false/true
-  "ios": false / true,/false
-  os: /ios/android
-  osVersion: /10.2/7.1
-  "webView": null/mozilla ...,/null
-  minimalUi: undefined/false/undefined
-  "statusBar": false/true,
-  "pixelRatio": 1/3/1.5
-
-*/
   },
   framework7: {
     root: '#app',
@@ -200,7 +175,7 @@ new Vue({ // eslint-disable-line
     // Update phone frame function
     var updatePhoneFrame = function () {
       // Show frame on desktop
-      if (!this.mobileDevice && app.showPhoneFrameOnDesktop === true) {
+      if (!this.isMobileDevice && app.showPhoneFrameOnDesktop === true) {
         // Show frame
         if (window.innerWidth > 370 && window.innerHeight > 778) {
           this.$$('#frame').addClass('phone')
