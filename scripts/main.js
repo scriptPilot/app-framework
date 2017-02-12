@@ -136,7 +136,7 @@ new Vue({ // eslint-disable-line
       return window.cordova !== undefined
     },
     isHomescreenApp: function () {
-      return window.cordova === undefined && this.$f7.device.webView !== null
+      return window.cordova === undefined && (this.$f7.device.webView !== null || window.matchMedia('(display-mode: standalone)').matches)
     }
   },
   framework7: {
