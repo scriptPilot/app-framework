@@ -72,5 +72,11 @@
 </template>
 
 <script>
-  module.exports = {}
+  module.exports = {
+    mounted: function () {
+      [1,2,3].map(n => {
+        console.log('Babel no ' + n)
+      })
+    }
+  }
 </script>
