@@ -81,6 +81,6 @@ Upcoming:
 
 Closed:
 
-- [v1.2 - Google Play Store deployment](https://github.com/scriptPilot/app-framework/milestone/5?closed=1)
+- [v1.2 - Google Play Store deployment](https://github.com/scriptPilot/app-framework/milestone/5?closed=1) (2017-02-12)
 - [v1.1 - Apple App Store deployment](https://github.com/scriptPilot/app-framework/milestone/4?closed=1) (2017-02-10)
 - [v1.0 - Initial Release](https://github.com/scriptPilot/app-framework/milestone/1?closed=1) (2017-02-05)
