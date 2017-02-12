@@ -3,8 +3,8 @@ RewriteEngine On
 
 # Here you specify the build version to be used (two times!)
 # Please do it manually only for rollback, it is updated automatically after each successful build process
-RewriteCond %{REQUEST_URI} !^/build-1.1.18/
-RewriteRule ^(.*)$ /build-1.1.18/$1 [L]
+RewriteCond %{REQUEST_URI} !^/build-1.2.0/
+RewriteRule ^(.*)$ /build-1.2.0/$1 [L]
 
 # Forwarding to app home page if file not found
 RewriteCond %{REQUEST_FILENAME} !-f
