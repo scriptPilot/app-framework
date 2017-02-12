@@ -135,6 +135,7 @@ new Vue({ // eslint-disable-line
     webView: function () {
       return this.$f7.device.webView !== null
     },
+
     isMobileDevice: function () {
       return this.$f7.device.ios === false && this.$f7.device.android === false
     },
@@ -143,6 +144,25 @@ new Vue({ // eslint-disable-line
     isHomescreenApp: function () {
       return null
     }
+    /*
+
+    browser/ios/android/homescreen
+
+    {
+  "androidChrome": false/false/true
+  "ipad": false,
+  "ipod": false,
+  "iphone": false / true,/false
+  "android": false,/false/true
+  "ios": false / true,/false
+  os: /ios/android
+  osVersion: /10.2/7.1
+  "webView": null/mozilla ...,/null
+  minimalUi: undefined/false/undefined
+  "statusBar": false/true,
+  "pixelRatio": 1/3/1.5
+
+*/
   },
   framework7: {
     root: '#app',
