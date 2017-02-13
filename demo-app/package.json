@@ -10,7 +10,7 @@
   "materialSubnavbarFix": true,
   "defaultLanguage": "en",
   "showPhoneFrameOnDesktop": true,
-  "resetLocalStorageOnVersionChange": true,
+  "resetLocalStorageOnVersionChange": false,
   "specialRoutes": [
     "flexible-routing/blog/:blogId/post/:postId"
   ],
