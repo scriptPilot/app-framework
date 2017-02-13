@@ -18,8 +18,8 @@ Optional
 
 - Install [Node.js with npm](https://docs.npmjs.com/getting-started/what-is-npm)
 - Download *[package.json](https://raw.githubusercontent.com/scriptPilot/app-framework/master/demo-app/package.json)* file to an empty folder (keep extension .json!)
-- Run `npm install` (Windows) or `sudo npm install --unsafe-perm=true` (macOS) to setup project folder
-- Run `npm update` (Windows) or `sudo npm update --unsafe-perm=true` (macOS) to update *App Framework* to latest sub version
+- Run `npm install` (Windows, run as admin!) or `sudo npm install --unsafe-perm=true` (macOS) to setup project folder
+- Run `npm update` (Windows, run as admin!) or `sudo npm update --unsafe-perm=true` (macOS) to update *App Framework* to latest sub version
 
 ### Design your application
 - Use our printable [smartphone template](smartphone-template.pdf) to sketch your application

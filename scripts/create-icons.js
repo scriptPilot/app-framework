@@ -10,6 +10,9 @@ var rgb = require('hex-rgb')
 let cfg = require('./config')
 let app = require(cfg.appRoot + 'package.json')
 
+// Show message
+console.log('Creating icons - please wait ...')
+
 // Define background color
 let bg = rgb(app.iconBackgroundColor).concat(255)
 
@@ -17,8 +20,14 @@ let bg = rgb(app.iconBackgroundColor).concat(255)
 let minIconWidth = 1024
 let minIconHeight = minIconWidth
 
+// Define timestamp
+let timestamp = Date.now()
+
 // Define icons
 let icons = [
+  ['icon', 16, 16, bg],
+  ['icon', 32, 32, bg],
+  ['apple-touch-icon', 180, 180, bg],
   ['app-store-icon', 1024, 1024, bg],
   ['ios-icon', 180, 180, bg],
   ['ios-icon', 167, 167, bg],
@@ -65,11 +74,11 @@ for (let i = 0; i < icons.length; i++) {
   }
 }
 
-// Reset icon folder
+// Define icon folder
 let iconFile = isThere(path.resolve(cfg.appRoot, app.iconImage)) ? path.resolve(cfg.appRoot, app.iconImage) : path.resolve(cfg.packageRoot, 'demo-app/images/icon.png')
 
 // Load icon file
-new img(iconFile, function (err, icon) {
+new img(iconFile, function (err, icon) { // eslint-disable-line
   // Cannot load icon file
   if (err) throw new Error('Cannot load icon file "' + iconFile + '".')
 
@@ -92,8 +101,8 @@ new img(iconFile, function (err, icon) {
     let width = icons[i][1]
     let height = icons[i][2]
     let bg = icons[i][3] || [0, 0, 0, 0]
-    let name = icons[i][0] + '-' + width + (width === height ? '' : 'x' + height) + '.png'
-    
+    let name = icons[i][0] + '-' + width + (width === height ? '' : 'x' + height) + '.' + timestamp + '.png'
+
     // Calculate icon size
     let maxIconWidth = width === height ? width : width / 2
     let maxIconHeight = width === height ? height : height / 2
@@ -106,7 +115,7 @@ new img(iconFile, function (err, icon) {
     let top = Math.floor((height - iconHeight) / 2)
 
     // Create canvas
-    new img(width, height, img.rgbaToInt(bg[0], bg[1], bg[2], bg[3]), function (err, canvas) {
+    new img(width, height, img.rgbaToInt(bg[0], bg[1], bg[2], bg[3]), function (err, canvas) { // eslint-disable-line
       if (err) throw err
 
       // Clone icon
@@ -125,7 +134,6 @@ new img(iconFile, function (err, icon) {
             canvas.write(path.resolve(iconFolder, name), function (err) {
               if (err) throw err
             })
-            
           })
         })
       })

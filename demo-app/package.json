@@ -1,6 +1,6 @@
 {
   "name": "demo-app",
-  "version": "1.2.2",
+  "version": "1.2.15",
   "title": "Demo App",
   "description": "App Framework Demo App - iOS and Android Apps with HTML & JavaScript - develop, build and deploy - free and open source!",
   "theme": "ios",
@@ -41,7 +41,7 @@
     "app-framework": "^1.2.2"
   },
   "scripts": {
-    "dev": "cd node_modules/app-framework && node scripts/dev-server",
+    "dev": "cd node_modules/app-framework && node scripts/create-icons &&  node scripts/dev-server",
     "check": "node node_modules/app-framework/scripts/check",
     "fix": "node node_modules/app-framework/scripts/fix",
     "patch": "npm version patch && cd node_modules/app-framework && node scripts/create-icons && node scripts/build",
