@@ -2,7 +2,7 @@
 var path = require('path')
 var isThere = require('is-there')
 var deleteFiles = require('delete')
-var img = require('lwip')
+var img = require('jimp')
 var fs = require('fs-extra')
 var rgb = require('hex-rgb')
 
@@ -11,7 +11,7 @@ let cfg = require('./config')
 let app = require(cfg.appRoot + 'package.json')
 
 // Define background color
-let bg = rgb(app.iconBackgroundColor)
+let bg = rgb(app.iconBackgroundColor).concat(255)
 
 // Define minimum icon size
 let minIconWidth = 1024
@@ -69,12 +69,12 @@ for (let i = 0; i < icons.length; i++) {
 let iconFile = isThere(path.resolve(cfg.appRoot, app.iconImage)) ? path.resolve(cfg.appRoot, app.iconImage) : path.resolve(cfg.packageRoot, 'demo-app/images/icon.png')
 
 // Load icon file
-img.open(iconFile, function (err, icon) {
+new img(iconFile, function (err, icon) {
   // Cannot load icon file
   if (err) throw new Error('Cannot load icon file "' + iconFile + '".')
 
   // Check minimum size
-  if (icon.width() < minIconWidth || icon.height() < minIconHeight) {
+  if (icon.bitmap.width < minIconWidth || icon.bitmap.height < minIconHeight) {
     throw new Error('The icon does not have minimum size of ' + minIconWidth + ' x ' + minIconHeight + ' pixel.')
   }
 
@@ -93,38 +93,39 @@ img.open(iconFile, function (err, icon) {
     let height = icons[i][2]
     let bg = icons[i][3] || [0, 0, 0, 0]
     let name = icons[i][0] + '-' + width + (width === height ? '' : 'x' + height) + '.png'
-
+    
     // Calculate icon size
     let maxIconWidth = width === height ? width : width / 2
     let maxIconHeight = width === height ? height : height / 2
-    let factor = Math.min(maxIconWidth / icon.width(), maxIconHeight / icon.height())
-    let iconWidth = Math.floor(factor * icon.width())
-    let iconHeight = Math.floor(factor * icon.height())
+    let factor = Math.min(maxIconWidth / icon.bitmap.width, maxIconHeight / icon.bitmap.height)
+    let iconWidth = Math.floor(factor * icon.bitmap.width)
+    let iconHeight = Math.floor(factor * icon.bitmap.height)
 
     // Calculate icon position
     let left = Math.floor((width - iconWidth) / 2)
     let top = Math.floor((height - iconHeight) / 2)
 
     // Create canvas
-    img.create(width, height, bg, function (err, canvas) {
-      if (err) throw new Error(err)
+    new img(width, height, img.rgbaToInt(bg[0], bg[1], bg[2], bg[3]), function (err, canvas) {
+      if (err) throw err
 
       // Clone icon
       icon.clone(function (err, thisIcon) {
-        if (err) throw new Error(err)
+        if (err) throw err
 
         // Resize icon
-        thisIcon.resize(iconWidth, function (err, thisIcon) {
-          if (err) throw new Error(err)
+        thisIcon.resize(iconWidth, iconHeight, function (err, thisIcon) {
+          if (err) throw err
 
           // Copy icon to canvas
-          canvas.paste(left, top, thisIcon, function (err, canvas) {
-            if (err) throw new Error(err)
+          canvas.composite(thisIcon, left, top, function (err, canvas) {
+            if (err) throw err
 
             // Save icon
-            canvas.writeFile(path.resolve(iconFolder, name), function (err) {
-              if (err) throw new Error(err)
+            canvas.write(path.resolve(iconFolder, name), function (err) {
+              if (err) throw err
             })
+            
           })
         })
       })
