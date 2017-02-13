@@ -4,17 +4,17 @@ saveJSON.spaces = 2
 var path = require('path')
 var utils = require('./utils')
 var webpack = require('webpack')
+var list = require('list-dir')
 var merge = require('webpack-merge')
 var isThere = require('is-there')
 var deleteFiles = require('delete')
 var baseWebpackConfig = require('./webpack.base.conf')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
-var ImageminPlugin = require('imagemin-webpack-plugin').default
 var AppCachePlugin = require('appcache-webpack-plugin')
-var FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 var OnBuildPlugin = require('on-build-webpack')
 var replace = require('replace-in-file')
+var copy = require('cpx')
 
 // Load configuration
 var cfg = require('./config.js')
@@ -36,6 +36,22 @@ if (!cfg.isInstalled) {
 
 // Load app configuration
 var app = require(cfg.appRoot + 'package.json')
+
+// Define icon tags
+let iconTags = ''
+let iconFiles = []
+let icons = list.sync(path.resolve(cfg.packageRoot, 'icons'))
+for (let i = 0; i < icons.length; i++) {
+  if (/^icon-([0-9]+)\.([0-9]+)\.png/.test(icons[i])) {
+    let size = icons[i].match(/^icon-([0-9]+)\.([0-9]+)\.png/)[1]
+    iconTags += '<link rel="icon" type="image/png" size="' + size + 'x' + size + '" href="icons/' + icons[i] + '" />'
+    iconFiles.push(icons[i])
+  } else if (/^apple-touch-icon-([0-9]+)\.([0-9]+)\.png/.test(icons[i])) {
+    let size = icons[i].match(/^apple-touch-icon-([0-9]+)\.([0-9]+)\.png/)[1]
+    iconTags += '<link rel="apple-touch-icon" type="image/png" size="' + size + 'x' + size + '" href="icons/' + icons[i] + '" />'
+    iconFiles.push(icons[i])
+  }
+}
 
 // Define production webpack configuration
 var webpackConfig = merge(baseWebpackConfig, {
@@ -65,30 +81,11 @@ var webpackConfig = merge(baseWebpackConfig, {
     }),
     new webpack.optimize.OccurrenceOrderPlugin(),
     new ExtractTextPlugin('[name].[contenthash].css'),
-    new FaviconsWebpackPlugin({
-      logo: path.resolve(cfg.appRoot, app.iconImage),
-      background: app.iconBackgroundColor,
-      title: app.title,
-      prefix: 'img/icons-[hash:7]/',
-      icons: {
-        android: true,
-        appleIcon: true,
-        appleStartup: true,
-        coast: false,
-        favicons: true,
-        firefox: false,
-        opengraph: false,
-        twitter: false,
-        yandex: false,
-        windows: false
-      },
-      persistentCache: true,
-      emitStats: false
-    }),
     new HtmlWebpackPlugin({
       filename: path.resolve(cfg.appRoot, 'www/build-' + app.version + '/index.html'),
       template: 'index.ejs',
       title: app.title,
+      iconTags: iconTags,
       manifest: ' manifest="manifest.appcache"',
       inject: true,
       minify: {
@@ -97,9 +94,6 @@ var webpackConfig = merge(baseWebpackConfig, {
         removeAttributeQuotes: true
       },
       chunksSortMode: 'dependency'
-    }),
-    new ImageminPlugin({
-      svgo: null
     }),
     new AppCachePlugin({
       cache: null,
@@ -110,6 +104,17 @@ var webpackConfig = merge(baseWebpackConfig, {
       output: 'manifest.appcache'
     }),
     new OnBuildPlugin(function (stats) {
+      // Copy icons files
+      for (let i = 0; i < iconFiles.length; i++) {
+        copy.copySync(path.resolve(cfg.packageRoot, 'icons', iconFiles[i]), path.resolve(cfg.appRoot, 'www/build-' + app.version + '/icons'))
+      }
+
+      // Compress images
+      let images = list(path.resolve(cfg.appRoot, 'www/build-' + app.version + '/img'))
+      for (let i = 0; i < images.length; i++) {
+        console.log('Compress ' + images[i])
+      }
+
       // Update version in .htaccess file after successful build
       replace.sync({
         files: cfg.appRoot + 'www/.htaccess',
