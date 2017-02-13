@@ -1,12 +1,16 @@
 {
   "name": "demo-app",
-  "version": "1.0.29",
+  "version": "1.2.2",
   "title": "Demo App",
+  "description": "App Framework Demo App - iOS and Android Apps with HTML & JavaScript - develop, build and deploy - free and open source!",
   "theme": "ios",
+  "iconImage": "images/icon.png",
+  "iconBackgroundColor": "#ffffff",
+  "statusbarTextColor": "white",
   "materialSubnavbarFix": true,
   "defaultLanguage": "en",
   "showPhoneFrameOnDesktop": true,
-  "resetLocalStorageOnVersionChange": true,
+  "resetLocalStorageOnVersionChange": false,
   "specialRoutes": [
     "flexible-routing/blog/:blogId/post/:postId"
   ],
@@ -27,21 +31,24 @@
     "ion": false,
     "fontawesome": true
   },
-  "useCordovaPlugins": [],
-  "faviconIcon": "images/icon.png",
-  "faviconBackgroundColor": "#ffffff",
+  "appStoreId": "de.scriptpilot.app-framework",
+  "playStoreId": "de.scriptpilot.appframework",
+  "useCordovaPlugins": [
+    "cordova-plugin-statusbar"
+  ],
   "buildSourcemaps": false,
   "devDependencies": {
-    "app-framework": "file:../app-framework"
+    "app-framework": "^1.2.2"
   },
   "scripts": {
     "dev": "cd node_modules/app-framework && node scripts/dev-server",
     "check": "node node_modules/app-framework/scripts/check",
     "fix": "node node_modules/app-framework/scripts/fix",
-    "patch": "npm version patch && cd node_modules/app-framework && node scripts/build",
-    "minor": "npm version minor && cd node_modules/app-framework && node scripts/build",
-    "major": "npm version major && cd node_modules/app-framework && node scripts/build",
-    "ios": "node node_modules/app-framework/scripts/ios",
+    "patch": "npm version patch && cd node_modules/app-framework && node scripts/create-icons && node scripts/build",
+    "minor": "npm version minor && cd node_modules/app-framework && node scripts/create-icons && node scripts/build",
+    "major": "npm version major && cd node_modules/app-framework && node scripts/create-icons && node scripts/build",
+    "ios": "node node_modules/app-framework/scripts/create-icons && node node_modules/app-framework/scripts/ios",
+    "android": "node node_modules/app-framework/scripts/create-icons && node node_modules/app-framework/scripts/android",
     "database": "node node_modules/app-framework/scripts/prepare-firebase-database && firebase login && firebase deploy --only database && node node_modules/app-framework/scripts/cleanup-firebase",
     "storage": "node node_modules/app-framework/scripts/prepare-firebase-storage && firebase login && firebase deploy --only storage && node node_modules/app-framework/scripts/cleanup-firebase",
     "hosting": "node node_modules/app-framework/scripts/prepare-firebase-deploy && firebase login && firebase deploy --only hosting && node node_modules/app-framework/scripts/cleanup-firebase",

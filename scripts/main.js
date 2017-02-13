@@ -128,6 +128,15 @@ new Vue({ // eslint-disable-line
   computed: {
     text: function () {
       return text[this.language] ? text[this.language] : text['en']
+    },
+    isMobileDevice: function () {
+      return this.$f7.device.ios !== false || this.$f7.device.android !== false
+    },
+    isNativeApp: function () {
+      return window.cordova !== undefined
+    },
+    isHomescreenApp: function () {
+      return window.cordova === undefined && (this.$f7.device.webView !== null || window.matchMedia('(display-mode: standalone)').matches)
     }
   },
   framework7: {
@@ -157,7 +166,7 @@ new Vue({ // eslint-disable-line
   },
   mounted: function () {
     // Adjust web look to iPhone
-    if (!this.$f7.device.os && app.showPhoneFrameOnDesktop) {
+    if (!this.isMobileDevice && app.showPhoneFrameOnDesktop === true && this.$f7.device.ios === false) {
       this.$$('html').addClass('pixel-ratio-2')
       this.$$('html').addClass('ios-gt-8')
       this.$$('html').addClass('light-scrollbars')
@@ -166,7 +175,7 @@ new Vue({ // eslint-disable-line
     // Update phone frame function
     var updatePhoneFrame = function () {
       // Show frame on desktop
-      if (!this.$f7.device.os && app.showPhoneFrameOnDesktop) {
+      if (!this.isMobileDevice && app.showPhoneFrameOnDesktop === true) {
         // Show frame
         if (window.innerWidth > 370 && window.innerHeight > 778) {
           this.$$('#frame').addClass('phone')

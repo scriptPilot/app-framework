@@ -4,6 +4,9 @@ node_modules/
 # Exclude cordova
 cordova/
 
+# Exclude icons
+icons/
+
 # Exclude build folders
 demo-app/www/build-*
 

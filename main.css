@@ -5,7 +5,7 @@ body {
 
 /* Statusbar */
 .statusbar-overlay {
-  background: #F7F7F8;
+  background: #000000;
 }
 
 /* Phone frame */
@@ -77,7 +77,7 @@ body {
   display: block;
 }
 
-/* App container */
+/* Prevent bouncing with iNoBounce */
 #app: {
   height: 100%;
   overflow: auto;
@@ -87,9 +87,4 @@ body {
 /* Initial reload splash fix */
 .framework7-root {
   visibility: hidden;
-}
-
-/* Temorary fix for navbar in side panels */
-.navbar {
-  transform: translate3d(0,0,0);
 }

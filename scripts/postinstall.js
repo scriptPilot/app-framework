@@ -3,9 +3,9 @@ var path = require('path')
 var isThere = require('is-there')
 var fs = require('fs')
 var replace = require('replace-in-file')
-var saveJSON = require('jsonfile')
 var cpx = require('cpx')
 var run = require('child_process').exec
+var saveJSON = require('jsonfile')
 saveJSON.spaces = 2
 var showOnly = require('./show-only')
 
@@ -17,24 +17,6 @@ showOnly('App Framework installation ongoing - please wait ...')
 
 // App Framework is installed as dependency
 if (cfg.isInstalled) {
-  // Fix package.json (implement updates from demo app to already existing app package.json)
-  var newApp = require(cfg.appRoot + 'package.json')
-  var demoApp = require(path.resolve(cfg.packageRoot, 'demo-app/package.json'))
-  newApp.scripts = demoApp.scripts /* update scripts */
-  if (!newApp.materialSubnavbarFix) {
-    newApp.materialSubnavbarFix = demoApp.materialSubnavbarFix
-  }
-  if (!newApp.useCordovaPlugins) {
-    newApp.useCordovaPlugins = demoApp.useCordovaPlugins
-  }
-  if (newApp.firebase && newApp.firebase.useDatabaseService) {
-    delete newApp.firebase.useDatabaseService
-  }
-  if (newApp.firebase && newApp.firebase.useStorageService) {
-    delete newApp.firebase.useStorageService
-  }
-  saveJSON.writeFileSync(cfg.appRoot + 'package.json', newApp)
-
   // Copy template app.vue and reset version in package.json
   if (!isThere(cfg.appRoot + 'app.vue')) {
     cpx.copySync(path.resolve(cfg.packageRoot, 'demo-app/app.vue'), cfg.appRoot)
@@ -93,10 +75,9 @@ if (cfg.isInstalled) {
 }
 
 // Install common global packages
-run('npm install -g firebase-tools standard eslint-plugin-html cordova gm', function (err, stdOut, errOut) {
+run('npm install -g firebase-tools standard eslint-plugin-html cordova ios-deploy', function (err, stdOut, errOut) {
   if (err) {
-    console.log(errOut)
-    console.log('Error: Cannot install global dependencies')
+    throw new Error('Error: Cannot install global dependencies')
   } else {
     showOnly('App Framework installed successfully')
   }
