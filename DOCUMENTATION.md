@@ -89,7 +89,7 @@ Deployment to the Google Play Store (native App)
 
 - You need to install the [Android Studio](https://developer.android.com/studio/)
 - You need to register at the [Google Play Developer Console](https://play.google.com/apps/publish/signup/) (around 25 USD once)
-- Run `npm run android` (Windows) or `npm run android` (macOS) to create a project file for Android Studio, based on [Cordova](https://cordova.apache.org/)
+- Run `npm run android` (Windows) or `sudo npm run android` (macOS) to create a project file for Android Studio, based on [Cordova](https://cordova.apache.org/)
 - Select your project, confirm Gradle sync and test your application on several device simulators
 - Make screenshots, you will need them later in the Google Play Developer Console
 - Generate signed APK
