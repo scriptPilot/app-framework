@@ -25,8 +25,8 @@ let timestamp = Date.now()
 
 // Define icons
 let icons = [
-  ['icon', 16, 16, bg],
-  ['icon', 32, 32, bg],
+  ['icon', 16, 16],
+  ['icon', 32, 32],
   ['apple-touch-icon', 180, 180, bg],
   ['app-store-icon', 1024, 1024, bg],
   ['ios-icon', 180, 180, bg],
