@@ -83,9 +83,15 @@ run('npm update -g firebase-tools', function () {
     run('npm update -g eslint-plugin-html', function () {
       showOnly('Installing Cordova - please wait ...')
       run('npm update -g cordova', function () {
-        showOnly('Clean-up node modules folder - please wait ...')
-        run('npm prune', function () {
-          showOnly('App Framework installed successfully')
+        showOnly('Installing iOS deployment helper - please wait ...')
+        run('npm update -g ios-deploy', function () {
+          showOnly('Clean-up Cordova cache folder - please wait ...')
+          run('cd "' + cfg.packageRoot + '" && rm -rf ~/.cordova', function () {
+            showOnly('Clean-up node modules folder - please wait ...')
+            run('npm prune', function () {
+              showOnly('App Framework installed successfully')
+            })
+          })
         })
       })
     })
