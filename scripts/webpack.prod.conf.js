@@ -69,7 +69,7 @@ for (let i = 0; i < icons.length; i++) {
   }
 }
 let iconFile = isThere(path.resolve(cfg.appRoot, app.iconImage)) ? path.resolve(cfg.appRoot, app.iconImage) : path.resolve(cfg.packageRoot, 'demo-app/images/icon.png')
-ico([fs.readFileSync(iconFile)], {resize: true})
+ico([fs.readFileSync(iconFile)], {resize: true, sizes: [16, 24, 32, 48, 64, 128, 256]})
   .then(buf => {
     fs.writeFileSync(path.resolve(cfg.appRoot, 'www/build-' + app.version, 'favicon.ico'), buf)
   })
