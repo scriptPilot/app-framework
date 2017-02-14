@@ -69,12 +69,9 @@ for (let i = 0; i < icons.length; i++) {
   }
 }
 let iconFile = isThere(path.resolve(cfg.appRoot, app.iconImage)) ? path.resolve(cfg.appRoot, app.iconImage) : path.resolve(cfg.packageRoot, 'demo-app/images/icon.png')
-ico([fs.readFileSync(iconFile)])
+ico([fs.readFileSync(iconFile)], {resize: true})
   .then(buf => {
-    fs.writeFileSync(path.resolve(cfg.appRoot, 'www/build-' + app.version, 'favicon.ico'), buf),
-    {
-      resize: true
-    }
+    fs.writeFileSync(path.resolve(cfg.appRoot, 'www/build-' + app.version, 'favicon.ico'), buf)
   })
 iconTags += '<link rel="icon" href="favicon.ico" type="image/x-icon" />' +
             '<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />'
