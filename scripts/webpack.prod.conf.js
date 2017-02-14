@@ -14,6 +14,7 @@ var OnBuildPlugin = require('on-build-webpack')
 var replace = require('replace-in-file')
 var copy = require('cpx')
 var write = require('write')
+var ico = require('png-to-ico')
 var saveJSON = require('jsonfile')
 saveJSON.spaces = 2
 
@@ -66,6 +67,13 @@ for (let i = 0; i < icons.length; i++) {
     iconFiles.push(icons[i])
   }
 }
+let iconFile = isThere(path.resolve(cfg.appRoot, app.iconImage)) ? path.resolve(cfg.appRoot, app.iconImage) : path.resolve(cfg.packageRoot, 'demo-app/images/icon.png')
+ico(iconFile)
+  .then(buffer => {
+    write.sync(path.resolve(cfg.appRoot, 'www/build-' + app.version, 'icons/favicon.ico'), buffer)
+  })
+iconTags += '<link rel="icon" href="icons/favicon.ico" type="image/x-icon" />' +
+            '<link rel="shortcut icon" href="icons/favicon.ico" type="image/x-icon" />'
 write.sync(path.resolve(cfg.appRoot, 'www/build-' + app.version, 'manifest.json'), JSON.stringify(manifest))
 
 // Define production webpack configuration
