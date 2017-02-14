@@ -79,7 +79,7 @@ Deployment to the Apple App Store (native App)
 - You need a Mac with [macOS](http://www.apple.com/de/macos/) and installed [Xcode](https://developer.apple.com/xcode/) (free)
 - You need to sign to the [Apple developer program](https://developer.apple.com/programs/) (around 99€ per year)
 - You need to prepare the publishing in [iTunes Connect](https://itunesconnect.apple.com/)
-- Run `npm run ios` to create a project file for Xcode, based on [Cordova](https://cordova.apache.org/)
+- Run `npm run ios` (Windows) or `sudo npm run ios` (macOS) to create a project file for Xcode, based on [Cordova](https://cordova.apache.org/)
 - Test your application on several device simulators
 - Make screenshots on the biggest iPhone (you will need them in iTunes Connect later on)
 - Create an archive of the Xcode project and upload it within Xcode to iTunes Connect
@@ -89,7 +89,7 @@ Deployment to the Google Play Store (native App)
 
 - You need to install the [Android Studio](https://developer.android.com/studio/)
 - You need to register at the [Google Play Developer Console](https://play.google.com/apps/publish/signup/) (around 25 USD once)
-- Run `npm run android` to create a project file for Android Studio, based on [Cordova](https://cordova.apache.org/)
+- Run `npm run android` (Windows) or `sudo npm run android` (macOS) to create a project file for Android Studio, based on [Cordova](https://cordova.apache.org/)
 - Select your project, confirm Gradle sync and test your application on several device simulators
 - Make screenshots, you will need them later in the Google Play Developer Console
 - Generate signed APK
