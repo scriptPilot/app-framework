@@ -15,7 +15,7 @@ module.exports = {
 
   mounted: function () {
     // Framework7 routed page
-    if (this.$route) {
+    if (this.$route !== undefined && this.$options._componentTag === undefined && this.$el._prevClass === 'page') {
       // iOS > Material theme corrections
       if (this.$root.theme === 'material' && this.$root.config.materialSubnavbarFix) {
         // Subnavbar

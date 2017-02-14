@@ -28,8 +28,10 @@ function createCordovaProject (callback) {
   if (isThere(cordovaFolder)) {
     deleteFiles.sync([path.resolve(cordovaFolder, '**/**')])
   }
-  run('cd "' + cfg.packageRoot + '" && cordova create cordova', function () {
-    callback()
+  run('cd "' + cfg.packageRoot + '" && rm -rf ~/.cordova', function () {
+    run('cd "' + cfg.packageRoot + '" && cordova create cordova', function () {
+      callback()
+    })
   })
 }
 
