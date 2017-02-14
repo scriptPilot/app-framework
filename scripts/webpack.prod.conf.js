@@ -14,7 +14,7 @@ var OnBuildPlugin = require('on-build-webpack')
 var replace = require('replace-in-file')
 var copy = require('cpx')
 var write = require('write')
-var ico = require('png-to-ico')
+var ico = require('to-ico')
 var saveJSON = require('jsonfile')
 saveJSON.spaces = 2
 
@@ -68,9 +68,9 @@ for (let i = 0; i < icons.length; i++) {
   }
 }
 let iconFile = isThere(path.resolve(cfg.appRoot, app.iconImage)) ? path.resolve(cfg.appRoot, app.iconImage) : path.resolve(cfg.packageRoot, 'demo-app/images/icon.png')
-ico(iconFile)
-  .then(buffer => {
-    write.sync(path.resolve(cfg.appRoot, 'www/build-' + app.version, 'icons/favicon.ico'), buffer)
+toIco([fs.readFileSync(iconFile)])
+  .then(buf => {
+    fs.writeFileSync(path.resolve(cfg.appRoot, 'www/build-' + app.version, 'icons/favicon.ico'), buf);
   })
 iconTags += '<link rel="icon" href="icons/favicon.ico" type="image/x-icon" />' +
             '<link rel="shortcut icon" href="icons/favicon.ico" type="image/x-icon" />'
