@@ -1,6 +1,4 @@
 // Load packages
-var saveJSON = require('jsonfile')
-saveJSON.spaces = 2
 var path = require('path')
 var utils = require('./utils')
 var webpack = require('webpack')
@@ -15,6 +13,7 @@ var AppCachePlugin = require('appcache-webpack-plugin')
 var OnBuildPlugin = require('on-build-webpack')
 var replace = require('replace-in-file')
 var copy = require('cpx')
+var write = require('write')
 
 // Load configuration
 var cfg = require('./config.js')
@@ -65,7 +64,7 @@ for (let i = 0; i < icons.length; i++) {
     iconFiles.push(icons[i])
   }
 }
-saveJSON.writeFileSync(path.resolve(cfg.appRoot, 'www/build-' + app.version, 'manifest.json'), manifest)
+write.sync(path.resolve(cfg.appRoot, 'www/build-' + app.version, 'manifest.json'), JSON.stringify(manifest))
 
 // Define production webpack configuration
 var webpackConfig = merge(baseWebpackConfig, {
