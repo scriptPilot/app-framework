@@ -1,10 +1,10 @@
 {
   "name": "demo-app",
-  "version": "1.2.28",
+  "version": "1.2.29",
   "title": "Demo App",
   "description": "App Framework Demo App - iOS and Android Apps with HTML & JavaScript - develop, build and deploy - free and open source!",
   "theme": "ios",
-  "iconImage": "images/icon.png",
+  "iconImage": "images/icon-apple.png",
   "iconBackgroundColor": "#ffffff",
   "statusbarTextColor": "white",
   "materialSubnavbarFix": true,
