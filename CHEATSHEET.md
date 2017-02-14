@@ -6,9 +6,9 @@
 
 |Task|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Windows&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;macOS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
 |---|:-:|:-:|
-|Install App Framework and setup project folder|npm install|sudo npm install --unsafe-perm=true|
-|Update App Framework to latest sub version|npm update|sudo npm install --unsafe-perm=true|
-|Update development server with live reload at localhost:8080|npm run dev|npm run dev|
+|**Install App Framework** and setup project folder|npm install|sudo npm install --unsafe-perm=true|
+|**Update App Framework** to latest sub version|npm update|sudo npm install --unsafe-perm=true|
+|**Start development server** with live reload at localhost:8080|npm run dev|npm run dev|
 ||npm run check|npm run check|
 ||npm run fix|npm run fix|
 ||npm run patch|sudo npm run patch|
@@ -19,5 +19,5 @@
 ||npm run hosting|npm run hosting|
 ||npm run ios|sudo npm run ios|
 ||npm run android|sudo npm run android|
-||npm run backup|npm run backup|
+|**Backup Firebase database** content to *database-backup.json* file|npm run backup|npm run backup|
 ||npm run zip|npm run zip|
