@@ -1,4 +1,4 @@
-# Cheat Sheet
+# Cheat Sheet - Work in progress
 
 > First contact with App Framework? Please read the [Readme file](README.md) first!
 
