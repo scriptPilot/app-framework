@@ -14,6 +14,8 @@ var OnBuildPlugin = require('on-build-webpack')
 var replace = require('replace-in-file')
 var copy = require('cpx')
 var write = require('write')
+var saveJSON = require('jsonfile')
+saveJSON.spaces = 2
 
 // Load configuration
 var cfg = require('./config.js')
