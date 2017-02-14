@@ -37,8 +37,16 @@ if (!cfg.isInstalled) {
 // Load app configuration
 var app = require(cfg.appRoot + 'package.json')
 
-// Define icon tags
-let iconTags = ''
+// Define icon tags and save manifest json
+let manifest = {
+  name: app.title,
+  icons: [],
+  theme_color: app.iconBackgroundColor,
+  background_color: app.iconBackgroundColor,
+  display: 'standalone'
+}
+let iconTags = '<meta name="theme-color" content="' + app.iconBackgroundColor + '" />' +
+               '<link rel="manifest" src="manifest.json" />'
 let iconFiles = []
 let icons = list.sync(path.resolve(cfg.packageRoot, 'icons'))
 for (let i = 0; i < icons.length; i++) {
@@ -46,12 +54,18 @@ for (let i = 0; i < icons.length; i++) {
     let size = icons[i].match(/^icon-([0-9]+)\.([0-9]+)\.png/)[1]
     iconTags += '<link rel="icon" type="image/png" size="' + size + 'x' + size + '" href="icons/' + icons[i] + '" />'
     iconFiles.push(icons[i])
+    manifest.icons.push({
+      src: icons[i],
+      sizes: size + 'x' + size,
+      type: 'image/png'
+    })
   } else if (/^apple-touch-icon-([0-9]+)\.([0-9]+)\.png/.test(icons[i])) {
     let size = icons[i].match(/^apple-touch-icon-([0-9]+)\.([0-9]+)\.png/)[1]
     iconTags += '<link rel="apple-touch-icon" type="image/png" size="' + size + 'x' + size + '" href="icons/' + icons[i] + '" />'
     iconFiles.push(icons[i])
   }
 }
+saveJSON.writeFileSync(path.resolve(cfg.appRoot, 'www/build-' + app.version, 'manifest.json'), manifest)
 
 // Define production webpack configuration
 var webpackConfig = merge(baseWebpackConfig, {
