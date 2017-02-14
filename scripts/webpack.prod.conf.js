@@ -56,7 +56,7 @@ for (let i = 0; i < icons.length; i++) {
     iconTags += '<link rel="icon" type="image/png" size="' + size + 'x' + size + '" href="icons/' + icons[i] + '" />'
     iconFiles.push(icons[i])
     manifest.icons.push({
-      src: icons[i],
+      src: 'icons/' + icons[i],
       sizes: size + 'x' + size,
       type: 'image/png'
     })
