@@ -71,10 +71,13 @@ for (let i = 0; i < icons.length; i++) {
 let iconFile = isThere(path.resolve(cfg.appRoot, app.iconImage)) ? path.resolve(cfg.appRoot, app.iconImage) : path.resolve(cfg.packageRoot, 'demo-app/images/icon.png')
 ico([fs.readFileSync(iconFile)])
   .then(buf => {
-    fs.writeFileSync(path.resolve(cfg.appRoot, 'www/build-' + app.version, 'icons/favicon.ico'), buf)
+    fs.writeFileSync(path.resolve(cfg.appRoot, 'www/build-' + app.version, 'favicon.ico'), buf),
+    {
+      resize: true
+    }
   })
-iconTags += '<link rel="icon" href="icons/favicon.ico" type="image/x-icon" />' +
-            '<link rel="shortcut icon" href="icons/favicon.ico" type="image/x-icon" />'
+iconTags += '<link rel="icon" href="favicon.ico" type="image/x-icon" />' +
+            '<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />'
 write.sync(path.resolve(cfg.appRoot, 'www/build-' + app.version, 'manifest.json'), JSON.stringify(manifest))
 
 // Define production webpack configuration
