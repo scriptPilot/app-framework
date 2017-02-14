@@ -4,6 +4,9 @@
 
 ## Command line interface
 
+- `npm install` (Windows) or `sudo npm install --unsafe-perm=true` (macOS) - Install App Framework and setup project folder
+- `npm run zip` Create ZIP archive with all project files and latest build 
+
 |Task|Windows|macOS|
 |---|:-:|:-:|
 |Install App Framework and setup project folder|`npm install`|`sudo npm install --unsafe-perm=true`|
