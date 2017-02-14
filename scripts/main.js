@@ -122,6 +122,7 @@ new Vue({ // eslint-disable-line
     title: app.title,
     theme: app.theme,
     version: app.version,
+    packageVersion: process.env.FRAMEWORK_VERSION,
     config: app,
     user: null
   },
