@@ -9,7 +9,6 @@ var cfg = require('./config.js')
 
 var build = function () {
   showOnly('Build process ongoing - please wait ...')
-  // spawn.sync(cfg.packageRoot, 'node', ['scripts/build'])
   run('node scripts/build', function () {
     let version = require(cfg.appRoot + 'package.json').version
     showOnly('Completed build ' + version)
