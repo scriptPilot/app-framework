@@ -42,6 +42,7 @@
   },
   "scripts": {
     "dev": "cd node_modules/app-framework && node scripts/create-icons &&  node scripts/dev-server",
+    "icons": "node node_modules/app-framework/scripts/icons",
     "check": "node node_modules/app-framework/scripts/check",
     "fix": "node node_modules/app-framework/scripts/fix",
     "patch": "npm version patch && cd node_modules/app-framework && node scripts/create-icons && node scripts/build",

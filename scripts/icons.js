@@ -2,6 +2,7 @@
 var path = require('path')
 var isThere = require('is-there')
 var deleteFiles = require('delete')
+var showOnly = require('./show-only')
 var img = require('jimp')
 var fs = require('fs-extra')
 var rgb = require('hex-rgb')
@@ -11,7 +12,7 @@ let cfg = require('./config')
 let app = require(cfg.appRoot + 'package.json')
 
 // Show message
-console.log('Creating icons - please wait ...')
+showOnly('Creating icons - please wait ...')
 
 // Define background color
 let bg = rgb(app.iconBackgroundColor).concat(255)
@@ -76,7 +77,7 @@ for (let i = 0; i < icons.length; i++) {
   }
 }
 
-// Define icon folder
+// Define icon file
 let iconFile = isThere(path.resolve(cfg.appRoot, app.iconImage)) ? path.resolve(cfg.appRoot, app.iconImage) : path.resolve(cfg.packageRoot, 'demo-app/images/icon.png')
 
 // Load icon file
@@ -135,6 +136,9 @@ new img(iconFile, function (err, icon) { // eslint-disable-line
             // Save icon
             canvas.write(path.resolve(iconFolder, name), function (err) {
               if (err) throw err
+              if (i + 1 === icons.length) {
+                showOnly('Icons updated!')
+              }
             })
           })
         })

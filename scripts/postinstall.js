@@ -67,33 +67,10 @@ if (cfg.isInstalled) {
       with: '/build-0.0.0/'
     })
   }
-
-// App Framework is installed for development
-} else {
-  // Install Gulp (to build Framework7/Framework7-Vue)
-  run('npm update -g gulp')
 }
 
-// Install common global packages
-showOnly('Installing Firebase tools - please wait ...')
-run('npm update -g firebase-tools', function () {
-  showOnly('Installing Standard JavaScript - please wait ...')
-  run('npm update -g standard', function () {
-    showOnly('Installing ESLint html plugin - please wait ...')
-    run('npm update -g eslint-plugin-html', function () {
-      showOnly('Installing Cordova - please wait ...')
-      run('npm update -g cordova', function () {
-        showOnly('Installing iOS deployment helper - please wait ...')
-        run('npm update -g ios-deploy', function () {
-          showOnly('Clean-up Cordova cache folder - please wait ...')
-          run('cd "' + cfg.packageRoot + '" && rm -rf ~/.cordova', function () {
-            showOnly('Clean-up node modules folder - please wait ...')
-            run('npm prune', function () {
-              showOnly('App Framework installed successfully')
-            })
-          })
-        })
-      })
-    })
-  })
+// Clean node modules folder
+showOnly('Prune node modules folder - please wait ...')
+run('npm prune', function () {
+  showOnly('App Framework installed successfully')
 })

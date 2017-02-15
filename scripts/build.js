@@ -1,5 +1,5 @@
 // https://github.com/shelljs/shelljs
-require('./check-versions')()
+// require('./check-versions')()
 require('shelljs/global')
 
 var ora = require('ora')

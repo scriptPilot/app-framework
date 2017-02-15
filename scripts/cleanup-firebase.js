@@ -4,21 +4,19 @@ var cfg = require('./config.js')
 // Import packages
 var isThere = require('is-there')
 var deleteFiles = require('delete')
+var path = require('path')
 var saveJSON = require('jsonfile')
 saveJSON.spaces = 2
 
-// Delete temp files
-if (isThere(cfg.appRoot + '.firebaserc')) {
-  deleteFiles.sync([cfg.appRoot + '.firebaserc'], {force: true})
-}
-if (isThere(cfg.appRoot + 'firebase.json')) {
-  deleteFiles.sync([cfg.appRoot + 'firebase.json'], {force: true})
-}
+// Get Firebase bin folder
+let firebaseFolder = path.resolve(cfg.projectRoot, 'node_modules/firebase-tools/bin')
 
-// Format database backup
-if (isThere(cfg.appRoot + 'database-backup.json')) {
-  let data = require(cfg.appRoot + 'database-backup.json')
-  saveJSON.writeFileSync(cfg.appRoot + 'database-backup.json', data)
+// Delete temp files
+if (isThere(path.resolve(firebaseFolder, '.firebaserc'))) {
+  deleteFiles.sync([path.resolve(firebaseFolder, '.firebaserc')], {force: true})
+}
+if (isThere(path.resolve(firebaseFolder, 'firebase.json'))) {
+  deleteFiles.sync([path.resolve(firebaseFolder, 'firebase.json')], {force: true})
 }
 
 module.exports = {}
