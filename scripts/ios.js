@@ -19,8 +19,28 @@ var app = require(cfg.appRoot + 'package.json')
 var htaccess = read.sync(path.resolve(cfg.appRoot, 'www/.htaccess'), 'utf8')
 var version = htaccess.match(/build-(.+)\//)[1]
 
+var checkBuild = function (callback) {
+  if (!isThere(cfg.appRoot + 'www/build-' + version)) {
+    showOnly('Run "npm run patch" to build your App before deployment')
+  } else {
+    callback()
+  }
+}
+
 // Show message
 showOnly('Xcode project build ongoing with application build version ' + version + ' - please wait ...')
+
+// Check icons > create
+var checkIcons = function (callback) {
+  if (isThere(cfg.packageRoot + 'icons')) {
+    callback()
+  } else {
+    showOnly('Icons are generated - please wait ...')
+    run('npm run icons', function () {
+      callback()
+    }, 'Failed to generate icon folder')
+  }
+}
 
 // Create cordova project folder
 function createCordovaProject (callback) {
@@ -165,13 +185,17 @@ function buildCordovaIos (callback) {
 }
 
 // Start build process
-createCordovaProject(function () {
-  updateCordovaPlugins(function () {
-    updateCordovaBuild(function () {
-      buildCordovaIos(function () {
-        showOnly('Xcode project version ' + version + ' build, Xcode is starting ...')
-        run('open -a Xcode "' + path.resolve(cfg.packageRoot, 'cordova/platforms/ios', app.title + '.xcodeproj') + '"', function () {
-          showOnly('Xcode started with build version ' + version + '.')
+checkBuild(function () {
+  checkIcons(function () {
+    createCordovaProject(function () {
+      updateCordovaPlugins(function () {
+        updateCordovaBuild(function () {
+          buildCordovaIos(function () {
+            showOnly('Xcode project version ' + version + ' build, Xcode is starting ...')
+            run('open -a Xcode "' + path.resolve(cfg.packageRoot, 'cordova/platforms/ios', app.title + '.xcodeproj') + '"', function () {
+              showOnly('Xcode started with build version ' + version + '.')
+            })
+          })
         })
       })
     })

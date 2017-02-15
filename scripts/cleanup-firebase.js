@@ -18,5 +18,14 @@ if (isThere(path.resolve(firebaseFolder, '.firebaserc'))) {
 if (isThere(path.resolve(firebaseFolder, 'firebase.json'))) {
   deleteFiles.sync([path.resolve(firebaseFolder, 'firebase.json')], {force: true})
 }
+if (isThere(path.resolve(firebaseFolder, 'database-rules.json'))) {
+  deleteFiles.sync([path.resolve(firebaseFolder, 'database-rules.json')], {force: true})
+}
+if (isThere(path.resolve(firebaseFolder, 'storage-rules.txt'))) {
+  deleteFiles.sync([path.resolve(firebaseFolder, 'storage-rules.txt')], {force: true})
+}
+if (isThere(path.resolve(firebaseFolder, 'www'))) {
+  deleteFiles.sync([path.resolve(firebaseFolder, 'www/**/*'), path.resolve(firebaseFolder, 'www')], {force: true})
+}
 
 module.exports = {}

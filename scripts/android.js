@@ -20,8 +20,28 @@ var app = require(cfg.appRoot + 'package.json')
 var htaccess = read.sync(path.resolve(cfg.appRoot, 'www/.htaccess'), 'utf8')
 var version = htaccess.match(/build-(.+)\//)[1]
 
+var checkBuild = function (callback) {
+  if (!isThere(cfg.appRoot + 'www/build-' + version)) {
+    showOnly('Run "npm run patch" to build your App before deployment')
+  } else {
+    callback()
+  }
+}
+
 // Show message
 showOnly('Android Studio project build ongoing with application build version ' + version + ' - please wait ...')
+
+// Check icons > create
+var checkIcons = function (callback) {
+  if (isThere(cfg.packageRoot + 'icons')) {
+    callback()
+  } else {
+    showOnly('Icons are generated - please wait ...')
+    run('npm run icons', function () {
+      callback()
+    }, 'Failed to generate icon folder')
+  }
+}
 
 // Create cordova project folder
 function createCordovaProject (callback) {
@@ -166,13 +186,17 @@ function buildCordovaAndroid (callback) {
 }
 
 // Start build process
-createCordovaProject(function () {
-  updateCordovaPlugins(function () {
-    updateCordovaBuild(function () {
-      buildCordovaAndroid(function () {
-        showOnly('Android Studio project version ' + version + ' build, Android Studio is starting ...')
-        run('open -a "/Applications/Android Studio.app" "' + path.resolve(cfg.packageRoot, 'cordova/platforms/android') + '"', function () {
-          showOnly('Android Studio started with build version ' + version + '.')
+checkBuild(function () {
+  checkIcons(function () {
+    createCordovaProject(function () {
+      updateCordovaPlugins(function () {
+        updateCordovaBuild(function () {
+          buildCordovaAndroid(function () {
+            showOnly('Android Studio project version ' + version + ' build, Android Studio is starting ...')
+            run('open -a "/Applications/Android Studio.app" "' + path.resolve(cfg.packageRoot, 'cordova/platforms/android') + '"', function () {
+              showOnly('Android Studio started with build version ' + version + '.')
+            })
+          })
         })
       })
     })

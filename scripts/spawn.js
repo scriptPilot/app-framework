@@ -15,7 +15,7 @@ module.exports = {
     cmd.on('close', (code) => {
       if (code === 0) {
         if (typeof callbackOnSuccess === 'function') {
-          callbackOnSuccess(errout)
+          callbackOnSuccess(stdout)
         }
       } else if (typeof callbackOnError === 'function') {
         callbackOnError(errout)

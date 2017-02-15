@@ -1,6 +1,6 @@
 {
   "name": "demo-app",
-  "version": "1.2.33",
+  "version": "1.2.34",
   "title": "Demo App",
   "description": "App Framework Demo App - iOS and Android Apps with HTML & JavaScript - develop, build and deploy - free and open source!",
   "theme": "ios",
@@ -41,19 +41,19 @@
     "app-framework": "^1.2.31"
   },
   "scripts": {
-    "dev": "cd node_modules/app-framework && node scripts/create-icons &&  node scripts/dev-server",
+    "dev": "node node_modules/app-framework/scripts/dev",
     "icons": "node node_modules/app-framework/scripts/icons",
+    "patch": "node node_modules/app-framework/scripts/patch",
+    "minor": "node node_modules/app-framework/scripts/minor",
+    "major": "node node_modules/app-framework/scripts/major",
+    "ios": "node node_modules/app-framework/scripts/ios",
+    "android": "node node_modules/app-framework/scripts/android",
+    "database": "node node_modules/app-framework/scripts/database",
+    "storage": "node node_modules/app-framework/scripts/storage",
+    "hosting": "node node_modules/app-framework/scripts/hosting",
     "check": "node node_modules/app-framework/scripts/check",
     "fix": "node node_modules/app-framework/scripts/fix",
-    "patch": "npm version patch && cd node_modules/app-framework && node scripts/create-icons && node scripts/build",
-    "minor": "npm version minor && cd node_modules/app-framework && node scripts/create-icons && node scripts/build",
-    "major": "npm version major && cd node_modules/app-framework && node scripts/create-icons && node scripts/build",
-    "ios": "node node_modules/app-framework/scripts/create-icons && node node_modules/app-framework/scripts/ios",
-    "android": "node node_modules/app-framework/scripts/create-icons && node node_modules/app-framework/scripts/android",
-    "database": "node node_modules/app-framework/scripts/prepare-firebase-database && firebase login && firebase deploy --only database && node node_modules/app-framework/scripts/cleanup-firebase",
-    "storage": "node node_modules/app-framework/scripts/prepare-firebase-storage && firebase login && firebase deploy --only storage && node node_modules/app-framework/scripts/cleanup-firebase",
-    "hosting": "node node_modules/app-framework/scripts/prepare-firebase-deploy && firebase login && firebase deploy --only hosting && node node_modules/app-framework/scripts/cleanup-firebase",
-    "backup": "node node_modules/app-framework/scripts/prepare-firebase-backup && firebase login && firebase database:get / >database-backup.json && node node_modules/app-framework/scripts/cleanup-firebase",
+    "backup": "node node_modules/app-framework/scripts/backup",
     "zip": "node node_modules/app-framework/scripts/zip"
   }
 }

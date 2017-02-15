@@ -16,7 +16,7 @@ var build = function () {
 
 var updateVersion = function () {
   showOnly('Increasing version - please wait ...')
-  run('npm version patch', function () {
+  run('npm version major', function () {
     build()
   }, 'Failed to increase version - please ensure that your latest changes are commited to GIT!')
 }
@@ -40,5 +40,3 @@ if (cfg.isInstalled) {
     checkIcons()
   }, 'Standard JavaScript fix failed')
 }
-
-module.exports = {}
