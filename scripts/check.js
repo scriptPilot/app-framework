@@ -17,7 +17,7 @@ var files = ' "' + path.resolve(cfg.appRoot, 'app.vue') + '"' +
             cfg.isInstalled ? '' : ' "' + path.resolve(cfg.packageRoot, 'scripts/*.js') + '"'
 
 // Do the fix
-run('standard >' + path.resolve(cfg.projectRoot, 'standard-check.log') + ' ' + files + ' --plugin html', function () {
+run('node "' + path.resolve(cfg.packageRoot, 'node_modules/standard/bin/cmd.js') + '" >' + path.resolve(cfg.projectRoot, 'standard-check.log') + ' ' + files + ' --plugin html', function () {
   showOnly('Standard JavaScript check completed')
   if (isThere(cfg.projectRoot + 'standard-check.log')) {
     deleteFiles([cfg.projectRoot + 'standard-check.log'])
@@ -25,4 +25,3 @@ run('standard >' + path.resolve(cfg.projectRoot, 'standard-check.log') + ' ' + f
 }, function () {
   showOnly('Standard JavaScript check found some unconformities. Please run "npm run fix" or check "standard-check.log" for detailed information.')
 })
-

@@ -50,6 +50,7 @@
 <!-- Default export, template will be compiled automatically -->
 <script>
   module.exports = {}
+  let a = 'b'
 </script>
 
 <!-- Style - for whole app, as there is no scope property -->
