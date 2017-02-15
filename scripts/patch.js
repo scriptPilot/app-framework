@@ -2,6 +2,7 @@
 var run = require('./run')
 var showOnly = require('./show-only')
 var isThere = require('is-there')
+var read = require('read-file')
 
 // Load configuration
 var cfg = require('./config.js')
