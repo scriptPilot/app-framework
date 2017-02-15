@@ -18,8 +18,8 @@ Optional
 
 - Install [Node.js with npm](https://docs.npmjs.com/getting-started/what-is-npm)
 - Download *[package.json](https://raw.githubusercontent.com/scriptPilot/app-framework/master/demo-app/package.json)* file to an empty folder (keep extension .json!)
-- Run `npm install` (Windows, run as admin!) or `sudo npm install --unsafe-perm=true` (macOS) to setup project folder
-- Run `npm update` (Windows, run as admin!) or `sudo npm update --unsafe-perm=true` (macOS) to update *App Framework* to latest sub version
+- Run `npm install` to setup project folder
+- Run `npm update` to update *App Framework* to latest sub version
 
 ### Design your application
 - Use our printable [smartphone template](smartphone-template.pdf) to sketch your application
@@ -45,9 +45,9 @@ Optional
 
 ### Build your application
 
-- Run `npm run patch` (Windows) or `sudo npm run patch` (macOS) after bugfixes and improvements
-- Run `npm run minor` (Windows) or `sudo npm run minor` (macOS) after adding new functionality
-- Run `npm run major` (Windows) or `sudo npm run major` (macOS) after breaking backward-capability
+- Run `npm run patch` after bugfixes and improvements
+- Run `npm run minor` after adding new functionality
+- Run `npm run major` after breaking backward-capability
 
 ### Deploy your application
 
@@ -79,7 +79,7 @@ Deployment to the Apple App Store (native App)
 - You need a Mac with [macOS](http://www.apple.com/de/macos/) and installed [Xcode](https://developer.apple.com/xcode/) (free)
 - You need to sign to the [Apple developer program](https://developer.apple.com/programs/) (around 99€ per year)
 - You need to prepare the publishing in [iTunes Connect](https://itunesconnect.apple.com/)
-- Run `npm run ios` (Windows) or `sudo npm run ios` (macOS) to create a project file for Xcode, based on [Cordova](https://cordova.apache.org/)
+- Run `npm run ios` to create a project file for Xcode, based on [Cordova](https://cordova.apache.org/)
 - Test your application on several device simulators
 - Make screenshots on the biggest iPhone (you will need them in iTunes Connect later on)
 - Create an archive of the Xcode project and upload it within Xcode to iTunes Connect
@@ -89,7 +89,7 @@ Deployment to the Google Play Store (native App)
 
 - You need to install the [Android Studio](https://developer.android.com/studio/)
 - You need to register at the [Google Play Developer Console](https://play.google.com/apps/publish/signup/) (around 25 USD once)
-- Run `npm run android` (Windows) or `sudo npm run android` (macOS) to create a project file for Android Studio, based on [Cordova](https://cordova.apache.org/)
+- Run `npm run android` to create a project file for Android Studio, based on [Cordova](https://cordova.apache.org/)
 - Select your project, confirm Gradle sync and test your application on several device simulators
 - Make screenshots, you will need them later in the Google Play Developer Console
 - Generate signed APK
