@@ -20,7 +20,6 @@ var updateVersion = function () {
   showOnly('Increasing version - please wait ...')
   run('npm version patch', function () {
     build()
-    showOnly('VERSION')
   }, 'Failed to increase version - please ensure that your latest changes are commited to GIT!')
 }
 
