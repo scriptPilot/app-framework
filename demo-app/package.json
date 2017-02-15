@@ -38,7 +38,7 @@
   ],
   "buildSourcemaps": false,
   "devDependencies": {
-    "app-framework": "^1.2.18"
+    "app-framework": "^1.2.31"
   },
   "scripts": {
     "dev": "cd node_modules/app-framework && node scripts/create-icons &&  node scripts/dev-server",
