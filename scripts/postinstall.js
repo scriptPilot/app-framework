@@ -72,5 +72,5 @@ if (cfg.isInstalled) {
 // Clean node modules folder
 showOnly('Prune node modules folder - please wait ...')
 run('npm prune', function () {
-  showOnly('App Framework installed successfully')
+  showOnly('App Framework installation completed!')
 })

@@ -8,7 +8,7 @@ var cfg = require('./config.js')
 
 var build = function () {
   showOnly('Build process ongoing - please wait ...')
-  run('node scripts/build', function () {
+  run('cd "' + cfg.packageRoot + '" && node scripts/build', function () {
     let version = require(cfg.appRoot + 'package.json').version
     showOnly('Completed build ' + version)
   })
