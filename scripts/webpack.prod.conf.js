@@ -58,15 +58,6 @@ let manifest = {
   background_color: app.iconBackgroundColor,
   display: 'standalone'
 }
-write.sync(path.resolve(cfg.appRoot, 'www/build-' + app.version, 'manifest.json'), JSON.stringify(manifest))
-
-// Copy icon files (see http://realfavicongenerator.net/faq for details)
-copy(path.resolve(cfg.packageRoot, 'icons/favicon-*'), path.resolve(cfg.appRoot, 'www/build-' + app.version))
-copy(path.resolve(cfg.packageRoot, 'icons/android-chrome-*'), path.resolve(cfg.appRoot, 'www/build-' + app.version))
-copy(path.resolve(cfg.packageRoot, 'icons/apple-touch-icon-*'), path.resolve(cfg.appRoot, 'www/build-' + app.version))
-
-// Rename Apple touch icon
-rename(path.resolve(cfg.appRoot, 'www/build-' + app.version, 'apple-touch-icon-180x180.png'), path.resolve(cfg.appRoot, 'www/build-' + app.version, 'apple-touch-icon.png'))
 
 // Add icon tags
 let iconTags = '<meta name="theme-color" content="' + app.iconBackgroundColor + '" />' +
@@ -126,10 +117,17 @@ var webpackConfig = merge(baseWebpackConfig, {
       output: 'manifest.appcache'
     }),
     new OnBuildPlugin(function (stats) {
-      // Copy icons files
-      for (let i = 0; i < iconFiles.length; i++) {
-        copy.copySync(path.resolve(cfg.packageRoot, 'icons', iconFiles[i]), path.resolve(cfg.appRoot, 'www/build-' + app.version + '/icons'))
-      }
+
+      // Save manifest file
+      write.sync(path.resolve(cfg.appRoot, 'www/build-' + app.version, 'manifest.json'), JSON.stringify(manifest))
+
+      // Copy icon files (see http://realfavicongenerator.net/faq for details)
+      copy(path.resolve(cfg.packageRoot, 'icons/favicon-*'), path.resolve(cfg.appRoot, 'www/build-' + app.version))
+      copy(path.resolve(cfg.packageRoot, 'icons/android-chrome-*'), path.resolve(cfg.appRoot, 'www/build-' + app.version))
+      copy(path.resolve(cfg.packageRoot, 'icons/apple-touch-icon-*'), path.resolve(cfg.appRoot, 'www/build-' + app.version))
+
+      // Rename Apple touch icon
+      rename(path.resolve(cfg.appRoot, 'www/build-' + app.version, 'apple-touch-icon-180x180.png'), path.resolve(cfg.appRoot, 'www/build-' + app.version, 'apple-touch-icon.png'))
 
       // Compress images
       let images = list(path.resolve(cfg.appRoot, 'www/build-' + app.version + '/img'))
@@ -143,6 +141,9 @@ var webpackConfig = merge(baseWebpackConfig, {
         replace: /\/build-([0-9]+)\.([0-9]+)\.([0-9]+)\//g,
         with: '/build-' + app.version + '/'
       })
+
+      // Delete Framework7 icon from CSS file
+      deleteFiles([path.resolve(cfg.appRoot, 'www/build-' + app.version, 'i-f7-ios*')])
 
       // Delete .babelrc file
       if (cfg.isInstalled && isThere(cfg.projectRoot + '.babelrc')) {
