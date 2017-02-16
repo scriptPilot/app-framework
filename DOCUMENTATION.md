@@ -45,6 +45,7 @@ Optional
 
 ### Build your application
 
+- If you use Git, commit your changes first
 - Run `npm run icons` to update favicon, icons and splash screen graphics
 - Run `npm run patch` after bugfixes and improvements
 - Run `npm run minor` after adding new functionality
