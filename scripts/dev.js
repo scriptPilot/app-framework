@@ -1,6 +1,6 @@
 // Load packages
 var run = require('./run')
-var spawn = require('./spawn')
+var cmd = require('interactive-command')
 var showOnly = require('./show-only')
 var isThere = require('is-there')
 var path = require('path')
@@ -10,7 +10,7 @@ var cfg = require('./config.js')
 
 var devServer = function () {
   showOnly('Development server starting - please wait ...')
-  spawn.sync(cfg.packageRoot, 'node', ['scripts/dev-server'])
+  cmd('node', ['scripts/dev-server'], {cwd: cfg.packageRoot})
 }
 
 var checkIcons = function () {
