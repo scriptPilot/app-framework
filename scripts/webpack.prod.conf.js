@@ -2,7 +2,6 @@
 var path = require('path')
 var utils = require('./utils')
 var webpack = require('webpack')
-var list = require('list-dir')
 var merge = require('webpack-merge')
 var isThere = require('is-there')
 var deleteFiles = require('delete')
@@ -14,7 +13,7 @@ var OnBuildPlugin = require('on-build-webpack')
 var replace = require('replace-in-file')
 var copy = require('cpx')
 var write = require('write')
-var ico = require('to-ico')
+var rename = require('rename')
 var fs = require('fs')
 var saveJSON = require('jsonfile')
 saveJSON.spaces = 2
@@ -40,42 +39,41 @@ if (!cfg.isInstalled) {
 // Load app configuration
 var app = require(cfg.appRoot + 'package.json')
 
-// Define icon tags and save manifest json
+// Create and save manifest (see http://realfavicongenerator.net/faq for details)
 let manifest = {
   name: app.title,
-  icons: [],
+  icons: [
+    {
+      'src': 'android-chrome-192x192.png',
+      'sizes': '192x192',
+      'type': 'image/png'
+    },
+    {
+      'src': 'android-chrome-512x512.png',
+      'sizes': '512x512',
+      'type': 'image/png'
+    }
+  ],
   theme_color: app.iconBackgroundColor,
   background_color: app.iconBackgroundColor,
   display: 'standalone'
 }
-let iconTags = '<meta name="theme-color" content="' + app.iconBackgroundColor + '" />' +
-               '<link rel="manifest" src="manifest.json" />'
-let iconFiles = []
-let icons = list.sync(path.resolve(cfg.packageRoot, 'icons'))
-for (let i = 0; i < icons.length; i++) {
-  if (/^icon-([0-9]+)\.([0-9]+)\.png/.test(icons[i])) {
-    let size = icons[i].match(/^icon-([0-9]+)\.([0-9]+)\.png/)[1]
-    iconTags += '<link rel="icon" type="image/png" size="' + size + 'x' + size + '" href="icons/' + icons[i] + '" />'
-    iconFiles.push(icons[i])
-    manifest.icons.push({
-      src: 'icons/' + icons[i],
-      sizes: size + 'x' + size,
-      type: 'image/png'
-    })
-  } else if (/^apple-touch-icon-([0-9]+)\.([0-9]+)\.png/.test(icons[i])) {
-    let size = icons[i].match(/^apple-touch-icon-([0-9]+)\.([0-9]+)\.png/)[1]
-    iconTags += '<link rel="apple-touch-icon" type="image/png" size="' + size + 'x' + size + '" href="icons/' + icons[i] + '" />'
-    iconFiles.push(icons[i])
-  }
-}
-let iconFile = isThere(path.resolve(cfg.appRoot, app.iconImage)) ? path.resolve(cfg.appRoot, app.iconImage) : path.resolve(cfg.packageRoot, 'demo-app/images/icon.png')
-ico([fs.readFileSync(iconFile)], {resize: true, sizes: [16, 24, 32, 48, 64, 128, 256]})
-  .then(buf => {
-    fs.writeFileSync(path.resolve(cfg.appRoot, 'www/build-' + app.version, 'favicon.ico'), buf)
-  })
-iconTags += '<link rel="icon" href="favicon.ico" type="image/x-icon" />' +
-            '<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />'
 write.sync(path.resolve(cfg.appRoot, 'www/build-' + app.version, 'manifest.json'), JSON.stringify(manifest))
+
+// Copy icon files (see http://realfavicongenerator.net/faq for details)
+cpx.copySync(path.resolve(cfg.packageRoot, 'icons/favicon-*'), path.resolve(cfg.appRoot, 'www/build-' + app.version))
+cpx.copySync(path.resolve(cfg.packageRoot, 'icons/android-chrome-*'), path.resolve(cfg.appRoot, 'www/build-' + app.version))
+cpx.copySync(path.resolve(cfg.packageRoot, 'icons/apple-touch-icon-*'), path.resolve(cfg.appRoot, 'www/build-' + app.version))
+
+// Rename Apple touch icon
+rename(path.resolve(cfg.appRoot, 'www/build-' + app.version, 'apple-touch-icon-180x180.png'), path.resolve(cfg.appRoot, 'www/build-' + app.version, 'apple-touch-icon.png'))
+
+// Add icon tags
+let iconTags = '<meta name="theme-color" content="' + app.iconBackgroundColor + '" />' +
+               '<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />' +
+               '<link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />' +
+               '<link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />' +
+               '<link rel="manifest" href="manifest.json" />'
 
 // Define production webpack configuration
 var webpackConfig = merge(baseWebpackConfig, {
