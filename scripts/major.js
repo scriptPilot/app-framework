@@ -3,6 +3,7 @@ var run = require('./run')
 var showOnly = require('./show-only')
 var isThere = require('is-there')
 var read = require('read-file')
+var path = require('path')
 
 // Load configuration
 var cfg = require('./config.js')
@@ -23,7 +24,7 @@ var updateVersion = function () {
 }
 
 var checkIcons = function () {
-  if (isThere(cfg.packageRoot + 'icons')) {
+  if (isThere(path.resolve(cfg.packageRoot, 'icons/favicon.ico'))) {
     updateVersion()
   } else {
     showOnly('Icons are generated - please wait ...')

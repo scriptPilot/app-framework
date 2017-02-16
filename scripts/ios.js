@@ -32,7 +32,7 @@ showOnly('Xcode project build ongoing with application build version ' + version
 
 // Check icons > create
 var checkIcons = function (callback) {
-  if (isThere(cfg.packageRoot + 'icons')) {
+  if (isThere(path.resolve(cfg.packageRoot, 'icons/favicon.ico'))) {
     callback()
   } else {
     showOnly('Icons are generated - please wait ...')
