@@ -1,7 +1,6 @@
 var cfg = require('./config.js')
 var app = require(cfg.appRoot + 'package.json')
 
-var path = require('path')
 var webpack = require('webpack')
 var merge = require('webpack-merge')
 var utils = require('./utils')

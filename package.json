@@ -2,7 +2,7 @@
   "name": "app-framework",
   "description": "iOS and Android Apps with HTML & JavaScript - develop, build and deploy - free and open source!",
   "repository": "https://github.com/scriptPilot/app-framework.git",
-  "version": "1.2.52",
+  "version": "1.2.56",
   "license": "MIT",
   "scripts": {
     "android": "node scripts/android",
@@ -57,7 +57,6 @@
     "html-webpack-plugin": "^2.8.1",
     "http-proxy-middleware": "^0.17.2",
     "inobounce": "^0.1.4",
-    "interactive-command": "^1.0.0",
     "is-there": "^4.3.6",
     "jimp": "^0.2.27",
     "json-loader": "^0.5.4",

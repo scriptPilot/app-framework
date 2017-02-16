@@ -6,6 +6,7 @@ var showOnly = require('./show-only')
 var img = require('jimp')
 var fs = require('fs-extra')
 var rgb = require('hex-rgb')
+var ico = require('to-ico')
 
 // Configuration
 let cfg = require('./config')
@@ -21,17 +22,16 @@ let bg = rgb(app.iconBackgroundColor).concat(255)
 let minIconWidth = 1024
 let minIconHeight = minIconWidth
 
-// Define timestamp
-let timestamp = Date.now()
-
 // Define icons
 let icons = [
-  ['icon', 16, 16],
-  ['icon', 32, 32],
-  ['icon', 192, 192],
-  ['icon', 512, 512],
-  ['apple-touch-icon', 180, 180, bg],
   ['app-store-icon', 1024, 1024, bg],
+  ['play-store-icon', 512, 512],
+  ['apple-touch-icon', 180, 180, bg],
+  ['favicon', 16, 16],
+  ['favicon', 32, 32],
+  ['android-chrome', 192, 192],
+  ['android-chrome', 512, 512],
+  ['mstile', 150, 150],
   ['ios-icon', 180, 180, bg],
   ['ios-icon', 167, 167, bg],
   ['ios-icon', 152, 152, bg],
@@ -85,11 +85,6 @@ new img(iconFile, function (err, icon) { // eslint-disable-line
   // Cannot load icon file
   if (err) throw new Error('Cannot load icon file "' + iconFile + '".')
 
-  // Check minimum size
-  if (icon.bitmap.width < minIconWidth || icon.bitmap.height < minIconHeight) {
-    throw new Error('The icon does not have minimum size of ' + minIconWidth + ' x ' + minIconHeight + ' pixel.')
-  }
-
   // Reset icon folder
   let iconFolder = path.resolve(cfg.packageRoot, 'icons')
   if (!isThere(iconFolder)) {
@@ -98,13 +93,24 @@ new img(iconFile, function (err, icon) { // eslint-disable-line
     deleteFiles.sync(path.resolve(iconFolder, '**/*'))
   }
 
+  // Generate ico file
+  ico([fs.readFileSync(iconFile)], {resize: true, sizes: [16, 32, 48]})
+    .then(buf => {
+      fs.writeFileSync(path.resolve(iconFolder, 'favicon.ico'), buf)
+    })
+
+  // Check minimum size
+  if (icon.bitmap.width < minIconWidth || icon.bitmap.height < minIconHeight) {
+    throw new Error('The icon does not have minimum size of ' + minIconWidth + ' x ' + minIconHeight + ' pixel.')
+  }
+
   // Loop icons
   for (let i = 0; i < icons.length; i++) {
     // Define attributes
     let width = icons[i][1]
     let height = icons[i][2]
     let bg = icons[i][3] || [0, 0, 0, 0]
-    let name = icons[i][0] + '-' + width + (width === height ? '' : 'x' + height) + '.' + timestamp + '.png'
+    let name = icons[i][0] + '-' + width + 'x' + height + '.png'
 
     // Calculate icon size
     let maxIconWidth = width === height ? width : width / 2

@@ -1,30 +1,27 @@
 // Load packages
 var path = require('path')
 var run = require('./run')
-var cmd = require('interactive-command')
+var cmd = require('./cmd')
 var showOnly = require('./show-only')
-// var write = require('write')
-// var saveJSON = require('jsonfile')
 var isThere = require('is-there')
-// saveJSON.spaces = 2
+var read = require('read-file')
+var saveJSON = require('jsonfile')
+saveJSON.spaces = 2
 
 // Load configuration
 var cfg = require('./config.js')
 
+let backupFile = path.resolve(cfg.appRoot, 'database-backup.json')
+
 showOnly('Preparing Firebase backup - please wait ...')
 run('node "' + path.resolve(cfg.packageRoot, 'scripts/prepare-firebase') + '"', function () {
   showOnly('Login to Firebase - please wait ...')
-
-  cmd('./node_modules/.bin/firebase', ['login'], {cwd: cfg.projectRoot}, function () {
+  cmd(path.resolve(cfg.packageRoot, 'node_modules/firebase-tools/bin'), ['firebase', 'login'], function () {
     showOnly('Backup Firebase database - please wait ...')
-    cmd('firebase', ['database:get', '/', '>../../../database-backup.json'], {cwd: path.resolve(cfg.projectRoot, 'node_modules/firebase-tools/bin')}, function (res) {
-      /*
-      if (!isThere(cfg.appRoot + 'database-backup.json')) {
-        write.sync(cfg.appRoot + 'database-backup.json', '{}')
+    cmd(path.resolve(cfg.packageRoot, 'node_modules/firebase-tools/bin'), ['firebase', 'database:get', '/', '>' + backupFile], function () {
+      if (isThere(backupFile)) {
+        saveJSON.writeFileSync(backupFile, JSON.parse(read.sync(backupFile, 'utf8')))
       }
-      console.log("###", res, "###")
-      saveJSON.writeFileSync(cfg.appRoot + 'database-backup.json', JSON.parse(res))
-      */
       showOnly('Clean up - please wait ...')
       run('node "' + path.resolve(cfg.packageRoot, 'scripts/cleanup-firebase') + '"', function () {
         showOnly('Firebase database backup done!')

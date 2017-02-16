@@ -4,7 +4,7 @@ var isThere = require('is-there')
 var fs = require('fs')
 var replace = require('replace-in-file')
 var cpx = require('cpx')
-var run = require('./run')
+var cmd = require('./cmd')
 var saveJSON = require('jsonfile')
 saveJSON.spaces = 2
 var showOnly = require('./show-only')
@@ -71,6 +71,6 @@ if (cfg.isInstalled) {
 
 // Clean node modules folder
 showOnly('Prune node modules folder - please wait ...')
-run('npm prune', function () {
+cmd(['npm', 'prune'], function () {
   showOnly('App Framework installation completed!')
 })
