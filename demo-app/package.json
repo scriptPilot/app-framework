@@ -48,12 +48,12 @@
     "major": "node node_modules/app-framework/scripts/major",
     "ios": "node node_modules/app-framework/scripts/ios",
     "android": "node node_modules/app-framework/scripts/android",
-    "database": "cd node_modules && node app-framework/scripts/prepare-firebase && cd .bin && firebase deploy --only database && cd ../ && node app-framework/scripts/cleanup-firebase",
-    "storage": "cd node_modules && node app-framework/scripts/prepare-firebase && cd .bin && firebase deploy --only storage && cd ../ && node app-framework/scripts/cleanup-firebase",
-    "hosting": "cd node_modules && node app-framework/scripts/prepare-firebase && cd .bin && firebase deploy --only hosting && cd ../ && node app-framework/scripts/cleanup-firebase",
+    "database": "node node_modules/app-framework/scripts/database",
+    "storage": "node node_modules/app-framework/scripts/storage",
+    "hosting": "node node_modules/app-framework/scripts/hosting",
     "check": "node node_modules/app-framework/scripts/check",
     "fix": "node node_modules/app-framework/scripts/fix",
-    "backup": "cd node_modules && node app-framework/scripts/prepare-firebase && cd .bin && firebase database:get / >\"database-backup.json\" && cd ../ && node app-framework/scripts/cleanup-firebase",
+    "backup": "node node_modules/app-framework/scripts/backup",
     "zip": "node node_modules/app-framework/scripts/zip"
   }
 }

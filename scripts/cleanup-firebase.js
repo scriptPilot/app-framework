@@ -9,7 +9,7 @@ var saveJSON = require('jsonfile')
 saveJSON.spaces = 2
 
 // Get Firebase bin folder
-let firebaseFolder = path.resolve(cfg.projectRoot, 'node_modules/.bin')
+let firebaseFolder = path.resolve(cfg.projectRoot, 'node_modules/firebase-tools/bin')
 
 // Delete temp files
 if (isThere(path.resolve(firebaseFolder, '.firebaserc'))) {
