@@ -121,9 +121,22 @@ var webpackConfig = merge(baseWebpackConfig, {
       // Save manifest file
       write.sync(path.resolve(cfg.appRoot, 'www/build-' + app.version, 'manifest.json'), JSON.stringify(manifest))
 
+      // Save browserconfig file
+      let xml = '<?xml version="1.0" encoding="utf-8"?>' +
+                '<browserconfig>'
+                '  <msapplication>' +
+                '    <tile>' +
+                '      <square150x150logo src="mstile-150x150.png"/>' +
+                '      <TileColor>#da532c</TileColor>' +
+                '    </tile>' +
+                '  </msapplication>' +
+                '</browserconfig>' +
+      write.sync(path.resolve(cfg.appRoot, 'www/build-' + app.version, 'browserconfig.xml'))
+
       // Copy icon files (see http://realfavicongenerator.net/faq for details)
       copy(path.resolve(cfg.packageRoot, 'icons/favicon-*'), path.resolve(cfg.appRoot, 'www/build-' + app.version))
       copy(path.resolve(cfg.packageRoot, 'icons/android-chrome-*'), path.resolve(cfg.appRoot, 'www/build-' + app.version))
+      copy(path.resolve(cfg.packageRoot, 'icons/mstile-*'), path.resolve(cfg.appRoot, 'www/build-' + app.version))
       copy(path.resolve(cfg.packageRoot, 'icons/apple-touch-icon-*'), path.resolve(cfg.appRoot, 'www/build-' + app.version))
 
       // Rename Apple touch icon
