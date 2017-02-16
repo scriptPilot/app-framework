@@ -25,7 +25,6 @@ var checkBuild = function (callback) {
   }
 }
 
-
 // Get Firebase bin folder
 let firebaseFolder = path.resolve(cfg.projectRoot, 'node_modules/.bin')
 
