@@ -35,6 +35,6 @@ checkBuild(function () {
           showOnly('Build ' + version + ' deployed to Firebase Hosting!')
         }, 'Firebase clean up failed')
       }, 'Firebase deployment failed')
-    }, 'Firebase login failed')
+    })//, 'Firebase login failed')
   }, 'Cannot prepare Firebase deployment')
 })
