@@ -26,8 +26,8 @@ var pkg = require(cfg.packageRoot + 'package.json')
 // Update copyright year in license
 replace.sync({
   files: path.resolve(__dirname, '../LICENSE'),
-  replace: /Copyright \(c\) ([0-9]{4}) scriptPilot/,
-  with: 'Copyright (c) ' + (new Date()).getFullYear() + ' scriptPilot'
+  from: /Copyright \(c\) ([0-9]{4}) scriptPilot/,
+  to: 'Copyright (c) ' + (new Date()).getFullYear() + ' scriptPilot'
 })
 
 // Update version in demo app
@@ -151,8 +151,8 @@ var webpackConfig = merge(baseWebpackConfig, {
       // Update version in .htaccess file after successful build
       replace.sync({
         files: cfg.appRoot + 'www/.htaccess',
-        replace: /\/build-([0-9]+)\.([0-9]+)\.([0-9]+)\//g,
-        with: '/build-' + app.version + '/'
+        from: /\/build-([0-9]+)\.([0-9]+)\.([0-9]+)\//g,
+        to: '/build-' + app.version + '/'
       })
 
       // Delete Framework7 icon from CSS file

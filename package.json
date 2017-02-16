@@ -14,14 +14,14 @@
     "major": "node scripts/major",
     "ios": "node scripts/ios",
     "android": "node scripts/android",
-    "database": "node scripts/database",
-    "storage": "node scripts/storage",
-    "hosting": "node scripts/hosting",
+    "database": "node scripts/prepare-firebase && cd node_modules/.bin && firebase deploy --only database && cd ../../ && node scripts/cleanup-firebase",
+    "storage": "node scripts/prepare-firebase && cd node_modules/.bin && firebase deploy --only storage && cd ../../ && node scripts/cleanup-firebase",
+    "hosting": "node scripts/prepare-firebase && cd node_modules/.bin && firebase deploy --only hosting && cd ../../ && node scripts/cleanup-firebase",
     "check": "node scripts/check",
     "fix": "node scripts/fix",
     "f7": "node scripts/f7-update",
     "f7vue": "node scripts/f7vue-update",
-    "backup": "node scripts/backup",
+    "backup": "node scripts/prepare-firebase && cd node_modules/.bin && firebase database:get / >\"database-backup.json\" && cd ../../ && node scripts/cleanup-firebase",
     "zip": "node scripts/zip"
   },
   "devDependencies": {

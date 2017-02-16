@@ -10,7 +10,28 @@ var copy = require('cpx')
 var path = require('path')
 var replace = require('replace-in-file')
 var saveJSON = require('jsonfile')
+var deleteFiles = require('delete')
 saveJSON.spaces = 2
+
+// Get Firebase bin folder
+let firebaseFolder = path.resolve(cfg.projectRoot, 'node_modules/.bin')
+
+// Delete temp files
+if (isThere(path.resolve(firebaseFolder, '.firebaserc'))) {
+  deleteFiles.sync([path.resolve(firebaseFolder, '.firebaserc')], {force: true})
+}
+if (isThere(path.resolve(firebaseFolder, 'firebase.json'))) {
+  deleteFiles.sync([path.resolve(firebaseFolder, 'firebase.json')], {force: true})
+}
+if (isThere(path.resolve(firebaseFolder, 'database-rules.json'))) {
+  deleteFiles.sync([path.resolve(firebaseFolder, 'database-rules.json')], {force: true})
+}
+if (isThere(path.resolve(firebaseFolder, 'storage-rules.txt'))) {
+  deleteFiles.sync([path.resolve(firebaseFolder, 'storage-rules.txt')], {force: true})
+}
+if (isThere(path.resolve(firebaseFolder, 'www'))) {
+  deleteFiles.sync([path.resolve(firebaseFolder, 'www/**/*'), path.resolve(firebaseFolder, 'www')], {force: true})
+}
 
 // Get build version to be used
 var htaccess = read.sync(path.resolve(cfg.appRoot, 'www/.htaccess'), 'utf8')
@@ -42,13 +63,10 @@ if (!isThere(cfg.appRoot + 'storage-rules.txt')) {
 } else {
   replace.sync({
     files: cfg.appRoot + 'storage-rules.txt',
-    replace: /\/b\/(.+)\/o/,
-    with: '/b/' + app.firebase.storageBucket + '/o'
+    from: /\/b\/(.+)\/o/,
+    to: '/b/' + app.firebase.storageBucket + '/o'
   })
 }
-
-// Get Firebase bin folder
-let firebaseFolder = path.resolve(cfg.projectRoot, 'node_modules/firebase-tools/bin')
 
 // Write project config
 if (!isThere(path.resolve(firebaseFolder, '.firebaserc'))) {

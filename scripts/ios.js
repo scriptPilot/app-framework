@@ -92,8 +92,8 @@ function updateCordovaBuild (callback) {
             // Attach cordova js files to HTML
             replace.sync({
               files: path.resolve(cfg.packageRoot, 'cordova/www/index.html'),
-              replace: /<script/,
-              with: '<script type=text/javascript src=cordova.js></script><script'
+              from: /<script/,
+              to: '<script type=text/javascript src=cordova.js></script><script'
             })
             // Read cordova config file
             read(path.resolve(cfg.packageRoot, 'cordova/config.xml'), 'utf-8', function (err, content) {
@@ -138,7 +138,7 @@ function updateCordovaBuild (callback) {
                         cordovaConfig.widget.platform[1].icon.push({
                           $: {
                             src: path.join('..', 'icons', icon),
-                            width: icon.match(/ios-icon-([0-9]+)\.([0-9]+)\.png/)[1],
+                            to: icon.match(/ios-icon-([0-9]+)\.([0-9]+)\.png/)[1],
                             height: icon.match(/ios-icon-([0-9]+)\.([0-9]+)\.png/)[1]
                           }
                         })
@@ -146,7 +146,7 @@ function updateCordovaBuild (callback) {
                         cordovaConfig.widget.platform[1].splash.push({
                           $: {
                             src: path.join('..', 'icons', icon),
-                            width: icon.match(/ios-launchscreen-([0-9]+)x([0-9]+)\.([0-9]+)\.png/)[1],
+                            to: icon.match(/ios-launchscreen-([0-9]+)x([0-9]+)\.([0-9]+)\.png/)[1],
                             height: icon.match(/ios-launchscreen-([0-9]+)x([0-9]+)\.([0-9]+)\.png/)[2]
                           }
                         })

@@ -63,8 +63,8 @@ if (cfg.isInstalled) {
     cpx.copySync(path.resolve(cfg.packageRoot, 'demo-app/www/.htaccess'), cfg.appRoot + 'www')
     replace.sync({
       files: path.resolve(cfg.appRoot, 'www/.htaccess'),
-      replace: /\/build-([0-9]+)\.([0-9]+)\.([0-9]+)\//g,
-      with: '/build-0.0.0/'
+      from: /\/build-([0-9]+)\.([0-9]+)\.([0-9]+)\//g,
+      to: '/build-0.0.0/'
     })
   }
 }
