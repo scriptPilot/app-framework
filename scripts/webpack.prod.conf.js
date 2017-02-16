@@ -11,7 +11,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin')
 var AppCachePlugin = require('appcache-webpack-plugin')
 var OnBuildPlugin = require('on-build-webpack')
 var replace = require('replace-in-file')
-var copy = require('cpx')
+var copy = require('cpx').copySync
 var write = require('write')
 var rename = require('fs').renameSync
 var fs = require('fs')
@@ -61,9 +61,9 @@ let manifest = {
 write.sync(path.resolve(cfg.appRoot, 'www/build-' + app.version, 'manifest.json'), JSON.stringify(manifest))
 
 // Copy icon files (see http://realfavicongenerator.net/faq for details)
-cpx.copySync(path.resolve(cfg.packageRoot, 'icons/favicon-*'), path.resolve(cfg.appRoot, 'www/build-' + app.version))
-cpx.copySync(path.resolve(cfg.packageRoot, 'icons/android-chrome-*'), path.resolve(cfg.appRoot, 'www/build-' + app.version))
-cpx.copySync(path.resolve(cfg.packageRoot, 'icons/apple-touch-icon-*'), path.resolve(cfg.appRoot, 'www/build-' + app.version))
+copy(path.resolve(cfg.packageRoot, 'icons/favicon-*'), path.resolve(cfg.appRoot, 'www/build-' + app.version))
+copy(path.resolve(cfg.packageRoot, 'icons/android-chrome-*'), path.resolve(cfg.appRoot, 'www/build-' + app.version))
+copy(path.resolve(cfg.packageRoot, 'icons/apple-touch-icon-*'), path.resolve(cfg.appRoot, 'www/build-' + app.version))
 
 // Rename Apple touch icon
 rename(path.resolve(cfg.appRoot, 'www/build-' + app.version, 'apple-touch-icon-180x180.png'), path.resolve(cfg.appRoot, 'www/build-' + app.version, 'apple-touch-icon.png'))
