@@ -45,7 +45,7 @@ Optional
 
 ### Build your application
 
-- Run `npm run icons` to update icons and splash screens graphics
+- Run `npm run icons` to update icons and splash screen graphics
 - Run `npm run patch` after bugfixes and improvements
 - Run `npm run minor` after adding new functionality
 - Run `npm run major` after breaking backward-capability
