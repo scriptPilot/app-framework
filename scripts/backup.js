@@ -3,10 +3,10 @@ var path = require('path')
 var run = require('./run')
 var cmd = require('interactive-command')
 var showOnly = require('./show-only')
-//var write = require('write')
-//var saveJSON = require('jsonfile')
+// var write = require('write')
+// var saveJSON = require('jsonfile')
 var isThere = require('is-there')
-//saveJSON.spaces = 2
+// saveJSON.spaces = 2
 
 // Load configuration
 var cfg = require('./config.js')
