@@ -13,6 +13,7 @@ var OnBuildPlugin = require('on-build-webpack')
 var replace = require('replace-in-file')
 var copy = require('cpx').copySync
 var write = require('write')
+var list = require('list-dir')
 var rename = require('fs').renameSync
 var fs = require('fs')
 var saveJSON = require('jsonfile')
