@@ -131,7 +131,7 @@ var webpackConfig = merge(baseWebpackConfig, {
                 '    </tile>' +
                 '  </msapplication>' +
                 '</browserconfig>' +
-      write.sync(path.resolve(cfg.appRoot, 'www/build-' + app.version, 'browserconfig.xml'))
+      write.sync(path.resolve(cfg.appRoot, 'www/build-' + app.version, 'browserconfig.xml'), xml)
 
       // Copy icon files (see http://realfavicongenerator.net/faq for details)
       copy(path.resolve(cfg.packageRoot, 'icons/favicon-*'), path.resolve(cfg.appRoot, 'www/build-' + app.version))
