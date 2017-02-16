@@ -52,6 +52,14 @@ module.exports = {
         loader: 'json'
       },
       {
+        test: /favicon\.ico$/,
+        loader: 'url',
+        query: {
+          limit: 1,
+          name: '[name].[ext]'
+        }
+      },
+      {
         test: /\.(png|jpe?g|gif)(\?.*)?$/,
         loader: 'url',
         query: {

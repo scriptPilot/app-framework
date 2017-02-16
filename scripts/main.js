@@ -4,6 +4,9 @@ var app = require(process.env.APP_ROOT_FROM_SCRIPTS + 'package.json')
 // Shortlink to local storage
 var localStorage = window.localStorage
 
+// Load favicon
+require('../icons/favicon.ico')
+
 // Import underscore
 window['_'] = require('underscore')
 

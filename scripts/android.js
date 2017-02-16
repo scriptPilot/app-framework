@@ -91,8 +91,8 @@ function updateCordovaBuild (callback) {
             // Attach cordova js files to HTML
             replace.sync({
               files: path.resolve(cfg.packageRoot, 'cordova/www/index.html'),
-              replace: /<script/,
-              with: '<script type=text/javascript src=cordova.js></script><script'
+              from: /<script/,
+              to: '<script type=text/javascript src=cordova.js></script><script'
             })
             // Read cordova config file
             read(path.resolve(cfg.packageRoot, 'cordova/config.xml'), 'utf-8', function (err, content) {

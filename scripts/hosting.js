@@ -5,7 +5,7 @@ var showOnly = require('./show-only')
 var read = require('read-file')
 var saveJSON = require('jsonfile')
 var isThere = require('is-there')
-var spawn = require('./spawn')
+var cmd = require('interactive-command')
 saveJSON.spaces = 2
 
 // Load configuration
@@ -27,9 +27,9 @@ checkBuild(function () {
   showOnly('Preparing Firebase deployment - please wait ...')
   run('node "' + path.resolve(cfg.packageRoot, 'scripts/prepare-firebase') + '"', function () {
     showOnly('Login to Firebase - please wait ...')
-    spawn.sync(path.resolve(cfg.projectRoot, 'node_modules/firebase-tools/bin'), 'firebase', ['login'], function () {
+    cmd('./node_modules/.bin/firebase', ['login'], {cwd: cfg.projectRoot}, function () {
       showOnly('Deploying to Firebase - please wait ...')
-      spawn.async(path.resolve(cfg.projectRoot, 'node_modules/firebase-tools/bin'), 'firebase', ['deploy', '--only', 'hosting'], function () {
+      cmd('firebase', ['deploy', '--only', 'hosting'], {cwd: path.resolve(cfg.projectRoot, 'node_modules/firebase-tools/bin')}, function () {
         showOnly('Clean up temp files - please wait ...')
         run('node "' + path.resolve(cfg.packageRoot, 'scripts/cleanup-firebase') + '"', function () {
           showOnly('Build ' + version + ' deployed to Firebase Hosting!')
