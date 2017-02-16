@@ -13,6 +13,19 @@ var saveJSON = require('jsonfile')
 var deleteFiles = require('delete')
 saveJSON.spaces = 2
 
+// Get build version to be used
+var htaccess = read.sync(path.resolve(cfg.appRoot, 'www/.htaccess'), 'utf8')
+var version = htaccess.match(/build-(.+)\//)[1]
+
+var checkBuild = function (callback) {
+  if (!isThere(cfg.appRoot + 'www/build-' + version)) {
+    showOnly('Run "npm run patch" to build your App before deployment')
+  } else {
+    callback()
+  }
+}
+
+
 // Get Firebase bin folder
 let firebaseFolder = path.resolve(cfg.projectRoot, 'node_modules/.bin')
 
@@ -32,10 +45,6 @@ if (isThere(path.resolve(firebaseFolder, 'storage-rules.txt'))) {
 if (isThere(path.resolve(firebaseFolder, 'www'))) {
   deleteFiles.sync([path.resolve(firebaseFolder, 'www/**/*'), path.resolve(firebaseFolder, 'www')], {force: true})
 }
-
-// Get build version to be used
-var htaccess = read.sync(path.resolve(cfg.appRoot, 'www/.htaccess'), 'utf8')
-var version = htaccess.match(/build-(.+)\//)[1]
 
 // Create file with standard database rules
 if (!isThere(cfg.appRoot + 'database-rules.json')) {
