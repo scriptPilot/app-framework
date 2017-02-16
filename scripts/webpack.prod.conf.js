@@ -124,7 +124,7 @@ var webpackConfig = merge(baseWebpackConfig, {
       // Save browserconfig file
       let xml = '<?xml version="1.0" encoding="utf-8"?>' +
                 '<browserconfig>'
-                '  <msapplication>' +
+      '  <msapplication>' +
                 '    <tile>' +
                 '      <square150x150logo src="mstile-150x150.png"/>' +
                 '      <TileColor>#da532c</TileColor>' +
