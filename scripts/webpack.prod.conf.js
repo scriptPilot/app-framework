@@ -130,7 +130,7 @@ var webpackConfig = merge(baseWebpackConfig, {
                 '      <TileColor>#da532c</TileColor>' +
                 '    </tile>' +
                 '  </msapplication>' +
-                '</browserconfig>' +
+                '</browserconfig>'
       write.sync(path.resolve(cfg.appRoot, 'www/build-' + app.version, 'browserconfig.xml'), xml)
 
       // Copy icon files (see http://realfavicongenerator.net/faq for details)
