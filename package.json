@@ -57,7 +57,6 @@
     "html-webpack-plugin": "^2.8.1",
     "http-proxy-middleware": "^0.17.2",
     "inobounce": "^0.1.4",
-    "ios-deploy": "^1.9.1",
     "is-there": "^4.3.6",
     "jimp": "^0.2.27",
     "json-loader": "^0.5.4",
