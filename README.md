@@ -74,8 +74,8 @@
 
 Upcoming:
 
-- [v1.3 - Tutorial: ToDo App](https://github.com/scriptPilot/app-framework/milestone/3)
-- [v1.4 - Robustness improvements](https://github.com/scriptPilot/app-framework/milestone/6)
+- [v1.3 - Robustness improvements](https://github.com/scriptPilot/app-framework/milestone/6)
+- [v1.4 - Tutorial: ToDo App](https://github.com/scriptPilot/app-framework/milestone/3)
 - [v1.5 - Extensions](https://github.com/scriptPilot/app-framework/milestone/7)
 - [v2.0 - GUI helper tool](https://github.com/scriptPilot/app-framework/milestone/8)
 
