@@ -117,7 +117,6 @@ var webpackConfig = merge(baseWebpackConfig, {
       output: 'manifest.appcache'
     }),
     new OnBuildPlugin(function (stats) {
-
       // Save manifest file
       write.sync(path.resolve(cfg.appRoot, 'www/build-' + app.version, 'manifest.json'), JSON.stringify(manifest))
 
