@@ -3,7 +3,6 @@ var run = require('./run')
 var spawn = require('./spawn')
 var showOnly = require('./show-only')
 var isThere = require('is-there')
-var path = require('path')
 
 // Load configuration
 var cfg = require('./config.js')
@@ -14,7 +13,7 @@ var devServer = function () {
 }
 
 var checkIcons = function () {
-  if (isThere(cfg.packageRoot + 'icons') && isThere(path.resolve(cfg.packageRoot, 'icons/favicon.ico'))) {
+  if (isThere(cfg.packageRoot + 'icons')) {
     devServer()
   } else {
     showOnly('Icons are generated - please wait ...')

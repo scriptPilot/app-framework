@@ -1,76 +1,76 @@
 <!--
-
+  
   DO NOT MODIFY THIS FILE - IT WILL BE OVERWRITTEN AFTER EACH APP FRAMEWORK UPDATE
-
+  
   This page is managing all the authentication topics with Firebase
-
+  
 -->
 
-<template>
+<template>  
   <f7-page login-screen>
     <f7-login-screen-title>{{title}}</f7-login-screen-title>
-
+    
     <!-- Show form, if user is not logged in -->
     <f7-list form v-if="!$root.user">
-
+    
       <f7-list-item v-if="showEmail">
         <f7-label>{{text.email}}</f7-label>
         <f7-input v-model="email" :placeholder="text.email" type="email"></f7-input>
       </f7-list-item>
-
+      
       <f7-list-item v-if="showPassword">
         <f7-label>{{text.password}}</f7-label>
         <f7-input v-model="password" :placeholder="text.password" type="password"></f7-input>
       </f7-list-item>
-
+      
       <f7-list-item v-if="mode === 'create'">
         <f7-label>{{text.password}}</f7-label>
         <f7-input v-model="passwordConfirmation" :placeholder="text.confirmation" type="password"></f7-input>
       </f7-list-item>
-
+      
     </f7-list>
-
+    
     <!-- Show buttons, if user is not logged in -->
     <f7-list form v-if="!$root.user">
-
+    
       <f7-list-button
         :title="text.signIn"
         v-if="mode === 'login' && email !== '' && password !== ''"
         @click="login">
         </f7-list-button>
-
+        
       <f7-list-button
         :title="text.createAccount"
         v-if="$root.config.firebase.allowUserRegistration === true && mode === 'login'"
         @click="mode = 'create'">
         </f7-list-button>
-
+        
       <f7-list-button
         :title="text.save"
         v-if="email !== '' && password !== '' && passwordConfirmation !== ''"
         @click="createAccount">
         </f7-list-button>
-
+        
       <f7-list-button
         :title="text.resetPassword"
         v-if="mode === 'login'"
         @click="mode = 'reset'">
         </f7-list-button>
-
+        
       <f7-list-button
         :title="text.send"
         v-if="mode === 'reset' && email !== ''"
         @click="sendResetLink">
         </f7-list-button>
-
+        
       <f7-list-button
         :title="text.cancel"
         close-login-screen
         @click="resetView">
-        </f7-list-button>
-
+        </f7-list-button>  
+        
     </f7-list>
-
+    
     <!-- Show logout link, if user is logged in -->
     <f7-block inner inset style="text-align: center" v-if="$root.user">
       <p>{{text.loggedInAs}}</p>
@@ -84,12 +84,12 @@
       <p>&nbsp;</p>
       <p><f7-link @click="resetView" close-login-screen>{{text.cancel}}</f7-link></p>
     </f7-block>
-
+    
   </f7-page>
 </template>
 
 <script>
-
+  
   // Text patterns
   var text = {
     en: {
@@ -114,7 +114,7 @@
       firebaseErrors: {
         'auth/email-already-in-use': 'The email address is already linked to another account.',
         'auth/invalid-email': 'The email address is invalid.',
-        'auth/operation-not-allowed': 'Login is currently disabled.',
+        'auth/operation-not-allowed': 'Your account is deactivated.',
         'auth/weak-password': 'The password is not safe enough.',
         'auth/user-not-found': 'No account found for that email address.',
         'auth/user-disabled': 'Your account is deactivated.',
@@ -143,7 +143,7 @@
       firebaseErrors: {
         'auth/email-already-in-use': 'Die E-Mail-Adresse wird bereits verwendet.',
         'auth/invalid-email': 'Die E-Mail-Adresse ist fehlerhaft.',
-        'auth/operation-not-allowed': 'Die Anmeldung ist zurzeit deaktiviert..',
+        'auth/operation-not-allowed': 'Dein Konto ist gesperrt.',
         'auth/weak-password': 'Dein Passwort ist nicht sicher genug.',
         'auth/user-not-found': 'Kein Konto mit dieser E-Mail-Adresse gefunden.',
         'auth/user-disabled': 'Dein Konto ist deaktiviert.',
