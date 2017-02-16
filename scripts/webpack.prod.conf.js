@@ -14,7 +14,7 @@ var replace = require('replace-in-file')
 var copy = require('cpx').copySync
 var write = require('write')
 var list = require('list-dir')
-var rename = require('fs').renameSyncs
+var rename = require('fs').renameSync
 var saveJSON = require('jsonfile')
 saveJSON.spaces = 2
 

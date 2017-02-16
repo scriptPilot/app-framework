@@ -10,6 +10,7 @@ var xml = require('xml2js')
 var write = require('write')
 var list = require('list-dir')
 var replace = require('replace-in-file')
+var cmd = require('./cmd')
 
 // Load configuration
 var cfg = require('./config.js')
@@ -21,7 +22,10 @@ var version = htaccess.match(/build-(.+)\//)[1]
 
 var checkBuild = function (callback) {
   if (!isThere(cfg.appRoot + 'www/build-' + version)) {
-    showOnly('Run "npm run patch" to build your App before deployment')
+    showOnly('Build application first - please wait ...')
+    cmd(['npm', 'run', 'patch'], function () {
+      callback()
+    }, 'Build process failed')
   } else {
     callback()
   }
