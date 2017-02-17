@@ -138,17 +138,17 @@ function updateCordovaBuild (callback) {
                     let icons = list.sync(iconFolder)
                     for (let i = 0; i < icons.length; i++) {
                       let icon = icons[i]
-                      if (/android-icon-([a-z]+)dpi-([0-9]+)\.([0-9]+)\.png/.test(icon)) {
+                      if (/android-icon-([a-z]+)dpi-([0-9]+)x([0-9]+)\.png/.test(icon)) {
                         cordovaConfig.widget.platform[0].icon.push({
                           $: {
                             src: path.join('..', 'icons', icon),
-                            density: icon.match(/android-icon-([a-z]+)dpi-([0-9]+)\.([0-9]+)\.png/)[1] + 'dpi'
+                            density: icon.match(/android-icon-([a-z]+)dpi-([0-9]+)x([0-9]+)\.png/)[1] + 'dpi'
                           }
                         })
-                      } else if (/android-launchscreen-([a-z]+)dpi-([0-9]+)x([0-9]+)\.([0-9]+)\.png/.test(icon)) {
-                        let width = icon.match(/android-launchscreen-([a-z]+)dpi-([0-9]+)x([0-9]+)\.([0-9]+)\.png/)[2]
-                        let height = icon.match(/android-launchscreen-([a-z]+)dpi-([0-9]+)x([0-9]+)\.([0-9]+)\.png/)[3]
-                        let dens = icon.match(/android-launchscreen-([a-z]+)dpi-([0-9]+)x([0-9]+)\.([0-9]+)\.png/)[1]
+                      } else if (/android-launchscreen-([a-z]+)dpi-([0-9]+)x([0-9]+)\.png/.test(icon)) {
+                        let width = icon.match(/android-launchscreen-([a-z]+)dpi-([0-9]+)x([0-9]+)\.png/)[2]
+                        let height = icon.match(/android-launchscreen-([a-z]+)dpi-([0-9]+)x([0-9]+)\.png/)[3]
+                        let dens = icon.match(/android-launchscreen-([a-z]+)dpi-([0-9]+)x([0-9]+)\.png/)[1]
                         cordovaConfig.widget.platform[0].splash.push({
                           $: {
                             src: path.join('..', 'icons', icon),
