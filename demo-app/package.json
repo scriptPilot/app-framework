@@ -5,7 +5,7 @@
   "description": "App Framework Demo App - iOS and Android Apps with HTML & JavaScript - develop, build and deploy - free and open source!",
   "theme": "ios",
   "iconImage": "images/icon.png",
-  "iconBackgroundColor": "#ffffff",
+  "iconBackgroundColor": "#f0f0f0",
   "statusbarTextColor": "white",
   "materialSubnavbarFix": true,
   "defaultLanguage": "en",
