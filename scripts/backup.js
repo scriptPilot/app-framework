@@ -16,9 +16,9 @@ let backupFile = path.resolve(cfg.appRoot, 'database-backup.json')
 showOnly('Preparing Firebase backup - please wait ...')
 run('node "' + path.resolve(cfg.packageRoot, 'scripts/prepare-firebase') + '"', function () {
   showOnly('Login to Firebase - please wait ...')
-  cmd(path.resolve(cfg.packageRoot, 'node_modules/firebase-tools/bin'), ['firebase', 'login'], function () {
+  cmd(path.resolve(cfg.projectRoot, 'node_modules/firebase-tools/bin'), ['firebase', 'login'], function () {
     showOnly('Backup Firebase database - please wait ...')
-    cmd(path.resolve(cfg.packageRoot, 'node_modules/firebase-tools/bin'), ['firebase', 'database:get', '/', '>' + backupFile], function () {
+    cmd(path.resolve(cfg.projectRoot, 'node_modules/firebase-tools/bin'), ['firebase', 'database:get', '/', '>' + backupFile], function () {
       if (isThere(backupFile)) {
         saveJSON.writeFileSync(backupFile, JSON.parse(read.sync(backupFile, 'utf8')))
       }

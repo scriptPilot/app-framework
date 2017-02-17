@@ -10,9 +10,9 @@ var cfg = require('./config.js')
 showOnly('Preparing Firebase database rules deployment - please wait ...')
 run('node "' + path.resolve(cfg.packageRoot, 'scripts/prepare-firebase') + '"', function () {
   showOnly('Login to Firebase - please wait ...')
-  cmd(path.resolve(cfg.packageRoot, 'node_modules/firebase-tools/bin'), ['firebase', 'login'], function () {
+  cmd(path.resolve(cfg.projectRoot, 'node_modules/firebase-tools/bin'), ['firebase', 'login'], function () {
     showOnly('Deploying to Firebase - please wait ...')
-    cmd(path.resolve(cfg.packageRoot, 'node_modules/firebase-tools/bin'), ['firebase', 'deploy', '--only', 'database'], function () {
+    cmd(path.resolve(cfg.projectRoot, 'node_modules/firebase-tools/bin'), ['firebase', 'deploy', '--only', 'database'], function () {
       showOnly('Clean up temp files - please wait ...')
       run('node "' + path.resolve(cfg.packageRoot, 'scripts/cleanup-firebase') + '"', function () {
         showOnly('Firebase database rules deployed!')

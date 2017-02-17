@@ -30,9 +30,9 @@ checkBuild(function () {
   showOnly('Preparing Firebase deployment - please wait ...')
   run('node "' + path.resolve(cfg.packageRoot, 'scripts/prepare-firebase') + '"', function () {
     showOnly('Login to Firebase - please wait ...')
-    cmd(path.resolve(cfg.packageRoot, 'node_modules/firebase-tools/bin'), ['firebase', 'login'], function () {
+    cmd(path.resolve(cfg.projectRoot, 'node_modules/firebase-tools/bin'), ['firebase', 'login'], function () {
       showOnly('Deploying to Firebase - please wait ...')
-      cmd(path.resolve(cfg.packageRoot, 'node_modules/firebase-tools/bin'), ['firebase', 'deploy', '--only', 'hosting'], function () {
+      cmd(path.resolve(cfg.projectRoot, 'node_modules/firebase-tools/bin'), ['firebase', 'deploy', '--only', 'hosting'], function () {
         showOnly('Clean up temp files - please wait ...')
         run('node "' + path.resolve(cfg.packageRoot, 'scripts/cleanup-firebase') + '"', function () {
           showOnly('Build ' + version + ' deployed to Firebase Hosting!')
