@@ -13,7 +13,7 @@ showOnly('Standard JavaScript check ongoing - please wait ...')
 
 // Define files to fix
 var files = ' "' + path.resolve(cfg.appRoot, 'app.vue') + '"' +
-            ' "' + path.resolve(cfg.appRoot, 'pages/*.vue') + '"' +
+            ' "' + path.resolve(cfg.appRoot, 'pages/**/*.vue') + '"' +
             cfg.isInstalled ? '' : ' "' + path.resolve(cfg.packageRoot, 'scripts/*.js') + '"'
 
 // Do the fix
@@ -25,4 +25,3 @@ run('standard >' + path.resolve(cfg.projectRoot, 'standard-check.log') + ' ' + f
 }, function () {
   showOnly('Standard JavaScript check found some unconformities. Please run "npm run fix" or check "standard-check.log" for detailed information.')
 })
-

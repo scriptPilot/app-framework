@@ -32,7 +32,7 @@ if (cfg.isInstalled) {
 
   // Copy template pages
   if (!isThere(cfg.appRoot + 'pages')) {
-    cpx.copySync(path.resolve(cfg.packageRoot, 'demo-app/pages/*'), cfg.appRoot + 'pages')
+    cpx.copySync(path.resolve(cfg.packageRoot, 'demo-app/pages/**/*'), cfg.appRoot + 'pages')
   }
 
   // Copy database rules file
@@ -53,7 +53,7 @@ if (cfg.isInstalled) {
     fs.renameSync(cfg.appRoot + '.npmignore', cfg.appRoot + '.gitignore')
   }
 
-  // Copy/update login-screen.vue
+  // Update login-screen.vue
   if (isThere(path.resolve(cfg.packageRoot, 'demo-app/pages/login-screen.vue'))) {
     cpx.copySync(path.resolve(cfg.packageRoot, 'demo-app/pages/login-screen.vue'), cfg.appRoot + 'pages')
   }

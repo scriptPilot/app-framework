@@ -93,6 +93,7 @@ if (isThere(appRoot + 'pages')) {
   var pageFiles = list(appRoot + 'pages')
   for (var p = 0; p < pageFiles.length; p++) {
     if (pageFiles[p].substr(pageFiles[p].length - 4, 4) === '.vue') {
+      pageFiles[p] = pageFiles[p].replace('\\', '/')
       if (p > 0) {
         pageStr += ','
       }
