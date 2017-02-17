@@ -198,7 +198,7 @@ checkBuild(function () {
           buildCordovaIos(function () {
             showOnly('Xcode project version ' + version + ' build, Xcode is starting ...')
             run('open -a Xcode "' + path.resolve(cfg.packageRoot, 'cordova/platforms/ios', app.title + '.xcodeproj') + '"', function () {
-              showOnly('Xcode started with build version ' + version + '.')
+              showOnly('Xcode started with build version ' + version)
             })
           })
         })
