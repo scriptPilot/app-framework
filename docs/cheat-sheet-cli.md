@@ -1,4 +1,4 @@
-# Cheat sheet - CLI (Work in progress)
+# Reference: Console commands (Work in progress)
 
 General
 - `npm install`
