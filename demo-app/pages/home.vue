@@ -30,7 +30,6 @@
       <f7-list-item link="form" title="Form Handling"></f7-list-item>
       <f7-list-item link="flexible-routing/blog/45/post/125?foo=bar#about" title="Flexible Routing"></f7-list-item>
       <f7-list-item link="image" title="Icon & Image"></f7-list-item>
-      <f7-list-item link="f7-showcase" title="Framework7-Vue Showcase"></f7-list-item>
     </f7-list>
     <f7-block-title>Side Panels</f7-block-title>
 
