@@ -12,6 +12,11 @@ var list = require('list-dir')
 var replace = require('replace-in-file')
 var cmd = require('./cmd')
 
+// Cancel on Windows
+if (process.platform === 'win32') {
+  showOnly('iOS builds are only possible on macOS machines, like iMac or MacBook', true)
+}
+
 // Load configuration
 var cfg = require('./config.js')
 var app = require(cfg.appRoot + 'package.json')
