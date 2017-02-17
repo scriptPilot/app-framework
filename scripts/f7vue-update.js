@@ -19,12 +19,14 @@ if (isThere(f7vueFolder)) {
       showOnly('Framework7-Vue dist ongoing ... please wait')
       run('cd "' + f7vueFolder + '" && npm run dist', function (err, stdOut, errOut) {
         if (!err) {
-          // Copy
+          // Copy script
           copy(path.resolve(f7vueFolder, 'dist/framework7-vue.min.js'), cfg.packageRoot + 'libs')
+          // Copy kitchen sinks
+          copy(path.resolve(f7vueFolder, 'kitchen-sink/pages/**/*'), path.resolve(cfg.packageRoot, 'demo-app/pages/f7'))
           if (isThere(path.resolve(cfg.packageRoot, 'libs/framework7-vue.min.js'))) {
-            showOnly('Newest Framework7-Vue build copied to App Framework libs folder')
+            showOnly('Newest Framework7-Vue build and kitchen sink files copied to App Framework folder')
           } else {
-            showOnly('Error: Failed to copy Framework7-Vue build file to App Framework libs folder')
+            showOnly('Error: Failed to copy Framework7-Vue build and kitchen sink files to App Framework folder')
           }
         } else {
           showOnly('Error: Framework7-Vue dist failed')

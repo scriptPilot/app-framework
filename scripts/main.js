@@ -46,23 +46,22 @@ var Vue = require('vue')
 // Init Framework7 Vue Plugin
 Vue.use(require('../libs/framework7-vue.min.js'))
 
-// Load special routes from config
-var Routes = []
-for (let p = 0; p < app.specialRoutes.length; p++) {
-  let page = app.specialRoutes[p].substr(0, app.specialRoutes[p].indexOf('/'))
-  Routes.push({
-    path: app.specialRoutes[p],
-    component: require(process.env.APP_ROOT_FROM_SCRIPTS + 'pages/' + page + '.vue')
-  })
-}
-
 // Load all pages as standard route
+var Routes = []
 let pages = process.env.PAGES
 pages = pages.split(',')
 for (let p = 0; p < pages.length; p++) {
   if (Routes[pages[p]] === undefined) {
     Routes.push({path: pages[p], component: require(process.env.APP_ROOT_FROM_SCRIPTS + 'pages/' + pages[p] + '.vue')})
   }
+}
+
+// Load special routes from config
+for (let path in app.specialRoutes) {
+  Routes.push({
+    path: path,
+    component: require(process.env.APP_ROOT_FROM_SCRIPTS + 'pages/' + app.specialRoutes[path] + '.vue')
+  })
 }
 
 // Reset local storage after App Framework version change

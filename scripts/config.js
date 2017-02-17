@@ -40,7 +40,17 @@ if (app.faviconBackgroundColor) delete app.faviconBackgroundColor
 if (app.firebase.useDatabaseService) delete app.firebase.useDatabaseService
 if (app.firebase.useStorageService) delete app.firebase.useStorageService
 
-  // Update app config file
+// Transform special routes to object (needed after sub page functionality added)
+if (_.isArray(app.specialRoutes)) {
+  let routes = app.specialRoutes
+  app.specialRoutes = {}
+  for (i = 0; i < routes.length; i++) {
+    let page = routes[i].substr(0, routes[i].indexOf('/'))
+    app.specialRoutes[routes[i]] = page
+  }
+}
+
+// Update app config file
 saveJSON.writeFileSync(appRoot + 'package.json', app)
 
 // Check application configuration file
@@ -78,7 +88,7 @@ is('defaultLanguage')
 ib('showPhoneFrameOnDesktop')
 ia('useCordovaPlugins')
 ib('resetLocalStorageOnVersionChange')
-ia('specialRoutes')
+io('specialRoutes')
 ia('pagesWithRequiredLogin')
 io('firebase')
 io('loadIconFonts')
@@ -93,7 +103,7 @@ if (isThere(appRoot + 'pages')) {
   var pageFiles = list(appRoot + 'pages')
   for (var p = 0; p < pageFiles.length; p++) {
     if (pageFiles[p].substr(pageFiles[p].length - 4, 4) === '.vue') {
-      pageFiles[p] = pageFiles[p].replace('\\', '/')
+      pageFiles[p] = pageFiles[p].replace(/\\/g, '/')
       if (p > 0) {
         pageStr += ','
       }
