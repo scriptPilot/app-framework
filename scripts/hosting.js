@@ -17,6 +17,8 @@ var checkBuild = function (callback) {
   if (!isThere(cfg.appRoot + 'www/build-' + version)) {
     showOnly('Build application first - please wait ...')
     cmd(['npm', 'run', 'patch'], function () {
+      htaccess = read.sync(path.resolve(cfg.appRoot, 'www/.htaccess'), 'utf8')
+      version = htaccess.match(/build-(.+)\//)[1]
       callback()
     }, 'Build process failed')
   } else {

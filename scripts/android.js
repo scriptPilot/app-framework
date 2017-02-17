@@ -25,6 +25,8 @@ var checkBuild = function (callback) {
   if (!isThere(cfg.appRoot + 'www/build-' + version)) {
     showOnly('Build application first - please wait ...')
     cmd(['npm', 'run', 'patch'], function () {
+      htaccess = read.sync(path.resolve(cfg.appRoot, 'www/.htaccess'), 'utf8')
+      version = htaccess.match(/build-(.+)\//)[1]
       callback()
     }, 'Build process failed')
   } else {
@@ -69,7 +71,6 @@ function updateCordovaPlugins (callback) {
   }
   if (pluginChanges.length > 0) {
     let command = 'cd "' + path.resolve(cfg.packageRoot, 'cordova') + '" && ' + pluginChanges.join(' && ')
-    console.log(command)
     run(command, function () {
       callback()
     })
@@ -197,9 +198,15 @@ checkBuild(function () {
         updateCordovaBuild(function () {
           buildCordovaAndroid(function () {
             showOnly('Android Studio project version ' + version + ' build, Android Studio is starting ...')
-            run('open -a "/Applications/Android Studio.app" "' + path.resolve(cfg.packageRoot, 'cordova/platforms/android') + '"', function () {
-              showOnly('Android Studio started with build version ' + version + '.')
-            })
+            if (process.platform === 'win32') {
+              cmd(path.resolve('C:/Programme/Android/Android Studio/bin'), ['start', 'studio64.exe', '"' + path.resolve(cfg.packageRoot, 'cordova/platforms/android') + '"'], function () {
+                showOnly('Android Studio started with build version ' + version + '.')
+              })
+            } else {
+              run('open -a "/Applications/Android Studio.app" "' + path.resolve(cfg.packageRoot, 'cordova/platforms/android') + '"', function () {
+                showOnly('Android Studio started with build version ' + version + '.')
+              })
+            }
           })
         })
       })
