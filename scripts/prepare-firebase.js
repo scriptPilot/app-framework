@@ -16,6 +16,9 @@ saveJSON.spaces = 2
 var htaccess = read.sync(path.resolve(cfg.appRoot, 'www/.htaccess'), 'utf8')
 var version = htaccess.match(/build-(.+)\//)[1]
 
+// Get Firebase bin folder
+let firebaseFolder = path.resolve(cfg.projectRoot, 'node_modules/firebase-tools/bin')
+
 // Create file with standard database rules
 if (!isThere(cfg.appRoot + 'database-rules.json')) {
   write.sync(cfg.appRoot + 'database-rules.json', '{}')
@@ -47,19 +50,6 @@ if (!isThere(cfg.appRoot + 'storage-rules.txt')) {
   })
 }
 
-// Get Firebase bin folder
-let firebaseFolder = path.resolve(cfg.projectRoot, 'node_modules/firebase-tools/bin')
-
-// Write project config
-if (!isThere(path.resolve(firebaseFolder, '.firebaserc'))) {
-  write.sync(path.resolve(firebaseFolder, '.firebaserc'), '{}')
-}
-saveJSON.writeFileSync(path.resolve(firebaseFolder, '.firebaserc'), {
-  'projects': {
-    'default': app.firebase.authDomain.substr(0, app.firebase.authDomain.indexOf('.firebaseapp.com'))
-  }
-})
-
 // Define Firabase config
 let config = {
   database: {
@@ -72,6 +62,16 @@ let config = {
     'public': 'www'
   }
 }
+
+// Write project config
+if (!isThere(path.resolve(firebaseFolder, '.firebaserc'))) {
+  write.sync(path.resolve(firebaseFolder, '.firebaserc'), '{}')
+}
+saveJSON.writeFileSync(path.resolve(firebaseFolder, '.firebaserc'), {
+  'projects': {
+    'default': app.firebase.authDomain.substr(0, app.firebase.authDomain.indexOf('.firebaseapp.com'))
+  }
+})
 
 // Copy files
 copy.copySync(path.resolve(cfg.appRoot, 'database-rules.json'), firebaseFolder)
