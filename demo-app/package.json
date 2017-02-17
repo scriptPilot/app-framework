@@ -11,9 +11,10 @@
   "defaultLanguage": "en",
   "showPhoneFrameOnDesktop": true,
   "resetLocalStorageOnVersionChange": false,
-  "specialRoutes": [
-    "flexible-routing/blog/:blogId/post/:postId"
-  ],
+  "specialRoutes": {
+    "flexible-routing/blog/:blogId/post/:postId": "flexible-routing",
+    "f7/user/:id/posts/:post_id": "f7/dynamic-route"
+  },
   "pagesWithRequiredLogin": [
     "firebase-private"
   ],
