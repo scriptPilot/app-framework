@@ -58,7 +58,7 @@ Optional
 ||Web App|Native App|
 |---|---|---|
 |Installation|Are running in the device browser and could be pinned to the homescreen.|Are installed from an App Store or manually to the device (Android only).|
-|Performance|Reload on reopen, but could be cached for offline usage.|Kept in runtime of the device, smoother usage.|
+|Performance|Reload on reopen, but could be cached for offline usage. Offline warning.|Kept in runtime of the device, smoother usage. No offline warning.|
 |Capability|Only browser features.|Access to the device hardware and OS features.|
 |Deployment|In seconds.|Additional native build plus approval process, which takes some time and could be refused at the Apple App Store.|
 |Costs|Firebase hosting service is free for small apps.|Apple requires developer program (around 99€ per year), Google Play store requires registration fee (around 25 USD once). For selling apps, Apple and Google charge around 30% of the sales.|
