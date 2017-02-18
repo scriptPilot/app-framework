@@ -6,7 +6,7 @@ General
 
 Development
 - `npm run dev`
-- `CTRl + C`
+- `CTRL + C`
 
 Testing
 - `npm run check`
