@@ -5,7 +5,8 @@ General
 - `npm update`
 
 Development
-- `npm dev`
+- `npm run dev`
+- `CTRl + C`
 
 Testing
 - `npm run check`
