@@ -1,20 +1,20 @@
 # Reference: Console commands (Work in progress)
 
-Setup
+**Setup**
 - `npm install`
 - `npm update`
 
-Testing
+**Testing**
 - `npm run web` (`CTRL + C`)
 - `npm run ios`
 - `npm run android`
 
-Building
+**Building**
 - `npm run patch`
 - `npm run minor`
 - `npm run major`
 
-Deployment
+**Deployment**
 - `npm run firebase`
   - `npm run hosting`
   - `npm run database`
@@ -23,5 +23,5 @@ Deployment
 - `npm run xcode`
 - `npm run studio`
 
-Backup
+**Backup**
 - `npm run backup`
