@@ -1,30 +1,27 @@
 # Reference: Console commands (Work in progress)
 
-General
+Setup
 - `npm install`
 - `npm update`
 
-Development
-- `npm run dev`
-- `CTRL + C`
-
 Testing
-- `npm run check`
-- `npm run fix`
+- `npm run webˋ (`CTRL + C`)
+- `npm run ios`
+- `npm run android`
 
 Building
-- `npm run icons`
 - `npm run patch`
 - `npm run minor`
 - `npm run major`
 
 Deployment
-- `npm run database`
-- `npm run storage`
-- `npm run hosting`
-- `npm run ios`
-- `npm run android`
+- `npm run firebase`
+  - `npm run hosting`
+  - `npm run database`
+  - `npm run storage`
+- `npm run ftp`
+- `npm run xcode`
+- `npm run studio`
 
 Backup
 - `npm run backup`
-- `npm run zip`
