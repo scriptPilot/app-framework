@@ -5,7 +5,7 @@ Setup
 - `npm update`
 
 Testing
-- `npm run webˋ (`CTRL + C`)
+- `npm run web` (`CTRL + C`)
 - `npm run ios`
 - `npm run android`
 
