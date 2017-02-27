@@ -3,7 +3,7 @@
 > First contact with App Framework? Please read the [Readme file](../README.md) first!
 
 Option                           | Allowed values      | Example value
-:------------------------------- |:------------------- | -------------
+:------------------------------- |:------------------- |:---------------------------------------------
 title                            | string              | Demo App
 theme                            | *ios* or *material* | ios
 iconBackgroundColor              | string              | #ffffff
