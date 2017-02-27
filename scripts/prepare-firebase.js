@@ -1,6 +1,6 @@
 // Import config
 var cfg = require('./config.js')
-var app = require(cfg.appRoot + 'package.json')
+var app = require(cfg.appRoot + 'config.json')
 
 // Import packages
 var isThere = require('is-there')

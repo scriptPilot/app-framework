@@ -29,6 +29,7 @@ if (cfg.isInstalled) {
 } else {
   showOnly('Standard JavaScript fix ongoing - please wait ...')
   run('npm run fix', function () {
-    checkIcons()
+    // checkIcons()
+    devServer()
   }, 'Standard JavaScript fix failed')
 }

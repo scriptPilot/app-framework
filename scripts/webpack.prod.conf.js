@@ -37,7 +37,7 @@ if (!cfg.isInstalled) {
 }
 
 // Load app configuration
-var app = require(cfg.appRoot + 'package.json')
+var app = require(cfg.appRoot + 'config.json')
 
 // Create and save manifest (see http://realfavicongenerator.net/faq for details)
 let manifest = {

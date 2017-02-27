@@ -15,7 +15,7 @@ var cmd = require('./cmd')
 
 // Load configuration
 var cfg = require('./config.js')
-var app = require(cfg.appRoot + 'package.json')
+var app = require(cfg.appRoot + 'config.json')
 
 // Get build version
 var htaccess = read.sync(path.resolve(cfg.appRoot, 'www/.htaccess'), 'utf8')

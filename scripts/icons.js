@@ -10,7 +10,7 @@ var ico = require('to-ico')
 
 // Configuration
 let cfg = require('./config')
-let app = require(cfg.appRoot + 'package.json')
+let app = require(cfg.appRoot + 'config.json')
 
 // Show message
 showOnly('Creating icons - please wait ...')

@@ -6,7 +6,7 @@ var read = require('read-file')
 
 // Load configuration
 var cfg = require('./config.js')
-var app = require(cfg.appRoot + 'package.json')
+var app = require(cfg.appRoot + 'config.json')
 
 // Installed as package
 if (cfg.isInstalled) {

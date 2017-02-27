@@ -200,7 +200,7 @@ let copyDemoAppFiles = function () {
     // Copy template app.vue and reset version in package.json
     if (!isThere(cfg.appRoot + 'app.vue')) {
       cpx.copySync(abs(cfg.packageRoot, 'demo-app/app.vue'), cfg.appRoot)
-      var app = require(cfg.appRoot + 'package.json')
+      var app = require(cfg.appRoot + 'config.json')
       app.version = '0.1.0'
       saveJSON.writeFileSync(cfg.appRoot + 'package.json', app)
     }
