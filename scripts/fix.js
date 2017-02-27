@@ -14,7 +14,8 @@ showOnly('Standard JavaScript fix ongoing - please wait ...')
 // Define files to fix
 var files = ' "' + path.resolve(cfg.appRoot, 'app.vue') + '"' +
             ' "' + path.resolve(cfg.appRoot, 'pages/*.vue') + '"' +
-            cfg.isInstalled ? '' : ' "' + path.resolve(cfg.packageRoot, 'scripts/*.js') + '"'
+            cfg.isInstalled ? '' : ' "' + path.resolve(cfg.packageRoot, 'scripts/*.js') + '"' +
+            cfg.isInstalled ? '' : ' "' + path.resolve(cfg.packageRoot, 'lib/*.js') + '"'
 
 // Do the fix
 run('standard >' + path.resolve(cfg.projectRoot, 'standard-check.log') + ' ' + files + ' --plugin html --fix', function () {

@@ -44,7 +44,7 @@ require('../main.css')
 var Vue = require('vue')
 
 // Init Framework7 Vue Plugin
-Vue.use(require('../lib/framework7-vue.min.js'))
+Vue.use(require('../lib/framework7-vue/framework7-vue.min.js'))
 
 // Load all pages as standard route
 var Routes = []
