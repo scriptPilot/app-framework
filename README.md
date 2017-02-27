@@ -6,54 +6,23 @@
 
 ## Features
 
-## Quick start
-
-1. Install [Node.js with npm](https://docs.npmjs.com/getting-started/what-is-npm)
-2. Create an empty project folder on your computer
-3. Download the [package.json](https://raw.githubusercontent.com/scriptPilot/app-framework/master/demo-app/package.json) file to your project folder (keep extension .json!)
-4. Run `npm install` to install App Framework and setup the project folder
-5. Run `npm run dev` to start the Demo App at localhost:8080
-
-## Documentation
-
-**Essentiell**
-
-- [Node.js / npm](https://docs.npmjs.com/getting-started/what-is-npm)
-- [Framework7](https://framework7.io/docs/) / [Framework7-Vue](https://framework7.io/vue/)
-- [App Framework - Project folder structure](docs/project-folder-structure.md)
-- [App Framework - Configuration options](docs/configuration-options.md)
-- [App Framework - CLI commands](docs/cli-commands.md)
-
-**Optional**
-
-- [Vue.js](https://vuejs.org/v2/guide/)
-- [App Framework - Vue hooks](docs/vue-hooks.md)
-- [Firebase](https://firebase.google.com/docs/web/setup)
-- [iOS design guidelines](https://developer.apple.com/ios/human-interface-guidelines)
-- [Android/Material design guidelines](https://developer.android.com/design/index.html)
-- [GitHub](https://guides.github.com/)
-
----
-
-## Features
-
 > The power is under the hood - but for sure, we have a [Demo App](https://app-framework.scriptpilot.de/).
 
 <a href='https://play.google.com/store/apps/details?id=de.scriptpilot.appframework&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://raw.githubusercontent.com/scriptPilot/app-framework/master/media/google-play-download.png' width='150'/></a>
 &nbsp;&nbsp;&nbsp;
 <a href='https://itunes.apple.com/us/app/app-framework-demo/id1203927581?mt=8'><img alt='Download on the App Store' src='https://raw.githubusercontent.com/scriptPilot/app-framework/master/media/app-store-download.png' width='150'/></a>
 
-### Features - Setup
+Setup:
 
 - Creation of a lightweight and well-organized project folder, prepared to push to [GitHub](https://github.com/about)
 - [Demo App](https://app-framework.scriptpilot.de/) to use as base for your own application with typical use cases
 
-### Features - Design
+Design:
 
 - Printable [template](media/smartphone-template.pdf) to design your application with paper and pencil
 - Template for your icon design - as [PDF for sketching](media/icon-template.pdf) and [PPTX](media/icon-template.pptx) for drawing
 
-### Features - Development
+Development:
 
 - Realize beautiful user interfaces with all well-known components and transitions, based on [Framework7](https://framework7.io/)
 - Use comprehensive icon fonts like [FontAwesome](http://fontawesome.io/), [Framework7](http://framework7.io/icons/), [Ion](http://ionicons.com/) and [Material Icons](https://material.io/icons/)
@@ -64,13 +33,13 @@
 - State kept for history, tabs, scroll positions, focus, panels, modals, form inputs and page component data
 - Offline capability, flexible routing and multi-language support out of the box
 
-### Features - Testing
+Testing:
 
 - Integrated code checks for [correctness](http://eslint.org/) and [standard conformity](http://standardjs.com/)
 - Development server with live reload, perfectly to use together with [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools/)
 - Test your application on your own phone or any iOS or Android device with a simulator
 
-### Features - Building
+Building:
 
 - Build process with version bump and compression of all HTML, CSS, JavaScript and image files
 - Generation of favicons, touch icons and splash screens out of a single image file
@@ -79,7 +48,7 @@
 - Automatic [Apple Xcode](https://developer.apple.com/xcode/) project build with [Cordova](https://cordova.apache.org/)
 - Automatic [Android Studio](https://developer.android.com/studio) project build with [Cordova](https://cordova.apache.org/)
 
-### Features - Deployment
+Deployment:
 
 - Deployment without downtime
   - To your own server or web space as Web App
@@ -88,20 +57,37 @@
   - To the [Google Play Store](https://play.google.com/) as native Android App
 - Easy rollback solution
 
-### Features - Backup
+Backup:
 
 - Download your [Firebase database content](https://firebase.google.com/docs/database/) to a local JSON file
 - Create a ZIP file with all important project files to backup on any external drive or cloud service
 
 ## Quick start
 
-> A Tutorial for the complete workflow is coming soon!
-
 1. Install [Node.js with npm](https://docs.npmjs.com/getting-started/what-is-npm)
-2. Download *[package.json](https://raw.githubusercontent.com/scriptPilot/app-framework/master/demo-app/package.json)* file to an empty folder (keep extension .json!)
-3. Run `npm install` to setup project folder
-4. Run `npm run dev` to start the Demo App at localhost:8080
-5. Read our [Documentation](DOCUMENTATION.md)
+2. Create an empty project folder on your computer
+3. Download the [package.json](https://raw.githubusercontent.com/scriptPilot/app-framework/master/demo-app/package.json) file to your project folder (keep extension .json!)
+4. Run `npm install` to install App Framework and setup the project folder
+5. Run `npm run dev` to start the Demo App at localhost:8080
+
+## Documentation
+
+Essentiell:
+
+- [Node.js / npm](https://docs.npmjs.com/getting-started/what-is-npm)
+- [Framework7](https://framework7.io/docs/) / [Framework7-Vue](https://framework7.io/vue/)
+- [App Framework - Project folder structure](docs/project-folder-structure.md)
+- [App Framework - Configuration options](docs/configuration-options.md)
+- [App Framework - CLI commands](docs/cli-commands.md)
+
+Optional:
+
+- [Vue.js](https://vuejs.org/v2/guide/)
+- [Firebase](https://firebase.google.com/docs/web/setup)
+- [App Framework - Vue hooks](docs/vue-hooks.md)
+- [iOS design guidelines](https://developer.apple.com/ios/human-interface-guidelines)
+- [Android/Material design guidelines](https://developer.android.com/design/index.html)
+- [GitHub](https://guides.github.com/)
 
 ## Milestones
 
