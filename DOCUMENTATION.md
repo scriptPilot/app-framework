@@ -10,10 +10,9 @@
 
 ## Project folder structure
 
-- `src` -
-   - `images` -
-   - `pages` - 
-  
+- `src` - folder
+  - `images` - folder
+
 ## Configuration options
 
 ## CLI commands
