@@ -4,15 +4,15 @@
 
 **Table of contents**
 
-* Project folder structure
-* Configuration options
-* CLI commands
+- [Project folder structure](#project-folder-structure)
+- Configuration options
+- CLI commands
 
 ## Project folder structure
 
-- `src`
-  - `images`
-  - `pages`
+- `src` -
+  - `images` -
+  - `pages` - 
   
 ## Configuration options
 
