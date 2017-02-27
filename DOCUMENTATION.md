@@ -59,24 +59,26 @@ buildSourcemaps                  | boolean             | false
 
 ## CLI commands
 
-*Setup*
+All deployment commands support `--version x.y.z` parameter for rollback.
+
+**Setup**
 
 - `npm install` to install *App Framework* and setup project folder
 - `npm update` to update *App Framework* to latest sub version
 
-*Testing*
+**Testing**
 
 - `npm run browser` to start development server with live reload
 - `npm run ios` to open iOS simulator
 - `npm run android` to open Android emulator
 
-*Building*
+**Building**
 
 - `npm run patch` to build app after bug-fixes and improvements
 - `npm run minor` to build app after adding new functionality
 - `npm run major` to build app after breaking backward-capability
 
-*Deployment*
+**Deployment**
 
 - `npm run firebase` to deploy build to Firebase
   - `npm run database` to deploy only database rules to Firebase
@@ -85,8 +87,6 @@ buildSourcemaps                  | boolean             | false
 - `npm run ftp` to deploy build to FTP server
 - `npm run xcode` to open build in Xcode
 - `npm run studio` to open build in Android Studio
-
-All deployment commands support `--version x.y.z` parameter for rollback.
 
 ---
 
