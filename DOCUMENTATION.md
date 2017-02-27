@@ -32,6 +32,11 @@ Option|Type|Default value
 ---|---|---
 title|string|Demo App
 
+```
+.
+├── title     # Project title (string, default: Demo App)
+```
+
 - *string* `title` - App title
 - `title` - App title (string)
 
