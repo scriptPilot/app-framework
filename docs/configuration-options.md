@@ -1,61 +1,83 @@
 # App Framework - Configuration options
 
-<!-- comment -->
-<!-- /comment -->
-
 > First contact with App Framework? Please read the [Readme file](../README.md) first!
 
 <!-- update-on-build -->
-- `title` *string*
-  - Default: "Demo App"
-- `defaultLanguage` *string*
+- `title`
+  - Type: string
+  - Default: Demo App
+- `defaultLanguage`
+  - Type: string
   - Pattern: /^([a-z]{2})$/
-  - Default: "en"
-- `theme` *string*
+  - Default: en
+- `theme`
+  - Type: string
   - Allowed: ios, material
-  - Default: "ios"
-- `loadIconFonts` *object*
-  - `framework7` *boolean*
+  - Default: ios
+- `loadIconFonts`
+  - Type: object
+  - `framework7`
+    - Type: boolean
     - Default: false
-  - `material` *boolean*
+  - `material`
+    - Type: boolean
     - Default: false
-  - `ion` *boolean*
+  - `ion`
+    - Type: boolean
     - Default: false
-  - `fontawesome` *boolean*
+  - `fontawesome`
+    - Type: boolean
     - Default: true
-- `iconBackgroundColor` *string*
+- `iconBackgroundColor`
+  - Type: string
   - Pattern: /^#([0-9a-f]{6})$/i
-  - Default: "#ffffff"
-- `statusbarTextColor` *string*
+  - Default: #ffffff
+- `statusbarTextColor`
+  - Type: string
   - Allowed: black, white
-  - Default: "white"
-- `showPhoneFrameOnDesktop` *boolean*
+  - Default: white
+- `showPhoneFrameOnDesktop`
+  - Type: boolean
   - Default: true
-- `materialSubnavbarFix` *boolean*
+- `materialSubnavbarFix`
+  - Type: boolean
   - Default: true
-- `specialRoutes` *object*
+- `specialRoutes`
+  - Type: object
   - Default: {"flexible-routing/blog/:blogId/post/:postId":"flexible-routing"}
-- `pagesWithRequiredLogin` *array*
+- `pagesWithRequiredLogin`
+  - Type: array
   - Default: ["firebase-private"]
-- `firebase` *object*
-  - `apiKey` *string*
-    - Default: "AIzaSyAvzTiqd9fKR-h47Uxl4iXwqSMU1VjGdII"
-  - `authDomain` *string*
-    - Default: "app-framework-9045a.firebaseapp.com"
-  - `databaseURL` *string*
-    - Default: "https://app-framework-9045a.firebaseio.com"
-  - `storageBucket` *string*
-    - Default: "app-framework-9045a.appspot.com"
-  - `allowUserRegistration` *boolean*
+- `firebase`
+  - Type: object
+  - `apiKey`
+    - Type: string
+    - Default: AIzaSyAvzTiqd9fKR-h47Uxl4iXwqSMU1VjGdII
+  - `authDomain`
+    - Type: string
+    - Default: app-framework-9045a.firebaseapp.com
+  - `databaseURL`
+    - Type: string
+    - Default: https://app-framework-9045a.firebaseio.com
+  - `storageBucket`
+    - Type: string
+    - Default: app-framework-9045a.appspot.com
+  - `allowUserRegistration`
+    - Type: boolean
     - Default: true
-- `appStoreId` *string*
-  - Default: "de.scriptpilot.app-framework"
-- `playStoreId` *string*
-  - Default: "de.scriptpilot.appframework"
-- `useCordovaPlugins` *array*
+- `appStoreId`
+  - Type: string
+  - Default: de.scriptpilot.app-framework
+- `playStoreId`
+  - Type: string
+  - Default: de.scriptpilot.appframework
+- `useCordovaPlugins`
+  - Type: array
   - Default: ["cordova-plugin-statusbar"]
-- `buildSourcemaps` *boolean*
+- `buildSourcemaps`
+  - Type: boolean
   - Default: false
-- `resetLocalStorageOnVersionChange` *boolean*
+- `resetLocalStorageOnVersionChange`
+  - Type: boolean
   - Default: false
 <!-- /update-on-build -->
