@@ -1,6 +1,6 @@
 # App Framework - CLI commands
 
-> First contact with App Framework? Please read the [Readme file](README.md) first!
+> First contact with App Framework? Please read the [Readme file](../README.md) first!
 
 **Setup**
 

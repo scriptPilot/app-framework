@@ -10,7 +10,7 @@
 
 1. Install [Node.js with npm](https://docs.npmjs.com/getting-started/what-is-npm)
 2. Create an empty project folder on your computer
-3. Download the *[package.json](https://raw.githubusercontent.com/scriptPilot/app-framework/master/demo-app/package.json)* file to your project folder (keep extension .json!)
+3. Download the [package.json](https://raw.githubusercontent.com/scriptPilot/app-framework/master/demo-app/package.json) file to your project folder (keep extension .json!)
 4. Run `npm install` to install App Framework and setup the project folder
 5. Run `npm run dev` to start the Demo App at localhost:8080
 
