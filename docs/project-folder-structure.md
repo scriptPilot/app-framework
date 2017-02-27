@@ -18,4 +18,4 @@
 └── package.json                # Project information
 ```
 
-For backups to external or cloud drives, you should exclude the *node_modules* folder.
+For backups, you should exclude the *node_modules* folder.
