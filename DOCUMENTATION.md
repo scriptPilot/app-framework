@@ -19,34 +19,89 @@
 │   ├── images                  # App images
 │   ├── pages                   # App page components
 │   ├── app.vue                 # App main component
-│   ├── icon.png                # App icon file
 │   ├── config.js               # App configuration
 │   ├── database-rules.json     # Firebase database rules
+│   ├── icon.png                # App icon file
 │   ├── storage-rules.txt       # Firebase storage rules
 └── package.json                # Project information
 ```
 
 ## Configuration options
 
-Option|Type|Default value
----|---|---
-title|string|Demo App
+Option                           | Allowed values      | Default value
+-------------------------------- | ------------------- | --------------
+title                            | string              | Demo App
+theme                            | *ios* or *material* | ios
+iconBackgroundColor              | string              | #ffffff
+resetLocalStorageOnVersionChange | boolean             | false
 
-```
-.
-├── title     # Project title (string, default: Demo App)
-```
 
-- *string* `title` - App title
-- `title` - App title (string)
+
+"title": "Demo App",
+"theme": "ios",
+"iconBackgroundColor": "#ffffff",
+"statusbarTextColor": "white",
+"materialSubnavbarFix": true,
+"defaultLanguage": "en",
+"showPhoneFrameOnDesktop": true,
+"resetLocalStorageOnVersionChange": false,
+"specialRoutes": {
+  "flexible-routing/blog/:blogId/post/:postId": "flexible-routing"
+},
+"pagesWithRequiredLogin": [
+  "firebase-private"
+],
+"firebase": {
+  "apiKey": "AIzaSyAvzTiqd9fKR-h47Uxl4iXwqSMU1VjGdII",
+  "authDomain": "app-framework-9045a.firebaseapp.com",
+  "databaseURL": "https://app-framework-9045a.firebaseio.com",
+  "storageBucket": "app-framework-9045a.appspot.com",
+  "messagingSenderId": "690341427128",
+  "allowUserRegistration": true
+},
+"loadIconFonts": {
+  "framework7": false,
+  "material": false,
+  "ion": false,
+  "fontawesome": true
+},
+"appStoreId": "de.scriptpilot.app-framework",
+"playStoreId": "de.scriptpilot.appframework",
+"useCordovaPlugins": [
+  "cordova-plugin-statusbar"
+],
+"buildSourcemaps": false
 
 ## CLI commands
 
-## Backup
+*Setup*
 
-- supported by default
-- how to work with github
-- how to disable in config ...
+- `npm install` to install *App Framework* and setup project folder
+- `npm update` to update *App Framework* to latest sub version
+
+*Testing*
+
+- `npm run browser` to start development server with live reload
+- `npm run ios` to open iOS simulator
+- `npm run android` to open Android emulator
+
+*Building*
+
+- `npm run patch` to build app after bug-fixes and improvements
+- `npm run minor` to build app after adding new functionality
+- `npm run major` to build app after breaking backward-capability
+
+*Deployment*
+
+- `npm run firebase` to deploy build to Firebase
+  - `npm run database` to deploy only database rules to Firebase
+  - `npm run storage` to deploy only storage rules to Firebase
+  - `npm run hosting` to deploy only static files to Firebase
+- `npm run ftp` to deploy build to FTP server
+- `npm run xcode` to open build in Xcode
+- `npm run studio` to open build in Android Studio
+
+All deployment commands support `--version x.y.z` parameter for rollback.
 
 ---
 
