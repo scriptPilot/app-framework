@@ -1,6 +1,7 @@
 # App Framework - Configuration options
 
 > First contact with App Framework? Please read the [Readme file](../README.md) first!
+<br />
 
 **src/config.json**
 
