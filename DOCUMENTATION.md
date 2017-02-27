@@ -5,23 +5,32 @@
 **Table of contents**
 
 - [Project folder structure](#project-folder-structure)
-- Configuration options
-- CLI commands
+- [Configuration options](#configuration-options)
+- [CLI commands](#cli-commands)
 
 ## Project folder structure
 
-- `src` - folder
-  - `images` - folder
+```
+.
+├── backup                      # Backup files (do not modify)
+├── build                       # Latest build files (do not modify)
+├── node_modules                # Installed node modules (do not modify)
+├── src                         # App source folder
+│   ├── images                  # App images
+│   ├── pages                   # Page components
+│   ├── app.vue                 # App component
+│   ├── icon.png                # App icon file
+│   ├── config.js               # App configuration
+│   ├── database-rules.json     # Firebase database rules
+│   ├── storage-rules.txt       # Firebase storage rules
+└── package.json                # Project information
+```
 
 ## Configuration options
 
 ## CLI commands
 
-
-
-
-
-> First contact with App Framework? Please read the [Readme file](README.md) first!
+---
 
 Read less, code more - please open a ticket for any open question in our [Issue List](https://github.com/scriptPilot/app-framework/issues).
 
