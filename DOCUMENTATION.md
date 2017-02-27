@@ -2,6 +2,28 @@
 
 > First contact with App Framework? Please read the [Readme file](README.md) first!
 
+**Table of contents**
+
+* Project folder structure
+* Configuration options
+* CLI commands
+
+## Project folder structure
+
+- `src`
+  - `images`
+  - `pages`
+  
+## Configuration options
+
+## CLI commands
+
+
+
+
+
+> First contact with App Framework? Please read the [Readme file](README.md) first!
+
 Read less, code more - please open a ticket for any open question in our [Issue List](https://github.com/scriptPilot/app-framework/issues).
 
 ### Required knowledge
