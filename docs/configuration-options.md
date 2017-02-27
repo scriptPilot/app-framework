@@ -2,6 +2,7 @@
 
 > First contact with App Framework? Please read the [Readme file](../README.md) first!
 
+
 <!-- update-on-build -->
 - `title`
   - Type: string
