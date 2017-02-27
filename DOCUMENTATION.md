@@ -28,8 +28,8 @@
 
 ## Configuration options
 
-*string* `title` - App title
-`title`- App title (string)
+- *string* `title` - App title
+- `title` - App title (string)
 
 ## CLI commands
 
