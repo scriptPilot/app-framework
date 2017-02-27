@@ -4,9 +4,16 @@
 
 **Table of contents**
 
+- [Requirements](#requirements)
 - [CLI commands](#cli-commands)
 - [Project folder structure](#project-folder-structure)
 - [Configuration options](#configuration-options)
+- [Workflows](#workflows)
+
+## Requirements
+
+- Basic knowledge of [Node.js and npm](https://docs.npmjs.com/getting-started/what-is-npm)
+- Knowledge of [Framework7](https://framework7.io/) and
 
 ## CLI commands
 
@@ -17,7 +24,7 @@
 
 **Testing**
 
-- `npm run browser` to start development server with live reload
+- `npm run dev` to start development server with live reload
 - `npm run ios` to open iOS simulator
 - `npm run android` to open Android emulator
 
@@ -87,6 +94,9 @@ appStoreId                       | string              | de.scriptpilot.app-fram
 playStoreId                      | string              | de.scriptpilot.appframework
 useCordovaPlugins                | array               | ["cordova-plugin-statusbar", ...]
 buildSourcemaps                  | boolean             | false
+
+## Workflows
+
 
 ---
 
