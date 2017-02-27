@@ -1,20 +1,23 @@
-# Exclude node modules
+# Node modules
 node_modules/
 
-# Exclude build folders
-www/build-*
+# Project snapshots
+snapshots/
 
-# Exclude temporary files
+# Temporary files
 .babelrc
 .firebaserc
 firebase.json
 
-# Exclude log files
+# Log files
 *.log
 npm-debug.log.*
 
-# Exclude zip files
+# Build folders (deprecated)
+www/build-*
+
+# ZIP files (deprecated)
 *.zip
 
-# Exclude database backup
+# Database backup (deprecated)
 database-backup.json

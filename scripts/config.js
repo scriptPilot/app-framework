@@ -1,5 +1,5 @@
 // Load packages
-var path = require('path')
+var abs = require('path').resolve
 var isThere = require('is-there')
 var merge = require('webpack-merge')
 var list = require('list-dir').sync
@@ -7,51 +7,14 @@ var _ = require('underscore')
 var showOnly = require('./show-only')
 
 // Define installation status and root path
-var isInstalled = isThere(path.resolve(__dirname, '../../../package.json'))
-var packageRoot = path.resolve(__dirname, '..') + path.sep
-var projectRoot = (isInstalled ? path.resolve(__dirname, '../../..') : path.resolve(__dirname, '..')) + path.sep
-var appRoot = (isInstalled ? path.resolve(__dirname, '../../..') : path.resolve(__dirname, '../demo-app')) + path.sep
-var saveJSON = require('jsonfile')
-saveJSON.spaces = 2
+var isInstalled = isThere(abs(__dirname, '../../../package.json'))
+var packageRoot = abs(__dirname, '..') + path.sep
+var projectRoot = (isInstalled ? abs(__dirname, '../../..') : abs(__dirname, '..')) + path.sep
+var appRoot = (isInstalled ? abs(__dirname, '../../..') : abs(__dirname, '../demo-app')) + path.sep
 
 // Load application configuration
 var pkg = require(packageRoot + 'package.json')
-var app = require(appRoot + 'package.json')
-var demoApp = require(path.resolve(packageRoot, 'demo-app/package.json'))
-
-// Apply changes to configuration file (necessary after updates)
-
-  // (Regulary) update of scripts
-app.scripts = demoApp.scripts
-
-  // New items
-app.iconImage = app.iconImage || demoApp.iconImage
-app.iconBackgroundColor = app.iconBackgroundColor || demoApp.iconBackgroundColor
-app.materialSubnavbarFix = app.materialSubnavbarFix || demoApp.materialSubnavbarFix
-app.useCordovaPlugins = app.useCordovaPlugins || demoApp.useCordovaPlugins
-app.firebase = app.firebase || demoApp.firebase
-app.statusbarTextColor = app.statusbarTextColor || demoApp.statusbarTextColor
-app.appStoreId = app.appStoreId || demoApp.appStoreId
-app.playStoreId = app.playStoreId || demoApp.playStoreId
-
-  // Removed items
-if (app.faviconIcon) delete app.faviconIcon
-if (app.faviconBackgroundColor) delete app.faviconBackgroundColor
-if (app.firebase.useDatabaseService) delete app.firebase.useDatabaseService
-if (app.firebase.useStorageService) delete app.firebase.useStorageService
-
-// Transform special routes to object (needed after sub page functionality added)
-if (_.isArray(app.specialRoutes)) {
-  let routes = app.specialRoutes
-  app.specialRoutes = {}
-  for (i = 0; i < routes.length; i++) {
-    let page = routes[i].substr(0, routes[i].indexOf('/'))
-    app.specialRoutes[routes[i]] = page
-  }
-}
-
-// Update app config file
-saveJSON.writeFileSync(appRoot + 'package.json', app)
+var app = require(abs(appRoot, 'src/config.json'))
 
 // Check application configuration file
 var io = function (el) {

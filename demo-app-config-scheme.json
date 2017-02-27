@@ -1,0 +1,108 @@
+{
+  "title": {
+    "type": "string",
+    "default": "Demo App"
+  },
+  "defaultLanguage": {
+    "regex": "/^([a-z]{2})$/",
+    "default": "en"
+  },
+  "theme": {
+    "allow": ["ios", "material"],
+    "default": "ios"
+  },
+  "loadIconFonts": {
+    "type": "object",
+    "props": {
+      "framework7": {
+        "type": "boolean",
+        "default": false
+      },
+      "material": {
+        "type": "boolean",
+        "default": false
+      },
+      "ion": {
+        "type": "boolean",
+        "default": false
+      },
+      "fontawesome": {
+        "type": "boolean",
+        "default": true
+      }
+    }
+  },
+  "iconBackgroundColor": {
+    "regex": "/^#([0-9a-f]{6})$/i",
+    "default": "#ffffff"
+  },
+  "statusbarTextColor": {
+    "allow": ["black", "white"],
+    "default": "white"
+  },
+  "showPhoneFrameOnDesktop": {
+    "type": "boolean",
+    "default": true
+  },
+  "materialSubnavbarFix": {
+    "type": "boolean",
+    "default": true
+  },
+  "specialRoutes": {
+    "type": "object",
+    "default": {
+      "flexible-routing/blog/:blogId/post/:postId": "flexible-routing"
+    }
+  },
+  "pagesWithRequiredLogin": {
+    "type": "array",
+    "default": ["firebase-private"]
+  },
+  "firebase": {
+    "type": "object",
+    "props": {
+      "apiKey": {
+        "type": "string",
+        "default": "AIzaSyAvzTiqd9fKR-h47Uxl4iXwqSMU1VjGdII"
+      },
+      "authDomain": {
+        "type": "string",
+        "default": "app-framework-9045a.firebaseapp.com"
+      },
+      "databaseURL": {
+        "type": "string",
+        "default": "https://app-framework-9045a.firebaseio.com"
+      },
+      "storageBucket": {
+        "type": "string",
+        "default": "app-framework-9045a.appspot.com"
+      },
+      "allowUserRegistration": {
+        "type": "boolean",
+        "default": true
+      }
+    }
+  },
+  "appStoreId": {
+    "type": "string",
+    "default": "de.scriptpilot.app-framework"
+  },
+  "playStoreId": {
+    "type": "string",
+    "default": "de.scriptpilot.appframework"
+  },
+  "useCordovaPlugins": {
+    "type": "array",
+    "default": [
+      "cordova-plugin-statusbar"
+    ]
+  },
+  "buildSourcemaps": {
+    "type": "boolean",
+    "default": false
+  },
+  "resetLocalStorageOnVersionChange": {
+    "type": "boolean",
+    "default": false
+  }
+}

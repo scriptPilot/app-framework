@@ -11,27 +11,27 @@ require('../icons/favicon.ico')
 window['_'] = require('underscore')
 
 // Import Framework7
-require('../libs/framework7/js/framework7.min.js')
+require('../lib/framework7/js/framework7.min.js')
 if (process.env.THEME === 'material') {
-  require('../libs/framework7/css/framework7.material.min.css')
-  require('../libs/framework7/css/framework7.material.colors.min.css')
+  require('../lib/framework7/css/framework7.material.min.css')
+  require('../lib/framework7/css/framework7.material.colors.min.css')
 } else {
-  require('../libs/framework7/css/framework7.ios.min.css')
-  require('../libs/framework7/css/framework7.ios.colors.min.css')
+  require('../lib/framework7/css/framework7.ios.min.css')
+  require('../lib/framework7/css/framework7.ios.colors.min.css')
 }
 
 // Import icon fonts
 if (process.env.FONT_FRAMEWORK7 === 'true') {
-  require('../libs/framework7-icons/css/framework7-icons.css')
+  require('../lib/framework7-icons/css/framework7-icons.css')
 }
 if (process.env.FONT_MATERIAL === 'true') {
-  require('../libs/material-icons/css/material-icons.css')
+  require('../lib/material-icons/css/material-icons.css')
 }
 if (process.env.FONT_ION === 'true') {
-  require('../libs/ion-icons/css/ion-icons.css')
+  require('../lib/ion-icons/css/ion-icons.css')
 }
 if (process.env.FONT_AWESOME === 'true') {
-  require('../libs/font-awesome-icons/css/fontAwesome-icons.css')
+  require('../lib/font-awesome-icons/css/fontAwesome-icons.css')
 }
 
 // Import iNoBounce
@@ -44,7 +44,7 @@ require('../main.css')
 var Vue = require('vue')
 
 // Init Framework7 Vue Plugin
-Vue.use(require('../libs/framework7-vue.min.js'))
+Vue.use(require('../lib/framework7-vue.min.js'))
 
 // Load all pages as standard route
 var Routes = []
