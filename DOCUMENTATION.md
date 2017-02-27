@@ -14,7 +14,7 @@
 .
 ├── build                       # Latest build files (do not modify)
 ├── node_modules                # Installed node modules (do not modify)
-├── snapshots                   # Project snapshots for rollback (do not modify)
+├── snapshots                   # Project snapshots (for rollback)
 ├── src                         # App source folder
 │   ├── images                  # App images
 │   ├── pages                   # App page components
@@ -27,6 +27,10 @@
 ```
 
 ## Configuration options
+
+Option|Type|Default value
+---|---|---
+title|string|Demo App
 
 - *string* `title` - App title
 - `title` - App title (string)
