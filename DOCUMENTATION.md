@@ -23,7 +23,7 @@ Optional
 
 ### Design your application
 - Use our printable [smartphone template](smartphone-template.pdf) to sketch your application
-- Use our icon template as [PDF to sketch](icon-template.pdf) and [PPTX to draw](icon-template.pptx) your application icon
+- Use our icon template as [PDF to sketch](media/icon-template.pdf) and [PPTX to draw](media/icon-template.pptx) your application icon
 
 ### Develop your application
 
