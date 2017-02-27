@@ -29,7 +29,7 @@
 ## Configuration options
 
 Option                           | Allowed values      | Default value
--------------------------------- | ------------------- | --------------
+:------------------------------- |:------------------- |:--------------
 title                            | string              | Demo App
 theme                            | *ios* or *material* | ios
 iconBackgroundColor              | string              | #ffffff
