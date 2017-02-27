@@ -12,13 +12,13 @@
 
 ```
 .
-├── backup                      # Backup files (do not modify)
 ├── build                       # Latest build files (do not modify)
 ├── node_modules                # Installed node modules (do not modify)
+├── snapshots                   # Project snapshots for rollback (do not modify)
 ├── src                         # App source folder
 │   ├── images                  # App images
-│   ├── pages                   # Page components
-│   ├── app.vue                 # App component
+│   ├── pages                   # App page components
+│   ├── app.vue                 # App main component
 │   ├── icon.png                # App icon file
 │   ├── config.js               # App configuration
 │   ├── database-rules.json     # Firebase database rules
@@ -28,7 +28,16 @@
 
 ## Configuration options
 
+*string* `title` - App title
+`title`- App title (string)
+
 ## CLI commands
+
+## Backup
+
+- supported by default
+- how to work with github
+- how to disable in config ...
 
 ---
 
