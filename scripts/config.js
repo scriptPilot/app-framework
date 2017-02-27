@@ -1,52 +1,53 @@
-// Load packages
+// Load modules
+var path = require('path')
 var abs = require('path').resolve
-var isThere = require('is-there')
+var found = require('../lib/found')
 var merge = require('webpack-merge')
 var list = require('list-dir').sync
 var _ = require('underscore')
-var showOnly = require('./show-only')
+var alert = require('../lib/alert')
 
 // Define installation status and root path
-var isInstalled = isThere(abs(__dirname, '../../../package.json'))
+var isInstalled = found(__dirname, '../../../package.json')
 var packageRoot = abs(__dirname, '..') + path.sep
+var src = isInstalled ? abs('../../../src') + path.sep : abs('../demo-app/src') + path.sep
 var projectRoot = (isInstalled ? abs(__dirname, '../../..') : abs(__dirname, '..')) + path.sep
 var appRoot = (isInstalled ? abs(__dirname, '../../..') : abs(__dirname, '../demo-app')) + path.sep
 
-// Load application configuration
+// Load configuration
 var pkg = require(packageRoot + 'package.json')
-var app = require(abs(appRoot, 'src/config.json'))
+var app = require(src + 'config.json')
 
 // Check application configuration file
 var io = function (el) {
   if (!_.isObject(app[el])) {
-    showOnly('Error in package.json: Element "' + el + '" must be an object.')
+    alert('Error in package.json: Element "' + el + '" must be an object.')
     throw new Error()
   }
 }
 var ia = function (el) {
   if (!_.isArray(app[el])) {
-    showOnly('Error in package.json: Element "' + el + '" must be an array.')
+    alert('Error in package.json: Element "' + el + '" must be an array.')
     throw new Error()
   }
 }
 var is = function (el) {
   if (!_.isString(app[el])) {
-    showOnly('Error in package.json: Element "' + el + '" must be a string.')
+    alert('Error in package.json: Element "' + el + '" must be a string.')
     throw new Error()
   }
 }
 var ib = function (el) {
   if (!_.isBoolean(app[el])) {
-    showOnly('Error in package.json: Element "' + el + '" must be true or false.')
+    alert('Error in package.json: Element "' + el + '" must be true or false.')
     throw new Error()
   }
 }
-is('name')
-is('version')
-io('scripts')
-io('devDependencies')
 is('title')
 is('theme')
+if (app.theme !== 'ios' && app.theme !== 'material') alert('Error in package.json: Theme must be "ios" or "material".')
+is('iconBackgroundColor')
+if (app.statusbarTextColor !== 'white')
 is('defaultLanguage')
 ib('showPhoneFrameOnDesktop')
 ia('useCordovaPlugins')
@@ -56,9 +57,7 @@ ia('pagesWithRequiredLogin')
 io('firebase')
 io('loadIconFonts')
 is('iconImage')
-is('iconBackgroundColor')
 ib('buildSourcemaps')
-if (app.theme !== 'ios' && app.theme !== 'material') showOnly('Error in package.json: Theme must be "ios" or "material".')
 
 // Create string with array of all vue page components
 var pageStr = ''
