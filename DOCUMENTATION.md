@@ -11,8 +11,8 @@
 ## Project folder structure
 
 - `src` -
-  - `images` -
-  - `pages` - 
+   - `images` -
+   - `pages` - 
   
 ## Configuration options
 
