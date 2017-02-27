@@ -1,0 +1,10 @@
+{
+  "title": {
+    "allowed": "string",
+    "default": "Demo App"
+  },
+  "theme": {
+    "allowed": ["ios", "material"],
+    "default": "ios"
+  }
+}
