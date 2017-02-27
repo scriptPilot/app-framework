@@ -6,62 +6,28 @@ var merge = require('webpack-merge')
 var list = require('list-dir').sync
 var _ = require('underscore')
 var alert = require('../lib/alert')
+var json = require('../lib/json')
 
 // Define installation status and root path
 var isInstalled = found(__dirname, '../../../package.json')
 var packageRoot = abs(__dirname, '..') + path.sep
-var src = isInstalled ? abs('../../../src') + path.sep : abs('../demo-app/src') + path.sep
+var appRoot = isInstalled ? abs(__dirname, '../../../src') + path.sep : abs(__dirname, '../demo-app/src') + path.sep
 var projectRoot = (isInstalled ? abs(__dirname, '../../..') : abs(__dirname, '..')) + path.sep
-var appRoot = (isInstalled ? abs(__dirname, '../../..') : abs(__dirname, '../demo-app')) + path.sep
+// var appRoot = (isInstalled ? abs(__dirname, '../../..') : abs(__dirname, '../demo-app')) + path.sep
 
 // Load configuration
 var pkg = require(packageRoot + 'package.json')
-var app = require(src + 'config.json')
+var app = require(appRoot + 'config.json')
 
 // Check application configuration file
-var io = function (el) {
-  if (!_.isObject(app[el])) {
-    alert('Error in package.json: Element "' + el + '" must be an object.')
-    throw new Error()
-  }
-}
-var ia = function (el) {
-  if (!_.isArray(app[el])) {
-    alert('Error in package.json: Element "' + el + '" must be an array.')
-    throw new Error()
-  }
-}
-var is = function (el) {
-  if (!_.isString(app[el])) {
-    alert('Error in package.json: Element "' + el + '" must be a string.')
-    throw new Error()
-  }
-}
-var ib = function (el) {
-  if (!_.isBoolean(app[el])) {
-    alert('Error in package.json: Element "' + el + '" must be true or false.')
-    throw new Error()
-  }
-}
-is('title')
-is('theme')
-if (app.theme !== 'ios' && app.theme !== 'material') alert('Error in package.json: Theme must be "ios" or "material".')
-is('iconBackgroundColor')
-if (app.statusbarTextColor !== 'white')
-is('defaultLanguage')
-ib('showPhoneFrameOnDesktop')
-ia('useCordovaPlugins')
-ib('resetLocalStorageOnVersionChange')
-io('specialRoutes')
-ia('pagesWithRequiredLogin')
-io('firebase')
-io('loadIconFonts')
-is('iconImage')
-ib('buildSourcemaps')
+let scheme = packageRoot + 'demo-app-config-scheme.json'
+let config = appRoot + 'config.json'
+let check = json.validate(scheme, config)
+if (check !== true) alert(check)
 
 // Create string with array of all vue page components
 var pageStr = ''
-if (isThere(appRoot + 'pages')) {
+if (found(appRoot + 'pages')) {
   var pageFiles = list(appRoot + 'pages')
   for (var p = 0; p < pageFiles.length; p++) {
     if (pageFiles[p].substr(pageFiles[p].length - 4, 4) === '.vue') {

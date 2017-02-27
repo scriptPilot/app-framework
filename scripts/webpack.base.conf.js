@@ -19,7 +19,7 @@ module.exports = {
     app: path.resolve(cfg.packageRoot, 'scripts/main.js')
   },
   output: {
-    path: path.resolve(cfg.appRoot, 'www/build-' + app.version),
+    path: path.resolve(cfg.appRoot, 'build'),
     publicPath: process.env.NODE_ENV === 'production' ? cfg.build.assetsPublicPath : cfg.dev.assetsPublicPath,
     filename: '[name].js'
   },

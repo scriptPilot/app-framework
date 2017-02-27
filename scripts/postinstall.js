@@ -60,123 +60,123 @@ let applyReleaseModifications = function (callback) {
   // 1.3
     // Restructure source files
       // Images folder
-      if (!isThere(abs(cfg.appRoot, 'src/images')) && isThere(abs(cfg.appRoot, 'images'))) {
-        fs.copySync(abs(cfg.appRoot, 'images'), abs(cfg.appRoot, 'src/images'))
-        if (abs(cfg.appRoot, 'src/images')) {
-          fs.removeSync(abs(cfg.appRoot, 'images'))
-        }
-      }
+  if (!isThere(abs(cfg.appRoot, 'src/images')) && isThere(abs(cfg.appRoot, 'images'))) {
+    fs.copySync(abs(cfg.appRoot, 'images'), abs(cfg.appRoot, 'src/images'))
+    if (abs(cfg.appRoot, 'src/images')) {
+      fs.removeSync(abs(cfg.appRoot, 'images'))
+    }
+  }
       // pages folder
-      fs.ensureDirSync(abs(cfg.appRoot, 'src'))
-      if (!isThere(abs(cfg.appRoot, 'src/pages')) && isThere(abs(cfg.appRoot, 'pages'))) {
-        fs.copySync(abs(cfg.appRoot, 'pages'), abs(cfg.appRoot, 'src/pages'))
-        if (abs(cfg.appRoot, 'src/pages')) {
-          fs.removeSync(abs(cfg.appRoot, 'pages'))
-        }
-      }
+  fs.ensureDirSync(abs(cfg.appRoot, 'src'))
+  if (!isThere(abs(cfg.appRoot, 'src/pages')) && isThere(abs(cfg.appRoot, 'pages'))) {
+    fs.copySync(abs(cfg.appRoot, 'pages'), abs(cfg.appRoot, 'src/pages'))
+    if (abs(cfg.appRoot, 'src/pages')) {
+      fs.removeSync(abs(cfg.appRoot, 'pages'))
+    }
+  }
       // design files
-      if (found(cfg.appRoot, 'design/icon.pptx')) {
-        fs.renameSync(abs(cfg.appRoot, 'design/icon.pptx'), abs(cfg.appRoot, 'design/icon-template.pptx'))
-      }
+  if (found(cfg.appRoot, 'design/icon.pptx')) {
+    fs.renameSync(abs(cfg.appRoot, 'design/icon.pptx'), abs(cfg.appRoot, 'design/icon-template.pptx'))
+  }
       // app.vue
-      if (!isThere(abs(cfg.appRoot, 'src/app.vue')) && isThere(abs(cfg.appRoot, 'app.vue'))) {
-        fs.copySync(abs(cfg.appRoot, 'app.vue'), abs(cfg.appRoot, 'src/app.vue'))
-        if (abs(cfg.appRoot, 'src/app.vue')) {
-          fs.removeSync(abs(cfg.appRoot, 'app.vue'))
-        }
-      }
+  if (!isThere(abs(cfg.appRoot, 'src/app.vue')) && isThere(abs(cfg.appRoot, 'app.vue'))) {
+    fs.copySync(abs(cfg.appRoot, 'app.vue'), abs(cfg.appRoot, 'src/app.vue'))
+    if (abs(cfg.appRoot, 'src/app.vue')) {
+      fs.removeSync(abs(cfg.appRoot, 'app.vue'))
+    }
+  }
       // database-rules.json
-      if (!isThere(abs(cfg.appRoot, 'src/database-rules.json')) && isThere(abs(cfg.appRoot, 'database-rules.json'))) {
-        fs.copySync(abs(cfg.appRoot, 'database-rules.json'), abs(cfg.appRoot, 'src/database-rules.json'))
-        if (abs(cfg.appRoot, 'src/database-rules.json')) {
-          fs.removeSync(abs(cfg.appRoot, 'database-rules.json'))
-        }
-      }
+  if (!isThere(abs(cfg.appRoot, 'src/database-rules.json')) && isThere(abs(cfg.appRoot, 'database-rules.json'))) {
+    fs.copySync(abs(cfg.appRoot, 'database-rules.json'), abs(cfg.appRoot, 'src/database-rules.json'))
+    if (abs(cfg.appRoot, 'src/database-rules.json')) {
+      fs.removeSync(abs(cfg.appRoot, 'database-rules.json'))
+    }
+  }
       // storage-rules.txt
-      if (!isThere(abs(cfg.appRoot, 'src/storage-rules.txt')) && isThere(abs(cfg.appRoot, 'storage-rules.txt'))) {
-        fs.copySync(abs(cfg.appRoot, 'storage-rules.txt'), abs(cfg.appRoot, 'src/storage-rules.txt'))
-        if (abs(cfg.appRoot, 'src/storage-rules.txt')) {
-          fs.removeSync(abs(cfg.appRoot, 'storage-rules.txt'))
-        }
-      }
+  if (!isThere(abs(cfg.appRoot, 'src/storage-rules.txt')) && isThere(abs(cfg.appRoot, 'storage-rules.txt'))) {
+    fs.copySync(abs(cfg.appRoot, 'storage-rules.txt'), abs(cfg.appRoot, 'src/storage-rules.txt'))
+    if (abs(cfg.appRoot, 'src/storage-rules.txt')) {
+      fs.removeSync(abs(cfg.appRoot, 'storage-rules.txt'))
+    }
+  }
       // config.json
-      if (!isThere(abs(cfg.appRoot, 'src/config.json'))) {
-        let config = json.readFileSync(abs(cfg.appRoot, 'package.json'))
-        delete config.name
-        delete config.version
-        delete config.description
-        delete config.devDependencies
-        delete config.dependencies
-        delete config.scripts
-        fs.writeJsonSync(abs(cfg.appRoot, 'src/config.json'), config, {space: 2})
-      }
+  if (!isThere(abs(cfg.appRoot, 'src/config.json'))) {
+    let config = json.readFileSync(abs(cfg.appRoot, 'package.json'))
+    delete config.name
+    delete config.version
+    delete config.description
+    delete config.devDependencies
+    delete config.dependencies
+    delete config.scripts
+    fs.writeJsonSync(abs(cfg.appRoot, 'src/config.json'), config, {space: 2})
+  }
       // package.json
-      let pkg = fs.readJsonSync(abs(cfg.appRoot, 'package.json'))
-      let config = json.readFileSync(abs(cfg.appRoot, 'src/config.json'))
-      for (let item in pkg) {
-        if (config[item] !== undefined) {
-          delete pkg[item]
-        }
-      }
-      delete pkg.iconImage
-      fs.writeJsonSync(abs(cfg.appRoot, 'package.json'), pkg, {space: 2})
+  let pkg = fs.readJsonSync(abs(cfg.appRoot, 'package.json'))
+  let config = json.readFileSync(abs(cfg.appRoot, 'src/config.json'))
+  for (let item in pkg) {
+    if (config[item] !== undefined) {
+      delete pkg[item]
+    }
+  }
+  delete pkg.iconImage
+  fs.writeJsonSync(abs(cfg.appRoot, 'package.json'), pkg, {space: 2})
       // icon file
-      if (typeof cfg.iconImage === 'text') {
-        let config = fs.readJsonSync(abs(cfg.appRoot, 'src/config.json'))
-        let iconFile = abs(cfg.appRoot, 'src', config.iconImage)
-        if (isThere(iconFile) && !isThere(abs(cfg.appRoot, 'src/icon.png'))) {
-          img.read(iconFile, function (err, icon) {
-            if (!err) {
-              icon.write(abs(cfg.appRoot, 'src/icon.png'), function (err) {
-                if (!err && isThere(abs(cfg.appRoot, 'src/icon.png'))) {
-                  delete config.iconImage
-                  fs.writeJsonSync(abs(cfg.appRoot, 'src/config.json'), config, {space: 2})
-                  fs.removeSync(iconFile)
-                }
-              })
+  if (typeof cfg.iconImage === 'text') {
+    let config = fs.readJsonSync(abs(cfg.appRoot, 'src/config.json'))
+    let iconFile = abs(cfg.appRoot, 'src', config.iconImage)
+    if (isThere(iconFile) && !isThere(abs(cfg.appRoot, 'src/icon.png'))) {
+      img.read(iconFile, function (err, icon) {
+        if (!err) {
+          icon.write(abs(cfg.appRoot, 'src/icon.png'), function (err) {
+            if (!err && isThere(abs(cfg.appRoot, 'src/icon.png'))) {
+              delete config.iconImage
+              fs.writeJsonSync(abs(cfg.appRoot, 'src/config.json'), config, {space: 2})
+              fs.removeSync(iconFile)
             }
           })
         }
-      }
+      })
+    }
+  }
       // www folder
-      let wwwFolder = abs(cfg.appRoot, 'www')
-      if (found(wwwFolder)) {
-        let items = list.sync(wwwFolder)
-        if (items.length === 0) {
+  let wwwFolder = abs(cfg.appRoot, 'www')
+  if (found(wwwFolder)) {
+    let items = list.sync(wwwFolder)
+    if (items.length === 0) {
+      fs.removeSync(wwwFolder)
+    }
+    for (let i = 0; i < items.length; i++) {
+      if (/^build-([0-9]+)\.([0-9]+)\.([0-9]+)(\/|\\)index\.html$/.test(items[i]) === true) {
+        if (!found(cfg.appRoot, 'snapshots')) {
+          fs.ensureDirSync(abs(cfg.appRoot, 'snapshots'))
+        }
+        let build = items[i].match(/^build-(([0-9]+)\.([0-9]+)\.([0-9]+))(\/|\\)index\.html$/)[1]
+        fs.move(abs(wwwFolder, 'build-' + build), abs(wwwFolder, '.temp'), function (err) {
+          fs.move(abs(wwwFolder, '.temp'), abs(wwwFolder, 'build-' + build, 'build'), function (err) {
+            zipdir(abs(wwwFolder, 'build-' + build), {
+              saveTo: abs(cfg.appRoot, 'snapshots', 'snapshot-' + build + '.zip')
+            }, function (err, buf) {
+              if (!err) {
+                fs.removeSync(abs(wwwFolder, 'build-' + build))
+              }
+              if (list.sync(wwwFolder).length === 0) {
+                fs.removeSync(wwwFolder)
+              }
+            })
+          })
+        })
+      } else if (/^build-([0-9]+)\.([0-9]+)\.([0-9]+)/.test(items[i]) === false) {
+        fs.removeSync(abs(wwwFolder, items[i]))
+        if (i + 1 === items.length && list.sync(wwwFolder).length === 0) {
           fs.removeSync(wwwFolder)
         }
-        for (let i = 0; i < items.length; i++) {
-          if (/^build-([0-9]+)\.([0-9]+)\.([0-9]+)(\/|\\)index\.html$/.test(items[i]) === true) {
-            if (!found(cfg.appRoot, 'snapshots')) {
-              fs.ensureDirSync(abs(cfg.appRoot, 'snapshots'))
-            }
-            let build = items[i].match(/^build-(([0-9]+)\.([0-9]+)\.([0-9]+))(\/|\\)index\.html$/)[1]
-            fs.move(abs(wwwFolder, 'build-' + build), abs(wwwFolder, '.temp'), function (err) {
-              fs.move(abs(wwwFolder, '.temp'), abs(wwwFolder, 'build-' + build, 'build'), function (err) {
-                zipdir(abs(wwwFolder, 'build-' + build), {
-                  saveTo: abs(cfg.appRoot, 'snapshots', 'snapshot-' + build + '.zip')
-                }, function (err, buf) {
-                  if (!err) {
-                    fs.removeSync(abs(wwwFolder, 'build-' + build))
-                  }
-                  if (list.sync(wwwFolder).length === 0) {
-                    fs.removeSync(wwwFolder)
-                  }
-                })
-              })
-            })
-          } else if (/^build-([0-9]+)\.([0-9]+)\.([0-9]+)/.test(items[i]) === false) {
-            fs.removeSync(abs(wwwFolder, items[i]))
-            if (i + 1 === items.length && list.sync(wwwFolder).length === 0) {
-              fs.removeSync(wwwFolder)
-            }
-          } else {
-            if (i + 1 === items.length && list.sync(wwwFolder).length === 0) {
-              fs.removeSync(wwwFolder)
-            }
-          }
+      } else {
+        if (i + 1 === items.length && list.sync(wwwFolder).length === 0) {
+          fs.removeSync(wwwFolder)
         }
       }
+    }
+  }
 
   alert('Release modifications done')
   callback()
@@ -195,7 +195,6 @@ let updateIosDeploy = function (callback) {
 }
 
 let copyDemoAppFiles = function () {
-
   // App Framework is installed as dependency
   if (cfg.isInstalled) {
     // Copy template app.vue and reset version in package.json
