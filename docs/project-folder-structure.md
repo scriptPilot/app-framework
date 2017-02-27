@@ -1,6 +1,6 @@
 # App Framework - Project folder structure
 
-> First contact with App Framework? Please read the [Readme file](README.md) first!
+> First contact with App Framework? Please read the [Readme file](../README.md) first!
 
 ```
 .
