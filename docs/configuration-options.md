@@ -1,5 +1,8 @@
 # App Framework - Project folder structure
 
+<!-- comment -->
+<!-- /comment -->
+
 > First contact with App Framework? Please read the [Readme file](../README.md) first!
 
 Option                           | Allowed values      | Example value
