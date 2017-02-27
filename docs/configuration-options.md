@@ -6,31 +6,56 @@
 > First contact with App Framework? Please read the [Readme file](../README.md) first!
 
 <!-- update-on-build -->
-Option | Allowed | Default
-:--- |:--- |:---
-title | *string* | "Demo App"
-defaultLanguage | /^([a-z]{2})$/ | "en"
-theme | ios, material | "ios"
-loadIconFonts |  | 
-loadIconFonts.framework7 | *boolean* | false
-loadIconFonts.material | *boolean* | false
-loadIconFonts.ion | *boolean* | false
-loadIconFonts.fontawesome | *boolean* | true
-iconBackgroundColor | /^#([0-9a-f]{6})$/i | "#ffffff"
-statusbarTextColor | black, white | "white"
-showPhoneFrameOnDesktop | *boolean* | true
-materialSubnavbarFix | *boolean* | true
-specialRoutes | *object* | {"flexible-routing/blog/:blogId/post/:postId":"flexible-routing"}
-pagesWithRequiredLogin | *array* | ["firebase-private"]
-firebase |  | 
-firebase.apiKey | *string* | "AIzaSyAvzTiqd9fKR-h47Uxl4iXwqSMU1VjGdII"
-firebase.authDomain | *string* | "app-framework-9045a.firebaseapp.com"
-firebase.databaseURL | *string* | "https://app-framework-9045a.firebaseio.com"
-firebase.storageBucket | *string* | "app-framework-9045a.appspot.com"
-firebase.allowUserRegistration | *boolean* | true
-appStoreId | *string* | "de.scriptpilot.app-framework"
-playStoreId | *string* | "de.scriptpilot.appframework"
-useCordovaPlugins | *array* | ["cordova-plugin-statusbar"]
-buildSourcemaps | *boolean* | false
-resetLocalStorageOnVersionChange | *boolean* | false
+- `title` *string*
+  - Default: "Demo App"
+- `defaultLanguage` *string*
+  - Pattern: /^([a-z]{2})$/
+  - Default: "en"
+- `theme` *string*
+  - Allowed: ios, material
+  - Default: "ios"
+- `loadIconFonts` *object*
+  - `framework7` *boolean*
+    - Default: false
+  - `material` *boolean*
+    - Default: false
+  - `ion` *boolean*
+    - Default: false
+  - `fontawesome` *boolean*
+    - Default: true
+- `iconBackgroundColor` *string*
+  - Pattern: /^#([0-9a-f]{6})$/i
+  - Default: "#ffffff"
+- `statusbarTextColor` *string*
+  - Allowed: black, white
+  - Default: "white"
+- `showPhoneFrameOnDesktop` *boolean*
+  - Default: true
+- `materialSubnavbarFix` *boolean*
+  - Default: true
+- `specialRoutes` *object*
+  - Default: {"flexible-routing/blog/:blogId/post/:postId":"flexible-routing"}
+- `pagesWithRequiredLogin` *array*
+  - Default: ["firebase-private"]
+- `firebase` *object*
+  - `apiKey` *string*
+    - Default: "AIzaSyAvzTiqd9fKR-h47Uxl4iXwqSMU1VjGdII"
+  - `authDomain` *string*
+    - Default: "app-framework-9045a.firebaseapp.com"
+  - `databaseURL` *string*
+    - Default: "https://app-framework-9045a.firebaseio.com"
+  - `storageBucket` *string*
+    - Default: "app-framework-9045a.appspot.com"
+  - `allowUserRegistration` *boolean*
+    - Default: true
+- `appStoreId` *string*
+  - Default: "de.scriptpilot.app-framework"
+- `playStoreId` *string*
+  - Default: "de.scriptpilot.appframework"
+- `useCordovaPlugins` *array*
+  - Default: ["cordova-plugin-statusbar"]
+- `buildSourcemaps` *boolean*
+  - Default: false
+- `resetLocalStorageOnVersionChange` *boolean*
+  - Default: false
 <!-- /update-on-build -->
