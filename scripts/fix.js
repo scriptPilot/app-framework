@@ -1,5 +1,4 @@
 // Load packages
-var found = require('../lib/found')
 var cmd = require('../lib/cmd')
 var alert = require('../lib/alert')
 var fs = require('fs-extra')

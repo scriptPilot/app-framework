@@ -31,7 +31,7 @@
       <f7-list-item>
         <f7-label>Birth date</f7-label>
         <f7-input v-model="birthday" name="birthday" type="date" placeholder="Birth date"></f7-input>
-      </f7-list-item>      
+      </f7-list-item>
       <f7-list-item>
         <f7-label>Date time</f7-label>
         <f7-input v-model="date" name="date" type="datetime-local"></f7-input>
@@ -56,7 +56,7 @@
         <f7-input v-model="text" name="text" type="textarea" placeholder="Textarea"></f7-input>
       </f7-list-item>
     </f7-list>
-    
+
     <f7-block-title>Form With Floating Labels</f7-block-title>
     <f7-list form>
       <f7-list-item>
@@ -72,7 +72,7 @@
         <f7-input v-model="email2" name="email2" type="email" placeholder="E-mail"></f7-input>
       </f7-list-item>
     </f7-list>
-    
+
     <f7-block-title>Form Without Labels</f7-block-title>
     <f7-list form>
       <f7-list-item>

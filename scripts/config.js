@@ -4,7 +4,6 @@ var abs = require('path').resolve
 var found = require('../lib/found')
 var merge = require('webpack-merge')
 var list = require('list-dir').sync
-var _ = require('underscore')
 var alert = require('../lib/alert')
 var json = require('../lib/json')
 
