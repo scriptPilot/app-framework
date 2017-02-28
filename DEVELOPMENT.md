@@ -1,6 +1,7 @@
 # App Framework - Development
 
 > This document is only for the developers of App Framework.
+
 > If you want to use App Framework, please read our [Documentation](DOCUMENTATION.md).
 
 **Table of contents**
@@ -26,7 +27,7 @@
 ├── LICENSE                     # App Framework license file
 ├── main.css                    # Common CSS file for bug-fixes and phone frame
 ├── package.json                # App Framework project information
-└── README.md                   # Features, Quick start, milestone planning
+└── README.md                   # Features, Quick start, upcoming and completed milestones
 ```
 
 ## Script files
