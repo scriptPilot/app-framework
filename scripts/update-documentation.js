@@ -10,13 +10,13 @@ if (cfg.isInstalled) {
 } else {
   let src = abs(cfg.packageRoot, 'demo-app-config-scheme.json')
   let configFile = abs(cfg.appRoot, 'config.json')
-  let docuFile = abs(cfg.packageRoot, 'docs/configuration-options.md')
+  let docuFile = abs(cfg.packageRoot, 'DOCUMENTATION.md')
 
   alert('Demo App config update ongoing - please wait ...')
   let update = json.create(src, configFile)
   if (update === true) {
     alert('Demo App config documentation update ongoing - please wait ...')
-    let configDocu = json.docu(src)
+    let configDocu = json.docu(src, 'table')
     let docuText = fs.readFileSync(docuFile, 'utf-8')
     docuText = docuText.replace(/<!-- update-on-build -->([\s\S.]*)<\!-- \/update-on-build -->/, '<!-- update-on-build -->' + '\n' + configDocu + '<!-- /update-on-build -->')
     fs.writeFileSync(docuFile, docuText)

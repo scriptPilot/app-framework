@@ -65,29 +65,10 @@ Backup:
 ## Quick start
 
 1. Install [Node.js with npm](https://docs.npmjs.com/getting-started/what-is-npm)
-2. Create an empty project folder on your computer
-3. Download the [package.json](https://raw.githubusercontent.com/scriptPilot/app-framework/master/demo-app/package.json) file to your project folder (keep extension .json!)
-4. Run `npm install` to install App Framework and setup the project folder
-5. Run `npm run dev` to start the Demo App at localhost:8080
-
-## Documentation
-
-Essentiell:
-
-- [Node.js / npm](https://docs.npmjs.com/getting-started/what-is-npm)
-- [Framework7](https://framework7.io/docs/) / [Framework7-Vue](https://framework7.io/vue/)
-- [App Framework - Project folder structure](docs/project-folder-structure.md)
-- [App Framework - Configuration options](docs/configuration-options.md)
-- [App Framework - CLI commands](docs/cli-commands.md)
-
-Optional:
-
-- [Vue.js](https://vuejs.org/v2/guide/)
-- [Firebase](https://firebase.google.com/docs/web/setup)
-- [App Framework - Vue hooks](docs/vue-hooks.md)
-- [iOS design guidelines](https://developer.apple.com/ios/human-interface-guidelines)
-- [Android/Material design guidelines](https://developer.android.com/design/index.html)
-- [GitHub](https://guides.github.com/)
+2. Download [package.json](https://raw.githubusercontent.com/scriptPilot/app-framework/master/demo-app/package.json) to an empty project folder (keep extension .json!)
+3. Run `npm install` to install App Framework and setup the project folder
+4. Run `npm run dev` to start the Demo App at localhost:8080
+5. Read our [Documentation](DOCUMENTATION.md)
 
 ## Milestones
 

@@ -1,29 +1,34 @@
 # App Framework - Documentation
 
-> First contact with App Framework? Please read the [Readme file](README.md) first!
+> First contact with App Framework? Please read our [Readme file](README.md) first!
 
 **Table of contents**
 
 - [Requirements](#requirements)
-- [CLI commands](#cli-commands)
 - [Project folder structure](#project-folder-structure)
 - [Configuration options](#configuration-options)
-- [Workflows](#workflows)
+- [Vue hooks](#vue-hooks)
+- Workflow
+  - [Setup your development environment](#setup-your-development-environment)
+  - [Design your application](#design-your-application)
+  - [Develop your application](#develop-your-application)
+  - [Test your application](#test-your-application)
+  - [Build your application](#build-your-application)
+  - [Deploy your application](#deploy-your-application)
+  - [Backup your project](#backup-your-application)
+
+Read less, code more - please open a ticket for any open question in our [Issue List](https://github.com/scriptPilot/app-framework/issues).
 
 ## Requirements
 
 - Basic knowledge of [Node.js and npm](https://docs.npmjs.com/getting-started/what-is-npm)
-- Knowledge of [Framework7](https://framework7.io/) and
-
-## CLI commands
-
-
+- Knowledge of [Framework7](https://framework7.io/docs/) and [Framework7-Vue](https://framework7.io/vue/)
 
 ## Project folder structure
 
 ```
-.
 ├── build                       # Latest build files (do not modify)
+├── design                      # Design templates (PDF, Power Point)
 ├── node_modules                # Installed node modules (do not modify)
 ├── snapshots                   # Project snapshots (for rollback)
 ├── src                         # App source folder
@@ -33,57 +38,53 @@
 │   ├── config.js               # App configuration
 │   ├── database-rules.json     # Firebase database rules
 │   ├── icon.png                # App icon file
-│   ├── storage-rules.txt       # Firebase storage rules
+│   └── storage-rules.txt       # Firebase storage rules
 └── package.json                # Project information
 ```
 
 ## Configuration options
 
-Option                           | Allowed values      | Example value
-:------------------------------- |:------------------- | -------------
-title                            | string              | Demo App
-theme                            | *ios* or *material* | ios
-iconBackgroundColor              | string              | #ffffff
-statusbarTextColor               | *white* or *black*  | white
-materialSubnavbarFix             | boolean             | true
-defaultLanguage                  | string              | en
-showPhoneFrameOnDesktop          | boolean             | true
-resetLocalStorageOnVersionChange | boolean             | false
-specialRoutes                    | object              | {"forum/:postId": "flexible-routing", ...}
-pagesWithRequiredLogin           | array               | ["firebase-private", ...]
-firebase                         | object              |
-firebase.apiKey                  | string              | AIzaSyAvzTiqd9fKR-h47Uxl4iXwqSMU1VjGdII
-firebase.authDomain              | string              | app-framework-9045a.firebaseapp.com
-firebase.databaseURL             | string              | https://app-framework-9045a.firebaseio.com
-firebase.storageBucket           | string              | app-framework-9045a.appspot.com
-firebase.messagingSenderId       | string              | 690341427128
-firebase.allowUserRegistration   | boolean             | true
-loadIconFonts                    | object              |
-loadIconFonts.framework7         | boolean             | false,
-loadIconFonts.material           | boolean             | false,
-loadIconFonts.ion                | boolean             | false,
-loadIconFonts.fontawesome        | boolean             | true
-appStoreId                       | string              | de.scriptpilot.app-framework
-playStoreId                      | string              | de.scriptpilot.appframework
-useCordovaPlugins                | array               | ["cordova-plugin-statusbar", ...]
-buildSourcemaps                  | boolean             | false
+<!-- update-on-build -->
+Option | Allowed | Default
+:--- |:--- |:---
+title | *string* | Demo App
+defaultLanguage | /^([a-z]{2})$/ | en
+theme | ios, material | ios
+loadIconFonts | *object* |
+&nbsp;&nbsp;&nbsp;&nbsp;framework7 | *boolean* | false
+&nbsp;&nbsp;&nbsp;&nbsp;material | *boolean* | false
+&nbsp;&nbsp;&nbsp;&nbsp;ion | *boolean* | false
+&nbsp;&nbsp;&nbsp;&nbsp;fontawesome | *boolean* | true
+iconBackgroundColor | /^#([0-9a-f]{6})$/i | #ffffff
+statusbarTextColor | black, white | white
+showPhoneFrameOnDesktop | *boolean* | true
+materialSubnavbarFix | *boolean* | true
+specialRoutes | *object* | {"flexible-routing/blog/:blogId/post/:postId":"flexible-routing"}
+pagesWithRequiredLogin | *array* | ["firebase-private"]
+firebase | *object* |
+&nbsp;&nbsp;&nbsp;&nbsp;apiKey | *string* | AIzaSyAvzTiqd9fKR-h47Uxl4iXwqSMU1VjGdII
+&nbsp;&nbsp;&nbsp;&nbsp;authDomain | *string* | app-framework-9045a.firebaseapp.com
+&nbsp;&nbsp;&nbsp;&nbsp;databaseURL | *string* | https://app-framework-9045a.firebaseio.com
+&nbsp;&nbsp;&nbsp;&nbsp;storageBucket | *string* | app-framework-9045a.appspot.com
+&nbsp;&nbsp;&nbsp;&nbsp;allowUserRegistration | *boolean* | true
+appStoreId | *string* | de.scriptpilot.app-framework
+playStoreId | *string* | de.scriptpilot.appframework
+useCordovaPlugins | *array* | ["cordova-plugin-statusbar"]
+buildSourcemaps | *boolean* | false
+resetLocalStorageOnVersionChange | *boolean* | false
+<!-- /update-on-build -->
 
-## Workflows
+## Vue hooks
 
+- `$root.title` - App title
+- `$root.theme` - Active theme (*ios* or *material*)
+- `$root.language` - Active language (*en*, *de*, ...)
+- `$root.config` - Object of *config.json*
+- `$root.user` - User information (null or object with *uid*, *email*, ...)
+- `$root.version` - Project version
+- `$root.packageVersion` - Installed App Framework version
 
----
-
-Read less, code more - please open a ticket for any open question in our [Issue List](https://github.com/scriptPilot/app-framework/issues).
-
-### Required knowledge
-
-- [Node.js with npm](https://docs.npmjs.com/getting-started/what-is-npm)
-- [Framework7](https://framework7.io/docs/) / [Framework7-Vue](https://framework7.io/vue/)
-
-Optional
-
-- [Vue](https://vuejs.org/v2/guide/)
-- [Firebase](https://firebase.google.com/docs/web/setup)
+## Workflow
 
 ### Setup your development environment
 
@@ -93,8 +94,8 @@ Optional
 - Run `npm update` to update *App Framework* to latest sub version
 
 ### Design your application
-- Use our printable [smartphone template](smartphone-template.pdf) to sketch your application
-- Use our icon template as [PDF to sketch](icon-template.pdf) and [PPTX to draw](icon-template.pptx) your application icon
+- Use our printable [smartphone template](media/smartphone-template.pdf) to sketch your application
+- Use our icon template as [PDF to sketch](media/icon-template.pdf) and [PPTX to draw](media/icon-template.pptx) your application icon
 
 ### Develop your application
 
