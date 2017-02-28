@@ -2,6 +2,77 @@
 
 > First contact with App Framework? Please read the [Readme file](README.md) first!
 
+**Table of contents**
+
+- [Requirements](#requirements)
+- [Project folder structure](#project-folder-structure)
+- [Configuration options](#configuration-options)
+- Workflow
+  - Design your application
+  -
+
+Read less, code more - please open a ticket for any open question in our [Issue List](https://github.com/scriptPilot/app-framework/issues).
+
+## Requirements
+
+- Basic knowledge of [Node.js and npm](https://docs.npmjs.com/getting-started/what-is-npm)
+- Knowledge of [Framework7](https://framework7.io/docs/) and [Framework7-Vue](https://framework7.io/vue/)
+
+## Project folder structure
+
+```
+.
+├── build                       # Latest build files (do not modify)
+├── node_modules                # Installed node modules (do not modify)
+├── snapshots                   # Project snapshots (for rollback)
+├── src                         # App source folder
+│   ├── images                  # App images
+│   ├── pages                   # App page components
+│   ├── app.vue                 # App main component
+│   ├── config.js               # App configuration
+│   ├── database-rules.json     # Firebase database rules
+│   ├── icon.png                # App icon file
+│   ├── storage-rules.txt       # Firebase storage rules
+└── package.json                # Project information
+```
+
+## Configuration options
+
+<!-- update-on-build -->
+Option | Allowed | Default
+:--- |:--- |:---
+title | *string* | Demo App
+defaultLanguage | /^([a-z]{2})$/ | en
+theme | ios, material | ios
+loadIconFonts | *object* | 
+&nbsp;&nbsp;&nbsp;&nbsp;framework7 | *boolean* | false
+&nbsp;&nbsp;&nbsp;&nbsp;material | *boolean* | false
+&nbsp;&nbsp;&nbsp;&nbsp;ion | *boolean* | false
+&nbsp;&nbsp;&nbsp;&nbsp;fontawesome | *boolean* | true
+iconBackgroundColor | /^#([0-9a-f]{6})$/i | #ffffff
+statusbarTextColor | black, white | white
+showPhoneFrameOnDesktop | *boolean* | true
+materialSubnavbarFix | *boolean* | true
+specialRoutes | *object* | ```/n{"flexible-routing/blog/:blogId/post/:postId":"flexible-routing"}/n```
+pagesWithRequiredLogin | *array* | ```/n["firebase-private"]/n```
+firebase | *object* | 
+&nbsp;&nbsp;&nbsp;&nbsp;apiKey | *string* | AIzaSyAvzTiqd9fKR-h47Uxl4iXwqSMU1VjGdII
+&nbsp;&nbsp;&nbsp;&nbsp;authDomain | *string* | app-framework-9045a.firebaseapp.com
+&nbsp;&nbsp;&nbsp;&nbsp;databaseURL | *string* | https://app-framework-9045a.firebaseio.com
+&nbsp;&nbsp;&nbsp;&nbsp;storageBucket | *string* | app-framework-9045a.appspot.com
+&nbsp;&nbsp;&nbsp;&nbsp;allowUserRegistration | *boolean* | true
+appStoreId | *string* | de.scriptpilot.app-framework
+playStoreId | *string* | de.scriptpilot.appframework
+useCordovaPlugins | *array* | ```/n["cordova-plugin-statusbar"]/n```
+buildSourcemaps | *boolean* | false
+resetLocalStorageOnVersionChange | *boolean* | false
+<!-- /update-on-build -->
+
+## Workflow
+
+
+---
+
 Read less, code more - please open a ticket for any open question in our [Issue List](https://github.com/scriptPilot/app-framework/issues).
 
 ### Required knowledge
