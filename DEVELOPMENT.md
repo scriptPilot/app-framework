@@ -7,7 +7,7 @@
 **Table of contents**
 
 - [Folder structure](#folder-structure)
-- [Script files](#script-files).
+- [Script files](#script-files)
 
 ## Folder structure
 
