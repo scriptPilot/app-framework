@@ -11,16 +11,15 @@ var json = require('../lib/json')
 // Define installation status and root path
 var isInstalled = found(__dirname, '../../../package.json')
 var packageRoot = abs(__dirname, '..') + path.sep
-var appRoot = isInstalled ? abs(__dirname, '../../../src') + path.sep : abs(__dirname, '../demo-app/src') + path.sep
+var appRoot = isInstalled ? abs(__dirname, '../../../src') + path.sep : abs(__dirname, '../demo/src') + path.sep
 var projectRoot = (isInstalled ? abs(__dirname, '../../..') : abs(__dirname, '..')) + path.sep
-// var appRoot = (isInstalled ? abs(__dirname, '../../..') : abs(__dirname, '../demo-app')) + path.sep
 
 // Load configuration
 var pkg = require(packageRoot + 'package.json')
 var app = require(appRoot + 'config.json')
 
 // Check application configuration file
-let scheme = packageRoot + 'demo-app-config-scheme.json'
+let scheme = abs(packageRoot, 'demo/config-scheme.json')
 let config = appRoot + 'config.json'
 let check = json.validate(scheme, config)
 if (check !== true) alert(check)
@@ -44,7 +43,7 @@ if (found(appRoot + 'pages')) {
 var env = {
   THEME: '"' + app.theme + '"',
   FRAMEWORK_VERSION: '"' + pkg.version + '"',
-  APP_ROOT_FROM_SCRIPTS: '"' + (isInstalled ? '../../../' : '../demo-app/') + '"',
+  APP_ROOT_FROM_SCRIPTS: '"' + (isInstalled ? '../../../' : '../demo/') + '"',
   FONT_FRAMEWORK7: '"' + app.loadIconFonts.framework7 + '"',
   FONT_MATERIAL: '"' + app.loadIconFonts.material + '"',
   FONT_ION: '"' + app.loadIconFonts.ion + '"',

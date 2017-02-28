@@ -78,7 +78,7 @@ for (let i = 0; i < icons.length; i++) {
 }
 
 // Define icon file
-let iconFile = isThere(path.resolve(cfg.appRoot, app.iconImage)) ? path.resolve(cfg.appRoot, app.iconImage) : path.resolve(cfg.packageRoot, 'demo-app/images/icon.png')
+let iconFile = isThere(path.resolve(cfg.appRoot, app.iconImage)) ? path.resolve(cfg.appRoot, app.iconImage) : path.resolve(cfg.packageRoot, 'demo/images/icon.png')
 
 // Load icon file
 new img(iconFile, function (err, icon) { // eslint-disable-line

@@ -10,11 +10,7 @@ snapshots/
 firebase.json
 
 # Log files
-*.log
-npm-debug.log.*
-
-# Build folders (deprecated)
-www/build-*
+*.log*
 
 # ZIP files (deprecated)
 *.zip

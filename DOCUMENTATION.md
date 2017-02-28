@@ -39,6 +39,7 @@ Read less, code more - please open a ticket for any open question in our [Issue 
 │   ├── database-rules.json     # Firebase database rules
 │   ├── icon.png                # App icon file
 │   └── storage-rules.txt       # Firebase storage rules
+├── .gitignore                  # List of ignored files for Git commits
 └── package.json                # Project information
 ```
 
@@ -94,8 +95,8 @@ resetLocalStorageOnVersionChange | *boolean* | false
 - Run `npm update` to update *App Framework* to latest sub version
 
 ### Design your application
-- Use our printable [smartphone template](media/smartphone-template.pdf) to sketch your application
-- Use our icon template as [PDF to sketch](media/icon-template.pdf) and [PPTX to draw](media/icon-template.pptx) your application icon
+- Use our printable [smartphone template](demo-app/design/smartphone-template.pdf) to sketch your application
+- Use our icon template as [PDF to sketch](demo-app/design/icon-template.pdf) and [PPTX to draw](demo-app/design/icon-template.pptx) your application icon
 
 ### Develop your application
 

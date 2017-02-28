@@ -8,7 +8,7 @@ let cfg = require('./config')
 if (cfg.isInstalled) {
   alert('This script is only for App Framework development purposes.')
 } else {
-  let src = abs(cfg.packageRoot, 'demo-app-config-scheme.json')
+  let src = abs(cfg.packageRoot, 'demo/config-scheme.json')
   let configFile = abs(cfg.appRoot, 'config.json')
   let docuFile = abs(cfg.packageRoot, 'DOCUMENTATION.md')
 

@@ -27,7 +27,7 @@ let applyReleaseModifications = function (callback) {
 
   // < 1.3
   let app = fs.readJsonSync(abs(cfg.appRoot, 'src/config.json'))
-  let demoApp = fs.readJsonSync(abs(cfg.packageRoot, 'demo-app/src/config.json'))
+  let demoApp = fs.readJsonSync(abs(cfg.packageRoot, 'demo/src/config.json'))
 
   app.iconImage = app.iconImage || demoApp.iconImage
   app.iconBackgroundColor = app.iconBackgroundColor || demoApp.iconBackgroundColor
@@ -199,7 +199,7 @@ let copyDemoAppFiles = function () {
   if (cfg.isInstalled) {
     // Copy template app.vue and reset version in package.json
     if (!isThere(cfg.appRoot + 'app.vue')) {
-      cpx.copySync(abs(cfg.packageRoot, 'demo-app/app.vue'), cfg.appRoot)
+      cpx.copySync(abs(cfg.packageRoot, 'demo/app.vue'), cfg.appRoot)
       var app = require(cfg.appRoot + 'config.json')
       app.version = '0.1.0'
       saveJSON.writeFileSync(cfg.appRoot + 'package.json', app)
@@ -207,40 +207,40 @@ let copyDemoAppFiles = function () {
 
     // Copy template images
     if (!isThere(cfg.appRoot + 'images')) {
-      cpx.copySync(abs(cfg.packageRoot, 'demo-app/images/*'), cfg.appRoot + 'images')
+      cpx.copySync(abs(cfg.packageRoot, 'demo/images/*'), cfg.appRoot + 'images')
     }
 
     // Copy template pages
     if (!isThere(cfg.appRoot + 'pages')) {
-      cpx.copySync(abs(cfg.packageRoot, 'demo-app/pages/**/*'), cfg.appRoot + 'pages')
+      cpx.copySync(abs(cfg.packageRoot, 'demo/pages/**/*'), cfg.appRoot + 'pages')
     }
 
     // Copy database rules file
     if (!isThere(cfg.appRoot + 'database-rules.json')) {
-      cpx.copySync(abs(cfg.packageRoot, 'demo-app/database-rules.json'), cfg.appRoot)
+      cpx.copySync(abs(cfg.packageRoot, 'demo/database-rules.json'), cfg.appRoot)
     }
 
     // Copy stoarge rules file
     if (!isThere(cfg.appRoot + 'storage-rules.txt')) {
-      cpx.copySync(abs(cfg.packageRoot, 'demo-app/storage-rules.txt'), cfg.appRoot)
+      cpx.copySync(abs(cfg.packageRoot, 'demo/storage-rules.txt'), cfg.appRoot)
     }
 
     // Copy/update gitignore
-    if (isThere(abs(cfg.packageRoot, 'demo-app/.gitignore'))) {
-      cpx.copySync(abs(cfg.packageRoot, 'demo-app/.gitignore'), cfg.appRoot)
-    } else if (isThere(abs(cfg.packageRoot, 'demo-app/.npmignore'))) {
-      cpx.copySync(abs(cfg.packageRoot, 'demo-app/.npmignore'), cfg.appRoot)
+    if (isThere(abs(cfg.packageRoot, 'demo/.gitignore'))) {
+      cpx.copySync(abs(cfg.packageRoot, 'demo/.gitignore'), cfg.appRoot)
+    } else if (isThere(abs(cfg.packageRoot, 'demo/.npmignore'))) {
+      cpx.copySync(abs(cfg.packageRoot, 'demo/.npmignore'), cfg.appRoot)
       fs.renameSync(cfg.appRoot + '.npmignore', cfg.appRoot + '.gitignore')
     }
 
     // Update login-screen.vue
-    if (isThere(abs(cfg.packageRoot, 'demo-app/pages/login-screen.vue'))) {
-      cpx.copySync(abs(cfg.packageRoot, 'demo-app/pages/login-screen.vue'), cfg.appRoot + 'pages')
+    if (isThere(abs(cfg.packageRoot, 'demo/pages/login-screen.vue'))) {
+      cpx.copySync(abs(cfg.packageRoot, 'demo/pages/login-screen.vue'), cfg.appRoot + 'pages')
     }
 
     // Copy .htaccess file, reset version
     if (!isThere(abs(cfg.appRoot, 'www/.htaccess'))) {
-      cpx.copySync(abs(cfg.packageRoot, 'demo-app/www/.htaccess'), cfg.appRoot + 'www')
+      cpx.copySync(abs(cfg.packageRoot, 'demo/www/.htaccess'), cfg.appRoot + 'www')
       replace.sync({
         files: abs(cfg.appRoot, 'www/.htaccess'),
         from: /\/build-([0-9]+)\.([0-9]+)\.([0-9]+)\//g,
