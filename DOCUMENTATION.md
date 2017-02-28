@@ -137,7 +137,7 @@ resetLocalStorageOnVersionChange | *boolean* | false
 |Costs|Firebase hosting service is free for small apps.|Apple requires developer program (around 99€ per year), Google Play store requires registration fee (around 25 USD once). For selling apps, Apple and Google charge around 30% of the sales.|
 |Promotion|All regular ways.|All regular ways plus special promotions and user ratings in the store.|
 
-Deployment to your own server (Web App)
+Deployment to a FTP server (Web App)
 
 - Upload the latest *www/build* folder to your server and then the *www/.htaccess* file
 - For rollback: Change the version in *www/.htaccess* file to the previous one and upload it to your server

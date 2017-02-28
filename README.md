@@ -51,7 +51,7 @@ Building:
 Deployment:
 
 - Deployment without downtime
-  - To your own server or web space as Web App
+  - To any FTP server as Web App
   - To the [Firebase Hosting service](https://firebase.google.com/docs/hosting/) as Web App
   - To the [Apple App Store](https://itunes.apple.com/de/) as native iOS App
   - To the [Google Play Store](https://play.google.com/) as native Android App
