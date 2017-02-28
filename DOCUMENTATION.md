@@ -22,7 +22,7 @@ Optional
 - Run `npm update` to update *App Framework* to latest sub version
 
 ### Design your application
-- Use our printable [smartphone template](smartphone-template.pdf) to sketch your application
+- Use our printable [smartphone template](media/smartphone-template.pdf) to sketch your application
 - Use our icon template as [PDF to sketch](media/icon-template.pdf) and [PPTX to draw](media/icon-template.pptx) your application icon
 
 ### Develop your application
