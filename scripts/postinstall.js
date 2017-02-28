@@ -1,5 +1,4 @@
 // Load packages
-var path = require('path')
 var abs = require('path').resolve
 var isThere = require('is-there')
 var fs = require('fs-extra')
@@ -15,6 +14,7 @@ var zipdir = require('zip-dir')
 var list = require('list-dir')
 var found = require('../lib/found')
 var alert = require('../lib/alert')
+var _ = require('underscore')
 
 // Load configuration
 var cfg = require('./config.js')
@@ -48,7 +48,7 @@ let applyReleaseModifications = function (callback) {
   if (_.isArray(app.specialRoutes)) {
     let routes = app.specialRoutes
     app.specialRoutes = {}
-    for (i = 0; i < routes.length; i++) {
+    for (let i = 0; i < routes.length; i++) {
       let page = routes[i].substr(0, routes[i].indexOf('/'))
       app.specialRoutes[routes[i]] = page
     }
@@ -120,8 +120,8 @@ let applyReleaseModifications = function (callback) {
   }
   delete pkg.iconImage
   fs.writeJsonSync(abs(cfg.appRoot, 'package.json'), pkg, {space: 2})
-      // icon file
-  if (typeof cfg.iconImage === 'text') {
+  // icon file
+  if (typeof cfg.iconImage === 'string') {
     let config = fs.readJsonSync(abs(cfg.appRoot, 'src/config.json'))
     let iconFile = abs(cfg.appRoot, 'src', config.iconImage)
     if (isThere(iconFile) && !isThere(abs(cfg.appRoot, 'src/icon.png'))) {
@@ -152,18 +152,22 @@ let applyReleaseModifications = function (callback) {
         }
         let build = items[i].match(/^build-(([0-9]+)\.([0-9]+)\.([0-9]+))(\/|\\)index\.html$/)[1]
         fs.move(abs(wwwFolder, 'build-' + build), abs(wwwFolder, '.temp'), function (err) {
-          fs.move(abs(wwwFolder, '.temp'), abs(wwwFolder, 'build-' + build, 'build'), function (err) {
-            zipdir(abs(wwwFolder, 'build-' + build), {
-              saveTo: abs(cfg.appRoot, 'snapshots', 'snapshot-' + build + '.zip')
-            }, function (err, buf) {
+          if (!err) {
+            fs.move(abs(wwwFolder, '.temp'), abs(wwwFolder, 'build-' + build, 'build'), function (err) {
               if (!err) {
-                fs.removeSync(abs(wwwFolder, 'build-' + build))
-              }
-              if (list.sync(wwwFolder).length === 0) {
-                fs.removeSync(wwwFolder)
+                zipdir(abs(wwwFolder, 'build-' + build), {
+                  saveTo: abs(cfg.appRoot, 'snapshots', 'snapshot-' + build + '.zip')
+                }, function (err, buf) {
+                  if (!err) {
+                    fs.removeSync(abs(wwwFolder, 'build-' + build))
+                  }
+                  if (list.sync(wwwFolder).length === 0) {
+                    fs.removeSync(wwwFolder)
+                  }
+                })
               }
             })
-          })
+          }
         })
       } else if (/^build-([0-9]+)\.([0-9]+)\.([0-9]+)/.test(items[i]) === false) {
         fs.removeSync(abs(wwwFolder, items[i]))
@@ -258,4 +262,12 @@ let prune = function (callback) {
   })
 }
 
-applyReleaseModifications(function () {})
+updateIosDeploy(function () {
+  copyDemoAppFiles(function () {
+    applyReleaseModifications(function () {
+      prune(function () {
+        alert('App Framework installation done!')
+      })
+    })
+  })
+})

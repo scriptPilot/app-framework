@@ -20,13 +20,13 @@ if (isThere(f7Folder)) {
       run('cd "' + f7Folder + '" && gulp dist', function (err, stdOut, errOut) {
         if (!err) {
           // Copy
-          copy(path.resolve(f7Folder, 'dist/css/framework7.ios.colors.min.css'), path.resolve(cfg.packageRoot, 'lib/framework7/css'))
-          copy(path.resolve(f7Folder, 'dist/css/framework7.ios.min.css'), path.resolve(cfg.packageRoot, 'lib/framework7/css'))
-          copy(path.resolve(f7Folder, 'dist/css/framework7.material.colors.min.css'), path.resolve(cfg.packageRoot, 'lib/framework7/css'))
-          copy(path.resolve(f7Folder, 'dist/css/framework7.material.min.css'), path.resolve(cfg.packageRoot, 'lib/framework7/css'))
-          copy(path.resolve(f7Folder, 'dist/img/*'), path.resolve(cfg.packageRoot, 'lib/framework7/img'))
-          copy(path.resolve(f7Folder, 'dist/js/framework7.min.js'), path.resolve(cfg.packageRoot, 'lib/framework7/js'))
-          if (isThere(path.resolve(cfg.packageRoot, 'lib/framework7/js/framework7.min.js'))) {
+          copy(path.resolve(f7Folder, 'dist/css/framework7.ios.colors.min.css'), path.resolve(cfg.packageRoot, 'vendor/framework7/css'))
+          copy(path.resolve(f7Folder, 'dist/css/framework7.ios.min.css'), path.resolve(cfg.packageRoot, 'vendor/framework7/css'))
+          copy(path.resolve(f7Folder, 'dist/css/framework7.material.colors.min.css'), path.resolve(cfg.packageRoot, 'vendor/framework7/css'))
+          copy(path.resolve(f7Folder, 'dist/css/framework7.material.min.css'), path.resolve(cfg.packageRoot, 'vendor/framework7/css'))
+          copy(path.resolve(f7Folder, 'dist/img/*'), path.resolve(cfg.packageRoot, 'vendor/framework7/img'))
+          copy(path.resolve(f7Folder, 'dist/js/framework7.min.js'), path.resolve(cfg.packageRoot, 'vendor/framework7/js'))
+          if (isThere(path.resolve(cfg.packageRoot, 'vendor/framework7/js/framework7.min.js'))) {
             showOnly('Newest Framework7 build copied to App Framework lib folder')
           } else {
             showOnly('Error: Failed to copy Framework7 build file to App Framework lib folder')

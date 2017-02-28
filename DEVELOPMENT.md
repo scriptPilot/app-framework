@@ -34,4 +34,4 @@
 
 - Should use *lib/cmd* to run scripts asynchronously
 - Should use *lib/alert* to show information about progress
-  - Should abort script execution on error with `alert('Error: ...')`
+  - Should abort script execution on error with `alert('Error: ...')` or `alert('Message ...', 'error')`

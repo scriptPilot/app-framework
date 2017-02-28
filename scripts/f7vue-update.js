@@ -20,7 +20,7 @@ if (isThere(f7vueFolder)) {
       run('cd "' + f7vueFolder + '" && npm run dist', function (err, stdOut, errOut) {
         if (!err) {
           // Copy script
-          copy(path.resolve(f7vueFolder, 'dist/framework7-vue.min.js'), cfg.packageRoot + 'lib/framework7-vue')
+          copy(path.resolve(f7vueFolder, 'dist/framework7-vue.min.js'), cfg.packageRoot + 'vendor/framework7-vue')
         } else {
           showOnly('Error: Framework7-Vue dist failed')
         }

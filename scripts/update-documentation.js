@@ -18,7 +18,7 @@ if (cfg.isInstalled) {
     alert('Demo App config documentation update ongoing - please wait ...')
     let configDocu = json.docu(src, 'table')
     let docuText = fs.readFileSync(docuFile, 'utf-8')
-    docuText = docuText.replace(/<!-- update-on-build -->([\s\S.]*)<\!-- \/update-on-build -->/, '<!-- update-on-build -->' + '\n' + configDocu + '<!-- /update-on-build -->')
+    docuText = docuText.replace(/<!-- update-on-build -->([\s\S.]*)<!-- \/update-on-build -->/, '<!-- update-on-build -->' + '\n' + configDocu + '<!-- /update-on-build -->')
     fs.writeFileSync(docuFile, docuText)
     alert('Demo App config documentation update done.')
   } else {
