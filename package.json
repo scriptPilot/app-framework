@@ -10,7 +10,6 @@
   "scripts": {
     "android": "node scripts/android || true",
     "backup": "node scripts/backup || true",
-    "check": "node scripts/check || true",
     "database": "node scripts/database || true",
     "dev": "node scripts/dev || true",
     "f7": "node scripts/f7-update || true",
