@@ -30,15 +30,18 @@ Read less, code more - please open a ticket for any open question in our [Issue 
 - Setup
   - `npm install` to install App Framework and setup project folder
   - `npm update` to update App Framework to latest sub version
+
 - Testing
   - `npm run dev` to start development server in web browser
     - `CTRL + C` to stop development server
   - `npm run ios` to open iOS simulator with development snapshot
   - `npm run android` to open Android emulator with development snapshot
+
 - Building
   - `npm run patch` to build after bug-fixes and improvements
   - `npm run minor` to build after adding new functionality
   - `npm run major` to build after backward-capability breaking changes
+  
 - Deployment
   - `npm run firebase` to deploy rules and static files to Firebase
     - `npm run database` to deploy database rules to Firebase
