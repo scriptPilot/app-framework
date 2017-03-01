@@ -3,7 +3,6 @@
 // Apply modifications first
 let modifications13 = require('./modifications13')
 modifications13(function () {
-
   // Load packages
   let env = require('../env')
   var abs = require('path').resolve
@@ -137,5 +136,4 @@ modifications13(function () {
       })
     })
   })
-
 })

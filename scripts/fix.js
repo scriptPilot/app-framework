@@ -1,13 +1,11 @@
 'use strict'
 
 // Load packages
+var env = require('../env')
 var cmd = require('../lib/cmd')
 var alert = require('../lib/alert')
 var fs = require('fs-extra')
 var abs = require('path').resolve
-
-// Load configuration
-var cfg = require('./config.js')
 
 // Show message
 alert('Standard JavaScript fix ongoing - please wait ...')
@@ -16,19 +14,19 @@ alert('Standard JavaScript fix ongoing - please wait ...')
 var params = [
   'node',
   'cmd.js',
-  '>' + abs(cfg.projectRoot, 'standard-check.log'),
-  '"' + abs(cfg.appRoot, '**/*.vue') + '"'
+  '>' + abs(env.proj, 'standard-check.log'),
+  '"' + abs(env.app, '**/*.vue') + '"'
 ]
-if (!cfg.isInstalled) {
-  params.push('"' + abs(cfg.packageRoot, 'scripts/*.js') + '"')
-  params.push('"' + abs(cfg.packageRoot, 'lib/*.js') + '"')
+if (!env.isInstalled) {
+  params.push('"' + abs(__dirname, '*.js') + '"')
+  params.push('"' + abs(__dirname, '../lib/*.js') + '"')
 }
 params.push('--plugin')
 params.push('html')
 params.push('--fix')
 
 // Do the fix
-cmd([cfg.projectRoot, 'node_modules/standard/bin'], params, function () {
-  fs.removeSync(abs(cfg.projectRoot, 'standard-check.log'))
+cmd([env.proj, 'node_modules/standard/bin'], params, function () {
+  fs.removeSync(abs(env.proj, 'standard-check.log'))
   alert('Standard JavaScript fix done.')
 }, 'Error: Some findings must be fixed manually - please check "standard-check.log" for detailed information.')
