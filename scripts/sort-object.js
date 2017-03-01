@@ -1,3 +1,5 @@
+'use strict'
+
 module.exports = function (obj, sortBy, sortDesc) {
   let arr = []
   for (let el in obj) {

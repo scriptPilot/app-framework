@@ -1,3 +1,5 @@
+'use strict'
+
 var semver = require('semver')
 var chalk = require('chalk')
 var packageConfig = require('../package.json')

@@ -5,6 +5,7 @@
 **Table of contents**
 
 - [Requirements](#requirements)
+- [CLI commands](#cli-commands)
 - [Project folder structure](#project-folder-structure)
 - [Configuration options](#configuration-options)
 - [Vue hooks](#vue-hooks)
@@ -24,6 +25,31 @@ Read less, code more - please open a ticket for any open question in our [Issue 
 - Basic knowledge of [Node.js and npm](https://docs.npmjs.com/getting-started/what-is-npm)
 - Knowledge of [Framework7](https://framework7.io/docs/) and [Framework7-Vue](https://framework7.io/vue/)
 
+## CLI commands
+
+- Setup
+  - `npm install` to install App Framework and setup project folder
+  - `npm update` to update App Framework to latest sub version
+- Testing
+  - `npm run dev` to start development server in web browser
+    - `CTRL + C` to stop development server
+  - `npm run ios` to open iOS simulator with development snapshot
+  - `npm run android` to open Android emulator with development snapshot
+- Building
+  - `npm run patch` to build after bug-fixes and improvements
+  - `npm run minor` to build after adding new functionality
+  - `npm run major` to build after backward-capability breaking changes
+- Deployment
+  - `npm run firebase` to deploy rules and static files to Firebase
+    - `npm run database` to deploy database rules to Firebase
+    - `npm run storage` to deploy storage rules to Firebase
+    - `npm run hosting` to deploy static files to Firebase
+  - `npm run ftp` to deploy static files to a FTP server
+  - `npm run xcode` to deploy static files as Xcode project
+  - `npm run studio` to deploy static files as Android Studio project
+
+  For rollback, add `--version x.y.z` parameter to any deployment command.
+
 ## Project folder structure
 
 ```
@@ -37,7 +63,7 @@ Read less, code more - please open a ticket for any open question in our [Issue 
 │   ├── app.vue                 # App main component
 │   ├── config.js               # App configuration
 │   ├── database-rules.json     # Firebase database rules
-│   ├── icon.png                # App icon file
+│   ├── icon.png                # App icon file (minimum size is 1024 pixel)
 │   └── storage-rules.txt       # Firebase storage rules
 ├── .gitignore                  # List of ignored files for Git commits
 └── package.json                # Project information

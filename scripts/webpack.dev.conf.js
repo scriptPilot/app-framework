@@ -1,3 +1,5 @@
+'use strict'
+
 var cfg = require('./config.js')
 var app = require(cfg.appRoot + 'config.json')
 

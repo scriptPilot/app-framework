@@ -1,3 +1,5 @@
+'use strict'
+
 // Load packages
 var cmd = require('../lib/cmd')
 var alert = require('../lib/alert')
@@ -27,6 +29,6 @@ params.push('--fix')
 
 // Do the fix
 cmd([cfg.projectRoot, 'node_modules/standard/bin'], params, function () {
-  alert('Standard JavaScript fix done.')
   fs.removeSync(abs(cfg.projectRoot, 'standard-check.log'))
+  alert('Standard JavaScript fix done.')
 }, 'Error: Some findings must be fixed manually - please check "standard-check.log" for detailed information.')

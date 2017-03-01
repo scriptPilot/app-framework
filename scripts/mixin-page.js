@@ -1,3 +1,5 @@
+'use strict'
+
 let localStorage = window.localStorage
 
 module.exports = {

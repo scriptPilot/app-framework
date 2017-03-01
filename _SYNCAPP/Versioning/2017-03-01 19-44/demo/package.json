@@ -1,0 +1,24 @@
+{
+  "name": "demo-app",
+  "version": "1.2.70",
+  "description": "App Framework Demo App - iOS and Android Apps with HTML & JavaScript - develop, build and deploy - free and open source!",
+  "devDependencies": {
+    "app-framework": "^1.2.70"
+  },
+  "scripts": {
+    "dev": "node node_modules/app-framework/scripts/dev",
+    "icons": "node node_modules/app-framework/scripts/icons",
+    "patch": "node node_modules/app-framework/scripts/patch",
+    "minor": "node node_modules/app-framework/scripts/minor",
+    "major": "node node_modules/app-framework/scripts/major",
+    "ios": "node node_modules/app-framework/scripts/ios",
+    "android": "node node_modules/app-framework/scripts/android",
+    "database": "node node_modules/app-framework/scripts/database",
+    "storage": "node node_modules/app-framework/scripts/storage",
+    "hosting": "node node_modules/app-framework/scripts/hosting",
+    "check": "node node_modules/app-framework/scripts/check",
+    "fix": "node node_modules/app-framework/scripts/fix",
+    "backup": "node node_modules/app-framework/scripts/backup",
+    "zip": "node node_modules/app-framework/scripts/zip"
+  }
+}

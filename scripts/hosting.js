@@ -1,9 +1,11 @@
+'use strict'
+
 // Load packages
 var path = require('path')
 var run = require('./run')
-var showOnly = require('./show-only')
+var alert = require('../lib/alert')
 var read = require('read-file')
-var isThere = require('is-there')
+var found = require('../lib/found')
 var cmd = require('./cmd')
 
 // Load configuration
@@ -14,8 +16,8 @@ var htaccess = read.sync(path.resolve(cfg.appRoot, 'www/.htaccess'), 'utf8')
 var version = htaccess.match(/build-(.+)\//)[1]
 
 var checkBuild = function (callback) {
-  if (!isThere(cfg.appRoot + 'www/build-' + version)) {
-    showOnly('Build application first - please wait ...')
+  if (!found(cfg.appRoot + 'www/build-' + version)) {
+    alert('Build application first - please wait ...')
     cmd(['npm', 'run', 'patch'], function () {
       htaccess = read.sync(path.resolve(cfg.appRoot, 'www/.htaccess'), 'utf8')
       version = htaccess.match(/build-(.+)\//)[1]
@@ -27,15 +29,15 @@ var checkBuild = function (callback) {
 }
 
 checkBuild(function () {
-  showOnly('Preparing Firebase deployment - please wait ...')
+  alert('Preparing Firebase deployment - please wait ...')
   run('node "' + path.resolve(cfg.packageRoot, 'scripts/prepare-firebase') + '"', function () {
-    showOnly('Login to Firebase - please wait ...')
+    alert('Login to Firebase - please wait ...')
     cmd(path.resolve(cfg.projectRoot, 'node_modules/firebase-tools/bin'), ['firebase', 'login'], function () {
-      showOnly('Deploying to Firebase - please wait ...')
+      alert('Deploying to Firebase - please wait ...')
       cmd(path.resolve(cfg.projectRoot, 'node_modules/firebase-tools/bin'), ['firebase', 'deploy', '--only', 'hosting'], function () {
-        showOnly('Clean up temp files - please wait ...')
+        alert('Clean up temp files - please wait ...')
         run('node "' + path.resolve(cfg.packageRoot, 'scripts/cleanup-firebase') + '"', function () {
-          showOnly('Build ' + version + ' deployed to Firebase Hosting!')
+          alert('Build ' + version + ' deployed to Firebase Hosting!')
         }, 'Firebase clean up failed')
       }, 'Firebase deployment failed')
     }, 'Firebase login failed')

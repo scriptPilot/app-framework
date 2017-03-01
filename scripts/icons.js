@@ -1,8 +1,10 @@
+'use strict'
+
 // Modules
 var path = require('path')
-var isThere = require('is-there')
+var found = require('../lib/found')
 var deleteFiles = require('delete')
-var showOnly = require('./show-only')
+var alert = require('../lib/alert')
 var img = require('jimp')
 var fs = require('fs-extra')
 var rgb = require('hex-rgb')
@@ -13,7 +15,7 @@ let cfg = require('./config')
 let app = require(cfg.appRoot + 'config.json')
 
 // Show message
-showOnly('Creating icons - please wait ...')
+alert('Creating icons - please wait ...')
 
 // Define background color
 let bg = rgb(app.iconBackgroundColor).concat(255)
@@ -78,7 +80,7 @@ for (let i = 0; i < icons.length; i++) {
 }
 
 // Define icon file
-let iconFile = isThere(path.resolve(cfg.appRoot, app.iconImage)) ? path.resolve(cfg.appRoot, app.iconImage) : path.resolve(cfg.packageRoot, 'demo/images/icon.png')
+let iconFile = found(cfg.appRoot, app.iconImage) ? path.resolve(cfg.appRoot, app.iconImage) : path.resolve(cfg.packageRoot, 'demo/images/icon.png')
 
 // Load icon file
 new img(iconFile, function (err, icon) { // eslint-disable-line
@@ -87,7 +89,7 @@ new img(iconFile, function (err, icon) { // eslint-disable-line
 
   // Reset icon folder
   let iconFolder = path.resolve(cfg.packageRoot, 'icons')
-  if (!isThere(iconFolder)) {
+  if (!found(iconFolder)) {
     fs.mkdir(iconFolder)
   } else {
     deleteFiles.sync(path.resolve(iconFolder, '**/*'))
@@ -143,7 +145,7 @@ new img(iconFile, function (err, icon) { // eslint-disable-line
             canvas.write(path.resolve(iconFolder, name), function (err) {
               if (err) throw err
               if (i + 1 === icons.length) {
-                showOnly('Icons updated!')
+                alert('Icons updated!')
               }
             })
           })

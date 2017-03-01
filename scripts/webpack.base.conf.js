@@ -1,3 +1,5 @@
+'use strict'
+
 // Load configuration
 var cfg = require('./config.js')
 

@@ -6,6 +6,7 @@
 
 **Table of contents**
 
+- [CLI commands](#cli-commands)
 - [Folder structure](#folder-structure)
 - [Script files](#script-files)
 
@@ -23,6 +24,7 @@
 ├── .gitignore                  # List of ignored files for Git commits
 ├── DEVELOPMENT.md              # Development documentation
 ├── DOCUMENTATION               # End user documentation
+├── env.js                      # Object with environment variables
 ├── index.ejs                   # Template for the build index file
 ├── LICENSE                     # App Framework license file
 ├── main.css                    # Common CSS file for bug-fixes and phone frame
@@ -35,3 +37,4 @@
 - Should use *lib/cmd* to run scripts asynchronously
 - Should use *lib/alert* to show information about progress
   - Should abort script execution on error with `alert('Error: ...')` or `alert('Message ...', 'error')`
+- Create single steps with callback and arrange them

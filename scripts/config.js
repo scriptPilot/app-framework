@@ -1,3 +1,5 @@
+'use strict'
+
 // Load modules
 var path = require('path')
 var abs = require('path').resolve

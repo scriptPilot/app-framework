@@ -1,3 +1,5 @@
+'use strict'
+
 // Load application configuration
 var app = require(process.env.APP_ROOT_FROM_SCRIPTS + 'package.json')
 

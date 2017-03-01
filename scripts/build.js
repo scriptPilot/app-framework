@@ -1,9 +1,11 @@
+'use strict'
+
 // https://github.com/shelljs/shelljs
 // require('./check-versions')()
 require('shelljs/global')
 
 var ora = require('ora')
-var isThere = require('is-there')
+var found = require('../lib/found')
 var webpack = require('webpack')
 var webpackConfig = require('./webpack.prod.conf')
 
@@ -12,7 +14,7 @@ spinner.start()
 
 // Copy babelrc file (will be deleted after build)
 var cfg = require('./config.js')
-if (cfg.isInstalled && !isThere(cfg.projectRoot + '.babelrc')) {
+if (cfg.isInstalled && !found(cfg.projectRoot + '.babelrc')) {
   var cpx = require('cpx')
   cpx.copySync(cfg.packageRoot + '.babelrc', cfg.projectRoot)
 }

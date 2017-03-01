@@ -1,9 +1,11 @@
+'use strict'
+
 // Load packages
 var path = require('path')
-var isThere = require('is-there')
+var found = require('../lib/found')
 var copy = require('cpx').copy
 var run = require('./run')
-var showOnly = require('./show-only')
+var alert = require('../lib/alert')
 var read = require('read-file')
 var deleteFiles = require('delete')
 var xml = require('xml2js')
@@ -14,7 +16,7 @@ var cmd = require('./cmd')
 
 // Cancel on Windows
 if (process.platform === 'win32') {
-  showOnly('iOS builds are only possible on macOS machines, like iMac or MacBook', true)
+  alert('iOS builds are only possible on macOS machines, like iMac or MacBook', true)
 }
 
 // Load configuration
@@ -26,8 +28,8 @@ var htaccess = read.sync(path.resolve(cfg.appRoot, 'www/.htaccess'), 'utf8')
 var version = htaccess.match(/build-(.+)\//)[1]
 
 var checkBuild = function (callback) {
-  if (!isThere(cfg.appRoot + 'www/build-' + version)) {
-    showOnly('Build application first - please wait ...')
+  if (!found(cfg.appRoot + 'www/build-' + version)) {
+    alert('Build application first - please wait ...')
     cmd(['npm', 'run', 'patch'], function () {
       htaccess = read.sync(path.resolve(cfg.appRoot, 'www/.htaccess'), 'utf8')
       version = htaccess.match(/build-(.+)\//)[1]
@@ -39,14 +41,14 @@ var checkBuild = function (callback) {
 }
 
 // Show message
-showOnly('Xcode project build ongoing with application build version ' + version + ' - please wait ...')
+alert('Xcode project build ongoing with application build version ' + version + ' - please wait ...')
 
 // Check icons > create
 var checkIcons = function (callback) {
-  if (isThere(path.resolve(cfg.packageRoot, 'icons/favicon.ico'))) {
+  if (found(cfg.packageRoot, 'icons/favicon.ico')) {
     callback()
   } else {
-    showOnly('Icons are generated - please wait ...')
+    alert('Icons are generated - please wait ...')
     run('npm run icons', function () {
       callback()
     }, 'Failed to generate icon folder')
@@ -56,7 +58,7 @@ var checkIcons = function (callback) {
 // Create cordova project folder
 function createCordovaProject (callback) {
   let cordovaFolder = path.resolve(cfg.packageRoot, 'cordova')
-  if (isThere(cordovaFolder)) {
+  if (found(cordovaFolder)) {
     deleteFiles.sync([path.resolve(cordovaFolder, '**/**')])
   }
   run('cd "' + cfg.packageRoot + '" && rm -rf ~/.cordova', function () {
@@ -68,7 +70,7 @@ function createCordovaProject (callback) {
 
 // Install cordova plugins
 function updateCordovaPlugins (callback) {
-  let currentPlugins = isThere(path.resolve(cfg.packageRoot, 'cordova/plugins/fetch.json')) ? require(path.resolve(cfg.packageRoot, 'cordova/plugins/fetch.json')) : {}
+  let currentPlugins = found(cfg.packageRoot, 'cordova/plugins/fetch.json') ? require(path.resolve(cfg.packageRoot, 'cordova/plugins/fetch.json')) : {}
   let pluginChanges = []
   for (let p = 0; p < app.useCordovaPlugins.length; p++) {
     if (currentPlugins[app.useCordovaPlugins[p]] === undefined) {
@@ -88,7 +90,7 @@ function updateCordovaPlugins (callback) {
 // Update cordova www folder and config.xml
 function updateCordovaBuild (callback) {
   // Build folder exists
-  if (isThere(path.resolve(cfg.appRoot, 'www/build-' + version))) {
+  if (found(cfg.appRoot, 'www/build-' + version)) {
     // Delete cordova www folder
     deleteFiles(path.resolve(cfg.packageRoot, 'cordova/www/**/*'), function (err) {
       if (err) {
@@ -182,13 +184,13 @@ function updateCordovaBuild (callback) {
       }
     })
   } else {
-    showOnly(version === '0.0.0' ? 'You must build your application first.' : 'Build folder "www/build-' + version + '" not found.')
+    alert(version === '0.0.0' ? 'You must build your application first.' : 'Build folder "www/build-' + version + '" not found.')
   }
 }
 
 // (Re)build cordova ios platform
 function buildCordovaIos (callback) {
-  let removePlatform = isThere(path.resolve(cfg.packageRoot, 'cordova/platforms/ios')) ? 'cordova platform rm ios && ' : ''
+  let removePlatform = found(cfg.packageRoot, 'cordova/platforms/ios') ? 'cordova platform rm ios && ' : ''
   run('cd "' + path.resolve(cfg.packageRoot, 'cordova') + '" && ' + removePlatform + 'cordova platform add ios', function () {
     callback()
   })
@@ -201,9 +203,9 @@ checkBuild(function () {
       updateCordovaPlugins(function () {
         updateCordovaBuild(function () {
           buildCordovaIos(function () {
-            showOnly('Xcode project version ' + version + ' build, Xcode is starting ...')
+            alert('Xcode project version ' + version + ' build, Xcode is starting ...')
             run('open -a Xcode "' + path.resolve(cfg.packageRoot, 'cordova/platforms/ios', app.title + '.xcodeproj') + '"', function () {
-              showOnly('Xcode started with build version ' + version)
+              alert('Xcode started with build version ' + version)
             })
           })
         })

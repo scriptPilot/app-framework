@@ -1,9 +1,11 @@
+'use strict'
+
 // Import config
 var cfg = require('./config.js')
 var app = require(cfg.appRoot + 'config.json')
 
 // Import packages
-var isThere = require('is-there')
+var found = require('../lib/found')
 var read = require('read-file')
 var write = require('write')
 var copy = require('cpx')
@@ -20,7 +22,7 @@ var version = htaccess.match(/build-(.+)\//)[1]
 let firebaseFolder = path.resolve(cfg.projectRoot, 'node_modules/firebase-tools/bin')
 
 // Create file with standard database rules
-if (!isThere(cfg.appRoot + 'database-rules.json')) {
+if (!found(cfg.appRoot + 'database-rules.json')) {
   write.sync(cfg.appRoot + 'database-rules.json', '{}')
   saveJSON.writeFileSync(cfg.appRoot + 'database-rules.json', {
     'rules': {
@@ -31,7 +33,7 @@ if (!isThere(cfg.appRoot + 'database-rules.json')) {
 }
 
 // Create file with standard storage rules
-if (!isThere(cfg.appRoot + 'storage-rules.txt')) {
+if (!found(cfg.appRoot + 'storage-rules.txt')) {
   let stdRules = 'service firebase.storage {\n' +
                  '  match /b/' + app.firebase.storageBucket + '/o {\n' +
                  '    match /{allPaths=**} {\n' +
@@ -64,7 +66,7 @@ let config = {
 }
 
 // Write project config
-if (!isThere(path.resolve(firebaseFolder, '.firebaserc'))) {
+if (!found(firebaseFolder, '.firebaserc')) {
   write.sync(path.resolve(firebaseFolder, '.firebaserc'), '{}')
 }
 saveJSON.writeFileSync(path.resolve(firebaseFolder, '.firebaserc'), {

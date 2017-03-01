@@ -1,3 +1,5 @@
+'use strict'
+
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 exports.cssLoaders = function (options) {

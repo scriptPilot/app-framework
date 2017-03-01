@@ -1,22 +1,26 @@
+'use strict'
+
+'use strict'
+
 // Load configuration
 var cfg = require('./config.js')
 
 // Load packages
 var path = require('path')
-var isThere = require('is-there')
+var found = require('../lib/found')
 var run = require('child_process').exec
 var copy = require('cpx').copySync
-var showOnly = require('./show-only.js')
+var alert = require('../lib/alert')
 
 // Framework7 folder exists
 var f7Folder = path.resolve(cfg.packageRoot, '..', 'Framework7')
-if (isThere(f7Folder)) {
+if (found(f7Folder)) {
   // Build
-  showOnly('Framework7 build ongoing ... please wait')
+  alert('Framework7 build ongoing ... please wait')
   run('cd "' + f7Folder + '" && gulp build', function (err, stdOut, errOut) {
     if (!err) {
       // Dist
-      showOnly('Framework7 dist ongoing ... please wait')
+      alert('Framework7 dist ongoing ... please wait')
       run('cd "' + f7Folder + '" && gulp dist', function (err, stdOut, errOut) {
         if (!err) {
           // Copy
@@ -26,19 +30,19 @@ if (isThere(f7Folder)) {
           copy(path.resolve(f7Folder, 'dist/css/framework7.material.min.css'), path.resolve(cfg.packageRoot, 'vendor/framework7/css'))
           copy(path.resolve(f7Folder, 'dist/img/*'), path.resolve(cfg.packageRoot, 'vendor/framework7/img'))
           copy(path.resolve(f7Folder, 'dist/js/framework7.min.js'), path.resolve(cfg.packageRoot, 'vendor/framework7/js'))
-          if (isThere(path.resolve(cfg.packageRoot, 'vendor/framework7/js/framework7.min.js'))) {
-            showOnly('Newest Framework7 build copied to App Framework lib folder')
+          if (found(cfg.packageRoot, 'vendor/framework7/js/framework7.min.js')) {
+            alert('Newest Framework7 build copied to App Framework lib folder')
           } else {
-            showOnly('Error: Failed to copy Framework7 build file to App Framework lib folder')
+            alert('Error: Failed to copy Framework7 build file to App Framework lib folder')
           }
         } else {
-          showOnly('Error: Framework7 dist failed')
+          alert('Error: Framework7 dist failed')
         }
       })
     } else {
-      showOnly('Error: Framework7 build failed')
+      alert('Error: Framework7 build failed')
     }
   })
 } else {
-  showOnly('Error: Framework7 folder not found')
+  alert('Error: Framework7 folder not found')
 }

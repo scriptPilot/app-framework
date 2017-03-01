@@ -1,5 +1,7 @@
+'use strict'
+
 let childProcess = require('child_process')
-let showOnly = require('./show-only')
+let alert = require('../lib/alert')
 
 module.exports = function (command, callbackOnSuccess, callbackOnError) {
   childProcess.exec(command, function (err, stdOut, errOut) {
@@ -10,7 +12,7 @@ module.exports = function (command, callbackOnSuccess, callbackOnError) {
     } else if (typeof callbackOnError === 'function') {
       callbackOnError(errOut)
     } else if (typeof callbackOnError === 'string') {
-      showOnly('Error: ' + callbackOnError)
+      alert('Error: ' + callbackOnError)
     } else {
       throw new Error(errOut)
     }

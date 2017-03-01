@@ -1,5 +1,7 @@
+'use strict'
+
 var childProcess = require('child_process')
-var showOnly = require('./show-only')
+var alert = require('../lib/alert')
 
 module.exports = function () {
   // Standard arguments
@@ -54,10 +56,10 @@ module.exports = function () {
     if (code === 0) {
       callback()
     } else if (errorText !== null) {
-      showOnly(errorText, true)
+      alert(errorText, true)
     } else {
       commands.shift()
-      showOnly('Error: Command "' + commands.join(' ') + '" failed', true)
+      alert('Error: Command "' + commands.join(' ') + '" failed', true)
     }
   })
 }

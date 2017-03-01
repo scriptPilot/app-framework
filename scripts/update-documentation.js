@@ -1,3 +1,5 @@
+'use strict'
+
 let json = require('../lib/json')
 let alert = require('../lib/alert')
 let fs = require('fs')
