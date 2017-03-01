@@ -85,7 +85,7 @@ let createIcons = function (icon, dest, callback) {
 let copyCache = function (hash) {
   fs.copy(abs(env.cache, 'icons', hash), abs(env.cache, 'icons', version), function (err) {
     if (err) alert('Error: Failed to cache icons.')
-      else alert('Icon generation done.', 'exit')
+    else alert('Icon generation done.', 'exit')
   })
 }
 

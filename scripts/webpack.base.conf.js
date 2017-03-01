@@ -6,8 +6,7 @@ var cfg = require('./config.js')
 // Load packages
 var path = require('path')
 var utils = require('./utils')
-var saveJSON = require('jsonfile')
-saveJSON.spaces = 2
+var fs = require('fs-extra')
 
 // Set options
 var cssSourceMapDev = (process.env.NODE_ENV === 'development' && cfg.dev.cssSourceMap)

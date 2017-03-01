@@ -59,7 +59,7 @@ var checkIcons = function (callback) {
 function createCordovaProject (callback) {
   let cordovaFolder = path.resolve(cfg.packageRoot, 'cordova')
   if (found(cordovaFolder)) {
-    deleteFiles.sync([path.resolve(cordovaFolder, '**/**')])
+    fs.remove(path.resolve(cordovaFolder, '**/**'))
   }
   run('cd "' + cfg.packageRoot + '" && rm -rf ~/.cordova', function () {
     run('cd "' + cfg.packageRoot + '" && cordova create cordova', function () {

@@ -11,8 +11,7 @@ var write = require('write')
 var copy = require('cpx')
 var path = require('path')
 var replace = require('replace-in-file')
-var saveJSON = require('jsonfile')
-saveJSON.spaces = 2
+var fs = require('fs-extra')
 
 // Get build version to be used
 var htaccess = read.sync(path.resolve(cfg.appRoot, 'www/.htaccess'), 'utf8')
@@ -24,7 +23,7 @@ let firebaseFolder = path.resolve(cfg.projectRoot, 'node_modules/firebase-tools/
 // Create file with standard database rules
 if (!found(cfg.appRoot + 'database-rules.json')) {
   write.sync(cfg.appRoot + 'database-rules.json', '{}')
-  saveJSON.writeFileSync(cfg.appRoot + 'database-rules.json', {
+  fs.writeJsonSync(cfg.appRoot + 'database-rules.json', {
     'rules': {
       '.read': 'auth != null',
       '.write': 'auth != null'
@@ -69,7 +68,7 @@ let config = {
 if (!found(firebaseFolder, '.firebaserc')) {
   write.sync(path.resolve(firebaseFolder, '.firebaserc'), '{}')
 }
-saveJSON.writeFileSync(path.resolve(firebaseFolder, '.firebaserc'), {
+fs.writeJsonSync(path.resolve(firebaseFolder, '.firebaserc'), {
   'projects': {
     'default': app.firebase.authDomain.substr(0, app.firebase.authDomain.indexOf('.firebaseapp.com'))
   }
@@ -81,6 +80,6 @@ copy.copySync(path.resolve(cfg.appRoot, 'storage-rules.txt'), firebaseFolder)
 copy.copySync(path.resolve(cfg.appRoot, 'www/build-' + version + '/**/*'), path.resolve(firebaseFolder, 'www'))
 
 // Write Firebase config
-saveJSON.writeFileSync(path.resolve(firebaseFolder, 'firebase.json'), config)
+fs.writeJsonSync(path.resolve(firebaseFolder, 'firebase.json'), config)
 
 module.exports = {}

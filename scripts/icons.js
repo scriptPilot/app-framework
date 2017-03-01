@@ -92,7 +92,7 @@ new img(iconFile, function (err, icon) { // eslint-disable-line
   if (!found(iconFolder)) {
     fs.mkdir(iconFolder)
   } else {
-    deleteFiles.sync(path.resolve(iconFolder, '**/*'))
+    fs.remove(path.resolve(iconFolder, '**/*'))
   }
 
   // Generate ico file

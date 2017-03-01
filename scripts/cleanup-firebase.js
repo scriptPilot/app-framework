@@ -7,27 +7,27 @@ var cfg = require('./config.js')
 var found = require('../lib/found')
 var deleteFiles = require('delete')
 var path = require('path')
-var saveJSON = require('jsonfile')
-saveJSON.spaces = 2
+var fs = require('fs-extra')
 
 // Get Firebase bin folder
 let firebaseFolder = path.resolve(cfg.projectRoot, 'node_modules/firebase-tools/bin')
 
 // Delete temp files
 if (found(firebaseFolder, '.firebaserc')) {
-  deleteFiles.sync([path.resolve(firebaseFolder, '.firebaserc')], {force: true})
+  fs.remove(path.resolve(firebaseFolder, '.firebaserc'))
 }
 if (found(firebaseFolder, 'firebase.json')) {
-  deleteFiles.sync([path.resolve(firebaseFolder, 'firebase.json')], {force: true})
+  fs.remove(path.resolve(firebaseFolder, 'firebase.json'))
 }
 if (found(firebaseFolder, 'database-rules.json')) {
-  deleteFiles.sync([path.resolve(firebaseFolder, 'database-rules.json')], {force: true})
+  fs.remove(path.resolve(firebaseFolder, 'database-rules.json'))
 }
 if (found(firebaseFolder, 'storage-rules.txt')) {
-  deleteFiles.sync([path.resolve(firebaseFolder, 'storage-rules.txt')], {force: true})
+  fs.remove(path.resolve(firebaseFolder, 'storage-rules.txt'))
 }
 if (found(firebaseFolder, 'www')) {
-  deleteFiles.sync([path.resolve(firebaseFolder, 'www/**/*'), path.resolve(firebaseFolder, 'www')], {force: true})
+  fs.remove(path.resolve(firebaseFolder, 'www/**/*'))
+  fs.remove(path.resolve(firebaseFolder, 'www'))
 }
 
 module.exports = {}

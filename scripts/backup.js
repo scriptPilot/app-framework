@@ -7,8 +7,7 @@ var cmd = require('./cmd')
 var alert = require('../lib/alert')
 var found = require('../lib/found')
 var read = require('read-file')
-var saveJSON = require('jsonfile')
-saveJSON.spaces = 2
+var fs = require('fs-extra')
 
 // Load configuration
 var cfg = require('./config.js')
@@ -22,7 +21,7 @@ run('node "' + path.resolve(cfg.packageRoot, 'scripts/prepare-firebase') + '"', 
     alert('Backup Firebase database - please wait ...')
     cmd(path.resolve(cfg.projectRoot, 'node_modules/firebase-tools/bin'), ['firebase', 'database:get', '/', '>' + backupFile], function () {
       if (found(backupFile)) {
-        saveJSON.writeFileSync(backupFile, JSON.parse(read.sync(backupFile, 'utf8')))
+        fs.writeJsonSync(backupFile, JSON.parse(read.sync(backupFile, 'utf8')))
       }
       alert('Clean up - please wait ...')
       run('node "' + path.resolve(cfg.packageRoot, 'scripts/cleanup-firebase') + '"', function () {

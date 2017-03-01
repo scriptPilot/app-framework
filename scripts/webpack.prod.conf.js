@@ -17,8 +17,7 @@ var copy = require('cpx').copySync
 var write = require('write')
 var list = require('list-dir')
 var rename = require('fs').renameSync
-var saveJSON = require('jsonfile')
-saveJSON.spaces = 2
+var fs = require('fs-extra')
 
 // Load configuration
 var cfg = require('./config.js')
@@ -37,7 +36,7 @@ if (!cfg.isInstalled) {
 if (!cfg.isInstalled) {
   var demoApp = require(cfg.appRoot + 'package.json')
   demoApp.version = pkg.version
-  saveJSON.writeFileSync(cfg.appRoot + 'package.json', demoApp)
+  fs.writeJsonSync(cfg.appRoot + 'package.json', demoApp)
 }
 
 // Load app configuration
@@ -163,7 +162,7 @@ var webpackConfig = merge(baseWebpackConfig, {
 
       // Delete .babelrc file
       if (cfg.isInstalled && found(cfg.projectRoot + '.babelrc')) {
-        deleteFiles.sync([cfg.projectRoot + '.babelrc'], {force: true})
+        fs.remove(cfg.projectRoot + '.babelrc')
       }
     })
   ]
