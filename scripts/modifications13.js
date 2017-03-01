@@ -113,7 +113,7 @@ module.exports = function (callback) {
         img.read(iconFile, function (err, icon) {
           if (!err) {
             icon.write(abs(proj, 'src/icon.png'), function (err) {
-              if (!err && found(proj, 'src/icon.png')) {
+              if (!err) {
                 fs.removeSync(iconFile)
                 delete cfg.iconImage
                 fs.writeJsonSync(abs(proj, 'src/config.json'), cfg, {spaces: 2})
