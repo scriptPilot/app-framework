@@ -1,11 +1,17 @@
 # Exclude Allway Sync folder
 _SYNCAPP/
 
-# Exclude cache
-.cache/
-
-# Exclude node modules
+# Exclude node modules (with cache)
 node_modules/
+
+# Exclude project snapshots
+snapshots/
 
 # Exclude log files
 *.log*
+
+# Exclude zip files (deprecated)
+*.zip
+
+# Exclude database backups (deprecated)
+database-backup.json

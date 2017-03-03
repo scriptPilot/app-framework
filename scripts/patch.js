@@ -1,10 +1,14 @@
 'use strict'
 
 // Load packages
+var env = require('../env')
 var run = require('./run')
 var alert = require('../lib/alert')
 var found = require('../lib/found')
 var read = require('read-file')
+
+// Require force in development mode
+if (!env.installed && !env.forced) alert('Error: App Framework should be installed as module. Please read our documentation on GitHub.')
 
 // Load configuration
 var cfg = require('./config.js')

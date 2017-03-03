@@ -1,6 +1,7 @@
 'use strict'
 
 // Load packages
+var env = require('../env')
 var path = require('path')
 var utils = require('./utils')
 var webpack = require('webpack')
@@ -21,7 +22,7 @@ var fs = require('fs-extra')
 
 // Load configuration
 var cfg = require('./config.js')
-var pkg = require(cfg.packageRoot + 'package.json')
+var pkg = env.pkg
 
 // Update copyright year in license
 if (!cfg.isInstalled) {
@@ -33,11 +34,13 @@ if (!cfg.isInstalled) {
 }
 
 // Update version in demo app
+/*
 if (!cfg.isInstalled) {
-  var demoApp = require(cfg.appRoot + 'package.json')
+  var demoApp = require(env.proj + 'package.json')
   demoApp.version = pkg.version
-  fs.writeJsonSync(cfg.appRoot + 'package.json', demoApp)
+  fs.writeJsonSync(cfg.appRoot + 'package.json', demoApp, {spaces: 2})
 }
+*/
 
 // Load app configuration
 var app = require(cfg.appRoot + 'config.json')

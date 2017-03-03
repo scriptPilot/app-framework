@@ -13,7 +13,6 @@ modifications13(function () {
   var found = require('../lib/found')
   var alert = require('../lib/alert')
   var glob2regexp = require('glob-to-regexp')
-  let modifications13 = require('./modifications13')
 
   // Update iOS deploy package
   let updateIosDeploy = function (callback) {
@@ -30,15 +29,15 @@ modifications13(function () {
 
   // Prepare the project folder setup
   let prepareSetupProjectFolder = function (callback) {
-    if (env.isInstalled) {
+    if (env.installed) {
       // Rename .npmignore to .gitignore
       if (found(__dirname, '../.npmignore')) fs.renameSync(abs(__dirname, '../.npmignore'), abs(__dirname, '../.gitignore'))
-      if (found(__dirname, '../demo/.npmignore')) fs.renameSync(abs(__dirname, '../demo/.npmignore'), abs(__dirname, '../demo/.gitignore'))
+      if (found(__dirname, '../.npmignore')) fs.renameSync(abs(__dirname, '../.npmignore'), abs(__dirname, '../.gitignore'))
       // Reset version in demo app
-      if (found(__dirname, '../demo/package.json')) {
-        let demo = fs.readJsonSync(abs(__dirname, '../demo/package.json'))
+      if (found(__dirname, '../package.json')) {
+        let demo = fs.readJsonSync(abs(__dirname, '../package.json'))
         demo.version = '1.0.0'
-        fs.writeJsonSync(abs(__dirname, '../demo/package.json'), demo, {spaces: 2})
+        fs.writeJsonSync(abs(__dirname, '../package.json'), demo, {spaces: 2})
       }
     }
     callback()
@@ -46,10 +45,10 @@ modifications13(function () {
 
   // Setup/update project folder
   let setupProjectFolder = function (callback) {
-    if (env.isInstalled) {
+    if (env.installed) {
       alert('Project folder setup ongoing - please wait ...')
       // Define source and destination folder
-      let from = abs(__dirname, '../demo')
+      let from = abs(__dirname, '..')
       let to = env.proj
       // Define files to be copied (glob, replace)
       // - Folders will be removed with replace === true before copy (example: "src/pages")
@@ -65,6 +64,7 @@ modifications13(function () {
         ['src/icon.png'],
         ['src/storage-rules.txt'],
         ['src/pages/login-screen.vue', true],
+        ['.babelrc', true],
         ['.gitignore', true]
       ]
       // Get complete file list
@@ -102,10 +102,10 @@ modifications13(function () {
 
   // Update scripts in package.json
   let updateScripts = function (callback) {
-    if (env.isInstalled) {
+    if (env.installed) {
       alert('Script update onging - please wait ...')
       let proj = fs.readJsonSync(abs(env.proj, 'package.json'))
-      let demo = fs.readJsonSync(abs(__dirname, '../demo/package.json'))
+      let demo = fs.readJsonSync(abs(__dirname, '../package.json'))
       proj.scripts = demo.scripts
       fs.writeJsonSync(abs(env.proj, 'package.json'), proj, {spaces: 2})
       alert('Script update done.')

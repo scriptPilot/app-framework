@@ -21,7 +21,7 @@ run('node "' + path.resolve(cfg.packageRoot, 'scripts/prepare-firebase') + '"', 
     alert('Backup Firebase database - please wait ...')
     cmd(path.resolve(cfg.projectRoot, 'node_modules/firebase-tools/bin'), ['firebase', 'database:get', '/', '>' + backupFile], function () {
       if (found(backupFile)) {
-        fs.writeJsonSync(backupFile, JSON.parse(read.sync(backupFile, 'utf8')))
+        fs.writeJsonSync(backupFile, JSON.parse(read.sync(backupFile, 'utf8')), {spaces: 2})
       }
       alert('Clean up - please wait ...')
       run('node "' + path.resolve(cfg.packageRoot, 'scripts/cleanup-firebase') + '"', function () {

@@ -1,6 +1,7 @@
 'use strict'
 
 // Load packages
+var env = require('../env')
 var path = require('path')
 var found = require('../lib/found')
 var copy = require('cpx').copy
@@ -14,6 +15,9 @@ var list = require('list-dir')
 var replace = require('replace-in-file')
 var fs = require('fs-extra')
 var cmd = require('./cmd')
+
+// Require force in development mode
+if (!env.installed && !env.forced) alert('Error: App Framework should be installed as module. Please read our documentation on GitHub.')
 
 // Load configuration
 var cfg = require('./config.js')

@@ -10,6 +10,6 @@ if (!cfg.isInstalled) {
   var pkg = require(cfg.packageRoot + 'package.json')
   var app = require(cfg.appRoot + 'config.json')
   app.devDependencies['app-framework'] = '^' + pkg.version
-  fs.writeJsonSync(cfg.appRoot + 'package.json', app)
+  fs.writeJsonSync(cfg.appRoot + 'package.json', app, {spaces: 2})
   alert('Required App Framework version updated to ' + pkg.version)
 }

@@ -3,7 +3,6 @@
 // Modules
 var path = require('path')
 var found = require('../lib/found')
-var deleteFiles = require('delete')
 var alert = require('../lib/alert')
 var img = require('jimp')
 var fs = require('fs-extra')
@@ -80,7 +79,7 @@ for (let i = 0; i < icons.length; i++) {
 }
 
 // Define icon file
-let iconFile = found(cfg.appRoot, app.iconImage) ? path.resolve(cfg.appRoot, app.iconImage) : path.resolve(cfg.packageRoot, 'demo/images/icon.png')
+let iconFile = found(cfg.appRoot, app.iconImage) ? path.resolve(cfg.appRoot, app.iconImage) : path.resolve(cfg.packageRoot, 'images/icon.png')
 
 // Load icon file
 new img(iconFile, function (err, icon) { // eslint-disable-line

@@ -5,7 +5,6 @@ var cfg = require('./config.js')
 
 // Import packages
 var found = require('../lib/found')
-var deleteFiles = require('delete')
 var path = require('path')
 var fs = require('fs-extra')
 

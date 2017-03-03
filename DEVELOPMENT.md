@@ -10,6 +10,10 @@
 - [Folder structure](#folder-structure)
 - [Script files](#script-files)
 
+## CLI commands
+
+To inform end users about wrong App Framework usage (forking instead of installing as module), end user scripts must be run with parameter `--force` (or short `-f`) in development mode to run them with the demo app.
+
 ## Folder structure
 
 ```
@@ -34,7 +38,7 @@
 
 ## Script files
 
-- Should use *lib/cmd* to run scripts asynchronously
+- Should use *lib/cmd* to run scripts with callback on success
 - Should use *lib/alert* to show information about progress
-  - Should abort script execution on error with `alert('Error: ...')` or `alert('Message ...', 'error')`
-- Create single steps with callback and arrange them
+- Should abort script execution on error with `alert('Error: ...')` or `alert('Message ...', 'error')`
+- Should be splitted up in single steps, arranged with nested callbacks

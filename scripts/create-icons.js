@@ -3,7 +3,7 @@
 // Include packages
 let env = require('../env')
 let alert = require('../lib/alert')
-let hex2rgb = require('hex-rgb')
+// let hex2rgb = require('hex-rgb')
 let img = require('jimp')
 let found = require('../lib/found')
 let abs = require('path').resolve
@@ -13,9 +13,10 @@ let fs = require('fs-extra')
 alert('Icon generation ongoing - please wait ...')
 
 // Define background color
-let bg = hex2rgb(env.cfg.iconBackgroundColor).concat(255)
+// let bg = hex2rgb(env.cfg.iconBackgroundColor).concat(255)
 
 // Define icons
+/*
 let icons = [
   ['app-store-icon', 1024, 1024, bg],
   ['play-store-icon', 512, 512],
@@ -62,9 +63,13 @@ let icons = [
   ['android-launchscreen-mdpi', 320, 480, bg],
   ['android-launchscreen-ldpi', 200, 320, bg]
 ]
+*/
 
 // Get version parameter
-let version = /^(--|-)(version|v)$/.test(process.argv[2]) && /^([0-9]+)\.([0-9]+)\.([0-9]+)$/.test(process.argv[3]) ? process.argv[3] : 'dev'
+let version = /^([0-9]+)\.([0-9]+)\.([0-9]+)$/.test(env.arg.version) ? env.arg.version : 'dev'
+if (env.arg.version !== undefined && env.arg.version !== version) {
+  alert('Error: Given version parameter not valid for icon creation.')
+}
 
 // Delete dev cache folder
 fs.remove(abs(env.cache, 'icons/dev'))

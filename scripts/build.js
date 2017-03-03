@@ -1,32 +1,49 @@
 'use strict'
 
-// https://github.com/shelljs/shelljs
-// require('./check-versions')()
-require('shelljs/global')
+// Load packages
+let env = require('../env')
+let alert = require('../lib/alert')
+let found = require('../lib/found')
+let cmd = require('../lib/cmd')
+let webpack = require('webpack')
 
-var ora = require('ora')
-var found = require('../lib/found')
-var webpack = require('webpack')
-var webpackConfig = require('./webpack.prod.conf')
+// Load webpack configuration
+let webpackConfig = require('./webpack.prod.conf')
 
-var spinner = ora('building for production...')
-spinner.start()
-
-// Copy babelrc file (will be deleted after build)
-var cfg = require('./config.js')
-if (cfg.isInstalled && !found(cfg.projectRoot + '.babelrc')) {
-  var cpx = require('cpx')
-  cpx.copySync(cfg.packageRoot + '.babelrc', cfg.projectRoot)
+// Get version parameter
+let version = /^([0-9]+)\.([0-9]+)\.([0-9]+)$/.test(env.arg.version) ? env.arg.version : 'dev'
+if (env.arg.version !== undefined && env.arg.version !== version) {
+  alert('Error: Given version parameter not valid for building the application.')
 }
 
-webpack(webpackConfig, function (err, stats) {
-  spinner.stop()
-  if (err) throw err
-  process.stdout.write(stats.toString({
-    colors: true,
-    modules: false,
-    children: false,
-    chunks: false,
-    chunkModules: false
-  }) + '\n')
+// Run webpack
+let runWebpack = function (callback) {
+  /*
+  alert('Webpack build process ongoing - please wait ...')
+  webpack(webpackConfig, function (err, stats) {
+    if (err) {
+      alert('Error: Webpack build process failed.')
+    } else {
+      alert('Webpack build done')
+      callback()
+    }
+    process.stdout.write(stats.toString({
+      colors: true,
+      modules: false,
+      children: false,
+      chunks: false,
+      chunkModules: false
+    }) + '\n')
+  })
+  */
+  callback()
+}
+
+// Run build process
+cmd(__dirname, 'node cache-snapshot --version ' + version, function () {
+  cmd(__dirname, 'node create-icons --version' + version, function () {
+    runWebpack(function () {
+      alert('Build done for version "' + version + '".')
+    })
+  })
 })

@@ -28,7 +28,7 @@ if (!found(cfg.appRoot + 'database-rules.json')) {
       '.read': 'auth != null',
       '.write': 'auth != null'
     }
-  })
+  }, {spaces: 2})
 }
 
 // Create file with standard storage rules
@@ -72,7 +72,7 @@ fs.writeJsonSync(path.resolve(firebaseFolder, '.firebaserc'), {
   'projects': {
     'default': app.firebase.authDomain.substr(0, app.firebase.authDomain.indexOf('.firebaseapp.com'))
   }
-})
+}, {spaces: 2})
 
 // Copy files
 copy.copySync(path.resolve(cfg.appRoot, 'database-rules.json'), firebaseFolder)
@@ -80,6 +80,6 @@ copy.copySync(path.resolve(cfg.appRoot, 'storage-rules.txt'), firebaseFolder)
 copy.copySync(path.resolve(cfg.appRoot, 'www/build-' + version + '/**/*'), path.resolve(firebaseFolder, 'www'))
 
 // Write Firebase config
-fs.writeJsonSync(path.resolve(firebaseFolder, 'firebase.json'), config)
+fs.writeJsonSync(path.resolve(firebaseFolder, 'firebase.json'), config, {spaces: 2})
 
 module.exports = {}
