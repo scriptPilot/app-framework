@@ -35,7 +35,7 @@ zip(env.proj, {saveTo: snapshotFile, filter: function (path, stat) {
   return !env.ignored(path)
 }}, function (err) {
   if (err) {
-    alert('Error: Snapshot creation failed. Please open an incident on GitHub.')
+    alert('Error: Snapshot creation failed.', 'issue')
   } else {
     alert('Snapshot creation done.')
   }

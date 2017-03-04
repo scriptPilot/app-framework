@@ -42,7 +42,7 @@ let cache = abs(proj, 'node_modules/.app-framework-cache')
 // Check configuration file
 let configFix = jsonScheme.fix(abs(__dirname, 'config-scheme.json'), abs(app, 'config.json'))
 if (Array.isArray(configFix)) {
-  alert('Error: Failed to fix config file. Please open an issue on GitHub.\nDetails:\n- ' + configFix.join('\n- '))
+  alert('Error: Failed to fix config file.\nDetails:\n- ' + configFix.join('\n- '), 'issue')
 }
 
 // Load configuration
@@ -56,7 +56,7 @@ if (process.platform === 'win32') {
 } else if (process.platform === 'darwin') {
   os = 'mac'
 } else {
-  alert('Error: Your operation system is not supported. Please open an issue on GitHub.')
+  alert('Error: Your operation system "' + process.platform + '" is not supported.', 'issue')
 }
 
 // Read .gitignore file as array with regexp
@@ -80,8 +80,6 @@ if (found(proj, '.gitignore')) {
     }
   }
 }
-
-console.log('ignored', ignoredExp)
 
 // Function to check path according .gitignore file
 let ignored = function (path) {

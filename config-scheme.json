@@ -11,6 +11,21 @@
     "allow": ["ios", "material"],
     "default": "ios"
   },
+  "test": {
+    "props": {
+      "subtest": {
+        "props": {
+          "subsubtest": {
+            "props": {
+              "item": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
   "loadIconFonts": {
     "props": {
       "framework7": {
