@@ -145,6 +145,8 @@ You can use your favorite code editor. But we recommend [Atom](https://atom.io/)
 4. Run `npm run dev` to start the Demo App at localhost:8080
 5. Read our [Documentation](DOCUMENTATION.md)
 
+Run `npm update` to update App Framework to latest sub version. A snapshot of your project folder will be created before in folder *snapshots*.
+
 ### Design your application
 - Use our printable [smartphone template](design/smartphone-template.pdf) to sketch your application
 - Use our icon template as [PDF to sketch](design/icon-template.pdf) and [PPTX to draw](design/icon-template.pptx) your application icon

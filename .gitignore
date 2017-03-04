@@ -1,11 +1,17 @@
 # Exclude Allway Sync folder
 _SYNCAPP/
 
+# Exclude Git folder
+.git/
+
 # Exclude node modules (with cache)
 node_modules/
 
 # Exclude project snapshots
 snapshots/
+
+# Exclude macOS system files
+.DS_Store
 
 # Exclude log files
 *.log*
