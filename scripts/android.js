@@ -199,6 +199,8 @@ checkBuild(function () {
           buildCordovaAndroid(function () {
             showOnly('Android Studio project version ' + version + ' build, Android Studio is starting ...')
             if (process.platform === 'win32') {
+              // If get error change location Android studio!
+              // C:/Program Files/Android/Android Studio/bin
               cmd(path.resolve('C:/Programme/Android/Android Studio/bin'), ['start', 'studio64.exe', '"' + path.resolve(cfg.packageRoot, 'cordova/platforms/android') + '"'], function () {
                 showOnly('Android Studio started with build version ' + version)
               })
