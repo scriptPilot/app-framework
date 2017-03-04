@@ -63,6 +63,7 @@
     "inobounce": "^0.1.4",
     "jimp": "^0.2.27",
     "json-loader": "^0.5.4",
+    "list-dir": "^1.2.0",
     "minimist": "^1.2.0",
     "on-build-webpack": "^0.1.0",
     "opn": "^4.0.2",

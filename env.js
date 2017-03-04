@@ -40,14 +40,16 @@ let app = abs(proj, 'app')
 let cache = abs(proj, 'node_modules/.app-framework-cache')
 
 // Check configuration file
-let configFix = jsonScheme.fix(abs(__dirname, 'config-scheme.json'), abs(app, 'config.json'))
-if (Array.isArray(configFix)) {
-  alert('Error: Failed to fix config file.\nDetails:\n- ' + configFix.join('\n- '), 'issue')
+if (found(app, 'config.json')) {
+  let configFix = jsonScheme.fix(abs(__dirname, 'config-scheme.json'), abs(app, 'config.json'))
+  if (Array.isArray(configFix)) {
+    alert('Error: Failed to fix config file.\nDetails:\n- ' + configFix.join('\n- '), 'issue')
+  }
 }
 
 // Load configuration
-let pkg = fs.readJsonSync(abs(proj, 'package.json'))
-let cfg = fs.readJsonSync(abs(app, 'config.json'))
+let pkg = found(proj, 'package.json') ? fs.readJsonSync(abs(proj, 'package.json')) : {}
+let cfg = found(app, 'config.json') ? fs.readJsonSync(abs(app, 'config.json')) : {}
 
 // Define operating system
 let os = null
