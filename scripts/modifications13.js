@@ -135,9 +135,6 @@ if (found(proj, 'package.json')) {
     }
     for (let i = 0; i < items.length; i++) {
       if (/^build-([0-9]+)\.([0-9]+)\.([0-9]+)(\/|\\)index\.html$/.test(items[i]) === true) {
-        if (!found(proj, 'snapshots')) {
-          fs.ensureDirSync(abs(proj, 'snapshots'))
-        }
         let build = items[i].match(/^build-(([0-9]+)\.([0-9]+)\.([0-9]+))(\/|\\)index\.html$/)[1]
         fs.move(abs(wwwFolder, 'build-' + build), abs(wwwFolder, '.temp'), function (err) {
           if (!err) {

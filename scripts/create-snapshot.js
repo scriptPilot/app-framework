@@ -30,13 +30,17 @@ if (found(snapshotFile) === true) {
 fs.ensureDirSync(path.dirname(snapshotFile))
 
 // Create snapshot
-zip(env.proj, {saveTo: snapshotFile, filter: function (path, stat) {
-  path = path.substr(env.proj.length + 1)
-  return !env.ignored(path)
-}}, function (err) {
-  if (err) {
-    alert('Error: Snapshot creation failed.', 'issue')
-  } else {
-    alert('Snapshot creation done.')
+zip(env.proj, {
+  saveTo: snapshotFile,
+  filter: function (path, stat) {
+    path = path.substr(env.proj.length + 1)
+    return !env.ignored(path)
+  }},
+  function (err) {
+    if (err) {
+      alert('Error: Snapshot creation failed.', 'issue')
+    } else {
+      alert('Snapshot creation done.')
+    }
   }
-})
+)

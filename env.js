@@ -39,7 +39,7 @@ let proj = installed ? abs(__dirname, '../../') : abs(__dirname)
 let app = abs(proj, 'app')
 let cache = abs(proj, 'node_modules/.app-framework-cache')
 
-// Check configuration file
+// Fix configuration file
 if (found(app, 'config.json')) {
   let configFix = jsonScheme.fix(abs(__dirname, 'config-scheme.json'), abs(app, 'config.json'))
   if (Array.isArray(configFix)) {
@@ -65,7 +65,7 @@ if (process.platform === 'win32') {
 let ignoredExp = []
 if (found(proj, '.gitignore')) {
   let gitignore = fs.readFileSync(abs(proj, '.gitignore'), 'utf8')
-  let rows = gitignore.split("\n")
+  let rows = gitignore.split('\n')
   for (let r = 0; r < rows.length; r++) {
     if (rows[r] !== '' && /^#/.test(rows[r]) === false) {
       let exp = rel(rows[r])
@@ -76,7 +76,7 @@ if (found(proj, '.gitignore')) {
       // Escape wildcards
       exp = exp.replace(/\*/g, '(.*)')
       // Make last slash optional (to include folder itself)
-      exp = exp.replace(/^(.+)\\\/$/, '$1(' + sep.replace('/', '\/') + '(.*))?')
+      exp = exp.replace(/^(.+)\\\/$/, '$1(' + sep.replace('/', '\/') + '(.*))?') // eslint-disable-line
       exp = RegExp('^' + exp + '$')
       ignoredExp.push(exp)
     }

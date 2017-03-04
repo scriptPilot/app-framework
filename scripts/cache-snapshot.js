@@ -7,7 +7,6 @@ let env = require('../env')
 let alert = require('../lib/alert')
 let found = require('../lib/found')
 let unzip = require('extract-zip')
-let fs = require('fs-extra')
 let path = require('path')
 
 // Alert
@@ -31,10 +30,14 @@ let snapshotFile = path.resolve(env.proj, 'snapshots/' + env.arg.name + '.zip')
 if (!found(snapshotFile)) {
   alert('Error: Snapshot file "' + path.relative(env.proj, snapshotFile) + '" not found.')
 }
-unzip(snapshotFile, {dir: cacheFolder}, function (err) {
-  if (err) {
-    alert('Error: Snapshot cache failed.', 'issue')
-  } else {
-    alert('Snapshot cache done.')
+unzip(
+  snapshotFile,
+  {dir: cacheFolder},
+  function (err) {
+    if (err) {
+      alert('Error: Snapshot cache failed.', 'issue')
+    } else {
+      alert('Snapshot cache done.')
+    }
   }
-})
+)

@@ -21,9 +21,6 @@ let alert = require('../lib/alert')
 let cmd = require('../lib/cmd')
 let found = require('../lib/found')
 let fs = require('fs-extra')
-let glob2regexp = require('glob-to-regexp')
-let list = require('recursive-readdir')
-let rel = require('path').join
 let abs = require('path').resolve
 
 // Step: Prepare the project folder setup
@@ -119,9 +116,16 @@ let setupProjectFolder = function (callback) {
 let updateScripts = function (callback) {
   if (env.installed) {
     alert('Script update onging - please wait ...')
+    let scripts = fs.readJsonSync(abs(__dirname, '../package.json')).scripts
+    for (let script in scripts) {
+      if (['f7', 'f7vue', 'postpublish'].indexOf(script) !== -1) {
+        delete scripts[script]
+      } else {
+        scripts[script] = scripts[script].replace('node scripts/', 'node node_modules/app-framework/scripts/')
+      }
+    }
     let proj = fs.readJsonSync(abs(env.proj, 'package.json'))
-    let demo = fs.readJsonSync(abs(__dirname, '../package.json'))
-    proj.scripts = demo.scripts
+    proj.scripts = scripts
     fs.writeJsonSync(abs(env.proj, 'package.json'), proj)
     alert('Script update done.')
   }
