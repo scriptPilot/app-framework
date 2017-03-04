@@ -3,30 +3,26 @@
 'use strict'
 
 // Load packages
-let env = require('../env')
-let alert = require('../lib/alert')
-let cmd = require('../lib/cmd')
-let fs = require('fs-extra')
-let abs = require('path').resolve
+var env = require('../env')
+var alert = require('../lib/alert')
+var cmd = require('../lib/cmd')
+var fs = require('fs-extra')
+var abs = require('path').resolve
 
 // Show message
 alert('Standard JavaScript fix ongoing - please wait ...')
 
-// Define log file
-let logFile = 'code-findings.log'
-
 // Define Standard parameters
-let params = [
+var params = [
   'node',
   'cmd.js',
-  '>' + abs(env.proj, logFile),
-  // Find app.vue, pages/*.vue and pages/sub/*.vue
+  '>' + abs(env.proj, 'code-findings.log'),
   '"' + abs(env.app, '**/*.vue') + '"'
 ]
 if (!env.installed) {
   params.push('"' + abs(__dirname, '../*.js') + '"')
   params.push('"' + abs(__dirname, '../lib/*.js') + '"')
-  params.push('"' + abs(__dirname, '../scripts/*.js') + '"')
+  params.push('"' + abs(__dirname, '../lib/*.js') + '"')
 }
 params.push('--plugin')
 params.push('html')
@@ -34,6 +30,6 @@ params.push('--fix')
 
 // Do the fix
 cmd([env.proj, 'node_modules/standard/bin'], params, function () {
-  fs.removeSync(abs(env.proj, logFile))
+  fs.removeSync(abs(env.proj, 'standard-check.log'))
   alert('Standard JavaScript fix done.')
-}, 'Error: Some findings must be fixed manually - please check "' + logFile + '" for detailed information.')
+}, 'Error: Some findings must be fixed manually - please check "standard-check.log" for detailed information.')

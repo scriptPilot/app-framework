@@ -11,6 +11,7 @@
 - [Vue hooks](#vue-hooks)
 - Workflow
   - [Setup your development environment](#setup-your-development-environment)
+  - [Install App Framework](#install-app-framework)
   - [Design your application](#design-your-application)
   - [Develop your application](#develop-your-application)
   - [Test your application](#test-your-application)
@@ -41,7 +42,7 @@ Read less, code more - please open a ticket for any open question in our [Issue 
   - `npm run patch` to build after bug-fixes and improvements
   - `npm run minor` to build after adding new functionality
   - `npm run major` to build after backward-capability breaking changes
-  
+
 - Deployment
   - `npm run firebase` to deploy rules and static files to Firebase
     - `npm run database` to deploy database rules to Firebase
@@ -56,11 +57,7 @@ Read less, code more - please open a ticket for any open question in our [Issue 
 ## Project folder structure
 
 ```
-├── build                       # Latest build files (do not modify)
-├── design                      # Design templates (PDF, Power Point)
-├── node_modules                # Installed node modules (do not modify)
-├── snapshots                   # Project snapshots (for rollback)
-├── src                         # App source folder
+├── app                         # App source folder
 │   ├── images                  # App images
 │   ├── pages                   # App page components
 │   ├── app.vue                 # App main component
@@ -68,6 +65,11 @@ Read less, code more - please open a ticket for any open question in our [Issue 
 │   ├── database-rules.json     # Firebase database rules
 │   ├── icon.png                # App icon file (minimum size is 1024 pixel)
 │   └── storage-rules.txt       # Firebase storage rules
+├── build                       # Latest build files (do not modify)
+├── design                      # Design templates (PDF, Power Point)
+├── node_modules                # Installed node modules (do not modify)
+├── snapshots                   # Project snapshots (for rollback)
+├── .babelrc                    # Babel configuration file for ES2015 support
 ├── .gitignore                  # List of ignored files for Git commits
 └── package.json                # Project information
 ```
@@ -118,37 +120,54 @@ resetLocalStorageOnVersionChange | *boolean* | false
 
 ### Setup your development environment
 
-- Install [Node.js with npm](https://docs.npmjs.com/getting-started/what-is-npm)
-- Download *[package.json](https://raw.githubusercontent.com/scriptPilot/app-framework/master/demo-app/package.json)* file to an empty folder (keep extension .json!)
-- Run `npm install` to setup project folder
-- Run `npm update` to update *App Framework* to latest sub version
+You can use your favorite code editor. But we recommend [Atom](https://atom.io/), an open source code editor.
+
+1. Install [Atom](https://atom.io/)
+2. Open Atom preferences > Packages page
+3. Search for *language-vue-component* and install the package for correct syntax highlighting
+
+### Install App Framework
+
+1. Install [Node.js with npm](https://docs.npmjs.com/getting-started/what-is-npm)
+2. Create a **package.json** file in an empty project folder with the following content:
+
+   ```
+   {
+     "name": "my-app",
+     "version": "1.0.0",
+     "devDependencies": {
+       "app-framework": "*"
+     }
+   }
+   ```
+
+3. Run `npm install` to install App Framework and setup the project folder
+4. Run `npm run dev` to start the Demo App at localhost:8080
+5. Read our [Documentation](DOCUMENTATION.md)
 
 ### Design your application
-- Use our printable [smartphone template](demo-app/design/smartphone-template.pdf) to sketch your application
-- Use our icon template as [PDF to sketch](demo-app/design/icon-template.pdf) and [PPTX to draw](demo-app/design/icon-template.pptx) your application icon
+- Use our printable [smartphone template](design/smartphone-template.pdf) to sketch your application
+- Use our icon template as [PDF to sketch](design/icon-template.pdf) and [PPTX to draw](design/icon-template.pptx) your application icon
 
 ### Develop your application
 
-- Update the configuration in *package.json* file - first of all for Firebase!
+- Update the configuration in *app/config.json* file - first of all for Firebase!
 - Run `npm run dev` to start development server at localhost:8080
-- Save images to *images* folder
-- Edit app component in *app.vue* file
-- Edit page components in *pages* folder
+- Save images to *app/images* folder
+- Edit app component in *app/app.vue* file
+- Edit page components in *app/pages* folder
   - After adding, removing or renaming pages you have to run `npm run dev` again!
   - Study the code of the example pages to learn how to realize things in App Framework
-- Edit [database rules](https://firebase.google.com/docs/database/security/quickstart) in *database-rules.json* file
-- Edit [storage rules](https://firebase.google.com/docs/storage/security/) in *storage-rules.txt* file
+- Edit [database rules](https://firebase.google.com/docs/database/security/quickstart) in *app/database-rules.json* file
+- Edit [storage rules](https://firebase.google.com/docs/storage/security/) in *app/storage-rules.txt* file
 
 ### Test your application
 
-- Run `npm run check` to check files according [Standard JavaScript](http://standardjs.com/index.html)
-- Run `npm run fix` to fix files as far as possible according [Standard JavaScript](http://standardjs.com/index.html)
-- Use [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools/) to debug your application
+App Framework fix your code automatically on each test or build command. To disable this behavior, you can set the config parameter *fixCodeOnBuild* to false. If some findings could not be fixed automatically, they will be logged to *code-findings.log*.
 
 ### Build your application
 
 - If you use Git, commit your changes first
-- Run `npm run icons` to update favicon, icons and splash screen graphics
 - Run `npm run patch` after bugfixes and improvements
 - Run `npm run minor` after adding new functionality
 - Run `npm run major` after breaking backward-capability

@@ -1,0 +1,34 @@
+{
+  "title": "Demo App",
+  "defaultLanguage": "de",
+  "theme": "material",
+  "loadIconFonts": {
+    "framework7": false,
+    "material": false,
+    "ion": false,
+    "fontawesome": "true"
+  },
+  "showPhoneFrameOnDesktop": true,
+  "materialSubnavbarFix": true,
+  "specialRoutes": {
+    "flexible-routing/blog/:blogId/post/:postId": "flexible-routing"
+  },
+  "pagesWithRequiredLogin": [
+    "firebase-private"
+  ],
+  "firebase": {
+    "apiKey": "AIzaSyAvzTiqd9fKR-h47Uxl4iXwqSMU1VjGdII",
+    "authDomain": "xxx",
+    "databaseURL": "https://app-framework-9045a.firebaseio.com",
+    "storageBucket": "app-framework-9045a.appspot.com",
+    "allowUserRegistration": true
+  },
+  "appStoreId": "de.scriptpilot.app-framework",
+  "playStoreId": "de.scriptpilot.appframework",
+  "useCordovaPlugins": [
+    "cordova-plugin-statusbar"
+  ],
+  "resetLocalStorageOnVersionChange": true,
+  "buildSourcemaps": false,
+  "fixCodeOnBuild": true
+}

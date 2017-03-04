@@ -7,6 +7,12 @@
   - Create object from scheme
   - Create markdown documentation from scheme for GitHub
 
+  // Allowed call
+  json.validateObject(scheme <object/path>, object <object/path>)
+  json.createObject(scheme <object/path>)
+  json.fix(scheme <object/path>, object <object/file>)
+  json.docu(scheme <object/path>, type <"table"/"list">)
+
   // Example scheme
   {
     "item": {
@@ -26,6 +32,7 @@
 */
 
 // Load modules
+let found = require('./found')
 let fs = require('fs-extra')
 
 // Function to validate item
@@ -171,6 +178,40 @@ let createObject = function (scheme, parentStr) {
   return object
 }
 
+// Function to fix item
+let fixObject = function (scheme, object, subItem) {
+  if (subItem !== undefined && scheme[subItem].props === undefined) {
+    let errors = validateObject(scheme, object)
+    if (errors.length === 0) {
+      return object[subItem]
+    } else {
+      let value
+      if (scheme[subItem].default !== undefined) {
+        value = scheme[subItem].default
+      } else if (scheme[subItem].type === 'boolean') {
+        value = true
+      } else if (scheme[subItem].type === 'object') {
+        value = {}
+      } else if (scheme[subItem].type === 'array') {
+        value = []
+      } else {
+        throw new Error('Unknown scheme type.')
+      }
+      return value
+    }
+  } else {
+    let newObject = {}
+    for (let item in subItem !== undefined ? scheme[subItem].props : scheme) {
+      let schemeToUse = {}
+      schemeToUse[item] = subItem !== undefined ? scheme[subItem].props[item] : scheme[item]
+      let objectToFix = {}
+      if (object) objectToFix[item] = object[item]
+      newObject[item] = fixObject(schemeToUse, objectToFix, item)
+    }
+    return newObject
+  }
+}
+
 // Functions to create documentation
 let createDocumentation = function (scheme, docType, parentStr, listIndent) {
   parentStr = parentStr !== undefined ? parentStr + '.' : ''
@@ -212,7 +253,11 @@ module.exports = {
     }
     // Read object from file
     if (typeof object === 'string') {
-      object = fs.readJsonSync(object)
+      if (found(object)) {
+        object = fs.readJsonSync(object)
+      } else {
+        object = {}
+      }
     }
     // Check object
     if (typeof object !== 'object' || object === null) {
@@ -247,6 +292,46 @@ module.exports = {
       } else {
         return object
       }
+    }
+  },
+  // Function to fix json object according scheme
+  fix: function (scheme, object) {
+    // Define outout
+    let fileOutput = typeof object === 'string' ? object : false
+    // Read scheme from file
+    if (typeof scheme === 'string') {
+      scheme = fs.readJsonSync(scheme)
+    }
+    // Check scheme
+    if (typeof scheme !== 'object' || scheme === null) {
+      throw new Error('Scheme not valid')
+    }
+    // Validate scheme
+    let errors = validateObject(scheme)
+    // Scheme validation failed
+    if (errors.length > 0) {
+      throw new Error('Errors on JSON scheme validation:' + '\n- ' + errors.join('\n- '))
+    }
+    // Read object from file
+    if (typeof object === 'string') {
+      if (found(object)) {
+        object = fs.readJsonSync(object)
+      } else {
+        object = {}
+      }
+    }
+    // Check object
+    if (typeof object !== 'object' || object === null) {
+      throw new Error('Object not valid')
+    }
+    // Fix object
+    let newObject = fixObject(scheme, object)
+    // Save object to file
+    if (typeof fileOutput === 'string') {
+      fs.writeJsonSync(fileOutput, newObject, {spaces: 2})
+    // Return object
+    } else {
+      return newObject
     }
   },
   // Function to create documentation from scheme

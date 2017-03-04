@@ -4,7 +4,7 @@
     "default": "Demo App"
   },
   "defaultLanguage": {
-    "regex": "/^([a-z]{2})$/",
+    "regexp": "/^([a-z]{2})$/",
     "default": "en"
   },
   "theme": {
@@ -12,7 +12,6 @@
     "default": "ios"
   },
   "loadIconFonts": {
-    "type": "object",
     "props": {
       "framework7": {
         "type": "boolean",
@@ -33,7 +32,7 @@
     }
   },
   "iconBackgroundColor": {
-    "regex": "/^#([0-9a-f]{6})$/i",
+    "regexp": "/^#([0-9a-f]{6})$/i",
     "default": "#ffffff"
   },
   "statusbarTextColor": {
@@ -59,7 +58,6 @@
     "default": ["firebase-private"]
   },
   "firebase": {
-    "type": "object",
     "props": {
       "apiKey": {
         "type": "string",
@@ -97,12 +95,16 @@
       "cordova-plugin-statusbar"
     ]
   },
+  "resetLocalStorageOnVersionChange": {
+    "type": "boolean",
+    "default": false
+  },
   "buildSourcemaps": {
     "type": "boolean",
     "default": false
   },
-  "resetLocalStorageOnVersionChange": {
+  "fixCodeOnBuild": {
     "type": "boolean",
-    "default": false
+    "default": true
   }
 }
