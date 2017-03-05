@@ -9,10 +9,13 @@ let fs = require('fs')
 let abs = require('path').resolve
 let webpack = require('webpack')
 
-// Define mode (dev or prod)
-let mode = 'development'
+// Define mode
+if (env.arg.development !== true && env.arg.production !== true) {
+  throw new Error('Webpack needs argument "production" or "development". Please open an issue on GitHub.')
+}
+let mode = env.arg.development === true ? 'development' : 'production'
 
-// Define string with all pages
+// Define string with all pages (to use in main.js)
 var pageStr = ''
 if (found(env.app, 'pages')) {
   var pageFiles = fs.readdirSync(abs(env.app, 'pages'))
@@ -25,23 +28,6 @@ if (found(env.app, 'pages')) {
       pageStr += pageFiles[p].substr(0, pageFiles[p].length - 4)
     }
   }
-}
-
-// Define configuration
-let config = {
-  env:  {
-    THEME: '"' + env.cfg.theme + '"',
-    APP_ROOT_FROM_SCRIPTS : '"' + (env.installed ? '../../../app/' : '../app/') + '"',
-    FRAMEWORK_VERSION: '"' + env.pkg.version + '"',
-    FONT_FRAMEWORK7: '"' + env.cfg.loadIconFonts.framework7 + '"',
-    FONT_MATERIAL: '"' + env.cfg.loadIconFonts.material + '"',
-    FONT_ION: '"' + env.cfg.loadIconFonts.ion + '"',
-    FONT_AWESOME: '"' + env.cfg.loadIconFonts.fontawesome + '"',
-    RESET_LOCAL_STORAGE: '"' + env.cfg.resetLocalStorageOnVersionChange + '"',
-    PAGES: '"' + pageStr + '"',
-    NODE_ENV: '"' + mode + '"'
-  },
-  port: 1234
 }
 
 // Define loaders
@@ -95,88 +81,75 @@ let loaders = [
   }
 ]
 
-// Define plugins
-let plugins = [
-  new webpack.DefinePlugin({
-    'process.env': config.env
-  })
-]
-
-
-// ---
-
-
-var HtmlWebpackPlugin = require('html-webpack-plugin')
-plugins = plugins.concat([
-  new webpack.optimize.OccurrenceOrderPlugin(),
-  new webpack.HotModuleReplacementPlugin(),
-  new webpack.NoErrorsPlugin(),
-  new HtmlWebpackPlugin({
-    filename: 'index.html',
-    template: 'index.ejs',
-    title: env.cfg.title,
-    iconTags: '', /* favicon.ico will be loaded by browser default from root directory */
-    manifest: '',
-    inject: true
-  })
-])
-
-// Load modules
-var path = require('path')
-var merge = require('webpack-merge')
-var list = require('fs-extra').readdirSync
-var alert = require('../lib/alert')
-
-
-
-var cfg = {
-    env: config.env,
-    port: 8080,
-    assetsSubDirectory: '',
-    assetsPublicPath: '',
-    proxyTable: {},
-    cssSourceMap: false
-}
-
-
-var utils = require('../scripts.old/utils')
-
-// Load packages
-var devWebpackConfig = {
+// Define configuration
+let config = {
   entry: {
     app: [abs(__dirname, '../scripts.old/main.js')]
   },
   output: {
     path: abs(env.app, 'build'),
-    publicPath: process.env.NODE_ENV === 'production' ? cfg.build.assetsPublicPath : cfg.assetsPublicPath,
     filename: '[name].js'
   },
-  resolve: {
+  module: {
+    loaders: loaders
+  },
+  plugins: []
+}
+
+// Plugin: Environment variables
+config.plugins.push(
+  new webpack.DefinePlugin({
+    'process.env': {
+      THEME: '"' + env.cfg.theme + '"',
+      APP_ROOT_FROM_SCRIPTS : '"' + (env.installed ? '../../../app/' : '../app/') + '"',
+      FRAMEWORK_VERSION: '"' + env.pkg.version + '"',
+      FONT_FRAMEWORK7: '"' + env.cfg.loadIconFonts.framework7 + '"',
+      FONT_MATERIAL: '"' + env.cfg.loadIconFonts.material + '"',
+      FONT_ION: '"' + env.cfg.loadIconFonts.ion + '"',
+      FONT_AWESOME: '"' + env.cfg.loadIconFonts.fontawesome + '"',
+      RESET_LOCAL_STORAGE: '"' + env.cfg.resetLocalStorageOnVersionChange + '"',
+      PAGES: '"' + pageStr + '"',
+      NODE_ENV: '"' + mode + '"'
+    }
+  })
+)
+
+// Plugin: HTML index file generation
+let htmlPlugin = require('html-webpack-plugin')
+config.plugins.push(
+  new htmlPlugin({
+    filename: 'index.html',
+    template: 'index.ejs',
+    title: env.cfg.title,
+    iconTags: '', // favicon.ico will be loaded by browser default from root directory
+    manifest: mode === 'production' ? ' manifest="manifest.appcache"' : '',
+    inject: true
+  })
+)
+
+// ---
+
+
+
+config.plugins = config.plugins.concat([
+  new webpack.optimize.OccurrenceOrderPlugin(),
+  new webpack.HotModuleReplacementPlugin(),
+  new webpack.NoErrorsPlugin(),
+
+])
+
+config.resolve = {
     extensions: ['', '.js', '.vue', '.json'],
     fallback: [env.proj + 'node_modules'],
     alias: {
       'vue$': 'vue/dist/vue.common.js'
     }
-  },
-  resolveLoader: {
-    fallback: [env.proj + 'node_modules']
-  },
-  module: {
-    loaders: loaders
-  },
-  plugins: plugins,
-  vue: {
-    loaders: utils.cssLoaders({ sourceMap: false }),
-    postcss: [
-      require('autoprefixer')({
-        browsers: ['last 2 versions']
-      })
-    ]
   }
-}
+config.resolveLoader = {
+    fallback: [env.proj + 'node_modules']
+  }
+config.devtools = '#eval-source-map'
+config.module.loaders.push(require('./utils').styleLoaders({ sourceMap: false }))
+config.entry['app'].unshift('./scripts.old/dev-client')
 
-devWebpackConfig.devtools = '#eval-source-map'
-devWebpackConfig.module.loaders.push(utils.styleLoaders({ sourceMap: false }))
-devWebpackConfig.entry['app'].unshift('./scripts.old/dev-client')
-
-module.exports = devWebpackConfig
+module.exports = config
