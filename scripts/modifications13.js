@@ -8,7 +8,6 @@ let abs = require('path').resolve
 let fs = require('fs-extra')
 let img = require('jimp')
 let zipdir = require('zip-dir')
-let list = require('list-dir').sync
 
 // Alert
 alert('Release modifications of v1.3 ongoing - please wait ...')
@@ -130,7 +129,7 @@ if (found(proj, 'package.json')) {
   fs.ensureDirSync(abs(proj, 'snapshots'))
   let wwwFolder = abs(proj, 'www')
   if (found(wwwFolder)) {
-    let items = list(wwwFolder)
+    let items = fs.readdirSync(wwwFolder)
     if (items.length === 0) {
       fs.removeSync(wwwFolder)
     }
@@ -147,7 +146,7 @@ if (found(proj, 'package.json')) {
                   if (!err) {
                     fs.removeSync(abs(wwwFolder, 'build-' + build))
                   }
-                  if (list(wwwFolder).length === 0) {
+                  if (fs.readdirSync(wwwFolder).length === 0) {
                     fs.removeSync(wwwFolder)
                   }
                 })
@@ -157,11 +156,11 @@ if (found(proj, 'package.json')) {
         })
       } else if (/^build-([0-9]+)\.([0-9]+)\.([0-9]+)/.test(items[i]) === false) {
         fs.removeSync(abs(wwwFolder, items[i]))
-        if (i + 1 === items.length && list(wwwFolder).length === 0) {
+        if (i + 1 === items.length && fs.readdirSync(wwwFolder).length === 0) {
           fs.removeSync(wwwFolder)
         }
       } else {
-        if (i + 1 === items.length && list(wwwFolder).length === 0) {
+        if (i + 1 === items.length && fs.readdirSync(wwwFolder).length === 0) {
           fs.removeSync(wwwFolder)
         }
       }

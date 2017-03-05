@@ -9,7 +9,6 @@
 - [CLI commands](#cli-commands)
 - [Folder structure](#folder-structure)
 - [Coding rules](#coding-rules)
-- [Lib files](#lib-files)
 - [Script files](#script-files)
 
 ## CLI commands
@@ -51,10 +50,6 @@ To inform end users about wrong App Framework usage (forking instead of installi
 - On error alerts, a solution should be provided
 - All file names lowercase and hyphen-type
 - All variable / object / function names camel-case
-
-## Lib files
-
-A lib file exports a function an throws errors on error.
 
 ## Script files
 
