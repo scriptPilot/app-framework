@@ -1,10 +1,10 @@
 'use strict'
 
 // Load application configuration
-var app = require(process.env.APP_ROOT_FROM_SCRIPTS + 'config.json')
+let app = require(process.env.APP_ROOT_FROM_SCRIPTS + 'config.json')
 
 // Shortlink to local storage
-var localStorage = window.localStorage
+let localStorage = window.localStorage
 
 // Load favicon
 ///require('../icons/favicon.ico')
@@ -40,13 +40,13 @@ require('inobounce')
 require('../main.css')
 
 // Import Vue
-var Vue = require('vue')
+let Vue = require('vue')
 
 // Init Framework7 Vue Plugin
 Vue.use(require('../vendor/framework7-vue/framework7-vue.min.js'))
 
 // Load all pages as standard route
-var Routes = []
+let Routes = []
 let pages = process.env.PAGES
 pages = pages.split(',')
 for (let p = 0; p < pages.length; p++) {
@@ -80,7 +80,7 @@ if (process.env.RESET_LOCAL_STORAGE === 'true' &&
 Vue.mixin(require('../lib/mixin-page.js'))
 
 // Language patterns
-var f7Text = {
+let f7Text = {
   en: {
     modalButtonOk: 'OK',
     modalButtonCancel: 'Cancel',
@@ -105,7 +105,7 @@ var f7Text = {
   }
 }
 
-var text = {
+let text = {
   en: {
     cacheResetAlert: 'The application has been updated and the cache has been reset.'
   },
@@ -175,7 +175,7 @@ new Vue({ // eslint-disable-line
     }
 
     // Update phone frame function
-    var updatePhoneFrame = function () {
+    let updatePhoneFrame = function () {
       // Show frame on desktop
       if (!this.isMobileDevice && app.showPhoneFrameOnDesktop === true) {
         // Show frame
@@ -223,7 +223,7 @@ new Vue({ // eslint-disable-line
     this.$$(window).resize(updatePhoneFrame)
 
     // Import Firebase
-    var firebase = window.firebase = require('firebase')
+    let firebase = window.firebase = require('firebase')
 
     // Init Firebase
     firebase.initializeApp(app.firebase)

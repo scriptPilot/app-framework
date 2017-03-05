@@ -1,7 +1,5 @@
 'use strict'
 
-let env = require('../env')
-
 // Load modules
 var path = require('path')
 var abs = require('path').resolve
@@ -21,6 +19,14 @@ var projectRoot = (isInstalled ? abs(__dirname, '../../..') : abs(__dirname, '..
 var pkg = require(packageRoot + 'package.json')
 var app = require(appRoot + 'config.json')
 
+/*
+// Check application configuration file
+let scheme = abs(packageRoot, 'config-scheme.json')
+let config = appRoot + 'config.json'
+let check = json.validate(scheme, config)
+if (check !== true) alert(check)
+*/
+// Create string with array of all vue page components
 var pageStr = ''
 if (found(appRoot + 'pages')) {
   var pageFiles = list(appRoot + 'pages')
@@ -36,7 +42,7 @@ if (found(appRoot + 'pages')) {
 }
 
 // Create webpack environment variables
-var envDev = {
+var env = {
   THEME: '"' + app.theme + '"',
   APP_ROOT_FROM_SCRIPTS : '"' + (isInstalled ? '../../../app/' : '../app/') + '"',
   FRAMEWORK_VERSION: '"' + pkg.version + '"',
@@ -50,15 +56,29 @@ var envDev = {
 }
 
 var cfg = {
-    env: merge(envDev, {NODE_ENV: '"development"'}),
+  build: {
+    env: merge(env, {NODE_ENV: '"production"'}),
+    assetsSubDirectory: '',
+    assetsPublicPath: '',
+    productionSourceMap: app.buildSourcemaps === true,
+    productionGzip: false,
+    productionGzipExtensions: ['js', 'css']
+  },
+  dev: {
+    env: merge(env, {NODE_ENV: '"development"'}),
     port: 8080,
     assetsSubDirectory: '',
     assetsPublicPath: '',
     proxyTable: {},
     cssSourceMap: false
+  },
+  isInstalled: isInstalled,
+  packageRoot: packageRoot,
+  projectRoot: projectRoot,
+  appRoot: appRoot
 }
 
-var app = env.cfg
+var app = require(cfg.appRoot + 'config.json')
 
 var webpack = require('webpack')
 var utils = require('../scripts.old/utils')
@@ -66,22 +86,22 @@ var utils = require('../scripts.old/utils')
 // Load packages
 var baseWebpackConfig = {
   entry: {
-    app: path.resolve(__dirname, '../scripts.old/main.js')
+    app: path.resolve(cfg.packageRoot, 'scripts.old/main.js')
   },
   output: {
-    path: path.resolve(env.app, 'build'),
-    publicPath: process.env.NODE_ENV === 'production' ? cfg.build.assetsPublicPath : cfg.assetsPublicPath,
+    path: path.resolve(cfg.appRoot, 'build'),
+    publicPath: process.env.NODE_ENV === 'production' ? cfg.build.assetsPublicPath : cfg.dev.assetsPublicPath,
     filename: '[name].js'
   },
   resolve: {
     extensions: ['', '.js', '.vue', '.json'],
-    fallback: [env.proj + 'node_modules'],
+    fallback: [cfg.projectRoot + 'node_modules'],
     alias: {
       'vue$': 'vue/dist/vue.common.js'
     }
   },
   resolveLoader: {
-    fallback: [env.proj + 'node_modules']
+    fallback: [cfg.projectRoot + 'node_modules']
   },
   module: {
     loaders: [
@@ -93,8 +113,8 @@ var baseWebpackConfig = {
         test: /\.js$/,
         loader: 'babel',
         include: [
-          path.resolve(__dirname, '../scripts'),
-          path.resolve(env.app, 'www')
+          path.resolve(cfg.packageRoot, 'scripts'),
+          path.resolve(cfg.appRoot, 'www')
         ]
       },
       {
@@ -128,7 +148,7 @@ var baseWebpackConfig = {
     ]
   },
   vue: {
-    loaders: utils.cssLoaders({ sourceMap: false }),
+    loaders: utils.cssLoaders({ sourceMap: useCssSourceMap }),
     postcss: [
       require('autoprefixer')({
         browsers: ['last 2 versions']
@@ -138,6 +158,11 @@ var baseWebpackConfig = {
 }
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 
+// Set options
+var cssSourceMapDev = (process.env.NODE_ENV === 'development' && cfg.dev.cssSourceMap)
+var cssSourceMapProd = (process.env.NODE_ENV === 'production' && cfg.build.productionSourceMap)
+var useCssSourceMap = cssSourceMapDev || cssSourceMapProd
+
 // add hot-reload related code to entry chunks
 Object.keys(baseWebpackConfig.entry).forEach(function (name) {
   baseWebpackConfig.entry[name] = ['./scripts.old/dev-client'].concat(baseWebpackConfig.entry[name])
@@ -145,12 +170,12 @@ Object.keys(baseWebpackConfig.entry).forEach(function (name) {
 
 module.exports = merge(baseWebpackConfig, {
   module: {
-    loaders: utils.styleLoaders({ sourceMap: false })
+    loaders: utils.styleLoaders({ sourceMap: cfg.dev.cssSourceMap })
   },
   devtool: '#eval-source-map',
   plugins: [
     new webpack.DefinePlugin({
-      'process.env': cfg.env
+      'process.env': cfg.dev.env
     }),
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),

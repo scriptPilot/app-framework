@@ -51,7 +51,8 @@ var env = {
   FONT_ION: '"' + app.loadIconFonts.ion + '"',
   FONT_AWESOME: '"' + app.loadIconFonts.fontawesome + '"',
   RESET_LOCAL_STORAGE: '"' + app.resetLocalStorageOnVersionChange + '"',
-  PAGES: '"' + pageStr + '"'
+  PAGES: '"' + pageStr + '"',
+  NODE_ENV: "development"
 }
 
 // Export configuration

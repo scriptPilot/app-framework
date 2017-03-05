@@ -7,7 +7,7 @@ let env = require('../env')
 
 // Start configuration object
 let cfg = {
-  
+
 }
 
 //
