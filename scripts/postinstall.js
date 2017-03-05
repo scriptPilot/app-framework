@@ -132,7 +132,7 @@ let updateScriptsAndVersion = function (callback) {
 }
 
 // Step: Create snapshot
-let createSnapshot = funtion (callback) {
+let createSnapshot = function (callback) {
   let appFrameworkVersion = fs.readJsonSync(abs(__dirname, '../package.json')).version
   if (env.pkg.devDependencies['app-framework'] === '*') {
     callback()
