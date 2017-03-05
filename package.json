@@ -2,14 +2,10 @@
   "name": "app-framework",
   "description": "iOS and Android Apps with HTML & JavaScript - develop, build and deploy - free and open source!",
   "repository": "https://github.com/scriptPilot/app-framework.git",
-  "version": "1.2.11ß",
+  "version": "1.2.134",
   "license": "MIT",
-  "config": {
-    "loglevel": "silent"
-  },
   "scripts": {
     "postinstall": "node scripts/postinstall",
-    "postpublish": "node scripts/postpublish",
     "f7": "node scripts/f7-update",
     "f7vue": "node scripts/f7vue-update",
     "dev": "node scripts/dev",
@@ -42,9 +38,7 @@
     "compression-webpack-plugin": "^0.3.2",
     "connect-history-api-fallback": "^1.1.0",
     "cordova": "^6.5.0",
-    "cpx": "^1.5.0",
     "css-loader": "^0.25.0",
-    "delete": "^0.3.2",
     "eslint-plugin-html": "^2.0.0",
     "eventsource-polyfill": "^0.9.6",
     "express": "^4.14.1",
@@ -68,7 +62,6 @@
     "on-build-webpack": "^0.1.0",
     "opn": "^4.0.2",
     "ora": "^0.3.0",
-    "read-file": "^0.2.0",
     "recursive-readdir": "^2.1.1",
     "replace-in-file": "^2.1.0",
     "semver": "^5.3.0",
@@ -85,7 +78,6 @@
     "webpack-dev-middleware": "^1.8.3",
     "webpack-hot-middleware": "^2.12.2",
     "webpack-merge": "^0.14.1",
-    "write": "^0.3.2",
     "xml2js": "^0.4.17",
     "zip-dir": "^1.0.2"
   },

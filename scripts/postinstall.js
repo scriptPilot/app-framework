@@ -8,8 +8,8 @@
         - Prune node folder
           - Remove cache folder
             - Create/update project folder files
-
-  Configuration fix will be done in /env file
+              - Update scripts and version in package.json file
+                - Fix configuration
 
 */
 
@@ -20,6 +20,7 @@ let env = require('../env')
 let alert = require('../lib/alert')
 let cmd = require('../lib/cmd')
 let found = require('../lib/found')
+let jsonScheme = require('../lib/json-scheme')
 let fs = require('fs-extra')
 let abs = require('path').resolve
 
@@ -29,12 +30,6 @@ let prepareSetup = function (callback) {
     // Rename .npmignore to .gitignore
     if (found(__dirname, '../.npmignore')) fs.renameSync(abs(__dirname, '../.npmignore'), abs(__dirname, '../.gitignore'))
     if (found(__dirname, '../.npmignore')) fs.renameSync(abs(__dirname, '../.npmignore'), abs(__dirname, '../.gitignore'))
-    // Reset version in demo app
-    if (found(__dirname, '../package.json')) {
-      let demo = fs.readJsonSync(abs(__dirname, '../package.json'))
-      demo.version = '1.0.0'
-      fs.writeJsonSync(abs(__dirname, '../package.json'), demo)
-    }
   }
   callback()
 }
@@ -113,12 +108,12 @@ let setupProjectFolder = function (callback) {
 }
 
 // Step: Update scripts in package.json
-let updateScripts = function (callback) {
+let updateScriptsAndVersion = function (callback) {
   if (env.installed) {
     alert('Script update onging - please wait ...')
     let scripts = fs.readJsonSync(abs(__dirname, '../package.json')).scripts
     for (let script in scripts) {
-      if (['f7', 'f7vue', 'postpublish'].indexOf(script) !== -1) {
+      if (['postinstall', 'f7', 'f7vue'].indexOf(script) !== -1) {
         delete scripts[script]
       } else {
         scripts[script] = scripts[script].replace('node scripts/', 'node node_modules/app-framework/scripts/')
@@ -126,6 +121,10 @@ let updateScripts = function (callback) {
     }
     let proj = fs.readJsonSync(abs(env.proj, 'package.json'))
     proj.scripts = scripts
+    if (proj.devDependencies && proj.devDependencies['app-framework'] === '*') {
+      let appFrameworkVersion = fs.readJsonSync(abs(__dirname, '../package.json')).version
+      proj.devDependencies['app-framework'] = '^' + appFrameworkVersion
+    }
     fs.writeJsonSync(abs(env.proj, 'package.json'), proj)
     alert('Script update done.')
   }
@@ -133,7 +132,7 @@ let updateScripts = function (callback) {
 }
 
 // Run steps
-let appFrameworkVersion = require('../package.json').version
+let appFrameworkVersion = fs.readJsonSync(abs(__dirname, '../package.json')).version
 cmd(__dirname, 'node create-snapshot --name "before-app-framework-update-to-v' + appFrameworkVersion + '"', function () {
   cmd(__dirname, 'node modifications13', function () {
     updateModules(function () {
@@ -141,7 +140,12 @@ cmd(__dirname, 'node create-snapshot --name "before-app-framework-update-to-v' +
         removeCache(function () {
           prepareSetup(function () {
             setupProjectFolder(function () {
-              updateScripts(function () {
+              updateScriptsAndVersion(function () {
+                // Fix configuration
+                let configFix = jsonScheme.fix(abs(__dirname, '../config-scheme.json'), abs(env.app, 'config.json'))
+                if (Array.isArray(configFix)) {
+                  alert('Error: Failed to fix config file.\nDetails:\n- ' + configFix.join('\n- '), 'issue')
+                }
                 alert('App Framework installation done.')
               })
             })

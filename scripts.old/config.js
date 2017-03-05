@@ -7,24 +7,25 @@ var found = require('../lib/found')
 var merge = require('webpack-merge')
 var list = require('list-dir').sync
 var alert = require('../lib/alert')
-var json = require('../lib/json')
+//var json = require('../lib/json')
 
 // Define installation status and root path
 var isInstalled = found(__dirname, '../../../package.json')
 var packageRoot = abs(__dirname, '..') + path.sep
-var appRoot = isInstalled ? abs(__dirname, '../../../src') + path.sep : abs(__dirname, '../src') + path.sep
+var appRoot = isInstalled ? abs(__dirname, '../../../app') + path.sep : abs(__dirname, '../app') + path.sep
 var projectRoot = (isInstalled ? abs(__dirname, '../../..') : abs(__dirname, '..')) + path.sep
 
 // Load configuration
 var pkg = require(packageRoot + 'package.json')
 var app = require(appRoot + 'config.json')
 
+/*
 // Check application configuration file
 let scheme = abs(packageRoot, 'config-scheme.json')
 let config = appRoot + 'config.json'
 let check = json.validate(scheme, config)
 if (check !== true) alert(check)
-
+*/
 // Create string with array of all vue page components
 var pageStr = ''
 if (found(appRoot + 'pages')) {
@@ -44,7 +45,7 @@ if (found(appRoot + 'pages')) {
 var env = {
   THEME: '"' + app.theme + '"',
   FRAMEWORK_VERSION: '"' + pkg.version + '"',
-  APP_ROOT_FROM_SCRIPTS: '"' + (isInstalled ? '../../../' : '../') + '"',
+  APP_ROOT_FROM_SCRIPTS: '"' + (isInstalled ? '../../../app/' : '../app/') + '"',
   FONT_FRAMEWORK7: '"' + app.loadIconFonts.framework7 + '"',
   FONT_MATERIAL: '"' + app.loadIconFonts.material + '"',
   FONT_ION: '"' + app.loadIconFonts.ion + '"',

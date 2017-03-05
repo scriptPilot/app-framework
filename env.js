@@ -32,7 +32,7 @@ let arg = argParser(process.argv.slice(2))
 let forced = arg.force === true || arg.f === true
 
 // Define installation status
-let installed = found('../../package.json')
+let installed = found(__dirname, '../../package.json')
 
 // Define paths
 let proj = installed ? abs(__dirname, '../../') : abs(__dirname)

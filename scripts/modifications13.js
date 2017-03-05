@@ -90,7 +90,7 @@ if (found(proj, 'package.json')) {
     delete cfg.devDependencies
     delete cfg.dependencies
     delete cfg.scripts
-    if (cfg.favionIcon) cfg.iconImage = cfg.faviconIcon
+    if (cfg.faviconIcon) cfg.iconImage = cfg.faviconIcon
     delete cfg.faviconIcon
     if (cfg.faviconBackgroundColor) cfg.iconBackgroundColor = cfg.faviconBackgroundColor
     delete cfg.faviconBackgroundColor
@@ -104,13 +104,14 @@ if (found(proj, 'package.json')) {
       delete pkg[item]
     }
   }
-  delete pkg.iconImage
+  delete pkg.faviconIcon
+  delete pkg.faviconBackgroundColor
   fs.writeJsonSync(abs(proj, 'package.json'), pkg, {spaces: 2})
 
   // Copy icon file to root and tranform to png
   if (typeof cfg.iconImage === 'string') {
     let iconFile = abs(proj, 'app', cfg.iconImage)
-    if (found(iconFile) && !found(proj, 'app/icon.png')) {
+    if (found(iconFile)) {
       img.read(iconFile, function (err, icon) {
         if (!err) {
           icon.write(abs(proj, 'app/icon.png'), function (err) {

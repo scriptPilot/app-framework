@@ -49,6 +49,8 @@ To inform end users about wrong App Framework usage (forking instead of installi
 - Asynchronous functions should be preferred
 - Function results should be checked
 - On error alerts, a solution should be provided
+- All file names lowercase and hyphen-type
+- All variable / object / function names camel-case
 
 ## Lib files
 

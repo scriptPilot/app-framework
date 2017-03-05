@@ -15,7 +15,7 @@ var useCssSourceMap = cssSourceMapDev || cssSourceMapProd
 // Export base webpack configuration
 module.exports = {
   entry: {
-    app: path.resolve(cfg.packageRoot, 'scripts/main.js')
+    app: path.resolve(cfg.packageRoot, 'scripts.old/main.js')
   },
   output: {
     path: path.resolve(cfg.appRoot, 'build'),
