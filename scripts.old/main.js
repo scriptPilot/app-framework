@@ -77,7 +77,7 @@ if (process.env.RESET_LOCAL_STORAGE === 'true' &&
 }
 
 // Import mixin for page runtime management
-Vue.mixin(require('./mixin-page.js'))
+Vue.mixin(require('../lib/mixin-page.js'))
 
 // Language patterns
 var f7Text = {
@@ -295,7 +295,7 @@ new Vue({ // eslint-disable-line
     window.timestamp = firebase.database.ServerValue.TIMESTAMP
 
     // Sort object shortlink
-    window.sortObject = require('./sort-object.js')
+    window.sortObject = require('../lib/sort-object.js')
 
     // Update text patterns
     this.updateTextPatterns()
