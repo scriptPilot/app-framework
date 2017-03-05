@@ -5,7 +5,7 @@ var path = require('path')
 var abs = require('path').resolve
 var found = require('../lib/found')
 var merge = require('webpack-merge')
-var list = require('list-dir').sync
+var list = require('fs-extra').readdirSync
 var alert = require('../lib/alert')
 //var json = require('../lib/json')
 

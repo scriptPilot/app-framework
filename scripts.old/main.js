@@ -9,9 +9,6 @@ var localStorage = window.localStorage
 // Load favicon
 ///require('../icons/favicon.ico')
 
-// Import underscore
-window['_'] = require('underscore')
-
 // Import Framework7
 require('../vendor/framework7/js/framework7.min.js')
 if (process.env.THEME === 'material') {
