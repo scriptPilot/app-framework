@@ -40,7 +40,7 @@ require('inobounce')
 require('../main.css')
 
 // Import Vue
-let Vue = require('vue')
+let Vue = require('vue/dist/vue.common.js')
 
 // Init Framework7 Vue Plugin
 Vue.use(require('../vendor/framework7-vue/framework7-vue.min.js'))

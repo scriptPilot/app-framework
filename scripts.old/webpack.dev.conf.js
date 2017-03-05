@@ -1,29 +1,21 @@
+/* Purpose: Export object with webpack configuration */
+
 'use strict'
 
-let env = require('../env')
-
 // Load modules
-var path = require('path')
-var abs = require('path').resolve
-var found = require('../lib/found')
-var merge = require('webpack-merge')
-var list = require('fs-extra').readdirSync
-var alert = require('../lib/alert')
-//var json = require('../lib/json')
+let env = require('../env')
+let found = require('../lib/found')
+let fs = require('fs')
+let abs = require('path').resolve
+let webpack = require('webpack')
 
-// Define installation status and root path
-var isInstalled = found(__dirname, '../../../package.json')
-var packageRoot = abs(__dirname, '..') + path.sep
-var appRoot = isInstalled ? abs(__dirname, '../../../app') + path.sep : abs(__dirname, '../app') + path.sep
-var projectRoot = (isInstalled ? abs(__dirname, '../../..') : abs(__dirname, '..')) + path.sep
+// Define mode (dev or prod)
+let mode = 'development'
 
-// Load configuration
-var pkg = require(packageRoot + 'package.json')
-var app = require(appRoot + 'config.json')
-
+// Define string with all pages
 var pageStr = ''
-if (found(appRoot + 'pages')) {
-  var pageFiles = list(appRoot + 'pages')
+if (found(env.app, 'pages')) {
+  var pageFiles = fs.readdirSync(abs(env.app, 'pages'))
   for (var p = 0; p < pageFiles.length; p++) {
     if (pageFiles[p].substr(pageFiles[p].length - 4, 4) === '.vue') {
       pageFiles[p] = pageFiles[p].replace(/\\/g, '/')
@@ -35,22 +27,110 @@ if (found(appRoot + 'pages')) {
   }
 }
 
-// Create webpack environment variables
-var envDev = {
-  THEME: '"' + app.theme + '"',
-  APP_ROOT_FROM_SCRIPTS : '"' + (isInstalled ? '../../../app/' : '../app/') + '"',
-  FRAMEWORK_VERSION: '"' + pkg.version + '"',
-  FONT_FRAMEWORK7: '"' + app.loadIconFonts.framework7 + '"',
-  FONT_MATERIAL: '"' + app.loadIconFonts.material + '"',
-  FONT_ION: '"' + app.loadIconFonts.ion + '"',
-  FONT_AWESOME: '"' + app.loadIconFonts.fontawesome + '"',
-  RESET_LOCAL_STORAGE: '"' + app.resetLocalStorageOnVersionChange + '"',
-  PAGES: '"' + pageStr + '"',
-  NODE_ENV: "development"
+// Define configuration
+let config = {
+  env:  {
+    THEME: '"' + env.cfg.theme + '"',
+    APP_ROOT_FROM_SCRIPTS : '"' + (env.installed ? '../../../app/' : '../app/') + '"',
+    FRAMEWORK_VERSION: '"' + env.pkg.version + '"',
+    FONT_FRAMEWORK7: '"' + env.cfg.loadIconFonts.framework7 + '"',
+    FONT_MATERIAL: '"' + env.cfg.loadIconFonts.material + '"',
+    FONT_ION: '"' + env.cfg.loadIconFonts.ion + '"',
+    FONT_AWESOME: '"' + env.cfg.loadIconFonts.fontawesome + '"',
+    RESET_LOCAL_STORAGE: '"' + env.cfg.resetLocalStorageOnVersionChange + '"',
+    PAGES: '"' + pageStr + '"',
+    NODE_ENV: '"' + mode + '"'
+  },
+  port: 1234
 }
 
+// Define loaders
+let loaders = [
+  // JS files
+  {
+    test: /\.js$/,
+    loader: 'babel',
+    include: [
+      abs(__dirname, '../lib'),
+      abs(__dirname, '../scripts'),
+      abs(env.app, 'app')
+    ]
+  },
+  // Vue files
+  {
+    test: /\.vue$/,
+    loader: 'vue'
+  },
+  // JSON files
+  {
+    test: /\.json$/,
+    loader: 'json'
+  },
+  // Image files
+  {
+    test: /\.(png|jpe?g|gif)(\?.*)?$/,
+    loader: 'url',
+    query: {
+      limit: 1,
+      name: 'img/[name].[hash:7].[ext]'
+    }
+  },
+  // Favicon
+  {
+    test: /favicon\.ico$/,
+    loader: 'url',
+    query: {
+      limit: 1,
+      name: '[name].[ext]'
+    }
+  },
+  // Font files
+  {
+    test: /\.(woff2?|eot|ttf|otf|svg)(\?.*)?$/,
+    loader: 'url',
+    query: {
+      limit: 1,
+      name: 'fonts/[name].[hash:7].[ext]'
+    }
+  }
+]
+
+// Define plugins
+let plugins = [
+  new webpack.DefinePlugin({
+    'process.env': config.env
+  })
+]
+
+
+// ---
+
+
+var HtmlWebpackPlugin = require('html-webpack-plugin')
+plugins = plugins.concat([
+  new webpack.optimize.OccurrenceOrderPlugin(),
+  new webpack.HotModuleReplacementPlugin(),
+  new webpack.NoErrorsPlugin(),
+  new HtmlWebpackPlugin({
+    filename: 'index.html',
+    template: 'index.ejs',
+    title: env.cfg.title,
+    iconTags: '', /* favicon.ico will be loaded by browser default from root directory */
+    manifest: '',
+    inject: true
+  })
+])
+
+// Load modules
+var path = require('path')
+var merge = require('webpack-merge')
+var list = require('fs-extra').readdirSync
+var alert = require('../lib/alert')
+
+
+
 var cfg = {
-    env: merge(envDev, {NODE_ENV: '"development"'}),
+    env: config.env,
     port: 8080,
     assetsSubDirectory: '',
     assetsPublicPath: '',
@@ -58,18 +138,16 @@ var cfg = {
     cssSourceMap: false
 }
 
-var app = env.cfg
 
-var webpack = require('webpack')
 var utils = require('../scripts.old/utils')
 
 // Load packages
-var baseWebpackConfig = {
+var devWebpackConfig = {
   entry: {
-    app: path.resolve(__dirname, '../scripts.old/main.js')
+    app: [abs(__dirname, '../scripts.old/main.js')]
   },
   output: {
-    path: path.resolve(env.app, 'build'),
+    path: abs(env.app, 'build'),
     publicPath: process.env.NODE_ENV === 'production' ? cfg.build.assetsPublicPath : cfg.assetsPublicPath,
     filename: '[name].js'
   },
@@ -84,49 +162,9 @@ var baseWebpackConfig = {
     fallback: [env.proj + 'node_modules']
   },
   module: {
-    loaders: [
-      {
-        test: /\.vue$/,
-        loader: 'vue'
-      },
-      {
-        test: /\.js$/,
-        loader: 'babel',
-        include: [
-          path.resolve(__dirname, '../scripts'),
-          path.resolve(env.app, 'www')
-        ]
-      },
-      {
-        test: /\.json$/,
-        loader: 'json'
-      },
-      {
-        test: /favicon\.ico$/,
-        loader: 'url',
-        query: {
-          limit: 1,
-          name: '[name].[ext]'
-        }
-      },
-      {
-        test: /\.(png|jpe?g|gif)(\?.*)?$/,
-        loader: 'url',
-        query: {
-          limit: 1,
-          name: 'img/[name].[hash:7].[ext]'
-        }
-      },
-      {
-        test: /\.(woff2?|eot|ttf|otf|svg)(\?.*)?$/,
-        loader: 'url',
-        query: {
-          limit: 1,
-          name: 'fonts/[name].[hash:7].[ext]'
-        }
-      }
-    ]
+    loaders: loaders
   },
+  plugins: plugins,
   vue: {
     loaders: utils.cssLoaders({ sourceMap: false }),
     postcss: [
@@ -136,32 +174,9 @@ var baseWebpackConfig = {
     ]
   }
 }
-var HtmlWebpackPlugin = require('html-webpack-plugin')
 
-// add hot-reload related code to entry chunks
-Object.keys(baseWebpackConfig.entry).forEach(function (name) {
-  baseWebpackConfig.entry[name] = ['./scripts.old/dev-client'].concat(baseWebpackConfig.entry[name])
-})
+devWebpackConfig.devtools = '#eval-source-map'
+devWebpackConfig.module.loaders.push(utils.styleLoaders({ sourceMap: false }))
+devWebpackConfig.entry['app'].unshift('./scripts.old/dev-client')
 
-module.exports = merge(baseWebpackConfig, {
-  module: {
-    loaders: utils.styleLoaders({ sourceMap: false })
-  },
-  devtool: '#eval-source-map',
-  plugins: [
-    new webpack.DefinePlugin({
-      'process.env': cfg.env
-    }),
-    new webpack.optimize.OccurrenceOrderPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
-    new HtmlWebpackPlugin({
-      filename: 'index.html',
-      template: 'index.ejs',
-      title: app.title,
-      iconTags: '', /* favicon.ico will be loaded by browser default from root directory */
-      manifest: '',
-      inject: true
-    })
-  ]
-})
+module.exports = devWebpackConfig
