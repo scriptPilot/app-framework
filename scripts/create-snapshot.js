@@ -34,7 +34,7 @@ zip(env.proj, {
   saveTo: snapshotFile,
   filter: function (path, stat) {
     path = path.substr(env.proj.length + 1)
-    return !env.ignored(path)
+    return !env.ignored(path) && /^node_modules/.test(path) === false
   }},
   function (err) {
     if (err) {

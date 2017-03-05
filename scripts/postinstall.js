@@ -131,9 +131,20 @@ let updateScriptsAndVersion = function (callback) {
   callback()
 }
 
+// Step: Create snapshot
+let createSnapshot = funtion (callback) {
+  let appFrameworkVersion = fs.readJsonSync(abs(__dirname, '../package.json')).version
+  if (env.pkg.devDependencies['app-framework'] === '*') {
+    callback()
+  } else {
+    cmd(__dirname, 'node create-snapshot --name "before-app-framework-update-to-v' + appFrameworkVersion + '"', function () {
+      callback()
+    })
+  }
+}
+
 // Run steps
-let appFrameworkVersion = fs.readJsonSync(abs(__dirname, '../package.json')).version
-cmd(__dirname, 'node create-snapshot --name "before-app-framework-update-to-v' + appFrameworkVersion + '"', function () {
+createSnapshot(function () {
   cmd(__dirname, 'node modifications13', function () {
     updateModules(function () {
       pruneModules(function () {
