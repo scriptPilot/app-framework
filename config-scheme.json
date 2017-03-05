@@ -106,5 +106,9 @@
   "fixCodeOnBuild": {
     "type": "boolean",
     "default": true
+  },
+  "devServerPort": {
+    "regexp": "/^([0-9]{4})$/",
+    "default": "8080"
   }
 }

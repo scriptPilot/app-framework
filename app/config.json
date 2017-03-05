@@ -32,5 +32,6 @@
   ],
   "resetLocalStorageOnVersionChange": false,
   "buildSourcemaps": false,
-  "fixCodeOnBuild": true
+  "fixCodeOnBuild": true,
+  "devServerPort": "8080"
 }

@@ -3,7 +3,7 @@
   Purpose:
   - Define paths
   - Fix configuration file
-  - Define forced state (to run end user scripts in development mode)
+  - Function to check if the user has forked the repo
   - Define installation status
   - Load package information
   - Load app configuration
@@ -28,11 +28,15 @@ let sep = require('path').sep
 // Read script parameters
 let arg = argParser(process.argv.slice(2))
 
-// Define force status
-let forced = arg.force === true || arg.f === true
-
 // Define installation status
 let installed = found(__dirname, '../../package.json')
+
+// Check if user has forked repo
+let forkCheck = function () {
+  if (!installed && arg.force !== true && arg.f !== true) {
+    alert('Error: App Framework should be installed as module.\nPlease check our documentation on GitHub.')
+  }
+}
 
 // Define paths
 let proj = installed ? abs(__dirname, '../../') : abs(__dirname)
@@ -98,7 +102,7 @@ let ignored = function (path) {
 
 module.exports = {
   arg: arg,
-  forced: forced,
+  forkCheck: forkCheck,
   installed: installed,
   proj: proj,
   app: app,
