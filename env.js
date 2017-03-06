@@ -3,7 +3,7 @@
   Purpose:
   - Define paths
   - Fix configuration file
-  - Function to check if the user has forked the repo
+  - Check if user has forked the repo insetead of installing it as dependency
   - Define installation status
   - Load package information
   - Load app configuration
@@ -31,17 +31,15 @@ let arg = argParser(process.argv.slice(2))
 // Define installation status
 let installed = found(__dirname, '../../package.json')
 
-// Check if user has forked repo
-let forkCheck = function () {
-  if (!installed && arg.force !== true && arg.f !== true) {
-    alert('Error: App Framework should be installed as module.\nPlease check our documentation on GitHub.')
-  }
-}
-
 // Define paths
 let proj = installed ? abs(__dirname, '../../') : abs(__dirname)
 let app = abs(proj, 'app')
 let cache = abs(proj, 'node_modules/.app-framework-cache')
+
+// Check if user has forked the repo
+if (!installed && !found(proj, '.enable-dev-mode')) {
+  alert('Error: App Framework should be installed as module.\nPlease check our documentation on GitHub.')
+}
 
 // Fix configuration file
 if (found(app, 'config.json')) {
@@ -102,7 +100,6 @@ let ignored = function (path) {
 
 module.exports = {
   arg: arg,
-  forkCheck: forkCheck,
   installed: installed,
   proj: proj,
   app: app,

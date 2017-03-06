@@ -31,7 +31,8 @@
     "cordova-plugin-statusbar"
   ],
   "resetLocalStorageOnVersionChange": false,
-  "buildSourcemaps": false,
+  "buildSourcemaps": true,
+  "fixCodeOnTest": true,
   "fixCodeOnBuild": true,
   "devServerPort": "8080"
 }

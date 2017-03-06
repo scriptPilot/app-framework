@@ -90,23 +90,14 @@ var webpackConfig = merge(baseWebpackConfig, {
     })
   },
   plugins: [
-    new webpack.DefinePlugin({
-      'process.env': cfg.build.env
-    }),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false
-      }
-    }),
-    new webpack.optimize.OccurrenceOrderPlugin(),
     new ExtractTextPlugin('[name].[contenthash].css'),
     new HtmlWebpackPlugin({
-      filename: path.resolve(cfg.appRoot, 'www/build-' + app.version + '/index.html'),
-      template: 'index.ejs',
-      title: app.title,
+      //filename: path.resolve(cfg.appRoot, 'www/build-' + app.version + '/index.html'),
+      //template: 'index.ejs',
+      //title: app.title,
       iconTags: iconTags,
-      manifest: ' manifest="manifest.appcache"',
-      inject: true,
+      //manifest: ' manifest="manifest.appcache"',
+      //inject: true,
       minify: {
         removeComments: true,
         collapseWhitespace: true,

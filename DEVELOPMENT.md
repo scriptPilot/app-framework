@@ -13,7 +13,7 @@
 
 ## CLI commands
 
-To inform end users about wrong App Framework usage (forking instead of installing as module), end user scripts must be run with parameter `--force` (or short `-f`) in development mode to run them with the demo app.
+To inform end users about wrong App Framework usage (forking instead of installing as module), there is an error message on each script call. For App Framework development, you have to create an empty file *.enable-dev-mode* in the project folder.
 
 ## Folder structure
 

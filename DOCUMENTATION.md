@@ -28,6 +28,8 @@ Read less, code more - please open a ticket for any open question in our [Issue 
 
 ## CLI commands
 
+![Process](media/cli-commands.png)
+
 - Setup
   - `npm install` to install App Framework and setup project folder
   - `npm update` to update App Framework to latest sub version

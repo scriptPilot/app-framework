@@ -103,6 +103,10 @@
     "type": "boolean",
     "default": false
   },
+  "fixCodeOnTest": {
+    "type": "boolean",
+    "default": true
+  },
   "fixCodeOnBuild": {
     "type": "boolean",
     "default": true

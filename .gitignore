@@ -13,6 +13,9 @@ snapshots/
 # Exclude macOS system files
 .DS_Store
 
+# Exclude development mode enabling file
+.enable-dev-mode
+
 # Exclude log files
 *.log*
 
