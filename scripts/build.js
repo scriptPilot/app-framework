@@ -7,6 +7,8 @@ let env = require('../env')
 let alert = require('../lib/alert')
 let cmd = require('../lib/cmd')
 let webpackConfig = require('../lib/webpack-config').production
+let fs = require('fs-extra')
+let abs = require('path').resolve
 let webpack = require('webpack')
 
 // Define build mode
@@ -50,10 +52,35 @@ let buildWebpack = function (callback) {
   })
 }
 
+// Step: Update license date
+let updateLicense = function (callback) {
+  if (env.installed === false) {
+    alert('License update ongoing - please wait ...')
+    let file = abs(env.proj, 'LICENSE')
+    let text = fs.readFileSync(file, 'utf8')
+    text = text.replace(/Copyright \(c\) ([0-9]{4}) scriptPilot/, 'Copyright (c) ' + (new Date()).getFullYear() + ' scriptPilot')
+    fs.writeFileSync(file, text)
+    alert('License update done.')
+    callback()
+  } else {
+    callback()
+  }
+}
+
+// Step: Manage icons
+let manageIcons = function (callback) {
+  // /tbc
+  callback()
+}
+
 // Run steps
 alert('Build process preparation ongoing - please wait ...')
 fixCode(function () {
-  buildWebpack(function () {
-    alert('Build process done for ' + (mode === 'dev' ? 'development' : 'version ' + version) + '.')
+  updateLicense(function () {
+    buildWebpack(function () {
+      manageIcons(function () {
+        alert('Build process done for ' + (mode === 'dev' ? 'development' : 'version ' + version) + '.')
+      })
+    })
   })
 })

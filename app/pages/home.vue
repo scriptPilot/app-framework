@@ -74,3 +74,7 @@
 <script>
   module.exports = {}
 </script>
+
+<style>
+.someStyleOnHome {background: pink}
+</style>
