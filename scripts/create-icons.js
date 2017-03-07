@@ -3,7 +3,6 @@
 // Include packages
 let env = require('../env')
 let alert = require('../lib/alert')
-let cmd = require('../lib/cmd')
 let found = require('../lib/found')
 let fs = require('fs-extra')
 let hex2rgb = require('hex-rgb')
@@ -17,7 +16,7 @@ alert('Icon generation ongoing - please wait ...')
 // Define background color
 let bg = hex2rgb(env.cfg.iconBackgroundColor).concat(255)
 
-// Define icons
+// Define icons (name, width, height, background)
 let icons = [
   ['app-store-icon', 1024, 1024, true],
   ['play-store-icon', 512, 512],
@@ -65,6 +64,12 @@ let icons = [
   ['android-launchscreen-ldpi', 200, 320, true]
 ]
 
+// Add landscape launch screens
+let iconNo = icons.length
+for (let i = 0; i < iconNo; i++) {
+  icons.push([icons[i][0], icons[i][2], icons[i][1], icons[i][3]])
+}
+
 // Get version parameter
 if (/^(([0-9]+)\.([0-9]+)\.([0-9]+)|dev)$/.test(env.arg.version) === false) {
   alert('Error: Given version parameter not valid for icon creation.')
@@ -92,7 +97,7 @@ let getIconFilename = function (callback) {
 
 // Function to read icon to jimp object
 let readIconFile = function (filename, callback) {
-  new img(filename, function (err, icon) {
+  new img(filename, function (err, icon) { // eslint-disable-line
     if (err) {
       alert('Error: Failed to read icon file "' + filename + '"')
     } else {
@@ -137,16 +142,91 @@ let getIconsToCreate = function (icon, callback) {
   callback(iconsToCreate)
 }
 
+// Create transparent icons
+let createTransparentIcons = function (icon, iconList, hashFolder, callback) {
+  let thisIcon = iconList.pop()
+  // Resize icon
+  icon.resize(thisIcon.iconWidth, thisIcon.iconHeight, function (err, icon) {
+    if (err) {
+      alert('Error: Failed to resize icon "' + thisIcon.name + '".', 'issue')
+    } else {
+      icon.write(abs(hashFolder, thisIcon.name), function (err) {
+        if (err) {
+          alert('Error: Failed to save icon "' + thisIcon.name + '".', 'issue')
+        } else {
+          // Create next icon or finish
+          if (iconList.length > 0) {
+            createTransparentIcons(icon, iconList, hashFolder, callback)
+          // Finish
+          } else {
+            callback()
+          }
+        }
+      })
+    }
+  })
+}
+
+// Create filled icons
+let createFilledIcons = function (icon, iconList, hashFolder, callback) {
+  let thisIcon = iconList.pop()
+  // Create canvas
+  new img(thisIcon.canvasWidth, thisIcon.canvasHeight, img.rgbaToInt.apply(null, bg), function (err, canvas) {
+    if (err) {
+      alert('Error: Failed to create canvas for icon "' + thisIcon.name + '".', 'issue')
+    } else {
+      // Resize icon
+      icon.resize(thisIcon.iconWidth, thisIcon.iconHeight, function (err, icon) {
+        if (err) {
+          alert('Error: Failed to resize icon "' + thisIcon.name + '".', 'issue')
+        } else {
+          // Coyp icon to canvas
+          canvas.composite(icon, thisIcon.iconPosLeft, thisIcon.iconPosTop, function (err, canvas) {
+            if (err) {
+              alert('Error: Failed to merge icon "' + thisIcon.name + '" with canvas.', 'issue')
+            } else {
+              canvas.write(abs(hashFolder, thisIcon.name), function (err) {
+                if (err) {
+                  alert('Error: Failed to save icon "' + thisIcon.name + '".', 'issue')
+                } else {
+                  // Create next icon or finish
+                  if (iconList.length > 0) {
+                    createFilledIcons(icon, iconList, hashFolder, callback)
+                  // Finish
+                  } else {
+                    callback()
+                  }
+                }
+              })
+            }
+          })
+        }
+      })
+    }
+  })
+}
+
+// Cache hash folder
+let cacheHashFolder = function (hashFolder, callback) {
+  // Copy icons to version cache folder
+  fs.copy(hashFolder, versionFolder, function (err) {
+    if (err) {
+      alert('Error: Failed to cache icons.')
+    } else {
+      callback()
+    }
+  })
+}
+
 // Run
 getIconFilename(function (filename) {
   readIconFile(filename, function (icon) {
     // Icon with same hash already cached
     let hashFolder = abs(env.cache, 'icons', icon.hash())
     if (found(hashFolder)) {
-      // Copy icons to version cache folder
-      fs.copySync(hashFolder, versionFolder)
-      // ALert
-      alert('Icon generation done.', 'exit')
+      cacheHashFolder(hashFolder, function () {
+        alert('Icon generation done.', 'exit')
+      })
     }
     // Generate icons
     getIconsToCreate(icon, function (iconsToCreate) {
@@ -157,104 +237,15 @@ getIconFilename(function (filename) {
       let iconFilled = icon.clone()
       // Create hash folder
       fs.ensureDirSync(hashFolder)
-      // Function to downsize and save icons
-      let filledDone = false
-      let transparentDone = false
-      let downsizeIcons = function (iconList, icon) {
-        let thisIcon = iconList.pop()
-        // Resize icon
-        icon.resize(thisIcon.iconWidth, thisIcon.iconHeight, function (err, icon) {
-          if (err) {
-            alert('Error: Failed to resize icon "' + thisIcon.name + '".')
-          } else {
-            // Save icon
-            icon.write(abs(hashFolder, thisIcon.name), function (err) {
-              if (err) {
-                alert('Error: Failed to save icon "' + thisIcon.name + '".')
-              } else {
-                // Create next icon or finish
-                if (iconList.length > 0) {
-                  downsizeIcons(iconList, icon)
-                // Finish
-                } else {
-                  if (thisIcon.isFilled === true) {
-                    filledDone = true
-                  } else {
-                    transparentDone = true
-                  }
-                  if (filledDone === true && transparentDone === true) {
-                    // Copy icons to version cache folder
-                    fs.copySync(hashFolder, versionFolder)
-                    // ALert
-                    alert('Icon generation done.', 'exit')
-                  }
-                }
-              }
-            })
-          }
+      // Create icons
+      createTransparentIcons(icon, transparent, hashFolder, function () {
+        createFilledIcons(iconFilled, filled, hashFolder, function () {
+          // Cash hash folder
+          cacheHashFolder(hashFolder, function () {
+            alert('Icon generation done.', 'exit')
+          })
         })
-      }
-      // Create transparent icons
-      downsizeIcons(transparent, icon)
-      // Create filled icons
-      downsizeIcons(filled, iconFilled)
+      })
     })
   })
 })
-
-/*
-
-
-
-// Cache version snapshot
-cmd(__dirname, 'node cache-snapshot --name "' + env.arg.version + '"', function () {
-
-  // Define icon file
-  let iconFile = abs(env.cache, 'snapshots', env.arg.version, 'icon.png')
-  if (!found(iconFile)) {
-    alert('Error: Cannot find icon file in snapshot cache folder.')
-  }
-
-  alert('Icon file found', 'exit')
-
-  // Function to create icons
-  let createIcons = function (icon, dest, callback) {
-    fs.ensureDirSync(dest)
-    icon.write(abs(dest, 'icon.png'), function (err) {
-      if (err) alert('Error: Failed to write icons to cache.')
-      callback()
-    })
-  }
-
-  // Function to copy hash cache to version cache
-  let copyCache = function (hash) {
-    fs.copy(abs(env.cache, 'icons', hash), abs(env.cache, 'icons', version), function (err) {
-      if (err) alert('Error: Failed to cache icons.')
-      else alert('Icon generation done.', 'exit')
-    })
-  }
-
-  // Check version cache folder
-  if (found(env.cache, 'icons', version)) {
-    alert('Icon generation done.', 'exit')
-  } else {
-    // Open icon file
-    img.read(iconFile, function (err, icon) {
-      if (err) alert('Error: Failed to read icon file.')
-      // Check hash cache folder
-      let hash = icon.hash()
-      let hashCacheFolder = abs(env.cache, 'icons', hash)
-      // Icon cached
-      if (found(hashCacheFolder)) {
-        copyCache(hash)
-      // Icons not cached
-      } else {
-        // Create icons
-        createIcons(icon, hashCacheFolder, function () {
-          copyCache(hash)
-        })
-      }
-    })
-  }
-
-  */

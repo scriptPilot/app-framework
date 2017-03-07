@@ -15,6 +15,12 @@
 
 To inform end users about wrong App Framework usage (forking instead of installing as a module), there is an error message on each *env.js* script call. For App Framework development, you have to create an empty file *.enable-dev-mode* in the project folder to suppress this warning.
 
+Additional development CLI commands:
+
+- `npm run reset` - Reset cache folder
+- `npm run f7` - Build and update Framework7 (must exist on same level as app-framework folder)
+- `npm run f7vue` - Build and update Framework7-Vue (must exist on same level as app-framework folder)
+
 ## Folder structure
 
 ```
