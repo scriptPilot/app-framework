@@ -6,6 +6,7 @@
 let env = require('../env')
 let alert = require('../lib/alert')
 let cmd = require('../lib/cmd')
+let found = require('../lib/found')
 let webpackConfig = require('../lib/webpack-config').production
 let fs = require('fs-extra')
 let abs = require('path').resolve
@@ -75,6 +76,13 @@ let updateLicense = function (callback) {
 
 // Step: Manage icons
 let manageIcons = function (callback) {
+  alert('Browserconfig and manifest creation ongoing - please wait ...')
+  // Copy main icon file
+  let iconFile = abs(env.app, 'icon.png')
+  if (!found(iconFile)) {
+    alert('Error: Cannot find "icon.png" file.')
+  }
+  fs.copySync(iconFile, abs(env.cache, 'build/icon.png'))
   // Create manifest file (see http://realfavicongenerator.net/faq for details)
   let manifest = {
     name: env.cfg.title,
@@ -127,42 +135,63 @@ let manageIcons = function (callback) {
   callback()
 }
 
+// Step: Copy Firebase files
+let copyFirebaseFiles = function (callback) {
+  alert('Firebase files update ongoing - please wait ...')
+  fs.copy(abs(env.app, 'database-rules.json'), abs(env.cache, 'build/database-rules.json'), err => {
+    if (err) {
+      alert('Error: Failed to copy "database-rules.json" file.', 'issue')
+    } else {
+      fs.copy(abs(env.app, 'storage-rules.txt'), abs(env.cache, 'build/storage-rules.txt'), err => {
+        if (err) {
+          alert('Error: Failed to copy "database-rules.json" file.', 'issue')
+        } else {
+          alert('Firebase files update done.')
+          callback()
+        }
+      })
+    }
+  })
+}
+
 // Run steps
 fixCode(function () {
   updateLicense(function () {
     cmd(__dirname, 'node create-icons --version dev', function () {
       buildWebpack(function () {
         manageIcons(function () {
-          // Dev build
-          if (mode === 'dev') {
-            alert('Development build done.')
-          // Pruduction build
-          } else {
-            alert('Build folder update ongoing - please wait ...')
-            // Empty existing build folder
-            fs.emptyDir(abs(env.proj, 'build'), function (err) {
-              if (err) {
-                alert('Clean-up the existing build folder failed.', 'issue')
-              } else {
-                // Copy files
-                fs.copy(abs(env.cache, 'build'), abs(env.proj, 'build'), function (err) {
-                  if (err) {
-                    alert('Error: Build folder update failed.', 'issue')
-                  } else {
-                    // Increase version
-                    alert('Version bump ongoing - please wait ...')
-                    // Update version in package.json
-                    let pkg = fs.readJsonSync(abs(env.proj, 'package.json'))
-                    let newVersion = ver.inc(pkg.version, mode)
-                    pkg.version = newVersion
-                    fs.writeJsonSync(abs(env.proj, 'package.json'), pkg)
-                    // Alert
-                    alert('Build process done for version ' + newVersion + '.')
-                  }
-                })
-              }
-            })
-          }
+          copyFirebaseFiles(function () {
+            // Dev build
+            if (mode === 'dev') {
+              alert('Development build done.')
+            // Pruduction build
+            } else {
+              alert('Build folder update ongoing - please wait ...')
+              // Empty existing build folder
+              fs.emptyDir(abs(env.proj, 'build'), function (err) {
+                if (err) {
+                  alert('Clean-up the existing build folder failed.', 'issue')
+                } else {
+                  // Copy files
+                  fs.copy(abs(env.cache, 'build'), abs(env.proj, 'build'), function (err) {
+                    if (err) {
+                      alert('Error: Build folder update failed.', 'issue')
+                    } else {
+                      // Increase version
+                      alert('Version bump ongoing - please wait ...')
+                      // Update version in package.json
+                      let pkg = fs.readJsonSync(abs(env.proj, 'package.json'))
+                      let newVersion = ver.inc(pkg.version, mode)
+                      pkg.version = newVersion
+                      fs.writeJsonSync(abs(env.proj, 'package.json'), pkg)
+                      // Alert
+                      alert('Build process done for version ' + newVersion + '.')
+                    }
+                  })
+                }
+              })
+            }
+          })
         })
       })
     })

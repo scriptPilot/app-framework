@@ -39,6 +39,8 @@ Read less, code more - please open a ticket for any open question in our [Issue 
     - `CTRL + C` to stop development server
   - `npm run ios` to open iOS simulator with development snapshot
   - `npm run android` to open Android emulator with development snapshot
+  - `npm run check` to check project files according Standard JavaScript
+  - `npm run fix` to fix project files according Standard JavaScript
 
 - Building
   - `npm run patch` to build after bug-fixes and improvements
@@ -55,6 +57,9 @@ Read less, code more - please open a ticket for any open question in our [Issue 
   - `npm run studio` to deploy static files as Android Studio project
 
   For rollback, add `--version x.y.z` parameter to any deployment command.
+
+- Backup
+  - `npm run snapshot` to create a snapshot of your project file
 
 ## Project folder structure
 

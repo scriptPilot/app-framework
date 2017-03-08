@@ -1,0 +1,17 @@
+{
+  "rules": {
+    "privateData": {
+      "$uid": {
+        ".read": "$uid === auth.uid",
+        ".write": "$uid === auth.uid"
+      }
+    },
+    "publicData": {
+      "todos": {
+        ".read": "true",
+        ".write": "true",
+        ".indexOn": "created"
+      }
+    }
+  }
+}
