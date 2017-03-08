@@ -9,6 +9,7 @@ let cmd = require('../lib/cmd')
 let webpackConfig = require('../lib/webpack-config').production
 let fs = require('fs-extra')
 let abs = require('path').resolve
+let ver = require('semver')
 let webpack = require('webpack')
 
 // Define build mode
@@ -24,9 +25,6 @@ if (env.arg.dev === true) {
 } else {
   alert('Error: Build script must have one argument of dev, patch, minor or major.')
 }
-
-// Define version
-let version = env.pkg.version
 
 // Step: Fix code
 let fixCode = function (callback) {
@@ -112,7 +110,7 @@ let manageIcons = function (callback) {
   let iconCacheFolder = abs(env.cache, 'icons/dev')
   let iconFiles = fs.readdirSync(iconCacheFolder)
   iconFiles.map(i => {
-    if (/^(favicon|android-chrome|mstile|apple-touch-icon)-/.test(i) === true) {
+    if (/^(favicon|android-chrome|mstile|apple-touch-icon)/.test(i) === true) {
       fs.copySync(abs(iconCacheFolder, i), abs(env.cache, 'build', i))
     }
   })
@@ -135,22 +133,36 @@ fixCode(function () {
     cmd(__dirname, 'node create-icons --version dev', function () {
       buildWebpack(function () {
         manageIcons(function () {
-          alert('Build folder update ongoing - please wait ...')
-          // Empty existing build folder
-          fs.emptyDir(abs(env.proj, 'build'), function (err) {
-            if (err) {
-              alert('Clean-up the existing build folder failed.', 'issue')
-            } else {
-              // Copy files
-              fs.copy(abs(env.cache, 'build'), abs(env.proj, 'build'), function (err) {
-                if (err) {
-                  alert('Error: Build folder update failed.', 'issue')
-                } else {
-                  alert('Build process done for ' + (mode === 'dev' ? 'development' : 'version ' + version) + '.')
-                }
-              })
-            }
-          })
+          // Dev build
+          if (mode === 'dev') {
+            alert('Development build done.')
+          // Pruduction build
+          } else {
+            alert('Build folder update ongoing - please wait ...')
+            // Empty existing build folder
+            fs.emptyDir(abs(env.proj, 'build'), function (err) {
+              if (err) {
+                alert('Clean-up the existing build folder failed.', 'issue')
+              } else {
+                // Copy files
+                fs.copy(abs(env.cache, 'build'), abs(env.proj, 'build'), function (err) {
+                  if (err) {
+                    alert('Error: Build folder update failed.', 'issue')
+                  } else {
+                    // Increase version
+                    alert('Version bump ongoing - please wait ...')
+                    // Update version in package.json
+                    let pkg = fs.readJsonSync(abs(env.proj, 'package.json'))
+                    let newVersion = ver.inc(pkg.version, mode)
+                    pkg.version = newVersion
+                    fs.writeJsonSync(abs(env.proj, 'package.json'), pkg)
+                    // Alert
+                    alert('Build process done for version ' + newVersion + '.')
+                  }
+                })
+              }
+            })
+          }
         })
       })
     })

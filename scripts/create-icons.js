@@ -17,6 +17,7 @@ let fs = require('fs-extra')
 let hex2rgb = require('hex-rgb')
 let img = require('jimp')
 let abs = require('path').resolve
+let toIco = require('to-ico')
 let _ = require('underscore')
 
 // ALert
@@ -32,6 +33,7 @@ let icons = [
   ['apple-touch-icon', 180, 180, true],
   ['favicon', 16, 16],
   ['favicon', 32, 32],
+  ['favicon', 48, 48],
   ['android-chrome', 192, 192],
   ['android-chrome', 512, 512],
   ['mstile', 150, 150],
@@ -225,6 +227,34 @@ let createFilledIcons = function (icon, iconList, hashFolder, callback) {
   })
 }
 
+// Create special icons
+let createIcoFile = function (hashFolder, callback) {
+  alert('Favicon.ico creation ongoing - please wait ...')
+  // Define including sizes
+  let sizes = [16, 32, 48]
+  // Load files
+  let files = []
+  sizes.map(s => {
+    let path = abs(hashFolder, 'favicon-' + s + 'x' + s + '.png')
+    if (!found(path)) {
+      alert('Error: Cannot find favicon-' + s + '.png in hash cache folder.', 'issue')
+    } else {
+      files.push(fs.readFileSync(path))
+    }
+  })
+  // Create ico file
+  toIco(files).then(buf => {
+    fs.writeFile(abs(hashFolder, 'favicon.ico'), buf, err => {
+      if (err) {
+        alert('Error: Failed to save favicon.ico to hash cache folder.', 'issue')
+      } else {
+        alert('Favicon.ico creation done.')
+        callback()
+      }
+    })
+  })
+}
+
 // Cache hash folder
 let cacheHashFolder = function (hashFolder, callback) {
   // Copy icons to version cache folder
@@ -259,9 +289,10 @@ getIconFilename(function (filename) {
       // Create icons
       createTransparentIcons(icon, transparent, hashFolder, function () {
         createFilledIcons(iconFilled, filled, hashFolder, function () {
-          // Cash hash folder
-          cacheHashFolder(hashFolder, function () {
-            alert('Icon generation done.', 'exit')
+          createIcoFile(hashFolder, function () {
+            cacheHashFolder(hashFolder, function () {
+              alert('Icon generation done.', 'exit')
+            })
           })
         })
       })
