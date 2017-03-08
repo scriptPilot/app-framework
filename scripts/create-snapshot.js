@@ -1,4 +1,10 @@
-/* Create snapshot of current project folder, exclude files specified in .gitignore */
+/*
+
+  Purpose: Create snapshot of current project folder, exclude files specified in .gitignore
+
+  Arguments: --name must be string
+
+*/
 
 'use strict'
 

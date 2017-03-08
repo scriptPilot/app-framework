@@ -1,8 +1,17 @@
+/*
+
+  Purpose: Create icons and splash screens, cache icons to version folder
+
+  Arguments: --version (must be "x.y.z" or "dev")
+
+*/
+
 'use strict'
 
 // Include packages
 let env = require('../env')
 let alert = require('../lib/alert')
+let cmd = require('../lib/cmd')
 let found = require('../lib/found')
 let fs = require('fs-extra')
 let hex2rgb = require('hex-rgb')
@@ -72,7 +81,7 @@ for (let i = 0; i < iconNo; i++) {
 
 // Get version parameter
 if (/^(([0-9]+)\.([0-9]+)\.([0-9]+)|dev)$/.test(env.arg.version) === false) {
-  alert('Error: Given version parameter not valid for icon creation.')
+  alert('Error: Given argument --version must be "x.y.z" or "dev".', 'issue')
 }
 
 // Remove dev folder
@@ -91,7 +100,15 @@ let getIconFilename = function (callback) {
   if (env.arg.version === 'dev' && found(env.app, 'icon.png')) {
     callback(abs(env.app, 'icon.png'))
   } else {
-    alert('Error: Icon file not found for version "' + env.arg.version + '".')
+    // Ensure version snapshot cache
+    cmd(__dirname, 'node cache-snapshot --name "build-' + env.arg.version + '"', function () {
+      let iconFile = abs(env.cache, 'snapshots/build-' + env.arg.version, 'app/icon.png')
+      if (found(iconFile)) {
+        callback(iconFile)
+      } else {
+        alert('Error: Icon file not found for version "' + env.arg.version + '".')
+      }
+    })
   }
 }
 
@@ -144,6 +161,7 @@ let getIconsToCreate = function (icon, callback) {
 
 // Create transparent icons
 let createTransparentIcons = function (icon, iconList, hashFolder, callback) {
+  alert('Transparent icon generation ongoing - please wait ...')
   let thisIcon = iconList.pop()
   // Resize icon
   icon.resize(thisIcon.iconWidth, thisIcon.iconHeight, function (err, icon) {
@@ -169,9 +187,10 @@ let createTransparentIcons = function (icon, iconList, hashFolder, callback) {
 
 // Create filled icons
 let createFilledIcons = function (icon, iconList, hashFolder, callback) {
+  alert('Filled icon generation ongoing - please wait ...')
   let thisIcon = iconList.pop()
   // Create canvas
-  new img(thisIcon.canvasWidth, thisIcon.canvasHeight, img.rgbaToInt.apply(null, bg), function (err, canvas) {
+  new img(thisIcon.canvasWidth, thisIcon.canvasHeight, img.rgbaToInt.apply(null, bg), function (err, canvas) { // eslint-disable-line
     if (err) {
       alert('Error: Failed to create canvas for icon "' + thisIcon.name + '".', 'issue')
     } else {

@@ -67,20 +67,29 @@ if (process.platform === 'win32') {
 let ignoredExp = []
 if (found(proj, '.gitignore')) {
   let gitignore = fs.readFileSync(abs(proj, '.gitignore'), 'utf8')
-  let rows = gitignore.split('\n')
+  let rows = gitignore.match(/^(.+)$/gm)
   for (let r = 0; r < rows.length; r++) {
     if (rows[r] !== '' && /^#/.test(rows[r]) === false) {
       let exp = rel(rows[r])
+      // Replace path separators with system path separators
+      exp = exp.replace(/\//, sep)
+      // Escape backslashs
+      exp = exp.replace(/\\/g, '\\\\')
+      // Escape slashs
+      exp = exp.replace(/\//g, '\\\/') // eslint-disable-line
       // Escape points
       exp = exp.replace(/\./g, '\\.')
-      // Escape slashs
-      exp = exp.replace(/\//g, '\\/')
       // Escape wildcards
       exp = exp.replace(/\*/g, '(.*)')
+      // Make last backslash optional (to include folder itself)
+      exp = exp.replace(/\\\\$/g, '(\\\\(.*))?')
       // Make last slash optional (to include folder itself)
-      exp = exp.replace(/^(.+)\\\/$/, '$1(' + sep.replace('/', '\/') + '(.*))?') // eslint-disable-line
-      exp = RegExp('^' + exp + '$')
-      ignoredExp.push(exp)
+      exp = exp.replace(/\\\/$/g, '(\\\/(.*))?') // eslint-disable-line
+      // Add start/end
+      exp = '^' + exp + '$'
+      // Create regexp
+      let regexp = new RegExp(exp)
+      ignoredExp.push(regexp)
     }
   }
 }

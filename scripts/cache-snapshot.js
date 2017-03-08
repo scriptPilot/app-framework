@@ -1,4 +1,10 @@
-/* Purpose: Copy snapshot to cache */
+/*
+
+  Purpose: Copy snapshot to cache
+
+  Arguments: --name must be name of snapshot file (without .zip)
+
+*/
 
 'use strict'
 

@@ -26,7 +26,7 @@ if (env.arg.dev === true) {
 }
 
 // Define version
-let version = 'x.y.z'
+let version = env.pkg.version
 
 // Step: Fix code
 let fixCode = function (callback) {
@@ -42,12 +42,20 @@ let fixCode = function (callback) {
 // Step: Build webpack
 let buildWebpack = function (callback) {
   alert('Webpack build process ongoing - please wait ...')
-  webpack(webpackConfig, function (err, stats) {
+  // Empty webpack cache folder
+  fs.emptyDir(abs(env.cache, 'build'), function (err) {
     if (err) {
-      alert('Error: Webpack build process failed.', 'issue')
+      alert('Error: Clean-up of the webpack cache folder failed.', 'issue')
     } else {
-      alert('Webpack build process done.')
-      callback()
+      // Build webpack to cache
+      webpack(webpackConfig, function (err, stats) {
+        if (err) {
+          alert('Error: Webpack build process failed.', 'issue')
+        } else {
+          alert('Webpack build process done.')
+          callback()
+        }
+      })
     }
   })
 }
@@ -69,17 +77,81 @@ let updateLicense = function (callback) {
 
 // Step: Manage icons
 let manageIcons = function (callback) {
-  // /tbc
+  // Create manifest file (see http://realfavicongenerator.net/faq for details)
+  let manifest = {
+    name: env.cfg.title,
+    icons: [
+      {
+        'src': 'android-chrome-192x192.png',
+        'sizes': '192x192',
+        'type': 'image/png'
+      },
+      {
+        'src': 'android-chrome-512x512.png',
+        'sizes': '512x512',
+        'type': 'image/png'
+      }
+    ],
+    theme_color: env.cfg.iconBackgroundColor,
+    background_color: env.cfg.iconBackgroundColor,
+    display: 'standalone'
+  }
+  fs.writeJsonSync(abs(env.cache, 'build/manifest.json'), manifest, {spaces: 0})
+  // Create browserconfig file
+  let xml = '<?xml version="1.0" encoding="utf-8"?>' +
+            '<browserconfig>' +
+              '<msapplication>' +
+                '<tile>' +
+                  '<square150x150logo src="mstile-150x150.png"/>' +
+                  '<TileColor>#da532c</TileColor>' +
+                '</tile>' +
+              '</msapplication>' +
+            '</browserconfig>'
+  fs.writeFileSync(abs(env.cache, 'build/browserconfig.xml'), xml)
+  // Copy icon files (see http://realfavicongenerator.net/faq for details)
+  let iconCacheFolder = abs(env.cache, 'icons/dev')
+  let iconFiles = fs.readdirSync(iconCacheFolder)
+  iconFiles.map(i => {
+    if (/^(favicon|android-chrome|mstile|apple-touch-icon)-/.test(i) === true) {
+      fs.copySync(abs(iconCacheFolder, i), abs(env.cache, 'build', i))
+    }
+  })
+  // Rename Apple touch icon
+  fs.renameSync(abs(env.cache, 'build/apple-touch-icon-180x180.png'), abs(env.cache, 'build/apple-touch-icon.png'))
+  // Delete Framework7 icon from CSS file
+  let images = fs.readdirSync(abs(env.cache, 'build/img'))
+  images.map(i => {
+    if (/i-f7-/.test(i)) {
+      fs.removeSync(abs(env.cache, 'build/img/' + i))
+    }
+  })
+  // Callback
   callback()
 }
 
 // Run steps
-alert('Build process preparation ongoing - please wait ...')
 fixCode(function () {
   updateLicense(function () {
-    buildWebpack(function () {
-      manageIcons(function () {
-        alert('Build process done for ' + (mode === 'dev' ? 'development' : 'version ' + version) + '.')
+    cmd(__dirname, 'node create-icons --version dev', function () {
+      buildWebpack(function () {
+        manageIcons(function () {
+          alert('Build folder update ongoing - please wait ...')
+          // Empty existing build folder
+          fs.emptyDir(abs(env.proj, 'build'), function (err) {
+            if (err) {
+              alert('Clean-up the existing build folder failed.', 'issue')
+            } else {
+              // Copy files
+              fs.copy(abs(env.cache, 'build'), abs(env.proj, 'build'), function (err) {
+                if (err) {
+                  alert('Error: Build folder update failed.', 'issue')
+                } else {
+                  alert('Build process done for ' + (mode === 'dev' ? 'development' : 'version ' + version) + '.')
+                }
+              })
+            }
+          })
+        })
       })
     })
   })
