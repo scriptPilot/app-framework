@@ -61,7 +61,7 @@ let removeCache = function (callback) {
   alert('Cache clean-up ongoing - please wait ...')
   fs.remove(env.cache, function (err) {
     if (err) {
-      alert('Error: Cache clean-up failed.', 'issue')
+      alert('Cache clean-up failed.', 'issue')
     } else {
       alert('Cache clean-up done.')
       callback()
@@ -155,7 +155,7 @@ createSnapshot(function () {
                 // Fix configuration
                 let configFix = jsonScheme.fix(abs(__dirname, '../config-scheme.json'), abs(env.app, 'config.json'))
                 if (Array.isArray(configFix)) {
-                  alert('Error: Failed to fix config file.\nDetails:\n- ' + configFix.join('\n- '), 'issue')
+                  alert('Failed to fix config file.\nDetails:\n- ' + configFix.join('\n- '), 'issue', 'error')
                 }
                 alert('App Framework installation done.')
               })

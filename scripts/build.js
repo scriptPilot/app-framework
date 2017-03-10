@@ -24,7 +24,7 @@ if (env.arg.dev === true) {
 } else if (env.arg.major === true) {
   mode = 'major'
 } else {
-  alert('Error: Build script must have one argument of dev, patch, minor or major.')
+  alert('Build script must have one argument of dev, patch, minor or major.', 'error')
 }
 
 // Step: Fix code
@@ -42,14 +42,14 @@ let fixCode = function (callback) {
 let buildWebpack = function (callback) {
   alert('Webpack build process ongoing - please wait ...')
   // Empty webpack cache folder
-  fs.emptyDir(abs(env.cache, 'build'), function (err) {
+  fs.emptyDir(abs(env.cache, 'build/www'), function (err) {
     if (err) {
-      alert('Error: Clean-up of the webpack cache folder failed.', 'issue')
+      alert('Clean-up of the webpack cache folder failed.', 'issue')
     } else {
       // Build webpack to cache
       webpack(webpackConfig, function (err, stats) {
         if (err) {
-          alert('Error: Webpack build process failed.', 'issue')
+          alert('Webpack build process failed.', 'issue')
         } else {
           alert('Webpack build process done.')
           callback()
@@ -80,7 +80,7 @@ let manageIcons = function (callback) {
   // Copy main icon file
   let iconFile = abs(env.app, 'icon.png')
   if (!found(iconFile)) {
-    alert('Error: Cannot find "icon.png" file.')
+    alert('Cannot find "icon.png" file.', 'error')
   }
   fs.copySync(iconFile, abs(env.cache, 'build/icon.png'))
   // Create manifest file (see http://realfavicongenerator.net/faq for details)
@@ -102,7 +102,7 @@ let manageIcons = function (callback) {
     background_color: env.cfg.iconBackgroundColor,
     display: 'standalone'
   }
-  fs.writeJsonSync(abs(env.cache, 'build/manifest.json'), manifest, {spaces: 0})
+  fs.writeJsonSync(abs(env.cache, 'build/www/manifest.json'), manifest, {spaces: 0})
   // Create browserconfig file
   let xml = '<?xml version="1.0" encoding="utf-8"?>' +
             '<browserconfig>' +
@@ -113,24 +113,18 @@ let manageIcons = function (callback) {
                 '</tile>' +
               '</msapplication>' +
             '</browserconfig>'
-  fs.writeFileSync(abs(env.cache, 'build/browserconfig.xml'), xml)
+  fs.writeFileSync(abs(env.cache, 'build/www/browserconfig.xml'), xml)
   // Copy icon files (see http://realfavicongenerator.net/faq for details)
   let iconCacheFolder = abs(env.cache, 'icons/dev')
   let iconFiles = fs.readdirSync(iconCacheFolder)
   iconFiles.map(i => {
     if (/^(favicon|android-chrome|mstile|apple-touch-icon)/.test(i) === true) {
-      fs.copySync(abs(iconCacheFolder, i), abs(env.cache, 'build', i))
+      fs.copySync(abs(iconCacheFolder, i), abs(env.cache, 'build/www', i))
     }
   })
   // Rename Apple touch icon
-  fs.renameSync(abs(env.cache, 'build/apple-touch-icon-180x180.png'), abs(env.cache, 'build/apple-touch-icon.png'))
-  // Delete Framework7 icon from CSS file
-  let images = fs.readdirSync(abs(env.cache, 'build/img'))
-  images.map(i => {
-    if (/i-f7-/.test(i)) {
-      fs.removeSync(abs(env.cache, 'build/img/' + i))
-    }
-  })
+  fs.renameSync(abs(env.cache, 'build/www/apple-touch-icon-180x180.png'), abs(env.cache, 'build/www/apple-touch-icon.png'))
+  // Delete Framework7 icon from CSS file >> removed due to 404 error in browser
   // Callback
   callback()
 }
@@ -140,11 +134,11 @@ let copyFirebaseFiles = function (callback) {
   alert('Firebase files update ongoing - please wait ...')
   fs.copy(abs(env.app, 'database-rules.json'), abs(env.cache, 'build/database-rules.json'), err => {
     if (err) {
-      alert('Error: Failed to copy "database-rules.json" file.', 'issue')
+      alert('Failed to copy "database-rules.json" file.', 'issue')
     } else {
       fs.copy(abs(env.app, 'storage-rules.txt'), abs(env.cache, 'build/storage-rules.txt'), err => {
         if (err) {
-          alert('Error: Failed to copy "database-rules.json" file.', 'issue')
+          alert('Failed to copy "database-rules.json" file.', 'issue')
         } else {
           alert('Firebase files update done.')
           callback()
@@ -175,7 +169,7 @@ fixCode(function () {
                   // Copy files
                   fs.copy(abs(env.cache, 'build'), abs(env.proj, 'build'), function (err) {
                     if (err) {
-                      alert('Error: Build folder update failed.', 'issue')
+                      alert('Build folder update failed.', 'issue')
                     } else {
                       // Increase version
                       alert('Version bump ongoing - please wait ...')
@@ -185,7 +179,11 @@ fixCode(function () {
                       pkg.version = newVersion
                       fs.writeJsonSync(abs(env.proj, 'package.json'), pkg)
                       // Alert
-                      alert('Build process done for version ' + newVersion + '.')
+                      cmd(
+                        __dirname,
+                        'node create-snapshot --name "build-' + newVersion + '"',
+                        'Build process done for version ' + newVersion + '.'
+                      )
                     }
                   })
                 }

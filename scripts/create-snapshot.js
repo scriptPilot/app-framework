@@ -21,15 +21,15 @@ alert('Snapshot creation ongoing - please wait ...')
 
 // Check snapshot name
 if (env.arg.name === undefined) {
-  alert('Error: Snapshot must have argument "name".')
+  alert('Snapshot must have argument "name".', 'error')
 } else if (env.arg.name.length < 3) {
-  alert('Error: Snapshot name must have three characters or more.')
+  alert('Snapshot name must have three characters or more.', 'error')
 }
 
 // Check snapshot files
 let snapshotFile = path.resolve(env.proj, 'snapshots', env.arg.name + '.zip')
 if (found(snapshotFile) === true) {
-  alert('Error: Snapshot file already exists. Please choose a different name.')
+  alert('Snapshot file already exists. Please choose a different name.', 'error')
 }
 
 // Ensure snapshot folder
@@ -44,7 +44,7 @@ zip(env.proj, {
   }},
   function (err) {
     if (err) {
-      alert('Error: Snapshot creation failed.', 'issue')
+      alert('Snapshot creation failed.', 'issue')
     } else {
       alert('Snapshot creation done.')
     }

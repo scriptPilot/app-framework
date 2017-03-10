@@ -51,7 +51,7 @@ let startServer = function (callback) {
   // Start server
   app.listen(env.cfg.devServerPort, function (err) {
     if (err) {
-      alert('Error: Failed to start development server.')
+      alert('Failed to start development server.', 'error')
     } else {
       callback()
     }

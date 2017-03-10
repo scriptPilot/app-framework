@@ -22,7 +22,7 @@ alert('Firebase deployment ongoing - please wait ...')
 
 // Check arguments
 if (env.arg.database !== true && env.arg.storage !== true && env.arg.hosting !== true) {
-  alert('Error: No arguments passed to Firebase deployment.', 'issue')
+  alert('No arguments passed to Firebase deployment.', 'issue')
 }
 
 // Prepare Firebase deployment
@@ -31,11 +31,11 @@ let buildFolder = abs(env.proj, 'build')
 
 // Check folders
 if (!found(buildFolder)) {
-  alert('Error: Build folder not found.')
+  alert('Build folder not found.', 'error')
 } else if (!found(buildFolder, 'database-rules.json')) {
-  alert('Error: File "database-rules.json" not found in build folder.')
+  alert('File "database-rules.json" not found in build folder.', 'error')
 } else if (!found(buildFolder, 'storage-rules.txt')) {
-  alert('Error: File "storage-rules.txt" not found in build folder.')
+  alert('File "storage-rules.txt" not found in build folder.', 'error')
 }
 
 // Function to copy files to firebase bin folder
@@ -54,7 +54,7 @@ let prepareFiles = (callback) => {
     }
     callback()
   } catch (err) {
-    alert('Error: Firebase deployment preparation failed.', 'issue')
+    alert('Firebase deployment preparation failed.', 'issue')
   }
 }
 
@@ -85,19 +85,14 @@ let updateConfigFiles = (callback) => {
     }
     if (env.arg.hosting === true) {
       config.hosting = {
-        public: 'build',
-        ignore: [
-          'database-rules.json',
-          'storage-rules.txt',
-          'icon.png'
-        ]
+        public: 'build/www'
       }
     }
     fs.writeJsonSync(abs(binFolder, 'firebase.json'), config)
     // Callback
     callback()
   } catch (err) {
-    alert('Error: Firebase configuration update failed.', 'issue')
+    alert('Firebase configuration update failed.', 'issue')
   }
 }
 
@@ -109,7 +104,7 @@ let databaseDeployment = (callback) => {
       alert('Firebase database rules deployment done.')
       callback()
     }, () => {
-      alert('Error: Firebase database rules deployment failed.', 'issue')
+      alert('Firebase database rules deployment failed.', 'issue')
     })
   } else {
     callback()
@@ -122,7 +117,7 @@ let storageDeployment = (callback) => {
       alert('Firebase storage rules deployment done.')
       callback()
     }, () => {
-      // alert('Error: Firebase storage rules deployment failed.', 'issue')
+      // alert('Firebase storage rules deployment failed.', 'issue')
     })
   } else {
     callback()
@@ -135,7 +130,7 @@ let hostingDeployment = (callback) => {
       alert('Firebase hosting deployment done.')
       callback()
     }, () => {
-      // alert('Error: Firebase hosting deployment failed.', 'issue')
+      // alert('Firebase hosting deployment failed.', 'issue')
     })
   } else {
     callback()

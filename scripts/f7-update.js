@@ -12,13 +12,13 @@ let abs = require('path').resolve
 
 // Check App Framework development mode
 if (env.installed === true) {
-  alert('Error: Framework7 update is only possible in App Framework development mode.')
+  alert('Framework7 update is only possible in App Framework development mode.', 'error')
 }
 
 // Check Framework7 folder
 let f7Folder = abs(env.proj, '../Framework7')
 if (!found(f7Folder)) {
-  alert('Error: Cannot find Framework7 folder.')
+  alert('Cannot find Framework7 folder.', 'error')
 }
 
 // Build Framework7

@@ -20,7 +20,7 @@ alert('Snapshot cache ongoing - please wait ...')
 
 // Get snapshot name
 if (env.arg.name === undefined) {
-  alert('Error: Snapshot cache needs name argument.')
+  alert('Snapshot cache needs name argument.', 'error')
 }
 
 // Define snapshot cache folder
@@ -34,14 +34,14 @@ if (found(cacheFolder)) {
 // Unzip snapshot
 let snapshotFile = path.resolve(env.proj, 'snapshots/' + env.arg.name + '.zip')
 if (!found(snapshotFile)) {
-  alert('Error: Snapshot file "' + path.relative(env.proj, snapshotFile) + '" not found.')
+  alert('Snapshot file "' + path.relative(env.proj, snapshotFile) + '" not found.', 'error')
 }
 unzip(
   snapshotFile,
   {dir: cacheFolder},
   function (err) {
     if (err) {
-      alert('Error: Snapshot cache failed.', 'issue')
+      alert('Snapshot cache failed.', 'issue')
     } else {
       alert('Snapshot cache done.')
     }

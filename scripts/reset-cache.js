@@ -9,7 +9,7 @@ let fs = require('fs-extra')
 alert('Cache reset ongoing - please wait ...')
 fs.remove(env.cache, function (err) {
   if (err) {
-    alert('Error: Failed to reset cache.')
+    alert('Failed to reset cache.', 'error')
   } else {
     alert('Cache reset done.')
   }

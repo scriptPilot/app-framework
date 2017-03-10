@@ -56,6 +56,7 @@ Additional development CLI commands:
 - On error alerts, a solution should be provided
 - Hyphen-type and lower case for folder and file names
 - Camel-case for all names in coding
+- For better readability, shorthands should not be used
 
 ## Script files
 

@@ -12,13 +12,13 @@ let abs = require('path').resolve
 
 // Check App Framework development mode
 if (env.installed === true) {
-  alert('Error: Framework7-Vue update is only possible in App Framework development mode.')
+  alert('Framework7-Vue update is only possible in App Framework development mode.', 'error')
 }
 
 // Check Framework7-Vue folder
 let f7VueFolder = abs(env.proj, '../Framework7-Vue')
 if (!found(f7VueFolder)) {
-  alert('Error: Cannot find Framework7-Vue folder.')
+  alert('Cannot find Framework7-Vue folder.', 'error')
 }
 
 // Build Framework7-Vue

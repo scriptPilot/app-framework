@@ -18,7 +18,7 @@ let createSnapshot = function (name, char) {
   char = char || ''
   // Check if file exists
   if (char !== '' && char > 122) {
-    alert('Error: More than ' + (char - 97) + ' snapshots per day are not supported.')
+    alert('More than ' + (char - 97) + ' snapshots per day are not supported.', 'error')
   } else if (!found(env.proj, 'snapshots', name + (char === '' ? '' : String.fromCharCode(char)) + '.zip') && (char !== '' || !found(env.proj, 'snapshots', name + 'a.zip'))) {
     // Extend first one with a
     if (char === 98) {

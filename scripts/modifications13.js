@@ -138,7 +138,7 @@ if (found(proj, 'package.json')) {
         let build = items[i].match(/^build-(([0-9]+)\.([0-9]+)\.([0-9]+))(\/|\\)index\.html$/)[1]
         fs.move(abs(wwwFolder, 'build-' + build), abs(wwwFolder, '.temp'), function (err) {
           if (!err) {
-            fs.move(abs(wwwFolder, '.temp'), abs(wwwFolder, 'build-' + build, 'build'), function (err) {
+            fs.move(abs(wwwFolder, '.temp'), abs(wwwFolder, 'build-' + build, 'build/www'), function (err) {
               if (!err) {
                 zipdir(abs(wwwFolder, 'build-' + build), {
                   saveTo: abs(proj, 'snapshots', 'snapshot-' + build + '.zip')

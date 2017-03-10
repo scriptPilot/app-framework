@@ -83,7 +83,7 @@ for (let i = 0; i < iconNo; i++) {
 
 // Get version parameter
 if (/^(([0-9]+)\.([0-9]+)\.([0-9]+)|dev)$/.test(env.arg.version) === false) {
-  alert('Error: Given argument --version must be "x.y.z" or "dev".', 'issue')
+  alert('Given argument --version must be "x.y.z" or "dev".', 'issue')
 }
 
 // Remove dev folder
@@ -108,7 +108,7 @@ let getIconFilename = function (callback) {
       if (found(iconFile)) {
         callback(iconFile)
       } else {
-        alert('Error: Icon file not found for version "' + env.arg.version + '".')
+        alert('Icon file not found for version "' + env.arg.version + '".', 'error')
       }
     })
   }
@@ -118,7 +118,7 @@ let getIconFilename = function (callback) {
 let readIconFile = function (filename, callback) {
   new img(filename, function (err, icon) { // eslint-disable-line
     if (err) {
-      alert('Error: Failed to read icon file "' + filename + '"')
+      alert('Failed to read icon file "' + filename + '"', 'error')
     } else {
       callback(icon)
     }
@@ -168,11 +168,11 @@ let createTransparentIcons = function (icon, iconList, hashFolder, callback) {
   // Resize icon
   icon.resize(thisIcon.iconWidth, thisIcon.iconHeight, function (err, icon) {
     if (err) {
-      alert('Error: Failed to resize icon "' + thisIcon.name + '".', 'issue')
+      alert('Failed to resize icon "' + thisIcon.name + '".', 'issue')
     } else {
       icon.write(abs(hashFolder, thisIcon.name), function (err) {
         if (err) {
-          alert('Error: Failed to save icon "' + thisIcon.name + '".', 'issue')
+          alert('Failed to save icon "' + thisIcon.name + '".', 'issue')
         } else {
           // Create next icon or finish
           if (iconList.length > 0) {
@@ -194,21 +194,21 @@ let createFilledIcons = function (icon, iconList, hashFolder, callback) {
   // Create canvas
   new img(thisIcon.canvasWidth, thisIcon.canvasHeight, img.rgbaToInt.apply(null, bg), function (err, canvas) { // eslint-disable-line
     if (err) {
-      alert('Error: Failed to create canvas for icon "' + thisIcon.name + '".', 'issue')
+      alert('Failed to create canvas for icon "' + thisIcon.name + '".', 'issue')
     } else {
       // Resize icon
       icon.resize(thisIcon.iconWidth, thisIcon.iconHeight, function (err, icon) {
         if (err) {
-          alert('Error: Failed to resize icon "' + thisIcon.name + '".', 'issue')
+          alert('Failed to resize icon "' + thisIcon.name + '".', 'issue')
         } else {
           // Coyp icon to canvas
           canvas.composite(icon, thisIcon.iconPosLeft, thisIcon.iconPosTop, function (err, canvas) {
             if (err) {
-              alert('Error: Failed to merge icon "' + thisIcon.name + '" with canvas.', 'issue')
+              alert('Failed to merge icon "' + thisIcon.name + '" with canvas.', 'issue')
             } else {
               canvas.write(abs(hashFolder, thisIcon.name), function (err) {
                 if (err) {
-                  alert('Error: Failed to save icon "' + thisIcon.name + '".', 'issue')
+                  alert('Failed to save icon "' + thisIcon.name + '".', 'issue')
                 } else {
                   // Create next icon or finish
                   if (iconList.length > 0) {
@@ -237,7 +237,7 @@ let createIcoFile = function (hashFolder, callback) {
   sizes.map(s => {
     let path = abs(hashFolder, 'favicon-' + s + 'x' + s + '.png')
     if (!found(path)) {
-      alert('Error: Cannot find favicon-' + s + '.png in hash cache folder.', 'issue')
+      alert('Cannot find favicon-' + s + '.png in hash cache folder.', 'issue')
     } else {
       files.push(fs.readFileSync(path))
     }
@@ -246,7 +246,7 @@ let createIcoFile = function (hashFolder, callback) {
   toIco(files).then(buf => {
     fs.writeFile(abs(hashFolder, 'favicon.ico'), buf, err => {
       if (err) {
-        alert('Error: Failed to save favicon.ico to hash cache folder.', 'issue')
+        alert('Failed to save favicon.ico to hash cache folder.', 'issue')
       } else {
         alert('Favicon.ico creation done.')
         callback()
@@ -260,7 +260,7 @@ let cacheHashFolder = function (hashFolder, callback) {
   // Copy icons to version cache folder
   fs.copy(hashFolder, versionFolder, function (err) {
     if (err) {
-      alert('Error: Failed to cache icons.')
+      alert('Failed to cache icons.', 'error')
     } else {
       callback()
     }
