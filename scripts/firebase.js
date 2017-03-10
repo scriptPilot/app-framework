@@ -15,7 +15,6 @@ let cmd = require('../lib/cmd')
 let found = require('../lib/found')
 let fs = require('fs-extra')
 let join = require('path').join
-let rel = require('path').relative
 let abs = require('path').resolve
 
 // Run
@@ -123,7 +122,7 @@ let storageDeployment = (callback) => {
       alert('Firebase storage rules deployment done.')
       callback()
     }, () => {
-      //alert('Error: Firebase storage rules deployment failed.', 'issue')
+      // alert('Error: Firebase storage rules deployment failed.', 'issue')
     })
   } else {
     callback()
@@ -136,7 +135,7 @@ let hostingDeployment = (callback) => {
       alert('Firebase hosting deployment done.')
       callback()
     }, () => {
-      //alert('Error: Firebase hosting deployment failed.', 'issue')
+      // alert('Error: Firebase hosting deployment failed.', 'issue')
     })
   } else {
     callback()

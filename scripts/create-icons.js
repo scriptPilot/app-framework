@@ -268,6 +268,7 @@ let cacheHashFolder = function (hashFolder, callback) {
 }
 
 // Run
+alert('Icon generation ongoing - please wait ...')
 getIconFilename(function (filename) {
   readIconFile(filename, function (icon) {
     // Icon with same hash already cached
