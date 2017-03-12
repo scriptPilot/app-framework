@@ -160,6 +160,13 @@ let copyFirebaseFiles = function (callback) {
 
 // Run steps
 fixCode(function () {
+  // Update version in package.json
+  let pkg = fs.readJsonSync(abs(env.proj, 'package.json'))
+  pkg.version = ver.inc(pkg.version, mode)
+  fs.writeJsonSync(abs(env.proj, 'package.json'), pkg)
+  env.pkg.version = pkg.version
+  delete require.cache[abs(env.proj, 'package.json')]
+  // Update license
   updateLicense(function () {
     cmd(__dirname, 'node create-icons --version dev', function () {
       buildWebpack(function () {
@@ -181,18 +188,10 @@ fixCode(function () {
                     if (err) {
                       alert('Build folder update failed.', 'issue')
                     } else {
-                      // Increase version
-                      alert('Version bump ongoing - please wait ...')
-                      // Update version in package.json
-                      let pkg = fs.readJsonSync(abs(env.proj, 'package.json'))
-                      pkg.version = ver.inc(pkg.version, mode)
-                      fs.writeJsonSync(abs(env.proj, 'package.json'), pkg)
-                      // Alert
-                      cmd(
-                        __dirname,
-                        'node create-snapshot --name "build-' + pkg.version + '"',
-                        'Build process done for version ' + pkg.version + '.'
-                      )
+                      // Create snapshot
+                      cmd(__dirname, 'node create-snapshot --name "build-' + env.pkg.version + '"', function () {
+                        alert('Build process done for version ' + env.pkg.version + '.')
+                      })
                     }
                   })
                 }
