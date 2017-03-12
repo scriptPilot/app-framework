@@ -77,56 +77,66 @@ let updateLicense = function (callback) {
 // Step: Manage icons
 let manageIcons = function (callback) {
   alert('Browserconfig and manifest creation ongoing - please wait ...')
-  // Copy main icon file
-  let iconFile = abs(env.app, 'icon.png')
-  if (!found(iconFile)) {
-    alert('Cannot find "icon.png" file.', 'error')
-  }
-  fs.copySync(iconFile, abs(env.cache, 'build/icon.png'))
-  // Create manifest file (see http://realfavicongenerator.net/faq for details)
-  let manifest = {
-    name: env.cfg.title,
-    icons: [
-      {
-        'src': 'android-chrome-192x192.png',
-        'sizes': '192x192',
-        'type': 'image/png'
-      },
-      {
-        'src': 'android-chrome-512x512.png',
-        'sizes': '512x512',
-        'type': 'image/png'
-      }
-    ],
-    theme_color: env.cfg.iconBackgroundColor,
-    background_color: env.cfg.iconBackgroundColor,
-    display: 'standalone'
-  }
-  fs.writeJsonSync(abs(env.cache, 'build/www/manifest.json'), manifest, {spaces: 0})
-  // Create browserconfig file
-  let xml = '<?xml version="1.0" encoding="utf-8"?>' +
-            '<browserconfig>' +
-              '<msapplication>' +
-                '<tile>' +
-                  '<square150x150logo src="mstile-150x150.png"/>' +
-                  '<TileColor>#da532c</TileColor>' +
-                '</tile>' +
-              '</msapplication>' +
-            '</browserconfig>'
-  fs.writeFileSync(abs(env.cache, 'build/www/browserconfig.xml'), xml)
-  // Copy icon files (see http://realfavicongenerator.net/faq for details)
-  let iconCacheFolder = abs(env.cache, 'icons/dev')
-  let iconFiles = fs.readdirSync(iconCacheFolder)
-  iconFiles.map(i => {
-    if (/^(favicon|android-chrome|mstile|apple-touch-icon)/.test(i) === true) {
-      fs.copySync(abs(iconCacheFolder, i), abs(env.cache, 'build/www', i))
+  try {
+    // Copy main icon file
+    let iconFile = abs(env.app, 'icon.png')
+    if (!found(iconFile)) {
+      alert('Cannot find "icon.png" file.', 'error')
     }
-  })
-  // Rename Apple touch icon
-  fs.renameSync(abs(env.cache, 'build/www/apple-touch-icon-180x180.png'), abs(env.cache, 'build/www/apple-touch-icon.png'))
-  // Delete Framework7 icon from CSS file >> removed due to 404 error in browser
-  // Callback
-  callback()
+    fs.copySync(iconFile, abs(env.cache, 'build/icon.png'))
+    // Create manifest file (see http://realfavicongenerator.net/faq for details)
+    let manifest = {
+      name: env.cfg.title,
+      icons: [
+        {
+          'src': 'android-chrome-192x192.png',
+          'sizes': '192x192',
+          'type': 'image/png'
+        },
+        {
+          'src': 'android-chrome-512x512.png',
+          'sizes': '512x512',
+          'type': 'image/png'
+        }
+      ],
+      theme_color: env.cfg.iconBackgroundColor,
+      background_color: env.cfg.iconBackgroundColor,
+      display: 'standalone'
+    }
+    fs.writeJsonSync(abs(env.cache, 'build/www/manifest.json'), manifest, {spaces: 0})
+    // Create browserconfig file
+    let xml = '<?xml version="1.0" encoding="utf-8"?>' +
+              '<browserconfig>' +
+                '<msapplication>' +
+                  '<tile>' +
+                    '<square150x150logo src="mstile-150x150.png"/>' +
+                    '<TileColor>#da532c</TileColor>' +
+                  '</tile>' +
+                '</msapplication>' +
+              '</browserconfig>'
+    fs.writeFileSync(abs(env.cache, 'build/www/browserconfig.xml'), xml)
+    // Copy icon files (see http://realfavicongenerator.net/faq for details)
+    let iconCacheFolder = abs(env.cache, 'icons/dev')
+    let iconFiles = fs.readdirSync(iconCacheFolder)
+    iconFiles.map(i => {
+      if (/^(favicon|android-chrome|mstile|apple-touch-icon)/.test(i) === true) {
+        fs.copySync(abs(iconCacheFolder, i), abs(env.cache, 'build/www', i))
+      }
+    })
+    // Rename Apple touch icon
+    fs.renameSync(abs(env.cache, 'build/www/apple-touch-icon-180x180.png'), abs(env.cache, 'build/www/apple-touch-icon.png'))
+    // Delete Framework7 icon from CSS file >> removed due to 404 error in browser
+    // Copy store icons
+    iconFiles.map(i => {
+      if (/^(.+)-store-(.+)/.test(i) === true) {
+        fs.copySync(abs(iconCacheFolder, i), abs(env.cache, 'build', i.replace(/^(.+)-store-icon(.+)\.png/, '$1-store-icon.png')))
+      }
+    })
+    // Callback
+    callback()
+  } catch (err) {
+    alert('Browserconfig and manifest creation failed.', 'issue')
+  }
 }
 
 // Step: Copy Firebase files

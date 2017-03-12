@@ -92,7 +92,8 @@
   "useCordovaPlugins": {
     "type": "array",
     "default": [
-      "cordova-plugin-statusbar"
+      "cordova-plugin-statusbar",
+      "cordova-plugin-whitelist"
     ]
   },
   "resetLocalStorageOnVersionChange": {
