@@ -185,14 +185,13 @@ fixCode(function () {
                       alert('Version bump ongoing - please wait ...')
                       // Update version in package.json
                       let pkg = fs.readJsonSync(abs(env.proj, 'package.json'))
-                      let newVersion = ver.inc(pkg.version, mode)
-                      pkg.version = newVersion
+                      pkg.version = ver.inc(pkg.version, mode)
                       fs.writeJsonSync(abs(env.proj, 'package.json'), pkg)
                       // Alert
                       cmd(
                         __dirname,
-                        'node create-snapshot --name "build-' + newVersion + '"',
-                        'Build process done for version ' + newVersion + '.'
+                        'node create-snapshot --name "build-' + pkg.version + '"',
+                        'Build process done for version ' + pkg.version + '.'
                       )
                     }
                   })
