@@ -202,6 +202,10 @@ checkBuild(function () {
               cmd(path.resolve('C:/Programme/Android/Android Studio/bin'), ['start', 'studio64.exe', '"' + path.resolve(cfg.packageRoot, 'cordova/platforms/android') + '"'], function () {
                 showOnly('Android Studio started with build version ' + version)
               })
+            } else if (process.platform === 'linux') {
+              run('/usr/bin/android-studio "' + path.resolve(cfg.packageRoot, 'cordova/platforms/android') + '"', function () {
+                showOnly('Android Studio started with build version ' + version)
+	      }) 
             } else {
               run('open -a "/Applications/Android Studio.app" "' + path.resolve(cfg.packageRoot, 'cordova/platforms/android') + '"', function () {
                 showOnly('Android Studio started with build version ' + version)
