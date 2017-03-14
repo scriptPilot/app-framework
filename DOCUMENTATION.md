@@ -32,6 +32,7 @@ Read less, code more - please open a ticket for any open question in our [Issue 
 
 - Setup
   - `npm install` to install App Framework and setup project folder
+    - `npm reset-app` to replace app folder with minimum files
   - `npm update` to update App Framework to latest sub version
 
 - Testing

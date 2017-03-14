@@ -26,7 +26,7 @@ let client = new ftpClient(config) // eslint-disable-line
 client.connect(function () {
   alert('Uploading build folder - please wait ...')
   client.upload(abs(env.proj, 'build/www/**/*'), 'build-' + env.pkg.version, {baseDir: abs(env.proj, 'build/www'), overwrite: 'older'}, function (res) {
-    if (res.errors === {}) {
+    if (JSON.stringify(res.errors) === '{}') {
       alert('Updating .htaccess file - please wait ...')
       let htaccess = 'RewriteEngine On\n' +
                      'RewriteCond %{REQUEST_URI} !^/build-' + env.pkg.version + '/\n' +
@@ -34,11 +34,12 @@ client.connect(function () {
                      'RewriteCond %{REQUEST_FILENAME} !-f\n' +
                      'RewriteCond %{REQUEST_FILENAME} !-d\n' +
                      'RewriteRule ^build-([0-9.]+)/(.*)?$ /#/$2 [R,L,NE]\n'
+      fs.ensureDirSync(abs(env.cache, 'ftp'))
       fs.writeFile(abs(env.cache, 'ftp/.htaccess'), htaccess, function (err) {
         if (!err) {
           alert('Uploading .htaccess file - please wait ...')
           client.upload(abs(env.cache, 'ftp/.htaccess'), '', {baseDir: abs(env.cache, 'ftp'), overwrite: 'all'}, function (res) {
-            if (res.errors === {}) {
+            if (JSON.stringify(res.errors) === '{}') {
               alert('FTP deployment done for version ' + env.pkg.version + '.')
             } else {
               alert('Failed to update .htaccess file on FTP server.\nDetails:\n' + JSON.stringify(res.errors), 'issue')

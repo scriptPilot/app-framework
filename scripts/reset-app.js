@@ -14,6 +14,11 @@ let jsonScheme = require('../lib/json-scheme')
 let fs = require('fs-extra')
 let abs = require('path').resolve
 
+// Cancel in App Framework development mode
+if (env.installed !== true) {
+  alert('App reset not possible in App Framework development mode.', 'exit')
+}
+
 // Define source and destination folders
 let source = abs(__dirname, '../app - Kopie')
 let dest = abs(env.proj, 'app')

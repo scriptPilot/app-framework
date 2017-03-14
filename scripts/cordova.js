@@ -409,7 +409,7 @@ resetCordovaFolder(function () {
                 ]
                 for (let p = 0; p < possibleInstallations.length; p++) {
                   if (found(possibleInstallations[p])) {
-                    cmd(path.dirname(possibleInstallations[p]), [path.basename(possibleInstallations[p]), '"' + abs(binDir, 'platforms/android') + '"'], function () {
+                    cmd(path.dirname(possibleInstallations[p]), ['./' + path.basename(possibleInstallations[p]), '"' + abs(binDir, 'platforms/android') + '"'], function () {
                       alert('Android Studio started.')
                     })
                     p = possibleInstallations.length

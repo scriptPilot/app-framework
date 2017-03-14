@@ -8,6 +8,7 @@
   "scripts": {
     "install": "npm install",
     "update": "npm update",
+    "reset-app": "node scripts/reset-app",
     "postinstall": "node scripts/postinstall",
     "reset": "node scripts/reset-cache",
     "f7": "node scripts/f7-update",
