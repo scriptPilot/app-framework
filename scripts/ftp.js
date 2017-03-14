@@ -14,10 +14,10 @@ let ftpClient = require('ftp-client')
 let abs = require('path').resolve
 
 let config = {
-  host: 'w0139192.kasserver.com',
-  port: '21',
-  user: 'f00cc15d',
-  password: 'r6crv67a3vzgUZ7p'
+  host: '',
+  port: '',
+  user: '',
+  password: ''
 }
 
 // Run

@@ -20,7 +20,6 @@ let cmd = require('../lib/cmd')
 let found = require('../lib/found')
 let type = require('../lib/type')
 let fs = require('fs-extra')
-let open = require('opn')
 let path = require('path')
 let abs = require('path').resolve
 let xml = require('xml2js')
