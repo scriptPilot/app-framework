@@ -35,7 +35,7 @@ if (env.arg.fix === true) {
 }
 
 // Define error alert
-let errorAlert = 'Error: ' + (env.arg.fix !== true ? 'Code unconformities found.' : 'Some unconformities must be fixed manually.') + '\n' +
+let errorAlert = (env.arg.fix !== true ? 'Code unconformities found.' : 'Some unconformities must be fixed manually.') + '\n' +
                  'Please check "' + logFile + '" for detailed information.\n' +
                  (env.arg.fix !== true ? 'You can run "npm run fix" first for automatic fix.' : '')
 
@@ -44,5 +44,5 @@ cmd([env.proj, 'node_modules/standard/bin'], params, function () {
   fs.removeSync(abs(env.proj, logFile))
   alert('Standard JavaScript ' + (env.arg.fix === true ? 'fix' : 'check') + ' done without findings.')
 }, function () {
-  alert(errorAlert)
+  alert(errorAlert, 'error')
 })

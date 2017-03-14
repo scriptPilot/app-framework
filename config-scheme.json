@@ -1,7 +1,7 @@
 {
   "title": {
     "type": "string",
-    "default": "Demo App"
+    "default": "My App"
   },
   "defaultLanguage": {
     "regexp": "/^([a-z]{2})$/",
@@ -27,7 +27,7 @@
       },
       "fontawesome": {
         "type": "boolean",
-        "default": true
+        "default": false
       }
     }
   },
@@ -49,45 +49,36 @@
   },
   "specialRoutes": {
     "type": "object",
-    "default": {
-      "flexible-routing/blog/:blogId/post/:postId": "flexible-routing"
-    }
+    "default": {}
   },
   "pagesWithRequiredLogin": {
-    "type": "array",
-    "default": ["firebase-private"]
+    "type": "array"
   },
   "firebase": {
     "props": {
       "apiKey": {
-        "type": "string",
-        "default": "AIzaSyAvzTiqd9fKR-h47Uxl4iXwqSMU1VjGdII"
+        "type": "string"
       },
       "authDomain": {
-        "type": "string",
-        "default": "app-framework-9045a.firebaseapp.com"
+        "type": "string"
       },
       "databaseURL": {
-        "type": "string",
-        "default": "https://app-framework-9045a.firebaseio.com"
+        "type": "string"
       },
       "storageBucket": {
-        "type": "string",
-        "default": "app-framework-9045a.appspot.com"
+        "type": "string"
       },
       "allowUserRegistration": {
         "type": "boolean",
-        "default": true
+        "default": false
       }
     }
   },
   "appStoreId": {
-    "type": "string",
-    "default": "de.scriptpilot.app-framework"
+    "type": "string"
   },
   "playStoreId": {
-    "type": "string",
-    "default": "de.scriptpilot.appframework"
+    "type": "string"
   },
   "useCordovaPlugins": {
     "type": "array",

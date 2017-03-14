@@ -7,7 +7,7 @@ let env = require('../env')
 let alert = require('../lib/alert')
 let cmd = require('../lib/cmd')
 let found = require('../lib/found')
-let webpackConfig = require('../lib/webpack-config').production
+let jsonScheme = require('../lib/json-scheme')
 let fs = require('fs-extra')
 let abs = require('path').resolve
 let ver = require('semver')
@@ -41,6 +41,7 @@ let fixCode = function (callback) {
 // Step: Build webpack
 let buildWebpack = function (callback) {
   alert('Webpack build process ongoing - please wait ...')
+  let webpackConfig = require('../lib/webpack-config').production
   // Empty webpack cache folder
   fs.emptyDir(abs(env.cache, 'build/www'), function (err) {
     if (err) {
@@ -69,6 +70,22 @@ let updateLicense = function (callback) {
     fs.writeFileSync(file, text)
     alert('License update done.')
     callback()
+  } else {
+    callback()
+  }
+}
+
+// Step: Update documentation
+let updateDocumentation = function (callback) {
+  if (env.installed === false) {
+    alert('Documentation update ongoing - please wait ...')
+    let update = jsonScheme.markdown(abs(__dirname, '../config-scheme.json'), abs(__dirname, '../DOCUMENTATION.md'), 'config-options')
+    if (Array.isArray(update)) {
+      alert('Failed to update the documentation file.\n' + update.join('\n'), 'issue')
+    } else {
+      alert('Documentation update done.')
+      callback()
+    }
   } else {
     callback()
   }
@@ -119,8 +136,8 @@ let manageIcons = function (callback) {
     let iconCacheFolder = abs(env.cache, 'icons/dev')
     let iconFiles = fs.readdirSync(iconCacheFolder)
     iconFiles.map(i => {
-      if (/^(favicon|android-chrome|mstile|apple-touch-icon)/.test(i) === true) {
-        fs.copySync(abs(iconCacheFolder, i), abs(env.cache, 'build/www', i))
+      if (/^(favicon|android-chrome|mstile|apple-touch-icon|ios-splash)/.test(i) === true) {
+        fs.copySync(abs(iconCacheFolder, i), abs(env.cache, 'build/www' + (/^(ios-splash)/.test(i) ? '/icons' : ''), i))
       }
     })
     // Rename Apple touch icon
@@ -165,38 +182,40 @@ fixCode(function () {
   pkg.version = ver.inc(pkg.version, mode)
   fs.writeJsonSync(abs(env.proj, 'package.json'), pkg)
   env.pkg.version = pkg.version
-  delete require.cache[abs(env.proj, 'package.json')]
+  require.cache = {}
   // Update license
   updateLicense(function () {
-    cmd(__dirname, 'node create-icons --version dev', function () {
-      buildWebpack(function () {
-        manageIcons(function () {
-          copyFirebaseFiles(function () {
-            // Dev build
-            if (mode === 'dev') {
-              alert('Development build done.')
-            // Pruduction build
-            } else {
-              alert('Build folder update ongoing - please wait ...')
-              // Empty existing build folder
-              fs.emptyDir(abs(env.proj, 'build'), function (err) {
-                if (err) {
-                  alert('Clean-up the existing build folder failed.', 'issue')
-                } else {
-                  // Copy files
-                  fs.copy(abs(env.cache, 'build'), abs(env.proj, 'build'), function (err) {
-                    if (err) {
-                      alert('Build folder update failed.', 'issue')
-                    } else {
-                      // Create snapshot
-                      cmd(__dirname, 'node create-snapshot --name "build-' + env.pkg.version + '"', function () {
-                        alert('Build process done for version ' + env.pkg.version + '.')
-                      })
-                    }
-                  })
-                }
-              })
-            }
+    updateDocumentation(function () {
+      cmd(__dirname, 'node create-icons --version dev', function () {
+        buildWebpack(function () {
+          manageIcons(function () {
+            copyFirebaseFiles(function () {
+              // Dev build
+              if (mode === 'dev') {
+                alert('Development build done.')
+              // Pruduction build
+              } else {
+                alert('Build folder update ongoing - please wait ...')
+                // Empty existing build folder
+                fs.emptyDir(abs(env.proj, 'build'), function (err) {
+                  if (err) {
+                    alert('Clean-up the existing build folder failed.', 'issue')
+                  } else {
+                    // Copy files
+                    fs.copy(abs(env.cache, 'build'), abs(env.proj, 'build'), function (err) {
+                      if (err) {
+                        alert('Build folder update failed.', 'issue')
+                      } else {
+                        // Create snapshot
+                        cmd(__dirname, 'node create-snapshot --name "build-' + env.pkg.version + '"', function () {
+                          alert('Build process done for version ' + env.pkg.version + '.')
+                        })
+                      }
+                    })
+                  }
+                })
+              }
+            })
           })
         })
       })
