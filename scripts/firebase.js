@@ -27,21 +27,43 @@ if (env.arg.database !== true && env.arg.storage !== true && env.arg.hosting !==
 
 // Prepare Firebase deployment
 let binFolder = abs(env.proj, 'node_modules/firebase-tools/bin')
-let buildFolder = abs(env.proj, 'build')
 
-// Check folders
-if (!found(buildFolder)) {
-  alert('Build folder not found.', 'error')
-} else if (!found(buildFolder, 'database-rules.json')) {
-  alert('File "database-rules.json" not found in build folder.', 'error')
-} else if (!found(buildFolder, 'storage-rules.txt')) {
-  alert('File "storage-rules.txt" not found in build folder.', 'error')
+// Steps
+let defineBuildFolder = function (callback) {
+  if (env.arg.version === undefined) {
+    let buildFolder = abs(env.proj, 'build')
+    if (found(buildFolder)) {
+      callback(buildFolder)
+    } else {
+      alert('Please build your application first with "npm run patch/minor/major".')
+    }
+  } else if (/^(([0-9]+)\.([0-9]+)\.([0-9]+))$/.test(env.arg.version) === true) {
+    // tbc
+    console.log(env.arg.version)
+    process.exit()
+  } else {
+    alert('Version argument must be "dev" or "x.y.z".')
+  }
 }
-
-// Function to copy files to firebase bin folder
+let checkFolders = function (buildFolder, callback) {
+  if (!found(buildFolder)) {
+    alert('Build folder not found.', 'error')
+  } else if (!found(buildFolder, 'database-rules.json')) {
+    alert('File "database-rules.json" not found in build folder.', 'error')
+  } else if (!found(buildFolder, 'storage-rules.txt')) {
+    alert('File "storage-rules.txt" not found in build folder.', 'error')
+  } else {
+    callback()
+  }
+}
 let prepareFiles = (callback) => {
   alert('Firebase deployment preparation ongoing - please wait ...')
   try {
+    // Correct storage bucket in database rules
+    let rules = fs.readFileSync(abs(buildFolder, 'storage-rules.txt'), 'utf8')
+    rules = rules.replace(/match \/b\/(.+?)\/o {/, 'match /b/' + (env.cfg.firebase.storageBucket !== '' ? env.cfg.firebase.storageBucket : '<your-storage-bucket>') + '/o {')
+    fs.writeFileSync(abs(buildFolder, 'storage-rules.txt'), rules)
+    // Reset build folder in firebase
     fs.removeSync(abs(binFolder, 'build'))
     if (env.arg.hosting === true) {
       fs.copy(buildFolder, abs(binFolder, 'build'))
@@ -57,8 +79,6 @@ let prepareFiles = (callback) => {
     alert('Firebase deployment preparation failed.', 'issue')
   }
 }
-
-// Function to update config files
 let updateConfigFiles = (callback) => {
   alert('Firebase configuration update ongoing - please wait ...')
   try {
@@ -95,8 +115,6 @@ let updateConfigFiles = (callback) => {
     alert('Firebase configuration update failed.', 'issue')
   }
 }
-
-// Deployment functions
 let databaseDeployment = (callback) => {
   if (env.arg.database === true) {
     alert('Firebase database rules deployment ongoing - please wait ...')
@@ -137,14 +155,20 @@ let hostingDeployment = (callback) => {
   }
 }
 
-// Login
-cmd(binFolder, 'firebase login', () => {
-  prepareFiles(() => {
-    updateConfigFiles(() => {
-      databaseDeployment(() => {
-        storageDeployment(() => {
-          hostingDeployment(() => {
-            alert('Firebase deployment done.')
+ // Run
+
+// Run
+defineBuildFolder(function (buildFolder) {
+  checkFolders(buildFolder, function () {
+    cmd(binFolder, 'firebase login', () => {
+      prepareFiles(() => {
+        updateConfigFiles(() => {
+          databaseDeployment(() => {
+            storageDeployment(() => {
+              hostingDeployment(() => {
+                alert('Firebase deployment done.')
+              })
+            })
           })
         })
       })

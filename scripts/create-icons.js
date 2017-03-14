@@ -255,6 +255,56 @@ let createIcoFile = function (hashFolder, callback) {
   })
 }
 
+// Downsize ms tile icons, keep transparency
+let downsizeTileIcons = function (hashFolder, iconList, callback) {
+  alert('Downsizing tile icons - Please wait ...')
+  if (!Array.isArray(iconList) || iconList.length === 0) {
+    alert('Downsized tile icons.')
+    callback()
+  } else {
+    let iconFile = iconList.shift().name
+    if (/^mstile/.test(iconFile) === true) {
+      new img(abs(hashFolder, iconFile), function (err, icon) { // eslint-disable-line
+        if (!err) {
+          new img(icon.bitmap.width, icon.bitmap.height, function (err, canvas) { // eslint-disable-line
+            if (!err) {
+              let newWidth = Math.floor(icon.bitmap.width * 0.75)
+              let newHeight = Math.floor(icon.bitmap.height * 0.75)
+              icon.resize(newWidth, newHeight, function (err, icon) {
+                if (!err) {
+                  let left = Math.floor((canvas.bitmap.width - newWidth) / 2)
+                  let top = Math.floor((canvas.bitmap.height - newHeight) / 2)
+                  canvas.composite(icon, left, top, function (err, canvas) {
+                    if (!err) {
+                      canvas.write(abs(hashFolder, iconFile), function (err) {
+                        if (!err) {
+                          downsizeTileIcons(hashFolder, iconList, callback)
+                        } else {
+                          alert('Failed to save tile icon.', 'issue')
+                        }
+                      })
+                    } else {
+                      alert('Failed to create tile icon.', 'issue')
+                    }
+                  })
+                } else {
+                  alert('Failed to downsize tile icon.', 'issue')
+                }
+              })
+            } else {
+              alert('Failed to create tile icon canvas.', 'issue')
+            }
+          })
+        } else {
+          alert('Failed to read tile icon.', 'issue')
+        }
+      })
+    } else {
+      downsizeTileIcons(hashFolder, iconList, callback)
+    }
+  }
+}
+
 // Cache hash folder
 let cacheHashFolder = function (hashFolder, callback) {
   // Copy icons to version cache folder
@@ -290,9 +340,11 @@ getIconFilename(function (filename) {
       // Create icons
       createTransparentIcons(icon, transparent, hashFolder, function () {
         createFilledIcons(iconFilled, filled, hashFolder, function () {
-          createIcoFile(hashFolder, function () {
-            cacheHashFolder(hashFolder, function () {
-              alert('Icon generation done.', 'exit')
+          downsizeTileIcons(hashFolder, iconsToCreate, function () {
+            createIcoFile(hashFolder, function () {
+              cacheHashFolder(hashFolder, function () {
+                alert('Icon generation done.', 'exit')
+              })
             })
           })
         })
