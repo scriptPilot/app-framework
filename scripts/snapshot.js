@@ -1,5 +1,7 @@
 /* Purpose: Creates snapshot with current day as name, increase with character in case there are more than one snapshots per day */
 
+'use strict'
+
 // Include modules
 let env = require('../env')
 let alert = require('../lib/alert')
