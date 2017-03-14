@@ -32,7 +32,8 @@ Read less, code more - please open a ticket for any open question in our [Issue 
 
 - Setup
   - `npm install` to install App Framework and setup project folder
-    - `npm reset-app` to replace app folder with minimum files
+  - `npm run reset-app` to replace app folder with minimum files
+    Recommend only for new projects and advanced users.
   - `npm update` to update App Framework to latest sub version
 
 - Testing
@@ -60,7 +61,8 @@ Read less, code more - please open a ticket for any open question in our [Issue 
   For rollback, add `--version x.y.z` parameter to any deployment command.
 
 - Backup
-  - `npm run snapshot` to create a snapshot of your project file
+  - `npm run backup` to create a snapshot of the Firebase database and user list
+  - `npm run snapshot` to create a snapshot of your project folder
 
 ## Project folder structure
 
@@ -87,32 +89,34 @@ Read less, code more - please open a ticket for any open question in our [Issue 
 <!-- config-options -->
 Option | Allowed | Default
 :--- |:--- |:---
-title | *string* | Demo App
+title | *string* | My App
 defaultLanguage | /^([a-z]{2})$/ | en
 theme | ios, material | ios
 loadIconFonts | *object* |
 &nbsp;&nbsp;&nbsp;framework7 | *boolean* | false
 &nbsp;&nbsp;&nbsp;material | *boolean* | false
 &nbsp;&nbsp;&nbsp;ion | *boolean* | false
-&nbsp;&nbsp;&nbsp;fontawesome | *boolean* | true
+&nbsp;&nbsp;&nbsp;fontawesome | *boolean* | false
 iconBackgroundColor | /^#([0-9a-f]{6})$/i | #ffffff
 statusbarTextColor | black, white | white
 showPhoneFrameOnDesktop | *boolean* | true
 materialSubnavbarFix | *boolean* | true
-specialRoutes | *object* | {"flexible-routing/blog/:blogId/post/:postId":"flexible-routing"}
-pagesWithRequiredLogin | *array* | ["firebase-private"]
+specialRoutes | *object* | {}
+pagesWithRequiredLogin | *array* | []
 firebase | *object* |
-&nbsp;&nbsp;&nbsp;apiKey | *string* | AIzaSyAvzTiqd9fKR-h47Uxl4iXwqSMU1VjGdII
-&nbsp;&nbsp;&nbsp;authDomain | *string* | app-framework-9045a.firebaseapp.com
-&nbsp;&nbsp;&nbsp;databaseURL | *string* | https://app-framework-9045a.firebaseio.com
-&nbsp;&nbsp;&nbsp;storageBucket | *string* | app-framework-9045a.appspot.com
-&nbsp;&nbsp;&nbsp;allowUserRegistration | *boolean* | true
-appStoreId | *string* | de.scriptpilot.app-framework
-playStoreId | *string* | de.scriptpilot.appframework
-useCordovaPlugins | *array* | ["cordova-plugin-statusbar"]
+&nbsp;&nbsp;&nbsp;apiKey | *string* | 
+&nbsp;&nbsp;&nbsp;authDomain | *string* | 
+&nbsp;&nbsp;&nbsp;databaseURL | *string* | 
+&nbsp;&nbsp;&nbsp;storageBucket | *string* | 
+&nbsp;&nbsp;&nbsp;allowUserRegistration | *boolean* | false
+appStoreId | *string* | 
+playStoreId | *string* | 
+useCordovaPlugins | *array* | ["cordova-plugin-statusbar","cordova-plugin-whitelist"]
 resetLocalStorageOnVersionChange | *boolean* | false
 buildSourcemaps | *boolean* | false
+fixCodeOnTest | *boolean* | true
 fixCodeOnBuild | *boolean* | true
+devServerPort | /^([0-9]{4})$/ | 8080
 <!-- /config-options -->
 
 ## Vue hooks
