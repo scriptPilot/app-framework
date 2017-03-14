@@ -3,12 +3,12 @@
   "description": "iOS and Android Apps with HTML & JavaScript - develop, build and deploy - free and open source!",
   "author": "scriptPilot <mail@scriptPilot.de> (https://github.com/scriptPilot)",
   "repository": "https://github.com/scriptPilot/app-framework.git",
-  "version": "1.2.173",
+  "version": „1.2.303“,
   "license": "MIT",
   "scripts": {
     "install": "npm install",
-    "update": "npm update",
     "reset-app": "node scripts/reset-app",
+    "update": "npm update",
     "postinstall": "node scripts/postinstall",
     "reset": "node scripts/reset-cache",
     "f7": "node scripts/f7-update",
@@ -28,10 +28,10 @@
     "ftp": "node scripts/ftp",
     "xcode": "node scripts/cordova --xcode",
     "studio": "node scripts/cordova --studio",
+    "backup": "node scripts/backup",
     "snapshot": "node scripts/snapshot",
     "zip": "node scripts/deprecated",
-    "icons": "node scripts/deprecated",
-    "backup": "node scripts/deprecated"
+    "icons": "node scripts/deprecated"
   },
   "devDependencies": {
     "gulp": "^3.9.1"
