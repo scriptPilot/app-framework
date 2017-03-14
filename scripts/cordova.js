@@ -388,7 +388,29 @@ resetCordovaFolder(function () {
                 ]
                 for (let p = 0; p < possibleInstallations.length; p++) {
                   if (found(possibleInstallations[p])) {
-                    cmd(path.dirname(possibleInstallations[p]), [(env.os === 'win' ? 'start' : 'open'), path.basename(possibleInstallations[p]), '"' + abs(binDir, 'platforms/android') + '"'], function () {
+                    cmd(path.dirname(possibleInstallations[p]), ['start', path.basename(possibleInstallations[p]), '"' + abs(binDir, 'platforms/android') + '"'], function () {
+                      alert('Android Studio started.')
+                    })
+                    p = possibleInstallations.length
+                  } else if (p + 1 === possibleInstallations.length) {
+                    alert('Android Studio installation path not found.\nPlease open Android Studio manually and add project path:\n\n' + abs(binDir, 'platforms/android'), 'issue')
+                  }
+                }
+              } else if (env.os === 'mac') {
+                cmd(__dirname, 'open -a "/Applications/Android Studio.app" "' + abs(binDir, 'platforms/android') + '"', function () {
+                  alert('Android Studio started.')
+                })
+              } else if (env.os === 'linux') {
+                let possibleInstallations = [
+                  abs('/bin/android-studio/bin/studio.sh'),
+                  abs('/opt/android-studio/bin/studio.sh'),
+                  abs('/usr/bin/android-studio/bin/studio.sh'),
+                  abs('/usr/local/android-studio/bin/studio.sh'),
+                  abs('/usr/local/bin/android-studio/bin/studio.sh')
+                ]
+                for (let p = 0; p < possibleInstallations.length; p++) {
+                  if (found(possibleInstallations[p])) {
+                    cmd(path.dirname(possibleInstallations[p]), [path.basename(possibleInstallations[p]), '"' + abs(binDir, 'platforms/android') + '"'], function () {
                       alert('Android Studio started.')
                     })
                     p = possibleInstallations.length
@@ -397,9 +419,7 @@ resetCordovaFolder(function () {
                   }
                 }
               } else {
-                cmd(__dirname, 'open -a "/Applications/Android Studio.app" "' + abs(binDir, 'platforms/android') + '"', function () {
-                  alert('Android Studio started.')
-                })
+                alert('Unknown operating system "' + env.os + '".', 'issue')
               }
             }
           })

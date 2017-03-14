@@ -59,6 +59,8 @@ if (process.platform === 'win32') {
   os = 'win'
 } else if (process.platform === 'darwin') {
   os = 'mac'
+} else if (process.platform === 'linux') {
+  os = 'linux'
 } else {
   alert('Error: Your operation system "' + process.platform + '" is not supported.', 'issue')
 }
