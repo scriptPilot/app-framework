@@ -3,7 +3,7 @@
   "description": "iOS and Android Apps with HTML & JavaScript - develop, build and deploy - free and open source!",
   "author": "scriptPilot <mail@scriptPilot.de> (https://github.com/scriptPilot)",
   "repository": "https://github.com/scriptPilot/app-framework.git",
-  "version": "1.2.305",
+  "version": "1.2.307",
   "license": "MIT",
   "scripts": {
     "install": "npm install",
@@ -57,7 +57,7 @@
     "firebase": "^3.6.6",
     "firebase-tools": "^3.2.3",
     "fs-extra": "^2.0.0",
-    "ftp-client": "^0.2.2",
+    "ftp": "^0.3.10",
     "function-bind": "^1.0.2",
     "glob-to-regexp": "^0.3.0",
     "hex-rgb": "^1.0.0",

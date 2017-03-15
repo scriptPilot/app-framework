@@ -136,8 +136,8 @@ let manageIcons = function (callback) {
     let iconCacheFolder = abs(env.cache, 'icons/dev')
     let iconFiles = fs.readdirSync(iconCacheFolder)
     iconFiles.map(i => {
-      if (/^(favicon|android-chrome|mstile|apple-touch-icon|ios-splash)/.test(i) === true) {
-        fs.copySync(abs(iconCacheFolder, i), abs(env.cache, 'build/www' + (/^(ios-splash)/.test(i) ? '/icons' : ''), i))
+      if (/^(favicon|android-chrome|mstile|apple-touch-icon)/.test(i) === true) {
+        fs.copySync(abs(iconCacheFolder, i), abs(env.cache, 'build/www', i))
       }
     })
     // Rename Apple touch icon

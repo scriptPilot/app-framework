@@ -24,3 +24,6 @@ snapshots/
 
 # Exclude database backups (deprecated)
 database-backup.json
+
+# Exclude FTP config file
+ftp-config.json
