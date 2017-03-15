@@ -56,7 +56,7 @@ let checkFolders = function (buildFolder, callback) {
     callback()
   }
 }
-let prepareFiles = (callback) => {
+let prepareFiles = (buildFolder, callback) => {
   alert('Firebase deployment preparation ongoing - please wait ...')
   try {
     // Correct storage bucket in database rules
@@ -161,7 +161,7 @@ let hostingDeployment = (callback) => {
 defineBuildFolder(function (buildFolder) {
   checkFolders(buildFolder, function () {
     cmd(binFolder, 'firebase login', () => {
-      prepareFiles(() => {
+      prepareFiles(buildFolder, function () {
         updateConfigFiles(() => {
           databaseDeployment(() => {
             storageDeployment(() => {

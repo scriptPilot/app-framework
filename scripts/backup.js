@@ -45,7 +45,15 @@ prepareFirebase(function () {
     cmd(binFolder, 'firebase database:get / >"' + abs(env.proj, 'snapshots/firebase-database-' + dateStr + '.json') + '"', function () {
       alert('Firebase user backup ongoing - please wait ...')
       cmd(binFolder, 'firebase auth:export "' + abs(env.proj, 'snapshots/firebase-users-' + dateStr + '.json') + '" --format=json', function () {
-        alert('Firebase backup done.')
+        try {
+          let dbFile = fs.readJsonSync(abs(env.proj, 'snapshots/firebase-database-' + dateStr + '.json'))
+          fs.writeJsonSync(abs(env.proj, 'snapshots/firebase-database-' + dateStr + '.json'), dbFile)
+          let userFile = fs.readJsonSync(abs(env.proj, 'snapshots/firebase-users-' + dateStr + '.json'))
+          fs.writeJsonSync(abs(env.proj, 'snapshots/firebase-users-' + dateStr + '.json'), userFile)
+          alert('Firebase backup done.')
+        } catch (err) {
+          alert('Failed to beautify database backup files.', 'issue')
+        }
       }, 'Firebase user backup failed.')
     }, 'Firebase database backup failed.')
   }, 'Firebase login failed.')
