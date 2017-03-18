@@ -400,7 +400,7 @@ cmd(__dirname, 'node cache-version --version ' + env.arg.version, function () {
                       })
                       p = possibleInstallations.length
                     } else if (p + 1 === possibleInstallations.length) {
-                      alert('Android Studio installation path not found.\nPlease open Android Studio manually and add project path:\n\n' + abs(binDir, 'platforms/android'), 'issue')
+                      alert('Android Studio installation path not found.\nPlease open Android Studio manually and open project path:\n\n' + abs(binDir, 'platforms/android'), 'issue')
                     }
                   }
                 } else if (env.os === 'mac') {
@@ -422,7 +422,7 @@ cmd(__dirname, 'node cache-version --version ' + env.arg.version, function () {
                       })
                       p = possibleInstallations.length
                     } else if (p + 1 === possibleInstallations.length) {
-                      alert('Android Studio installation path not found.\nPlease open Android Studio manually and add project path:\n\n' + abs(binDir, 'platforms/android'), 'issue')
+                      alert('Android Studio installation path not found.\nPlease open Android Studio manually and open project path:\n\n' + abs(binDir, 'platforms/android'), 'issue')
                     }
                   }
                 } else {

@@ -109,6 +109,12 @@ firebase | *object* |
 &nbsp;&nbsp;&nbsp;databaseURL | *string* | 
 &nbsp;&nbsp;&nbsp;storageBucket | *string* | 
 &nbsp;&nbsp;&nbsp;allowUserRegistration | *boolean* | false
+dev-firebase | *object* |
+&nbsp;&nbsp;&nbsp;apiKey | *string* | 
+&nbsp;&nbsp;&nbsp;authDomain | *string* | 
+&nbsp;&nbsp;&nbsp;databaseURL | *string* | 
+&nbsp;&nbsp;&nbsp;storageBucket | *string* | 
+&nbsp;&nbsp;&nbsp;allowUserRegistration | *boolean* | false
 appStoreId | *string* | 
 playStoreId | *string* | 
 useCordovaPlugins | *array* | ["cordova-plugin-statusbar","cordova-plugin-whitelist"]

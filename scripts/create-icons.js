@@ -33,7 +33,9 @@ let icons = [
   ['apple-touch-icon', 180, 180, true],
   ['favicon', 16, 16],
   ['favicon', 32, 32],
-  ['favicon', 48, 48],
+  ['ico', 16, 16],
+  ['ico', 32, 32],
+  ['ico', 48, 48],
   ['android-chrome', 192, 192],
   ['android-chrome', 512, 512],
   ['mstile', 150, 150],
@@ -235,7 +237,7 @@ let createIcoFile = function (hashFolder, callback) {
   // Load files
   let files = []
   sizes.map(s => {
-    let path = abs(hashFolder, 'favicon-' + s + 'x' + s + '.png')
+    let path = abs(hashFolder, 'ico-' + s + 'x' + s + '.png')
     if (!found(path)) {
       alert('Cannot find favicon-' + s + '.png in hash cache folder.', 'issue')
     } else {

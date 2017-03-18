@@ -38,14 +38,14 @@ let cache = abs(proj, 'node_modules/.app-framework-cache')
 
 // Check if user has forked the repo
 if (!installed && !found(proj, '.enable-dev-mode')) {
-  alert('Error: App Framework should be installed as module.\nPlease check our documentation on GitHub.')
+  alert('App Framework should be installed as module.\nPlease check our documentation on GitHub.', 'error')
 }
 
 // Fix configuration file
 if (found(app, 'config.json')) {
   let configFix = jsonScheme.fix(abs(__dirname, 'config-scheme.json'), abs(app, 'config.json'))
   if (Array.isArray(configFix)) {
-    alert('Error: Failed to fix config file.\nDetails:\n- ' + configFix.join('\n- '), 'issue')
+    alert('Failed to fix config file.\nDetails:\n- ' + configFix.join('\n- '), 'issue', 'issue')
   }
 }
 
@@ -62,7 +62,7 @@ if (process.platform === 'win32') {
 } else if (process.platform === 'linux') {
   os = 'linux'
 } else {
-  alert('Error: Your operation system "' + process.platform + '" is not supported.', 'issue')
+  alert('Your operation system "' + process.platform + '" is not supported.', 'issue')
 }
 
 // Read .gitignore file as array with regexp
