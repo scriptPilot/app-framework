@@ -58,7 +58,7 @@ Read less, code more - please open a ticket for any open question in our [Issue 
   - `npm run xcode` to deploy static files as Xcode project
   - `npm run studio` to deploy static files as Android Studio project
 
-  For rollback, add `--version x.y.z` parameter to any deployment command.
+  For rollback, add ` -- --version x.y.z` parameter to any deployment command.
 
 - Backup
   - `npm run backup` to create a snapshot of the Firebase database and user list

@@ -1,6 +1,6 @@
 /*
 
-  Purpose: Deploy build to FTP server and update .htaccess file
+  Purpose: Deploy build folder to FTP server and update .htaccess file
 
 */
 
@@ -13,19 +13,16 @@ let cmd = require('../lib/cmd')
 let found = require('../lib/found')
 let fs = require('fs-extra')
 let ftp = require('ftp')
+let path = require('path')
 let abs = require('path').resolve
 let rec = require('recursive-readdir')
 
-// Steps
-let getVersion = function (callback) {
-  if (env.arg.version === undefined) {
-    callback(env.pkg.version)
-  } else if (/^([0-9]+)\.([0-9]+)\.([0-9]+)$/.test(env.arg.version) === true) {
-    callback(env.arg.version)
-  } else {
-    alert('Version argument not valid.', 'error')
-  }
+// Deploy current version by default
+if (env.arg.version === undefined) {
+  env.arg.version = env.pkg.version
 }
+
+// Steps
 let getConfig = function (callback) {
   let configFile = abs(env.proj, 'ftp-config.json')
   if (found(configFile)) {
@@ -68,40 +65,99 @@ let connect = function (config, callback) {
     alert('Failed to connect to the FTP server.\nPlease check your "ftp-config.json" file.', 'error')
   }
 }
-/*
-let deployBuild = function (client, callback) {
-  let files = rec(abs(env.proj, 'build/www'))
-
-
-  client.put('build', 'build', function (err) {
-    if (!err) {
-      callback()
-    } else {
-      alert(err, 'exit')
-      alert('Failed to upload build folder to the FTP server.', 'issue')
+let uploadFiles = function (client, localFolder, remoteFolder, files, callback) {
+  if (!Array.isArray(files) || files.length === 0) {
+    callback()
+  } else {
+    let file = files.shift()
+    let folder = path.join(remoteFolder, path.dirname(file))
+    let parentFolder = path.dirname(folder)
+    let putFile = function () {
+      client.put(abs(localFolder, file), path.join(remoteFolder, file), function (err) {
+        if (err) alert('Failed to upload file "' + path.join(folder, file) + '" to the FTP server.', 'issue')
+        uploadFiles(client, localFolder, remoteFolder, files, callback)
+      })
     }
-  })
-  client.list(function (err, list) {
-    let versionFound = false
-    list.map(function (item) {
-      if (item.name === 'build-' + version) {
-        versionFound = true
-      }
-    })
-    callback(versionFound)
-  })
-}
-*/
-let updateHtaccess = function (client) {
-  client.mkdir('main/sub', true, function (err) {
-    if (!err) {
-      client.put('build/icon.png', 'main/sub/icon.png', function (err) {
-        if (!err) {
-          alert('Upload done.')
-        } else {
-          alert('Failed to upload file.' + err)
+    client.list(parentFolder, function (err, folders) {
+      if (err) alert('Failed to list files from FTP server.', 'issue')
+      let folderFound = false
+      folders.map(function (f) {
+        if (f === path.basename(folder)) {
+          folderFound = true
         }
       })
+      if (folderFound === true) {
+        putFile()
+      } else {
+        client.mkdir(folder, true, function (err) {
+          if (err) alert('Failed to create folder "' + folder + '" on the FTP server.', 'issue')
+          putFile()
+        })
+      }
+    })
+  }
+}
+let uploadBuildFolder = function (client, callback) {
+  alert('Uploading build folder - please wait ...')
+  let localFolder = abs(env.cache, 'snapshots', 'build-' + env.arg.version, 'build/www')
+  let remoteFolder = 'build-' + env.arg.version
+  if (!found(localFolder)) {
+    alert('Local folder not found.', 'issue')
+  }
+  client.list(function (err, list) {
+    if (!err) {
+      let remoteFolderFound = false
+      list.map(function (item) {
+        if (item.name === remoteFolder && item.type === 'd') {
+          remoteFolderFound = true
+        }
+      })
+      if (remoteFolderFound === true && env.arg.version !== 'dev') {
+        alert('Build folder already uploaded.')
+        callback()
+      } else {
+        rec(localFolder, function (err, files) {
+          if (err) alert('Failed to read local folder files.', 'issue')
+          files.map(function (item, index) {
+            files[index] = item.substr(localFolder.length + 1)
+          })
+          uploadFiles(client, localFolder, remoteFolder, files, function () {
+            alert('Build folder upload done.')
+            callback()
+          })
+        })
+      }
+    } else {
+      alert('Failed to list FTP server content.', 'issue')
+    }
+  })
+}
+let updateHtaccess = function (client, callback) {
+  alert('Updating .htaccess file - please wait ...')
+  let cacheDir = abs(env.cache, 'ftp')
+  let htaccess = 'RewriteEngine On\n' +
+                 'RewriteCond %{REQUEST_URI} !^/build-' + env.arg.version + '/\n' +
+                 'RewriteRule ^(.*)$ /build-' + env.arg.version + '/$1 [L]\n' +
+                 'RewriteCond %{REQUEST_FILENAME} !-f\n' +
+                 'RewriteCond %{REQUEST_FILENAME} !-d\n' +
+                 'RewriteRule ^build-([0-9.]+)/(.*)?$ /#/$2 [R,L,NE]\n'
+  fs.ensureDir(cacheDir, function (err) {
+    if (!err) {
+      fs.writeFile(abs(cacheDir, '.htaccess'), htaccess, function (err) {
+        if (!err) {
+          client.put(abs(cacheDir, '.htaccess'), '.htaccess', function (err) {
+            if (!err) {
+              callback()
+            } else {
+              alert('Failed to update .htaccess file on FTP server.', 'issue')
+            }
+          })
+        } else {
+          alert('Failed to cache .htaccess file.', 'issue')
+        }
+      })
+    } else {
+      alert('Failed to create cache folder.', 'issue')
     }
   })
 }
@@ -109,12 +165,14 @@ let updateHtaccess = function (client) {
 // Run
 alert('FTP deployment ongoing - please wait ...')
 getConfig(function (config) {
-  ///getVersion(function (version) {
+  cmd(__dirname, 'node cache-version --version ' + env.arg.version, function () {
     connect(config, function (client) {
-      updateHtaccess(client, function () {
-        alert('done')
-        client.end()
+      uploadBuildFolder(client, function () {
+        updateHtaccess(client, function () {
+          client.end()
+          alert('FTP deployment done for version ' + env.arg.version + '.')
+        })
       })
     })
-  ///})
+  })
 })

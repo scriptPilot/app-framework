@@ -17,6 +17,11 @@ let fs = require('fs-extra')
 let join = require('path').join
 let abs = require('path').resolve
 
+// Deploy current version by default
+if (env.arg.version === undefined) {
+  env.arg.version = env.pkg.version
+}
+
 // Run
 alert('Firebase deployment ongoing - please wait ...')
 
@@ -30,20 +35,14 @@ let binFolder = abs(env.proj, 'node_modules/firebase-tools/bin')
 
 // Steps
 let defineBuildFolder = function (callback) {
-  if (env.arg.version === undefined) {
-    let buildFolder = abs(env.proj, 'build')
+  cmd(__dirname, 'node cache-version --version ' + env.arg.version, function () {
+    let buildFolder = abs(env.cache, 'snapshots/build-' + env.arg.version + '/build')
     if (found(buildFolder)) {
       callback(buildFolder)
     } else {
-      alert('Please build your application first with "npm run patch/minor/major".')
+      alert('Build folder not found in snapshot cache.', 'issue')
     }
-  } else if (/^(([0-9]+)\.([0-9]+)\.([0-9]+))$/.test(env.arg.version) === true) {
-    // tbc
-    console.log(env.arg.version)
-    process.exit()
-  } else {
-    alert('Version argument must be "dev" or "x.y.z".')
-  }
+  })
 }
 let checkFolders = function (buildFolder, callback) {
   if (!found(buildFolder)) {
@@ -166,7 +165,7 @@ defineBuildFolder(function (buildFolder) {
           databaseDeployment(() => {
             storageDeployment(() => {
               hostingDeployment(() => {
-                alert('Firebase deployment done.')
+                alert('Firebase deployment done for version ' + env.arg.version + '.')
               })
             })
           })

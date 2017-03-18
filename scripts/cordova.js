@@ -24,6 +24,13 @@ let path = require('path')
 let abs = require('path').resolve
 let xml = require('xml2js')
 
+// Deploy current version by default
+if (env.arg.version === undefined && (env.arg.xcode === true || env.arg.studio === true)) {
+  env.arg.version = env.pkg.version
+} else if (env.arg.ios === true || env.arg.android === true) {
+  env.arg.version = 'dev'
+}
+
 // Check arguments
 if (env.arg.ios === true || env.arg.xcode === true) {
   if (env.os !== 'mac') {
@@ -37,7 +44,7 @@ if (env.arg.ios === true || env.arg.xcode === true) {
 let binDir = abs(env.proj, 'node_modules/cordova/bin')
 
 // Define build directories
-let buildSourceDir = abs(env.proj, 'build/www')
+let buildSourceDir = abs(env.cache, 'snapshots', 'build-' + env.arg.version, 'build/www')
 let wwwFolder = abs(binDir, 'www')
 
 // Define steps
@@ -109,7 +116,7 @@ let updateCordovaConfig = function (callback) {
   config = {
     '$': {
       'id': env.arg.ios === true || env.arg.xcode === true ? env.cfg.appStoreId : env.cfg.playStoreId,
-      'version': env.pkg.version,
+      'version': env.arg.version,
       'xmlns': 'http://www.w3.org/ns/widgets',
       'xmlns:cdv': 'http://cordova.apache.org/ns/1.0'
     }
@@ -365,62 +372,64 @@ let addCordovaPlatforms = function (callback) {
 }
 
 // Run script
-resetCordovaFolder(function () {
-  createCordovaProject(function () {
-    updateCordovaConfig(function () {
-      updateWwwFolder(function () {
-        installCordovaPlugins(function () {
-          addCordovaPlatforms(function () {
-            if (env.arg.ios === true || env.arg.xcode === true) {
-              alert('Xcode start ongoing - please wait ...')
-              cmd(__dirname, 'open -a Xcode "' + abs(binDir, 'platforms/ios', env.cfg.title + '.xcodeproj') + '"', function () {
-                alert('Xcode started.')
-              })
-            } else {
-              alert('Android Studio start ongoing - please wait ...')
-              if (env.os === 'win') {
-                let possibleInstallations = [
-                  abs(process.env['ProgramFiles'], 'Android/Android Studio/bin/studio64.exe'),
-                  abs(process.env['ProgramFiles'], 'Android/Android Studio/bin/studio.exe'),
-                  abs(process.env['ProgramFiles(x86)'], 'Android/Android Studio/bin/studio64.exe'),
-                  abs(process.env['ProgramFiles(x86)'], 'Android/Android Studio/bin/studio.exe')
-                ]
-                for (let p = 0; p < possibleInstallations.length; p++) {
-                  if (found(possibleInstallations[p])) {
-                    cmd(path.dirname(possibleInstallations[p]), ['start', path.basename(possibleInstallations[p]), '"' + abs(binDir, 'platforms/android') + '"'], function () {
-                      alert('Android Studio started.')
-                    })
-                    p = possibleInstallations.length
-                  } else if (p + 1 === possibleInstallations.length) {
-                    alert('Android Studio installation path not found.\nPlease open Android Studio manually and add project path:\n\n' + abs(binDir, 'platforms/android'), 'issue')
-                  }
-                }
-              } else if (env.os === 'mac') {
-                cmd(__dirname, 'open -a "/Applications/Android Studio.app" "' + abs(binDir, 'platforms/android') + '"', function () {
-                  alert('Android Studio started.')
+cmd(__dirname, 'node cache-version --version ' + env.arg.version, function () {
+  resetCordovaFolder(function () {
+    createCordovaProject(function () {
+      updateCordovaConfig(function () {
+        updateWwwFolder(function () {
+          installCordovaPlugins(function () {
+            addCordovaPlatforms(function () {
+              if (env.arg.ios === true || env.arg.xcode === true) {
+                alert('Xcode start ongoing - please wait ...')
+                cmd(__dirname, 'open -a Xcode "' + abs(binDir, 'platforms/ios', env.cfg.title + '.xcodeproj') + '"', function () {
+                  alert('Xcode started.')
                 })
-              } else if (env.os === 'linux') {
-                let possibleInstallations = [
-                  abs('/bin/android-studio/bin/studio.sh'),
-                  abs('/opt/android-studio/bin/studio.sh'),
-                  abs('/usr/bin/android-studio/bin/studio.sh'),
-                  abs('/usr/local/android-studio/bin/studio.sh'),
-                  abs('/usr/local/bin/android-studio/bin/studio.sh')
-                ]
-                for (let p = 0; p < possibleInstallations.length; p++) {
-                  if (found(possibleInstallations[p])) {
-                    cmd(path.dirname(possibleInstallations[p]), ['./' + path.basename(possibleInstallations[p]), '"' + abs(binDir, 'platforms/android') + '"'], function () {
-                      alert('Android Studio started.')
-                    })
-                    p = possibleInstallations.length
-                  } else if (p + 1 === possibleInstallations.length) {
-                    alert('Android Studio installation path not found.\nPlease open Android Studio manually and add project path:\n\n' + abs(binDir, 'platforms/android'), 'issue')
-                  }
-                }
               } else {
-                alert('Unknown operating system "' + env.os + '".', 'issue')
+                alert('Android Studio start ongoing - please wait ...')
+                if (env.os === 'win') {
+                  let possibleInstallations = [
+                    abs(process.env['ProgramFiles'], 'Android/Android Studio/bin/studio64.exe'),
+                    abs(process.env['ProgramFiles'], 'Android/Android Studio/bin/studio.exe'),
+                    abs(process.env['ProgramFiles(x86)'], 'Android/Android Studio/bin/studio64.exe'),
+                    abs(process.env['ProgramFiles(x86)'], 'Android/Android Studio/bin/studio.exe')
+                  ]
+                  for (let p = 0; p < possibleInstallations.length; p++) {
+                    if (found(possibleInstallations[p])) {
+                      cmd(path.dirname(possibleInstallations[p]), ['start', path.basename(possibleInstallations[p]), '"' + abs(binDir, 'platforms/android') + '"'], function () {
+                        alert('Android Studio started.')
+                      })
+                      p = possibleInstallations.length
+                    } else if (p + 1 === possibleInstallations.length) {
+                      alert('Android Studio installation path not found.\nPlease open Android Studio manually and add project path:\n\n' + abs(binDir, 'platforms/android'), 'issue')
+                    }
+                  }
+                } else if (env.os === 'mac') {
+                  cmd(__dirname, 'open -a "/Applications/Android Studio.app" "' + abs(binDir, 'platforms/android') + '"', function () {
+                    alert('Android Studio started.')
+                  })
+                } else if (env.os === 'linux') {
+                  let possibleInstallations = [
+                    abs('/bin/android-studio/bin/studio.sh'),
+                    abs('/opt/android-studio/bin/studio.sh'),
+                    abs('/usr/bin/android-studio/bin/studio.sh'),
+                    abs('/usr/local/android-studio/bin/studio.sh'),
+                    abs('/usr/local/bin/android-studio/bin/studio.sh')
+                  ]
+                  for (let p = 0; p < possibleInstallations.length; p++) {
+                    if (found(possibleInstallations[p])) {
+                      cmd(path.dirname(possibleInstallations[p]), ['./' + path.basename(possibleInstallations[p]), '"' + abs(binDir, 'platforms/android') + '"'], function () {
+                        alert('Android Studio started.')
+                      })
+                      p = possibleInstallations.length
+                    } else if (p + 1 === possibleInstallations.length) {
+                      alert('Android Studio installation path not found.\nPlease open Android Studio manually and add project path:\n\n' + abs(binDir, 'platforms/android'), 'issue')
+                    }
+                  }
+                } else {
+                  alert('Unknown operating system "' + env.os + '".', 'issue')
+                }
               }
-            }
+            })
           })
         })
       })

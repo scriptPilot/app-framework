@@ -178,11 +178,13 @@ let copyFirebaseFiles = function (callback) {
 // Run steps
 fixCode(function () {
   // Update version in package.json
-  let pkg = fs.readJsonSync(abs(env.proj, 'package.json'))
-  pkg.version = ver.inc(pkg.version, mode)
-  fs.writeJsonSync(abs(env.proj, 'package.json'), pkg)
-  env.pkg.version = pkg.version
-  require.cache = {}
+  if (mode !== 'dev') {
+    let pkg = fs.readJsonSync(abs(env.proj, 'package.json'))
+    pkg.version = ver.inc(pkg.version, mode)
+    fs.writeJsonSync(abs(env.proj, 'package.json'), pkg)
+    env.pkg.version = pkg.version
+    require.cache = {}
+  }
   // Update license
   updateLicense(function () {
     updateDocumentation(function () {
