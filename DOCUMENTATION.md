@@ -104,34 +104,36 @@ devServerPort | /^([0-9]{4})$/ | 8080
 ![Process](media/cli-commands.png)
 
 - Setup
-  - `npm install` to install App Framework and setup project folder
-  - `npm run reset-app` to replace app folder with minimum files
-    Recommend only for new projects and advanced users.
-  - `npm update` to update App Framework to latest sub version
+  - `npm install` to install App Framework and setup the project folder
+    - `npm run reset-app` to replace the app folder with minimum files    
+      Recommend only for new projects and advanced users.
+  - `npm update` to update App Framework to the latest sub version
 
 - Testing
-  - `npm run dev` to start development server in web browser
-    - `CTRL + C` to stop development server
-  - `npm run ios` to open iOS simulator with development snapshot
-  - `npm run android` to open Android emulator with development snapshot
-  - `npm run check` to check project files according Standard JavaScript
-  - `npm run fix` to fix project files according Standard JavaScript
+  - `npm run dev` to start the development server in the web browser
+    - `CTRL + C` to stop the development server
+  - `npm run ios` to open Xcode with an iOS development build
+  - `npm run android` to open Android Studio with a development build
+  
+  On all test commands, the code is fixed according [Standard JavaScript rules](http://standardjs.com/index.html) and, if configured, database and storage rules are deployed to the development Firebase project.
 
 - Building
   - `npm run patch` to build after bug-fixes and improvements
   - `npm run minor` to build after adding new functionality
   - `npm run major` to build after backward-capability breaking changes
+  
+  On all build commands, a project snapshot is saved to the snapshots folder.
 
 - Deployment
   - `npm run firebase` to deploy rules and static files to Firebase
     - `npm run database` to deploy database rules to Firebase
     - `npm run storage` to deploy storage rules to Firebase
     - `npm run hosting` to deploy static files to Firebase
-  - `npm run ftp` to deploy static files to a FTP server
-  - `npm run xcode` to deploy static files as Xcode project
-  - `npm run studio` to deploy static files as Android Studio project
+  - `npm run ftp` to deploy static files to your FTP server
+  - `npm run xcode` to deploy static files as iOS Xcode project
+  - `npm run studio` to deploy static files as Android Studio project  
 
-  For rollback, add ` -- --version x.y.z` parameter to any deployment command.
+  For rollback, add ` -- --version x.y.z` parameter to any deployment command. The version snapshot must exist in the snapshots folder.
 
 - Backup
   - `npm run backup` to create a snapshot of the Firebase database and user list
