@@ -104,10 +104,11 @@ devServerPort | /^([0-9]{4})$/ | 8080
 
 ![Process](media/cli-commands.png)
 
+This is an overview and reference, please see the Workflow for details.
+
 - Setup
   - `npm install` to install App Framework and setup the project folder
-    - `npm run reset-app` to replace the app folder with minimum files    
-      Recommend only for new projects and advanced users.
+    - `npm run reset-app` to replace the app folder with minimum files 
   - `npm update` to update App Framework to the latest sub version
 
 - Testing
@@ -115,15 +116,11 @@ devServerPort | /^([0-9]{4})$/ | 8080
     - `CTRL + C` to stop the development server
   - `npm run ios` to open Xcode with an iOS development build
   - `npm run android` to open Android Studio with a development build
-  
-  On all test commands, the code is fixed according [Standard JavaScript rules](http://standardjs.com/index.html) and, if configured, database and storage rules are deployed to the development Firebase project.
 
 - Building
   - `npm run patch` to build after bug-fixes and improvements
   - `npm run minor` to build after adding new functionality
   - `npm run major` to build after backward-capability breaking changes
-  
-  On all build commands, a project snapshot is saved to the snapshots folder.
 
 - Deployment
   - `npm run firebase` to deploy rules and static files to Firebase
@@ -133,8 +130,6 @@ devServerPort | /^([0-9]{4})$/ | 8080
   - `npm run ftp` to deploy static files to your FTP server
   - `npm run xcode` to deploy static files as iOS Xcode project
   - `npm run studio` to deploy static files as Android Studio project  
-
-  For rollback, add ` -- --version x.y.z` parameter to any deployment command.
 
 - Backup
   - `npm run backup` to create a snapshot of the Firebase database and user list
@@ -199,10 +194,13 @@ Run `npm update` to update App Framework to latest sub version. A snapshot of yo
   - Study the code of the Demo App pages to learn how to realize things in App Framework
 - Edit your [database rules](https://firebase.google.com/docs/database/security/quickstart) in *app/database-rules.json* file
 - Edit your [storage rules](https://firebase.google.com/docs/storage/security/) in *app/storage-rules.txt* file
+- Add Cordova / PhoneGap plugins easily in the *config.json* file with property *useCordovaPlugins*
 
 ### Test your application
 
 App Framework fix your code automatically on each test or build command. To disable this behavior, you can set the config parameter *fixCodeOnBuild* to false. If some findings could not be fixed automatically, they will be logged to *code-findings.log*.
+
+You can use 
 
 ### Build your application
 
@@ -241,26 +239,27 @@ Deployment to the Apple App Store (native App)
 - You need a Mac with [macOS](http://www.apple.com/de/macos/) and installed [Xcode](https://developer.apple.com/xcode/) (free)
 - You need to sign to the [Apple developer program](https://developer.apple.com/programs/) (around 99€ per year)
 - You need to prepare the publishing in [iTunes Connect](https://itunesconnect.apple.com/)
-- Run `npm run ios` to create a project file for Xcode, based on [Cordova](https://cordova.apache.org/)
-- Test your application on several device simulators
+- Run `npm run xcode` to create a project file for Xcode, based on [Cordova](https://cordova.apache.org/)
 - Make screenshots on the biggest iPhone (you will need them in iTunes Connect later on)
 - Create an archive of the Xcode project and upload it within Xcode to iTunes Connect
 - Send your App in iTunes Connect for the review to Apple
+- For rollback, run `npm run xcode -- --version x.y.z`
 
 Deployment to the Google Play Store (native App)
 
 - You need to install the [Android Studio](https://developer.android.com/studio/)
 - You need to register at the [Google Play Developer Console](https://play.google.com/apps/publish/signup/) (around 25 USD once)
-- Run `npm run android` to create a project file for Android Studio, based on [Cordova](https://cordova.apache.org/)
-- Select your project, confirm Gradle sync and test your application on several device simulators
+- Run `npm run studio` to create a project file for Android Studio, based on [Cordova](https://cordova.apache.org/)
+- Select your project and confirm Gradle sync
 - Make screenshots, you will need them later in the Google Play Developer Console
 - Generate signed APK
 - Log in to the Google Play Developer console to deploy your application
+- For rollback, run `npm run studio -- --version x.y.z`
 
 ### Backup your application
 
-- Run `npm run backup` to save the Firebase database content to *database-backup.json* file
-- Run `npm run zip` to save your project files and latest build to a zip file
+- Run `npm run backup` to save the Firebase database content and user list as JSON to the *snapshots* folder
+- Run `npm run snapshot` to create a snapshot of all important project files to the *snapshots* folder
 - Backup your project folder frequently by
- - Moving the zip file to any external drive or cloud
+ - Copying the *snapshots* folder to any external drive or cloud
  - *and/or* Pushing and synchronizing your changes to GitHub
