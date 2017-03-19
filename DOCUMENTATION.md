@@ -35,6 +35,8 @@ Optional:
 
 ## Project folder structure
 
+The following project folder will be created by default.
+
 ```
 ├── app                         # App source folder
 │   ├── images                  # App images
