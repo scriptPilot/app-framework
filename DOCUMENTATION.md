@@ -200,7 +200,7 @@ Run `npm update` to update App Framework to latest sub version. A snapshot of yo
 
 App Framework fix your code automatically on each test or build command. To disable this behavior, you can set the config parameter *fixCodeOnBuild* to false. If some findings could not be fixed automatically, they will be logged to *code-findings.log*.
 
-You can use 
+If *dev-firebase* is configured in *config.json* file, on each test command, the Firebase database and storage rules are deployed automatically.
 
 ### Build your application
 
