@@ -21,8 +21,8 @@ Setup your development environment:
 
 Design your application:
 
-- Printable [template](media/smartphone-template.pdf) to design your application with paper and pencil
-- Template for your icon design - as [PDF for sketching](media/icon-template.pdf) and [PPTX](media/icon-template.pptx) for drawing
+- Printable [template](design/smartphone-template.pdf) to design your application with paper and pencil
+- Template for your icon design - as [PDF for sketching](design/icon-template.pdf) and [PPTX](design/icon-template.pptx) for drawing
 
 Develop your application:
 
