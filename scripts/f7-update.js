@@ -1,44 +1,48 @@
-// Load configuration
-var cfg = require('./config.js')
+/* Purpose: Build Framework7 and copy dist files to App Framework */
 
-// Load packages
-var path = require('path')
-var isThere = require('is-there')
-var run = require('child_process').exec
-var copy = require('cpx').copySync
-var showOnly = require('./show-only.js')
+'use strict'
 
-// Framework7 folder exists
-var f7Folder = path.resolve(cfg.packageRoot, '..', 'Framework7')
-if (isThere(f7Folder)) {
-  // Build
-  showOnly('Framework7 build ongoing ... please wait')
-  run('cd "' + f7Folder + '" && gulp build', function (err, stdOut, errOut) {
-    if (!err) {
-      // Dist
-      showOnly('Framework7 dist ongoing ... please wait')
-      run('cd "' + f7Folder + '" && gulp dist', function (err, stdOut, errOut) {
-        if (!err) {
-          // Copy
-          copy(path.resolve(f7Folder, 'dist/css/framework7.ios.colors.min.css'), path.resolve(cfg.packageRoot, 'libs/framework7/css'))
-          copy(path.resolve(f7Folder, 'dist/css/framework7.ios.min.css'), path.resolve(cfg.packageRoot, 'libs/framework7/css'))
-          copy(path.resolve(f7Folder, 'dist/css/framework7.material.colors.min.css'), path.resolve(cfg.packageRoot, 'libs/framework7/css'))
-          copy(path.resolve(f7Folder, 'dist/css/framework7.material.min.css'), path.resolve(cfg.packageRoot, 'libs/framework7/css'))
-          copy(path.resolve(f7Folder, 'dist/img/*'), path.resolve(cfg.packageRoot, 'libs/framework7/img'))
-          copy(path.resolve(f7Folder, 'dist/js/framework7.min.js'), path.resolve(cfg.packageRoot, 'libs/framework7/js'))
-          if (isThere(path.resolve(cfg.packageRoot, 'libs/framework7/js/framework7.min.js'))) {
-            showOnly('Newest Framework7 build copied to App Framework libs folder')
-          } else {
-            showOnly('Error: Failed to copy Framework7 build file to App Framework libs folder')
-          }
-        } else {
-          showOnly('Error: Framework7 dist failed')
-        }
-      })
-    } else {
-      showOnly('Error: Framework7 build failed')
-    }
-  })
-} else {
-  showOnly('Error: Framework7 folder not found')
+// Load modules
+let env = require('../env')
+let alert = require('../lib/alert')
+let cmd = require('../lib/cmd')
+let found = require('../lib/found')
+let fs = require('fs-extra')
+let abs = require('path').resolve
+
+// Check App Framework development mode
+if (env.installed === true) {
+  alert('Framework7 update is only possible in App Framework development mode.', 'error')
 }
+
+// Check Framework7 folder
+let f7Folder = abs(env.proj, '../Framework7')
+if (!found(f7Folder)) {
+  alert('Cannot find Framework7 folder.', 'error')
+}
+
+// Build Framework7
+alert('Framework7 build process ongoing - please wait ...')
+cmd(f7Folder, 'gulp build', function () {
+  alert('Framework7 distribution process ongoing - please wait ...')
+  cmd(f7Folder, 'gulp dist', function () {
+    alert('Copying build files to App Framework folder - please wait ...')
+      // Empty current directory
+    fs.emptyDirSync(abs(env.proj, 'vendor/framework7'))
+      // Define files to copy
+    let files = [
+      'css/framework7.ios.colors.min.css',
+      'css/framework7.ios.min.css',
+      'css/framework7.material.colors.min.css',
+      'css/framework7.material.min.css',
+      'img',
+      'js/framework7.min.js'
+    ]
+      // Copy files
+    for (let f = 0; f < files.length; f++) {
+      fs.copySync(abs(f7Folder, 'dist', files[f]), abs(env.proj, 'vendor/framework7', files[f]))
+    }
+      // Alert
+    alert('Framework7 update done.')
+  }, 'Error: Framework7 distribution process failed.')
+}, 'Error: Framework7 build process failed.')

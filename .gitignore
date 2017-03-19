@@ -1,25 +1,29 @@
-# Exclude node modules
+# Exclude Allway Sync folder
+_SYNCAPP/
+
+# Exclude Git folder
+.git/
+
+# Exclude node modules (with cache)
 node_modules/
 
-# Exclude cordova
-cordova/
+# Exclude project snapshots
+snapshots/
 
-# Exclude icons
-icons/
+# Exclude macOS system files
+.DS_Store
 
-# Exclude build folders
-demo-app/www/build-*
-
-# Exclude temporary files
-.firebaserc
-firebase.json
+# Exclude development mode enabling file
+.enable-dev-mode
 
 # Exclude log files
-*.log
-npm-debug.log.*
+*.log*
 
-# Exclude zip files
+# Exclude zip files (deprecated)
 *.zip
 
-# Exclude database backup
+# Exclude database backups (deprecated)
 database-backup.json
+
+# Exclude FTP config file
+ftp-config.json

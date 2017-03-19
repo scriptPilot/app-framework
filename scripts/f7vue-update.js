@@ -1,41 +1,37 @@
-// Load configuration
-var cfg = require('./config.js')
+/* Purpose: Build Framework7-Vue and copy dist files to App Framework */
 
-// Load packages
-var path = require('path')
-var isThere = require('is-there')
-var run = require('child_process').exec
-var copy = require('cpx').copySync
-var showOnly = require('./show-only.js')
+'use strict'
 
-// Framework7-Vue folder exists
-var f7vueFolder = path.resolve(cfg.packageRoot, '..', 'Framework7-Vue')
-if (isThere(f7vueFolder)) {
-  // Build
-  showOnly('Framework7-Vue build ongoing ... please wait')
-  run('cd "' + f7vueFolder + '" && npm run build', function (err, stdOut, errOut) {
-    if (!err) {
-      // Dist
-      showOnly('Framework7-Vue dist ongoing ... please wait')
-      run('cd "' + f7vueFolder + '" && npm run dist', function (err, stdOut, errOut) {
-        if (!err) {
-          // Copy script
-          copy(path.resolve(f7vueFolder, 'dist/framework7-vue.min.js'), cfg.packageRoot + 'libs')
-          // Copy kitchen sinks
-          copy(path.resolve(f7vueFolder, 'kitchen-sink/pages/**/*'), path.resolve(cfg.packageRoot, 'demo-app/pages/f7'))
-          if (isThere(path.resolve(cfg.packageRoot, 'libs/framework7-vue.min.js'))) {
-            showOnly('Newest Framework7-Vue build and kitchen sink files copied to App Framework folder')
-          } else {
-            showOnly('Error: Failed to copy Framework7-Vue build and kitchen sink files to App Framework folder')
-          }
-        } else {
-          showOnly('Error: Framework7-Vue dist failed')
-        }
-      })
-    } else {
-      showOnly('Error: Framework7-Vue build failed')
-    }
-  })
-} else {
-  showOnly('Error: Framework7-Vue folder not found')
+// Load modules
+let env = require('../env')
+let alert = require('../lib/alert')
+let cmd = require('../lib/cmd')
+let found = require('../lib/found')
+let fs = require('fs-extra')
+let abs = require('path').resolve
+
+// Check App Framework development mode
+if (env.installed === true) {
+  alert('Framework7-Vue update is only possible in App Framework development mode.', 'error')
 }
+
+// Check Framework7-Vue folder
+let f7VueFolder = abs(env.proj, '../Framework7-Vue')
+if (!found(f7VueFolder)) {
+  alert('Cannot find Framework7-Vue folder.', 'error')
+}
+
+// Build Framework7-Vue
+alert('Framework7-Vue build process ongoing - please wait ...')
+cmd(f7VueFolder, 'npm run build', function () {
+  alert('Framework7-Vue distribution process ongoing - please wait ...')
+  cmd(f7VueFolder, 'npm run dist', function () {
+    alert('Copying build files to App Framework folder - please wait ...')
+      // Empty current directory
+    fs.emptyDirSync(abs(env.proj, 'vendor/Framework7-Vue'))
+      // Copy file
+    fs.copySync(abs(f7VueFolder, 'dist/framework7-vue.min.js'), abs(env.proj, 'vendor/Framework7-Vue/framework7-vue.min.js'))
+      // Alert
+    alert('Framework7-Vue update done.')
+  }, 'Error: Framework7-Vue distribution process failed.')
+}, 'Error: Framework7-Vue build process failed.')

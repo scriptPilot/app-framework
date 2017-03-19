@@ -1,31 +1,60 @@
-// Load packages
-var path = require('path')
-var run = require('./run')
-var cmd = require('./cmd')
-var showOnly = require('./show-only')
-var isThere = require('is-there')
-var read = require('read-file')
-var saveJSON = require('jsonfile')
-saveJSON.spaces = 2
+/*
 
-// Load configuration
-var cfg = require('./config.js')
+  Purpose: Create snapshots of the Firebase database and user list.
 
-let backupFile = path.resolve(cfg.appRoot, 'database-backup.json')
+*/
 
-showOnly('Preparing Firebase backup - please wait ...')
-run('node "' + path.resolve(cfg.packageRoot, 'scripts/prepare-firebase') + '"', function () {
-  showOnly('Login to Firebase - please wait ...')
-  cmd(path.resolve(cfg.projectRoot, 'node_modules/firebase-tools/bin'), ['firebase', 'login'], function () {
-    showOnly('Backup Firebase database - please wait ...')
-    cmd(path.resolve(cfg.projectRoot, 'node_modules/firebase-tools/bin'), ['firebase', 'database:get', '/', '>' + backupFile], function () {
-      if (isThere(backupFile)) {
-        saveJSON.writeFileSync(backupFile, JSON.parse(read.sync(backupFile, 'utf8')))
+'use strict'
+
+// Include modules
+let env = require('../env')
+let alert = require('../lib/alert')
+let cmd = require('../lib/cmd')
+let fs = require('fs-extra')
+let abs = require('path').resolve
+
+// Define Firebase bin folder
+let binFolder = abs(env.proj, 'node_modules/firebase-tools/bin')
+
+// Define filename
+let now = new Date()
+let dateStr = now.getFullYear() + '-' + (now.getMonth() < 9 ? '0' : '') + (now.getMonth() + 1) + '-' + (now.getDate() < 10 ? '0' : '') + now.getDate()
+
+// Steps
+let prepareFirebase = function (callback) {
+  alert('Preparing Firebase - please wait ...')
+  try {
+    // Create/update .firebaserc file
+    let rc = {
+      projects: {
+        'default': env.cfg.firebase.authDomain.substr(0, env.cfg.firebase.authDomain.indexOf('.firebaseapp.com'))
       }
-      showOnly('Clean up - please wait ...')
-      run('node "' + path.resolve(cfg.packageRoot, 'scripts/cleanup-firebase') + '"', function () {
-        showOnly('Firebase database backup done!')
-      }, 'Firebase clean up failed')
-    }, 'Firebase database backup failed')
-  }, 'Firebase login failed')
-}, 'Cannot prepare Firebase backup')
+    }
+    fs.writeJsonSync(abs(binFolder, '.firebaserc'), rc)
+    callback()
+  } catch (err) {
+    alert('Firebase preparation failed.', 'issue')
+  }
+}
+
+// Run
+alert('Firebase backup ongoing - please wait ...')
+prepareFirebase(function () {
+  cmd(binFolder, 'firebase login', function () {
+    alert('Firebase database backup ongoing - please wait ...')
+    cmd(binFolder, 'firebase database:get / >"' + abs(env.proj, 'snapshots/firebase-database-' + dateStr + '.json') + '"', function () {
+      alert('Firebase user backup ongoing - please wait ...')
+      cmd(binFolder, 'firebase auth:export "' + abs(env.proj, 'snapshots/firebase-users-' + dateStr + '.json') + '" --format=json', function () {
+        try {
+          let dbFile = fs.readJsonSync(abs(env.proj, 'snapshots/firebase-database-' + dateStr + '.json'))
+          fs.writeJsonSync(abs(env.proj, 'snapshots/firebase-database-' + dateStr + '.json'), dbFile)
+          let userFile = fs.readJsonSync(abs(env.proj, 'snapshots/firebase-users-' + dateStr + '.json'))
+          fs.writeJsonSync(abs(env.proj, 'snapshots/firebase-users-' + dateStr + '.json'), userFile)
+          alert('Firebase backup done.')
+        } catch (err) {
+          alert('Failed to beautify database backup files.', 'issue')
+        }
+      }, 'Firebase user backup failed.')
+    }, 'Firebase database backup failed.')
+  }, 'Firebase login failed.')
+})

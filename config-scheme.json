@@ -1,0 +1,138 @@
+{
+  "title": {
+    "type": "string",
+    "default": "My App"
+  },
+  "defaultLanguage": {
+    "regexp": "/^([a-z]{2})$/",
+    "default": "en"
+  },
+  "theme": {
+    "allow": ["ios", "material"],
+    "default": "ios"
+  },
+  "loadIconFonts": {
+    "props": {
+      "framework7": {
+        "type": "boolean",
+        "default": false
+      },
+      "material": {
+        "type": "boolean",
+        "default": false
+      },
+      "ion": {
+        "type": "boolean",
+        "default": false
+      },
+      "fontawesome": {
+        "type": "boolean",
+        "default": false
+      }
+    }
+  },
+  "iconBackgroundColor": {
+    "regexp": "/^#([0-9a-f]{6})$/i",
+    "default": "#ffffff"
+  },
+  "statusbarTextColor": {
+    "allow": ["black", "white"],
+    "default": "white"
+  },
+  "showPhoneFrameOnDesktop": {
+    "type": "boolean",
+    "default": true
+  },
+  "materialSubnavbarFix": {
+    "type": "boolean",
+    "default": true
+  },
+  "specialRoutes": {
+    "type": "object",
+    "default": {}
+  },
+  "pagesWithRequiredLogin": {
+    "type": "array"
+  },
+  "firebase": {
+    "props": {
+      "apiKey": {
+        "type": "string",
+        "default": "AIzaSyAvzTiqd9fKR-h4asdsadsadasd7Uxl4iXwqSMU1VjGdII"
+      },
+      "authDomain": {
+        "type": "string",
+        "default": "app-framework-9045a.firebaseapp.com"
+      },
+      "databaseURL": {
+        "type": "string",
+        "default": "https://app-framework-9045a.firebaseio.com"
+      },
+      "storageBucket": {
+        "type": "string",
+        "default": "pp-framework-9045a.appspot.com"
+      },
+      "allowUserRegistration": {
+        "type": "boolean",
+        "default": true
+      }
+    }
+  },
+  "dev-firebase": {
+    "props": {
+      "apiKey": {
+        "type": "string"
+      },
+      "authDomain": {
+        "type": "string"
+      },
+      "databaseURL": {
+        "type": "string"
+      },
+      "storageBucket": {
+        "type": "string"
+      },
+      "allowUserRegistration": {
+        "type": "boolean",
+        "default": false
+      },
+      "useDevFirebaseOnTesting": {
+        "type": "boolean",
+        "default": false
+      }
+    }
+  },
+  "appStoreId": {
+    "type": "string"
+  },
+  "playStoreId": {
+    "type": "string"
+  },
+  "useCordovaPlugins": {
+    "type": "array",
+    "default": [
+      "cordova-plugin-statusbar",
+      "cordova-plugin-whitelist"
+    ]
+  },
+  "resetLocalStorageOnVersionChange": {
+    "type": "boolean",
+    "default": false
+  },
+  "buildSourcemaps": {
+    "type": "boolean",
+    "default": false
+  },
+  "fixCodeOnTest": {
+    "type": "boolean",
+    "default": true
+  },
+  "fixCodeOnBuild": {
+    "type": "boolean",
+    "default": true
+  },
+  "devServerPort": {
+    "regexp": "/^([0-9]{4})$/",
+    "default": "8080"
+  }
+}
