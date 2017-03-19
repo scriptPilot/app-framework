@@ -246,9 +246,12 @@ Deployment to the Apple App Store (native App)
 
 - You need a Mac with [macOS](http://www.apple.com/de/macos/) and installed [Xcode](https://developer.apple.com/xcode/) (free)
 - You need to sign to the [Apple developer program](https://developer.apple.com/programs/) (around 99€ per year)
+- Create a production certificate in iTunes connect, download and install it on your Mac
+- Create a distribution provisioning profile in iTunes connect, download and install it on your Mac 
 - You need to prepare the publishing in [iTunes Connect](https://itunesconnect.apple.com/)
 - Run `npm run xcode` to create a project file for Xcode, based on [Cordova](https://cordova.apache.org/)
 - Make screenshots on the biggest iPhone (you will need them in iTunes Connect later on)
+- Deactivate automatic managed signing, select your certificate and provisioning profiles created before
 - Create an archive of the Xcode project and upload it within Xcode to iTunes Connect
 - Send your App in iTunes Connect for the review to Apple
 - For rollback, run `npm run xcode -- --version x.y.z`
