@@ -264,4 +264,4 @@ Deployment to the Google Play Store (native App)
 - Run `npm run snapshot` to create a snapshot of all important project files to the *snapshots* folder
 - Backup your project folder frequently by
   - Copying the *snapshots* folder to any external drive or cloud
-  - *and/or* Pushing and synchronizing your changes to GitHub
+  - *and/or* pushing and synchronizing your changes to GitHub
