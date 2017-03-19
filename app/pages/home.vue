@@ -70,7 +70,3 @@
 
   </f7-page>
 </template>
-
-<script>
-  module.exports = {}
-</script>

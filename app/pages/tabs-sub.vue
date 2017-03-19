@@ -23,7 +23,7 @@
       <f7-page-content tab id="tab2-2">
         <f7-block inner inset>
           <p><b>Close app and reopen it</b> - you will see, selected tabs, scroll positions, side panels and popups will be restored properly <f7-icon fa="smile-o"></f7-icon></p>
-        </f7-block>        
+        </f7-block>
         <f7-block-title>Side Panels</f7-block-title>
         <f7-block>
           <f7-grid>
@@ -42,10 +42,10 @@
               <f7-button open-popup="#popup">Popup</f7-button>
             </f7-col>
             <f7-col width="50">
-            
+
               <!-- Show login / logout button, depending on the user status -->
               <f7-button open-login-screen="#login-screen" :text="$root.user ? 'Logout' : 'Login Screen'"></f7-button>
-              
+
             </f7-col>
           </f7-grid>
         </f7-block>
@@ -58,7 +58,3 @@
     </f7-tabs>
   </f7-page>
 </template>
-
-<script>
-  module.exports = {}
-</script>

@@ -1,6 +1,6 @@
 <!-- Page content for left panel -->
 
-<template>  
+<template>
   <f7-page>
    <f7-navbar title="Left Panel"></f7-navbar>
     <f7-block inner>
@@ -18,7 +18,3 @@
     </f7-list>
   </f7-page>
 </template>
-
-<script>
-  module.exports = {}
-</script>
