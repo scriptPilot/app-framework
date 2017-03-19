@@ -37,7 +37,7 @@ let resetAppFolder = function (callback) {
   }
 }
 let copyIconFile = function (callback) {
-  fs.copy(abs(source, 'icon.png'), abs(dest, 'icon.png'), function (err) {
+  fs.copy(abs(__dirname, '../app/icon.png'), abs(dest, 'icon.png'), function (err) {
     alert('Copying icon file - please wait ...')
     if (!err) {
       alert('Icon file copied.')
@@ -97,6 +97,7 @@ let createAppComponent = function (callback) {
   alert('Creating default app component - please wait ...')
   let content = '<template>\n' +
                 '  <div id="app">\n' +
+                '    <f7-statusbar></f7-statusbar>\n' +
                 '    <f7-views>\n' +
                 '      <f7-view id="main-view" main url="home" navbar-through :dynamic-navbar="true" />\n' +
                 '    </f7-views>\n' +
