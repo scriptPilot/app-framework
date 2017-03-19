@@ -202,6 +202,7 @@ Run `npm update` to update App Framework to latest sub version. A snapshot of yo
   - `CTRL + C` to stop the development server
 - Run `npm run ios` to open Xcode with an iOS development build
 - Run `npm run android` to open Android Studio with a development build
+  Confirm Gradle sync and removal of older application installations if asked.
 
 App Framework fix your code automatically on each test or build command. To disable this behavior, you can set the config parameter *fixCodeOnBuild* to false. If some findings could not be fixed automatically, they will be logged to *code-findings.log*.
 
