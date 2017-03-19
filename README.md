@@ -53,10 +53,10 @@ Build your application:
 Deploy your application:
 
 - Deployment without downtime
-  - To any FTP server as Web App
-  - To the [Firebase Hosting service](https://firebase.google.com/docs/hosting/) as Web App
-  - To the [Apple App Store](https://itunes.apple.com/de/) as native iOS App
-  - To the [Google Play Store](https://play.google.com/) as native Android App
+  - to any FTP server as Web App
+  - to the [Firebase Hosting service](https://firebase.google.com/docs/hosting/) as Web App
+  - to the [Apple App Store](https://itunes.apple.com/de/) as native iOS App
+  - to the [Google Play Store](https://play.google.com/) as native Android App
 - Easy rollback solutions
 
 Backup your application:
