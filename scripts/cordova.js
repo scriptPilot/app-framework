@@ -371,8 +371,18 @@ let addCordovaPlatforms = function (callback) {
   }
 }
 
+let deployDevRules = function (callback) {
+  if (env.arg.version === 'dev') {
+    cmd(__dirname, 'node firebase --database --storage --version dev', function () {
+      callback()
+    })
+  } else {
+    callback()
+  }
+}
+
 // Run script
-cmd(__dirname, 'node firebase --database --storage --version dev', function () {
+deployDevRules(function () {
   cmd(__dirname, 'node cache-version --version ' + env.arg.version, function () {
     resetCordovaFolder(function () {
       createCordovaProject(function () {
