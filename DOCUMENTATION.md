@@ -115,6 +115,7 @@ dev-firebase | *object* |
 &nbsp;&nbsp;&nbsp;databaseURL | *string* | 
 &nbsp;&nbsp;&nbsp;storageBucket | *string* | 
 &nbsp;&nbsp;&nbsp;allowUserRegistration | *boolean* | false
+&nbsp;&nbsp;&nbsp;useDevFirebaseOnTesting | *boolean* | false
 appStoreId | *string* | 
 playStoreId | *string* | 
 useCordovaPlugins | *array* | ["cordova-plugin-statusbar","cordova-plugin-whitelist"]

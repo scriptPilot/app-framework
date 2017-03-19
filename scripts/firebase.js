@@ -22,6 +22,11 @@ if (env.arg.version === undefined) {
   env.arg.version = env.pkg.version
 }
 
+// Return if version dev and useDevFirebaseOnTesting not true
+if (env.arg.version === 'dev' && env.cfg['dev-firebase'].useDevFirebaseOnTesting !== true) {
+  alert('Dev-Firebase development deployment not activated in the config.json file.', 'exit')
+}
+
 // Define configuration
 let cfg = env.arg.version === 'dev' ? env.cfg['dev-firebase'] : env.cfg.firebase
 
@@ -43,14 +48,18 @@ let binFolder = abs(env.proj, 'node_modules/firebase-tools/bin')
 
 // Steps
 let defineBuildFolder = function (callback) {
-  cmd(__dirname, 'node cache-version --version ' + env.arg.version, function () {
-    let buildFolder = abs(env.cache, 'snapshots/build-' + env.arg.version + '/build')
-    if (found(buildFolder)) {
-      callback(buildFolder)
-    } else {
-      alert('Build folder not found in snapshot cache.', 'issue')
-    }
-  })
+  if (env.arg.hosting !== true && env.arg.version === 'dev') {
+    callback(env.app)
+  } else {
+    cmd(__dirname, 'node cache-version --version ' + env.arg.version, function () {
+      let buildFolder = abs(env.cache, 'snapshots/build-' + env.arg.version + '/build')
+      if (found(buildFolder)) {
+        callback(buildFolder)
+      } else {
+        alert('Build folder not found in snapshot cache.', 'issue')
+      }
+    })
+  }
 }
 let checkFolders = function (buildFolder, callback) {
   if (!found(buildFolder)) {

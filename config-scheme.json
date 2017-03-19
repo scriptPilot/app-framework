@@ -91,6 +91,10 @@
       "allowUserRegistration": {
         "type": "boolean",
         "default": false
+      },
+      "useDevFirebaseOnTesting": {
+        "type": "boolean",
+        "default": false
       }
     }
   },

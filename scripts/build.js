@@ -235,51 +235,56 @@ let compressImages = function (callback, files) {
 
 // Run steps
 fixCode(function () {
-  // Update version in package.json
   if (mode !== 'dev') {
+    // Update version in package.json
     let pkg = fs.readJsonSync(abs(env.proj, 'package.json'))
     pkg.version = ver.inc(pkg.version, mode)
     fs.writeJsonSync(abs(env.proj, 'package.json'), pkg)
     env.pkg.version = pkg.version
     require.cache = {}
   }
-  // Update license
   updateLicense(function () {
     updateDocumentation(function () {
-      cmd(__dirname, 'node create-icons --version dev', function () {
-        buildWebpack(function () {
-          manageIcons(function () {
-            copyFirebaseFiles(function () {
-              // Dev build
-              if (mode === 'dev') {
-                alert('Development build done.')
-              // Pruduction build
-              } else {
-                alert('Build folder update ongoing - please wait ...')
-                // Empty existing build folder
-                fs.emptyDir(abs(env.proj, 'build'), function (err) {
-                  if (err) {
-                    alert('Clean-up the existing build folder failed.', 'issue')
+      fs.emptyDir(abs(env.cache, 'build'), function (err) {
+        if (err) {
+          alert('Failed to empty build folder in cache.', 'issue')
+        } else {
+          buildWebpack(function () {
+            cmd(__dirname, 'node create-icons', function () {
+              manageIcons(function () {
+                copyFirebaseFiles(function () {
+                  // Dev build
+                  if (mode === 'dev') {
+                    alert('Development build done.')
+                  // Pruduction build
                   } else {
-                    // Copy files
-                    fs.copy(abs(env.cache, 'build'), abs(env.proj, 'build'), function (err) {
+                    alert('Build folder update ongoing - please wait ...')
+                    // Empty existing build folder
+                    fs.emptyDir(abs(env.proj, 'build'), function (err) {
                       if (err) {
-                        alert('Build folder update failed.', 'issue')
+                        alert('Clean-up the existing build folder failed.', 'issue')
                       } else {
-                        compressImages(function () {
-                          // Create snapshot
-                          cmd(__dirname, 'node create-snapshot --name "build-' + env.pkg.version + '"', function () {
-                            alert('Build process done for version ' + env.pkg.version + '.')
-                          })
+                        // Copy files
+                        fs.copy(abs(env.cache, 'build'), abs(env.proj, 'build'), function (err) {
+                          if (err) {
+                            alert('Build folder update failed.', 'issue')
+                          } else {
+                            compressImages(function () {
+                              // Create snapshot
+                              cmd(__dirname, 'node create-snapshot --name "build-' + env.pkg.version + '"', function () {
+                                alert('Build process done for version ' + env.pkg.version + '.')
+                              })
+                            })
+                          }
                         })
                       }
                     })
                   }
                 })
-              }
+              })
             })
           })
-        })
+        }
       })
     })
   })

@@ -20,7 +20,6 @@ if (env.installed !== true) {
 }
 
 // Define source and destination folders
-let source = abs(__dirname, '../app - Kopie')
 let dest = abs(env.proj, 'app')
 
 // Steps

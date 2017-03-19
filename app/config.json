@@ -30,12 +30,14 @@
     "authDomain": "dev-app-framework.firebaseapp.com",
     "databaseURL": "https://dev-app-framework.firebaseio.com",
     "storageBucket": "dev-app-framework.appspot.com",
-    "allowUserRegistration": true
+    "allowUserRegistration": true,
+    "useDevFirebaseOnTesting": true
   },
   "appStoreId": "de.scriptpilot.app-framework",
   "playStoreId": "de.scriptpilot.appframework",
   "useCordovaPlugins": [
-    "cordova-plugin-statusbar"
+    "cordova-plugin-statusbar",
+    "cordova-plugin-whitelist"
   ],
   "resetLocalStorageOnVersionChange": false,
   "buildSourcemaps": false,

@@ -83,6 +83,11 @@ for (let i = 0; i < iconNo; i++) {
   icons.push([icons[i][0], icons[i][2], icons[i][1], icons[i][3]])
 }
 
+// Set dev as default version
+if (env.arg.version === undefined) {
+  env.arg.version = 'dev'
+}
+
 // Get version parameter
 if (/^(([0-9]+)\.([0-9]+)\.([0-9]+)|dev)$/.test(env.arg.version) === false) {
   alert('Given argument --version must be "x.y.z" or "dev".', 'issue')

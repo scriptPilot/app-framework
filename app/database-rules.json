@@ -12,6 +12,9 @@
         ".write": "true",
         ".indexOn": "created"
       }
+    },
+    "test": {
+      ".read": "true"
     }
   }
 }
