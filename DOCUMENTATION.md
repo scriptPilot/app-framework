@@ -212,7 +212,7 @@ If *dev-firebase* is configured in *config.json* file, on each test command, the
 
 *App Framework* does many adjustments in the background to enable you to deploy your App easily as Web App or as native App. So you could start fast and become professional later on without any change. But what are the differences?
 
-| |Web App|Native App|
+| &nbsp; |Web App|Native App|
 |---|---|---|
 |Installation|Are running in the device browser and could be pinned to the homescreen.|Are installed from an App Store or manually to the device (Android only).|
 |Performance|Reload on reopen, but could be cached for offline usage. Offline warning.|Kept in runtime of the device, smoother usage. No offline warning.|
