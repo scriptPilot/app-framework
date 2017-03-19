@@ -36,7 +36,7 @@ Develop your application:
 
 Test your application:
 
-- Integrated code checks for [correctness](http://eslint.org/) and automatic fix for [standard conformity](http://standardjs.com/)
+- Integrated code check for [correctness](http://eslint.org/) and automatic fix for [standard conformity](http://standardjs.com/)
 - Local development server with live reload, perfectly to use together with [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools/)
 - Test your application on any iOS or Android device with an emulator or on your own device
 - Use a development Firebase project with automatic [database](https://firebase.google.com/docs/database/) and [storage](https://firebase.google.com/docs/storage/) rule update
