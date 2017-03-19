@@ -252,7 +252,7 @@ Deployment to the Apple App Store (native App)
 - Run `npm run xcode` to create a project file for Xcode, based on [Cordova](https://cordova.apache.org/)
 - Make screenshots on the biggest iPhone (you will need them in iTunes Connect later on)
 - Deactivate automatic managed signing, select your certificate and provisioning profiles created before
-- Create an archive of the Xcode project and upload it within Xcode to iTunes Connect
+- Select Generic iOS Device and create an archive of the Xcode project and upload it within Xcode to iTunes Connect
 - Send your App in iTunes Connect for the review to Apple
 - For rollback, run `npm run xcode -- --version x.y.z`
 
