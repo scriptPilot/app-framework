@@ -62,11 +62,13 @@ let startServer = function (callback) {
 }
 
 let updateFavicon = function (callback) {
+  alert('Favicon update ongoing - please wait ...')
   fs.readFile(abs(env.app, 'icon.png'), function (err, bufIn) {
     if (err) alert('Failed to read icon.png file.', 'error')
     toIco([bufIn], {resize: true, sizes: [16, 32, 48]}).then(function (bufOut) {
       fs.writeFile(abs(env.cache, 'favicon.ico'), bufOut, function (err) {
         if (err) alert('Failed to cache favicon.ico file.', 'issue')
+        alert('Favicon update done.')
         callback()
       })
     })
@@ -75,13 +77,11 @@ let updateFavicon = function (callback) {
 
 alert('Development server preparation ongoing - please wait ...')
 fixCode(function () {
-  cmd(__dirname, 'node firebase --version dev --database --storage', function () {
-    updateFavicon(function () {
-      startServer(function () {
-        let uri = 'http://localhost:' + env.cfg.devServerPort
-        opn(uri)
-        alert('Development server startet at ' + uri + '.\n\nTo be stopped with "CTRL + C".')
-      })
+  updateFavicon(function () {
+    startServer(function () {
+      let uri = 'http://localhost:' + env.cfg.devServerPort
+      opn(uri)
+      alert('Development server startet at ' + uri + '.\n\nTo be stopped with "CTRL + C".')
     })
   })
 })
