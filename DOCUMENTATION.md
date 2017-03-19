@@ -204,6 +204,8 @@ If *dev-firebase* is configured in *config.json* file, on each test command, the
 
 ### Build your application
 
+Each build command will update the *build* folder on success.
+
 - Run `npm run patch` after bugfixes and improvements
 - Run `npm run minor` after adding new functionality
 - Run `npm run major` after breaking backward-capability
