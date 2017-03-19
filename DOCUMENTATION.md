@@ -5,13 +5,12 @@
 **Table of contents**
 
 - [Requirements](#requirements)
-- [CLI commands](#cli-commands)
 - [Project folder structure](#project-folder-structure)
 - [Configuration options](#configuration-options)
+- [CLI commands](#cli-commands)
 - [Vue hooks](#vue-hooks)
 - Workflow
   - [Setup your development environment](#setup-your-development-environment)
-  - [Install App Framework](#install-app-framework)
   - [Design your application](#design-your-application)
   - [Develop your application](#develop-your-application)
   - [Test your application](#test-your-application)
@@ -23,8 +22,16 @@ Read less, code more - please open a ticket for any open question in our [Issue 
 
 ## Requirements
 
-- Basic knowledge of [Node.js and npm](https://docs.npmjs.com/getting-started/what-is-npm)
-- Knowledge of [Framework7](https://framework7.io/docs/) and [Framework7-Vue](https://framework7.io/vue/)
+Essentiell:
+
+- [Node.js and npm](https://docs.npmjs.com/getting-started/what-is-npm) for command line interface handling
+- [Framework7](https://framework7.io/docs/) and [Framework7-Vue](https://framework7.io/vue/) to develop with HTML and JavaScript
+
+Optional:
+
+- [Vue.js](https://vuejs.org/v2/guide/) to make your application state-based and reactive
+- [Firebase services](https://firebase.google.com/docs/web/setup) as free and reliable backend
+- [Cordova/PhoneGap](https://cordova.apache.org/docs/en/latest/) to use device hardware APIs
 
 ## CLI commands
 
