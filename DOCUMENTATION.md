@@ -133,13 +133,15 @@ devServerPort | /^([0-9]{4})$/ | 8080
   - `npm run xcode` to deploy static files as iOS Xcode project
   - `npm run studio` to deploy static files as Android Studio project  
 
-  For rollback, add ` -- --version x.y.z` parameter to any deployment command. The version snapshot must exist in the snapshots folder.
+  For rollback, add ` -- --version x.y.z` parameter to any deployment command.
 
 - Backup
   - `npm run backup` to create a snapshot of the Firebase database and user list
   - `npm run snapshot` to create a snapshot of your project folder
 
 ## Vue hooks
+
+These hooks you can use in your app and page components.
 
 - `$root.title` - App title
 - `$root.theme` - Active theme (*ios* or *material*)
