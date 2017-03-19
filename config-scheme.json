@@ -57,20 +57,24 @@
   "firebase": {
     "props": {
       "apiKey": {
-        "type": "string"
+        "type": "string",
+        "default": "AIzaSyAvzTiqd9fKR-h4asdsadsadasd7Uxl4iXwqSMU1VjGdII"
       },
       "authDomain": {
-        "type": "string"
+        "type": "string",
+        "default": "app-framework-9045a.firebaseapp.com"
       },
       "databaseURL": {
-        "type": "string"
+        "type": "string",
+        "default": "https://app-framework-9045a.firebaseio.com"
       },
       "storageBucket": {
-        "type": "string"
+        "type": "string",
+        "default": "pp-framework-9045a.appspot.com"
       },
       "allowUserRegistration": {
         "type": "boolean",
-        "default": false
+        "default": true
       }
     }
   },

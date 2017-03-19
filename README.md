@@ -1,16 +1,18 @@
 # App Framework &nbsp; &nbsp; &nbsp; [![](https://img.shields.io/npm/dt/app-framework.svg)](https://www.npmjs.com/package/app-framework) [![](https://img.shields.io/npm/v/app-framework.svg)](https://www.npmjs.com/package/app-framework) [![](https://img.shields.io/npm/l/app-framework.svg)](https://www.npmjs.com/package/app-framework)
 
-**iOS and Android Apps with HTML & JavaScript - develop, build and deploy - free and open source!**
+**iOS and Android Apps with HTML & JavaScript - test, build and deploy - free and open source!**
 
 ![Process](media/process.png)
 
 ## Features
 
-> The power is under the hood - but for sure, we have a [Demo App](https://app-framework.scriptpilot.de/).
+> The power is under the hood - but for sure, we have a Demo App.
 
 <a href='https://play.google.com/store/apps/details?id=de.scriptpilot.appframework&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://raw.githubusercontent.com/scriptPilot/app-framework/master/media/google-play-download.png' width='150'/></a>
 &nbsp;&nbsp;&nbsp;
 <a href='https://itunes.apple.com/us/app/app-framework-demo/id1203927581?mt=8'><img alt='Download on the App Store' src='https://raw.githubusercontent.com/scriptPilot/app-framework/master/media/app-store-download.png' width='150'/></a>
+&nbsp;&nbsp;&nbsp;
+<a href='https://app-framework.scriptpilot.de/'><img alt='Download on the App Store' src='https://raw.githubusercontent.com/scriptPilot/app-framework/master/media/web-app-visit.png' width='150'/></a>
 
 Setup:
 
@@ -62,6 +64,23 @@ Backup:
 - Download your [Firebase database content](https://firebase.google.com/docs/database/) to a local JSON file
 - Create a ZIP file with all important project files to backup on any external drive or cloud service
 
+## Milestones
+
+Upcoming:
+
+- [v1.4 - Client code robustness improvements](https://github.com/scriptPilot/app-framework/milestone/9)
+- [v1.5 - Demo App robustness improvements](https://github.com/scriptPilot/app-framework/milestone/10)
+- [v1.6 - Tutorial: ToDo App](https://github.com/scriptPilot/app-framework/milestone/3)
+- [v1.7 - Extensions](https://github.com/scriptPilot/app-framework/milestone/7)
+- [v1.8 - GUI helper tool](https://github.com/scriptPilot/app-framework/milestone/8)
+
+Closed:
+
+- [v1.3 - CLI robustness improvements](https://github.com/scriptPilot/app-framework/milestone/6?closed=1) (2017-03-19)
+- [v1.2 - Google Play Store deployment](https://github.com/scriptPilot/app-framework/milestone/5?closed=1) (2017-02-12)
+- [v1.1 - Apple App Store deployment](https://github.com/scriptPilot/app-framework/milestone/4?closed=1) (2017-02-10)
+- [v1.0 - Initial Release](https://github.com/scriptPilot/app-framework/milestone/1?closed=1) (2017-02-05)
+
 ## Quick start
 
 1. Install [Node.js with npm](https://docs.npmjs.com/getting-started/what-is-npm)
@@ -80,18 +99,3 @@ Backup:
 3. Run `npm install` to install App Framework and setup the project folder
 4. Run `npm run dev` to start the Demo App at localhost:8080
 5. Read our [Documentation](DOCUMENTATION.md)
-
-## Milestones
-
-Upcoming:
-
-- [v1.3 - Robustness improvements](https://github.com/scriptPilot/app-framework/milestone/6)
-- [v1.4 - Tutorial: ToDo App](https://github.com/scriptPilot/app-framework/milestone/3)
-- [v1.5 - Extensions](https://github.com/scriptPilot/app-framework/milestone/7)
-- [v1.6 - GUI helper tool](https://github.com/scriptPilot/app-framework/milestone/8)
-
-Closed:
-
-- [v1.2 - Google Play Store deployment](https://github.com/scriptPilot/app-framework/milestone/5?closed=1) (2017-02-12)
-- [v1.1 - Apple App Store deployment](https://github.com/scriptPilot/app-framework/milestone/4?closed=1) (2017-02-10)
-- [v1.0 - Initial Release](https://github.com/scriptPilot/app-framework/milestone/1?closed=1) (2017-02-05)

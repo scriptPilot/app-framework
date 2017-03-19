@@ -6,6 +6,8 @@
   "version": "1.2.432",
   "license": "MIT",
   "scripts": {
+    "install": "npm install",
+    "update": "npm update",
     "reset-app": "node scripts/reset-app",
     "postinstall": "node scripts/postinstall",
     "reset": "node scripts/reset-cache",
