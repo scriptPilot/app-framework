@@ -24,7 +24,9 @@ Additional development CLI commands:
 ## Folder structure
 
 ```
-├── demo                        # Demo App project folder
+├── app                         # Demo App project folder
+├── build                       # Lates build files
+├── design                      # Design templates (PDF and PPTX)
 ├── lib                         # Own modules
 ├── media                       # Graphics for documentation and promotion
 ├── node_modules                # Installed node modules (do not modify)
@@ -62,6 +64,6 @@ Additional development CLI commands:
 
 A script file executes some code and use *lib/alert* to show either a success message or an error message as result. The script could be split up in single steps, arranged with nested callbacks.
 
-- Each step should show the progress with an alert `<step> ongoing - please wait ...`
+- Each step should indicate the run with an alert `<step> ongoing - please wait ...`
 - Each step should indicate an successful run with `<step> done.`
 - Each step should indicate an failed run with `Error: <step> failed. <solution>`
