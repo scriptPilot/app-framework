@@ -2,7 +2,7 @@
 
 > This document is only for the developers of App Framework.
 
-> If you want to use App Framework, please read our [Documentation](DOCUMENTATION.md).
+> If you want to use App Framework, please read our end user [Documentation](DOCUMENTATION.md).
 
 **Table of contents**
 
