@@ -74,6 +74,26 @@
       }
     }
   },
+  "dev-firebase": {
+    "props": {
+      "apiKey": {
+        "type": "string"
+      },
+      "authDomain": {
+        "type": "string"
+      },
+      "databaseURL": {
+        "type": "string"
+      },
+      "storageBucket": {
+        "type": "string"
+      },
+      "allowUserRegistration": {
+        "type": "boolean",
+        "default": false
+      }
+    }
+  },
   "appStoreId": {
     "type": "string"
   },

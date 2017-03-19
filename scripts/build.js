@@ -9,7 +9,9 @@ let cmd = require('../lib/cmd')
 let found = require('../lib/found')
 let jsonScheme = require('../lib/json-scheme')
 let fs = require('fs-extra')
+let img = require('jimp')
 let abs = require('path').resolve
+let rec = require('recursive-readdir')
 let ver = require('semver')
 let webpack = require('webpack')
 
@@ -175,6 +177,62 @@ let copyFirebaseFiles = function (callback) {
   })
 }
 
+// Step: Compress images
+let compressImages = function (callback, files) {
+  if (files === undefined) {
+    alert('Images compression ongoing - please wait ...')
+    rec(abs(env.cache, 'build/www/img'), function (err, files) {
+      if (err) {
+        alert('Failed to read image files.' + err, 'issue')
+      } else {
+        compressImages(callback, files)
+      }
+    })
+  } else if (Array.isArray(files) && files.length > 0) {
+    let file = files.shift()
+    if (/\.jpg$/.test(file)) {
+      let original = abs(file)
+      let compressed = abs(file.replace(/\.jpg$/, '.temp.jpg'))
+      img.read(original, function (err, image) {
+        if (err) {
+          alert('Failed to read image file.', 'issue')
+        } else {
+          image.quality(60, function (err, image) {
+            if (err) {
+              alert('Failed to compress JPG file.', 'issue')
+            } else {
+              image.write(compressed, function (err) {
+                if (err) {
+                  alert('Failed to write compressed image file.', 'issue')
+                } else {
+                  try {
+                    let originalStat = fs.statSync(original)
+                    let compressedStat = fs.statSync(compressed)
+                    if (originalStat.size > compressedStat.size) {
+                      fs.removeSync(original)
+                      fs.renameSync(compressed, original)
+                    } else {
+                      fs.removeSync(compressed)
+                    }
+                    compressImages(callback, files)
+                  } catch (err) {
+                    alert('Failed to compress JPG images.', 'issue')
+                  }
+                }
+              })
+            }
+          })
+        }
+      })
+    } else {
+      compressImages(callback, files)
+    }
+  } else {
+    alert('Image compression done.')
+    callback()
+  }
+}
+
 // Run steps
 fixCode(function () {
   // Update version in package.json
@@ -208,9 +266,11 @@ fixCode(function () {
                       if (err) {
                         alert('Build folder update failed.', 'issue')
                       } else {
-                        // Create snapshot
-                        cmd(__dirname, 'node create-snapshot --name "build-' + env.pkg.version + '"', function () {
-                          alert('Build process done for version ' + env.pkg.version + '.')
+                        compressImages(function () {
+                          // Create snapshot
+                          cmd(__dirname, 'node create-snapshot --name "build-' + env.pkg.version + '"', function () {
+                            alert('Build process done for version ' + env.pkg.version + '.')
+                          })
                         })
                       }
                     })
