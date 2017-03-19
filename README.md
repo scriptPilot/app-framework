@@ -8,7 +8,7 @@
 
 > The power is under the hood - but for sure, we have a Demo App.
 
-<a href='https://play.google.com/store/apps/details?id=de.scriptpilot.appframework&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='media/google-play-download.png' width='150' /></a>
+<a href='https://play.google.com/store/apps/details?id=de.scriptpilot.appframework&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='media/google-play-download.png' width='150'/></a>
 &nbsp;&nbsp;&nbsp;
 <a href='https://itunes.apple.com/us/app/app-framework-demo/id1203927581?mt=8'><img alt='Download on the App Store' src='media/app-store-download.png' width='150'/></a>
 &nbsp;&nbsp;&nbsp;
@@ -68,18 +68,18 @@ Backup:
 
 Upcoming:
 
-- [v1.4 - Client code robustness improvements](https://github.com/scriptPilot/app-framework/milestone/9)
-- [v1.5 - Demo App robustness improvements](https://github.com/scriptPilot/app-framework/milestone/10)
-- [v1.6 - Tutorial: ToDo App](https://github.com/scriptPilot/app-framework/milestone/3)
-- [v1.7 - Extensions](https://github.com/scriptPilot/app-framework/milestone/7)
-- [v1.8 - GUI helper tool](https://github.com/scriptPilot/app-framework/milestone/8)
+- [1.4 - Client code robustness improvements](https://github.com/scriptPilot/app-framework/milestone/9)
+- [1.5 - Demo App robustness improvements](https://github.com/scriptPilot/app-framework/milestone/10)
+- [1.6 - Tutorial: ToDo App](https://github.com/scriptPilot/app-framework/milestone/3)
+- [1.7 - Extensions](https://github.com/scriptPilot/app-framework/milestone/7)
+- [1.8 - GUI helper tool](https://github.com/scriptPilot/app-framework/milestone/8)
 
 Closed:
 
-- [v1.3 - CLI robustness improvements](https://github.com/scriptPilot/app-framework/milestone/6?closed=1) (2017-03-19)
-- [v1.2 - Google Play Store deployment](https://github.com/scriptPilot/app-framework/milestone/5?closed=1) (2017-02-12)
-- [v1.1 - Apple App Store deployment](https://github.com/scriptPilot/app-framework/milestone/4?closed=1) (2017-02-10)
-- [v1.0 - Initial Release](https://github.com/scriptPilot/app-framework/milestone/1?closed=1) (2017-02-05)
+- [1.3 - CLI robustness improvements](https://github.com/scriptPilot/app-framework/milestone/6?closed=1) (2017-03-19)
+- [1.2 - Google Play Store deployment](https://github.com/scriptPilot/app-framework/milestone/5?closed=1) (2017-02-12)
+- [1.1 - Apple App Store deployment](https://github.com/scriptPilot/app-framework/milestone/4?closed=1) (2017-02-10)
+- [1.0 - Initial Release](https://github.com/scriptPilot/app-framework/milestone/1?closed=1) (2017-02-05)
 
 ## Quick start
 
