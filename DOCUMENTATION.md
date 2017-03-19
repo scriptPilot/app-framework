@@ -78,11 +78,11 @@ materialSubnavbarFix | *boolean* | true
 specialRoutes | *object* | {}
 pagesWithRequiredLogin | *array* | []
 firebase | *object* |
-&nbsp;&nbsp;&nbsp;apiKey | *string* | 
-&nbsp;&nbsp;&nbsp;authDomain | *string* | 
-&nbsp;&nbsp;&nbsp;databaseURL | *string* | 
-&nbsp;&nbsp;&nbsp;storageBucket | *string* | 
-&nbsp;&nbsp;&nbsp;allowUserRegistration | *boolean* | false
+&nbsp;&nbsp;&nbsp;apiKey | *string* | AIzaSyAvzTiqd9fKR-h4asdsadsadasd7Uxl4iXwqSMU1VjGdII
+&nbsp;&nbsp;&nbsp;authDomain | *string* | app-framework-9045a.firebaseapp.com
+&nbsp;&nbsp;&nbsp;databaseURL | *string* | https://app-framework-9045a.firebaseio.com
+&nbsp;&nbsp;&nbsp;storageBucket | *string* | pp-framework-9045a.appspot.com
+&nbsp;&nbsp;&nbsp;allowUserRegistration | *boolean* | true
 dev-firebase | *object* |
 &nbsp;&nbsp;&nbsp;apiKey | *string* | 
 &nbsp;&nbsp;&nbsp;authDomain | *string* | 
