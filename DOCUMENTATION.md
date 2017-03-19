@@ -234,7 +234,7 @@ Deployment to [Firebase Hosting](https://firebase.google.com/docs/hosting/) (Web
 - Run `npm run database` to deploy your latest build database rules to Firebase
 - Run `npm run storage` to deploy your latest build storage rules to Firebase
 - Run `npm run hosting` to deploy your latest build static files to Firebase
-- For rollback, run all the commands above and extend with ' -- --version x.y.z'
+- For rollback, run all the commands above and extend with ` -- --version x.y.z`
 
 Deployment to the Apple App Store (native App)
 
