@@ -11,6 +11,7 @@
 - [Vue hooks](#vue-hooks)
 - Workflow
   - [Setup your development environment](#setup-your-development-environment)
+  - [Install App Framework](#install-app-framework)
   - [Design your application](#design-your-application)
   - [Develop your application](#develop-your-application)
   - [Test your application](#test-your-application)
