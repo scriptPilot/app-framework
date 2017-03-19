@@ -197,8 +197,8 @@ Run `npm update` to update App Framework to latest sub version. A snapshot of yo
 - Edit page components in *app/pages* folder
   - After adding, removing or renaming pages you have to run `npm run dev` again!
   - Study the code of the Demo App pages to learn how to realize things in App Framework
-- Edit [database rules](https://firebase.google.com/docs/database/security/quickstart) in *app/database-rules.json* file
-- Edit [storage rules](https://firebase.google.com/docs/storage/security/) in *app/storage-rules.txt* file
+- Edit your [database rules](https://firebase.google.com/docs/database/security/quickstart) in *app/database-rules.json* file
+- Edit your [storage rules](https://firebase.google.com/docs/storage/security/) in *app/storage-rules.txt* file
 
 ### Test your application
 
