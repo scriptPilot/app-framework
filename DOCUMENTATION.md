@@ -240,21 +240,22 @@ Deployment to [Firebase Hosting](https://firebase.google.com/docs/hosting/) (Web
 - Run `npm run database` to deploy your latest build database rules to Firebase
 - Run `npm run storage` to deploy your latest build storage rules to Firebase
 - Run `npm run hosting` to deploy your latest build static files to Firebase
-- For rollback, run all the commands above and extend with ` -- --version x.y.z`
+- For rollback, run all the commands above and extend with ` -- --version x.y.z` or use the Firebase Console
 
 Deployment to the Apple App Store (native App)
 
 - You need a Mac with [macOS](http://www.apple.com/de/macos/) and installed [Xcode](https://developer.apple.com/xcode/) (free)
 - You need to sign to the [Apple developer program](https://developer.apple.com/programs/) (around 99€ per year)
-- Create a production certificate in iTunes connect, download and install it on your Mac
-- Create a distribution provisioning profile in iTunes connect, download and install it on your Mac 
+- Create a production certificate in iTunes Connect, download and install it on your Mac
+- Create a distribution provisioning profile in iTunes Connect, download and install it on your Mac 
 - You need to prepare the publishing in [iTunes Connect](https://itunesconnect.apple.com/)
 - Run `npm run xcode` to create a project file for Xcode, based on [Cordova](https://cordova.apache.org/)
 - Make screenshots on the biggest iPhone (you will need them in iTunes Connect later on)
 - Deactivate automatic managed signing, select your certificate and provisioning profiles created before
-- Select Generic iOS Device and create an archive of the Xcode project and upload it within Xcode to iTunes Connect
+- Select the Generic iOS Device
+- Create an archive (Product > Archive) of the Xcode project and upload it to iTunes Connect
 - Send your App in iTunes Connect for the review to Apple
-- For rollback, run `npm run xcode -- --version x.y.z`
+- For rollback, run `npm run xcode -- --version x.y.z` or use iTunes Connect
 
 Deployment to the Google Play Store (native App)
 
@@ -265,7 +266,7 @@ Deployment to the Google Play Store (native App)
 - Make screenshots, you will need them later in the Google Play Developer Console
 - Generate signed APK
 - Log in to the Google Play Developer console to deploy your application
-- For rollback, run `npm run studio -- --version x.y.z`
+- For rollback, run `npm run studio -- --version x.y.z` or use the Google Play Developer Console
 
 ### Backup your application
 
