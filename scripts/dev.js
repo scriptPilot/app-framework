@@ -9,6 +9,9 @@ let cmd = require('../lib/cmd')
 let webpackConfig = require('../lib/webpack-config').development
 let historyFallback = require('connect-history-api-fallback')
 let express = require('express')
+let fs = require('fs-extra')
+let toIco = require('to-ico')
+let abs = require('path').resolve
 let webpack = require('webpack')
 let devMiddleware = require('webpack-dev-middleware')
 let hotMiddleware = require('webpack-hot-middleware')
@@ -58,11 +61,27 @@ let startServer = function (callback) {
   })
 }
 
+let updateFavicon = function (callback) {
+  fs.readFile(abs(env.app, 'icon.png'), function (err, bufIn) {
+    if (err) alert('Failed to read icon.png file.', 'error')
+    toIco([bufIn], {resize: true, sizes: [16, 32, 48]}).then(function (bufOut) {
+      fs.writeFile(abs(env.cache, 'favicon.ico'), bufOut, function (err) {
+        if (err) alert('Failed to cache favicon.ico file.', 'issue')
+        callback()
+      })
+    })
+  })
+}
+
 alert('Development server preparation ongoing - please wait ...')
 fixCode(function () {
-  startServer(function () {
-    let uri = 'http://localhost:' + env.cfg.devServerPort
-    opn(uri)
-    alert('Development server startet at ' + uri + '.\n\nTo be stopped with "CTRL + C".')
+  cmd(__dirname, 'node firebase --version dev --database --storage', function () {
+    updateFavicon(function () {
+      startServer(function () {
+        let uri = 'http://localhost:' + env.cfg.devServerPort
+        opn(uri)
+        alert('Development server startet at ' + uri + '.\n\nTo be stopped with "CTRL + C".')
+      })
+    })
   })
 })

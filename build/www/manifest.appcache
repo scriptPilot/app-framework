@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# f08a28495ed06927effe
+# 662f69f3945f5b143c8b
 
 fonts/fontawesome-webfont.674f50d.eot
 fonts/fontawesome-webfont.912ec66.svg
@@ -7,11 +7,12 @@ fonts/fontawesome-webfont.b06871f.ttf
 fonts/fontawesome-webfont.af7ae50.woff2
 fonts/fontawesome-webfont.fee66e7.woff
 img/i-f7-ios.b356cb6.png
+favicon.ico
 img/flag-de.69735e1.png
 img/flag-en.500a285.png
 img/standard-js-sticker-small.758c379.png
-app.f08a284.js
-app.f08a284.css
+app.662f69f.js
+app.662f69f.css
 index.html
 
 NETWORK:

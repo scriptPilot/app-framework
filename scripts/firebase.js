@@ -22,6 +22,14 @@ if (env.arg.version === undefined) {
   env.arg.version = env.pkg.version
 }
 
+// Define configuration
+let cfg = env.arg.version === 'dev' ? env.cfg['dev-firebase'] : env.cfg.firebase
+
+// Check configuration
+if (cfg.storageBucket === '' || cfg.authDomain === '') {
+  alert((env.arg.version === 'dev' ? 'Dev-' : '') + 'Firebase configuration must be set for storageBucket and authDomain.', 'error')
+}
+
 // Run
 alert('Firebase deployment ongoing - please wait ...')
 
@@ -60,7 +68,7 @@ let prepareFiles = (buildFolder, callback) => {
   try {
     // Correct storage bucket in database rules
     let rules = fs.readFileSync(abs(buildFolder, 'storage-rules.txt'), 'utf8')
-    rules = rules.replace(/match \/b\/(.+?)\/o {/, 'match /b/' + (env.cfg.firebase.storageBucket !== '' ? env.cfg.firebase.storageBucket : '<your-storage-bucket>') + '/o {')
+    rules = rules.replace(/match \/b\/(.+?)\/o {/, 'match /b/' + (cfg.storageBucket !== '' ? cfg.storageBucket : '<your-storage-bucket>') + '/o {')
     fs.writeFileSync(abs(buildFolder, 'storage-rules.txt'), rules)
     // Reset build folder in firebase
     fs.removeSync(abs(binFolder, 'build'))
@@ -86,7 +94,7 @@ let updateConfigFiles = (callback) => {
     // Create/update .firebaserc file
     let rc = {
       projects: {
-        'default': env.cfg.firebase.authDomain.substr(0, env.cfg.firebase.authDomain.indexOf('.firebaseapp.com'))
+        'default': cfg.authDomain.substr(0, cfg.authDomain.indexOf('.firebaseapp.com'))
       }
     }
     fs.writeJsonSync(abs(binFolder, '.firebaserc'), rc)
@@ -134,7 +142,7 @@ let storageDeployment = (callback) => {
       alert('Firebase storage rules deployment done.')
       callback()
     }, () => {
-      // alert('Firebase storage rules deployment failed.', 'issue')
+      alert('Firebase storage rules deployment failed.', 'issue')
     })
   } else {
     callback()
@@ -147,14 +155,12 @@ let hostingDeployment = (callback) => {
       alert('Firebase hosting deployment done.')
       callback()
     }, () => {
-      // alert('Firebase hosting deployment failed.', 'issue')
+      alert('Firebase hosting deployment failed.', 'issue')
     })
   } else {
     callback()
   }
 }
-
- // Run
 
 // Run
 defineBuildFolder(function (buildFolder) {
