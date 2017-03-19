@@ -26,7 +26,7 @@ Design your application:
 
 Develop your application:
 
-- Realize beautiful user interfaces with all well-known iOS and Material components and transitions, based on HTML, CSS and JavaScript with [Framework7](https://framework7.io/)
+- Realize beautiful user interfaces with all well-known components and transitions, based on [Framework7](https://framework7.io/)
 - Easy to maintain [single file components](https://vuejs.org/guide/single-file-components) with [reusable UI elements](https://framework7.io/vue/)
 - One code base for all devices with HTML, CSS and JavaScript - realized with [Cordova/PhoneGap](https://cordova.apache.org/), supporting [ES2015](https://babeljs.io/learn-es2015/)
 - Use comprehensive icon fonts like [FontAwesome](http://fontawesome.io/), [Framework7](http://framework7.io/icons/), [Ion](http://ionicons.com/) and [Material Icons](https://material.io/icons/) out of the box
