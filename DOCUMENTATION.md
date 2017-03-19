@@ -179,7 +179,8 @@ You can use your favorite code editor. But we recommend [Atom](https://atom.io/)
 
 3. Run `npm install` to install App Framework and setup the project folder
 4. Run `npm run dev` to start the Demo App at localhost:8080
-5. Read our [Documentation](DOCUMENTATION.md)
+
+Right after the installation, you can run `npm run reset-app` to reduce the *app* folder to a minium set of files. Use this if you know Framework7 / Framework7-Vue well and could start with an empty app folder. However, a snapshot will be created before the reset automatically to to *snapshots* folder.
 
 Run `npm update` to update App Framework to latest sub version. A snapshot of your project folder will be created before in folder *snapshots*.
 
@@ -190,12 +191,12 @@ Run `npm update` to update App Framework to latest sub version. A snapshot of yo
 ### Develop your application
 
 - Update the configuration in *app/config.json* file - first of all for Firebase!
-- Run `npm run dev` to start development server at localhost:8080
+- Run `npm run dev` to start the development server at localhost:8080
 - Save images to *app/images* folder
-- Edit app component in *app/app.vue* file
+- Edit the app component in *app/app.vue* file
 - Edit page components in *app/pages* folder
   - After adding, removing or renaming pages you have to run `npm run dev` again!
-  - Study the code of the example pages to learn how to realize things in App Framework
+  - Study the code of the Demo App pages to learn how to realize things in App Framework
 - Edit [database rules](https://firebase.google.com/docs/database/security/quickstart) in *app/database-rules.json* file
 - Edit [storage rules](https://firebase.google.com/docs/storage/security/) in *app/storage-rules.txt* file
 
@@ -205,7 +206,6 @@ App Framework fix your code automatically on each test or build command. To disa
 
 ### Build your application
 
-- If you use Git, commit your changes first
 - Run `npm run patch` after bugfixes and improvements
 - Run `npm run minor` after adding new functionality
 - Run `npm run major` after breaking backward-capability
@@ -225,15 +225,16 @@ App Framework fix your code automatically on each test or build command. To disa
 
 Deployment to a FTP server (Web App)
 
-- Upload the latest *www/build* folder to your server and then the *www/.htaccess* file
-- For rollback: Change the version in *www/.htaccess* file to the previous one and upload it to your server
+- Run `npm run ftp` to deploy your latest build to your FTP server, on first call, the config file *ftp-config.json* is created automatically and you have to update it with your FTP server data
+- For rollback, run `npm run ftp -- --version x.y.z`
 
 Deployment to [Firebase Hosting](https://firebase.google.com/docs/hosting/) (Web App)
 
-- Run `npm run database` to overwrite the Firebase database rules with the content of *database-rules.json*
-- Run `npm run storage` to overwrite the Firebase storage rules with the content of *storage-rules.txt*
-- Run `npm run hosting` to push newest build to Firebase Hosting
-- For rollback: Change the version in *www/.htaccess* file to the previous one and run `npm run hosting`
+- Run `npm run firebase` to deploy your latest build, database rules and storage rules to Firebase
+- Run `npm run database` to deploy your latest build database rules to Firebase
+- Run `npm run storage` to deploy your latest build storage rules to Firebase
+- Run `npm run hosting` to deploy your latest build static files to Firebase
+- For rollback, run all the commands above and extend with ' -- --version x.y.z'
 
 Deployment to the Apple App Store (native App)
 
