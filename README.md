@@ -8,11 +8,11 @@
 
 > The power is under the hood - but for sure, we have a Demo App.
 
-<a href='https://play.google.com/store/apps/details?id=de.scriptpilot.appframework&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://raw.githubusercontent.com/scriptPilot/app-framework/master/media/google-play-download.png' width='150'/></a>
+<a href='https://play.google.com/store/apps/details?id=de.scriptpilot.appframework&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='media/google-play-download.png' width='150'/></a>
 &nbsp;&nbsp;&nbsp;
-<a href='https://itunes.apple.com/us/app/app-framework-demo/id1203927581?mt=8'><img alt='Download on the App Store' src='https://raw.githubusercontent.com/scriptPilot/app-framework/master/media/app-store-download.png' width='150'/></a>
+<a href='https://itunes.apple.com/us/app/app-framework-demo/id1203927581?mt=8'><img alt='Download on the App Store' src='media/app-store-download.png' width='150'/></a>
 &nbsp;&nbsp;&nbsp;
-<a href='https://app-framework.scriptpilot.de/'><img alt='Download on the App Store' src='https://raw.githubusercontent.com/scriptPilot/app-framework/master/media/web-app-visit.png' width='150'/></a>
+<a href='https://app-framework.scriptpilot.de/'><img alt='Download on the App Store' src='media/web-app-visit.png' width='150'/></a>
 
 Setup:
 
