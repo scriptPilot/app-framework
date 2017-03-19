@@ -57,6 +57,8 @@ The following project folder will be created by default.
 
 ## Configuration options
 
+Configure your application easily in the `app/config.js` file.
+
 <!-- config-options -->
 Option | Allowed | Default
 :--- |:--- |:---
