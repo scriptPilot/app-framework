@@ -31,7 +31,7 @@
     "databaseURL": "https://dev-app-framework.firebaseio.com",
     "storageBucket": "dev-app-framework.appspot.com",
     "allowUserRegistration": true,
-    "useDevFirebaseOnTesting": true
+    "useDevFirebaseOnTesting": false
   },
   "appStoreId": "de.scriptpilot.app-framework",
   "playStoreId": "de.scriptpilot.appframework",
