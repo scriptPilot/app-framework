@@ -19,7 +19,7 @@ let logFile = 'code-unconformities.log'
 let params = [
   'node',
   'cmd.js',
-  '>' + abs(env.proj, logFile),
+  '>"' + abs(env.proj, logFile) + '"',
   // Find app.vue, pages/*.vue and pages/sub/*.vue
   '"' + abs(env.app, '**/*.vue') + '"'
 ]
