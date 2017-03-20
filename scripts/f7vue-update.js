@@ -27,11 +27,11 @@ cmd(f7VueFolder, 'npm run build', function () {
   alert('Framework7-Vue distribution process ongoing - please wait ...')
   cmd(f7VueFolder, 'npm run dist', function () {
     alert('Copying build files to App Framework folder - please wait ...')
-      // Empty current directory
+    // Empty current directory
     fs.emptyDirSync(abs(env.proj, 'vendor/Framework7-Vue'))
-      // Copy file
+    // Copy file
     fs.copySync(abs(f7VueFolder, 'dist/framework7-vue.min.js'), abs(env.proj, 'vendor/Framework7-Vue/framework7-vue.min.js'))
-      // Alert
+    // Alert
     alert('Framework7-Vue update done.')
-  }, 'Error: Framework7-Vue distribution process failed.')
-}, 'Error: Framework7-Vue build process failed.')
+  }, 'Framework7-Vue distribution process failed.')
+}, 'Framework7-Vue build process failed.')

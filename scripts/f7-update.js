@@ -27,9 +27,9 @@ cmd(f7Folder, 'gulp build', function () {
   alert('Framework7 distribution process ongoing - please wait ...')
   cmd(f7Folder, 'gulp dist', function () {
     alert('Copying build files to App Framework folder - please wait ...')
-      // Empty current directory
+    // Empty current directory
     fs.emptyDirSync(abs(env.proj, 'vendor/framework7'))
-      // Define files to copy
+    // Define files to copy
     let files = [
       'css/framework7.ios.colors.min.css',
       'css/framework7.ios.min.css',
@@ -38,11 +38,11 @@ cmd(f7Folder, 'gulp build', function () {
       'img',
       'js/framework7.min.js'
     ]
-      // Copy files
+    // Copy files
     for (let f = 0; f < files.length; f++) {
       fs.copySync(abs(f7Folder, 'dist', files[f]), abs(env.proj, 'vendor/framework7', files[f]))
     }
-      // Alert
+    // Alert
     alert('Framework7 update done.')
-  }, 'Error: Framework7 distribution process failed.')
-}, 'Error: Framework7 build process failed.')
+  }, 'Framework7 distribution process failed.')
+}, 'Framework7 build process failed.')
