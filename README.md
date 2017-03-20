@@ -8,9 +8,9 @@
 
 > The power is under the hood - but for sure, we have a Demo App.
 
-[![Get it on Google Play](media/google-play-download.png)](https://play.google.com/store/apps/details?id=de.scriptpilot.appframework)
-&nbsp;&nbsp;&nbsp;
 [![Download on the App Store Play](media/app-store-download.png)](https://itunes.apple.com/us/app/app-framework-demo/id1203927581?mt=8')
+&nbsp;&nbsp;&nbsp;
+[![Get it on Google Play](media/google-play-download.png)](https://play.google.com/store/apps/details?id=de.scriptpilot.appframework)
 &nbsp;&nbsp;&nbsp;
 [![Open as Web App](media/web-app-visit.png)](https://app-framework.scriptpilot.de/)
 
