@@ -51,6 +51,8 @@ let startServer = function (callback) {
   app.use(devMid)
   // Enable hot-reload and state-preserving
   app.use(hotMid)
+  // Define static path
+  app.use(express.static(env.app))
   // Start server
   app.listen(env.cfg.devServerPort, function (err) {
     if (err) {
