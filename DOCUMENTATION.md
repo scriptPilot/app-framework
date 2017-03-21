@@ -46,6 +46,7 @@ The following project folder will be created by default.
 │   ├── config.js               # App configuration
 │   ├── database-rules.json     # Firebase database rules
 │   ├── icon.png                # App icon file (minimum size is 1024 pixel)
+│   ├── routes.json             # App routes
 │   └── storage-rules.txt       # Firebase storage rules
 ├── build                       # Latest build files (do not modify)
 ├── design                      # Design templates (PDF, Power Point)
@@ -84,14 +85,14 @@ firebase | *object* |
 &nbsp;&nbsp;&nbsp;storageBucket | *string* | pp-framework-9045a.appspot.com
 &nbsp;&nbsp;&nbsp;allowUserRegistration | *boolean* | true
 dev-firebase | *object* |
-&nbsp;&nbsp;&nbsp;apiKey | *string* | 
-&nbsp;&nbsp;&nbsp;authDomain | *string* | 
-&nbsp;&nbsp;&nbsp;databaseURL | *string* | 
-&nbsp;&nbsp;&nbsp;storageBucket | *string* | 
+&nbsp;&nbsp;&nbsp;apiKey | *string* |
+&nbsp;&nbsp;&nbsp;authDomain | *string* |
+&nbsp;&nbsp;&nbsp;databaseURL | *string* |
+&nbsp;&nbsp;&nbsp;storageBucket | *string* |
 &nbsp;&nbsp;&nbsp;allowUserRegistration | *boolean* | false
 &nbsp;&nbsp;&nbsp;useDevFirebaseOnTesting | *boolean* | false
-appStoreId | *string* | 
-playStoreId | *string* | 
+appStoreId | *string* |
+playStoreId | *string* |
 useCordovaPlugins | *array* | ["cordova-plugin-statusbar","cordova-plugin-whitelist"]
 resetLocalStorageOnVersionChange | *boolean* | false
 buildSourcemaps | *boolean* | false
@@ -108,7 +109,7 @@ This is an overview and reference, please see the Workflow for details.
 
 - Setup
   - `npm install` to install App Framework and setup the project folder
-    - `npm run reset-app` to replace the app folder with minimum files 
+    - `npm run reset-app` to replace the app folder with minimum files
   - `npm update` to update App Framework to the latest sub version
 
 - Testing
@@ -247,7 +248,7 @@ Deployment to the Apple App Store (native App)
 - You need a Mac with [macOS](http://www.apple.com/de/macos/) and installed [Xcode](https://developer.apple.com/xcode/) (free)
 - You need to sign to the [Apple developer program](https://developer.apple.com/programs/) (around 99€ per year)
 - Create a production certificate in iTunes Connect, download and install it on your Mac
-- Create a distribution provisioning profile in iTunes Connect, download and install it on your Mac 
+- Create a distribution provisioning profile in iTunes Connect, download and install it on your Mac
 - You need to prepare the publishing in [iTunes Connect](https://itunesconnect.apple.com/)
 - Run `npm run xcode` to create a project file for Xcode, based on [Cordova](https://cordova.apache.org/)
 - Make screenshots on the biggest iPhone (you will need them in iTunes Connect later on)
