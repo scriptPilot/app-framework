@@ -1,6 +1,7 @@
 /*
 
   Purpose:
+  - Check node version
   - Define paths
   - Fix configuration file
   - Check if user has forked the repo insetead of installing it as dependency
@@ -24,6 +25,15 @@ let argParser = require('minimist')
 let rel = require('path').join
 let abs = require('path').resolve
 let sep = require('path').sep
+let ver = require('semver')
+
+// Include framework information
+let framework = require('./package.json')
+
+// Check node version
+if (framework.engines && framework.engines.node && ver.satisfies(process.version, framework.engines.node) !== true) {
+  alert('Please update Node.js to version ' + framework.engines.node, 'error')
+}
 
 // Read script parameters
 let arg = argParser(process.argv.slice(2))
@@ -110,6 +120,7 @@ let ignored = function (path) {
 }
 
 module.exports = {
+  framework: framework,
   arg: arg,
   installed: installed,
   proj: proj,

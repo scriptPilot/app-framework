@@ -260,6 +260,8 @@ let createIcoFile = function (hashFolder, callback) {
           callback()
         }
       })
+    }).catch(function () {
+      alert('Failed to generate favicon.ico file.', 'issue')
     })
   }
 }
