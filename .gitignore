@@ -4,6 +4,9 @@ _SYNCAPP/
 # Exclude Git folder
 .git/
 
+# Exclude build folder
+build/
+
 # Exclude node modules (with cache)
 node_modules/
 
