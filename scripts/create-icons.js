@@ -334,28 +334,29 @@ getIconFilename(function (filename) {
       cacheHashFolder(hashFolder, function () {
         alert('Icon generation done.', 'exit')
       })
-    }
-    // Generate icons
-    getIconsToCreate(icon, function (iconsToCreate) {
-      // Group by filled / not filled
-      let filled = _.sortBy(_.filter(iconsToCreate, function (i) { return i.isFilled === true }), 'resizeFactor')
-      let transparent = _.sortBy(_.filter(iconsToCreate, function (i) { return i.isFilled === false }), 'resizeFactor')
-      // Clone icon for filled one
-      let iconFilled = icon.clone()
-      // Create hash folder
-      fs.ensureDirSync(hashFolder)
-      // Create icons
-      createTransparentIcons(icon, transparent, hashFolder, function () {
-        createFilledIcons(iconFilled, filled, hashFolder, function () {
-          downsizeTileIcons(hashFolder, iconsToCreate, function () {
-            createIcoFile(hashFolder, function () {
-              cacheHashFolder(hashFolder, function () {
-                alert('Icon generation done.', 'exit')
+    } else {
+      // Generate icons
+      getIconsToCreate(icon, function (iconsToCreate) {
+        // Group by filled / not filled
+        let filled = _.sortBy(_.filter(iconsToCreate, function (i) { return i.isFilled === true }), 'resizeFactor')
+        let transparent = _.sortBy(_.filter(iconsToCreate, function (i) { return i.isFilled === false }), 'resizeFactor')
+        // Clone icon for filled one
+        let iconFilled = icon.clone()
+        // Create hash folder
+        fs.ensureDirSync(hashFolder)
+        // Create icons
+        createTransparentIcons(icon, transparent, hashFolder, function () {
+          createFilledIcons(iconFilled, filled, hashFolder, function () {
+            downsizeTileIcons(hashFolder, iconsToCreate, function () {
+              createIcoFile(hashFolder, function () {
+                cacheHashFolder(hashFolder, function () {
+                  alert('Icon generation done.', 'exit')
+                })
               })
             })
           })
         })
       })
-    })
+    }
   })
 })
