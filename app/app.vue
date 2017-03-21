@@ -47,11 +47,6 @@
   </div>
 </template>
 
-<!-- Default export, template will be compiled automatically -->
-<script>
-module.exports = {}
-</script>
-
 <!-- Style - for whole app, as there is no scope property -->
 <style>
 
