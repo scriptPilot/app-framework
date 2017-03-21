@@ -31,18 +31,6 @@ let loadRoutes = function (callback) {
     callback([])
   }
 }
-let saveRoutes = function (routes, callback) {
-  alert('Saving routes.json file - please wait ...')
-  let file = path.resolve(env.app, 'routes.json')
-  fs.writeJson(file, routes, function (err) {
-    if (err) {
-      alert('Saving routes.json file failed.', 'issue')
-    } else {
-      alert('Saving routes.json file done.')
-      callback()
-    }
-  })
-}
 let checkRoutes = function (routes, callback) {
   alert('Route check ongoing - please wait ...')
   let errors = []
@@ -51,16 +39,16 @@ let checkRoutes = function (routes, callback) {
   } else {
     for (let r = 0; r < routes.length; r++) {
       if (routes[r].path === undefined) {
-        errors.push('Route object no. ' + (r + 1) + ' must contain a path property.')
+        errors.push((r + 1) + '. object - "path" property missing')
       } else if (/^(\/|(\/(.+)\/))$/.test(routes[r].path) === false) {
-        errors.push('Route object no. ' + (r + 1) + ' path property must start and end with a slash.')
+        errors.push((r + 1) + '. object - path property must start and end with a slash')
       }
       if (routes[r].component === undefined) {
-        errors.push('Route object no. ' + (r + 1) + ' must contain a component property.')
+        errors.push((r + 1) + '. object - "component" property missing')
       } else if (/\.vue$/.test(routes[r].component) === false) {
-        errors.push('Route object no. ' + (r + 1) + ' component property must end with ".vue".')
+        errors.push((r + 1) + '. object - component property must end with ".vue"')
       } else if (!found(env.app, 'pages', routes[r].component)) {
-        errors.push('Page component "' + routes[r].component + '" not found.')
+        errors.push((r + 1) + '. object - page component file "' + routes[r].component + '" not found')
       }
     }
   }
@@ -95,6 +83,18 @@ let addMissingPages = function (routes, callback) {
       }
       alert('Add missing page routes done.')
       callback(routes)
+    }
+  })
+}
+let saveRoutes = function (routes, callback) {
+  alert('Saving routes.json file - please wait ...')
+  let file = path.resolve(env.app, 'routes.json')
+  fs.writeJson(file, routes, function (err) {
+    if (err) {
+      alert('Saving routes.json file failed.', 'issue')
+    } else {
+      alert('Saving routes.json file done.')
+      callback()
     }
   })
 }

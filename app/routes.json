@@ -1,47 +1,15 @@
 [
   {
-    "test": ".."
-  },
-  {
-    "test2": "..",
-    "path": "/",
-    "component": "home"
-  },
-  {
-    "test2": "..",
-    "component": "blabl"
-  },
-  {
-    "path": "/formx/",
-    "component": "formx.vue"
-  },
-  {
-    "path": "/form/",
-    "component": "form.vue"
-  },
-  {
-    "path": "/firebase-private/",
-    "component": "firebase-private.vue"
+    "path": "/login-screen/",
+    "component": "login-screen.vue"
   },
   {
     "path": "/flexible-routing/",
     "component": "flexible-routing.vue"
   },
   {
-    "path": "/firebase-public/",
-    "component": "firebase-public.vue"
-  },
-  {
-    "path": "/image/",
-    "component": "image.vue"
-  },
-  {
-    "path": "/home/",
-    "component": "home.vue"
-  },
-  {
-    "path": "/login-screen/",
-    "component": "login-screen.vue"
+    "path": "/multiple-languages/",
+    "component": "multiple-languages.vue"
   },
   {
     "path": "/panel-left/",
@@ -56,23 +24,39 @@
     "component": "popup.vue"
   },
   {
-    "path": "/multiple-languages/",
-    "component": "multiple-languages.vue"
-  },
-  {
-    "path": "/tabs-sub/",
-    "component": "tabs-sub.vue"
-  },
-  {
-    "path": "/tabs/",
-    "component": "tabs.vue"
+    "path": "/simple-page/",
+    "component": "simple-page.vue"
   },
   {
     "path": "/simple-todo/",
     "component": "simple-todo.vue"
   },
   {
-    "path": "/simple-page/",
-    "component": "simple-page.vue"
+    "path": "/tabs/",
+    "component": "tabs.vue"
+  },
+  {
+    "path": "/tabs-sub/",
+    "component": "tabs-sub.vue"
+  },
+  {
+    "path": "/firebase-private/",
+    "component": "firebase-private.vue"
+  },
+  {
+    "path": "/firebase-public/",
+    "component": "firebase-public.vue"
+  },
+  {
+    "path": "/form/",
+    "component": "form.vue"
+  },
+  {
+    "path": "/home/",
+    "component": "home.vue"
+  },
+  {
+    "path": "/image/",
+    "component": "image.vue"
   }
 ]
