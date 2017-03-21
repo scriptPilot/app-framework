@@ -251,9 +251,9 @@ let createIcoFile = function (hashFolder, callback) {
     alert('Failed to read all ico files.', 'issue')
   } else {
     // Create ico file
-    toIco(files).then(buf => {
-      fs.writeFile(abs(hashFolder, 'favicon.ico'), buf, err => {
-        if (err) {
+    toIco(files).then(function (buf) {
+      fs.writeFile(abs(hashFolder, 'favicon.ico'), buf, function (err) {
+        if (err || !found(hashFolder, 'favicon.ico')) {
           alert('Failed to save favicon.ico to hash cache folder.', 'issue')
         } else {
           alert('Favicon.ico creation done.')
