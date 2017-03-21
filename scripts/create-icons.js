@@ -171,67 +171,65 @@ let getIconsToCreate = function (icon, callback) {
 // Create transparent icons
 let createTransparentIcons = function (icon, iconList, hashFolder, callback) {
   alert('Transparent icon generation ongoing - please wait ...')
-  let thisIcon = iconList.pop()
-  // Resize icon
-  icon.resize(thisIcon.iconWidth, thisIcon.iconHeight, function (err, icon) {
-    if (err) {
-      alert('Failed to resize icon "' + thisIcon.name + '".', 'issue')
-    } else {
-      icon.write(abs(hashFolder, thisIcon.name), function (err) {
-        if (err) {
-          alert('Failed to save icon "' + thisIcon.name + '".', 'issue')
-        } else {
-          // Create next icon or finish
-          if (iconList.length > 0) {
-            createTransparentIcons(icon, iconList, hashFolder, callback)
-          // Finish
+  if (!Array.isArray(iconList) || iconList.length === 0) {
+    alert('Transparent icon generation done.')
+    callback()
+  } else {
+    let thisIcon = iconList.pop()
+    // Resize icon
+    icon.resize(thisIcon.iconWidth, thisIcon.iconHeight, function (err, icon) {
+      if (err) {
+        alert('Failed to resize icon "' + thisIcon.name + '".', 'issue')
+      } else {
+        icon.write(abs(hashFolder, thisIcon.name), function (err) {
+          if (err) {
+            alert('Failed to save icon "' + thisIcon.name + '".', 'issue')
           } else {
-            callback()
+            createTransparentIcons(icon, iconList, hashFolder, callback)
           }
-        }
-      })
-    }
-  })
+        })
+      }
+    })
+  }
 }
 
 // Create filled icons
 let createFilledIcons = function (icon, iconList, hashFolder, callback) {
   alert('Filled icon generation ongoing - please wait ...')
-  let thisIcon = iconList.pop()
-  // Create canvas
-  new img(thisIcon.canvasWidth, thisIcon.canvasHeight, img.rgbaToInt.apply(null, bg), function (err, canvas) { // eslint-disable-line
-    if (err) {
-      alert('Failed to create canvas for icon "' + thisIcon.name + '".', 'issue')
-    } else {
-      // Resize icon
-      icon.resize(thisIcon.iconWidth, thisIcon.iconHeight, function (err, icon) {
-        if (err) {
-          alert('Failed to resize icon "' + thisIcon.name + '".', 'issue')
-        } else {
-          // Coyp icon to canvas
-          canvas.composite(icon, thisIcon.iconPosLeft, thisIcon.iconPosTop, function (err, canvas) {
-            if (err) {
-              alert('Failed to merge icon "' + thisIcon.name + '" with canvas.', 'issue')
-            } else {
-              canvas.write(abs(hashFolder, thisIcon.name), function (err) {
-                if (err) {
-                  alert('Failed to save icon "' + thisIcon.name + '".', 'issue')
-                } else {
-                  // Create next icon or finish
-                  if (iconList.length > 0) {
-                    createFilledIcons(icon, iconList, hashFolder, callback)
-                  // Finish
+  if (!Array.isArray(iconList) || iconList.length === 0) {
+    alert('Filled icon generation done.')
+    callback()
+  } else {
+    let thisIcon = iconList.pop()
+    // Create canvas
+    new img(thisIcon.canvasWidth, thisIcon.canvasHeight, img.rgbaToInt.apply(null, bg), function (err, canvas) { // eslint-disable-line
+      if (err) {
+        alert('Failed to create canvas for icon "' + thisIcon.name + '".', 'issue')
+      } else {
+        // Resize icon
+        icon.resize(thisIcon.iconWidth, thisIcon.iconHeight, function (err, icon) {
+          if (err) {
+            alert('Failed to resize icon "' + thisIcon.name + '".', 'issue')
+          } else {
+            // Coyp icon to canvas
+            canvas.composite(icon, thisIcon.iconPosLeft, thisIcon.iconPosTop, function (err, canvas) {
+              if (err) {
+                alert('Failed to merge icon "' + thisIcon.name + '" with canvas.', 'issue')
+              } else {
+                canvas.write(abs(hashFolder, thisIcon.name), function (err) {
+                  if (err) {
+                    alert('Failed to save icon "' + thisIcon.name + '".', 'issue')
                   } else {
-                    callback()
+                    createFilledIcons(icon, iconList, hashFolder, callback)
                   }
-                }
-              })
-            }
-          })
-        }
-      })
-    }
-  })
+                })
+              }
+            })
+          }
+        })
+      }
+    })
+  }
 }
 
 // Create special icons
@@ -244,22 +242,26 @@ let createIcoFile = function (hashFolder, callback) {
   sizes.map(s => {
     let path = abs(hashFolder, 'ico-' + s + 'x' + s + '.png')
     if (!found(path)) {
-      alert('Cannot find favicon-' + s + '.png in hash cache folder.', 'issue')
+      alert('Cannot find ico-' + s + 'x' + s + '.png in hash cache folder.', 'issue')
     } else {
       files.push(fs.readFileSync(path))
     }
   })
-  // Create ico file
-  toIco(files).then(buf => {
-    fs.writeFile(abs(hashFolder, 'favicon.ico'), buf, err => {
-      if (err) {
-        alert('Failed to save favicon.ico to hash cache folder.', 'issue')
-      } else {
-        alert('Favicon.ico creation done.')
-        callback()
-      }
+  if (sizes.length !== files.length) {
+    alert('Failed to read all ico files.', 'issue')
+  } else {
+    // Create ico file
+    toIco(files).then(buf => {
+      fs.writeFile(abs(hashFolder, 'favicon.ico'), buf, err => {
+        if (err) {
+          alert('Failed to save favicon.ico to hash cache folder.', 'issue')
+        } else {
+          alert('Favicon.ico creation done.')
+          callback()
+        }
+      })
     })
-  })
+  }
 }
 
 // Downsize ms tile icons, keep transparency
