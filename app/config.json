@@ -12,6 +12,7 @@
   "statusbarTextColor": "white",
   "showPhoneFrameOnDesktop": true,
   "materialSubnavbarFix": true,
+  "completeRoutesFile": true,
   "specialRoutes": {
     "flexible-routing/blog/:blogId/post/:postId": "flexible-routing"
   },

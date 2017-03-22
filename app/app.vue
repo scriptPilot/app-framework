@@ -29,8 +29,8 @@
     </f7-panel>
 
     <!-- Main view -->
-    <f7-views>
-      <f7-view id="main-view" navbar-through :dynamic-navbar="true" main url="home"></f7-view>
+    <f7-views navbar-through>
+      <f7-view main url="/home/" :dynamic-navbar="true"></f7-view>
     </f7-views>
 
     <!-- Popup -->

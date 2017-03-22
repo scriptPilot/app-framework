@@ -47,6 +47,10 @@
     "type": "boolean",
     "default": true
   },
+  "completeRoutesFile": {
+    "type": "boolean",
+    "default": true
+  },
   "specialRoutes": {
     "type": "object",
     "default": {}

@@ -76,6 +76,7 @@ iconBackgroundColor | /^#([0-9a-f]{6})$/i | #ffffff
 statusbarTextColor | black, white | white
 showPhoneFrameOnDesktop | *boolean* | true
 materialSubnavbarFix | *boolean* | true
+completeRoutesFile | *boolean* | true
 specialRoutes | *object* | {}
 pagesWithRequiredLogin | *array* | []
 firebase | *object* |
@@ -85,14 +86,14 @@ firebase | *object* |
 &nbsp;&nbsp;&nbsp;storageBucket | *string* | pp-framework-9045a.appspot.com
 &nbsp;&nbsp;&nbsp;allowUserRegistration | *boolean* | true
 dev-firebase | *object* |
-&nbsp;&nbsp;&nbsp;apiKey | *string* |
-&nbsp;&nbsp;&nbsp;authDomain | *string* |
-&nbsp;&nbsp;&nbsp;databaseURL | *string* |
-&nbsp;&nbsp;&nbsp;storageBucket | *string* |
+&nbsp;&nbsp;&nbsp;apiKey | *string* | 
+&nbsp;&nbsp;&nbsp;authDomain | *string* | 
+&nbsp;&nbsp;&nbsp;databaseURL | *string* | 
+&nbsp;&nbsp;&nbsp;storageBucket | *string* | 
 &nbsp;&nbsp;&nbsp;allowUserRegistration | *boolean* | false
 &nbsp;&nbsp;&nbsp;useDevFirebaseOnTesting | *boolean* | false
-appStoreId | *string* |
-playStoreId | *string* |
+appStoreId | *string* | 
+playStoreId | *string* | 
 useCordovaPlugins | *array* | ["cordova-plugin-statusbar","cordova-plugin-whitelist"]
 resetLocalStorageOnVersionChange | *boolean* | false
 buildSourcemaps | *boolean* | false

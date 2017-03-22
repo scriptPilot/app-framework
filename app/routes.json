@@ -1,11 +1,35 @@
 [
   {
-    "path": "/login-screen/",
-    "component": "login-screen.vue"
+    "path": "/",
+    "component": "home.vue"
+  },
+  {
+    "path": "/firebase-private/",
+    "component": "firebase-private.vue"
+  },
+  {
+    "path": "/firebase-public/",
+    "component": "firebase-public.vue"
   },
   {
     "path": "/flexible-routing/",
     "component": "flexible-routing.vue"
+  },
+  {
+    "path": "/form/",
+    "component": "form.vue"
+  },
+  {
+    "path": "/home/",
+    "component": "home.vue"
+  },
+  {
+    "path": "/image/",
+    "component": "image.vue"
+  },
+  {
+    "path": "/login-screen/",
+    "component": "login-screen.vue"
   },
   {
     "path": "/multiple-languages/",
@@ -32,31 +56,28 @@
     "component": "simple-todo.vue"
   },
   {
-    "path": "/tabs/",
-    "component": "tabs.vue"
-  },
-  {
     "path": "/tabs-sub/",
     "component": "tabs-sub.vue"
   },
   {
-    "path": "/firebase-private/",
-    "component": "firebase-private.vue"
-  },
-  {
-    "path": "/firebase-public/",
-    "component": "firebase-public.vue"
-  },
-  {
-    "path": "/form/",
-    "component": "form.vue"
-  },
-  {
-    "path": "/home/",
-    "component": "home.vue"
-  },
-  {
-    "path": "/image/",
-    "component": "image.vue"
+    "path": "/tabs/",
+    "component": "tabs.vue",
+    "tabs": [
+      {
+        "path": "/",
+        "tabId": "tab1",
+        "component": "tabs_tab1.vue"
+      },
+      {
+        "path": "/tab2/",
+        "tabId": "tab2",
+        "component": "tabs_tab2.vue"
+      },
+      {
+        "path": "/tab3/",
+        "tabId": "tab3",
+        "component": "tabs_tab3.vue"
+      }
+    ]
   }
 ]

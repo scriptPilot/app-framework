@@ -142,7 +142,9 @@ cmd(__dirname, 'node snapshot', function () {
           createStorageRules(function () {
             createAppComponent(function () {
               createHomepage(function () {
-                alert('App folder replaced with minimum files.')
+                cmd(__dirname, 'node update-routes', function () {
+                  alert('App folder replaced with minimum files.')
+                })
               })
             })
           })
