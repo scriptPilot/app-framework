@@ -8,7 +8,7 @@
       <f7-nav-left>
         <f7-link icon="icon-bars" open-panel="left"></f7-link>
       </f7-nav-left>
-      <f7-nav-center sliding>{{$root.title}}</f7-nav-center>
+      <f7-nav-center sliding>{{$root.config.title}}</f7-nav-center>
       <f7-nav-right>
         <f7-link icon="icon-bars" open-panel="right"></f7-link>
       </f7-nav-right>
@@ -64,7 +64,7 @@
     <!-- Link to GitHub repository -->
     <f7-block style="text-align: center">
       <f7-link href="https://github.com/scriptPilot/app-framework" external>
-        <f7-icon fa="github" size="20"></f7-icon>&nbsp;&nbsp;App Framework - v{{$root.packageVersion}}
+        <f7-icon fa="github" size="20"></f7-icon>&nbsp;&nbsp;App Framework - v{{$root.frameworkVersion}}
       </f7-link>
     </f7-block>
 

@@ -8,7 +8,7 @@
 - [Project folder structure](#project-folder-structure)
 - [Configuration options](#configuration-options)
 - [CLI commands](#cli-commands)
-- [Vue hooks](#vue-hooks)
+- [Hooks](#hooks)
 - Workflow
   - [Setup your development environment](#setup-your-development-environment)
   - [Install App Framework](#install-app-framework)
@@ -46,7 +46,7 @@ The following project folder will be created by default.
 │   ├── config.js               # App configuration
 │   ├── database-rules.json     # Firebase database rules
 │   ├── icon.png                # App icon file (minimum size is 1024 pixel)
-│   ├── routes.json             # App routes
+│   ├── routes.json             # App routes configuration
 │   └── storage-rules.txt       # Firebase storage rules
 ├── build                       # Latest build files (do not modify)
 ├── design                      # Design templates (PDF, Power Point)
@@ -86,14 +86,14 @@ firebase | *object* |
 &nbsp;&nbsp;&nbsp;storageBucket | *string* | pp-framework-9045a.appspot.com
 &nbsp;&nbsp;&nbsp;allowUserRegistration | *boolean* | true
 dev-firebase | *object* |
-&nbsp;&nbsp;&nbsp;apiKey | *string* | 
-&nbsp;&nbsp;&nbsp;authDomain | *string* | 
-&nbsp;&nbsp;&nbsp;databaseURL | *string* | 
-&nbsp;&nbsp;&nbsp;storageBucket | *string* | 
+&nbsp;&nbsp;&nbsp;apiKey | *string* |
+&nbsp;&nbsp;&nbsp;authDomain | *string* |
+&nbsp;&nbsp;&nbsp;databaseURL | *string* |
+&nbsp;&nbsp;&nbsp;storageBucket | *string* |
 &nbsp;&nbsp;&nbsp;allowUserRegistration | *boolean* | false
 &nbsp;&nbsp;&nbsp;useDevFirebaseOnTesting | *boolean* | false
-appStoreId | *string* | 
-playStoreId | *string* | 
+appStoreId | *string* |
+playStoreId | *string* |
 useCordovaPlugins | *array* | ["cordova-plugin-statusbar","cordova-plugin-whitelist"]
 resetLocalStorageOnVersionChange | *boolean* | false
 buildSourcemaps | *boolean* | false
@@ -137,17 +137,23 @@ This is an overview and reference, please see the Workflow for details.
   - `npm run backup` to create a snapshot of the Firebase database and user list
   - `npm run snapshot` to create a snapshot of your project folder
 
-## Vue hooks
+## Hooks
 
-These hooks you can use in your app and page components.
+### Window hooks
 
-- `$root.title` - App title
+- `window._` - [Underscore.js](http://underscorejs.org/) library
+- `window.firebase` - Firebase instance
+- `window.$$` - Framework7 Dom7 instance
+- `window.f7` - Framework7 instance
+
+### Vue hooks
+
 - `$root.theme` - Active theme (*ios* or *material*)
 - `$root.language` - Active language (*en*, *de*, ...)
-- `$root.config` - Object of *config.json*
 - `$root.user` - User information (null or object with *uid*, *email*, ...)
+- `$root.config` - Object of *config.json*
 - `$root.version` - Project version
-- `$root.packageVersion` - Installed App Framework version
+- `$root.frameworkVersion` - Installed App Framework version
 
 ## Workflow
 

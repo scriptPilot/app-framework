@@ -1,5 +1,9 @@
 [
   {
+    "path": "/flexible-routing/blog/:blogId/post/:postId/",
+    "component": "flexible-routing.vue"
+  },
+  {
     "path": "/",
     "component": "home.vue"
   },
