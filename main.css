@@ -20,3 +20,9 @@ body {
   width: 100%;
   height: 100%;
 }
+
+/* Limit image size in smart selects */
+.smart-select-page .item-media img {
+  max-width: 29px;
+  max-height: 29px;
+}

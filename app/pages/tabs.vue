@@ -10,9 +10,9 @@
       </f7-subnavbar>
     </f7-navbar>
     <f7-tabs>
-      <f7-tab route-tab-id="tab1" />
-      <f7-tab route-tab-id="tab2" />
-      <f7-tab route-tab-id="tab3" />
+      <f7-tab id="tab1" route-tab-id="tab1" />
+      <f7-tab id="tab2" route-tab-id="tab2" />
+      <f7-tab id="tab3" route-tab-id="tab3" />
     </f7-tabs>
   </f7-page>
 </template>

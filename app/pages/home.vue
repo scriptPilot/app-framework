@@ -19,8 +19,25 @@
       <p><b>For native App feeling, please pin this page to your homescreen and open it from there!</b></p>
     </f7-block>
 
-    <!-- List with test pages -->
-    <f7-block-title>Test pages</f7-block-title>
+    <!-- Language and theme selection -->
+    <f7-list>
+      <f7-list-item smart-select smart-select-back-on-select
+        :title="text.selectLanguage"
+        :media="'<img src=\'images/flag-' + $root.language + '.png\' width=\'29\' />'">
+        <select @change="updateSmartlist" v-model="$root.language">
+          <option value="en" :data-option-image="images.flag_en">{{text.english}}</option>
+          <option value="de" :data-option-image="images.flag_de">{{text.german}}</option>
+        </select>
+      </f7-list-item>
+      <f7-list-item smart-select smart-select-back-on-select
+        :title="text.selectTheme"
+        :media="'<img src=\'images/theme-' + $root.theme + '.png\' width=\'29\' />'">
+        <select v-model="$root.theme">
+          <option value="ios" :data-option-image="images.theme_ios">iOS</option>
+          <option value="material" :data-option-image="images.theme_material">Material</option>
+        </select>
+      </f7-list-item>
+    </f7-list>
     <f7-list>
       <f7-list-item link="simple-todo" title="Simple ToDo List"></f7-list-item>
       <f7-list-item link="firebase-public" title="Public Firebase ToDo List"></f7-list-item>
@@ -70,3 +87,53 @@
 
   </f7-page>
 </template>
+
+<script>
+
+  // Define text patterns
+  let text = {
+    en: {
+      selectLanguage: 'Select language',
+      english: 'English',
+      german: 'German',
+      selectTheme: 'Select theme'
+    },
+    de: {
+      selectLanguage: 'Sprache auswählen',
+      english: 'Englisch',
+      german: 'Deutsch',
+      selectTheme: 'Thema auswählen'
+    }
+  }
+
+  // Define images
+  let images = {
+    flag_en: require('../images/flag-en.png'),
+    flag_de: require('../images/flag-de.png'),
+    theme_ios: require('../images/theme-ios.png'),
+    theme_material: require('../images/theme-material.png')
+  }
+
+  // Export page module
+  module.exports = {
+    data: function () {
+      return {
+        images: images
+      }
+    },
+    computed: {
+      text: function () {
+        return text[this.$root.language] ? text[this.$root.language] : text[0]
+      }
+    },
+    methods: {
+      updateSmartlist: function (e) {
+        setTimeout(function () {
+          let text = this.$$(e.target).find('option[value=' + e.target.value + ']').text()
+          this.$$(e.target).parent().find('.item-after').html(text)
+        }.bind(this), 0)
+      }
+    }
+  }
+
+</script>
