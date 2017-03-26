@@ -80,7 +80,7 @@ let addMissingTabs = function (routes, callback) {
       } else {
         for (let t = 0; t < tabs.length; t++) {
           let tabFile = tabs[t].substr(tabsFolder.length + 1)
-          let tabSearch = tabFile.match(/^([0-9a-z-]+)_([0-9a-z-]+)\.vue$/)
+          let tabSearch = tabFile.match(/^([0-9a-z/-]+)_([0-9a-z/-]+)\.vue$/)
           if (tabSearch !== null) {
             let tabPath = '/' + tabSearch[2] + '/'
             let pagePath = '/' + tabSearch[1] + '/'
@@ -119,7 +119,7 @@ let addMissingPages = function (routes, callback) {
       } else {
         for (let p = 0; p < pages.length; p++) {
           let pageFile = pages[p].substr(pagesFolder.length + 1)
-          if (/^([0-9a-z-]+)\.vue$/.test(pageFile)) {
+          if (/^([0-9a-z-/]+)\.vue$/.test(pageFile)) {
             let pagePath = '/' + pageFile.replace(/\.vue$/, '') + '/'
             let pagePathFound = false
             for (let r = 0; r < routes.length; r++) {
