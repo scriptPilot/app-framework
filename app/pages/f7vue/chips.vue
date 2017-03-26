@@ -17,8 +17,8 @@
 <script>
   export default {
     methods: {
-      onChipDelete: function (event){
-        console.log('chip-delete');
+      onChipDelete: function (event) {
+        console.log('chip-delete')
       }
     }
   }

@@ -74,45 +74,45 @@
   export default {
     methods: {
       openAlert: function () {
-        var self = this;
+        var self = this
         self.$f7.alert('Hi, this is alert', 'Alert Title')
       },
       openConfirm: function () {
-        var self = this;
+        var self = this
         self.$f7.confirm('Are you sure want to do it?', 'Confirm Title', function () {
-          console.log('Confirm Ok');
+          console.log('Confirm Ok')
         }, function () {
           console.log('Confirm Cancel')
         })
       },
       openPrompt: function () {
-        var self = this;
+        var self = this
         self.$f7.prompt('Your name please!', 'Prompt Title', function (value) {
           self.$f7.alert('Your name is: ' + value, 'Your name')
         })
       },
       openPreloader: function () {
-        var self = this;
-        self.$f7.showPreloader('Loading text...');
+        var self = this
+        self.$f7.showPreloader('Loading text...')
         setTimeout(function () {
-          self.$f7.hidePreloader();
-        }, 3000);
+          self.$f7.hidePreloader()
+        }, 3000)
       },
       openPopup: function () {
-        var self = this;
-        self.$root.$children[0].popupOpened = true;
+        var self = this
+        self.$root.$children[0].popupOpened = true
       },
       openPicker: function () {
-        var self = this;
-        self.$root.$children[0].pickerOpened = true;
+        var self = this
+        self.$root.$children[0].pickerOpened = true
       },
       openLoginScreen: function () {
-        var self = this;
-        self.$root.$children[0].loginScreenOpened = true;
+        var self = this
+        self.$root.$children[0].loginScreenOpened = true
       },
       openActions: function () {
-        var self = this;
-        self.$root.$children[0].actionsOpened = true;
+        var self = this
+        self.$root.$children[0].actionsOpened = true
       }
     }
   }

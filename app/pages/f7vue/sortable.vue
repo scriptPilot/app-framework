@@ -25,14 +25,14 @@
     },
     methods: {
       onOpen: function () {
-        this.sorting = !this.sorting;
+        this.sorting = !this.sorting
       },
       onClose: function () {
-        this.sorting = !this.sorting;
+        this.sorting = !this.sorting
       },
       onSort: function (event, indexes) {
-          console.log('sort', indexes);
-      },
+        console.log('sort', indexes)
+      }
     }
   }
 </script>

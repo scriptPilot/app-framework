@@ -33,17 +33,17 @@
 <script>
   export default {
     methods: {
-      onOpen: function (event){
-        console.log('open');
+      onOpen: function (event) {
+        console.log('open')
       },
-      onOpened: function (event){
-        console.log('opened');
+      onOpened: function (event) {
+        console.log('opened')
       },
-      onClose: function (event){
-        console.log('close');
+      onClose: function (event) {
+        console.log('close')
       },
-      onClosed: function (event){
-        console.log('closed');
+      onClosed: function (event) {
+        console.log('closed')
       }
     }
   }

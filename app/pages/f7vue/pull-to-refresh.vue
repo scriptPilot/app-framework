@@ -14,17 +14,17 @@
     data: function () {
       return {
         counter: 6,
-        items: [1,2,3,4,5]
+        items: [1, 2, 3, 4, 5]
       }
     },
     methods: {
       onRefresh: function (event, done) {
-        var self = this;
+        var self = this
         setTimeout(function () {
-          self.items.push(self.counter);
-          self.counter++;
-          done();
-        }, 2000);
+          self.items.push(self.counter)
+          self.counter++
+          done()
+        }, 2000)
       }
     }
   }

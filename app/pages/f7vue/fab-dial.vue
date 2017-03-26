@@ -42,7 +42,7 @@
   export default {
     methods: {
       onActionClick: function () {
-        console.log('Dial action clicked!');
+        console.log('Dial action clicked!')
       }
     }
   }

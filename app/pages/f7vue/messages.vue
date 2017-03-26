@@ -52,31 +52,31 @@
     },
     methods: {
       onClick: function (event) {
-        console.log('click');
+        console.log('click')
       },
       onAvatarClick: function () {
-        console.log('avatar-click');
+        console.log('avatar-click')
       },
       onTextClick: function () {
-        console.log('text-click');
+        console.log('text-click')
       },
       onNameClick: function () {
-        console.log('name-click');
+        console.log('name-click')
       },
       onSubmit: function (text, clear) {
-        if (text.trim().length === 0) return;
+        if (text.trim().length === 0) return
         this.messages.push({
           name: this.name,
           avatar: 'http://lorempixel.com/100/100/people/3',
           text: text,
           date: (function () {
-            var now = new Date();
-            var hours = now.getHours();
-            var minutes = now.getMinutes();
-            return hours + ':' + minutes;
+            var now = new Date()
+            var hours = now.getHours()
+            var minutes = now.getMinutes()
+            return hours + ':' + minutes
           })()
-        });
-        clear();
+        })
+        clear()
       }
     }
   }

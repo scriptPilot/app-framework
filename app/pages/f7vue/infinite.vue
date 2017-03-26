@@ -10,28 +10,28 @@
   </f7-page>
 </template>
 <script>
-  var timeout;
+  var timeout
   export default {
     data: function () {
       return {
         counter: 26,
         items: (function () {
-          var it = [];
-          for (var i = 0; i < 25; i++) it.push(i+1);
-            return it;
+          var it = []
+          for (var i = 0; i < 25; i++) it.push(i + 1)
+          return it
         })()
       }
     },
     methods: {
       onInfinite: function (event) {
-        var self = this;
-        clearTimeout(timeout);
+        var self = this
+        clearTimeout(timeout)
         timeout = setTimeout(function () {
           for (var i = self.counter; i < self.counter + 25; i++) {
-            self.items.push(i);
+            self.items.push(i)
           }
-          self.counter = i;
-        }, 500);
+          self.counter = i
+        }, 500)
       }
     }
   }

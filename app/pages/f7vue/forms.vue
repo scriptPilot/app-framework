@@ -182,8 +182,8 @@
       }
     },
     methods: {
-      onChange: function (event){
-        console.log('change');
+      onChange: function (event) {
+        console.log('change')
       }
     }
   }

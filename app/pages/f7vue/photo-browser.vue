@@ -27,12 +27,12 @@
           'http://placekitten.com/600/600',
           'http://lorempixel.com/400/400/nature/2/',
           {
-              url: 'http://lorempixel.com/400/400/nature/3/',
-              caption: 'I met this monkey in Chinese mountains'
+            url: 'http://lorempixel.com/400/400/nature/3/',
+            caption: 'I met this monkey in Chinese mountains'
           },
           {
-              url: 'http://lorempixel.com/400/400/nature/4/',
-              caption: 'Beautiful mountains in Zhangjiajie, China'
+            url: 'http://lorempixel.com/400/400/nature/4/',
+            caption: 'Beautiful mountains in Zhangjiajie, China'
           }
         ]
       }
@@ -42,11 +42,11 @@
         this.$refs.pb.open(index)
       },
       onOpen: function (pb) {
-        console.log('Photo Browser Opened');
+        console.log('Photo Browser Opened')
       },
       onClose: function (pb) {
-        console.log('Photo Browser Closed');
-      },
+        console.log('Photo Browser Closed')
+      }
     }
   }
 </script>

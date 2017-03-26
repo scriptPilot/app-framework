@@ -16,25 +16,25 @@
     data: function () {
       return {
         items: (function () {
-          var it = [];
-          for (var i = 0; i < 100; i++) it.push(i+1);
-          return it;
+          var it = []
+          for (var i = 0; i < 100; i++) it.push(i + 1)
+          return it
         })()
       }
     },
     methods: {
       onSearch: function (query, found) {
-        console.log('search', query);
+        console.log('search', query)
       },
       onClear: function (event) {
-        console.log('clear');
+        console.log('clear')
       },
       onEnable: function (event) {
-        console.log('enable');
+        console.log('enable')
       },
       onDisable: function (event) {
-        console.log('disable');
-      },
+        console.log('disable')
+      }
     }
   }
 </script>

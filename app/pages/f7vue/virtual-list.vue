@@ -31,7 +31,7 @@
 <script>
   export default {
     data: function () {
-      var items = [];
+      var items = []
       for (var i = 1; i <= 10000; i++) {
         items.push({
           title: 'Item ' + i,
@@ -44,19 +44,19 @@
     },
     methods: {
       addNewItem: function () {
-        var self = this;
+        var self = this
         self.items.push({
           title: 'Item ' + (self.items.length + 1),
-          subtitle: 'Subtitle ' + (self.items.length + 1),
+          subtitle: 'Subtitle ' + (self.items.length + 1)
         })
       },
       searchAll: function (query) {
-        var self = this;
-        var found = [];
+        var self = this
+        var found = []
         for (var i = 0; i < self.items.length; i++) {
-            if (self.items[i].title.indexOf(query) >= 0 || query.trim() === '') found.push(i);
+          if (self.items[i].title.indexOf(query) >= 0 || query.trim() === '') found.push(i)
         }
-        return found;
+        return found
       }
     }
   }
