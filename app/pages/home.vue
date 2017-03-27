@@ -23,7 +23,7 @@
     <f7-list>
       <f7-list-item smart-select smart-select-back-on-select
         :title="text.selectLanguage"
-        :media="'<img src=\'images/flag-' + $root.language + '.png\' width=\'29\' />'">
+        :media="'<img src=\'' + images['flag_' + $root.language] + '\' width=\'29\' />'">
         <select @change="updateSmartlist" v-model="$root.language">
           <option value="en" :data-option-image="images.flag_en">{{text.english}}</option>
           <option value="de" :data-option-image="images.flag_de">{{text.german}}</option>
@@ -31,7 +31,7 @@
       </f7-list-item>
       <f7-list-item smart-select smart-select-back-on-select
         :title="text.selectTheme"
-        :media="'<img src=\'' + images['flag_' + $root.theme] + '\' width=\'29\' />'">
+        :media="'<img src=\'' + images['theme_' + $root.theme] + '\' width=\'29\' />'">
         <select v-model="$root.theme">
           <option value="ios" :data-option-image="images.theme_ios">iOS</option>
           <option value="material" :data-option-image="images.theme_material">Material</option>
