@@ -31,7 +31,7 @@
       </f7-list-item>
       <f7-list-item smart-select smart-select-back-on-select
         :title="text.selectTheme"
-        :media="'<img src=\'images/theme-' + $root.theme + '.png\' width=\'29\' />'">
+        :media="'<img src=\'' + images['flag_' + $root.theme] + '\' width=\'29\' />'">
         <select v-model="$root.theme">
           <option value="ios" :data-option-image="images.theme_ios">iOS</option>
           <option value="material" :data-option-image="images.theme_material">Material</option>
