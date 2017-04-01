@@ -55,7 +55,7 @@ let getConfig = function (callback) {
 }
 let connect = function (config, callback) {
   alert('Connecting to the FTP server - please wait ...')
-  try {    
+  try {
     let client = new ftp() // eslint-disable-line
     client.on('ready', function () {
       callback(client)
