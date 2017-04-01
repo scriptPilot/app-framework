@@ -10,7 +10,7 @@
       @close="onClose"
       ></f7-photo-browser>
 
-    <f7-link v-for="(photo, index) in photos" @click="openPhotoBrowser(index)">
+    <f7-link v-for="(photo, index) in photos" :key="index" @click="openPhotoBrowser(index)">
       <img :src="photo.url || photo"  style="width: 20%; height: 20vw">
     </f7-link>
   </f7-page>
@@ -24,7 +24,7 @@
             url: 'http://lorempixel.com/400/400/nature/1/',
             caption: 'Amazing beach in Goa, India'
           },
-          'http://placekitten.com/600/600',
+          'http://lorempixel.com/400/400/nature/5/',
           'http://lorempixel.com/400/400/nature/2/',
           {
             url: 'http://lorempixel.com/400/400/nature/3/',

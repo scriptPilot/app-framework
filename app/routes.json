@@ -24,6 +24,10 @@
     "component": "f7vue/bars.vue"
   },
   {
+    "path": "/f7vue/calendar/",
+    "component": "f7vue/calendar.vue"
+  },
+  {
     "path": "/f7vue/cards/",
     "component": "f7vue/cards.vue"
   },

@@ -32,11 +32,12 @@
      <f7-list-item title="Timeline Vertical" link="/f7vue/timeline-vertical/"></f7-list-item>
      <f7-list-item title="Timeline Horizontal" link="/f7vue/timeline-horizontal/"></f7-list-item>
      <f7-list-item title="Timeline Calendar" link="/f7vue/timeline-calendar/"></f7-list-item>
+     <f7-list-item title="Calendar" link="/f7vue/calendar/"></f7-list-item>
    </f7-list>
   <f7-list>
      <f7-list-item title="Dynamic Route" link="/f7vue/user/45/posts/28/?sort=first#opened"></f7-list-item>
      <f7-list-item title="Nested Routes" link="/f7vue/nested-routes/"></f7-list-item>
-     <f7-list-item title="Data Binding" link="/f7vue/data-binding/"></f7-list-item>     
+     <f7-list-item title="Data Binding" link="/f7vue/data-binding/"></f7-list-item>
    </f7-list>
   </f7-page>
 </template>
