@@ -11,7 +11,7 @@
     "allow": ["ios", "material"],
     "default": "ios"
   },
-  "loadIconFonts": {
+  "useIconFonts": {
     "props": {
       "framework7": {
         "type": "boolean",
@@ -60,6 +60,22 @@
   },
   "firebase": {
     "props": {
+      "useDatabaseService": {
+        "type": "boolean",
+        "default": true
+      },
+      "useStorageService": {
+        "type": "boolean",
+        "default": true
+      },
+      "useEmailLogin": {
+        "type": "boolean",
+        "default": true
+      },
+      "useEmailRegistration": {
+        "type": "boolean",
+        "default": true
+      },
       "apiKey": {
         "type": "string",
         "default": "AIzaSyAvzTiqd9fKR-h4asdsadsadasd7Uxl4iXwqSMU1VjGdII"
@@ -75,15 +91,31 @@
       "storageBucket": {
         "type": "string",
         "default": "pp-framework-9045a.appspot.com"
-      },
-      "allowUserRegistration": {
-        "type": "boolean",
-        "default": true
       }
     }
   },
   "dev-firebase": {
     "props": {
+      "useDevFirebaseOnTesting": {
+        "type": "boolean",
+        "default": false
+      },
+      "useDatabaseService": {
+        "type": "boolean",
+        "default": true
+      },
+      "useStorageService": {
+        "type": "boolean",
+        "default": true
+      },
+      "useEmailLogin": {
+        "type": "boolean",
+        "default": true
+      },
+      "useEmailRegistration": {
+        "type": "boolean",
+        "default": true
+      },
       "apiKey": {
         "type": "string"
       },
@@ -95,14 +127,6 @@
       },
       "storageBucket": {
         "type": "string"
-      },
-      "allowUserRegistration": {
-        "type": "boolean",
-        "default": false
-      },
-      "useDevFirebaseOnTesting": {
-        "type": "boolean",
-        "default": false
       }
     }
   },
