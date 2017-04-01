@@ -55,11 +55,11 @@ let getConfig = function (callback) {
 }
 let connect = function (config, callback) {
   alert('Connecting to the FTP server - please wait ...')
-  let client = new ftp() // eslint-disable-line
-  client.on('ready', function () {
-    callback(client)
-  })
-  try {
+  try {    
+    let client = new ftp() // eslint-disable-line
+    client.on('ready', function () {
+      callback(client)
+    })
     client.connect(config)
   } catch (err) {
     alert('Failed to connect to the FTP server.\nPlease check your "ftp-config.json" file.', 'error')

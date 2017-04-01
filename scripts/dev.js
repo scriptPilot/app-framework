@@ -35,7 +35,7 @@ let startServer = function (callback) {
   var app = express()
   // Compile webpack
   var compiler = webpack(webpackConfig)
-  var devMid = devMiddleware(compiler, { quiet: true })
+  var devMid = devMiddleware(compiler, { noInfo: true })
   // Add hot reload support
   var hotMid = hotMiddleware(compiler)
   // Force reload after html template changes

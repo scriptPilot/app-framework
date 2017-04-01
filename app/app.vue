@@ -127,9 +127,6 @@
 
 <script>
   module.exports = {
-    mounted: function () {
-      console.log(this.$root)
-    },
     data: function () {
       return {
         user: {
