@@ -66,7 +66,7 @@ Option | Allowed | Default
 :--- |:--- |:---
 title | *string* | My App
 defaultLanguage | /^([a-z]{2})$/ | en
-theme | ios, material, ios-material, material-ios | ios-material
+theme | ios, material, ios-material, material-ios | ios
 useIconFonts | *object* |
 &nbsp;&nbsp;&nbsp;framework7 | *boolean* | false
 &nbsp;&nbsp;&nbsp;material | *boolean* | false
