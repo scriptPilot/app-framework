@@ -1,4 +1,4 @@
-/* Purpose: Build Framework7 and copy dist files to App Framework */
+/* Purpose: Build Framework7 and copy dist files to App Framework, update theme colors */
 
 'use strict'
 
@@ -42,6 +42,21 @@ cmd(f7Folder, 'gulp build', function () {
     for (let f = 0; f < files.length; f++) {
       fs.copySync(abs(f7Folder, 'dist', files[f]), abs(env.proj, 'vendor/framework7', files[f]))
     }
+    // Update theme colors
+    let colors = {ios: {}, material: {}, default: {}}
+    let iosColorFile = fs.readFileSync(abs(f7Folder, 'src/less/ios/_colors-vars.less'), 'utf8')
+    iosColorFile.match(/@([a-z]+):( )?#([0-9a-z]{6});/g).map(function (colorStr) {
+      let colorSearch = colorStr.match(/@([a-z]+):( )?#([0-9a-z]{6});/)
+      colors.ios[colorSearch[1]] = colorSearch[3]
+    })
+    colors.default.ios = iosColorFile.match(/@themeColor:( )?@([a-z]+);/)[2]
+    let materialColorFile = fs.readFileSync(abs(f7Folder, 'src/less/material/_colors-vars.less'), 'utf8')
+    materialColorFile.match(/@([a-z]+):( )?#([0-9a-z]{6});/g).map(function (colorStr) {
+      let colorSearch = colorStr.match(/@([a-z]+):( )?#([0-9a-z]{6});/)
+      colors.material[colorSearch[1]] = colorSearch[3]
+    })
+    colors.default.material = materialColorFile.match(/@themeColor:( )?@([a-z]+);/)[2]
+    fs.writeJsonSync(abs(env.proj, 'lib/theme-colors.json'), colors)
     // Alert
     alert('Framework7 update done.')
   }, 'Framework7 distribution process failed.')

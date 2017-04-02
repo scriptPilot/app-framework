@@ -37,6 +37,22 @@
           <option value="material" :data-option-image="images.theme_material">Material</option>
         </select>
       </f7-list-item>
+      <f7-list-item smart-select smart-select-back-on-select
+        :title="text.selectLayout"
+        :media="'<div style=\'width: 20px; height: 20px; border-radius: 10px; margin: 0 4px 3px 5px; background: #' + $root.colors.ios[$root.layout === 'dark' ? 'black' : $root.layout === 'white' ? 'white' : 'gray'] + ';\'></div>'">
+        <select v-model="$root.layout">
+          <option value="default">default</option>
+          <option v-if="$root.theme === 'ios'" value="white">white</option>
+          <option value="dark">dark</option>
+        </select>
+      </f7-list-item>
+      <f7-list-item smart-select smart-select-back-on-select
+        :title="text.selectColor"
+        :media="'<div style=\'width: 20px; height: 20px; border-radius: 10px; margin: 0 4px 3px 5px; background: #' + $root.colors[$root.theme][$root.color] + ';\'></div>'">
+        <select v-model="$root.color">
+          <option v-for="(hex, name) in $root.colors[$root.theme]" :value="name" :data-option-color="name">{{name}}</option>
+        </select>
+      </f7-list-item>
     </f7-list>
     <f7-list>
       <f7-list-item link="/f7vue/home/" title="UI components"></f7-list-item>
@@ -98,13 +114,17 @@
       selectLanguage: 'Select language',
       english: 'English',
       german: 'German',
-      selectTheme: 'Select theme'
+      selectTheme: 'Select theme',
+      selectLayout: 'Select layout',
+      selectColor: 'Select color'
     },
     de: {
       selectLanguage: 'Sprache auswählen',
       english: 'Englisch',
       german: 'Deutsch',
-      selectTheme: 'Thema auswählen'
+      selectTheme: 'Thema auswählen',
+      selectLayout: 'Layout auswählen',
+      selectColor: 'Farbe auswählen'
     }
   }
 

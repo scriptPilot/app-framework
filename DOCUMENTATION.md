@@ -94,12 +94,12 @@ dev-firebase | *object* |
 &nbsp;&nbsp;&nbsp;useStorageService | *boolean* | true
 &nbsp;&nbsp;&nbsp;useEmailLogin | *boolean* | true
 &nbsp;&nbsp;&nbsp;useEmailRegistration | *boolean* | true
-&nbsp;&nbsp;&nbsp;apiKey | *string* | 
-&nbsp;&nbsp;&nbsp;authDomain | *string* | 
-&nbsp;&nbsp;&nbsp;databaseURL | *string* | 
-&nbsp;&nbsp;&nbsp;storageBucket | *string* | 
-appStoreId | *string* | 
-playStoreId | *string* | 
+&nbsp;&nbsp;&nbsp;apiKey | *string* |
+&nbsp;&nbsp;&nbsp;authDomain | *string* |
+&nbsp;&nbsp;&nbsp;databaseURL | *string* |
+&nbsp;&nbsp;&nbsp;storageBucket | *string* |
+appStoreId | *string* |
+playStoreId | *string* |
 useCordovaPlugins | *array* | ["cordova-plugin-statusbar","cordova-plugin-whitelist"]
 resetLocalStorageOnVersionChange | *boolean* | false
 buildSourcemaps | *boolean* | false
@@ -154,8 +154,10 @@ This is an overview and reference, please see the Workflow for details.
 
 ### Vue hooks
 
-- `$root.theme` - Active theme (*ios* or *material*)
 - `$root.language` - Active language (*en*, *de*, ...)
+- `$root.theme` - Active theme (*ios* or *material*)
+- `$root.layout` - Active layout ([see Framework7 documentation](http://framework7.io/docs/color-themes.html))
+- `$root.color` - Active color scheme ([see Framework7 documentation](http://framework7.io/docs/color-themes.html))
 - `$root.user` - User information (null or object with *uid*, *email*, ...)
 - `$root.config` - Object of *config.json*
 - `$root.version` - Project version
