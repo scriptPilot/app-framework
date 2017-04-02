@@ -9,6 +9,7 @@ let cmd = require('../lib/cmd')
 let found = require('../lib/found')
 let fs = require('fs-extra')
 let abs = require('path').resolve
+let rec = require('recursive-readdir')
 
 // Check App Framework development mode
 if (env.installed === true) {
@@ -29,7 +30,9 @@ cmd(f7Folder, 'gulp build', function () {
     alert('Copying build files to App Framework folder - please wait ...')
     // Empty current directory
     fs.emptyDirSync(abs(env.proj, 'vendor/framework7'))
-    // Define files to copy
+    fs.emptyDirSync(abs(env.app, 'pages/f7ios'))
+    fs.emptyDirSync(abs(env.app, 'pages/material'))
+    // Define basic files to copy
     let files = [
       'css/framework7.ios.colors.min.css',
       'css/framework7.ios.min.css',
@@ -38,7 +41,7 @@ cmd(f7Folder, 'gulp build', function () {
       'img',
       'js/framework7.min.js'
     ]
-    // Copy files
+    // Copy basic files
     for (let f = 0; f < files.length; f++) {
       fs.copySync(abs(f7Folder, 'dist', files[f]), abs(env.proj, 'vendor/framework7', files[f]))
     }
@@ -57,7 +60,76 @@ cmd(f7Folder, 'gulp build', function () {
     })
     colors.default.material = materialColorFile.match(/@themeColor:( )?@([a-z]+);/)[2]
     fs.writeJsonSync(abs(env.proj, 'lib/theme-colors.json'), colors)
-    // Alert
-    alert('Framework7 update done.')
+    // Copy and modify kitchen sink files
+    rec(abs(f7Folder, 'kitchen-sink-ios'), function (err, files) {
+      if (err) {
+        alert('Failed to read iOS kitchen sink files.', 'error')
+      } else {
+        files.map(function (file) {
+          let fileShort = file.substr(abs(f7Folder, 'kitchen-sink-ios').length + 1)
+          if (/^([0-9a-z.-]+)\.html$/i.test(fileShort) === true && fileShort !== 'index.html') {
+            fileShort = fileShort.replace('.html', '.vue')
+            let content = fs.readFileSync(file, 'utf8')
+            // Modify links
+            content = content.replace(/"([0-9a-z-]+)\.html"/g, '"/f7ios/$1/"')
+            // Search components
+            let contentParts1 = content.match(/<div class="navbar[\s\S.]+)\n[ ]*<div class="pages.+\n[ ]*(<div data-page=.+)\n([\s\S.])\n[ ]*<\/div>\n[ ]*<\/div>[\n ]*/)
+            let contentParts2 = content.match(/<div class="pages([\s\S.]+)<div data-page="([\s\S.]+)<\/div>([\s\S.]+?)<\/div>(\n)?$/)
+            let contentParts3 = content.match(/<div class="navbar([\s\S.]+)\n<div data-page="([\s\S.]+)<\/div>(\n)?$/)
+            let contentParts4 = content.match(/<div data-page="([\s\S.]+)<\/div>(\n)?$/)
+            if (contentParts1 !== null) {
+              let newContent = '<template>\n' +
+                               '  ' + contentParts[2] + '\n' +
+                               '    ' + contentParts1[1].replace(/\n/, '\n      ') + '\n' +
+                               '    ' + contentParts1[3].replace(/\n/, '\n      ') + '\n' +
+                               '  </div>\n' +
+                               '</template>\n'
+              fs.writeFileSync(abs(env.app, 'pages/f7ios', fileShort), newContent)/*
+            } else if (contentParts2 !== null) {
+              let newContent = '<template>\n' +
+                               '  <div data-page="' + contentParts2[2] + '</div>\n' +
+                               '</template>\n'
+              fs.writeFileSync(abs(env.app, 'pages/f7ios', fileShort), newContent)
+            } else if (contentParts3 !== null) {
+              let newContent = '<template>\n' +
+                               '  <div class="navbar' + contentParts3[1].replace(/\n/g, '\n  ') + '\n' +
+                               '  <div data-page="' + contentParts3[2].replace(/\n/g, '\n  ') + '</div>\n' +
+                               '</template>\n'
+              fs.writeFileSync(abs(env.app, 'pages/f7ios', fileShort), newContent)
+            } else if (contentParts4 !== null) {
+              let newContent = '<template>\n' +
+                               '  <div data-page="' + contentParts4[1].replace(/\n/g, '\n  ') + '</div>\n' +
+                               '</template>\n'
+              fs.writeFileSync(abs(env.app, 'pages/f7ios', fileShort), newContent)*/
+            } else {
+              alert('Page analysis failed for "' + fileShort + '".', 'error')
+            }
+          }
+        })
+        // Create home.vue
+        let indexPage = fs.readFileSync(abs(f7Folder, 'kitchen-sink-ios/index.html'), 'utf8')
+        let mainView = indexPage.match(/<div data-page="index" class="page">([\n ]*)<div class="page-content">([\n ]+)([\s\S.]+?)([\n ]+)<\/div>([\n ]+)<\/div>([\n ]+)<\/div>([\n ]+)<\/div>([\n ]+)<\/div>([\n ]+)<div class="popup demo-popup">/)[3]
+        mainView = mainView.replace(/"([0-9a-z-]+)\.html"/g, '"/f7ios/$1/"')
+        let homePage = '<template>\n' +
+                       '  <div data-page="home" class="page">\n' +
+                       '    ' + mainView.replace(/\n( ){10}/g, '\n') + '\n' +
+                       '  </div>\n' +
+                       '</template>\n'
+        fs.writeFileSync(abs(env.app, 'pages/f7ios/index.vue'), homePage)
+        // Reset routes for f7vue
+        if (found(abs(env.app, 'routes.json'))) {
+          let routes = fs.readJsonSync(abs(env.app, 'routes.json'))
+          let newRoutes = []
+          routes.map(function (route) {
+            if (/^\/f7ios\//.test(route.path) === false) {
+              newRoutes.push(route)
+            }
+          })
+          fs.writeJsonSync(abs(env.app, 'routes.json'), newRoutes)
+        }
+        // Alert
+        alert('Framework7 update done.')
+      }
+    })
   }, 'Framework7 distribution process failed.')
 }, 'Framework7 build process failed.')

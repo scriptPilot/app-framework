@@ -19,7 +19,7 @@
       <p><b>For native App feeling, please pin this page to your homescreen and open it from there!</b></p>
     </f7-block>
 
-    <!-- Language and theme selection -->
+    <!-- Language, theme, layout and color selection -->
     <f7-list>
       <f7-list-item smart-select smart-select-back-on-select
         :title="text.selectLanguage"
@@ -54,6 +54,13 @@
         </select>
       </f7-list-item>
     </f7-list>
+
+    <!-- UI elements / Framework7 kitchen sink -->
+    <f7-list>
+      <f7-list-item link="/f7ios/index/" title="iOS user interface components" v-if="$root.theme === 'ios'" /></f7-list-item>
+      <f7-list-item link="/f7material/home/" title="Material user interface components" v-if="$root.theme === 'material'" /></f7-list-item>
+    </f7-list>
+
     <f7-list>
       <f7-list-item link="/f7vue/home/" title="UI components"></f7-list-item>
     </f7-list>
