@@ -68,23 +68,21 @@ cmd(f7Folder, 'gulp build', function () {
         files.map(function (file) {
           let fileShort = file.substr(abs(f7Folder, 'kitchen-sink-ios').length + 1)
           if (/^([0-9a-z.-]+)\.html$/i.test(fileShort) === true && fileShort !== 'index.html') {
-            fileShort = fileShort.replace('.html', '.vue')
+            fileShort = fileShort
+            let fileName = fileShort.replace('.html', '.vue')
             let content = fs.readFileSync(file, 'utf8')
             // Modify links
             content = content.replace(/"([0-9a-z-]+)\.html"/g, '"/f7ios/$1/"')
             // Search components
-            let contentParts1 = content.match(/<div class="navbar[\s\S.]+)\n[ ]*<div class="pages.+\n[ ]*(<div data-page=.+)\n([\s\S.])\n[ ]*<\/div>\n[ ]*<\/div>[\n ]*/)
-            let contentParts2 = content.match(/<div class="pages([\s\S.]+)<div data-page="([\s\S.]+)<\/div>([\s\S.]+?)<\/div>(\n)?$/)
-            let contentParts3 = content.match(/<div class="navbar([\s\S.]+)\n<div data-page="([\s\S.]+)<\/div>(\n)?$/)
-            let contentParts4 = content.match(/<div data-page="([\s\S.]+)<\/div>(\n)?$/)
-            if (contentParts1 !== null) {
+            let src1 = content.match(/(<div class="navbar[\s\S.]+)\n[ ]*<div class="pages.+\n[ ]*(<div data-page=.+)\n[ ]*(<[\s\S.]+)\n[ ]*<\/div>\n[ ]*<\/div>[\n ]*/)
+            if (src1 !== null) {
               let newContent = '<template>\n' +
-                               '  ' + contentParts[2] + '\n' +
-                               '    ' + contentParts1[1].replace(/\n/, '\n      ') + '\n' +
-                               '    ' + contentParts1[3].replace(/\n/, '\n      ') + '\n' +
-                               '  </div>\n' +
-                               '</template>\n'
-              fs.writeFileSync(abs(env.app, 'pages/f7ios', fileShort), newContent)/*
+                               '  ' + src1[2] + '\n' +
+                               '    ' + src1[1].replace(/\n/g, '\n    ') + '\n' +
+                               '    ' + src1[3] + '\n' +
+                               '  </div>' + '\n' +
+                               '</template>' + '\n'
+              fs.writeFileSync(abs(env.app, 'pages/f7ios', fileName), newContent)/*
             } else if (contentParts2 !== null) {
               let newContent = '<template>\n' +
                                '  <div data-page="' + contentParts2[2] + '</div>\n' +
