@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 /* Purpose: Build Framework7 and copy dist files to App Framework, update theme colors */
 
 'use strict'
@@ -98,7 +100,7 @@ cmd(f7Folder, 'gulp build', function () {
               let newContent = '<template>\n' +
                                '  <div data-page="' + contentParts4[1].replace(/\n/g, '\n  ') + '</div>\n' +
                                '</template>\n'
-              fs.writeFileSync(abs(env.app, 'pages/f7ios', fileShort), newContent)*/
+              fs.writeFileSync(abs(env.app, 'pages/f7ios', fileShort), newContent) */
             } else {
               alert('Page analysis failed for "' + fileShort + '".', 'error')
             }
