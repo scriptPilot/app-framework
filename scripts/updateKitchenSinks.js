@@ -67,7 +67,7 @@ function proceedFolder (sourceFolder, destinationFolder, callback) {
                   }
                 }
                 try {
-                  let routes = fs.readJsonSync(path.resolve(env.app, 'routes.json')
+                  let routes = fs.readJsonSync(path.resolve(env.app, 'routes.json'))
                   let routesNew = []
                   for (let r = 0; r < routes.length; r++) {
                     if ((new RegExp('$\/' + path.basename(sourceFolder) + '\/')).test(routes[r]).path === false) {
