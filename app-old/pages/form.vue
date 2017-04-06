@@ -7,82 +7,82 @@
       <p style="text-align: center">Enter some data, close and reopen this app - and see how all forms on this page have kept their data - and the scroll position and the form focus as well.</p>
     </f7-block>
     <f7-block-title>Form</f7-block-title>
-    <f7-list form id="form-1" store-data>
+    <f7-list form>
       <f7-list-item>
         <f7-label>Name</f7-label>
-        <f7-input name="name" type="text" placeholder="Name"></f7-input>
+        <f7-input v-model="name" name="name" type="text" placeholder="Name"></f7-input>
       </f7-list-item>
       <f7-list-item>
         <f7-label>Password</f7-label>
-        <f7-input type="password" name="password" placeholder="Password"></f7-input>
+        <f7-input v-model="password" type="password" name="password" placeholder="Password"></f7-input>
       </f7-list-item>
       <f7-list-item>
         <f7-label>E-mail</f7-label>
-        <f7-input name="email" type="email" placeholder="E-mail"></f7-input>
+        <f7-input v-model="email" name="email" type="email" placeholder="E-mail"></f7-input>
       </f7-list-item>
       <f7-list-item>
         <f7-label>URL</f7-label>
-        <f7-input name="url" type="url" placeholder="URL"></f7-input>
+        <f7-input v-model="url" name="url" type="url" placeholder="URL"></f7-input>
       </f7-list-item>
       <f7-list-item>
         <f7-label>Phone</f7-label>
-        <f7-input name="phone" type="tel" placeholder="Phone"></f7-input>
+        <f7-input v-model="phone" name="phone" type="tel" placeholder="Phone"></f7-input>
       </f7-list-item>
       <f7-list-item>
         <f7-label>Birth date</f7-label>
-        <f7-input name="birthday" type="date" placeholder="Birth date"></f7-input>
+        <f7-input v-model="birthday" name="birthday" type="date" placeholder="Birth date"></f7-input>
       </f7-list-item>
       <f7-list-item>
         <f7-label>Date time</f7-label>
-        <f7-input name="date" type="datetime-local"></f7-input>
+        <f7-input v-model="date" name="date" type="datetime-local"></f7-input>
       </f7-list-item>
       <f7-list-item>
         <f7-label>Gender</f7-label>
-        <f7-input name="gender" type="select">
+        <f7-input v-model="gender" name="gender" type="select">
           <option value="male">Male</option>
           <option value="female">Female</option>
         </f7-input>
       </f7-list-item>
       <f7-list-item>
         <f7-label>Switch</f7-label>
-        <f7-input name="switchbox" type="switch"></f7-input>
+        <f7-input v-model="switchbox" name="switchbox" type="switch"></f7-input>
       </f7-list-item>
       <f7-list-item>
         <f7-label>Range</f7-label>
-        <f7-input name="range" type="range" min="0" max="100" step="1"></f7-input>
+        <f7-input v-model="range" name="range" type="range" min="0" max="100" step="1"></f7-input>
       </f7-list-item>
       <f7-list-item>
         <f7-label>Textarea</f7-label>
-        <f7-input name="text" type="textarea" placeholder="Textarea"></f7-input>
+        <f7-input v-model="text" name="text" type="textarea" placeholder="Textarea"></f7-input>
       </f7-list-item>
     </f7-list>
 
     <f7-block-title>Form With Floating Labels</f7-block-title>
-    <f7-list form id="form-2" store-data>
+    <f7-list form>
       <f7-list-item>
         <f7-label floating>Name</f7-label>
-        <f7-input name="name2" type="text" placeholder="Name"></f7-input>
+        <f7-input v-model="name2" name="name2" type="text" placeholder="Name"></f7-input>
       </f7-list-item>
       <f7-list-item>
         <f7-label floating>Password</f7-label>
-        <f7-input type="password" name="password2" placeholder="Password"></f7-input>
+        <f7-input v-model="password2" type="password" name="password2" placeholder="Password"></f7-input>
       </f7-list-item>
       <f7-list-item>
         <f7-label floating>E-mail</f7-label>
-        <f7-input name="email2" type="email" placeholder="E-mail"></f7-input>
+        <f7-input v-model="email2" name="email2" type="email" placeholder="E-mail"></f7-input>
       </f7-list-item>
     </f7-list>
 
     <f7-block-title>Form Without Labels</f7-block-title>
-    <f7-list form id="form-3" store-data>
+    <f7-list form>
       <f7-list-item>
-        <f7-input name="name3" type="text" placeholder="Name"></f7-input>
+        <f7-input v-model="name3" name="name3" type="text" placeholder="Name"></f7-input>
       </f7-list-item>
       <f7-list-item>
-        <f7-input type="password" name="password3" placeholder="Password"></f7-input>
+        <f7-input v-model="password3" type="password" name="password3" placeholder="Password"></f7-input>
       </f7-list-item>
       <f7-list-item>
-        <f7-input name="email3" type="email" placeholder="E-mail"></f7-input>
+        <f7-input v-model="email3" name="email3" type="email" placeholder="E-mail"></f7-input>
       </f7-list-item>
     </f7-list>
 
@@ -123,5 +123,27 @@
 </template>
 
 <script>
-  module.exports = {}
+  module.exports = {
+    data: function () {
+      return {
+        name: '',
+        password: '',
+        email: '',
+        url: '',
+        phone: '',
+        birthday: '2012-11-10',
+        date: '2013-12-11T10:09',
+        gender: 'male',
+        switchbox: false,
+        range: 50,
+        text: '',
+        name2: '',
+        password2: '',
+        email2: '',
+        name3: '',
+        password3: '',
+        email3: ''
+      }
+    }
+  }
 </script>

@@ -1,7 +1,7 @@
 {
-  "title": "Demo App",
+  "title": "App Framework",
   "defaultLanguage": "en",
-  "theme": "ios",
+  "theme": "ios-material",
   "useIconFonts": {
     "framework7": false,
     "material": false,

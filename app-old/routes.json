@@ -50,5 +50,13 @@
   {
     "path": "/simple-todo/",
     "component": "simple-todo.vue"
+  },
+  {
+    "path": "/tabs-sub/",
+    "component": "tabs-sub.vue"
+  },
+  {
+    "path": "/tabs/",
+    "component": "tabs.vue"
   }
 ]
