@@ -62,12 +62,12 @@ The following project folder will be created by default.
 Configure your application easily in the `app/config.js` file.
 
 <!-- config-options -->
-Option | Allowed | Default
+Option | Allowed | Default
 :--- |:--- |:---
 title | *string* | My App
 defaultLanguage | /^([a-z]{2})$/ | en
-theme | ios, material | ios
-loadIconFonts | *object* |
+theme | ios, material, ios-material, material-ios | ios
+useIconFonts | *object* |
 &nbsp;&nbsp;&nbsp;framework7 | *boolean* | false
 &nbsp;&nbsp;&nbsp;material | *boolean* | false
 &nbsp;&nbsp;&nbsp;ion | *boolean* | false
@@ -76,23 +76,30 @@ iconBackgroundColor | /^#([0-9a-f]{6})$/i | #ffffff
 statusbarTextColor | black, white | white
 showPhoneFrameOnDesktop | *boolean* | true
 materialSubnavbarFix | *boolean* | true
+completeRoutesFile | *boolean* | true
 specialRoutes | *object* | {}
 pagesWithRequiredLogin | *array* | []
 firebase | *object* |
+&nbsp;&nbsp;&nbsp;useDatabaseService | *boolean* | true
+&nbsp;&nbsp;&nbsp;useStorageService | *boolean* | true
+&nbsp;&nbsp;&nbsp;useEmailLogin | *boolean* | true
+&nbsp;&nbsp;&nbsp;useEmailRegistration | *boolean* | true
 &nbsp;&nbsp;&nbsp;apiKey | *string* | AIzaSyAvzTiqd9fKR-h4asdsadsadasd7Uxl4iXwqSMU1VjGdII
 &nbsp;&nbsp;&nbsp;authDomain | *string* | app-framework-9045a.firebaseapp.com
 &nbsp;&nbsp;&nbsp;databaseURL | *string* | https://app-framework-9045a.firebaseio.com
-&nbsp;&nbsp;&nbsp;storageBucket | *string* | pp-framework-9045a.appspot.com
-&nbsp;&nbsp;&nbsp;allowUserRegistration | *boolean* | true
+&nbsp;&nbsp;&nbsp;storageBucket | *string* | app-framework-9045a.appspot.com
 dev-firebase | *object* |
-&nbsp;&nbsp;&nbsp;apiKey | *string* |
-&nbsp;&nbsp;&nbsp;authDomain | *string* |
-&nbsp;&nbsp;&nbsp;databaseURL | *string* |
-&nbsp;&nbsp;&nbsp;storageBucket | *string* |
-&nbsp;&nbsp;&nbsp;allowUserRegistration | *boolean* | false
 &nbsp;&nbsp;&nbsp;useDevFirebaseOnTesting | *boolean* | false
-appStoreId | *string* |
-playStoreId | *string* |
+&nbsp;&nbsp;&nbsp;useDatabaseService | *boolean* | true
+&nbsp;&nbsp;&nbsp;useStorageService | *boolean* | true
+&nbsp;&nbsp;&nbsp;useEmailLogin | *boolean* | true
+&nbsp;&nbsp;&nbsp;useEmailRegistration | *boolean* | true
+&nbsp;&nbsp;&nbsp;apiKey | *string* | 
+&nbsp;&nbsp;&nbsp;authDomain | *string* | 
+&nbsp;&nbsp;&nbsp;databaseURL | *string* | 
+&nbsp;&nbsp;&nbsp;storageBucket | *string* | 
+appStoreId | *string* | 
+playStoreId | *string* | 
 useCordovaPlugins | *array* | ["cordova-plugin-statusbar","cordova-plugin-whitelist"]
 resetLocalStorageOnVersionChange | *boolean* | false
 buildSourcemaps | *boolean* | false

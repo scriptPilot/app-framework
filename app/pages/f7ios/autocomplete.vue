@@ -1,12 +1,10 @@
-<template>
-  <div data-page="autocomplete" class="page">
-    <div class="navbar">
-      <div class="navbar-inner">
-        <div class="left sliding"><a href="/f7ios/index/" class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
-        <div class="center sliding">Autocomplete</div>
-        <div class="right"><a href="#" class="open-panel link icon-only"><i class="icon icon-bars"></i></a></div>
-      </div>
-    </div>
+<template><div data-page="autocomplete" class="page"><div class="navbar">
+  <div class="navbar-inner">
+    <div class="left sliding"><a class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
+    <div class="center sliding">Autocomplete</div>
+    <div class="right"><a href="#" class="open-panel link icon-only"><i class="icon icon-bars"></i></a></div>
+  </div>
+</div>
     <div class="page-content">
       <div class="content-block-title">Dropdown Autocomplete</div>
       <div class="content-block">
@@ -18,7 +16,7 @@
           <li class="item-content">
             <div class="item-title label">Fruit</div>
             <div class="item-input">
-              <input type="text" placeholder="Fruit" id="autocomplete-dropdown"/>
+              <input type="text" placeholder="Fruit" id="autocomplete-dropdown">
             </div>
           </li>
         </ul>
@@ -29,7 +27,7 @@
           <li class="item-content">
             <div class="item-title label">Fruit</div>
             <div class="item-input">
-              <input type="text" placeholder="Fruit" id="autocomplete-dropdown-expand"/>
+              <input type="text" placeholder="Fruit" id="autocomplete-dropdown-expand">
             </div>
           </li>
         </ul>
@@ -40,7 +38,7 @@
           <li class="item-content">
             <div class="item-title label">Fruit</div>
             <div class="item-input">
-              <input type="text" placeholder="Fruit" id="autocomplete-dropdown-all"/>
+              <input type="text" placeholder="Fruit" id="autocomplete-dropdown-all">
             </div>
           </li>
         </ul>
@@ -51,7 +49,7 @@
           <li class="item-content">
             <div class="item-title label">Fruit</div>
             <div class="item-input">
-              <input type="text" placeholder="Fruit" id="autocomplete-dropdown-placeholder"/>
+              <input type="text" placeholder="Fruit" id="autocomplete-dropdown-placeholder">
             </div>
           </li>
         </ul>
@@ -62,7 +60,7 @@
           <li class="item-content">
             <div class="item-title label">Language</div>
             <div class="item-input">
-              <input type="text" placeholder="Language" id="autocomplete-dropdown-ajax"/>
+              <input type="text" placeholder="Language" id="autocomplete-dropdown-ajax">
             </div>
           </li>
         </ul>
@@ -75,7 +73,7 @@
       <div class="list-block">
         <ul>
           <li><a href="#" id="autocomplete-standalone" class="item-link item-content autocomplete-opener">
-              <input type="hidden"/>
+              <input type="hidden">
               <div class="item-inner">
                 <div class="item-title">Favorite Fruite</div>
                 <div class="item-after"></div>
@@ -86,7 +84,7 @@
       <div class="list-block">
         <ul>
           <li><a href="#" id="autocomplete-standalone-popup" class="item-link item-content autocomplete-opener">
-              <input type="hidden"/>
+              <input type="hidden">
               <div class="item-inner">
                 <div class="item-title">Favorite Fruite</div>
                 <div class="item-after"></div>
@@ -97,7 +95,7 @@
       <div class="list-block">
         <ul>
           <li><a href="#" id="autocomplete-standalone-multiple" class="item-link item-content autocomplete-opener">
-              <input type="hidden"/>
+              <input type="hidden">
               <div class="item-inner">
                 <div class="item-title">Favorite Fruite</div>
                 <div class="item-after"></div>
@@ -108,7 +106,7 @@
       <div class="list-block">
         <ul>
           <li><a href="#" id="autocomplete-standalone-ajax" class="item-link item-content autocomplete-opener">
-              <input type="hidden"/>
+              <input type="hidden">
               <div class="item-inner">
                 <div class="item-title">Language</div>
                 <div class="item-after"></div>
@@ -116,5 +114,4 @@
         </ul>
       </div>
     </div>
-  </div>
-</template>
+  </div></template>

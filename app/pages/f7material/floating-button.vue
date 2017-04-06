@@ -1,0 +1,32 @@
+<template><div data-page="floating-button" class="page">
+  <div class="navbar">
+    <div class="navbar-inner">
+      <div class="left"><a href="/f7material/index/" class="back link icon-only"><i class="icon icon-back"></i></a></div>
+      <div class="center">Floating Action Button</div>
+      <div class="right"><a href="#" class="open-panel link icon-only"><i class="icon icon-bars"></i></a></div>
+    </div>
+  </div>
+  <div class="page-content">
+    <div class="list-block">
+      <ul>
+        <li><a href="/f7material/floating-button-static/" class="item-content item-link">
+            <div class="item-media"><i class="icon icon-f7"></i></div>
+            <div class="item-inner">
+              <div class="item-title">Static Floating Action Button</div>
+            </div></a></li>
+        <li><a href="/f7material/floating-button-dial/" class="item-content item-link">
+            <div class="item-media"><i class="icon icon-f7"></i></div>
+            <div class="item-inner">
+              <div class="item-title">Speed Dial</div>
+              <div class="item-after"><span class="badge bg-green">NEW</span></div>
+            </div></a></li>
+        <li><a href="/f7material/floating-button-popover/" class="item-content item-link">
+            <div class="item-media"><i class="icon icon-f7"></i></div>
+            <div class="item-inner">
+              <div class="item-title">Morph To Popover</div>
+              <div class="item-after"><span class="badge bg-green">NEW</span></div>
+            </div></a></li>
+      </ul>
+    </div>
+  </div>
+</div></template>

@@ -57,8 +57,8 @@
 
     <!-- UI elements / Framework7 kitchen sink -->
     <f7-list>
-      <f7-list-item link="/f7ios/index/" title="iOS user interface components" v-if="$root.theme === 'ios'" /></f7-list-item>
-      <f7-list-item link="/f7material/home/" title="Material user interface components" v-if="$root.theme === 'material'" /></f7-list-item>
+      <f7-list-item link="/f7ios/index/" title="iOS UI Components" media="<i class='icon icon-f7' />" v-if="$root.theme === 'ios'" />
+      <f7-list-item link="/f7material/index/" title="Material UI Components" media="<i class='icon icon-f7' />" v-if="$root.theme === 'material'" />
     </f7-list>
 
     <f7-list>

@@ -1,12 +1,10 @@
-<template>
-  <div data-page="hide-navbar-toolbar" class="page">
-    <div class="navbar">
-      <div class="navbar-inner">
-        <div class="left sliding"><a href="/f7ios/index/" class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
-        <div class="center sliding">Hide Navbar & Toolbar</div>
-        <div class="right"><a href="#" class="open-panel link icon-only"><i class="icon icon-bars"></i></a></div>
-      </div>
-    </div>
+<template><div data-page="hide-navbar-toolbar" class="page"><div class="navbar">
+  <div class="navbar-inner">
+    <div class="left sliding"><a class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
+    <div class="center sliding">Hide Navbar &amp; Toolbar</div>
+    <div class="right"><a href="#" class="open-panel link icon-only"><i class="icon icon-bars"></i></a></div>
+  </div>
+</div>
     <div class="page-content">
       <div class="content-block">
         <div class="content-block-inner">
@@ -39,5 +37,4 @@
         </ul>
       </div>
     </div>
-  </div>
-</template>
+  </div></template>

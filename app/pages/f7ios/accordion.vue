@@ -1,12 +1,10 @@
-<template>
-  <div data-page="accordion" class="page">
-    <div class="navbar">
-      <div class="navbar-inner">
-        <div class="left sliding"><a href="/f7ios/index/" class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
-        <div class="center sliding">Accordion</div>
-        <div class="right"><a href="#" class="open-panel link icon-only"><i class="icon icon-bars"></i></a></div>
-      </div>
-    </div>
+<template><div data-page="accordion" class="page"><div class="navbar">
+  <div class="navbar-inner">
+    <div class="left sliding"><a class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
+    <div class="center sliding">Accordion</div>
+    <div class="right"><a href="#" class="open-panel link icon-only"><i class="icon icon-bars"></i></a></div>
+  </div>
+</div>
     <div class="page-content">
       <div class="content-block-title">List View Accordion</div>
       <div class="list-block accordion-list">
@@ -166,5 +164,4 @@
         </div>
       </div>
     </div>
-  </div>
-</template>
+  </div></template>

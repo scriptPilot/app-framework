@@ -3,7 +3,7 @@
   "defaultLanguage": "en",
   "theme": "ios-material",
   "useIconFonts": {
-    "framework7": false,
+    "framework7": true,
     "material": false,
     "ion": false,
     "fontawesome": false

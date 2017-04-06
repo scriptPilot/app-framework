@@ -1,27 +1,26 @@
-/* Body */
+/* Set default backround color to a light grey */
 body {
   background: #F2F2F2;
 }
 
-/* Statusbar */
+/* Set default status bar color to black */
 .statusbar-overlay {
   background: #000000;
 }
 
-/* Prevent bouncing with iNoBounce */
-#app: {
+/* Set frame height to 100% */
+#frame {
+  height: 100%;
+}
+
+/* Set app height to 100% and prevent bouncing with iNoBounce */
+#frame {
   height: 100%;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
 }
 
-/* Phone frame */
-#frame {
-  width: 100%;
-  height: 100%;
-}
-
-/* Limit image size in smart selects */
+/* Fix: Smart select option images shown to big */
 .smart-select-page .item-media img {
   max-width: 29px;
   max-height: 29px;

@@ -1,12 +1,5 @@
-/* Body */
-body {
-  background: #F2F2F2;
-}
 
-/* Statusbar */
-.statusbar-overlay {
-  background: #000000;
-}
+
 
 /* Phone frame */
 .bodyDark {
@@ -64,7 +57,7 @@ body {
   height: 568px !important;
 }
 
-/* iPhone alike scrollbars */
+/* Simulate iPhone-like scrollbars in other browsers */
 .light-scrollbars div::-webkit-scrollbar {
   width: 5px;
 }
@@ -79,12 +72,7 @@ body {
   display: block;
 }
 
-/* Prevent bouncing with iNoBounce */
-#app: {
-  height: 100%;
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
-}
+
 
 /* Initial reload splash fix */
 .framework7-root {

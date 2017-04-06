@@ -45,10 +45,12 @@ function proceedFolder (sourceFolder, destinationFolder, callback) {
                 for (let f = 0; f < htmlFiles.length; f++) {
                   try {
                     let fileContent = fs.readFileSync(path.resolve(sourceFolder, htmlFiles[f]), 'utf8')
-                    fileContent = fileContent.replace(/"([0-9a-z-]+)\.html"/g, '"/' + path.basename(sourceFolder) + '/$1/"')
+                    fileContent = fileContent.replace(/"([0-9a-z-]+)\.html"/g, '"/' + path.basename(destinationFolder) + '/$1/"')
+                    fileContent = fileContent.replace(/href="\/f7ios\/index\/" class="back link"/g, 'class="back link"')
                     $('body').html(fileContent)
                     if (htmlFiles[f] === 'index.html') {
                       $('body').html($('.view-main'))
+                      $('.navbar .left').addClass('sliding').html('<a class="back link"><i class="icon icon-back"></i><span>Back</span></a>')
                     }
                     let page = $('.page')
                     let navbar = $('.navbar')
