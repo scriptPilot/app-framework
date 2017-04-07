@@ -50,8 +50,8 @@ Additional development CLI commands:
 - Code must be commented well with `// Next block action` before any logic block
 - Modules must be loaded in the order *./env, ./lib/.., <npm>*, then alphabetically by module
 - Use always absolute paths
-- Comment out for tests with `///`
-- Comment thing to do with `///tbc`
+- Comment out for tests with `/* ... */`
+- Comment thing to do with `// tbc`
 - Code must be checked automatically according [Standard JS rules](http://standardjs.com/) on build
 - Asynchronous functions should be preferred
 - Function results should be checked
