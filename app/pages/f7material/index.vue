@@ -7,9 +7,7 @@
       </div>
     </div>
     <div class="page-content">
-      <div class="content-block-title">Welcome To Framework7</div>
-      <div class="content-block"><a href="/f7material/about/" class="button button-raised">About Framework7</a></div>
-      <div class="content-block-title">Framework7 Kitchen Sink</div>
+  
       <div class="list-block">
         <ul>
           <li>
