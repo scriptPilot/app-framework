@@ -1,5 +1,5 @@
 <template>
-  <div data-page="form-storage" class="page">
+  <div data-page="form-storage" class="page kitchen-sink-ios">
     <div class="navbar">
       <div class="navbar-inner">
         <div class="left sliding"><a href="/f7ios/forms/" class="back link"><i class="icon icon-back"></i><span>Forms</span></a></div>

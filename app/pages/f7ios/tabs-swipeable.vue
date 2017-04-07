@@ -1,5 +1,5 @@
 <template>
-  <div data-page="tabs-swipeable" class="page with-subnavbar">
+  <div data-page="tabs-swipeable" class="page with-subnavbar kitchen-sink-ios">
     <div class="navbar">
       <div class="navbar-inner">
         <div class="left sliding"><a class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>

@@ -126,6 +126,8 @@
 </template>
 
 <script>
+  require('./kitchen-sink-ios.css')
+  require('./kitchen-sink-material.css')
   module.exports = {
     data: function () {
       return {

@@ -1,5 +1,5 @@
 <template>
-  <div data-page="login-screen-embedded" class="page">
+  <div data-page="login-screen-embedded" class="page kitchen-sink-material">
     <div class="page-content login-screen-content">
       <div class="login-screen-title">Framework7</div>
       <form>

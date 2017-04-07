@@ -1,5 +1,5 @@
 <template>
-  <div data-page="swiper-scrollbar" class="page">
+  <div data-page="swiper-scrollbar" class="page kitchen-sink-material">
     <div class="navbar">
       <div class="navbar-inner">
         <div class="left"><a href="/f7material/swiper/" class="back link icon-only"><i class="icon icon-back"></i></a></div>

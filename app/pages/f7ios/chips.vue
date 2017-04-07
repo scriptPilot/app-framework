@@ -1,5 +1,5 @@
 <template>
-  <div data-page="chips" class="page">
+  <div data-page="chips" class="page kitchen-sink-ios">
     <div class="navbar">
       <div class="navbar-inner">
         <div class="left"><a class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>

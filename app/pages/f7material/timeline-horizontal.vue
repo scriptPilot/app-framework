@@ -1,5 +1,5 @@
 <template>
-  <div data-page="timeline-horizontal" class="page">
+  <div data-page="timeline-horizontal" class="page kitchen-sink-material">
     <div class="navbar">
       <div class="navbar-inner">
         <div class="left sliding"><a class="back link"><i class="icon icon-back"></i></a></div>

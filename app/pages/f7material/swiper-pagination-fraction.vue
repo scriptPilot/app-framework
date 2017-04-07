@@ -1,5 +1,5 @@
 <template>
-  <div data-page="swiper-pagination-fraction" class="page">
+  <div data-page="swiper-pagination-fraction" class="page kitchen-sink-material">
     <div class="navbar">
       <div class="navbar-inner">
         <div class="left"><a href="/f7material/swiper/" class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>

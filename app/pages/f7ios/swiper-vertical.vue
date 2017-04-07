@@ -1,5 +1,5 @@
 <template>
-  <div data-page="swiper-vertical" class="page">
+  <div data-page="swiper-vertical" class="page kitchen-sink-ios">
     <div class="navbar">
       <div class="navbar-inner">
         <div class="left sliding"><a href="/f7ios/swiper/" class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
