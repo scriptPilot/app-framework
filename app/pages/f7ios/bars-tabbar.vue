@@ -1,10 +1,9 @@
 <template>
-  <div data-page="tabbar" class="page no-toolbar toolbar-fixed">
+  <div data-page="tabbar" class="page no-toolbar toolbar-fixed kitchen-sink-ios">
     <div class="navbar">
       <div class="navbar-inner">
         <div class="left sliding"><a class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
         <div class="center sliding">Tab Bar</div>
-        <div class="right"><a href="#" class="link open-panel icon-only"><i class="icon icon-bars"></i></a></div>
       </div>
     </div>
     <div class="toolbar tabbar">

@@ -1,10 +1,9 @@
 <template>
-  <div data-page="floating-button" class="page">
+  <div data-page="floating-button" class="page kitchen-sink-ios">
     <div class="navbar">
       <div class="navbar-inner">
         <div class="left sliding"><a class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
         <div class="center sliding">Speed Dial</div>
-        <div class="right"><a href="#" class="open-panel link icon-only"><i class="icon icon-bars"></i></a></div>
       </div>
     </div>
     <div class="speed-dial"><a href="#" class="floating-button"><i class="icon f7-icons">add</i><i class="icon f7-icons">close</i></a>

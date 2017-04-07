@@ -1,8 +1,8 @@
 <template>
-  <div data-page="panel-right3" class="page">
+  <div data-page="panel-right3" class="page kitchen-sink-material">
     <div class="navbar">
       <div class="navbar-inner">
-        <div class="left"><a href="#" class="back link icon-only"><i class="icon icon-back"></i></a></div>
+        <div class="left"><a class="back link icon-only"><i class="icon icon-back"></i></a></div>
         <div class="center">Panel Page 3</div>
       </div>
     </div>

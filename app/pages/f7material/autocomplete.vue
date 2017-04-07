@@ -1,10 +1,9 @@
 <template>
-  <div data-page="autocomplete" class="page">
+  <div data-page="autocomplete" class="page kitchen-sink-material">
     <div class="navbar">
       <div class="navbar-inner">
         <div class="left"><a class="back link"><i class="icon icon-back icon-only"></i></a></div>
         <div class="center sliding">Autocomplete</div>
-        <div class="right"><a href="#" class="open-panel link icon-only"><i class="icon icon-bars"></i></a></div>
       </div>
     </div>
     <div class="page-content">

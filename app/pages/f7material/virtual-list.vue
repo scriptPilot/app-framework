@@ -1,10 +1,9 @@
 <template>
-  <div data-page="virtual-list" class="page">
+  <div data-page="virtual-list" class="page kitchen-sink-material">
     <div class="navbar">
       <div class="navbar-inner">
         <div class="left"><a class="back link icon-only"><i class="icon icon-back"></i></a></div>
         <div class="center">Virtual List</div>
-        <div class="right"><a href="#" class="open-panel link icon-only"><i class="icon icon-bars"></i></a></div>
       </div>
     </div>
     <form data-search-list=".virtual-list" class="searchbar searchbar-init">

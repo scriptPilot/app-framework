@@ -6,13 +6,13 @@
     <!-- Navbar -->
     <f7-navbar sliding :title="$root.config.title" />
 
-    <!-- Content block -->
+    <!-- Installation notice -->
     <f7-block inner inset style="text-align: center" v-if="$root.isMobileDevice && !$root.isNativeApp && !$root.isHomescreenApp">
       <p><b>For native App feeling, please pin this page to your homescreen and open it from there!</b></p>
     </f7-block>
 
-    <!-- Language, theme, layout and color selection -->
-    <f7-block-title>Configuration</f7-block-title>
+    <!-- Configuration -->
+    <f7-block-title>{{text.configuration}}</f7-block-title>
     <f7-list>
       <f7-list-item smart-select smart-select-back-on-select
         :title="text.selectLanguage"
@@ -30,30 +30,14 @@
           <option value="material" :data-option-image="images.theme_material">Material</option>
         </select>
       </f7-list-item>
-      <f7-list-item smart-select smart-select-back-on-select
-        :title="text.selectLayout"
-        :media="'<div style=\'width: 20px; height: 20px; border-radius: 10px; margin: 0 4px 3px 5px; background: #' + $root.colors.ios[$root.layout === 'dark' ? 'black' : $root.layout === 'white' ? 'white' : 'gray'] + ';\'></div>'">
-        <select v-model="$root.layout">
-          <option value="default">default</option>
-          <option v-if="$root.theme === 'ios'" value="white">white</option>
-          <option value="dark">dark</option>
-        </select>
-      </f7-list-item>
-      <f7-list-item smart-select smart-select-back-on-select
-        :title="text.selectColor"
-        :media="'<div style=\'width: 20px; height: 20px; border-radius: 10px; margin: 0 4px 3px 5px; background: #' + $root.colors[$root.theme][$root.color] + ';\'></div>'">
-        <select v-model="$root.color">
-          <option v-for="(hex, name) in $root.colors[$root.theme]" :value="name" :data-option-color="name">{{name}}</option>
-        </select>
-      </f7-list-item>
+      <f7-list-item :title="text.selectColors" :link="'/f7' + $root.theme + '/color-themes/'" media="<i class='icon icon-f7' />" />
     </f7-list>
 
-    <!-- UI elements / Framework7 and Framework7-Vue kitchen sinks -->
-    <f7-block-title>Demonstration</f7-block-title>
+    <!-- Demonstration -->
+    <f7-block-title>{{text.demonstration}}</f7-block-title>
     <f7-list>
-      <f7-list-item link="/f7ios/index/" title="iOS UI Components" media="<i class='icon icon-f7' />" v-if="$root.theme === 'ios'" />
-      <f7-list-item link="/f7material/index/" title="Material UI Components" media="<i class='icon icon-f7' />" v-if="$root.theme === 'material'" />
-      <f7-list-item link="/f7vue/index/" title="F7-Vue Components" media="<i class='icon icon-f7' />" />
+      <f7-list-item link="/f7ios/index/" :title="'iOS ' + text.uiComponents" media="<i class='icon icon-f7' />" v-if="$root.theme === 'ios'" />
+      <f7-list-item link="/f7material/index/" :title="'Material ' + text.uiComponents" media="<i class='icon icon-f7' />" v-if="$root.theme === 'material'" />
     </f7-list>
 
     <f7-list>
@@ -85,16 +69,20 @@
       english: 'English',
       german: 'German',
       selectTheme: 'Select theme',
-      selectLayout: 'Select layout',
-      selectColor: 'Select color'
+      selectColors: 'Select colors',
+      configuration: 'Configuration',
+      demonstration: 'Demonstration',
+      uiComponents: 'UI Components'
     },
     de: {
       selectLanguage: 'Sprache auswählen',
       english: 'Englisch',
       german: 'Deutsch',
       selectTheme: 'Thema auswählen',
-      selectLayout: 'Layout auswählen',
-      selectColor: 'Farbe auswählen'
+      selectColors: 'Farben auswählen',
+      configuration: 'Konfiguration',
+      demonstration: 'Demonstration',
+      uiComponents: 'UI-Komponenten'
     }
   }
 

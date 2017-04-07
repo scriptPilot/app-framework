@@ -1,10 +1,9 @@
 <template>
-  <div data-page="swiper-pagination-progress" class="page">
+  <div data-page="swiper-pagination-progress" class="page kitchen-sink-material">
     <div class="navbar">
       <div class="navbar-inner">
-        <div class="left"><a href="/f7material/swiper/" class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
+        <div class="left"><a class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
         <div class="center">Slider Horizontal</div>
-        <div class="right"><a href="#" class="open-panel link icon-only"><i class="icon icon-bars"></i></a></div>
       </div>
     </div>
     <div class="page-content">

@@ -1,10 +1,9 @@
 <template>
-  <div data-page="virtual-list" class="page">
+  <div data-page="virtual-list" class="page kitchen-sink-ios">
     <div class="navbar">
       <div class="navbar-inner">
         <div class="left sliding"><a class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
         <div class="center sliding">Virtual List</div>
-        <div class="right"><a href="#" class="open-panel link icon-only"><i class="icon icon-bars"></i></a></div>
       </div>
     </div>
     <form data-search-list=".virtual-list" class="searchbar searchbar-init">

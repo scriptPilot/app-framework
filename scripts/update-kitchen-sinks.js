@@ -47,13 +47,17 @@ function proceedFolder (sourceFolder, destinationFolder, callback) {
                 alert('Failed to initialize JSDom.', 'issue')
               } else {
                 let $ = jquery(window)
+                let htmlCode = ''
                 for (let f = 0; f < htmlFiles.length; f++) {
                   try {
                     let fileContent = fs.readFileSync(path.resolve(sourceFolder, htmlFiles[f]), 'utf8')
                     fileContent = fileContent.replace(/"([0-9a-z-]+)\.html"/g, '"/' + path.basename(destinationFolder) + '/$1/"')
-                    fileContent = fileContent.replace(/href="\/f7(ios|material)\/index\/" class="back link(| icon-only)?"/g, 'class="back link$2"')
+                    fileContent = fileContent.replace(/href="(.+?)" class="back link(| icon-only)?"/g, 'class="back link$2"')
                     $('body').html(fileContent)
                     if (htmlFiles[f] === 'index.html') {
+                      $('.popup, .popover, .login-screen, .picker-modal').each(function (i, el) {
+                        htmlCode += $(el).prop('outerHTML')
+                      })
                       $('body').html($('.view-main'))
                       if (theme === 'ios') {
                         $('.navbar .left').addClass('sliding').html('<a class="back link"><i class="icon icon-back"></i><span>Back</span></a>')
@@ -72,7 +76,10 @@ function proceedFolder (sourceFolder, destinationFolder, callback) {
                         $('.navbar').remove()
                         $('.page').prepend($(navbar[0]).prop('outerHTML'))
                       }
-                      let vueComponent = '<template>\n  ' + beautify.html($('.page').prop('outerHTML'), {indent_size: 2}).replace(/\n/g, '\n  ') + '\n</template>\n'
+                      $('.navbar .right').remove()
+                      $('.page').addClass('kitchen-sink-' + theme)
+                      $('a.backlink span').html('Back')
+                      let vueComponent = '<template>\n  ' + beautify.html($('.page').prop('outerHTML'), {indent_size: 2}).replace(/\n/g, '\n  ').replace(/\n([ ]*)\n/g, '\n') + '\n</template>\n'
                       fs.writeFileSync(path.resolve(destinationFolder, htmlFiles[f].replace(/\.html$/, '.vue')), vueComponent)
                     }
                   } catch (err) {
@@ -106,7 +113,7 @@ function proceedFolder (sourceFolder, destinationFolder, callback) {
                                '  let mainView = null\n' +
                                '  let rightView\n' +
                                '  for (let v = 0; v < myApp.views.length; v++) {\n' +
-                               '    if (/^\.view\.view-main/.test(myApp.views[v].selector)) {\n' +
+                               '    if (/^\\.view\\.view-main/.test(myApp.views[v].selector)) {\n' +
                                '      mainView = myApp.views[v]\n' +
                                '    } else if (/^#right-panel-view/.test(myApp.views[v].selector)) {\n' +
                                '      rightView = myApp.views[v]\n' +
@@ -119,10 +126,12 @@ function proceedFolder (sourceFolder, destinationFolder, callback) {
                                '    myApp.alert("Right panel view not found.")\n' +
                                '  }\n' +
                                '  var $$ = window.Dom7;\n' +
-                                  jsFile + '\n'
-                      '}\n'
+                                  jsFile + '\n' +
+                               '}\n'
                       jsFile = beautify.js(jsFile, {indent_size: 2, end_with_newline: true})
                       fs.writeFileSync(path.resolve(env.app, 'kitchen-sink-' + theme + '.js'), jsFile)
+                      htmlCode = beautify.html(htmlCode, {indent_size: 2})
+                      fs.writeFileSync(path.resolve(env.app, 'kitchen-sink-' + theme + '-html.js'), 'module.exports =\n\'' + htmlCode.replace(/\'/g, '\\\'').replace(/\n/g, '\' +\n\'') + '\';\n') // eslint-disable-line
                       callback()
                     } catch (err) {
                       alert('Failed to copy kitchen sink js file.', 'issue')

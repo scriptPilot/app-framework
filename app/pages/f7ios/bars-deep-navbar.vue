@@ -1,10 +1,9 @@
 <template>
-  <div data-page="deep-navbar" class="page">
+  <div data-page="deep-navbar" class="page kitchen-sink-ios">
     <div class="navbar">
       <div class="navbar-inner">
         <div class="left sliding"><a class="back link">Navbars</a></div>
         <div class="center sliding">Deep Navbar</div>
-        <div class="right sliding"><a href="/f7ios/bars-deep-navbar-2/" class="link">Deep 2</a></div>
       </div>
     </div>
     <div class="page-content">

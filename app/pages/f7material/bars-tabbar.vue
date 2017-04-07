@@ -1,10 +1,9 @@
 <template>
-  <div data-page="tabbar" class="page toolbar-fixed">
+  <div data-page="tabbar" class="page toolbar-fixed kitchen-sink-material">
     <div class="navbar">
       <div class="navbar-inner">
         <div class="left"><a class="back link icon-only"><i class="icon icon-back"></i></a></div>
         <div class="center">Tab Bar</div>
-        <div class="right"><a href="#" class="link open-panel icon-only"><i class="icon icon-bars"></i></a></div>
       </div>
     </div>
     <div class="toolbar tabbar">

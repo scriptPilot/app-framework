@@ -1,10 +1,9 @@
 <template>
-  <div data-page="sub-navbar" class="page">
+  <div data-page="sub-navbar" class="page kitchen-sink-material">
     <div class="navbar">
       <div class="navbar-inner">
         <div class="left"><a class="back link icon-only"><i class="icon icon-back"></i></a></div>
         <div class="center">Sub Navbar</div>
-        <div class="right"><a href="#" class="open-panel link icon-only"><i class="icon icon-bars"></i></a></div>
       </div>
       <div class="subnavbar">
         <div class="buttons-row"><a href="#" class="button active">Link 1</a><a href="#" class="button">Link 2</a><a href="#" class="button">Link 3</a><a href="#" class="button">Link 4</a></div>

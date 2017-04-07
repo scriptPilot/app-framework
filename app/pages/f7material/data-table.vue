@@ -1,10 +1,9 @@
 <template>
-  <div data-page="data-table" class="page">
+  <div data-page="data-table" class="page kitchen-sink-material">
     <div class="navbar">
       <div class="navbar-inner">
         <div class="left"><a class="back link icon-only"><i class="icon icon-back"></i></a></div>
         <div class="center">Data Tables</div>
-        <div class="right"><a href="#" class="open-panel link icon-only"><i class="icon icon-bars"></i></a></div>
       </div>
     </div>
     <div class="page-content">

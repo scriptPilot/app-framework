@@ -1,10 +1,9 @@
 <template>
-  <div data-page="icons" class="page">
+  <div data-page="icons" class="page kitchen-sink-material">
     <div class="navbar">
       <div class="navbar-inner">
         <div class="left sliding"><a class="back link icon-only"><i class="icon icon-back"></i></a></div>
         <div class="center sliding">Icons</div>
-        <div class="right"><a href="#" class="open-panel link icon-only"><i class="icon icon-bars"></i></a></div>
       </div>
     </div>
     <div class="page-content">

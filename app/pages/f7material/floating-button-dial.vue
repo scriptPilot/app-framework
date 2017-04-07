@@ -1,10 +1,9 @@
 <template>
-  <div data-page="floating-button" class="page">
+  <div data-page="floating-button" class="page kitchen-sink-material">
     <div class="navbar">
       <div class="navbar-inner">
         <div class="left"><a class="back link icon-only"><i class="icon icon-back"></i></a></div>
         <div class="center">Speed Dial</div>
-        <div class="right"><a href="#" class="open-panel link icon-only"><i class="icon icon-bars"></i></a></div>
       </div>
     </div>
     <div class="speed-dial"><a href="#" class="floating-button"><i class="icon icon-plus"></i><i class="icon icon-close"></i></a>

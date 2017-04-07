@@ -1,8 +1,8 @@
 <template>
-  <div data-page="panel-right2" class="page">
+  <div data-page="panel-right2" class="page kitchen-sink-ios">
     <div class="navbar">
       <div class="navbar-inner">
-        <div class="left sliding"><a href="#" class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
+        <div class="left sliding"><a class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
         <div class="sliding center">Panel Page 2</div>
       </div>
     </div>
