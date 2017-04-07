@@ -58,6 +58,7 @@ function proceedFolder (sourceFolder, destinationFolder, callback) {
                       $('.popup, .popover, .login-screen, .picker-modal').each(function (i, el) {
                         htmlCode += $(el).prop('outerHTML')
                       })
+                      $('.content-block, .content-block-title').remove()
                       $('body').html($('.view-main'))
                       if (theme === 'ios') {
                         $('.navbar .left').addClass('sliding').html('<a class="back link"><i class="icon icon-back"></i><span>Back</span></a>')
