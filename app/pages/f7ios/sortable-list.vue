@@ -1,10 +1,12 @@
-<template><div data-page="sortable-list" class="page"><div class="navbar">
-  <div class="navbar-inner">
-    <div class="left sliding"><a class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
-    <div class="center sliding">Sortable List</div>
-    <div class="right"><a href="#" class="link toggle-sortable icon-only">Edit</a></div>
-  </div>
-</div>
+<template>
+  <div data-page="sortable-list" class="page">
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="left sliding"><a class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
+        <div class="center sliding">Sortable List</div>
+        <div class="right"><a href="#" class="link toggle-sortable icon-only">Edit</a></div>
+      </div>
+    </div>
     <div class="page-content">
       <div class="content-block">
         <p>Just click "Edit" button on navigation bar to enable sorting</p>
@@ -14,7 +16,7 @@
           <li>
             <div class="item-content">
               <div class="item-media"><i class="icon icon-f7"></i></div>
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-title">1 Jenna Smith</div>
                 <div class="item-after">CEO</div>
               </div>
@@ -24,7 +26,7 @@
           <li>
             <div class="item-content">
               <div class="item-media"><i class="icon icon-f7"></i></div>
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-title">2 John Doe</div>
                 <div class="item-after">Director</div>
               </div>
@@ -34,7 +36,7 @@
           <li>
             <div class="item-content">
               <div class="item-media"><i class="icon icon-f7"></i></div>
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-title">3 John Doe</div>
                 <div class="item-after">Developer</div>
               </div>
@@ -44,7 +46,7 @@
           <li>
             <div class="item-content">
               <div class="item-media"><i class="icon icon-f7"></i></div>
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-title">4 Aaron Darling</div>
                 <div class="item-after">Manager</div>
               </div>
@@ -54,7 +56,7 @@
           <li>
             <div class="item-content">
               <div class="item-media"><i class="icon icon-f7"></i></div>
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-title">5 Calvin Johnson</div>
                 <div class="item-after">Accounter</div>
               </div>
@@ -64,7 +66,7 @@
           <li>
             <div class="item-content">
               <div class="item-media"><i class="icon icon-f7"></i></div>
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-title">6 John Smith</div>
                 <div class="item-after">SEO</div>
               </div>
@@ -74,7 +76,7 @@
           <li>
             <div class="item-content">
               <div class="item-media"><i class="icon icon-f7"></i></div>
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-title">7 Chloe</div>
                 <div class="item-after">Manager</div>
               </div>
@@ -94,7 +96,8 @@
                   <div class="item-after">$15</div>
                 </div>
                 <div class="item-subtitle">Beatles</div>
-                <div class="item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sagittis tellus ut turpis condimentum, ut dignissim lacus tincidunt. Cras dolor metus, ultrices condimentum sodales sit amet, pharetra sodales eros. Phasellus vel felis tellus. Mauris rutrum ligula nec dapibus feugiat. In vel dui laoreet, commodo augue id, pulvinar lacus.</div>
+                <div class="item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sagittis tellus ut turpis condimentum, ut dignissim lacus tincidunt. Cras dolor metus, ultrices condimentum sodales sit amet, pharetra sodales eros. Phasellus vel felis tellus.
+                  Mauris rutrum ligula nec dapibus feugiat. In vel dui laoreet, commodo augue id, pulvinar lacus.</div>
               </div>
             </div>
             <div class="sortable-handler"></div>
@@ -108,7 +111,8 @@
                   <div class="item-after">$22</div>
                 </div>
                 <div class="item-subtitle">Queen</div>
-                <div class="item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sagittis tellus ut turpis condimentum, ut dignissim lacus tincidunt. Cras dolor metus, ultrices condimentum sodales sit amet, pharetra sodales eros. Phasellus vel felis tellus. Mauris rutrum ligula nec dapibus feugiat. In vel dui laoreet, commodo augue id, pulvinar lacus.</div>
+                <div class="item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sagittis tellus ut turpis condimentum, ut dignissim lacus tincidunt. Cras dolor metus, ultrices condimentum sodales sit amet, pharetra sodales eros. Phasellus vel felis tellus.
+                  Mauris rutrum ligula nec dapibus feugiat. In vel dui laoreet, commodo augue id, pulvinar lacus.</div>
               </div>
             </div>
             <div class="sortable-handler"></div>
@@ -122,7 +126,8 @@
                   <div class="item-after">$16</div>
                 </div>
                 <div class="item-subtitle">Michael Jackson</div>
-                <div class="item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sagittis tellus ut turpis condimentum, ut dignissim lacus tincidunt. Cras dolor metus, ultrices condimentum sodales sit amet, pharetra sodales eros. Phasellus vel felis tellus. Mauris rutrum ligula nec dapibus feugiat. In vel dui laoreet, commodo augue id, pulvinar lacus.</div>
+                <div class="item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sagittis tellus ut turpis condimentum, ut dignissim lacus tincidunt. Cras dolor metus, ultrices condimentum sodales sit amet, pharetra sodales eros. Phasellus vel felis tellus.
+                  Mauris rutrum ligula nec dapibus feugiat. In vel dui laoreet, commodo augue id, pulvinar lacus.</div>
               </div>
             </div>
             <div class="sortable-handler"></div>
@@ -130,4 +135,5 @@
         </ul>
       </div>
     </div>
-  </div></template>
+  </div>
+</template>

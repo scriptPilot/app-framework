@@ -1,10 +1,12 @@
-<template><div data-page="swipe-delete" class="page"><div class="navbar">
-  <div class="navbar-inner">
-    <div class="left sliding"><a class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
-    <div class="center sliding">Swipe To Delete</div>
-    <div class="right"><a href="#" class="open-panel link icon-only"><i class="icon icon-bars"></i></a></div>
-  </div>
-</div>
+<template>
+  <div data-page="swipe-delete" class="page">
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="left sliding"><a class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
+        <div class="center sliding">Swipe To Delete</div>
+        <div class="right"><a href="#" class="open-panel link icon-only"><i class="icon icon-bars"></i></a></div>
+      </div>
+    </div>
     <div class="page-content">
       <div class="content-block">
         <p>Swipe out actions on list elements is one of the most awesome F7 features. It allows you to call hidden menu for each list element where you can put default ready-to use delete button or any other buttons for some required actions. </p>
@@ -15,7 +17,7 @@
           <li class="swipeout">
             <div class="item-content swipeout-content">
               <div class="item-media"><i class="icon icon-f7"></i></div>
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-title">Swipe left on me please</div>
               </div>
             </div>
@@ -24,7 +26,7 @@
           <li class="swipeout">
             <div class="item-content swipeout-content">
               <div class="item-media"><i class="icon icon-f7"></i></div>
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-title">Swipe left on me too</div>
               </div>
             </div>
@@ -33,7 +35,7 @@
           <li>
             <div class="item-content">
               <div class="item-media"><i class="icon icon-f7"></i></div>
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-title">I am not removable</div>
               </div>
             </div>
@@ -45,7 +47,7 @@
         <ul>
           <li class="swipeout">
             <div class="item-content swipeout-content">
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-title">Swipe left on me please</div>
               </div>
             </div>
@@ -53,7 +55,7 @@
           </li>
           <li class="swipeout">
             <div class="item-content swipeout-content">
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-title">Swipe left on me too</div>
               </div>
             </div>
@@ -61,7 +63,7 @@
           </li>
           <li>
             <div class="item-content">
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-title">I am not removable</div>
               </div>
             </div>
@@ -74,7 +76,7 @@
           <li class="swipeout">
             <div class="item-content swipeout-content">
               <div class="item-media"><i class="icon icon-f7"></i></div>
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-title">Swipe left on me please</div>
               </div>
             </div>
@@ -83,7 +85,7 @@
           <li class="swipeout">
             <div class="item-content swipeout-content">
               <div class="item-media"><i class="icon icon-f7"></i></div>
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-title">Swipe left on me too</div>
               </div>
             </div>
@@ -92,7 +94,7 @@
           <li class="swipeout">
             <div class="item-content swipeout-content">
               <div class="item-media"><i class="icon icon-f7"></i></div>
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-title">You can't delete me</div>
               </div>
             </div>
@@ -105,7 +107,7 @@
         <ul>
           <li class="swipeout demo-remove-callback">
             <div class="item-content swipeout-content">
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-title">Swipe left on me please</div>
               </div>
             </div>
@@ -113,7 +115,7 @@
           </li>
           <li class="swipeout demo-remove-callback">
             <div class="item-content swipeout-content">
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-title">Swipe left on me too</div>
               </div>
             </div>
@@ -121,7 +123,7 @@
           </li>
           <li>
             <div class="item-content">
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-title">I am not removable</div>
               </div>
             </div>
@@ -134,7 +136,7 @@
           <li class="swipeout">
             <div class="item-content swipeout-content">
               <div class="item-media"><i class="icon icon-f7"></i></div>
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-title">Swipe right on me please</div>
               </div>
             </div>
@@ -143,7 +145,7 @@
           <li class="swipeout">
             <div class="item-content swipeout-content">
               <div class="item-media"><i class="icon icon-f7"></i></div>
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-title">Swipe right on me too</div>
               </div>
             </div>
@@ -155,58 +157,75 @@
       <div class="list-block media-list">
         <ul>
           <li class="swipeout">
-            <div class="swipeout-content"><a href="#" class="item-link item-content">
+            <div class="swipeout-content">
+              <a href="#" class="item-link item-content">
                 <div class="item-inner">
                   <div class="item-title-row">
                     <div class="item-title">Facebook</div>
                     <div class="item-after">17:14</div>
                   </div>
                   <div class="item-subtitle">New messages from John Doe</div>
-                  <div class="item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sagittis tellus ut turpis condimentum, ut dignissim lacus tincidunt. Cras dolor metus, ultrices condimentum sodales sit amet, pharetra sodales eros. Phasellus vel felis tellus. Mauris rutrum ligula nec dapibus feugiat. In vel dui laoreet, commodo augue id, pulvinar lacus.</div>
-                </div></a></div>
+                  <div class="item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sagittis tellus ut turpis condimentum, ut dignissim lacus tincidunt. Cras dolor metus, ultrices condimentum sodales sit amet, pharetra sodales eros. Phasellus vel felis tellus.
+                    Mauris rutrum ligula nec dapibus feugiat. In vel dui laoreet, commodo augue id, pulvinar lacus.</div>
+                </div>
+              </a>
+            </div>
             <div class="swipeout-actions-left"><a href="#" class="bg-green swipeout-overswipe demo-reply">Reply</a><a href="#" class="demo-forward bg-blue">Forward</a></div>
             <div class="swipeout-actions-right"><a href="#" class="demo-actions">More</a><a href="#" class="demo-mark bg-orange">Mark</a><a href="#" data-confirm="Are you sure you want to delete this item?" class="swipeout-delete swipeout-overswipe">Delete</a></div>
           </li>
           <li class="swipeout">
-            <div class="swipeout-content"><a href="#" class="item-link item-content">
+            <div class="swipeout-content">
+              <a href="#" class="item-link item-content">
                 <div class="item-inner">
                   <div class="item-title-row">
                     <div class="item-title">John Doe (via Twitter)</div>
                     <div class="item-after">17:11</div>
                   </div>
                   <div class="item-subtitle">John Doe (@_johndoe) mentioned you on Twitter!</div>
-                  <div class="item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sagittis tellus ut turpis condimentum, ut dignissim lacus tincidunt. Cras dolor metus, ultrices condimentum sodales sit amet, pharetra sodales eros. Phasellus vel felis tellus. Mauris rutrum ligula nec dapibus feugiat. In vel dui laoreet, commodo augue id, pulvinar lacus.</div>
-                </div></a></div>
+                  <div class="item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sagittis tellus ut turpis condimentum, ut dignissim lacus tincidunt. Cras dolor metus, ultrices condimentum sodales sit amet, pharetra sodales eros. Phasellus vel felis tellus.
+                    Mauris rutrum ligula nec dapibus feugiat. In vel dui laoreet, commodo augue id, pulvinar lacus.</div>
+                </div>
+              </a>
+            </div>
             <div class="swipeout-actions-left"><a href="#" class="bg-green swipeout-overswipe demo-reply">Reply</a><a href="#" class="demo-forward bg-blue">Forward</a></div>
             <div class="swipeout-actions-right"><a href="#" class="demo-actions">More</a><a href="#" class="demo-mark bg-orange">Mark</a><a href="#" data-confirm="Are you sure you want to delete this item?" class="swipeout-delete swipeout-overswipe">Delete</a></div>
           </li>
           <li class="swipeout">
-            <div class="swipeout-content"><a href="#" class="item-link item-content">
+            <div class="swipeout-content">
+              <a href="#" class="item-link item-content">
                 <div class="item-inner">
                   <div class="item-title-row">
                     <div class="item-title">Facebook</div>
                     <div class="item-after">16:48</div>
                   </div>
                   <div class="item-subtitle">New messages from John Doe</div>
-                  <div class="item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sagittis tellus ut turpis condimentum, ut dignissim lacus tincidunt. Cras dolor metus, ultrices condimentum sodales sit amet, pharetra sodales eros. Phasellus vel felis tellus. Mauris rutrum ligula nec dapibus feugiat. In vel dui laoreet, commodo augue id, pulvinar lacus.</div>
-                </div></a></div>
+                  <div class="item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sagittis tellus ut turpis condimentum, ut dignissim lacus tincidunt. Cras dolor metus, ultrices condimentum sodales sit amet, pharetra sodales eros. Phasellus vel felis tellus.
+                    Mauris rutrum ligula nec dapibus feugiat. In vel dui laoreet, commodo augue id, pulvinar lacus.</div>
+                </div>
+              </a>
+            </div>
             <div class="swipeout-actions-left"><a href="#" class="bg-green swipeout-overswipe demo-reply">Reply</a><a href="#" class="demo-forward bg-blue">Forward</a></div>
             <div class="swipeout-actions-right"><a href="#" class="demo-actions">More</a><a href="#" class="demo-mark bg-orange">Mark</a><a href="#" data-confirm="Are you sure you want to delete this item?" class="swipeout-delete swipeout-overswipe">Delete</a></div>
           </li>
           <li class="swipeout">
-            <div class="swipeout-content"><a href="#" class="item-link item-content">
+            <div class="swipeout-content">
+              <a href="#" class="item-link item-content">
                 <div class="item-inner">
                   <div class="item-title-row">
                     <div class="item-title">John Doe (via Twitter)</div>
                     <div class="item-after">15:32</div>
                   </div>
                   <div class="item-subtitle">John Doe (@_johndoe) mentioned you on Twitter!</div>
-                  <div class="item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sagittis tellus ut turpis condimentum, ut dignissim lacus tincidunt. Cras dolor metus, ultrices condimentum sodales sit amet, pharetra sodales eros. Phasellus vel felis tellus. Mauris rutrum ligula nec dapibus feugiat. In vel dui laoreet, commodo augue id, pulvinar lacus.</div>
-                </div></a></div>
+                  <div class="item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sagittis tellus ut turpis condimentum, ut dignissim lacus tincidunt. Cras dolor metus, ultrices condimentum sodales sit amet, pharetra sodales eros. Phasellus vel felis tellus.
+                    Mauris rutrum ligula nec dapibus feugiat. In vel dui laoreet, commodo augue id, pulvinar lacus.</div>
+                </div>
+              </a>
+            </div>
             <div class="swipeout-actions-left"><a href="#" class="bg-green swipeout-overswipe demo-reply">Reply</a><a href="#" class="demo-forward bg-blue">Forward</a></div>
             <div class="swipeout-actions-right"><a href="#" class="demo-actions">More</a><a href="#" class="demo-mark bg-orange">Mark</a><a href="#" data-confirm="Are you sure you want to delete this item?" class="swipeout-delete swipeout-overswipe">Delete</a></div>
           </li>
         </ul>
       </div>
     </div>
-  </div></template>
+  </div>
+</template>

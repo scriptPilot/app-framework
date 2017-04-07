@@ -1,10 +1,12 @@
-<template><div data-page="swiper-fade" class="page"><div class="navbar">
-  <div class="navbar-inner">
-    <div class="left sliding"><a href="/f7ios/swiper/" class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
-    <div class="center sliding">Fade Effect</div>
-    <div class="right"><a href="#" class="open-panel link icon-only"><i class="icon icon-bars"></i></a></div>
-  </div>
-</div>
+<template>
+  <div data-page="swiper-fade" class="page">
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="left sliding"><a href="/f7ios/swiper/" class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
+        <div class="center sliding">Fade Effect</div>
+        <div class="right"><a href="#" class="open-panel link icon-only"><i class="icon icon-bars"></i></a></div>
+      </div>
+    </div>
     <div class="page-content">
       <div data-pagination=".swiper-pagination" data-effect="fade" class="swiper-container swiper-init ks-demo-slider ks-fade-slider">
         <div class="swiper-pagination"></div>
@@ -16,4 +18,5 @@
         </div>
       </div>
     </div>
-  </div></template>
+  </div>
+</template>

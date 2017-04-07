@@ -68,7 +68,7 @@ function proceedFolder (sourceFolder, destinationFolder, callback) {
                         $('.navbar').remove()
                         $('.page').prepend($(navbar[0]).prop('outerHTML'))
                       }
-                      let vueComponent = beautify.html('<template>' + $('.page').prop('outerHTML') + '</template>', {indent_size: 8})
+                      let vueComponent = '<template>\n  ' + beautify.html($('.page').prop('outerHTML'), {indent_size: 2}).replace(/\n/g, '\n  ') + '\n</template>\n'
                       fs.writeFileSync(path.resolve(destinationFolder, htmlFiles[f].replace(/\.html$/, '.vue')), vueComponent)
                     }
                   } catch (err) {

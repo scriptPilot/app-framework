@@ -1,10 +1,12 @@
-<template><div data-page="timeline-calendar" class="page"><div class="navbar">
-  <div class="navbar-inner">
-    <div class="left sliding"><a class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
-    <div class="center sliding">Calendar Timeline</div>
-    <div class="right"><a href="#" class="link open-panel icon-only"><i class="icon icon-bars"></i></a></div>
-  </div>
-</div>
+<template>
+  <div data-page="timeline-calendar" class="page">
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="left sliding"><a class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
+        <div class="center sliding">Calendar Timeline</div>
+        <div class="right"><a href="#" class="link open-panel icon-only"><i class="icon icon-bars"></i></a></div>
+      </div>
+    </div>
     <div class="page-content">
       <div class="timeline timeline-horizontal col-33 tablet-15">
         <div class="timeline-year">
@@ -747,4 +749,5 @@
         </div>
       </div>
     </div>
-  </div></template>
+  </div>
+</template>

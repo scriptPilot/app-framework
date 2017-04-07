@@ -1,10 +1,12 @@
-<template><div data-page="calendar" class="page"><div class="navbar">
-  <div class="navbar-inner">
-    <div class="left sliding"><a class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
-    <div class="center sliding">Calendar</div>
-    <div class="right"><a href="#" class="link open-panel icon-only"><i class="icon icon-bars"></i></a></div>
-  </div>
-</div>
+<template>
+  <div data-page="calendar" class="page">
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="left sliding"><a class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
+        <div class="center sliding">Calendar</div>
+        <div class="right"><a href="#" class="link open-panel icon-only"><i class="icon icon-bars"></i></a></div>
+      </div>
+    </div>
     <div class="page-content">
       <div class="content-block">
         <p>Calendar is a touch optimized component that provides an easy way to handle dates.</p>
@@ -15,7 +17,7 @@
         <ul>
           <li>
             <div class="item-content">
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-input">
                   <input type="text" placeholder="Your birth date" readonly="readonly" id="ks-calendar-default">
                 </div>
@@ -29,7 +31,7 @@
         <ul>
           <li>
             <div class="item-content">
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-input">
                   <input type="text" placeholder="Select date" readonly="readonly" id="ks-calendar-date-format">
                 </div>
@@ -43,7 +45,7 @@
         <ul>
           <li>
             <div class="item-content">
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-input">
                   <input type="text" placeholder="Select multiple dates" readonly="readonly" id="ks-calendar-multiple">
                 </div>
@@ -57,7 +59,7 @@
         <ul>
           <li>
             <div class="item-content">
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-input">
                   <input type="text" placeholder="Select date range" readonly="readonly" id="ks-calendar-range">
                 </div>
@@ -73,4 +75,5 @@
         </div>
       </div>
     </div>
-  </div></template>
+  </div>
+</template>

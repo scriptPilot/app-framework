@@ -1,13 +1,16 @@
-<template><div data-page="panels" class="page"><div class="navbar">
-  <div class="navbar-inner">
-    <div class="left sliding"><a class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
-    <div class="center sliding">Side Panels</div>
-    <div class="right"><a href="#" class="link open-panel icon-only"><i class="icon icon-bars"></i></a></div>
-  </div>
-</div>
+<template>
+  <div data-page="panels" class="page">
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="left sliding"><a class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
+        <div class="center sliding">Side Panels</div>
+        <div class="right"><a href="#" class="link open-panel icon-only"><i class="icon icon-bars"></i></a></div>
+      </div>
+    </div>
     <div class="page-content">
       <div class="content-block">
-        <p>Framework7 comes with 2 panels (on left and on right), both are optional. They have two different layouts/effects - <b>cover</b> above the content (like left panel here) and <b>reveal</b> (like right panel). You can put absolutely anything inside: data lists, forms, custom content, and even other isolated app view (like in right panel now) with its own dynamic navbar. Checkout panels:</p>
+        <p>Framework7 comes with 2 panels (on left and on right), both are optional. They have two different layouts/effects - <b>cover</b> above the content (like left panel here) and <b>reveal</b> (like right panel). You can put absolutely anything inside:
+          data lists, forms, custom content, and even other isolated app view (like in right panel now) with its own dynamic navbar. Checkout panels:</p>
       </div>
       <div class="content-block">
         <div class="row">
@@ -16,4 +19,5 @@
         </div>
       </div>
     </div>
-  </div></template>
+  </div>
+</template>

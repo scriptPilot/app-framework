@@ -1,21 +1,26 @@
-<template><div data-page="core-features" class="page"><div class="navbar">
-  <div class="navbar-inner">
-    <div class="left sliding"><a class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
-    <div class="center sliding">Core Features</div>
-    <div class="right"><a href="#" class="open-panel link icon-only"><i class="icon icon-bars"></i></a></div>
-  </div>
-</div>
+<template>
+  <div data-page="core-features" class="page">
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="left sliding"><a class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
+        <div class="center sliding">Core Features</div>
+        <div class="right"><a href="#" class="open-panel link icon-only"><i class="icon icon-bars"></i></a></div>
+      </div>
+    </div>
     <div class="page-content">
       <div class="content-block-title">Ultra Easy To Use</div>
       <div class="content-block">
         <div class="content-block-inner">
-          <p>To create iOS or Android apps using Framework7 is so easy as website creation. Try to start and you will be surprised how easy is it. All you need to make it work is a simple HTML layout and attached framework's CSS and JS files! Framework7 doesn't force you to write some custom tags that will be converted by JavaScript to something else. It doesn't force you to write and describe all your content in JavaScript (or JSON). Just plain HTML and you always get exactly the same that you expect to get when you write this HTML.</p>
+          <p>To create iOS or Android apps using Framework7 is so easy as website creation. Try to start and you will be surprised how easy is it. All you need to make it work is a simple HTML layout and attached framework's CSS and JS files! Framework7 doesn't
+            force you to write some custom tags that will be converted by JavaScript to something else. It doesn't force you to write and describe all your content in JavaScript (or JSON). Just plain HTML and you always get exactly the same that you expect
+            to get when you write this HTML.</p>
         </div>
       </div>
       <div class="content-block-title">Native Scrolling</div>
       <div class="content-block">
         <div class="content-block-inner">
-          <p>It can sound even curious but one of the most important Framework7 feature is that it uses only native scrolling. Moreover - it multiplies its advantages! So you can still have this awesome scrolling with momentum and resistance bounce without any scrolling issues!</p>
+          <p>It can sound even curious but one of the most important Framework7 feature is that it uses only native scrolling. Moreover - it multiplies its advantages! So you can still have this awesome scrolling with momentum and resistance bounce without
+            any scrolling issues!</p>
         </div>
       </div>
       <div class="content-block-title">Library Agnostic</div>
@@ -27,13 +32,15 @@
       <div class="content-block-title">Custom DOM Library</div>
       <div class="content-block">
         <div class="content-block-inner">
-          <p>Framework7 doesn't use any third party library, even for DOM operation, even jQuery. It has its own custom DOM library that utilizes most edge and high-performance methods for DOM manipulation. You can also use it and you don’t need to learn something new for that, it has the same syntax as well known jQuery library with support of the most popular and widely used methods and jQuery-like chaining.</p>
+          <p>Framework7 doesn't use any third party library, even for DOM operation, even jQuery. It has its own custom DOM library that utilizes most edge and high-performance methods for DOM manipulation. You can also use it and you don’t need to learn something
+            new for that, it has the same syntax as well known jQuery library with support of the most popular and widely used methods and jQuery-like chaining.</p>
         </div>
       </div>
       <div class="content-block-title">XHR + Caching + History + Preloading</div>
       <div class="content-block">
         <div class="content-block-inner">
-          <p>This is an unbeatable combination to make your app routing as perfect as possible. Framework7 is ready to route your app pages using XHR (optional) with its own internal methods and internal HTML configurable caching that allow to load pages faster and save a lot of time and traffic for your users! It loads page via Ajax only ones per specified caching period (10 minutes by default), other times it just gets it from memory. It allows to make further requests immediately!</p>
+          <p>This is an unbeatable combination to make your app routing as perfect as possible. Framework7 is ready to route your app pages using XHR (optional) with its own internal methods and internal HTML configurable caching that allow to load pages faster
+            and save a lot of time and traffic for your users! It loads page via Ajax only ones per specified caching period (10 minutes by default), other times it just gets it from memory. It allows to make further requests immediately!</p>
         </div>
       </div>
       <div class="content-block-title">Multiple Views (Split View)</div>
@@ -55,4 +62,5 @@
         </div>
       </div>
     </div>
-  </div></template>
+  </div>
+</template>

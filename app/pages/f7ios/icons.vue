@@ -1,16 +1,21 @@
-<template><div data-page="icons" class="page"><div class="navbar">
-  <div class="navbar-inner">
-    <div class="left sliding"><a class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
-    <div class="center sliding">Icons</div>
-    <div class="right"><a href="#" class="open-panel link icon-only"><i class="icon icon-bars"></i></a></div>
-  </div>
-</div>
+<template>
+  <div data-page="icons" class="page">
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="left sliding"><a class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
+        <div class="center sliding">Icons</div>
+        <div class="right"><a href="#" class="open-panel link icon-only"><i class="icon icon-bars"></i></a></div>
+      </div>
+    </div>
     <div class="page-content">
       <div class="content-block">
         <div class="content-block-inner">
-          <p>Framework7 comes with the premium and free <a href="https://github.com/nolimits4web/Framework7-Icons" class="external" target="_blank">Framework7 Icons</a> iOS-icons font developed specially to be used with iOS theme of Framework7. As for Material theme we recommend to use great-designed <a href="https://material.io/icons/" class="external" target="_blank">Material Icons</a> font. Both of these fonts use a typographic feature called <a href="http://alistapart.com/article/the-era-of-symbol-fonts" class="external" target="_blank">ligatures</a>. It’s easy to incorporate icons into your app. Here’s a small example:</p>
+          <p>Framework7 comes with the premium and free <a href="https://github.com/nolimits4web/Framework7-Icons" class="external" target="_blank">Framework7 Icons</a> iOS-icons font developed specially to be used with iOS theme of Framework7. As for Material
+            theme we recommend to use great-designed <a href="https://material.io/icons/" class="external" target="_blank">Material Icons</a> font. Both of these fonts use a typographic feature called <a href="http://alistapart.com/article/the-era-of-symbol-fonts"
+              class="external" target="_blank">ligatures</a>. It’s easy to incorporate icons into your app. Here’s a small example:</p>
           <p><code>&lt;i class="f7-icons"&gt;home&lt;/i&gt;</code> - <i class="f7-icons">home</i></p>
-          <p><a href="http://alistapart.com/article/the-era-of-symbol-fonts" class="external" target="_blank">Ligatures</a> allow rendering of an icon glyph simply by using its textual name. The replacement is done automatically by the web browser and provides more readable code than the equivalent numeric character reference.</p>
+          <p><a href="http://alistapart.com/article/the-era-of-symbol-fonts" class="external" target="_blank">Ligatures</a> allow rendering of an icon glyph simply by using its textual name. The replacement is done automatically by the web browser and provides
+            more readable code than the equivalent numeric character reference.</p>
           <p>With ligatures it is also possible to combine icons like:</p>
           <p><code>&lt;i class="f7-icons"&gt;person&lt;sup&gt;add&lt;/sup&gt;&lt;/i&gt;</code> - <i class="f7-icons">person<sup>add</sup></i></p>
         </div>
@@ -1055,4 +1060,5 @@
         </div>
       </div>
     </div>
-  </div></template>
+  </div>
+</template>

@@ -1,10 +1,12 @@
-<template><div data-page="list-view" class="page"><div class="navbar">
-  <div class="navbar-inner">
-    <div class="left sliding"><a class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
-    <div class="center sliding">List View</div>
-    <div class="right"><a href="#" class="open-panel link icon-only"><i class="icon icon-bars"></i></a></div>
-  </div>
-</div>
+<template>
+  <div data-page="list-view" class="page">
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="left sliding"><a class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
+        <div class="center sliding">List View</div>
+        <div class="right"><a href="#" class="open-panel link icon-only"><i class="icon icon-bars"></i></a></div>
+      </div>
+    </div>
     <div class="page-content">
       <div class="content-block">
         <p>Framework7 allows you to be flexible with list views (table views). You can make them as navigation menus, you can use there icons, inputs, and any elements inside of the list, and even make them nested:</p>
@@ -15,7 +17,7 @@
           <li>
             <div class="item-content">
               <div class="item-media"><i class="icon icon-f7"></i></div>
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-title">Ivan Petrov</div>
                 <div class="item-after">CEO</div>
               </div>
@@ -24,7 +26,7 @@
           <li>
             <div class="item-content">
               <div class="item-media"><i class="icon icon-f7"></i></div>
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-title">John Doe</div>
                 <div class="item-after"> <span class="badge">5</span></div>
               </div>
@@ -33,7 +35,7 @@
           <li>
             <div class="item-content">
               <div class="item-media"><i class="icon icon-f7"></i></div>
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-title">Jenna Smith</div>
               </div>
             </div>
@@ -43,47 +45,68 @@
       <div class="content-block-title">Links</div>
       <div class="list-block">
         <ul>
-          <li><a href="#" class="item-link item-content">
+          <li>
+            <a href="#" class="item-link item-content">
               <div class="item-media"><i class="icon icon-f7"></i></div>
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-title">Ivan Petrov</div>
                 <div class="item-after">CEO</div>
-              </div></a></li>
-          <li><a href="#" class="item-link item-content">
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="item-link item-content">
               <div class="item-media"><i class="icon icon-f7"></i></div>
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-title">John Doe</div>
                 <div class="item-after">Cleaner</div>
-              </div></a></li>
-          <li><a href="#" class="item-link item-content">
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="item-link item-content">
               <div class="item-media"><i class="icon icon-f7"></i></div>
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-title">Jenna Smith</div>
-              </div></a></li>
+              </div>
+            </a>
+          </li>
         </ul>
       </div>
       <div class="content-block-title">Links, no icons</div>
       <div class="list-block">
         <ul>
-          <li><a href="#" class="item-link item-content">
-              <div class="item-inner"> 
+          <li>
+            <a href="#" class="item-link item-content">
+              <div class="item-inner">
                 <div class="item-title">Ivan Petrov</div>
-              </div></a></li>
-          <li><a href="#" class="item-link item-content">
-              <div class="item-inner"> 
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="item-link item-content">
+              <div class="item-inner">
                 <div class="item-title">John Doe</div>
-              </div></a></li>
+              </div>
+            </a>
+          </li>
           <li>
             <div class="item-divider">Divider Here</div>
           </li>
-          <li><a href="#" class="item-link item-content">
-              <div class="item-inner"> 
+          <li>
+            <a href="#" class="item-link item-content">
+              <div class="item-inner">
                 <div class="item-title">Ivan Petrov</div>
-              </div></a></li>
-          <li><a href="#" class="item-link item-content">
-              <div class="item-inner"> 
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="item-link item-content">
+              <div class="item-inner">
                 <div class="item-title">Jenna Smith</div>
-              </div></a></li>
+              </div>
+            </a>
+          </li>
         </ul>
       </div>
       <div class="content-block-title">Grouped with sticky titles</div>
@@ -170,78 +193,96 @@
       <div class="content-block-title">Mixed and nested</div>
       <div class="list-block">
         <ul>
-          <li><a href="#" class="item-link item-content">
+          <li>
+            <a href="#" class="item-link item-content">
               <div class="item-media"><i class="icon icon-f7"></i></div>
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-title">Ivan Petrov</div>
                 <div class="item-after">CEO</div>
-              </div></a></li>
-          <li><a href="#" class="item-link item-content">
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="item-link item-content">
               <div class="item-media"><i class="icon icon-f7"></i><i class="icon icon-f7"></i></div>
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-title">Two icons here</div>
-              </div></a></li>
+              </div>
+            </a>
+          </li>
           <li>
             <div class="item-content">
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-title">No icons here</div>
               </div>
             </div>
             <ul>
-              <li><a href="#" class="item-link item-content">
+              <li>
+                <a href="#" class="item-link item-content">
                   <div class="item-media"><i class="icon icon-f7"></i></div>
-                  <div class="item-inner"> 
+                  <div class="item-inner">
                     <div class="item-title">Ivan Petrov</div>
                     <div class="item-after">CEO</div>
-                  </div></a></li>
-              <li><a href="#" class="item-link item-content">
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="item-link item-content">
                   <div class="item-media"><i class="icon icon-f7"></i><i class="icon icon-f7"></i></div>
-                  <div class="item-inner"> 
+                  <div class="item-inner">
                     <div class="item-title">Two icons here</div>
-                  </div></a></li>
+                  </div>
+                </a>
+              </li>
               <li>
                 <div class="item-content">
-                  <div class="item-inner"> 
+                  <div class="item-inner">
                     <div class="item-title">No icons here</div>
                   </div>
                 </div>
               </li>
-              <li><a href="#" class="item-link item-content">
+              <li>
+                <a href="#" class="item-link item-content">
                   <div class="item-media"><i class="icon icon-f7"></i></div>
-                  <div class="item-inner"> 
+                  <div class="item-inner">
                     <div class="item-title">Ultra long text goes here, no, it is really really long</div>
-                  </div></a></li>
+                  </div>
+                </a>
+              </li>
               <li>
                 <div class="item-content">
                   <div class="item-media"><i class="icon icon-f7"></i></div>
-                  <div class="item-inner"> 
+                  <div class="item-inner">
                     <div class="item-title">With switch</div>
                     <div class="item-after">
                       <label class="label-switch">
-                        <input type="checkbox">
-                        <div class="checkbox"></div>
-                      </label>
+                          <input type="checkbox">
+                          <div class="checkbox"></div>
+                        </label>
                     </div>
                   </div>
                 </div>
               </li>
             </ul>
           </li>
-          <li><a href="#" class="item-link item-content">
+          <li>
+            <a href="#" class="item-link item-content">
               <div class="item-media"><i class="icon icon-f7"></i></div>
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-title">Ultra long text goes here, no, it is really really long</div>
-              </div></a></li>
+              </div>
+            </a>
+          </li>
           <li>
             <div class="item-content">
               <div class="item-media"><i class="icon icon-f7"></i></div>
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-title">With switch</div>
                 <div class="item-after">
                   <label class="label-switch">
-                    <input type="checkbox">
-                    <div class="checkbox"></div>
-                  </label>
+                      <input type="checkbox">
+                      <div class="checkbox"></div>
+                    </label>
                 </div>
               </div>
             </div>
@@ -251,32 +292,41 @@
       <div class="content-block-title">Mixed, inset</div>
       <div class="list-block inset">
         <ul>
-          <li><a href="#" class="item-link item-content">
+          <li>
+            <a href="#" class="item-link item-content">
               <div class="item-media"><i class="icon icon-f7"></i></div>
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-title">Ivan Petrov</div>
                 <div class="item-after">CEO</div>
-              </div></a></li>
-          <li><a href="#" class="item-link item-content">
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="item-link item-content">
               <div class="item-media"><i class="icon icon-f7"></i><i class="icon icon-f7"></i></div>
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-title">Two icons here</div>
-              </div></a></li>
-          <li><a href="#" class="item-link item-content">
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="item-link item-content">
               <div class="item-media"><i class="icon icon-f7"></i></div>
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-title">Ultra long text goes here, no, it is really really long</div>
-              </div></a></li>
+              </div>
+            </a>
+          </li>
           <li>
             <div class="item-content">
               <div class="item-media"><i class="icon icon-f7"></i></div>
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-title">With switch</div>
                 <div class="item-after">
                   <label class="label-switch">
-                    <input type="checkbox">
-                    <div class="checkbox"></div>
-                  </label>
+                      <input type="checkbox">
+                      <div class="checkbox"></div>
+                    </label>
                 </div>
               </div>
             </div>
@@ -289,26 +339,36 @@
       <div class="content-block-title">Tablet inset</div>
       <div class="list-block tablet-inset">
         <ul>
-          <li><a href="#" class="item-link item-content">
+          <li>
+            <a href="#" class="item-link item-content">
               <div class="item-media"><i class="icon icon-f7"></i></div>
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-title">Ivan Petrov</div>
                 <div class="item-after">CEO</div>
-              </div></a></li>
-          <li><a href="#" class="item-link item-content">
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="item-link item-content">
               <div class="item-media"><i class="icon icon-f7"></i><i class="icon icon-f7"></i></div>
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-title">Two icons here</div>
-              </div></a></li>
-          <li><a href="#" class="item-link item-content">
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="item-link item-content">
               <div class="item-media"><i class="icon icon-f7"></i></div>
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-title">Ultra long text goes here, no, it is really really long</div>
-              </div></a></li>
+              </div>
+            </a>
+          </li>
         </ul>
         <div class="list-block-label">
           <p>This list block will look like "inset" only on tablets (iPad)</p>
         </div>
       </div>
     </div>
-  </div></template>
+  </div>
+</template>

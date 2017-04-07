@@ -1,10 +1,12 @@
-<template><div data-page="swiper-horizontal" class="page"><div class="navbar">
-  <div class="navbar-inner">
-    <div class="left sliding"><a href="/f7ios/swiper/" class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
-    <div class="center sliding">Slider Lazy Loading</div>
-    <div class="right"><a href="#" class="open-panel link icon-only"><i class="icon icon-bars"></i></a></div>
-  </div>
-</div>
+<template>
+  <div data-page="swiper-horizontal" class="page">
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="left sliding"><a href="/f7ios/swiper/" class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
+        <div class="center sliding">Slider Lazy Loading</div>
+        <div class="right"><a href="#" class="open-panel link icon-only"><i class="icon icon-bars"></i></a></div>
+      </div>
+    </div>
     <div class="page-content">
       <div data-pagination=".swiper-pagination" data-next-button=".swiper-button-next" data-prev-button=".swiper-button-prev" data-preload-images="false" data-lazy-loading="true" class="swiper-container swiper-init ks-lazy-slider">
         <div class="swiper-wrapper">
@@ -44,4 +46,5 @@
         <div class="swiper-button-next swiper-button-white"></div>
       </div>
     </div>
-  </div></template>
+  </div>
+</template>

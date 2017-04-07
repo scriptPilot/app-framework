@@ -1,10 +1,12 @@
-<template><div data-page="swiper-gallery" class="page"><div class="navbar">
-  <div class="navbar-inner">
-    <div class="left sliding"><a href="/f7ios/swiper/" class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
-    <div class="center sliding">Two Way Control Gallery</div>
-    <div class="right"><a href="#" class="open-panel link icon-only"><i class="icon icon-bars"></i></a></div>
-  </div>
-</div>
+<template>
+  <div data-page="swiper-gallery" class="page">
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="left sliding"><a href="/f7ios/swiper/" class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
+        <div class="center sliding">Two Way Control Gallery</div>
+        <div class="right"><a href="#" class="open-panel link icon-only"><i class="icon icon-bars"></i></a></div>
+      </div>
+    </div>
     <div class="page-content">
       <div class="swiper-container ks-swiper-gallery-top">
         <div class="swiper-wrapper">
@@ -53,4 +55,5 @@
         </div>
       </div>
     </div>
-  </div></template>
+  </div>
+</template>

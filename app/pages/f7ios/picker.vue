@@ -1,10 +1,12 @@
-<template><div data-page="pickers" class="page"><div class="navbar">
-  <div class="navbar-inner">
-    <div class="left sliding"><a class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
-    <div class="center sliding">Picker</div>
-    <div class="right"><a href="#" class="link open-panel icon-only"><i class="icon icon-bars"></i></a></div>
-  </div>
-</div>
+<template>
+  <div data-page="pickers" class="page">
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="left sliding"><a class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
+        <div class="center sliding">Picker</div>
+        <div class="right"><a href="#" class="link open-panel icon-only"><i class="icon icon-bars"></i></a></div>
+      </div>
+    </div>
     <div class="page-content">
       <div class="content-block">
         <p>Picker is a powerful component that allows you to create custom overlay pickers which looks like iOS native picker.</p>
@@ -15,7 +17,7 @@
         <ul>
           <li>
             <div class="item-content">
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-input">
                   <input type="text" placeholder="Your iOS device" readonly="readonly" id="ks-picker-device">
                 </div>
@@ -29,7 +31,7 @@
         <ul>
           <li>
             <div class="item-content">
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-input">
                   <input type="text" placeholder="Describe yourself" readonly="readonly" id="ks-picker-describe">
                 </div>
@@ -43,7 +45,7 @@
         <ul>
           <li>
             <div class="item-content">
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-input">
                   <input type="text" placeholder="Your car" readonly="readonly" id="ks-picker-dependent">
                 </div>
@@ -57,7 +59,7 @@
         <ul>
           <li>
             <div class="item-content">
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-input">
                   <input type="text" placeholder="Describe yourself" readonly="readonly" id="ks-picker-custom-toolbar">
                 </div>
@@ -73,7 +75,7 @@
             <ul style="border-top:none">
               <li>
                 <div class="item-content">
-                  <div class="item-inner"> 
+                  <div class="item-inner">
                     <div class="item-input">
                       <input type="text" placeholder="Date Time" readonly="readonly" id="ks-picker-date">
                     </div>
@@ -86,4 +88,5 @@
         </div>
       </div>
     </div>
-  </div></template>
+  </div>
+</template>

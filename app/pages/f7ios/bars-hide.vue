@@ -1,10 +1,12 @@
-<template><div data-page="hide-navbar-toolbar" class="page"><div class="navbar">
-  <div class="navbar-inner">
-    <div class="left sliding"><a class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
-    <div class="center sliding">Hide Navbar &amp; Toolbar</div>
-    <div class="right"><a href="#" class="open-panel link icon-only"><i class="icon icon-bars"></i></a></div>
-  </div>
-</div>
+<template>
+  <div data-page="hide-navbar-toolbar" class="page">
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="left sliding"><a class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
+        <div class="center sliding">Hide Navbar &amp; Toolbar</div>
+        <div class="right"><a href="#" class="open-panel link icon-only"><i class="icon icon-bars"></i></a></div>
+      </div>
+    </div>
     <div class="page-content">
       <div class="content-block">
         <div class="content-block-inner">
@@ -13,28 +15,38 @@
       </div>
       <div class="list-block">
         <ul>
-          <li><a href="/f7ios/bars-no-navbar/" class="item-link">
+          <li>
+            <a href="/f7ios/bars-no-navbar/" class="item-link">
               <div class="item-content">
                 <div class="item-media"><i class="icon icon-f7"></i></div>
-                <div class="item-inner"> 
+                <div class="item-inner">
                   <div class="item-title">Hide Navbar</div>
                 </div>
-              </div></a></li>
-          <li><a href="/f7ios/bars-no-toolbar/" class="item-link">
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="/f7ios/bars-no-toolbar/" class="item-link">
               <div class="item-content">
                 <div class="item-media"><i class="icon icon-f7"></i></div>
-                <div class="item-inner"> 
+                <div class="item-inner">
                   <div class="item-title">Hide Toolbar</div>
                 </div>
-              </div></a></li>
-          <li><a href="/f7ios/bars-no-navbar-toolbar/" class="item-link">
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="/f7ios/bars-no-navbar-toolbar/" class="item-link">
               <div class="item-content">
                 <div class="item-media"><i class="icon icon-f7"></i></div>
-                <div class="item-inner"> 
+                <div class="item-inner">
                   <div class="item-title">Hide Both</div>
                 </div>
-              </div></a></li>
+              </div>
+            </a>
+          </li>
         </ul>
       </div>
     </div>
-  </div></template>
+  </div>
+</template>

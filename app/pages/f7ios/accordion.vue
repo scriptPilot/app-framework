@@ -1,35 +1,42 @@
-<template><div data-page="accordion" class="page"><div class="navbar">
-  <div class="navbar-inner">
-    <div class="left sliding"><a class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
-    <div class="center sliding">Accordion</div>
-    <div class="right"><a href="#" class="open-panel link icon-only"><i class="icon icon-bars"></i></a></div>
-  </div>
-</div>
+<template>
+  <div data-page="accordion" class="page">
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="left sliding"><a class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
+        <div class="center sliding">Accordion</div>
+        <div class="right"><a href="#" class="open-panel link icon-only"><i class="icon icon-bars"></i></a></div>
+      </div>
+    </div>
     <div class="page-content">
       <div class="content-block-title">List View Accordion</div>
       <div class="list-block accordion-list">
         <ul>
-          <li class="accordion-item"><a href="#" class="item-link item-content">
-              <div class="item-inner"> 
+          <li class="accordion-item">
+            <a href="#" class="item-link item-content">
+              <div class="item-inner">
                 <div class="item-title">Lorem Ipsum</div>
-              </div></a>
+              </div>
+            </a>
             <div class="accordion-item-content">
               <div class="content-block">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean elementum id neque nec commodo. Sed vel justo at turpis laoreet pellentesque quis sed lorem. Integer semper arcu nibh, non mollis arcu tempor vel. Sed pharetra tortor vitae est rhoncus, vel congue dui sollicitudin. Donec eu arcu dignissim felis viverra blandit suscipit eget ipsum.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean elementum id neque nec commodo. Sed vel justo at turpis laoreet pellentesque quis sed lorem. Integer semper arcu nibh, non mollis arcu tempor vel. Sed pharetra tortor vitae
+                  est rhoncus, vel congue dui sollicitudin. Donec eu arcu dignissim felis viverra blandit suscipit eget ipsum.</p>
               </div>
             </div>
           </li>
-          <li class="accordion-item"><a href="#" class="item-link item-content">
-              <div class="item-inner"> 
+          <li class="accordion-item">
+            <a href="#" class="item-link item-content">
+              <div class="item-inner">
                 <div class="item-title">Nested List</div>
-              </div></a>
+              </div>
+            </a>
             <div class="accordion-item-content">
               <div class="list-block">
                 <ul>
                   <li>
                     <div class="item-content">
                       <div class="item-media"><i class="icon icon-f7"></i></div>
-                      <div class="item-inner"> 
+                      <div class="item-inner">
                         <div class="item-title">Item 1</div>
                       </div>
                     </div>
@@ -37,7 +44,7 @@
                   <li>
                     <div class="item-content">
                       <div class="item-media"><i class="icon icon-f7"></i></div>
-                      <div class="item-inner"> 
+                      <div class="item-inner">
                         <div class="item-title">Item 2</div>
                       </div>
                     </div>
@@ -45,7 +52,7 @@
                   <li>
                     <div class="item-content">
                       <div class="item-media"><i class="icon icon-f7"></i></div>
-                      <div class="item-inner"> 
+                      <div class="item-inner">
                         <div class="item-title">Item 3</div>
                       </div>
                     </div>
@@ -53,7 +60,7 @@
                   <li>
                     <div class="item-content">
                       <div class="item-media"><i class="icon icon-f7"></i></div>
-                      <div class="item-inner"> 
+                      <div class="item-inner">
                         <div class="item-title">Item 4</div>
                       </div>
                     </div>
@@ -62,13 +69,16 @@
               </div>
             </div>
           </li>
-          <li class="accordion-item"><a href="#" class="item-link item-content">
-              <div class="item-inner"> 
+          <li class="accordion-item">
+            <a href="#" class="item-link item-content">
+              <div class="item-inner">
                 <div class="item-title">Integer semper</div>
-              </div></a>
+              </div>
+            </a>
             <div class="accordion-item-content">
               <div class="content-block">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean elementum id neque nec commodo. Sed vel justo at turpis laoreet pellentesque quis sed lorem. Integer semper arcu nibh, non mollis arcu tempor vel. Sed pharetra tortor vitae est rhoncus, vel congue dui sollicitudin. Donec eu arcu dignissim felis viverra blandit suscipit eget ipsum.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean elementum id neque nec commodo. Sed vel justo at turpis laoreet pellentesque quis sed lorem. Integer semper arcu nibh, non mollis arcu tempor vel. Sed pharetra tortor vitae
+                  est rhoncus, vel congue dui sollicitudin. Donec eu arcu dignissim felis viverra blandit suscipit eget ipsum.</p>
               </div>
             </div>
           </li>
@@ -77,27 +87,32 @@
       <div class="content-block-title">Inset Accordion</div>
       <div class="list-block accordion-list inset">
         <ul>
-          <li class="accordion-item"><a href="#" class="item-link item-content">
-              <div class="item-inner"> 
+          <li class="accordion-item">
+            <a href="#" class="item-link item-content">
+              <div class="item-inner">
                 <div class="item-title">Lorem Ipsum</div>
-              </div></a>
+              </div>
+            </a>
             <div class="accordion-item-content">
               <div class="content-block">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean elementum id neque nec commodo. Sed vel justo at turpis laoreet pellentesque quis sed lorem. Integer semper arcu nibh, non mollis arcu tempor vel. Sed pharetra tortor vitae est rhoncus, vel congue dui sollicitudin. Donec eu arcu dignissim felis viverra blandit suscipit eget ipsum.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean elementum id neque nec commodo. Sed vel justo at turpis laoreet pellentesque quis sed lorem. Integer semper arcu nibh, non mollis arcu tempor vel. Sed pharetra tortor vitae
+                  est rhoncus, vel congue dui sollicitudin. Donec eu arcu dignissim felis viverra blandit suscipit eget ipsum.</p>
               </div>
             </div>
           </li>
-          <li class="accordion-item"><a href="#" class="item-link item-content">
-              <div class="item-inner"> 
+          <li class="accordion-item">
+            <a href="#" class="item-link item-content">
+              <div class="item-inner">
                 <div class="item-title">Nested List</div>
-              </div></a>
+              </div>
+            </a>
             <div class="accordion-item-content">
               <div class="list-block">
                 <ul>
                   <li>
                     <div class="item-content">
                       <div class="item-media"><i class="icon icon-f7"></i></div>
-                      <div class="item-inner"> 
+                      <div class="item-inner">
                         <div class="item-title">Item 1</div>
                       </div>
                     </div>
@@ -105,7 +120,7 @@
                   <li>
                     <div class="item-content">
                       <div class="item-media"><i class="icon icon-f7"></i></div>
-                      <div class="item-inner"> 
+                      <div class="item-inner">
                         <div class="item-title">Item 2</div>
                       </div>
                     </div>
@@ -113,7 +128,7 @@
                   <li>
                     <div class="item-content">
                       <div class="item-media"><i class="icon icon-f7"></i></div>
-                      <div class="item-inner"> 
+                      <div class="item-inner">
                         <div class="item-title">Item 3</div>
                       </div>
                     </div>
@@ -121,7 +136,7 @@
                   <li>
                     <div class="item-content">
                       <div class="item-media"><i class="icon icon-f7"></i></div>
-                      <div class="item-inner"> 
+                      <div class="item-inner">
                         <div class="item-title">Item 4</div>
                       </div>
                     </div>
@@ -130,13 +145,16 @@
               </div>
             </div>
           </li>
-          <li class="accordion-item"><a href="#" class="item-link item-content">
-              <div class="item-inner"> 
+          <li class="accordion-item">
+            <a href="#" class="item-link item-content">
+              <div class="item-inner">
                 <div class="item-title">Integer semper</div>
-              </div></a>
+              </div>
+            </a>
             <div class="accordion-item-content">
               <div class="content-block">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean elementum id neque nec commodo. Sed vel justo at turpis laoreet pellentesque quis sed lorem. Integer semper arcu nibh, non mollis arcu tempor vel. Sed pharetra tortor vitae est rhoncus, vel congue dui sollicitudin. Donec eu arcu dignissim felis viverra blandit suscipit eget ipsum.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean elementum id neque nec commodo. Sed vel justo at turpis laoreet pellentesque quis sed lorem. Integer semper arcu nibh, non mollis arcu tempor vel. Sed pharetra tortor vitae
+                  est rhoncus, vel congue dui sollicitudin. Donec eu arcu dignissim felis viverra blandit suscipit eget ipsum.</p>
               </div>
             </div>
           </li>
@@ -147,21 +165,25 @@
         <div class="accordion-item">
           <div class="accordion-item-toggle"><i class="icon icon-ks-plus">+</i><i class="icon icon-ks-minus">-</i><span>Item 1</span></div>
           <div class="accordion-item-content">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean elementum id neque nec commodo. Sed vel justo at turpis laoreet pellentesque quis sed lorem. Integer semper arcu nibh, non mollis arcu tempor vel. Sed pharetra tortor vitae est rhoncus, vel congue dui sollicitudin. Donec eu arcu dignissim felis viverra blandit suscipit eget ipsum.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean elementum id neque nec commodo. Sed vel justo at turpis laoreet pellentesque quis sed lorem. Integer semper arcu nibh, non mollis arcu tempor vel. Sed pharetra tortor vitae est
+              rhoncus, vel congue dui sollicitudin. Donec eu arcu dignissim felis viverra blandit suscipit eget ipsum.</p>
           </div>
         </div>
         <div class="accordion-item">
           <div class="accordion-item-toggle"><i class="icon icon-ks-plus">+</i><i class="icon icon-ks-minus">-</i><span>Item 2</span></div>
           <div class="accordion-item-content">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean elementum id neque nec commodo. Sed vel justo at turpis laoreet pellentesque quis sed lorem. Integer semper arcu nibh, non mollis arcu tempor vel. Sed pharetra tortor vitae est rhoncus, vel congue dui sollicitudin. Donec eu arcu dignissim felis viverra blandit suscipit eget ipsum.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean elementum id neque nec commodo. Sed vel justo at turpis laoreet pellentesque quis sed lorem. Integer semper arcu nibh, non mollis arcu tempor vel. Sed pharetra tortor vitae est
+              rhoncus, vel congue dui sollicitudin. Donec eu arcu dignissim felis viverra blandit suscipit eget ipsum.</p>
           </div>
         </div>
         <div class="accordion-item">
           <div class="accordion-item-toggle"><i class="icon icon-ks-plus">+</i><i class="icon icon-ks-minus">-</i><span>Item 3</span></div>
           <div class="accordion-item-content">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean elementum id neque nec commodo. Sed vel justo at turpis laoreet pellentesque quis sed lorem. Integer semper arcu nibh, non mollis arcu tempor vel. Sed pharetra tortor vitae est rhoncus, vel congue dui sollicitudin. Donec eu arcu dignissim felis viverra blandit suscipit eget ipsum.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean elementum id neque nec commodo. Sed vel justo at turpis laoreet pellentesque quis sed lorem. Integer semper arcu nibh, non mollis arcu tempor vel. Sed pharetra tortor vitae est
+              rhoncus, vel congue dui sollicitudin. Donec eu arcu dignissim felis viverra blandit suscipit eget ipsum.</p>
           </div>
         </div>
       </div>
     </div>
-  </div></template>
+  </div>
+</template>

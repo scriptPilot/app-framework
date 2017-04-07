@@ -61,7 +61,7 @@ cmd(f7Folder, 'gulp build', function () {
     colors.default.material = materialColorFile.match(/@themeColor:( )?@([a-z]+);/)[2]
     fs.writeJsonSync(abs(env.proj, 'lib/theme-colors.json'), colors)
     // Update kitchen sinks
-    cmd(__dirname, 'node updateKitchenSinks', function () {
+    cmd(__dirname, 'node update-kitchen-sinks', function () {
       alert('Framework7 update done.')
     })
   }, 'Framework7 distribution process failed.')

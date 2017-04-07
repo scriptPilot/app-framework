@@ -1,10 +1,12 @@
-<template><div data-page="swiper-multiple" class="page"><div class="navbar">
-  <div class="navbar-inner">
-    <div class="left sliding"><a href="/f7ios/swiper/" class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
-    <div class="center sliding">Multiple Sliders</div>
-    <div class="right"><a href="#" class="open-panel link icon-only"><i class="icon icon-bars"></i></a></div>
-  </div>
-</div>
+<template>
+  <div data-page="swiper-multiple" class="page">
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="left sliding"><a href="/f7ios/swiper/" class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
+        <div class="center sliding">Multiple Sliders</div>
+        <div class="right"><a href="#" class="open-panel link icon-only"><i class="icon icon-bars"></i></a></div>
+      </div>
+    </div>
     <div class="page-content">
       <div class="content-block-title">1 Slide Per View, 50px Between</div>
       <div data-pagination=".swiper-pagination-c1" data-space-between="50" class="swiper-container swiper-init ks-carousel-slider">
@@ -98,4 +100,5 @@
         </div>
       </div>
     </div>
-  </div></template>
+  </div>
+</template>

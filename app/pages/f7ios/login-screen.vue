@@ -1,10 +1,12 @@
-<template><div data-page="login-screen" class="page"><div class="navbar">
-  <div class="navbar-inner">
-    <div class="left sliding"><a class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
-    <div class="center sliding">Login Screen</div>
-    <div class="right"><a href="#" class="link open-panel icon-only"><i class="icon icon-bars"></i></a></div>
-  </div>
-</div>
+<template>
+  <div data-page="login-screen" class="page">
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="left sliding"><a class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
+        <div class="center sliding">Login Screen</div>
+        <div class="right"><a href="#" class="link open-panel icon-only"><i class="icon icon-bars"></i></a></div>
+      </div>
+    </div>
     <div class="page-content">
       <div class="content-block">
         <p>Framework7 comes with ready to use Login Screen layout. It could be used inside of page or inside of popup (Embedded) or as a standalone overlay:</p>
@@ -14,4 +16,5 @@
         <div class="col-50"><a href="#" class="button open-login-screen">As Overlay</a></div>
       </div>
     </div>
-  </div></template>
+  </div>
+</template>

@@ -1,13 +1,16 @@
-<template><div data-page="virtual-list" class="page"><div class="navbar">
-  <div class="navbar-inner">
-    <div class="left sliding"><a class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
-    <div class="center sliding">Virtual List</div>
-    <div class="right"><a href="#" class="open-panel link icon-only"><i class="icon icon-bars"></i></a></div>
-  </div>
-</div>
+<template>
+  <div data-page="virtual-list" class="page">
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="left sliding"><a class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
+        <div class="center sliding">Virtual List</div>
+        <div class="right"><a href="#" class="open-panel link icon-only"><i class="icon icon-bars"></i></a></div>
+      </div>
+    </div>
     <form data-search-list=".virtual-list" class="searchbar searchbar-init">
       <div class="searchbar-input">
-        <input type="search" placeholder="Search"><a href="#" class="searchbar-clear"></a>
+        <input type="search" placeholder="Search">
+        <a href="#" class="searchbar-clear"></a>
       </div><a href="#" class="searchbar-cancel">Cancel</a>
     </form>
     <div class="searchbar-overlay"></div>
@@ -27,4 +30,5 @@
         </ul>
       </div>
     </div>
-  </div></template>
+  </div>
+</template>

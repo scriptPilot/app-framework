@@ -1,10 +1,12 @@
-<template><div data-page="form-elements" class="page"><div class="navbar">
-  <div class="navbar-inner">
-    <div class="left sliding"><a href="/f7ios/forms/" class="back link"><i class="icon icon-back"></i><span>Forms</span></a></div>
-    <div class="center sliding">Form Elements</div>
-    <div class="right"><a href="#" class="link open-panel icon-only"><i class="icon icon-bars"></i></a></div>
-  </div>
-</div>
+<template>
+  <div data-page="form-elements" class="page">
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="left sliding"><a href="/f7ios/forms/" class="back link"><i class="icon icon-back"></i><span>Forms</span></a></div>
+        <div class="center sliding">Form Elements</div>
+        <div class="right"><a href="#" class="link open-panel icon-only"><i class="icon icon-bars"></i></a></div>
+      </div>
+    </div>
     <div class="page-content">
       <div class="content-block-title">Full Layout</div>
       <form class="list-block">
@@ -12,7 +14,7 @@
           <li>
             <div class="item-content">
               <div class="item-media"><i class="icon f7-icons">person</i></div>
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-title label">Name</div>
                 <div class="item-input">
                   <input type="text" placeholder="Your name">
@@ -23,7 +25,7 @@
           <li>
             <div class="item-content">
               <div class="item-media"><i class="icon f7-icons">email</i></div>
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-title label">E-mail</div>
                 <div class="item-input">
                   <input type="email" placeholder="E-mail">
@@ -34,7 +36,7 @@
           <li>
             <div class="item-content">
               <div class="item-media"><i class="icon f7-icons">world</i></div>
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-title label">URL</div>
                 <div class="item-input">
                   <input type="url" placeholder="URL">
@@ -45,7 +47,7 @@
           <li>
             <div class="item-content">
               <div class="item-media"><i class="icon f7-icons">lock</i></div>
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-title label">Password</div>
                 <div class="item-input">
                   <input type="password" placeholder="Password">
@@ -56,7 +58,7 @@
           <li>
             <div class="item-content">
               <div class="item-media"><i class="icon f7-icons">phone</i></div>
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-title label">Phone</div>
                 <div class="item-input">
                   <input type="tel" placeholder="Phone">
@@ -67,13 +69,13 @@
           <li>
             <div class="item-content">
               <div class="item-media"><i class="icon f7-icons">persons</i></div>
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-title label">Gender</div>
                 <div class="item-input">
                   <select>
-                    <option>Male</option>
-                    <option>Female</option>
-                  </select>
+                      <option>Male</option>
+                      <option>Female</option>
+                    </select>
                 </div>
               </div>
             </div>
@@ -81,7 +83,7 @@
           <li>
             <div class="item-content">
               <div class="item-media"><i class="icon f7-icons">calendar</i></div>
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-title label">Birth date</div>
                 <div class="item-input">
                   <input type="date" placeholder="Birth day" value="2014-04-30">
@@ -92,7 +94,7 @@
           <li>
             <div class="item-content">
               <div class="item-media"><i class="icon f7-icons">calendar</i></div>
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-title label">Date time</div>
                 <div class="item-input">
                   <input type="datetime-local" placeholder="Birth day">
@@ -103,13 +105,13 @@
           <li>
             <div class="item-content">
               <div class="item-media"><i class="icon f7-icons">check</i></div>
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-title label">Switch</div>
                 <div class="item-input">
                   <label class="label-switch">
-                    <input type="checkbox">
-                    <div class="checkbox"></div>
-                  </label>
+                      <input type="checkbox">
+                      <div class="checkbox"></div>
+                    </label>
                 </div>
               </div>
             </div>
@@ -130,7 +132,7 @@
           <li class="align-top">
             <div class="item-content">
               <div class="item-media"><i class="icon f7-icons">chat</i></div>
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-title label">Textarea</div>
                 <div class="item-input">
                   <textarea></textarea>
@@ -141,7 +143,7 @@
           <li class="align-top">
             <div class="item-content">
               <div class="item-media"><i class="icon f7-icons">chat</i></div>
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-title label">Resizeable</div>
                 <div class="item-input">
                   <textarea class="resizable"></textarea>
@@ -157,7 +159,7 @@
           <li>
             <div class="item-content">
               <div class="item-media"><i class="icon f7-icons">person</i></div>
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-input">
                   <input type="text" placeholder="Your name">
                 </div>
@@ -167,7 +169,7 @@
           <li>
             <div class="item-content">
               <div class="item-media"><i class="icon f7-icons">email</i></div>
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-input">
                   <input type="email" placeholder="E-mail">
                 </div>
@@ -177,12 +179,12 @@
           <li>
             <div class="item-content">
               <div class="item-media"><i class="icon f7-icons">persons</i></div>
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-input">
                   <select>
-                    <option>Male</option>
-                    <option>Female</option>
-                  </select>
+                      <option>Male</option>
+                      <option>Female</option>
+                    </select>
                 </div>
               </div>
             </div>
@@ -190,7 +192,7 @@
           <li>
             <div class="item-content">
               <div class="item-media"><i class="icon f7-icons">calendar</i></div>
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-input">
                   <input type="date" placeholder="Birth day" value="2014-04-30">
                 </div>
@@ -200,12 +202,12 @@
           <li>
             <div class="item-content">
               <div class="item-media"><i class="icon f7-icons">check</i></div>
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-input">
                   <label class="label-switch">
-                    <input type="checkbox">
-                    <div class="checkbox"></div>
-                  </label>
+                      <input type="checkbox">
+                      <div class="checkbox"></div>
+                    </label>
                 </div>
               </div>
             </div>
@@ -217,7 +219,7 @@
         <ul>
           <li>
             <div class="item-content">
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-title label">Name</div>
                 <div class="item-input">
                   <input type="text" placeholder="Your name">
@@ -227,7 +229,7 @@
           </li>
           <li>
             <div class="item-content">
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-title label">E-mail</div>
                 <div class="item-input">
                   <input type="email" placeholder="E-mail">
@@ -237,20 +239,20 @@
           </li>
           <li>
             <div class="item-content">
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-title label">Gender</div>
                 <div class="item-input">
                   <select>
-                    <option>Male</option>
-                    <option>Female</option>
-                  </select>
+                      <option>Male</option>
+                      <option>Female</option>
+                    </select>
                 </div>
               </div>
             </div>
           </li>
           <li>
             <div class="item-content">
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-title label">Birth date</div>
                 <div class="item-input">
                   <input type="date" placeholder="Birth day" value="2014-04-30">
@@ -260,13 +262,13 @@
           </li>
           <li>
             <div class="item-content">
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-title label">Switch</div>
                 <div class="item-input">
                   <label class="label-switch">
-                    <input type="checkbox">
-                    <div class="checkbox"></div>
-                  </label>
+                      <input type="checkbox">
+                      <div class="checkbox"></div>
+                    </label>
                 </div>
               </div>
             </div>
@@ -278,7 +280,7 @@
         <ul>
           <li>
             <div class="item-content">
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-input">
                   <input type="text" placeholder="Your name">
                 </div>
@@ -287,7 +289,7 @@
           </li>
           <li>
             <div class="item-content">
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-input">
                   <input type="email" placeholder="E-mail">
                 </div>
@@ -296,19 +298,19 @@
           </li>
           <li>
             <div class="item-content">
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-input">
                   <select>
-                    <option>Male</option>
-                    <option>Female</option>
-                  </select>
+                      <option>Male</option>
+                      <option>Female</option>
+                    </select>
                 </div>
               </div>
             </div>
           </li>
           <li>
             <div class="item-content">
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-input">
                   <input type="date" placeholder="Birth day" value="2014-04-30">
                 </div>
@@ -323,7 +325,7 @@
           <ul></ul>
           <li>
             <div class="item-content">
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-input">
                   <input type="text" placeholder="Your name">
                 </div>
@@ -332,7 +334,7 @@
           </li>
           <li>
             <div class="item-content">
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-input">
                   <input type="email" placeholder="E-mail">
                 </div>
@@ -341,19 +343,19 @@
           </li>
           <li>
             <div class="item-content">
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-input">
                   <select>
-                    <option>Male</option>
-                    <option>Female</option>
-                  </select>
+                      <option>Male</option>
+                      <option>Female</option>
+                    </select>
                 </div>
               </div>
             </div>
           </li>
           <li>
             <div class="item-content">
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-input">
                   <input type="date" placeholder="Birth day" value="2014-04-30">
                 </div>
@@ -363,4 +365,5 @@
         </ul>
       </form>
     </div>
-  </div></template>
+  </div>
+</template>

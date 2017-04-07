@@ -1,10 +1,12 @@
-<template><div data-page="deep-navbar" class="page"><div class="navbar">
-  <div class="navbar-inner">
-    <div class="left sliding"><a class="back link">Navbars</a></div>
-    <div class="center sliding">Deep Navbar</div>
-    <div class="right sliding"><a href="/f7ios/bars-deep-navbar-2/" class="link">Deep 2</a></div>
-  </div>
-</div>
+<template>
+  <div data-page="deep-navbar" class="page">
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="left sliding"><a class="back link">Navbars</a></div>
+        <div class="center sliding">Deep Navbar</div>
+        <div class="right sliding"><a href="/f7ios/bars-deep-navbar-2/" class="link">Deep 2</a></div>
+      </div>
+    </div>
     <div class="page-content">
       <div class="content-block">
         <div class="content-block-inner">
@@ -13,4 +15,5 @@
         <p><a href="/f7ios/bars-deep-navbar-2/" class="button">Go to page 2</a></p>
       </div>
     </div>
-  </div></template>
+  </div>
+</template>

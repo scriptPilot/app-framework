@@ -1,23 +1,26 @@
-<template><div data-page="cards" class="page"><div class="navbar">
-  <div class="navbar-inner">
-    <div class="left sliding"><a class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
-    <div class="center sliding">Cards</div>
-    <div class="right"><a href="#" class="link open-panel icon-only"><i class="icon icon-bars"></i></a></div>
-  </div>
-</div>
+<template>
+  <div data-page="cards" class="page">
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="left sliding"><a class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
+        <div class="center sliding">Cards</div>
+        <div class="right"><a href="#" class="link open-panel icon-only"><i class="icon icon-bars"></i></a></div>
+      </div>
+    </div>
     <div class="page-content">
       <div class="content-block">
-        <p>Cards, along with List View, is a one more great way to contain and orginize your information. Cards contains unique related data, for example, a photo, text, and link all about a single subject. Cards are typically an entry point to more complex and detailed information.</p>
+        <p>Cards, along with List View, is a one more great way to contain and orginize your information. Cards contains unique related data, for example, a photo, text, and link all about a single subject. Cards are typically an entry point to more complex
+          and detailed information.</p>
       </div>
       <div class="content-block-title">Simple Cards</div>
       <div class="card">
-        <div class="card-content"> 
+        <div class="card-content">
           <div class="card-content-inner">This is simple card with plain text. But card could contain its own header, footer, list view, image, and any elements inside.</div>
         </div>
       </div>
       <div class="card">
         <div class="card-header">Card header</div>
-        <div class="card-content"> 
+        <div class="card-content">
           <div class="card-content-inner">Card with header and footer. Card header is used to display card title and footer for some additional information or for custom actions.</div>
         </div>
         <div class="card-footer">Card Footer</div>
@@ -30,8 +33,8 @@
       <div class="content-block-title">Styled Cards</div>
       <div class="card ks-card-header-pic">
         <div style="background-image:url(http://lorempixel.com/1000/600/nature/3/)" valign="bottom" class="card-header color-white no-border">Journey To Mountains</div>
-        <div class="card-content"> 
-          <div class="card-content-inner"> 
+        <div class="card-content">
+          <div class="card-content-inner">
             <p class="color-gray">Posted on January 21, 2015</p>
             <p>Quisque eget vestibulum nulla. Quisque quis dui quis ex ultricies efficitur vitae non felis. Phasellus quis nibh hendrerit...</p>
           </div>
@@ -40,8 +43,8 @@
       </div>
       <div class="card ks-card-header-pic">
         <div style="background-image:url(http://lorempixel.com/1000/600/people/6/)" valign="bottom" class="card-header color-white no-border">Lorem Ipsum</div>
-        <div class="card-content"> 
-          <div class="card-content-inner"> 
+        <div class="card-content">
+          <div class="card-content-inner">
             <p class="color-gray">Posted on January 21, 2015</p>
             <p>Quisque eget vestibulum nulla. Quisque quis dui quis ex ultricies efficitur vitae non felis. Phasellus quis nibh hendrerit...</p>
           </div>
@@ -64,7 +67,7 @@
           <div class="ks-facebook-name">John Doe</div>
           <div class="ks-facebook-date">Monday at 2:15 PM</div>
         </div>
-        <div class="card-content"> 
+        <div class="card-content">
           <div class="card-content-inner">
             <p>What a nice photo i took yesterday!</p><img src="http://lorempixel.com/1000/700/nature/8/" width="100%">
             <p class="color-gray">Likes: 112 &nbsp;&nbsp; Comments: 43</p>
@@ -74,41 +77,56 @@
       </div>
       <div class="content-block-title">Cards With List View</div>
       <div class="card">
-        <div class="card-content"> 
+        <div class="card-content">
           <div class="list-block">
             <ul>
-              <li><a href="#" class="item-link item-content">
+              <li>
+                <a href="#" class="item-link item-content">
                   <div class="item-media"><i class="icon icon-f7"></i></div>
                   <div class="item-inner">
                     <div class="item-title">Link 1</div>
-                  </div></a></li>
-              <li><a href="#" class="item-link item-content">
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="item-link item-content">
                   <div class="item-media"><i class="icon icon-f7"></i></div>
                   <div class="item-inner">
                     <div class="item-title">Link 2</div>
-                  </div></a></li>
-              <li><a href="#" class="item-link item-content">
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="item-link item-content">
                   <div class="item-media"><i class="icon icon-f7"></i></div>
                   <div class="item-inner">
                     <div class="item-title">Link 3</div>
-                  </div></a></li>
-              <li><a href="#" class="item-link item-content">
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="item-link item-content">
                   <div class="item-media"><i class="icon icon-f7"></i></div>
                   <div class="item-inner">
                     <div class="item-title">Link 4</div>
-                  </div></a></li>
-              <li><a href="#" class="item-link item-content">
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="item-link item-content">
                   <div class="item-media"><i class="icon icon-f7"></i></div>
                   <div class="item-inner">
                     <div class="item-title">Link 5</div>
-                  </div></a></li>
+                  </div>
+                </a>
+              </li>
             </ul>
           </div>
         </div>
       </div>
       <div class="card">
         <div class="card-header">New Releases:</div>
-        <div class="card-content"> 
+        <div class="card-content">
           <div class="list-block media-list">
             <ul>
               <li class="item-content">
@@ -144,4 +162,5 @@
         <div class="card-footer"> <span>January 20, 2015</span><span>5 comments</span></div>
       </div>
     </div>
-  </div></template>
+  </div>
+</template>

@@ -1,10 +1,12 @@
-<template><div data-page="timeline-horizontal" class="page"><div class="navbar">
-  <div class="navbar-inner">
-    <div class="left sliding"><a class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
-    <div class="center sliding">Horizontal Timeline</div>
-    <div class="right"><a href="#" class="link open-panel icon-only"><i class="icon icon-bars"></i></a></div>
-  </div>
-</div>
+<template>
+  <div data-page="timeline-horizontal" class="page">
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="left sliding"><a class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
+        <div class="center sliding">Horizontal Timeline</div>
+        <div class="right"><a href="#" class="link open-panel icon-only"><i class="icon icon-bars"></i></a></div>
+      </div>
+    </div>
     <div class="page-content">
       <div class="timeline timeline-horizontal col-33 tablet-20">
         <div class="timeline-item">
@@ -58,18 +60,27 @@
           <div class="timeline-item-content">
             <div class="list-block inset">
               <ul>
-                <li><a href="#" class="item-content item-link">
+                <li>
+                  <a href="#" class="item-content item-link">
                     <div class="item-inner">
                       <div class="item-title">Item 1</div>
-                    </div></a></li>
-                <li><a href="#" class="item-content item-link">
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="item-content item-link">
                     <div class="item-inner">
                       <div class="item-title">Item 1</div>
-                    </div></a></li>
-                <li><a href="#" class="item-content item-link">
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="item-content item-link">
                     <div class="item-inner">
                       <div class="item-title">Item 1</div>
-                    </div></a></li>
+                    </div>
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
@@ -122,4 +133,5 @@
         </div>
       </div>
     </div>
-  </div></template>
+  </div>
+</template>

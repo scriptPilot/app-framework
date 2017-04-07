@@ -1,13 +1,17 @@
-<template><div data-page="form-storage" class="page"><div class="navbar">
-  <div class="navbar-inner">
-    <div class="left sliding"><a href="/f7ios/forms/" class="back link"><i class="icon icon-back"></i><span>Forms</span></a></div>
-    <div class="center sliding">Form Storage</div>
-    <div class="right"><a href="#" class="link open-panel icon-only"><i class="icon icon-bars"></i></a></div>
-  </div>
-</div>
+<template>
+  <div data-page="form-storage" class="page">
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="left sliding"><a href="/f7ios/forms/" class="back link"><i class="icon icon-back"></i><span>Forms</span></a></div>
+        <div class="center sliding">Form Storage</div>
+        <div class="right"><a href="#" class="link open-panel icon-only"><i class="icon icon-bars"></i></a></div>
+      </div>
+    </div>
     <div class="page-content">
       <div class="content-block">
-        <p>With forms storage it is easy to store and parse forms data, especially on Ajax loaded pages. All you need to make it work is to add "store-data" class to your &lt;form&gt; and Framework7 will store form data with every input change. And the most awesome part is that when you load this page again Framework7 will parse this data and fill all form fields automatically! Just try to fill the form below and then go to any other page, or even you may close this site, and when you return here form fields will have kept your data.</p>
+        <p>With forms storage it is easy to store and parse forms data, especially on Ajax loaded pages. All you need to make it work is to add "store-data" class to your &lt;form&gt; and Framework7 will store form data with every input change. And the most
+          awesome part is that when you load this page again Framework7 will parse this data and fill all form fields automatically! Just try to fill the form below and then go to any other page, or even you may close this site, and when you return here
+          form fields will have kept your data.</p>
       </div>
       <div class="content-block-title">Personal Details</div>
       <form id="demoform-1" class="store-data list-block">
@@ -74,9 +78,9 @@
                 <div class="item-title label">Gender</div>
                 <div class="item-input">
                   <select>
-                    <option>Male</option>
-                    <option>Female</option>
-                  </select>
+                      <option>Male</option>
+                      <option>Female</option>
+                    </select>
                 </div>
               </div>
             </div>
@@ -99,9 +103,9 @@
                 <div class="item-title label">Switch</div>
                 <div class="item-input">
                   <label class="label-switch">
-                    <input type="checkbox" name="switch">
-                    <div class="checkbox"></div>
-                  </label>
+                      <input type="checkbox" name="switch">
+                      <div class="checkbox"></div>
+                    </label>
                 </div>
               </div>
             </div>
@@ -137,41 +141,42 @@
         <ul>
           <li>
             <label class="label-checkbox item-content">
-              <input type="checkbox" name="ks-checkbox" value="Books" checked="checked">
-              <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
-              <div class="item-inner">
-                <div class="item-title">Books</div>
-              </div>
-            </label>
+                <input type="checkbox" name="ks-checkbox" value="Books" checked="checked">
+                <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
+                <div class="item-inner">
+                  <div class="item-title">Books</div>
+                </div>
+              </label>
           </li>
           <li>
             <label class="label-checkbox item-content">
-              <input type="checkbox" name="ks-checkbox" value="Movies">
-              <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
-              <div class="item-inner">
-                <div class="item-title">Movies</div>
-              </div>
-            </label>
+                <input type="checkbox" name="ks-checkbox" value="Movies">
+                <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
+                <div class="item-inner">
+                  <div class="item-title">Movies</div>
+                </div>
+              </label>
           </li>
           <li>
             <label class="label-checkbox item-content">
-              <input type="checkbox" name="ks-checkbox" value="Food">
-              <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
-              <div class="item-inner">
-                <div class="item-title">Food</div>
-              </div>
-            </label>
+                <input type="checkbox" name="ks-checkbox" value="Food">
+                <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
+                <div class="item-inner">
+                  <div class="item-title">Food</div>
+                </div>
+              </label>
           </li>
           <li>
             <label class="label-checkbox item-content">
-              <input type="checkbox" name="ks-checkbox" value="Drinks">
-              <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
-              <div class="item-inner">
-                <div class="item-title">Drinks</div>
-              </div>
-            </label>
+                <input type="checkbox" name="ks-checkbox" value="Drinks">
+                <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
+                <div class="item-inner">
+                  <div class="item-title">Drinks</div>
+                </div>
+              </label>
           </li>
         </ul>
       </form>
     </div>
-  </div></template>
+  </div>
+</template>

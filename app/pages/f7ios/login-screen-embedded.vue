@@ -1,11 +1,12 @@
-<template><div data-page="login-screen-embedded" class="page no-toolbar no-navbar no-swipeback">
+<template>
+  <div data-page="login-screen-embedded" class="page no-toolbar no-navbar no-swipeback">
     <div class="page-content login-screen-content">
       <div class="login-screen-title">Framework7</div>
       <form>
         <div class="list-block">
           <ul>
             <li class="item-content">
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-title label">Username</div>
                 <div class="item-input">
                   <input type="text" name="username" placeholder="Your username">
@@ -13,7 +14,7 @@
               </div>
             </li>
             <li class="item-content">
-              <div class="item-inner"> 
+              <div class="item-inner">
                 <div class="item-title label">Password</div>
                 <div class="item-input">
                   <input type="password" name="password" placeholder="Your password">
@@ -30,4 +31,5 @@
         </div>
       </form>
     </div>
-  </div></template>
+  </div>
+</template>
