@@ -12,6 +12,7 @@
     </f7-block>
 
     <!-- Language, theme, layout and color selection -->
+    <f7-block-title>Configuration</f7-block-title>
     <f7-list>
       <f7-list-item smart-select smart-select-back-on-select
         :title="text.selectLanguage"
@@ -48,6 +49,7 @@
     </f7-list>
 
     <!-- UI elements / Framework7 and Framework7-Vue kitchen sinks -->
+    <f7-block-title>Demonstration</f7-block-title>
     <f7-list>
       <f7-list-item link="/f7ios/index/" title="iOS UI Components" media="<i class='icon icon-f7' />" v-if="$root.theme === 'ios'" />
       <f7-list-item link="/f7material/index/" title="Material UI Components" media="<i class='icon icon-f7' />" v-if="$root.theme === 'material'" />
