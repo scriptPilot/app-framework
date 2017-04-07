@@ -85,10 +85,14 @@
   .swipeout-actions-right .fa  {
     font-size: 20px;
   }
-  .item-media i.icon {
+  .item-media i.icon,
+  .item-media i.f7-icons  {
     width: 29px;
     font-size: 29px;
     height: 29px;
     text-align: center;
+  }
+  .item-media i.f7-icons {
+    color: gray;
   }
 </style>

@@ -30,7 +30,7 @@
           <option value="material" :data-option-image="images.theme_material">Material</option>
         </select>
       </f7-list-item>
-      <f7-list-item :title="text.selectColors" :link="'/f7' + $root.theme + '/color-themes/'" media="<i class='icon icon-f7' />" />
+      <f7-list-item :title="text.selectColors" :link="'/f7' + $root.theme + '/color-themes/'" media="<i class='f7-icons'>keyboard_fill</i>" />
     </f7-list>
 
     <!-- Demonstration -->
@@ -38,16 +38,10 @@
     <f7-list>
       <f7-list-item link="/f7ios/index/" :title="'iOS ' + text.uiComponents" media="<i class='icon icon-f7' />" v-if="$root.theme === 'ios'" />
       <f7-list-item link="/f7material/index/" :title="'Material ' + text.uiComponents" media="<i class='icon icon-f7' />" v-if="$root.theme === 'material'" />
-    </f7-list>
-
-    <f7-list>
-      <f7-list-item link="simple-todo" title="Simple ToDo List"></f7-list-item>
-      <f7-list-item link="firebase-public" title="Public Firebase ToDo List"></f7-list-item>
-      <f7-list-item link="firebase-private" title="Private Firebase Storage"></f7-list-item>
-      <f7-list-item link="multiple-languages" title="Multiple Languages"></f7-list-item>
-      <f7-list-item link="form" title="Form Handling"></f7-list-item>
-      <f7-list-item link="flexible-routing/blog/45/post/125?foo=bar#about" title="Flexible Routing"></f7-list-item>
-      <f7-list-item link="image" title="Icon & Image"></f7-list-item>
+      <f7-list-item link="/" title="Realtime Database" :media="'<img src=\'' + images.firebase + '\' width=\'29\' />'" />
+      <f7-list-item link="/" title="Responsive Charts" media="<i class='f7-icons'>graph_round_fill</i>" />
+      <f7-list-item link="/" title="Flexible Routing" media="<i class='f7-icons'>forward</i>" />
+      <f7-list-item link="/" title="App State Restoration" media="<i class='f7-icons'>refresh</i>" />
     </f7-list>
 
     <!-- Link to GitHub repository -->
@@ -65,11 +59,11 @@
   // Define text patterns
   let text = {
     en: {
-      selectLanguage: 'Select language',
+      selectLanguage: 'Select Language',
       english: 'English',
       german: 'German',
-      selectTheme: 'Select theme',
-      selectColors: 'Select colors',
+      selectTheme: 'Select Theme',
+      selectColors: 'Select Colors',
       configuration: 'Configuration',
       demonstration: 'Demonstration',
       uiComponents: 'UI Components'
@@ -91,7 +85,8 @@
     flag_en: require('../images/flag-en.png'),
     flag_de: require('../images/flag-de.png'),
     theme_ios: require('../images/theme-ios.png'),
-    theme_material: require('../images/theme-material.png')
+    theme_material: require('../images/theme-material.png'),
+    firebase: require('../images/firebase.png')
   }
 
   // Export page module

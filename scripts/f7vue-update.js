@@ -9,7 +9,7 @@ let cmd = require('../lib/cmd')
 let found = require('../lib/found')
 let fs = require('fs-extra')
 let abs = require('path').resolve
-let rec = require('recursive-readdir')
+// let rec = require('recursive-readdir')
 
 // Check App Framework development mode
 if (env.installed === true) {
@@ -30,10 +30,10 @@ cmd(f7VueFolder, 'npm run build', function () {
     alert('Copying build files to App Framework folder - please wait ...')
     // Empty current directories
     fs.emptyDirSync(abs(env.proj, 'vendor/Framework7-Vue'))
-    /*fs.emptyDirSync(abs(env.app, 'pages/f7vue'))*/
+    /* fs.emptyDirSync(abs(env.app, 'pages/f7vue')) */
     // Copy file
     fs.copySync(abs(f7VueFolder, 'dist/framework7-vue.min.js'), abs(env.proj, 'vendor/Framework7-Vue/framework7-vue.min.js'))
-    /*fs.copySync(abs(f7VueFolder, 'kitchen-sink/pages'), abs(env.app, 'pages/f7vue'))
+    /* fs.copySync(abs(f7VueFolder, 'kitchen-sink/pages'), abs(env.app, 'pages/f7vue'))
     // Rename files (to be in line with automatic routing)
     let rename = [
       ['pull-refresh', 'pull-to-refresh'],
