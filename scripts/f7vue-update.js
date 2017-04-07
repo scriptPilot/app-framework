@@ -30,10 +30,10 @@ cmd(f7VueFolder, 'npm run build', function () {
     alert('Copying build files to App Framework folder - please wait ...')
     // Empty current directories
     fs.emptyDirSync(abs(env.proj, 'vendor/Framework7-Vue'))
-    fs.emptyDirSync(abs(env.app, 'pages/f7vue'))
+    /*fs.emptyDirSync(abs(env.app, 'pages/f7vue'))*/
     // Copy file
     fs.copySync(abs(f7VueFolder, 'dist/framework7-vue.min.js'), abs(env.proj, 'vendor/Framework7-Vue/framework7-vue.min.js'))
-    fs.copySync(abs(f7VueFolder, 'kitchen-sink/pages'), abs(env.app, 'pages/f7vue'))
+    /*fs.copySync(abs(f7VueFolder, 'kitchen-sink/pages'), abs(env.app, 'pages/f7vue'))
     // Rename files (to be in line with automatic routing)
     let rename = [
       ['pull-refresh', 'pull-to-refresh'],
@@ -55,12 +55,10 @@ cmd(f7VueFolder, 'npm run build', function () {
     fs.removeSync(abs(env.app, 'pages/f7vue/nested-routes/tabs'))
     // Update f7vue modals in the app component
     let indexPage = fs.readFileSync(abs(f7VueFolder, 'kitchen-sink/index.html'), 'utf8')
-    /*
     let indexModals = indexPage.match(/<f7-(popover|picker-modal|popup|login-screen|actions)([\s\S.]+?)<\/f7-(popover|picker-modal|popup|login-screen|actions)>/g)
     let appPage = fs.readFileSync(abs(env.app, 'app.vue'), 'utf8')
     appPage = appPage.replace(/<!-- f7vue-modals -->([\s\S.]+?)<!-- \/f7vue-modals -->/, '<!-- f7vue-modals -->\n    ' + indexModals.join('\n    ') + '\n    <!-- /f7vue-modals -->')
     fs.writeFileSync(abs(env.app, 'app.vue'), appPage)
-    */
     // Create f7vue/home.vue page
     let mainView = indexPage.match(/<f7-views([\s\S.]+)<\/f7-views>/)[1]
     let mainViewLists = mainView.match(/<f7-list([\s\S.]+?)<\/f7-list>/g)
@@ -100,5 +98,7 @@ cmd(f7VueFolder, 'npm run build', function () {
         alert('Framework7-Vue update done.')
       }
     })
+    */
+    alert('Framework7-Vue update done.')
   }, 'Framework7-Vue distribution process failed.')
 }, 'Framework7-Vue build process failed.')
