@@ -173,4 +173,4 @@ module.exports =
 '  <div class="picker-modal-inner">' +
 '    <div class="content-block">Integer mollis nulla id nibh elementum finibus. Maecenas eget fermentum ipsum. Sed sagittis condimentum nisl at tempus. Duis lacus libero, laoreet vitae ligula a, aliquet eleifend sapien. Nullam sodales viverra sodales.</div>' +
 '  </div>' +
-'</div>';
+'</div>'
