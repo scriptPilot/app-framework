@@ -96,9 +96,31 @@ function proceedFolder (sourceFolder, destinationFolder, callback) {
                     fs.writeFileSync(path.resolve(env.app, 'kitchen-sink-' + theme + '.css'), cssFile)
                     try {
                       let jsFile = fs.readFileSync(path.resolve(sourceFolder, 'js/kitchen-sink.js'), 'utf8')
-                      jsFile = '/* eslint-disable */\nmodule.exports = function () {' + jsFile + '}'
-                      jsFile = jsFile.replace(/var myApp = ([\s\S.]+?);/, 'var myApp = window.f7;')
-                      jsFile = jsFile.replace(/var \$\$ = Dom7;/, 'var $$$$ = window.Dom7;')
+                      jsFile = jsFile.replace(/var myApp = ([\s\S.]+?);/, '')
+                      jsFile = jsFile.replace(/var mainView = ([\s\S.]+?);/, '')
+                      jsFile = jsFile.replace(/var rightView = ([\s\S.]+?);/, '')
+                      jsFile = jsFile.replace(/var \$\$ = Dom7;/, '')
+                      jsFile = '/* eslint-disable */\n' +
+                               'module.exports = function () {\n' +
+                               '  var myApp = window.f7;\n' +
+                               '  let mainView = null\n' +
+                               '  let rightView\n' +
+                               '  for (let v = 0; v < myApp.views.length; v++) {\n' +
+                               '    if (/^\.view\.view-main/.test(myApp.views[v].selector)) {\n' +
+                               '      mainView = myApp.views[v]\n' +
+                               '    } else if (/^#right-panel-view/.test(myApp.views[v].selector)) {\n' +
+                               '      rightView = myApp.views[v]\n' +
+                               '    }\n' +
+                               '  }\n' +
+                               '  if (mainView === null) {\n' +
+                               '    myApp.alert("Main view not found.")\n' +
+                               '  }\n' +
+                               '  if (rightView === null) {\n' +
+                               '    myApp.alert("Right panel view not found.")\n' +
+                               '  }\n' +
+                               '  var $$ = window.Dom7;\n' +
+                                  jsFile + '\n'
+                      '}\n'
                       jsFile = beautify.js(jsFile, {indent_size: 2, end_with_newline: true})
                       fs.writeFileSync(path.resolve(env.app, 'kitchen-sink-' + theme + '.js'), jsFile)
                       callback()
