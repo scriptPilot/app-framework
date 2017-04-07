@@ -8,6 +8,7 @@ let alert = require('../lib/alert')
 let found = require('../lib/found')
 let fs = require('fs-extra')
 let jquery = require('jquery')
+let beautify = require('js-beautify')
 let jsdom = require('jsdom')
 let path = require('path')
 let rec = require('recursive-readdir')
@@ -46,11 +47,17 @@ function proceedFolder (sourceFolder, destinationFolder, callback) {
                   try {
                     let fileContent = fs.readFileSync(path.resolve(sourceFolder, htmlFiles[f]), 'utf8')
                     fileContent = fileContent.replace(/"([0-9a-z-]+)\.html"/g, '"/' + path.basename(destinationFolder) + '/$1/"')
-                    fileContent = fileContent.replace(/href="\/f7ios\/index\/" class="back link"/g, 'class="back link"')
+                    fileContent = fileContent.replace(/href="\/f7(ios|material)\/index\/" class="back link(| icon-only)?"/g, 'class="back link$2"')
                     $('body').html(fileContent)
                     if (htmlFiles[f] === 'index.html') {
                       $('body').html($('.view-main'))
-                      $('.navbar .left').addClass('sliding').html('<a class="back link"><i class="icon icon-back"></i><span>Back</span></a>')
+                      if (/ios$/.test(destinationFolder)) {
+                        $('.navbar .left').addClass('sliding').html('<a class="back link"><i class="icon icon-back"></i><span>Back</span></a>')
+                        $('.navbar .center').html('iOS')
+                      } else if (/material$/.test(destinationFolder)) {
+                        $('.navbar-inner').prepend('<div class="left"><a class="back link icon-only"><i class="icon icon-back"></i></a></div>')
+                        $('.navbar .center').html('Material')
+                      }
                     }
                     let page = $('.page')
                     let navbar = $('.navbar')
@@ -61,7 +68,7 @@ function proceedFolder (sourceFolder, destinationFolder, callback) {
                         $('.navbar').remove()
                         $('.page').prepend($(navbar[0]).prop('outerHTML'))
                       }
-                      let vueComponent = '<template>' + $('.page').prop('outerHTML') + '</template>'
+                      let vueComponent = beautify.html('<template>' + $('.page').prop('outerHTML') + '</template>')
                       fs.writeFileSync(path.resolve(destinationFolder, htmlFiles[f].replace(/\.html$/, '.vue')), vueComponent)
                     }
                   } catch (err) {

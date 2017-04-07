@@ -1,7 +1,7 @@
 <template><div data-page="autocomplete" class="page">
   <div class="navbar">
     <div class="navbar-inner">
-      <div class="left"><a href="/f7material/index/" class="back link"><i class="icon icon-back icon-only"></i></a></div>
+      <div class="left"><a class="back link"><i class="icon icon-back icon-only"></i></a></div>
       <div class="center sliding">Autocomplete</div>
       <div class="right"><a href="#" class="open-panel link icon-only"><i class="icon icon-bars"></i></a></div>
     </div>

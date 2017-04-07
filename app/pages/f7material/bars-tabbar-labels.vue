@@ -1,7 +1,7 @@
 <template><div data-page="tabbar-labels" class="page tabbar-labels-fixed">
   <div class="navbar">
     <div class="navbar-inner">
-      <div class="left"><a href="/f7material/index/" class="back link icon-only"><i class="icon icon-back"></i></a></div>
+      <div class="left"><a class="back link icon-only"><i class="icon icon-back"></i></a></div>
       <div class="center">Tab Bar With Labels</div>
       <div class="right"><a href="#" class="link open-panel icon-only"><i class="icon icon-bars"></i></a></div>
     </div>

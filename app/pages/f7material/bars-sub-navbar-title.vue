@@ -1,7 +1,7 @@
 <template><div data-page="subnavbar-title" class="page">
   <div class="navbar">
     <div class="navbar-inner">
-      <div class="left"><a href="/f7material/index/" class="back link icon-only"><i class="icon icon-back"></i></a></div>
+      <div class="left"><a class="back link icon-only"><i class="icon icon-back"></i></a></div>
       <div class="right"><a href="#" class="link"><i class="icon material-icons">email</i></a><a href="#" class="link"><i class="icon material-icons">file_upload</i></a><a href="#" class="link"><i class="icon material-icons">more_vert</i></a></div>
     </div>
     <div class="subnavbar">

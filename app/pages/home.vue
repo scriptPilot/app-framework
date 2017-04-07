@@ -4,15 +4,7 @@
   <f7-page>
 
     <!-- Navbar -->
-    <f7-navbar>
-      <f7-nav-left>
-        <f7-link icon="icon-bars" open-panel="left"></f7-link>
-      </f7-nav-left>
-      <f7-nav-center sliding>{{$root.config.title}}</f7-nav-center>
-      <f7-nav-right>
-        <f7-link icon="icon-bars" open-panel="right"></f7-link>
-      </f7-nav-right>
-    </f7-navbar>
+    <f7-navbar sliding :title="$root.config.title" />
 
     <!-- Content block -->
     <f7-block inner inset style="text-align: center" v-if="$root.isMobileDevice && !$root.isNativeApp && !$root.isHomescreenApp">
@@ -55,15 +47,13 @@
       </f7-list-item>
     </f7-list>
 
-    <!-- UI elements / Framework7 kitchen sink -->
+    <!-- UI elements / Framework7 and Framework7-Vue kitchen sinks -->
     <f7-list>
       <f7-list-item link="/f7ios/index/" title="iOS UI Components" media="<i class='icon icon-f7' />" v-if="$root.theme === 'ios'" />
       <f7-list-item link="/f7material/index/" title="Material UI Components" media="<i class='icon icon-f7' />" v-if="$root.theme === 'material'" />
+      <f7-list-item link="/f7vue/index/" title="F7-Vue Components" media="<i class='icon icon-f7' />" />
     </f7-list>
 
-    <f7-list>
-      <f7-list-item link="/f7vue/home/" title="UI components"></f7-list-item>
-    </f7-list>
     <f7-list>
       <f7-list-item link="simple-todo" title="Simple ToDo List"></f7-list-item>
       <f7-list-item link="firebase-public" title="Public Firebase ToDo List"></f7-list-item>
@@ -72,36 +62,7 @@
       <f7-list-item link="form" title="Form Handling"></f7-list-item>
       <f7-list-item link="flexible-routing/blog/45/post/125?foo=bar#about" title="Flexible Routing"></f7-list-item>
       <f7-list-item link="image" title="Icon & Image"></f7-list-item>
-      <f7-list-item link="https://framework7.io/kitchen-sink-ios" title="iOS Showcase" badge="Framework7" link-external></f7-list-item>
-      <f7-list-item link="https://framework7.io/kitchen-sink-material" title="Material Showcase" badge="Framework7" link-external></f7-list-item>
     </f7-list>
-    <f7-block-title>Side Panels</f7-block-title>
-
-    <!-- Some test buttons for panels and modals -->
-    <f7-block>
-      <f7-grid>
-        <f7-col width="50">
-          <f7-button open-panel="left">Left Panel</f7-button>
-        </f7-col>
-        <f7-col width="50">
-          <f7-button open-panel="right">Right Panel</f7-button>
-        </f7-col>
-      </f7-grid>
-    </f7-block>
-    <f7-block-title>Modals</f7-block-title>
-    <f7-block>
-      <f7-grid>
-        <f7-col width="50">
-          <f7-button open-popup="#popup">Popup</f7-button>
-        </f7-col>
-        <f7-col width="50">
-
-          <!-- Show login / logout button, depending on the user status -->
-          <f7-button open-login-screen="#login-screen" :text="$root.user ? 'Logout' : 'Login Screen'"></f7-button>
-
-        </f7-col>
-      </f7-grid>
-    </f7-block>
 
     <!-- Link to GitHub repository -->
     <f7-block style="text-align: center">

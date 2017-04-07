@@ -1,7 +1,7 @@
 <template><div data-page="deep-navbar-3" class="page">
   <div class="navbar">
     <div class="navbar-inner">
-      <div class="left sliding"><a href="/f7material/index/" class="back link">Deep 2</a></div>
+      <div class="left sliding"><a class="back link">Deep 2</a></div>
       <div class="center sliding">Deep 3</div>
       <div class="right sliding"><a href="/f7material/index/" class="link">Framework7</a></div>
     </div>
