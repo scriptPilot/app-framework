@@ -30,7 +30,7 @@
 
     <!-- Main view -->
     <f7-views navbar-through>
-      <f7-view main url="/home/" :dynamic-navbar="true"></f7-view>
+      <f7-view main url="/home/" :dynamic-navbar="true" :class="'kitchen-sink-' + $root.theme"></f7-view>
     </f7-views>
 
     <!-- f7vue-modals -->
@@ -128,6 +128,8 @@
 <script>
   require('./kitchen-sink-ios.css')
   require('./kitchen-sink-material.css')
+  let iosKitchenSinkCode = require('./kitchen-sink-ios.js')
+  let materialKitchenSinkCode = require('./kitchen-sink-material.js')
   module.exports = {
     data: function () {
       return {
@@ -141,18 +143,24 @@
         pickerOpened: false,
         actionsOpened: false
       }
+    },
+    methods: {
+      onF7Init: function () {
+        if (this.$root.theme === 'ios') {
+          iosKitchenSinkCode()
+        } else {
+          materialKitchenSinkCode()
+        }
+      }
     }
   }
 </script>
 
-<!-- Style - for whole app, as there is no scope property -->
 <style>
-
   /* Icon sizes */
   .item-media .fa,
   .swipeout-actions-left .fa,
   .swipeout-actions-right .fa  {
     font-size: 20px;
   }
-
 </style>

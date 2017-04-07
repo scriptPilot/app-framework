@@ -1,5 +1,5 @@
 <template>
-  <div data-page="form-buttons" class="page kitchen-sink-material">
+  <div data-page="form-buttons" class="page">
     <div class="navbar">
       <div class="navbar-inner">
         <div class="left"><a href="/f7material/forms/" class="back link"><i class="icon icon-back"></i></a></div>

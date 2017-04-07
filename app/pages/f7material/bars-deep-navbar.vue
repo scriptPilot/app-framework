@@ -1,5 +1,5 @@
 <template>
-  <div data-page="deep-navbar" class="page kitchen-sink-material">
+  <div data-page="deep-navbar" class="page">
     <div class="navbar">
       <div class="navbar-inner">
         <div class="left sliding"><a class="back link">Navbars</a></div>

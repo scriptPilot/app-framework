@@ -1,5 +1,5 @@
 <template>
-  <div data-page="swiper-3d-flip" class="page kitchen-sink-material">
+  <div data-page="swiper-3d-flip" class="page">
     <div class="navbar">
       <div class="navbar-inner">
         <div class="left"><a href="/f7material/swiper/" class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>

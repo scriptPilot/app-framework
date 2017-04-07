@@ -1,5 +1,5 @@
 <template>
-  <div data-page="login-screen-embedded" class="page no-toolbar no-navbar no-swipeback kitchen-sink-ios">
+  <div data-page="login-screen-embedded" class="page no-toolbar no-navbar no-swipeback">
     <div class="page-content login-screen-content">
       <div class="login-screen-title">Framework7</div>
       <form>

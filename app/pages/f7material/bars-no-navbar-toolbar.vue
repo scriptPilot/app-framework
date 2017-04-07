@@ -1,5 +1,5 @@
 <template>
-  <div data-page="no-navbar-toolbar" class="page no-navbar no-toolbar kitchen-sink-material">
+  <div data-page="no-navbar-toolbar" class="page no-navbar no-toolbar">
     <div class="page-content">
       <div class="content-block">
         <div class="content-block-inner">

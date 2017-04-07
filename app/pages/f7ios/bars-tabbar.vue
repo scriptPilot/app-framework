@@ -1,5 +1,5 @@
 <template>
-  <div data-page="tabbar" class="page no-toolbar toolbar-fixed kitchen-sink-ios">
+  <div data-page="tabbar" class="page no-toolbar toolbar-fixed">
     <div class="navbar">
       <div class="navbar-inner">
         <div class="left sliding"><a class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>

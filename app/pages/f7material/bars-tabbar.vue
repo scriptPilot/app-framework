@@ -1,5 +1,5 @@
 <template>
-  <div data-page="tabbar" class="page toolbar-fixed kitchen-sink-material">
+  <div data-page="tabbar" class="page toolbar-fixed">
     <div class="navbar">
       <div class="navbar-inner">
         <div class="left"><a class="back link icon-only"><i class="icon icon-back"></i></a></div>

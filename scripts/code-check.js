@@ -21,7 +21,8 @@ let params = [
   'cmd.js',
   '>"' + abs(env.proj, logFile) + '"',
   // Find app.vue, pages/*.vue and pages/sub/*.vue
-  '"' + abs(env.app, '**/*.vue') + '"'
+  '"' + abs(env.app, '**/*.vue') + '"',
+  '"' + abs(env.app, '**/*.js') + '"'
 ]
 if (!env.installed) {
   params.push('"' + abs(__dirname, '../*.js') + '"')
