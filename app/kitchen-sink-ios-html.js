@@ -138,4 +138,4 @@ module.exports =
 '        dolor facilisis tempor. Donec at est malesuada, sagittis nisi et, accumsan enim.</p>' +
 '    </div>' +
 '  </div>' +
-'</div>'
+'</div>';

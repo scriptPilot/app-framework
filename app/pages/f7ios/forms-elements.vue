@@ -2,7 +2,7 @@
   <div data-page="form-elements" class="page kitchen-sink-ios">
     <div class="navbar">
       <div class="navbar-inner">
-        <div class="left sliding"><a class="back link"><i class="icon icon-back"></i><span>Forms</span></a></div>
+        <div class="left sliding"><a class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
         <div class="center sliding">Form Elements</div>
       </div>
     </div>

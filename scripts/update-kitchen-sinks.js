@@ -78,7 +78,7 @@ function proceedFolder (sourceFolder, destinationFolder, callback) {
                       }
                       $('.navbar .right').remove()
                       $('.page').addClass('kitchen-sink-' + theme)
-                      $('a.backlink span').html('Back')
+                      $('a.back span').html('Back')
                       let vueComponent = '<template>\n  ' + beautify.html($('.page').prop('outerHTML'), {indent_size: 2}).replace(/\n/g, '\n  ').replace(/\n([ ]*)\n/g, '\n') + '\n</template>\n'
                       fs.writeFileSync(path.resolve(destinationFolder, htmlFiles[f].replace(/\.html$/, '.vue')), vueComponent)
                     }
