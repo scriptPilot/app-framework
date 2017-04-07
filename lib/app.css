@@ -14,10 +14,15 @@ body {
 }
 
 /* Set app height to 100% and prevent bouncing with iNoBounce */
-#frame {
+#app {
   height: 100%;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
+}
+
+/* Fix: Flashing at the beginning */
+#app {
+  visibility: hidden;
 }
 
 /* Fix: Smart select option images shown to big */

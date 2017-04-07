@@ -1,5 +1,5 @@
 /* eslint-disable */
-module.exports = function() {
+module.exports = function(vueApp) {
   var myApp = window.f7;
   let mainView = null
   let rightView
@@ -444,10 +444,10 @@ module.exports = function() {
     var themes = 'theme-white theme-black theme-yellow theme-red theme-blue theme-green theme-pink theme-lightblue theme-orange theme-gray';
     var layouts = 'layout-dark layout-white';
     $$(page.container).find('.ks-color-theme').click(function() {
-      $$('body').removeClass(themes).addClass('theme-' + $$(this).attr('data-theme'));
+      vueApp.color = $$(this).attr('data-theme');
     });
     $$(page.container).find('.ks-layout-theme').click(function() {
-      $$('body').removeClass(layouts).addClass('layout-' + $$(this).attr('data-theme'));
+      vueApp.layout = $$(this).attr('data-theme') || 'default'
     });
   });
 

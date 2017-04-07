@@ -1,5 +1,5 @@
 /* eslint-disable */
-module.exports = function() {
+module.exports = function(vueApp) {
   var myApp = window.f7;
   let mainView = null
   let rightView
@@ -447,18 +447,10 @@ module.exports = function() {
   /* ===== Color themes ===== */
   myApp.onPageInit('color-themes', function(page) {
     $$(page.container).find('.ks-color-theme').click(function() {
-      var classList = $$('body')[0].classList;
-      for (var i = 0; i < classList.length; i++) {
-        if (classList[i].indexOf('theme') === 0) classList.remove(classList[i]);
-      }
-      classList.add('theme-' + $$(this).attr('data-theme'));
+      vueApp.color = $$(this).attr('data-theme');
     });
     $$(page.container).find('.ks-layout-theme').click(function() {
-      var classList = $$('body')[0].classList;
-      for (var i = 0; i < classList.length; i++) {
-        if (classList[i].indexOf('layout-') === 0) classList.remove(classList[i]);
-      }
-      classList.add('layout-' + $$(this).attr('data-theme'));
+      vueApp.layout = $$(this).attr('data-theme') || 'default'
     });
   });
 

@@ -60,9 +60,9 @@
     methods: {
       onF7Init: function () {
         if (this.$root.theme === 'ios') {
-          iosKitchenSinkCode()
+          iosKitchenSinkCode(this.$root)
         } else {
-          materialKitchenSinkCode()
+          materialKitchenSinkCode(this.$root)
         }
         this.$$(document).on('page:beforeinit', function (e) {
           if (e.detail.page.url.indexOf('f7ios/index') > -1) {

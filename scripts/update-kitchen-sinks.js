@@ -107,8 +107,12 @@ function proceedFolder (sourceFolder, destinationFolder, callback) {
                       jsFile = jsFile.replace(/var mainView = ([\s\S.]+?);/, '')
                       jsFile = jsFile.replace(/var rightView = ([\s\S.]+?);/, '')
                       jsFile = jsFile.replace(/var \$\$ = Dom7;/, '')
+                      jsFile = jsFile.replace(/\$\$\('body'\)\.removeClass\(themes\)\.addClass\('theme-' \+ \$\$\(this\)\.attr\('data-theme'\)\);/, 'vueApp.color = $$$$(this).attr(\'data-theme\');')
+                      jsFile = jsFile.replace(/\$\$\('body'\)\.removeClass\(layouts\)\.addClass\('layout-' \+ \$\$\(this\)\.attr\('data-theme'\)\);/, 'vueApp.layout = $$$$(this).attr(\'data-theme\') || \'default\'')
+                      jsFile = jsFile.replace(/\$\$\(page\.container\)\.find\('\.ks-color-theme'\)\.click\(function \(\) \{([\s\S.]+?)\}\);/, '$$$$(page.container).find(\'.ks-color-theme\').click(function () { vueApp.color = $$$$(this).attr(\'data-theme\'); });')
+                      jsFile = jsFile.replace(/\$\$\(page\.container\)\.find\('\.ks-layout-theme'\)\.click\(function \(\) \{([\s\S.]+?)\}\);/, '$$$$(page.container).find(\'.ks-layout-theme\').click(function () { vueApp.layout = $$$$(this).attr(\'data-theme\') || \'default\' });')
                       jsFile = '/* eslint-disable */\n' +
-                               'module.exports = function () {\n' +
+                               'module.exports = function (vueApp) {\n' +
                                '  var myApp = window.f7;\n' +
                                '  let mainView = null\n' +
                                '  let rightView\n' +
