@@ -73,6 +73,9 @@
             this.$$('#app').append(materialKitchenSinkHtml)
           }
         }.bind(this))
+        if (window.cordova !== undefined) {
+          window.cordova.plugins.notification.badge.set(123)
+        }
       }
     }
   }

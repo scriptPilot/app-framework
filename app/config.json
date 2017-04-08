@@ -44,7 +44,8 @@
   "playStoreId": "de.scriptpilot.appframework",
   "useCordovaPlugins": [
     "cordova-plugin-statusbar",
-    "cordova-plugin-whitelist"
+    "cordova-plugin-whitelist",
+    "cordova-plugin-badge"
   ],
   "resetLocalStorageOnVersionChange": false,
   "buildSourcemaps": false,
