@@ -4,7 +4,7 @@
   "theme": "ios-material",
   "useIconFonts": {
     "framework7": true,
-    "material": false,
+    "material": true,
     "ion": false,
     "fontawesome": false
   },
