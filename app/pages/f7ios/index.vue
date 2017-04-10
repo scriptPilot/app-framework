@@ -58,7 +58,6 @@
                 <div class="item-media"><i class="icon icon-f7"></i></div>
                 <div class="item-inner">
                   <div class="item-title">Chips/Tags</div>
-                  <div class="item-after"><span class="badge bg-green">NEW</span></div>
                 </div>
               </div>
             </a>
@@ -90,7 +89,6 @@
                 <div class="item-media"><i class="icon icon-f7"></i></div>
                 <div class="item-inner">
                   <div class="item-title">Floating Action Button</div>
-                  <div class="item-after"><span class="badge bg-green">NEW</span></div>
                 </div>
               </div>
             </a>
@@ -121,7 +119,7 @@
                 <div class="item-media"><i class="icon icon-f7"></i></div>
                 <div class="item-inner">
                   <div class="item-title">Icons</div>
-                  <div class="item-after"><span class="badge bg-green">256</span></div>
+                  <div class="item-after"><span class="badge bg-green">258</span></div>
                 </div>
               </div>
             </a>
@@ -182,7 +180,6 @@
                 <div class="item-media"><i class="icon icon-f7"></i></div>
                 <div class="item-inner">
                   <div class="item-title">Messages</div>
-                  <div class="item-after"><span class="badge bg-green">NEW</span></div>
                 </div>
               </div>
             </a>
@@ -213,7 +210,6 @@
                 <div class="item-media"><i class="icon icon-f7"></i></div>
                 <div class="item-inner">
                   <div class="item-title">Notifications</div>
-                  <div class="item-after"><span class="badge bg-green">NEW</span></div>
                 </div>
               </div>
             </a>
@@ -254,7 +250,6 @@
                 <div class="item-media"><i class="icon icon-f7"></i></div>
                 <div class="item-inner">
                   <div class="item-title">Preloader</div>
-                  <div class="item-after"><span class="badge bg-green">NEW</span></div>
                 </div>
               </div>
             </a>
@@ -326,7 +321,6 @@
                 <div class="item-media"><i class="icon icon-f7"></i></div>
                 <div class="item-inner">
                   <div class="item-title">Swiper Slider</div>
-                  <div class="item-after"><span class="badge bg-green">NEW</span></div>
                 </div>
               </div>
             </a>
@@ -348,7 +342,6 @@
                 <div class="item-media"><i class="icon icon-f7"></i></div>
                 <div class="item-inner">
                   <div class="item-title">Timeline</div>
-                  <div class="item-after"><span class="badge bg-green">NEW</span></div>
                 </div>
               </div>
             </a>
@@ -373,7 +366,6 @@
                 <div class="item-media"><i class="icon icon-f7"></i></div>
                 <div class="item-inner">
                   <div class="item-title">Animation</div>
-                  <div class="item-after"><span class="badge bg-green">NEW</span></div>
                 </div>
               </div>
             </a>

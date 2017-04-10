@@ -35,7 +35,6 @@
                 <div class="item-media"><i class="icon icon-f7"></i></div>
                 <div class="item-inner">
                   <div class="item-title">Tab Bar Scrollable</div>
-                  <div class="item-after"><span class="badge bg-green">NEW</span></div>
                 </div>
               </div>
             </a>
@@ -76,7 +75,6 @@
                 <div class="item-media"><i class="icon icon-f7"></i></div>
                 <div class="item-inner">
                   <div class="item-title">Bottom Toolbar</div>
-                  <div class="item-after"><span class="badge bg-green">NEW</span></div>
                 </div>
               </div>
             </a>

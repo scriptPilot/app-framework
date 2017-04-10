@@ -13,7 +13,6 @@
             <a href="/f7ios/timeline-vertical/" class="item-content item-link">
               <div class="item-inner">
                 <div class="item-title">Vertical Timeline</div>
-                <div class="item-after"><span class="badge bg-green">NEW</span></div>
               </div>
             </a>
           </li>
@@ -21,7 +20,6 @@
             <a href="/f7ios/timeline-horizontal/" class="item-content item-link">
               <div class="item-inner">
                 <div class="item-title">Horizontal Timeline</div>
-                <div class="item-after"><span class="badge bg-green">NEW</span></div>
               </div>
             </a>
           </li>
@@ -29,7 +27,6 @@
             <a href="/f7ios/timeline-horizontal-calendar/" class="item-content item-link">
               <div class="item-inner">
                 <div class="item-title">Calendar Timeline</div>
-                <div class="item-after"><span class="badge bg-green">NEW</span></div>
               </div>
             </a>
           </li>

@@ -22,7 +22,6 @@
               <div class="item-media"><i class="icon icon-f7"></i></div>
               <div class="item-inner">
                 <div class="item-title">Speed Dial</div>
-                <div class="item-after"><span class="badge bg-green">NEW</span></div>
               </div>
             </a>
           </li>
@@ -31,7 +30,6 @@
               <div class="item-media"><i class="icon icon-f7"></i></div>
               <div class="item-inner">
                 <div class="item-title">Morph To Popover</div>
-                <div class="item-after"><span class="badge bg-green">NEW</span></div>
               </div>
             </a>
           </li>

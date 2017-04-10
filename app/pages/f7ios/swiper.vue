@@ -136,7 +136,6 @@
             <a href="/f7ios/swiper-zoom/" class="item-link item-content">
               <div class="item-inner">
                 <div class="item-title">Zoom</div>
-                <div class="item-after"><span class="badge bg-green">NEW</span></div>
               </div>
             </a>
           </li>
