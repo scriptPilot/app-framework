@@ -22,10 +22,6 @@
           <option value="de" :data-option-image="images.flag_de">{{text.german}}</option>
         </select>
       </f7-list-item>
-      <f7-list-item>
-        <f7-input type="text" v-model="input" placeholder="Name"/>
-      </f7-list-item>
-      <f7-list-item class="create-popup" title="test" />
       <f7-list-item smart-select smart-select-back-on-select
         :title="text.selectTheme"
         :media="'<img src=\'' + images['theme_' + $root.theme] + '\' width=\'29\' />'">
