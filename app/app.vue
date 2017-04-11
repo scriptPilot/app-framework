@@ -65,10 +65,10 @@
           materialKitchenSinkCode(this.$root)
         }
         this.$$(document).on('page:beforeinit', function (e) {
-          if (e.detail.page.url.indexOf('f7ios/index') > -1) {
+          if (e.detail.page.url && e.detail.page.url.indexOf('f7ios/index') > -1) {
             this.$$('.popup, .popover, .login-screen, .picker-modal').remove()
             this.$$('#app').append(iosKitchenSinkHtml)
-          } else if (e.detail.page.url.indexOf('f7material/index') > -1) {
+          } else if (e.detail.page.url && e.detail.page.url.indexOf('f7material/index') > -1) {
             this.$$('.popup, .popover, .login-screen, .picker-modal').remove()
             this.$$('#app').append(materialKitchenSinkHtml)
           }
