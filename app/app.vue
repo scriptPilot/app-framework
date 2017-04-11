@@ -73,6 +73,9 @@
             this.$$('#app').append(materialKitchenSinkHtml)
           }
         }.bind(this))
+        window.Dom7('.ks-color-theme').on('click', function () {
+          window.Dom7('.statusbar-overlay').css('background-color', '')
+        })
       }
     }
   }

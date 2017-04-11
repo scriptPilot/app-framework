@@ -38,6 +38,8 @@
     <f7-list>
       <f7-list-item link="/f7ios/index/" :title="'iOS ' + text.uiComponents" media="<i class='icon icon-f7' />" v-if="$root.theme === 'ios'" />
       <f7-list-item link="/f7material/index/" :title="'Material ' + text.uiComponents" media="<i class='icon icon-f7' />" v-if="$root.theme === 'material'" />
+      <f7-list-item @click="changeColor" title="Change status bar color" />
+      <f7-list-item @click="toggleStatusBar" title="Toggle stats bar" />
       <!--
       <f7-list-item link="/" title="Realtime Database" :media="'<img src=\'' + images.firebase + '\' width=\'29\' />'" />
       <f7-list-item link="/" title="Responsive Charts" media="<i class='f7-icons'>graph_round_fill</i>" />
@@ -96,7 +98,8 @@
     data: function () {
       return {
         images: images,
-        input: 'test'
+        input: 'test',
+        toggleBar: 'show'
       }
     },
     computed: {
@@ -110,6 +113,24 @@
           let text = this.$$(e.target).find('option[value=' + e.target.value + ']').text()
           this.$$(e.target).parent().find('.item-after').html(text)
         }.bind(this), 0)
+      },
+      changeColor: function () {
+        this.$root.statusbarBackgroundColor = '#006699'
+      },
+      toggleStatusBar: function () {
+        if (this.toggleBar === 'show') {
+          if (window.StatusBar) {
+            window.StatusBar.hide()
+          }
+          window.Dom7('.statusbar-overlay').hide()
+          this.toggleBar = 'hide'
+        } else {
+          if (window.StatusBar) {
+            window.StatusBar.show()
+          }
+          window.Dom7('.statusbar-overlay').show()
+          this.toggleBar = 'show'
+        }
       }
     }
   }

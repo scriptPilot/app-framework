@@ -35,6 +35,10 @@
     "regexp": "/^#([0-9a-f]{6})$/i",
     "default": "#ffffff"
   },
+  "statusbarBackgroundColor": {
+    "regexp": "/^#([0-9a-f]{6})$/i",
+    "default": "#000000"    
+  },
   "statusbarTextColor": {
     "allow": ["black", "white"],
     "default": "white"

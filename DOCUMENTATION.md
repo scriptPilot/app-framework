@@ -33,6 +33,7 @@ Optional:
 - [Vue.js](https://vuejs.org/v2/guide/) to make your application state-based and reactive
 - [Firebase services](https://firebase.google.com/docs/web/setup) as free and reliable backend service provider
 - [Cordova/PhoneGap](https://cordova.apache.org/docs/en/latest/) to use device hardware API plugins
+- [iOS design guidelines](https://developer.apple.com/ios/human-interface-guidelines/overview/design-principles/) and [Material design guidelines](https://material.io/guidelines/)
 
 ## Project folder structure
 
@@ -73,6 +74,7 @@ useIconFonts | *object* |
 &nbsp;&nbsp;&nbsp;ion | *boolean* | false
 &nbsp;&nbsp;&nbsp;fontawesome | *boolean* | false
 iconBackgroundColor | /^#([0-9a-f]{6})$/i | #ffffff
+statusbarBackgroundColor | /^#([0-9a-f]{6})$/i | #000000
 statusbarTextColor | black, white | white
 showPhoneFrameOnDesktop | *boolean* | true
 materialSubnavbarFix | *boolean* | true
@@ -148,8 +150,11 @@ This is an overview and reference, please see the Workflow for details.
 These hooks you can use in your app and page components.
 
 - `$root.title` - App title
-- `$root.theme` - Active theme (*ios* or *material*)
-- `$root.language` - Active language (*en*, *de*, ...)
+- `$root.theme` - Get/set active theme (*ios* or *material*)
+- `$root.layout` - Get/set active layout color (see [F7 docu for detail](http://framework7.io/docs/color-themes.html))
+- `$root.color` - Get/set active theme color (see [F7 docu for detail](http://framework7.io/docs/color-themes.html))
+- `$root.statusbarBackgroundColor` - Get/set statusbar overlay color (HEX code, e.g. #000000)
+- `$root.language` - Get/set active language (*en*, *de*, ...)
 - `$root.config` - Object of *config.json*
 - `$root.user` - User information (null or object with *uid*, *email*, ...)
 - `$root.version` - Project version

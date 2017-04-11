@@ -9,6 +9,7 @@
     "fontawesome": false
   },
   "iconBackgroundColor": "#ffffff",
+  "statusbarBackgroundColor": "#000000",
   "statusbarTextColor": "white",
   "showPhoneFrameOnDesktop": true,
   "materialSubnavbarFix": true,
