@@ -242,7 +242,7 @@ Use `this.data.item` to get data in the component script section.
 
 ## State restoration
 
-After application closure or, on iOS Web Apps, even on application switch, the application state will be reset. This means if your user changed the page or tab, scrolled, put in some data - everything will be gone.
+After application switch or closure, the application state may be reset. This means if your user changed the page or tab, scrolled, put in some data - everything will be gone.
 
 App Framework has an automatic state restoration on each application restart, to let your users continue with the same application state they have had before they left the application.
 
