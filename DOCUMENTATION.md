@@ -33,7 +33,6 @@ Optional:
 - [Vue.js](https://vuejs.org/v2/guide/) to make your application state-based and reactive
 - [Firebase services](https://firebase.google.com/docs/web/setup) as free and reliable backend service provider
 - [Cordova/PhoneGap](https://cordova.apache.org/docs/en/latest/) to use device hardware API plugins
-- [iOS design guidelines](https://developer.apple.com/ios/human-interface-guidelines/overview/design-principles/) and [Material design guidelines](https://material.io/guidelines/)
 
 ## Project folder structure
 
@@ -63,45 +62,37 @@ The following project folder will be created by default.
 Configure your application easily in the `app/config.js` file.
 
 <!-- config-options -->
-Option | Allowed | Default
+Option | Allowed | Default
 :--- |:--- |:---
 title | *string* | My App
 defaultLanguage | /^([a-z]{2})$/ | en
-theme | ios, material, ios-material, material-ios | ios
-useIconFonts | *object* |
+theme | ios, material | ios
+loadIconFonts | *object* |
 &nbsp;&nbsp;&nbsp;framework7 | *boolean* | false
 &nbsp;&nbsp;&nbsp;material | *boolean* | false
 &nbsp;&nbsp;&nbsp;ion | *boolean* | false
 &nbsp;&nbsp;&nbsp;fontawesome | *boolean* | false
 iconBackgroundColor | /^#([0-9a-f]{6})$/i | #ffffff
-statusbarBackgroundColor | /^#([0-9a-f]{6})$/i | #000000
 statusbarTextColor | black, white | white
 showPhoneFrameOnDesktop | *boolean* | true
 materialSubnavbarFix | *boolean* | true
-completeRoutesFile | *boolean* | true
 specialRoutes | *object* | {}
 pagesWithRequiredLogin | *array* | []
 firebase | *object* |
-&nbsp;&nbsp;&nbsp;useDatabaseService | *boolean* | true
-&nbsp;&nbsp;&nbsp;useStorageService | *boolean* | true
-&nbsp;&nbsp;&nbsp;useEmailLogin | *boolean* | true
-&nbsp;&nbsp;&nbsp;useEmailRegistration | *boolean* | true
 &nbsp;&nbsp;&nbsp;apiKey | *string* | AIzaSyAvzTiqd9fKR-h4asdsadsadasd7Uxl4iXwqSMU1VjGdII
 &nbsp;&nbsp;&nbsp;authDomain | *string* | app-framework-9045a.firebaseapp.com
 &nbsp;&nbsp;&nbsp;databaseURL | *string* | https://app-framework-9045a.firebaseio.com
-&nbsp;&nbsp;&nbsp;storageBucket | *string* | app-framework-9045a.appspot.com
+&nbsp;&nbsp;&nbsp;storageBucket | *string* | pp-framework-9045a.appspot.com
+&nbsp;&nbsp;&nbsp;allowUserRegistration | *boolean* | true
 dev-firebase | *object* |
+&nbsp;&nbsp;&nbsp;apiKey | *string* |
+&nbsp;&nbsp;&nbsp;authDomain | *string* |
+&nbsp;&nbsp;&nbsp;databaseURL | *string* |
+&nbsp;&nbsp;&nbsp;storageBucket | *string* |
+&nbsp;&nbsp;&nbsp;allowUserRegistration | *boolean* | false
 &nbsp;&nbsp;&nbsp;useDevFirebaseOnTesting | *boolean* | false
-&nbsp;&nbsp;&nbsp;useDatabaseService | *boolean* | true
-&nbsp;&nbsp;&nbsp;useStorageService | *boolean* | true
-&nbsp;&nbsp;&nbsp;useEmailLogin | *boolean* | true
-&nbsp;&nbsp;&nbsp;useEmailRegistration | *boolean* | true
-&nbsp;&nbsp;&nbsp;apiKey | *string* | 
-&nbsp;&nbsp;&nbsp;authDomain | *string* | 
-&nbsp;&nbsp;&nbsp;databaseURL | *string* | 
-&nbsp;&nbsp;&nbsp;storageBucket | *string* | 
-appStoreId | *string* | 
-playStoreId | *string* | 
+appStoreId | *string* |
+playStoreId | *string* |
 useCordovaPlugins | *array* | ["cordova-plugin-statusbar","cordova-plugin-whitelist"]
 resetLocalStorageOnVersionChange | *boolean* | false
 buildSourcemaps | *boolean* | false
@@ -150,11 +141,8 @@ This is an overview and reference, please see the Workflow for details.
 These hooks you can use in your app and page components.
 
 - `$root.title` - App title
-- `$root.theme` - Get/set active theme (*ios* or *material*)
-- `$root.layout` - Get/set active layout color (see [F7 docu for detail](http://framework7.io/docs/color-themes.html))
-- `$root.color` - Get/set active theme color (see [F7 docu for detail](http://framework7.io/docs/color-themes.html))
-- `$root.statusbarBackgroundColor` - Get/set statusbar overlay color (HEX code, e.g. #000000)
-- `$root.language` - Get/set active language (*en*, *de*, ...)
+- `$root.theme` - Active theme (*ios* or *material*)
+- `$root.language` - Active language (*en*, *de*, ...)
 - `$root.config` - Object of *config.json*
 - `$root.user` - User information (null or object with *uid*, *email*, ...)
 - `$root.version` - Project version
