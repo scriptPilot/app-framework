@@ -8,6 +8,7 @@
 - [Project folder structure](#project-folder-structure)
 - [Configuration options](#configuration-options)
 - [CLI commands](#cli-commands)
+- [Global data object](#global-data-object)
 - [Hooks](#hooks)
 - Workflow
   - [Setup your development environment](#setup-your-development-environment)
@@ -186,7 +187,7 @@ Use `removeData(item)` to remove data directly from the template section.
 ```
 <template>
   ...
-  <f7-link @click="saveData('testItem.subItem')">Click to remove data</f7-link>
+  <f7-link @click="removeData('testItem.subItem')">Click to remove data</f7-link>
   ...
 </template>
 ```
