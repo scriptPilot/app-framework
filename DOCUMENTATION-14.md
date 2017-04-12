@@ -248,7 +248,7 @@ App Framework has an automatic state restoration on each application restart, to
 
 This restorations includes the following elements:
 
-- History per view
+- URL history per view
 - Selected tabs
 - Scroll positions
 - Side panels
