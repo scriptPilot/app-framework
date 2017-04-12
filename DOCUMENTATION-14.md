@@ -231,7 +231,7 @@ Use `this.db.item` to get data in the component script section.
     methods: {
       ...
       anyMethod: function () {
-        let itemData = this.db.testItem
+        let itemData = this.db.testItem.subItem
       }
       ...
     }
