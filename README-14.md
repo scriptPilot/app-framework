@@ -6,8 +6,10 @@
 
 ## Features
 
+### Client Code
+
 - **Global data object** to use the same data accross your whole application
-- **State restoration** for histories, scroll positions, selected tabs, modals, focus, form inputs and component data
+- **State restoration** after application restart to let your users continue easily
 
 
 
