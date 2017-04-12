@@ -6,7 +6,7 @@
     "framework7": true,
     "material": true,
     "ion": false,
-    "fontawesome": false
+    "fontawesome": true
   },
   "iconBackgroundColor": "#ffffff",
   "statusbarBackgroundColor": "#000000",

@@ -9,6 +9,7 @@
 - [Configuration options](#configuration-options)
 - [CLI commands](#cli-commands)
 - [Global data object](#global-data-object)
+- [State restoration](#state-restoration)
 - [Hooks](#hooks)
 - Workflow
   - [Setup your development environment](#setup-your-development-environment)
@@ -147,8 +148,7 @@ This is an overview and reference, please see the Workflow for details.
 
 ## Global data object
 
-To use settings and other data accross your application, App Framework provides an easy to use global data object.
-The data object will be restored immediately after each application restart!
+To use data across your application, App Framework provides an easy to use global data object. The data object will be immediately restored after each application restart.
 
 ### Save data to the global data object
 
@@ -212,17 +212,17 @@ Use `this.removeData(item)` to remove data in the component script section.
 
 ### Get data from the global data object
 
-Use `db.item` to get data in the template section.
+Use `data.item` to get data in the template section.
 
 ```
 <template>
   ...
-  <f7-block>Item value: {{db.testItem.subItem}}</f7-block>
+  <f7-block>Item value: {{data.testItem.subItem}}</f7-block>
   ...
 </template>
 ```
 
-Use `this.db.item` to get data in the component script section.
+Use `this.data.item` to get data in the component script section.
 
 ```
 <script>
@@ -231,7 +231,7 @@ Use `this.db.item` to get data in the component script section.
     methods: {
       ...
       anyMethod: function () {
-        let itemData = this.db.testItem.subItem
+        let itemData = this.data.testItem.subItem
       }
       ...
     }
@@ -239,6 +239,25 @@ Use `this.db.item` to get data in the component script section.
   }
 </script>
 ```
+
+## State restoration
+
+After application closure or, on iOS Web Apps, even on application switch, the application state will be reset. This means if your user changed the page or tab, scrolled, put in some data - everything will be gone.
+
+App Framework has an automatic state restoration on each application restart, to let your users continue with the same application state they have had before they left the application.
+
+This restorations includes the following elements:
+
+- History per view
+- Selected tabs
+- Scroll positions
+- Side panels
+- Action sheets
+- Login screens
+- Pickers
+- Popups
+
+The state is not restored for standard modals, popovers and code-generated modals.
 
 ## Hooks
 

@@ -8,7 +8,7 @@
 
 ### Client Code
 
-- **Global data object** to use the same data accross your whole application
+- **Global data object** to use the same data across your whole application
 - **State restoration** after application restart to let your users continue easily
 
 

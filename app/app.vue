@@ -34,6 +34,7 @@
     </f7-views>
 
   </div>
+
 </template>
 
 <script>
