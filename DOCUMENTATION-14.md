@@ -33,6 +33,7 @@ Optional:
 - [Vue.js](https://vuejs.org/v2/guide/) to make your application state-based and reactive
 - [Firebase services](https://firebase.google.com/docs/web/setup) as free and reliable backend service provider
 - [Cordova/PhoneGap](https://cordova.apache.org/docs/en/latest/) to use device hardware API plugins
+- [iOS design guidelines](https://developer.apple.com/ios/human-interface-guidelines/overview/design-principles/) and [Material design guidelines](https://material.io/guidelines/)
 
 ## Project folder structure
 
@@ -154,14 +155,16 @@ This is an overview and reference, please see the Workflow for details.
 
 ### Vue hooks
 
-- `$root.language` - Active language (*en*, *de*, ...)
-- `$root.theme` - Active theme (*ios* or *material*)
-- `$root.layout` - Active layout ([see Framework7 documentation](http://framework7.io/docs/color-themes.html))
-- `$root.color` - Active color scheme ([see Framework7 documentation](http://framework7.io/docs/color-themes.html))
-- `$root.user` - User information (null or object with *uid*, *email*, ...)
+- `$root.title` - App title
+- `$root.theme` - Get/set active theme (*ios* or *material*)
+- `$root.layout` - Get/set active layout color (see [F7 docu for detail](http://framework7.io/docs/color-themes.html))
+- `$root.color` - Get/set active theme color (see [F7 docu for detail](http://framework7.io/docs/color-themes.html))
+- `$root.statusbarBackgroundColor` - Get/set statusbar overlay color (HEX code, e.g. #000000)
+- `$root.language` - Get/set active language (*en*, *de*, ...)
 - `$root.config` - Object of *config.json*
+- `$root.user` - User information (null or object with *uid*, *email*, ...)
 - `$root.version` - Project version
-- `$root.frameworkVersion` - Installed App Framework version
+- `$root.packageVersion` - Installed App Framework version
 
 ## Workflow
 
