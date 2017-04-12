@@ -144,6 +144,101 @@ This is an overview and reference, please see the Workflow for details.
   - `npm run backup` to create a snapshot of the Firebase database and user list
   - `npm run snapshot` to create a snapshot of your project folder
 
+## Global data object
+
+To use settings and other data accross your application, App Framework provides an easy to use global data object.
+The data object will be restored immediately after each application restart!
+
+### Save data to the global data object
+
+Use `saveData(item, value)` to save data directly from the template section.
+
+```
+<template>
+  ...
+  <f7-link @click="saveData('testItem.subItem', 'test data')">Click to save data</f7-link>
+  ...
+</template>
+```
+
+Use `this.saveData(item, value)` to save data in the component script section.
+
+```
+<script>
+  module.exports = {
+    ...
+    methods: {
+      ...
+      anyMethod: function () {
+        this.saveData('testItem.subItem', 'test data')
+      }
+      ...
+    }
+    ...  
+  }
+</script>
+```
+
+### Remove data from the global data object
+
+Use `removeData(item)` to remove data directly from the template section.
+
+```
+<template>
+  ...
+  <f7-link @click="saveData('testItem.subItem')">Click to remove data</f7-link>
+  ...
+</template>
+```
+
+Use `this.removeData(item)` to remove data in the component script section.
+
+```
+<script>
+  module.exports = {
+    ...
+    methods: {
+      ...
+      anyMethod: function () {
+        this.removeData('testItem.subItem')
+      }
+      ...
+    }
+    ...  
+  }
+</script>
+```
+
+### Get data from the global data object
+
+Use `db.item` to get data in the template section.
+
+```
+<template>
+  ...
+  <f7-block>Item value: {{db.testItem.subItem}}</f7-block>
+  ...
+</template>
+```
+
+Use `this.db.item` to get data in the component script section.
+
+```
+<script>
+  module.exports = {
+    ...
+    methods: {
+      ...
+      anyMethod: function () {
+        let itemData = this.db.testItem
+      }
+      ...
+    }
+    ...  
+  }
+</script>
+```
+
 ## Hooks
 
 ### Window hooks
