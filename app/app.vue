@@ -45,6 +45,9 @@
   let iosKitchenSinkHtml = require('./kitchen-sink-ios-html.js')
   let materialKitchenSinkHtml = require('./kitchen-sink-material-html.js')
   module.exports = {
+    mounted: function () {
+      console.log('app.vue', this)
+    },
     data: function () {
       return {
         user: {

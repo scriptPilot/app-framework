@@ -33,30 +33,26 @@
       <f7-list-item :title="text.selectColors" :link="'/f7' + $root.theme + '/color-themes/'" media="<i class='f7-icons'>keyboard_fill</i>" />
     </f7-list>
 
-    <div class="popover popover-about">
-     <div class="popover-angle"></div>
-     <div class="popover-inner">
-       <div class="content-block">
-         <p>About</p>
-         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac diam ac quam euismod porta vel a nunc. Quisque sodales scelerisque est, at porta justo cursus ac.</p>
-       </div>
-     </div>
-   </div>
-
     <!-- Demonstration -->
     <f7-block-title>{{text.demonstration}}</f7-block-title>
     <f7-list>
       <f7-list-item link="/f7ios/index/" :title="'iOS ' + text.uiComponents" media="<i class='icon icon-f7' />" v-if="$root.theme === 'ios'" />
       <f7-list-item link="/f7material/index/" :title="'Material ' + text.uiComponents" media="<i class='icon icon-f7' />" v-if="$root.theme === 'material'" />
       <f7-list-item link="/state-restoration/" title="App State Restoration" media="<i class='f7-icons'>refresh</i>" />
+      <!--
       <f7-list-item @click="changeColor" title="Change status bar color" />
       <f7-list-item @click="toggleStatusBar" title="Toggle stats bar" />
+      -->
       <!--
       <f7-list-item link="/" title="Realtime Database" :media="'<img src=\'' + images.firebase + '\' width=\'29\' />'" />
       <f7-list-item link="/" title="Responsive Charts" media="<i class='f7-icons'>graph_round_fill</i>" />
       <f7-list-item link="/" title="Flexible Routing" media="<i class='f7-icons'>forward</i>" />
       -->
     </f7-list>
+
+    <f7-block>
+      App mode: {{$root.appMode}}
+    </f7-block>
 
     <!-- Link to GitHub repository -->
     <f7-block style="text-align: center">

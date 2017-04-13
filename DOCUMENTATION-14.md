@@ -9,6 +9,7 @@
 - [Configuration options](#configuration-options)
 - [CLI commands](#cli-commands)
 - [Window objects](#window-objects)
+- [Vue root object](#vue-root-object)
 - [Global data object](#global-data-object)
 - [State restoration](#state-restoration)
 - [Hooks](#hooks)
@@ -156,6 +157,23 @@ You can use several window objects directly from your components:
 - `window.f7` - [Framework7](http://framework7.io/docs/init-app.html) instance of your application
 - `window.firebase` - [Firebase](https://firebase.google.com/docs/web/setup) instance (if configured)
 
+## Vue root object
+
+You can use the following information directly from the $root object of all your Vue components:
+
+`$root.appMode` - Run mode (native, homescreen, mobile, desktop)
+`$root.config` - Configuration (from config.json file)
+`$root.user` - Current user (null or object with uid, email, ...)
+`$root.language` - Current language (could be changed)
+`$root.theme` - Current theme (ios or material, could be changed)
+`$root.themeColor` - Current theme color ([list](http://framework7.io/docs/color-themes.html), could be changed)
+`$root.themeLayout` - Current theme layout ([list](http://framework7.io/docs/color-themes.html), could be changed)
+`$root.statusbarFont` - Current statusbar font style (default, lightContent, blackTranslucent or blackOpaque, could be changed)
+`$root.statusbarBackground` - Current statusbar background color (as HEX code, could be changed)
+`$root.statusbarDisplay` - Current statusbar visibility (true or false, could be changed)
+`$root.version` - Project version
+`$root.frameworkVersion` - App Framework version
+
 ## Global data object
 
 To use data across your application, App Framework provides an easy to use global data object. The data object will be immediately restored after each application restart.
@@ -279,19 +297,6 @@ The state is not restored for standard modals, popovers and code-generated modal
 - `window.firebase` - Firebase instance
 - `window.$$` - Framework7 Dom7 instance
 - `window.f7` - Framework7 instance
-
-### Vue hooks
-
-- `$root.title` - App title
-- `$root.theme` - Get/set active theme (*ios* or *material*)
-- `$root.layout` - Get/set active layout color (see [F7 docu for detail](http://framework7.io/docs/color-themes.html))
-- `$root.color` - Get/set active theme color (see [F7 docu for detail](http://framework7.io/docs/color-themes.html))
-- `$root.statusbarBackgroundColor` - Get/set statusbar overlay color (HEX code, e.g. #000000)
-- `$root.language` - Get/set active language (*en*, *de*, ...)
-- `$root.config` - Object of *config.json*
-- `$root.user` - User information (null or object with *uid*, *email*, ...)
-- `$root.version` - Project version
-- `$root.packageVersion` - Installed App Framework version
 
 ## Workflow
 
