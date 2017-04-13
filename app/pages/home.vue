@@ -50,10 +50,6 @@
       -->
     </f7-list>
 
-    <f7-block>
-      App mode: {{$root.appMode}}
-    </f7-block>
-
     <!-- Link to GitHub repository -->
     <f7-block style="text-align: center">
       <f7-link href="https://github.com/scriptPilot/app-framework" external>
