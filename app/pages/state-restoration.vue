@@ -2,6 +2,12 @@
   <f7-page>
     <f7-navbar title="App State Restoration" back-link="Back" sliding />
 
+    <f7-block>
+      <p>Scroll down, open modals or type some text and leave the focus on a form input.</p>
+      <p>And then close and reopen the application.</p>
+      <p>Everything will be restored immediately!</p>
+    </f7-block>
+
     <!-- Side panels -->
     <f7-block>
       <f7-grid>
@@ -90,6 +96,14 @@
       <f7-list-item>
         <f7-label>Text input</f7-label>
         <f7-input type="text" name="textInput" placeholder="Some text ..." />
+      </f7-list-item>
+      <f7-list-item>
+        <f7-label>Select</f7-label>
+        <f7-input name="selectInput" type="select">
+          <option value="first">First value</option>
+          <option value="second">Second value</option>
+          <option value="third">Third value</option>
+        </f7-input>
       </f7-list-item>
     </f7-list>
 
