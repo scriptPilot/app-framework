@@ -242,20 +242,21 @@ Use `this.data.item` to get data in the component script section.
 
 ## State restoration
 
-After application switch or closure, the application state may be reset. This means if your user changed the page or tab, scrolled, opened modals, put in some data before - everything will be gone.
+After an application switch or closure, the application state may be reset. This means, if your user changed the page or tab, scrolled, opened modals, put in some data before - everything will be gone.
 
 App Framework has an automatic state restoration on each application restart, to let your users continue with the same application state they have had before they left the application.
 
-This restorations includes the following elements:
+This restoration includes the following elements:
 
 - URL history per view
-- Selected tabs
+- Selected tabs (requires unique ID attribute per page)
 - Scroll positions
 - Side panels
-- Action sheets
-- Login screens
-- Pickers
-- Popups
+
+- Action sheets (requires unique ID attribute)
+- Login screens (requires unique ID attribute)
+- Pickers (requires unique ID attribute)
+- Popups (requires unique ID attribute)
 
 The state is not restored for standard modals, popovers and code-generated modals.
 
