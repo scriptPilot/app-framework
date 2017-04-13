@@ -28,10 +28,10 @@
     <!-- Login screen -->
     <f7-login-screen id="demoLoginScreen">
       <f7-login-screen-title>My App</f7-login-screen-title>
-      <f7-list form>
+      <f7-list form id="state-restoration-login-screen">
         <f7-list-item>
           <f7-label>Username</f7-label>
-          <f7-input type="text" ame="username" placeholder="Username"></f7-input>
+          <f7-input type="text" name="username" placeholder="Username"></f7-input>
         </f7-list-item>
         <f7-list-item>
           <f7-label>Password</f7-label>
@@ -84,6 +84,14 @@
     <f7-block>
       <f7-col><f7-button open-popup="#demoPopup">Popup modal</f7-button></f7-col>
     </f7-block>
+
+    <!-- Form inputs and focus -->
+    <f7-list form id="state-restoration" inset>
+      <f7-list-item>
+        <f7-label>Text input</f7-label>
+        <f7-input type="text" name="textInput" placeholder="Some text ..." />
+      </f7-list-item>
+    </f7-list>
 
   </f7-page>
 </template>
