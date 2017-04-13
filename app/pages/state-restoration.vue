@@ -5,8 +5,8 @@
     <!-- Side panels -->
     <f7-block>
       <f7-grid>
-        <f7-col><f7-button open-panel="left">Left side panel</f7-button></f7-col>
-        <f7-col><f7-button open-panel="right">Right side panel</f7-button></f7-col>
+        <f7-col><f7-button raised open-panel="left">Left panel</f7-button></f7-col>
+        <f7-col><f7-button raised open-panel="right">Right panel</f7-button></f7-col>
       </f7-grid>
     </f7-block>
 
@@ -22,13 +22,13 @@
       </f7-actions-group>
     </f7-actions>
     <f7-block>
-      <f7-col><f7-button @click="$f7.openModal('#demoActions')">Action sheet</f7-button></f7-col>
+      <f7-col><f7-button raised @click="$f7.openModal('#demoActions')">Action sheet</f7-button></f7-col>
     </f7-block>
 
     <!-- Login screen -->
     <f7-login-screen id="demoLoginScreen">
       <f7-login-screen-title>My App</f7-login-screen-title>
-      <f7-list form id="state-restoration-login-screen">
+      <f7-list form id="state-restoration-login-screen" inset>
         <f7-list-item>
           <f7-label>Username</f7-label>
           <f7-input type="text" name="username" placeholder="Username"></f7-input>
@@ -38,7 +38,7 @@
           <f7-input name="password" type="password" placeholder="Password"></f7-input>
         </f7-list-item>
       </f7-list>
-      <f7-list>
+      <f7-list inset>
         <f7-list-button title="Sign In" close-login-screen></f7-list-button>
         <f7-list-label>
           <p>Click Sign In to close Login Screen</p>
@@ -46,7 +46,7 @@
       </f7-list>
     </f7-login-screen>
     <f7-block>
-      <f7-col><f7-button open-login-screen="#demoLoginScreen">Login screen</f7-button></f7-col>
+      <f7-col><f7-button raised open-login-screen="#demoLoginScreen">Login screen</f7-button></f7-col>
     </f7-block>
 
     <!-- Picker -->
@@ -62,7 +62,7 @@
       </f7-block>
     </f7-picker-modal>
     <f7-block>
-      <f7-col><f7-button open-picker="#demoPicker">Picker modal</f7-button></f7-col>
+      <f7-col><f7-button raised open-picker="#demoPicker">Picker modal</f7-button></f7-col>
     </f7-block>
 
     <!-- Popup -->
@@ -82,7 +82,7 @@
       </f7-block>
     </f7-popup>
     <f7-block>
-      <f7-col><f7-button open-popup="#demoPopup">Popup modal</f7-button></f7-col>
+      <f7-col><f7-button raised open-popup="#demoPopup">Popup modal</f7-button></f7-col>
     </f7-block>
 
     <!-- Form inputs and focus -->
