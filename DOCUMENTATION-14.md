@@ -161,18 +161,18 @@ You can use several window objects directly from your components:
 
 You can use the following information directly from the $root object of all your Vue components:
 
-`$root.appMode` - Run mode (native, homescreen, mobile, desktop)
-`$root.config` - Configuration (from config.json file)
-`$root.user` - Current user (null or object with uid, email, ...)
-`$root.language` - Current language (could be changed)
-`$root.theme` - Current theme (ios or material, could be changed)
-`$root.themeColor` - Current theme color ([list](http://framework7.io/docs/color-themes.html), could be changed)
-`$root.themeLayout` - Current theme layout ([list](http://framework7.io/docs/color-themes.html), could be changed)
-`$root.statusbarFont` - Current statusbar font style (default, lightContent, blackTranslucent or blackOpaque, could be changed)
-`$root.statusbarBackground` - Current statusbar background color (as HEX code, could be changed)
-`$root.statusbarDisplay` - Current statusbar visibility (true or false, could be changed)
-`$root.version` - Project version
-`$root.frameworkVersion` - App Framework version
+- `$root.appMode` - Run mode (native, homescreen, mobile, desktop)
+- `$root.config` - Configuration (from config.json file)
+- `$root.user` - Current user (null or object with uid, email, ...)
+- `$root.language` - Current language (could be changed)
+- `$root.theme` - Current theme (ios or material, could be changed)
+- `$root.themeColor` - Current theme color ([list](http://framework7.io/docs/color-themes.html), could be changed)
+- `$root.themeLayout` - Current theme layout ([list](http://framework7.io/docs/color-themes.html), could be changed)
+- `$root.statusbarFont` - Current statusbar font style (default, lightContent, blackTranslucent or blackOpaque, could be changed)
+- `$root.statusbarBackground` - Current statusbar background color (as HEX code, could be changed)
+- `$root.statusbarDisplay` - Current statusbar visibility (true or false, could be changed)
+- `$root.version` - Project version
+- `$root.frameworkVersion` - App Framework version
 
 ## Global data object
 
