@@ -69,6 +69,7 @@
     "ionicons": "^3.0.0",
     "jimp": "^0.2.27",
     "json-loader": "^0.5.4",
+    "lodash": "^4.17.4",
     "minimist": "^1.2.0",
     "on-build-webpack": "^0.1.0",
     "opn": "^4.0.2",

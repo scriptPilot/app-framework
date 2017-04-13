@@ -30,3 +30,11 @@ body {
   max-width: 29px;
   max-height: 29px;
 }
+
+/* Fix: Modals on page components are shown below app */
+.page .login-screen,
+.page .actions-modal,
+.page .picker-modal,
+.page .popup {
+  display: none;
+}

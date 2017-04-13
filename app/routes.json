@@ -746,5 +746,9 @@
   {
     "path": "/simple-todo/",
     "component": "simple-todo.vue"
+  },
+  {
+    "path": "/state-restoration/",
+    "component": "state-restoration.vue"
   }
 ]

@@ -1,0 +1,89 @@
+<template>
+  <f7-page>
+    <f7-navbar title="App State Restoration" back-link="Back" sliding />
+
+    <!-- Side panels -->
+    <f7-block>
+      <f7-grid>
+        <f7-col><f7-button open-panel="left">Left side panel</f7-button></f7-col>
+        <f7-col><f7-button open-panel="right">Right side panel</f7-button></f7-col>
+      </f7-grid>
+    </f7-block>
+
+    <!-- Action sheet -->
+    <f7-actions id="demoActions">
+      <f7-actions-group>
+        <f7-actions-label>Whatever you want</f7-actions-label>
+        <f7-actions-button @click="$f7.alert('Clicked first button')">Button 1</f7-actions-button>
+        <f7-actions-button @click="$f7.alert('Clicked second button')">Button 2</f7-actions-button>
+      </f7-actions-group>
+      <f7-actions-group>
+        <f7-actions-button color="red" bold>Cancel</f7-actions-button>
+      </f7-actions-group>
+    </f7-actions>
+    <f7-block>
+      <f7-col><f7-button @click="$f7.openModal('#demoActions')">Action sheet</f7-button></f7-col>
+    </f7-block>
+
+    <!-- Login screen -->
+    <f7-login-screen id="demoLoginScreen">
+      <f7-login-screen-title>My App</f7-login-screen-title>
+      <f7-list form>
+        <f7-list-item>
+          <f7-label>Username</f7-label>
+          <f7-input type="text" ame="username" placeholder="Username"></f7-input>
+        </f7-list-item>
+        <f7-list-item>
+          <f7-label>Password</f7-label>
+          <f7-input name="password" type="password" placeholder="Password"></f7-input>
+        </f7-list-item>
+      </f7-list>
+      <f7-list>
+        <f7-list-button title="Sign In" close-login-screen></f7-list-button>
+        <f7-list-label>
+          <p>Click Sign In to close Login Screen</p>
+        </f7-list-label>
+      </f7-list>
+    </f7-login-screen>
+    <f7-block>
+      <f7-col><f7-button open-login-screen="#demoLoginScreen">Login screen</f7-button></f7-col>
+    </f7-block>
+
+    <!-- Picker -->
+    <f7-picker-modal id="demoPicker">
+      <f7-toolbar>
+        <f7-nav-left></f7-nav-left>
+        <f7-nav-right>
+          <f7-link close-picker>Done</f7-link>
+        </f7-nav-right>
+      </f7-toolbar>
+      <f7-block>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis iste qui architecto recusandae veniam delectus vero libero illo aliquid, fuga ratione vel facilis iure est fugiat sunt nihil, consectetur veritatis.</p>
+      </f7-block>
+    </f7-picker-modal>
+    <f7-block>
+      <f7-col><f7-button open-picker="#demoPicker">Picker modal</f7-button></f7-col>
+    </f7-block>
+
+    <!-- Popup -->
+    <f7-popup id="demoPopup">
+      <f7-toolbar>
+        <f7-nav-left></f7-nav-left>
+        <f7-nav-right>
+          <f7-link close-popup>Close</f7-link>
+        </f7-nav-right>
+      </f7-toolbar>
+      <f7-block>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis iste qui architecto recusandae veniam delectus vero libero illo aliquid, fuga ratione vel facilis iure est fugiat sunt nihil, consectetur veritatis.</p>
+        <p>Itaque impedit, nam, sed reprehenderit quaerat commodi veritatis ducimus eos nisi, at aliquam dolorum alias optio natus. Sit voluptate aperiam, cupiditate repellat quod fugiat non doloribus eveniet dolorem fugit nihil.</p>
+        <p>Error cumque sunt dolorem aut, similique accusantium delectus. Minima, natus. Doloremque ratione veniam cupiditate modi aspernatur debitis possimus iure id delectus! Totam eveniet, impedit minus deserunt aliquid facere laboriosam dignissimos.</p>
+        <p>Aliquid autem saepe sit cumque odit nihil eius consectetur impedit accusantium sunt, repudiandae quaerat cum! Esse autem ipsum aliquam, distinctio laborum excepturi facilis fuga vitae atque iusto eligendi, explicabo corporis.</p>
+        <p>Necessitatibus minima quidem fugit corporis reprehenderit saepe facilis perspiciatis sit, consectetur nulla officia, pariatur accusantium quas voluptas. Illum placeat eligendi dolor nihil libero culpa, ex quas voluptas deleniti, unde id.</p>
+      </f7-block>
+    </f7-popup>
+    <f7-block>
+      <f7-col><f7-button open-popup="#demoPopup">Popup modal</f7-button></f7-col>
+    </f7-block>
+
+  </f7-page>
+</template>

@@ -48,20 +48,15 @@
     <f7-list>
       <f7-list-item link="/f7ios/index/" :title="'iOS ' + text.uiComponents" media="<i class='icon icon-f7' />" v-if="$root.theme === 'ios'" />
       <f7-list-item link="/f7material/index/" :title="'Material ' + text.uiComponents" media="<i class='icon icon-f7' />" v-if="$root.theme === 'material'" />
+      <f7-list-item link="/state-restoration/" title="App State Restoration" media="<i class='f7-icons'>refresh</i>" />
       <f7-list-item @click="changeColor" title="Change status bar color" />
       <f7-list-item @click="toggleStatusBar" title="Toggle stats bar" />
-      <f7-list-item @click="saveData('main.sub.3', 'test')" title="save" />
       <!--
       <f7-list-item link="/" title="Realtime Database" :media="'<img src=\'' + images.firebase + '\' width=\'29\' />'" />
       <f7-list-item link="/" title="Responsive Charts" media="<i class='f7-icons'>graph_round_fill</i>" />
       <f7-list-item link="/" title="Flexible Routing" media="<i class='f7-icons'>forward</i>" />
-      <f7-list-item link="/" title="App State Restoration" media="<i class='f7-icons'>refresh</i>" />
       -->
     </f7-list>
-
-    <f7-link @click="popover" class=".test">popover</f7-link>
-
-    <f7-block>{{data}}</f7-block>
 
     <!-- Link to GitHub repository -->
     <f7-block style="text-align: center">
@@ -124,9 +119,9 @@
     },
     methods: {
       popover: function (thiss) {
-        //window.f7.alert('hallo')
+        // window.f7.alert('hallo')
         window.f7.popover('.popover-about', thiss.target)
-        //console.log(thiss.srcElement)
+        // console.log(thiss.srcElement)
       },
       updateSmartlist: function (e) {
         setTimeout(function () {

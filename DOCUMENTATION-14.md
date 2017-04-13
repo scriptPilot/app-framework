@@ -8,6 +8,7 @@
 - [Project folder structure](#project-folder-structure)
 - [Configuration options](#configuration-options)
 - [CLI commands](#cli-commands)
+- [Window objects](#window-objects)
 - [Global data object](#global-data-object)
 - [State restoration](#state-restoration)
 - [Hooks](#hooks)
@@ -146,6 +147,15 @@ This is an overview and reference, please see the Workflow for details.
   - `npm run backup` to create a snapshot of the Firebase database and user list
   - `npm run snapshot` to create a snapshot of your project folder
 
+## Window objects
+
+You can use several window objects directly from your components:
+
+- `window._` - [Lodash](https://lodash.com/) library
+- `window.Dom7` - [Dom7](http://framework7.io/docs/dom.html) library
+- `window.f7` - [Framework7](http://framework7.io/docs/init-app.html) instance of your application
+- `window.firebase` - [Firebase](https://firebase.google.com/docs/web/setup) instance (if configured)
+
 ## Global data object
 
 To use data across your application, App Framework provides an easy to use global data object. The data object will be immediately restored after each application restart.
@@ -252,7 +262,6 @@ This restoration includes the following elements:
 - Selected tabs (requires unique ID attribute per page)
 - Scroll positions
 - Side panels
-
 - Action sheets (requires unique ID attribute)
 - Login screens (requires unique ID attribute)
 - Pickers (requires unique ID attribute)
