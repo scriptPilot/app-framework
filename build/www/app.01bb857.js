@@ -1101,7 +1101,7 @@
 		"description": "iOS and Android Apps with HTML & JavaScript - develop, build and deploy - free and open source!",
 		"author": "scriptPilot <mail@scriptPilot.de> (https://github.com/scriptPilot)",
 		"repository": "https://github.com/scriptPilot/app-framework.git",
-		"version": "1.3.73",
+		"version": "1.3.74",
 		"license": "MIT",
 		"scripts": {
 			"postinstall": "node scripts/postinstall",
@@ -7532,6 +7532,7 @@
 	
 	        if (window.StatusBar) {
 	          window.StatusBar.show();
+	          window.Dom7('html').addClass('with-statusbar-overlay');
 	        } else if (window.f7.device.statusBar === true) {
 	          window.Dom7('html').addClass('with-statusbar-overlay');
 	        } else {
@@ -8109,11 +8110,7 @@
 	module.exports = {
 	  data: function data() {
 	    return {
-	      images: images,
-	      input: 'test',
-	      toggleBar: 'show',
-	      showStatusBar: this.$root.statusbarVisibility === 'visible',
-	      showStatusBarSwitch: window.StatusBar !== undefined
+	      images: images
 	    };
 	  },
 	  computed: {
@@ -8122,49 +8119,18 @@
 	    }
 	  },
 	  mounted: function mounted() {
-	    setTimeout(function () {
-	      this.saveData('test', 'text 123');
-	      setTimeout(function () {
-	        this.saveData('main.sub', 'text 123');
-	        setTimeout(function () {
-	          this.removeData('test');
-	          setTimeout(function () {
-	            this.removeData('main.sub');
-	          }.bind(this), 1000);
-	        }.bind(this), 1000);
-	      }.bind(this), 1000);
-	    }.bind(this), 1000);
+	    if (window.StatusBar !== undefined) {
+	      setInterval(function () {
+	        this.$root.statusbarTextColor = this.$root.statusbarTextColor === 'white' ? 'black' : 'white';
+	      }.bind(this), 2000);
+	    }
 	  },
 	  methods: {
-	    changeStatusBar: function changeStatusBar(e) {
-	      this.$root.statusbarVisibility = e.target.checked === true ? 'visible' : 'hidden';
-	    },
-	    popover: function popover(thiss) {
-	      window.f7.popover('.popover-about', thiss.target);
-	    },
 	    updateSmartlist: function updateSmartlist(e) {
 	      setTimeout(function () {
 	        var text = this.$$(e.target).find('option[value=' + e.target.value + ']').text();
 	        this.$$(e.target).parent().find('.item-after').html(text);
 	      }.bind(this), 0);
-	    },
-	    changeColor: function changeColor() {
-	      this.$root.statusbarBackgroundColor = '#006699';
-	    },
-	    toggleStatusBar: function toggleStatusBar() {
-	      if (this.toggleBar === 'show') {
-	        if (window.StatusBar) {
-	          window.StatusBar.hide();
-	        }
-	        window.Dom7('.statusbar-overlay').hide();
-	        this.toggleBar = 'hide';
-	      } else {
-	        if (window.StatusBar) {
-	          window.StatusBar.show();
-	        }
-	        window.Dom7('.statusbar-overlay').show();
-	        this.toggleBar = 'show';
-	      }
 	    }
 	  }
 	};
@@ -63212,7 +63178,7 @@
 	      "link": '/f7' + _vm.$root.theme + '/color-themes/',
 	      "media": "<i class='f7-icons'>keyboard_fill</i>"
 	    }
-	  }), _vm._v(" "), (_vm.showStatusBarSwitch) ? _c('f7-list-item', {
+	  }), _vm._v(" "), (_vm.$root.appMode === 'native') ? _c('f7-list-item', {
 	    attrs: {
 	      "title": _vm.text.showStatusbar,
 	      "media": "<i class='f7-icons'>delete</i>"
@@ -63230,7 +63196,7 @@
 	    },
 	    on: {
 	      "change": function($event) {
-	        _vm.changeStatusBar($event)
+	        _vm.$root.statusbarVisibility = $event.target.checked === true ? 'visible' : 'hidden'
 	      }
 	    }
 	  }), _vm._v(" "), _c('div', {
