@@ -17,17 +17,3 @@
 .item-after .label-switch {
   margin-top: -3px;
 }
-
-/* Modals on page components are shown below app */
-.page .login-screen,
-.page .actions-modal,
-.page .picker-modal,
-.page .popup {
-  display: none;
-}
-
-/* Modal overlays scroll to the top */
-.modal-overlay,
-.popup-overlay {
-  position: fixed;
-}
