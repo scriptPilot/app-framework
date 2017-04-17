@@ -37,7 +37,7 @@
   },
   "statusbarBackgroundColor": {
     "regexp": "/^#([0-9a-f]{6})$/i",
-    "default": "#000000"    
+    "default": "#000000"
   },
   "statusbarTextColor": {
     "allow": ["black", "white"],
@@ -76,7 +76,7 @@
         "type": "boolean",
         "default": true
       },
-      "useEmailRegistration": {
+      "allowEmailRegistration": {
         "type": "boolean",
         "default": true
       },

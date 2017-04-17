@@ -1,40 +1,33 @@
-/* Set default backround color to a light grey */
-body {
-  background: #F2F2F2;
-}
+/************/
+/* Bugfixes */
+/************/
 
-/* Set default status bar color to black */
-.statusbar-overlay {
-  background: #000000;
-}
-
-/* Set frame height to 100% */
-#frame {
-  height: 100%;
-}
-
-/* Set app height to 100% and prevent bouncing with iNoBounce */
-#app {
-  height: 100%;
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
-}
-
-/* Fix: Flashing at the beginning */
+/* Flashing at the beginning (is made visible at the end of the state restoration) */
 #app {
   visibility: hidden;
 }
 
-/* Fix: Smart select option images shown to big */
+/* Smart select option images shown to big */
 .smart-select-page .item-media img {
   max-width: 29px;
   max-height: 29px;
 }
 
-/* Fix: Modals on page components are shown below app */
+/* Switch in item-after to low */
+.item-after .label-switch {
+  margin-top: -3px;
+}
+
+/* Modals on page components are shown below app */
 .page .login-screen,
 .page .actions-modal,
 .page .picker-modal,
 .page .popup {
   display: none;
+}
+
+/* Modal overlays scroll to the top */
+.modal-overlay,
+.popup-overlay {
+  position: fixed;
 }
