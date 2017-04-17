@@ -13,12 +13,9 @@
 
 ## Way of working
 
-1. Open issue(s) (bug or feature request)
-2. Create branch
-3. Develop
-4. Test
-5. Merge branch with closure reference to the issue(s)
-6. Update documentation
+1. Create branch
+2. Develop > test > document > commit (with closure reference to issues)
+3. Merge branch
 
 ## CLI commands
 
