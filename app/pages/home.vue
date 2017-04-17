@@ -7,7 +7,7 @@
     <f7-navbar sliding :title="$root.config.title" />
 
     <!-- Installation notice -->
-    <f7-block inner inset style="text-align: center" v-if="$root.isMobileDevice && !$root.isNativeApp && !$root.isHomescreenApp">
+    <f7-block inner inset style="text-align: center" v-if="$root.appMode==='mobile'">
       <p><b>For native App feeling, please pin this page to your homescreen and open it from there!</b></p>
     </f7-block>
 
@@ -31,6 +31,14 @@
         </select>
       </f7-list-item>
       <f7-list-item :title="text.selectColors" :link="'/f7' + $root.theme + '/color-themes/'" media="<i class='f7-icons'>keyboard_fill</i>" />
+      <f7-list-item :title="text.showStatusbar" media="<i class='f7-icons'>delete</i>" v-if="showStatusBarSwitch">
+        <div slot="after">
+          <label class="label-switch">
+            <input type='checkbox' :checked="$root.statusbarVisibility==='visible'" @change="changeStatusBar($event)">
+            <div class='checkbox'></div>
+          </label>
+        </div>
+      </f7-list-item>
     </f7-list>
 
     <!-- Demonstration -->
@@ -70,6 +78,7 @@
       german: 'German',
       selectTheme: 'Select Theme',
       selectColors: 'Select Colors',
+      showStatusbar: 'Show statusbar',
       configuration: 'Configuration',
       demonstration: 'Demonstration',
       uiComponents: 'UI Components'
@@ -80,6 +89,7 @@
       german: 'Deutsch',
       selectTheme: 'Thema auswählen',
       selectColors: 'Farben auswählen',
+      showStatusbar: 'Statusleiste anzeigen',
       configuration: 'Konfiguration',
       demonstration: 'Demonstration',
       uiComponents: 'UI-Komponenten'
@@ -101,7 +111,9 @@
       return {
         images: images,
         input: 'test',
-        toggleBar: 'show'
+        toggleBar: 'show',
+        showStatusBar: this.$root.statusbarVisibility === 'visible',
+        showStatusBarSwitch: window.StatusBar !== undefined
       }
     },
     computed: {
@@ -109,7 +121,24 @@
         return text[this.$root.language] ? text[this.$root.language] : text[0]
       }
     },
+    mounted: function () {
+      setTimeout(function () {
+        this.saveData('test', 'text 123')
+        setTimeout(function () {
+          this.saveData('main.sub', 'text 123')
+          setTimeout(function () {
+            this.removeData('test')
+            setTimeout(function () {
+              this.removeData('main.sub')
+            }.bind(this), 1000)
+          }.bind(this), 1000)
+        }.bind(this), 1000)
+      }.bind(this), 1000)
+    },
     methods: {
+      changeStatusBar: function (e) {
+        this.$root.statusbarVisibility = e.target.checked === true ? 'visible' : 'hidden'
+      },
       popover: function (thiss) {
         // window.f7.alert('hallo')
         window.f7.popover('.popover-about', thiss.target)

@@ -45,9 +45,6 @@
   let iosKitchenSinkHtml = require('./kitchen-sink-ios-html.js')
   let materialKitchenSinkHtml = require('./kitchen-sink-material-html.js')
   module.exports = {
-    mounted: function () {
-      console.log('app.vue', this)
-    },
     data: function () {
       return {
         user: {
@@ -59,6 +56,16 @@
         loginScreenOpened: false,
         pickerOpened: false,
         actionsOpened: false
+      }
+    },
+    computed: {
+      themeColor: function () {
+        return this.$root.color
+      }
+    },
+    watch: {
+      themeColor: function (newColor) {
+        this.$root.statusbarBackgroundColor = this.$root.theme === 'material' ? this.$root.colors[this.$root.theme][newColor] : this.$root.config.statusbarBackgroundColor
       }
     },
     methods: {
