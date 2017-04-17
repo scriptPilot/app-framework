@@ -1,7 +1,0 @@
-service firebase.storage {
-  match /b/dev-app-framework.appspot.com/o {
-    match /privateData/{uid} {
-      allow read, write: if uid == request.auth.uid;
-    }
-  }
-}
