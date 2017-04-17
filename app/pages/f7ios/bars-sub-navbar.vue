@@ -2,7 +2,7 @@
   <div data-page="sub-navbar" class="page kitchen-sink-ios">
     <div class="navbar">
       <div class="navbar-inner">
-        <div class="left sliding"><a class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
+        <div class="left sliding"><a class="back link" href="#"><i class="icon icon-back"></i><span>Back</span></a></div>
         <div class="center sliding">Sub Navbar</div>
         <div class="subnavbar sliding">
           <div class="buttons-row"><a href="#" class="button active">Link 1</a><a href="#" class="button">Link 2</a><a href="#" class="button">Link 3</a><a href="#" class="button">Link 4</a></div>

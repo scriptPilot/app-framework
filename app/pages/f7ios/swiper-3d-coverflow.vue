@@ -2,7 +2,7 @@
   <div data-page="swiper-3d-coverflow" class="page kitchen-sink-ios">
     <div class="navbar">
       <div class="navbar-inner">
-        <div class="left sliding"><a class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
+        <div class="left sliding"><a class="back link" href="#"><i class="icon icon-back"></i><span>Back</span></a></div>
         <div class="center sliding">3D Coverflow Effect</div>
       </div>
     </div>

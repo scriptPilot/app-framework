@@ -2,7 +2,7 @@
   <div data-page="tabbar-labels" class="page no-toolbar tabbar-labels-fixed kitchen-sink-ios">
     <div class="navbar">
       <div class="navbar-inner">
-        <div class="left sliding"><a class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
+        <div class="left sliding"><a class="back link" href="#"><i class="icon icon-back"></i><span>Back</span></a></div>
         <div class="center sliding">Tab Bar With Labels</div>
       </div>
     </div>

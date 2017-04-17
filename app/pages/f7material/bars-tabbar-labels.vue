@@ -2,7 +2,7 @@
   <div data-page="tabbar-labels" class="page tabbar-labels-fixed kitchen-sink-material">
     <div class="navbar">
       <div class="navbar-inner">
-        <div class="left"><a class="back link icon-only"><i class="icon icon-back"></i></a></div>
+        <div class="left"><a class="back link icon-only" href="#"><i class="icon icon-back"></i></a></div>
         <div class="center">Tab Bar With Labels</div>
       </div>
     </div>

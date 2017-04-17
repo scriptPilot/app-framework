@@ -5,7 +5,7 @@
         <div class="content-block-inner">
           <p>On this page Navbar and Toolbar were hidden dynamically. Just add "no-toolbar no-navbar" class to this page to make it work.</p>
         </div>
-        <p><a href="/f7ios/index/" class="back button">Go Back </a></p>
+        <p><a href="#" class="back button">Go Back </a></p>
       </div>
     </div>
   </div>

@@ -2,7 +2,7 @@
   <div data-page="autocomplete" class="page kitchen-sink-material">
     <div class="navbar">
       <div class="navbar-inner">
-        <div class="left"><a class="back link"><i class="icon icon-back icon-only"></i></a></div>
+        <div class="left"><a class="back link" href="#"><i class="icon icon-back icon-only"></i></a></div>
         <div class="center sliding">Autocomplete</div>
       </div>
     </div>

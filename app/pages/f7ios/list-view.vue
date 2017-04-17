@@ -2,7 +2,7 @@
   <div data-page="list-view" class="page kitchen-sink-ios">
     <div class="navbar">
       <div class="navbar-inner">
-        <div class="left sliding"><a class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
+        <div class="left sliding"><a class="back link" href="#"><i class="icon icon-back"></i><span>Back</span></a></div>
         <div class="center sliding">List View</div>
       </div>
     </div>

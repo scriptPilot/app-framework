@@ -2,7 +2,7 @@
   <div data-page="deep-navbar-2" class="page kitchen-sink-material">
     <div class="navbar">
       <div class="navbar-inner">
-        <div class="left sliding"><a class="back link">Deep Navbar</a></div>
+        <div class="left sliding"><a class="back link" href="#">Deep Navbar</a></div>
         <div class="center sliding">Deep 2</div>
       </div>
     </div>

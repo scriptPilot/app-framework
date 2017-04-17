@@ -2,7 +2,7 @@
   <div data-page="sub-navbar" class="page kitchen-sink-material">
     <div class="navbar">
       <div class="navbar-inner">
-        <div class="left"><a class="back link icon-only"><i class="icon icon-back"></i></a></div>
+        <div class="left"><a class="back link icon-only" href="#"><i class="icon icon-back"></i></a></div>
         <div class="center">Sub Navbar</div>
       </div>
       <div class="subnavbar">

@@ -2,7 +2,7 @@
   <div data-page="swiper-gallery" class="page kitchen-sink-material">
     <div class="navbar">
       <div class="navbar-inner">
-        <div class="left sliding"><a class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
+        <div class="left sliding"><a class="back link" href="#"><i class="icon icon-back"></i><span>Back</span></a></div>
         <div class="center sliding">Two Way Control Gallery</div>
       </div>
     </div>
