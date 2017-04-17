@@ -1,7 +1,3 @@
-/************/
-/* Bugfixes */
-/************/
-
 /* Flashing at the beginning (is made visible at the end of the state restoration) */
 #app {
   visibility: hidden;
