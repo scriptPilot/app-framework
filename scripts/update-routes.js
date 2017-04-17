@@ -118,7 +118,7 @@ let addMissingPages = function (routes, callback) {
         alert('Failed to read pages folder.', 'issue')
       } else {
         for (let p = 0; p < pages.length; p++) {
-          let pageFile = pages[p].substr(pagesFolder.length + 1)
+          let pageFile = pages[p].substr(pagesFolder.length + 1).replace(/\\/g, '/')
           if (/^([0-9a-z-/]+)\.vue$/.test(pageFile)) {
             let pagePath = '/' + pageFile.replace(/\.vue$/, '') + '/'
             let pagePathFound = false
