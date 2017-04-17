@@ -61,10 +61,10 @@ function proceedFolder (sourceFolder, destinationFolder, callback) {
                       $('.content-block, .content-block-title').remove()
                       $('body').html($('.view-main'))
                       if (theme === 'ios') {
-                        $('.navbar .left').addClass('sliding').html('<a class="back link"><i class="icon icon-back"></i><span>Back</span></a>')
+                        $('.navbar .left').addClass('sliding').html('<a href="#" class="back link"><i class="icon icon-back"></i><span>Back</span></a>')
                         $('.navbar .center').html('iOS')
                       } else if (theme === 'material') {
-                        $('.navbar-inner').prepend('<div class="left"><a class="back link icon-only"><i class="icon icon-back"></i></a></div>')
+                        $('.navbar-inner').prepend('<div class="left"><a href="#" class="back link icon-only"><i class="icon icon-back"></i></a></div>')
                         $('.navbar .center').html('Material')
                       }
                     }
@@ -79,12 +79,13 @@ function proceedFolder (sourceFolder, destinationFolder, callback) {
                       }
                       $('.navbar .right').remove()
                       $('.page').addClass('kitchen-sink-' + theme)
+                      $('a.back').attr('href', '#')
                       $('a.back span').html('Back')
                       let vueComponent = '<template>\n  ' + beautify.html($('.page').prop('outerHTML'), {indent_size: 2}).replace(/\n/g, '\n  ').replace(/\n([ ]*)\n/g, '\n') + '\n</template>\n'
                       fs.writeFileSync(path.resolve(destinationFolder, htmlFiles[f].replace(/\.html$/, '.vue')), vueComponent)
                     }
                   } catch (err) {
-                    alert('Failed to proceed file "' + htmlFiles[f] + '".' + err, 'issue')
+                    alert('Failed to proceed file "' + htmlFiles[f] + '".', 'issue')
                   }
                 }
                 try {
