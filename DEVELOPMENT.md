@@ -11,6 +11,15 @@
 - [Coding rules](#coding-rules)
 - [Script files](#script-files)
 
+## Way of working
+
+1. Open issue(s) (bug or feature request)
+2. Create branch
+3. Develop
+4. Test
+5. Merge branch with closure reference to the issue(s)
+6. Update documentation
+
 ## CLI commands
 
 To inform end users about wrong App Framework usage (forking instead of installing as a module), there is an error message on each *env.js* script call. For App Framework development, you have to create an empty file *.enable-dev-mode* in the project folder to suppress this warning.
