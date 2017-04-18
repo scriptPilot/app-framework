@@ -31,10 +31,10 @@
         </select>
       </f7-list-item>
       <f7-list-item :title="text.selectColors" :link="'/f7' + $root.theme + '/color-themes/'" media="<i class='f7-icons'>keyboard_fill</i>" />
-      <f7-list-item :title="text.showStatusbar" media="<i class='f7-icons'>delete</i>" v-if="showStatusBarSwitch">
+      <f7-list-item :title="text.showStatusbar" media="<i class='f7-icons'>delete</i>" v-if="$root.appMode==='native'">
         <div slot="after">
           <label class="label-switch">
-            <input type='checkbox' :checked="$root.statusbarVisibility==='visible'" @change="changeStatusBar($event)">
+            <input type='checkbox' :checked="$root.statusbarVisibility==='visible'" @change="$root.statusbarVisibility=$event.target.checked===true?'visible':'hidden'">
             <div class='checkbox'></div>
           </label>
         </div>
@@ -47,10 +47,8 @@
       <f7-list-item link="/f7ios/index/" :title="'iOS ' + text.uiComponents" media="<i class='icon icon-f7' />" v-if="$root.theme === 'ios'" />
       <f7-list-item link="/f7material/index/" :title="'Material ' + text.uiComponents" media="<i class='icon icon-f7' />" v-if="$root.theme === 'material'" />
       <f7-list-item link="/state-restoration/" title="App State Restoration" media="<i class='f7-icons'>refresh</i>" />
-      <!--
-      <f7-list-item @click="changeColor" title="Change status bar color" />
-      <f7-list-item @click="toggleStatusBar" title="Toggle stats bar" />
-      -->
+      <f7-list-item title="white" @click="$root.statusbarTextColor='white'" />
+      <f7-list-item title="black" @click="$root.statusbarTextColor='black'" />
       <!--
       <f7-list-item link="/" title="Realtime Database" :media="'<img src=\'' + images.firebase + '\' width=\'29\' />'" />
       <f7-list-item link="/" title="Responsive Charts" media="<i class='f7-icons'>graph_round_fill</i>" />
@@ -109,11 +107,7 @@
   module.exports = {
     data: function () {
       return {
-        images: images,
-        input: 'test',
-        toggleBar: 'show',
-        showStatusBar: this.$root.statusbarVisibility === 'visible',
-        showStatusBarSwitch: window.StatusBar !== undefined
+        images: images
       }
     },
     computed: {
@@ -121,52 +115,12 @@
         return text[this.$root.language] ? text[this.$root.language] : text[0]
       }
     },
-    mounted: function () {
-      setTimeout(function () {
-        this.saveData('test', 'text 123')
-        setTimeout(function () {
-          this.saveData('main.sub', 'text 123')
-          setTimeout(function () {
-            this.removeData('test')
-            setTimeout(function () {
-              this.removeData('main.sub')
-            }.bind(this), 1000)
-          }.bind(this), 1000)
-        }.bind(this), 1000)
-      }.bind(this), 1000)
-    },
     methods: {
-      changeStatusBar: function (e) {
-        this.$root.statusbarVisibility = e.target.checked === true ? 'visible' : 'hidden'
-      },
-      popover: function (thiss) {
-        // window.f7.alert('hallo')
-        window.f7.popover('.popover-about', thiss.target)
-        // console.log(thiss.srcElement)
-      },
       updateSmartlist: function (e) {
         setTimeout(function () {
           let text = this.$$(e.target).find('option[value=' + e.target.value + ']').text()
           this.$$(e.target).parent().find('.item-after').html(text)
         }.bind(this), 0)
-      },
-      changeColor: function () {
-        this.$root.statusbarBackgroundColor = '#006699'
-      },
-      toggleStatusBar: function () {
-        if (this.toggleBar === 'show') {
-          if (window.StatusBar) {
-            window.StatusBar.hide()
-          }
-          window.Dom7('.statusbar-overlay').hide()
-          this.toggleBar = 'hide'
-        } else {
-          if (window.StatusBar) {
-            window.StatusBar.show()
-          }
-          window.Dom7('.statusbar-overlay').show()
-          this.toggleBar = 'show'
-        }
       }
     }
   }
