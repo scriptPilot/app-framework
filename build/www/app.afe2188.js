@@ -1101,7 +1101,7 @@
 		"description": "iOS and Android Apps with HTML & JavaScript - develop, build and deploy - free and open source!",
 		"author": "scriptPilot <mail@scriptPilot.de> (https://github.com/scriptPilot)",
 		"repository": "https://github.com/scriptPilot/app-framework.git",
-		"version": "1.3.74",
+		"version": "1.3.79",
 		"license": "MIT",
 		"scripts": {
 			"postinstall": "node scripts/postinstall",
@@ -7504,7 +7504,16 @@
 	        window.localStorage.statusbarBackgroundColor = newColor;
 	
 	        window.Dom7('.statusbar-overlay').css('background-color', newColor);
-	        if (window.StatusBar) window.StatusBar.backgroundColorByHexString(newColor);
+	
+	        if (window.cordova) {
+	          if (window.StatusBar) {
+	            window.StatusBar.backgroundColorByHexString(newColor);
+	          } else {
+	            window.Dom7(document).on('deviceready', function () {
+	              window.StatusBar.backgroundColorByHexString(newColor);
+	            });
+	          }
+	        }
 	      } else {
 	        this.statusbarBackgroundColor = oldColor;
 	      }
@@ -7513,14 +7522,30 @@
 	      if (newColor === 'white') {
 	        window.localStorage.statusbarTextColor = 'white';
 	
-	        if (window.StatusBar) {
-	          window.StatusBar.styleLightContent();
+	        window.Dom7('meta[name=apple-mobile-web-app-status-bar-style]').attr('content', 'black');
+	
+	        if (window.cordova) {
+	          if (window.StatusBar) {
+	            window.StatusBar.styleLightContent();
+	          } else {
+	            window.Dom7(document).on('deviceready', function () {
+	              window.StatusBar.styleLightContent();
+	            });
+	          }
 	        }
 	      } else if (newColor === 'black') {
 	        window.localStorage.statusbarTextColor = 'black';
 	
-	        if (window.StatusBar) {
-	          window.StatusBar.styleDefault();
+	        window.Dom7('meta[name=apple-mobile-web-app-status-bar-style]').attr('content', 'black-translucent');
+	
+	        if (window.cordova) {
+	          if (window.StatusBar) {
+	            window.StatusBar.styleDefault();
+	          } else {
+	            window.Dom7(document).on('deviceready', function () {
+	              window.StatusBar.styleDefault();
+	            });
+	          }
 	        }
 	      } else {
 	        this.statusbarTextColor = oldColor;
@@ -7530,21 +7555,35 @@
 	      if (newState === 'visible') {
 	        window.localStorage.removeItem('statusbarVisibility');
 	
-	        if (window.StatusBar) {
-	          window.StatusBar.show();
-	          window.Dom7('html').addClass('with-statusbar-overlay');
-	        } else if (window.f7.device.statusBar === true) {
+	        if (window.f7.device.statusBar === true) {
 	          window.Dom7('html').addClass('with-statusbar-overlay');
 	        } else {
 	          window.Dom7('html').removeClass('with-statusbar-overlay');
 	        }
+	
+	        if (window.cordova) {
+	          if (window.StatusBar) {
+	            window.StatusBar.show();
+	          } else {
+	            window.Dom7(document).on('deviceready', function () {
+	              window.StatusBar.show();
+	            });
+	          }
+	        }
 	      } else if (newState === 'hidden') {
 	        window.localStorage.statusbarVisibility = 'hidden';
 	
-	        if (window.StatusBar) {
-	          window.StatusBar.hide();
-	        }
 	        window.Dom7('html').removeClass('with-statusbar-overlay');
+	
+	        if (window.cordova) {
+	          if (window.StatusBar) {
+	            window.StatusBar.hide();
+	          } else {
+	            window.Dom7(document).on('deviceready', function () {
+	              window.StatusBar.hide();
+	            });
+	          }
+	        }
 	      } else {
 	        this.statusbarVisibility = oldState;
 	      }
@@ -7797,9 +7836,7 @@
 	  framework7: {
 	    root: '#app',
 	    routes: routes,
-	    material: theme === 'material',
-	    statusbarOverlay: false,
-	    scrollTopOnStatusbarClick: true
+	    material: theme === 'material'
 	  },
 	  data: {
 	    frameworkVersion: framework.version,
@@ -7818,37 +7855,36 @@
 	
 	    data: {}
 	  },
-	  mounted: function mounted() {
-	    if (window.cordova !== undefined) {
-	      this.appMode = 'native';
-	    } else if (this.$f7.device.webView !== null || window.matchMedia('(display-mode: standalone)').matches) {
-	      this.appMode = 'homescreen';
-	    } else if (this.$f7.device.ios !== false || this.$f7.device.android !== false) {
-	      this.appMode = 'mobile';
-	    } else {
-	      this.appMode = 'desktop';
-	    }
-	
-	    if (("production") === 'production' && (config.theme === 'ios-material' || config.theme === 'material-ios')) {
-	      window.Dom7('link').each(function (i, el) {
-	        var href = window.Dom7(el).attr('href').match(/^(ios|material)\.(.+)\.css$/);
-	        if (href !== null && href[1] !== theme) {
-	          window.Dom7(el).remove();
-	        }
-	      });
-	
-	      window.Dom7('script').each(function (i, el) {
-	        var src = window.Dom7(el).attr('src').match(/^(ios|material)\.(.+)\.js$/);
-	        if (src !== null && src[1] !== theme) {
-	          window.Dom7(el).remove();
-	        }
-	      });
-	    }
-	
-	    managePhoneFrame();
-	  },
 	  methods: {
 	    onF7Init: function onF7Init() {
+	      if (window.cordova !== undefined) {
+	        this.appMode = 'native';
+	      } else if (this.$f7.device.webView !== null || window.matchMedia('(display-mode: standalone)').matches) {
+	        this.appMode = 'homescreen';
+	      } else if (this.$f7.device.ios !== false || this.$f7.device.android !== false) {
+	        this.appMode = 'mobile';
+	      } else {
+	        this.appMode = 'desktop';
+	      }
+	
+	      if (("production") === 'production' && (config.theme === 'ios-material' || config.theme === 'material-ios')) {
+	        window.Dom7('link').each(function (i, el) {
+	          var href = window.Dom7(el).attr('href').match(/^(ios|material)\.(.+)\.css$/);
+	          if (href !== null && href[1] !== theme) {
+	            window.Dom7(el).remove();
+	          }
+	        });
+	
+	        window.Dom7('script').each(function (i, el) {
+	          var src = window.Dom7(el).attr('src').match(/^(ios|material)\.(.+)\.js$/);
+	          if (src !== null && src[1] !== theme) {
+	            window.Dom7(el).remove();
+	          }
+	        });
+	      }
+	
+	      managePhoneFrame();
+	
 	      manageApplicationState(this);
 	    }
 	  }
@@ -8116,13 +8152,6 @@
 	  computed: {
 	    text: function text() {
 	      return _text[this.$root.language] ? _text[this.$root.language] : _text[0];
-	    }
-	  },
-	  mounted: function mounted() {
-	    if (window.StatusBar !== undefined) {
-	      setInterval(function () {
-	        this.$root.statusbarTextColor = this.$root.statusbarTextColor === 'white' ? 'black' : 'white';
-	      }.bind(this), 2000);
 	    }
 	  },
 	  methods: {
@@ -63218,6 +63247,24 @@
 	      "link": "/state-restoration/",
 	      "title": "App State Restoration",
 	      "media": "<i class='f7-icons'>refresh</i>"
+	    }
+	  }), _vm._v(" "), _c('f7-list-item', {
+	    attrs: {
+	      "title": "white"
+	    },
+	    on: {
+	      "click": function($event) {
+	        _vm.$root.statusbarTextColor = 'white'
+	      }
+	    }
+	  }), _vm._v(" "), _c('f7-list-item', {
+	    attrs: {
+	      "title": "black"
+	    },
+	    on: {
+	      "click": function($event) {
+	        _vm.$root.statusbarTextColor = 'black'
+	      }
 	    }
 	  })], 1), _vm._v(" "), _c('f7-block', {
 	    staticStyle: {
