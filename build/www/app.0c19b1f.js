@@ -1101,7 +1101,7 @@
 		"description": "iOS and Android Apps with HTML & JavaScript - develop, build and deploy - free and open source!",
 		"author": "scriptPilot <mail@scriptPilot.de> (https://github.com/scriptPilot)",
 		"repository": "https://github.com/scriptPilot/app-framework.git",
-		"version": "1.3.79",
+		"version": "1.3.93",
 		"license": "MIT",
 		"scripts": {
 			"postinstall": "node scripts/postinstall",
@@ -7463,6 +7463,73 @@
 	  }
 	});
 	
+	var startY = 0;
+	var handleTouchmove = function handleTouchmove(evt) {
+	  var el = evt.target;
+	
+	  while (el !== document.body) {
+	    var style = window.getComputedStyle(el);
+	
+	    if (!style) {
+	      break;
+	    }
+	
+	    if (el.nodeName === 'INPUT' && el.getAttribute('type') === 'range') {
+	      return;
+	    }
+	
+	    var scrolling = style.getPropertyValue('-webkit-overflow-scrolling');
+	    var overflowY = style.getPropertyValue('overflow-y');
+	    var height = parseInt(style.getPropertyValue('height'), 10);
+	
+	    var isScrollable = scrolling === 'touch' && (overflowY === 'auto' || overflowY === 'scroll');
+	    var canScroll = el.scrollHeight > el.offsetHeight;
+	
+	    var cl = el.getAttribute('class') !== null ? el.getAttribute('class').split(' ') : [];
+	    if (cl.indexOf('page-content') !== -1) {
+	      if (el.scrollLeft < 0 || el.scrollLeft > el.scrollWidth - parseInt(style.getPropertyValue('width'))) {
+	        evt.preventDefault();
+	      }
+	    }
+	
+	    if (isScrollable && canScroll) {
+	      var curY = evt.touches ? evt.touches[0].screenY : evt.screenY;
+	
+	      var isAtTop = startY <= curY && el.scrollTop === 0;
+	      var isAtBottom = startY >= curY && el.scrollHeight - el.scrollTop === height;
+	
+	      if (isAtTop || isAtBottom) {
+	        evt.preventDefault();
+	      }
+	
+	      var cl = el.getAttribute('class') !== null ? el.getAttribute('class').split(' ') : [];
+	
+	      if (window.Dom7(el).parents('.timeline-horizontal').length === 0 || window.Dom7(el).parents('.tabbar-scrollable').length === 0) {
+	        return;
+	      }
+	    }
+	
+	    el = el.parentNode;
+	  }
+	
+	  evt.preventDefault();
+	};
+	var handleTouchstart = function handleTouchstart(evt) {
+	  startY = evt.touches ? evt.touches[0].screenY : evt.screenY;
+	};
+	
+	var manageDOMfix = {
+	  mounted: function mounted() {
+	    if (window.Dom7('#app .statusbar-overlay').length < 1) {
+	      window.Dom7('#app').prepend('<div class="statusbar-overlay"></div>');
+	    }
+	
+	    window.addEventListener('touchstart', handleTouchstart, false);
+	    window.addEventListener('touchmove', handleTouchmove, false);
+	  }
+	};
+	
+	
 	var manageThemeUpdate = {
 	  watch: {
 	    theme: function theme(newTheme, oldTheme) {
@@ -7832,7 +7899,7 @@
 	  el: '#app',
 	  template: '<app />',
 	  components: { app: appComponent },
-	  mixins: [manageThemeUpdate],
+	  mixins: [manageDOMfix, manageThemeUpdate],
 	  framework7: {
 	    root: '#app',
 	    routes: routes,
@@ -63247,24 +63314,6 @@
 	      "link": "/state-restoration/",
 	      "title": "App State Restoration",
 	      "media": "<i class='f7-icons'>refresh</i>"
-	    }
-	  }), _vm._v(" "), _c('f7-list-item', {
-	    attrs: {
-	      "title": "white"
-	    },
-	    on: {
-	      "click": function($event) {
-	        _vm.$root.statusbarTextColor = 'white'
-	      }
-	    }
-	  }), _vm._v(" "), _c('f7-list-item', {
-	    attrs: {
-	      "title": "black"
-	    },
-	    on: {
-	      "click": function($event) {
-	        _vm.$root.statusbarTextColor = 'black'
-	      }
 	    }
 	  })], 1), _vm._v(" "), _c('f7-block', {
 	    staticStyle: {
