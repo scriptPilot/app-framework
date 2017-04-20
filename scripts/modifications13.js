@@ -1,4 +1,4 @@
-/* Purpose: app/ly necessary modifications to older versions to prepare version 1.3 */
+/* Purpose: Apply necessary modifications to older versions to prepare version 1.3 */
 
 'use strict'
 
