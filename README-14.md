@@ -16,7 +16,7 @@
 - [ ] **Local testing** - on a server with live-reload, on your own device or on any iOS or Android simulator
 - [ ] **Integrated checks** - with automatic fix for code [correctness](http://eslint.org/) and [standard conformity](http://standardjs.com/)
 - [ ] **Optimized build** - with version bump, icon generation and compression of all code and image files
-- [ ] **Safe deployment** - without downtime to any FTP server, [Firebase hosting](https://firebase.google.com/docs/hosting/), [iOS project](https://developer.apple.com/xcode/) or [Android project](https://developer.android.com/studio)
+- [ ] **Safe deployment** - without downtime to any FTP server, [Firebase hosting](https://firebase.google.com/docs/hosting/), [Xcode](https://developer.apple.com/xcode/) or [Android Studio](https://developer.android.com/studio)
 - [ ] **Snapshots** - of the Firebase backend and all project files to backup on any external drive or cloud
 - [ ] **Many more** - like offline capability, flexible routine, multi-language support, ...
 
