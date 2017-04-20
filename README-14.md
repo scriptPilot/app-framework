@@ -8,13 +8,13 @@
 
 - [ ] **Project folder generation** - lightweight, well-organized and ready for Git publishing
 - [ ] **Single file components** - with template, scripts and style included to manage big projects easily
-- [ ] **Beautiful user interfaces** - with all well-known iOS and Material elements and transitions
+- [ ] **Beautiful user interface** - with all well-known iOS and Material elements and transitions
 - [ ] **Comprehensive icon fonts** - [FontAwesome](http://fontawesome.io/), [Framework7](http://framework7.io/icons/), [Ion](http://ionicons.com/) and [Material Icons](https://material.io/icons/) out of the box to use
-- [ ] **Powerful user interfaces** - state-based and reactive with the simplicity of [Vue.js](https://vuejs.org/), ready for [ES2015](https://babeljs.io/learn-es2015/)
+- [ ] **Powerful user interface** - state-based and reactive with the simplicity of [Vue.js](https://vuejs.org/), ready for [ES2015](https://babeljs.io/learn-es2015/)
 - [ ] **Reliable backend** - use Firebase for [authentication](https://firebase.google.com/docs/auth/), [realtime database](https://firebase.google.com/docs/database/) and [storage services](https://firebase.google.com/docs/storage/)
 - [ ] **State restoration** - for history, tabs, scroll positions, form inputs, focus, modals and component data
 - [ ] **Local testing** - on a server with live-reload, on your own device or on any iOS or Android simulator
-- [ ] **Integrated checks** - for code [correctness](http://eslint.org/) and [standard conformity](http://standardjs.com/)
+- [ ] **Integrated checks** - with automatic fix for code [correctness](http://eslint.org/) and [standard conformity](http://standardjs.com/)
 - [ ] **Optimized build** - with version bump, icon generation and compression of all code and image files
 - [ ] **Safe deployment** - without downtime to any FTP server, [Firebase hosting](https://firebase.google.com/docs/hosting/), [iOS project](https://developer.apple.com/xcode/) or [Android project](https://developer.android.com/studio)
 - [ ] **Snapshots** - of the Firebase backend and all project files to backup on any external drive or cloud
