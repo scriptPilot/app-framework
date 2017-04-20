@@ -6,10 +6,15 @@
 
 ## Features
 
-### Client Code
+- [ ] **Project folder generation** - lightweight, well-organized and ready for Git publishing
+- [ ] **Single file components** - with template, scripts and style included to manage big projects easily
+- [ ] **Beautiful user interfaces** - with simple HTML, based on [Framework7](https://framework7.io/)
+- [ ] **Powerful user interfaces** - state-based and reactive, done with the simplicity of [Vue.js](https://vuejs.org/) 
+- [ ] **Local testing** - on a server with live-reload, on your own device or on any iOS or Android simulator
+- [ ] **Optimized build** - with version bump, icon generation and compression of all code and image files
+- [ ] **Safe deployment** - without downtime to any FTP server, Firebase hosting or as iOS or Android project
 
-- **Global data object** to use the same data across your whole application
-- **State restoration** after application restart to let your users continue easily
+
 
 
 
@@ -33,7 +38,6 @@ Design your application:
 
 Develop your application:
 
-- Realize beautiful user interfaces with all well-known components and transitions, based on [Framework7](https://framework7.io/)
 - Easy to maintain [single file components](https://vuejs.org/guide/single-file-components) with [reusable UI elements](https://framework7.io/vue/)
 - One code base for all devices with HTML, CSS and JavaScript - realized with [Cordova](https://cordova.apache.org/), supporting [ES2015](https://babeljs.io/learn-es2015/)
 - Use comprehensive icon fonts like [FontAwesome](http://fontawesome.io/), [Framework7](http://framework7.io/icons/), [Ion](http://ionicons.com/) and [Material Icons](https://material.io/icons/) out of the box
