@@ -419,6 +419,7 @@ deployDevRules(function () {
                       alert('Android Studio started.')
                     })
                   } else if (env.os === 'linux') {
+                    /*
                     let possibleInstallations = [
                       abs('/bin/android-studio/bin/studio.sh'),
                       abs('/opt/android-studio/bin/studio.sh'),
@@ -436,6 +437,10 @@ deployDevRules(function () {
                         alert('Android Studio installation path not found.\nPlease open Android Studio manually and open project path:\n\n' + abs(binDir, 'platforms/android'), 'issue')
                       }
                     }
+                    */
+                    cmd(which android-studio, ['./' + path.basename(possibleInstallations[p]), '"' + abs(binDir, 'platforms/android') + '"'], function () {
+                      alert('Android Studio started.')
+                    })
                   } else {
                     alert('Unknown operating system "' + env.os + '".', 'issue')
                   }
