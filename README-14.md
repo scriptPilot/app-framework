@@ -33,18 +33,18 @@
 
 Upcoming:
 
-- [1.4 - Client code robustness improvements](https://github.com/scriptPilot/app-framework/milestone/9)
-- [1.5 - Demo App robustness improvements](https://github.com/scriptPilot/app-framework/milestone/10)
-- [1.6 - Tutorial: ToDo App](https://github.com/scriptPilot/app-framework/milestone/3)
-- [1.7 - Extensions](https://github.com/scriptPilot/app-framework/milestone/7)
-- [1.8 - GUI helper tool](https://github.com/scriptPilot/app-framework/milestone/8)
+- [ ] [1.4 - Client code robustness improvements](https://github.com/scriptPilot/app-framework/milestone/9)
+- [ ] [1.5 - Demo App robustness improvements](https://github.com/scriptPilot/app-framework/milestone/10)
+- [ ] [1.6 - Tutorial: ToDo App](https://github.com/scriptPilot/app-framework/milestone/3)
+- [ ] [1.7 - Extensions](https://github.com/scriptPilot/app-framework/milestone/7)
+- [ ] [1.8 - GUI helper tool](https://github.com/scriptPilot/app-framework/milestone/8)
 
 Closed:
 
-- [1.3 - CLI robustness improvements](https://github.com/scriptPilot/app-framework/milestone/6?closed=1) (2017-03-19)
-- [1.2 - Google Play Store deployment](https://github.com/scriptPilot/app-framework/milestone/5?closed=1) (2017-02-12)
-- [1.1 - Apple App Store deployment](https://github.com/scriptPilot/app-framework/milestone/4?closed=1) (2017-02-10)
-- [1.0 - Initial Release](https://github.com/scriptPilot/app-framework/milestone/1?closed=1) (2017-02-05)
+- [x] [1.3 - CLI robustness improvements](https://github.com/scriptPilot/app-framework/milestone/6?closed=1) (2017-03-19)
+- [x] [1.2 - Google Play Store deployment](https://github.com/scriptPilot/app-framework/milestone/5?closed=1) (2017-02-12)
+- [x] [1.1 - Apple App Store deployment](https://github.com/scriptPilot/app-framework/milestone/4?closed=1) (2017-02-10)
+- [x] [1.0 - Initial Release](https://github.com/scriptPilot/app-framework/milestone/1?closed=1) (2017-02-05)
 
 ## Required knowledge
 
