@@ -43,6 +43,10 @@
     "allow": ["black", "white"],
     "default": "white"
   },
+  "statusbarVisibility": {
+    "allow": ["visible", "hidden"],
+    "default": "visible"
+  },
   "showPhoneFrameOnDesktop": {
     "type": "boolean",
     "default": true
@@ -103,22 +107,6 @@
       "useDevFirebaseOnTesting": {
         "type": "boolean",
         "default": false
-      },
-      "useDatabaseService": {
-        "type": "boolean",
-        "default": true
-      },
-      "useStorageService": {
-        "type": "boolean",
-        "default": true
-      },
-      "useEmailLogin": {
-        "type": "boolean",
-        "default": true
-      },
-      "useEmailRegistration": {
-        "type": "boolean",
-        "default": true
       },
       "apiKey": {
         "type": "string"
