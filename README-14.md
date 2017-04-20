@@ -6,7 +6,8 @@
 
 ## Features
 
-- [x] **Project folder generation** - lightweight, well-organized and ready for Git publishing
+Code:
+
 - [x] **Single file components** - with template, scripts and style included to manage big projects easily
 - [x] **Beautiful user interface** - with all well-known [iOS and Material](http://framework7.io/) elements and transitions
 - [x] **Comprehensive icon fonts** - [FontAwesome](http://fontawesome.io/), [Framework7](http://framework7.io/icons/), [Ion](http://ionicons.com/) and [Material Icons](https://material.io/icons/) out of the box to use
@@ -14,12 +15,16 @@
 - [x] **Reliable backend** - with Firebase for [user authentication](https://firebase.google.com/docs/auth/), [realtime database](https://firebase.google.com/docs/database/) and [storage services](https://firebase.google.com/docs/storage/)
 - [x] **Global data object** - to use the same data and settings across your whole application
 - [x] **State restoration** - for history, tabs, scroll positions, form inputs, focus, modals and component data
+- [x] **Many more** - like offline capability, flexible routine, multi-language support, ...
+
+Workflow:
+
+- [x] **Project folder generation** - lightweight, well-organized and ready for Git publishing
 - [x] **Local testing** - on a server with live-reload, on your own device or on any iOS or Android simulator
 - [x] **Integrated checks** - with automatic fix for code [correctness](http://eslint.org/) and [standard conformity](http://standardjs.com/)
 - [x] **Optimized build** - with version bump, icon generation and compression of all code and image files
 - [x] **Safe deployment** - without downtime to any FTP server, [Firebase hosting](https://firebase.google.com/docs/hosting/), [Xcode](https://developer.apple.com/xcode/) or [Android Studio](https://developer.android.com/studio)
 - [x] **Snapshots** - of the Firebase backend and all project files to backup on any external drive or cloud
-- [x] **Many more** - like offline capability, flexible routine, multi-language support, ...
 
 ## Demo App
 
