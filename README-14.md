@@ -8,72 +8,25 @@
 
 - [ ] **Project folder generation** - lightweight, well-organized and ready for Git publishing
 - [ ] **Single file components** - with template, scripts and style included to manage big projects easily
-- [ ] **Beautiful user interfaces** - with simple HTML, based on [Framework7](https://framework7.io/)
-- [ ] **Powerful user interfaces** - state-based and reactive, done with the simplicity of [Vue.js](https://vuejs.org/) 
+- [ ] **Beautiful user interfaces** - with all well-known iOS and Material elements and transitions
+- [ ] **Comprehensive icon fonts** - [FontAwesome](http://fontawesome.io/), [Framework7](http://framework7.io/icons/), [Ion](http://ionicons.com/) and [Material Icons](https://material.io/icons/) out of the box to use
+- [ ] **Powerful user interfaces** - state-based and reactive with the simplicity of [Vue.js](https://vuejs.org/), ready for [ES2015](https://babeljs.io/learn-es2015/)
+- [ ] **Painless backend** - use Firebase for [authentication](https://firebase.google.com/docs/auth/), [realtime database](https://firebase.google.com/docs/database/) and [storage services](https://firebase.google.com/docs/storage/)
+- [ ] **State restoration** - for history, tabs, scroll positions, form inputs, focus, modals and component data
 - [ ] **Local testing** - on a server with live-reload, on your own device or on any iOS or Android simulator
+- [ ] **Integrated checks** - for code [correctness](http://eslint.org/) and [standard conformity](http://standardjs.com/)
 - [ ] **Optimized build** - with version bump, icon generation and compression of all code and image files
-- [ ] **Safe deployment** - without downtime to any FTP server, Firebase hosting or as iOS or Android project
+- [ ] **Safe deployment** - without downtime to any FTP server, [Firebase hosting](https://firebase.google.com/docs/hosting/), [iOS project](https://developer.apple.com/xcode/) or [Android project](https://developer.android.com/studio)
+- [ ] **Snapshots** - of the Firebase backend and all project files to backup on any external drive or cloud
+- [ ] **Many more** - like offline capability, flexible routine, multi-language support, ...
 
-
-
-
-
-> The power is under the hood - but for sure, we have a Demo App.
+## Demo App
 
 [![Download on the App Store Play](media/app-store-download.png)](https://itunes.apple.com/us/app/app-framework-demo/id1203927581?mt=8')
 &nbsp;&nbsp;&nbsp;
 [![Get it on Google Play](media/google-play-download.png)](https://play.google.com/store/apps/details?id=de.scriptpilot.appframework)
 &nbsp;&nbsp;&nbsp;
 [![Open as Web App](media/web-app-visit.png)](https://app-framework.scriptpilot.de/)
-
-Setup your development environment:
-
-- Creation of a lightweight and well-organized project folder, ready for [GitHub](https://github.com/about)
-- [Demo App](https://app-framework.scriptpilot.de/) to use as base for your own application with typical use cases
-
-Design your application:
-
-- Printable [template](design/smartphone-template.pdf) to design your application with paper and pencil
-- Template for your icon design - as [PDF for sketching](design/icon-template.pdf) and [PPTX](design/icon-template.pptx) for drawing
-
-Develop your application:
-
-- Easy to maintain [single file components](https://vuejs.org/guide/single-file-components) with [reusable UI elements](https://framework7.io/vue/)
-- One code base for all devices with HTML, CSS and JavaScript - realized with [Cordova](https://cordova.apache.org/), supporting [ES2015](https://babeljs.io/learn-es2015/)
-- Use comprehensive icon fonts like [FontAwesome](http://fontawesome.io/), [Framework7](http://framework7.io/icons/), [Ion](http://ionicons.com/) and [Material Icons](https://material.io/icons/) out of the box
-- Well prepared to use [Firebase authentication](https://firebase.google.com/docs/auth/), [realtime database](https://firebase.google.com/docs/database/) and [storage services](https://firebase.google.com/docs/storage/)
-- State kept for history, tabs, scroll positions, focus, panels, modals, form inputs and page component data
-- Offline capability, flexible routing and multi-language support out of the box
-
-Test your application:
-
-- Integrated code check for [correctness](http://eslint.org/) and automatic fix for [standard conformity](http://standardjs.com/)
-- Local development server with live reload, perfectly to use together with [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools/)
-- Test your application on any iOS or Android device with an emulator or on your own device
-- Use a development Firebase project with automatic [database](https://firebase.google.com/docs/database/) and [storage](https://firebase.google.com/docs/storage/) rule update
-
-Build your application:
-
-- Build process with version bump and compression of all HTML, CSS, JavaScript and image files
-- Generation of favicons, touch icons and splash screens out of a single image file
-- Phone frame around your application on big screens, so you can offer desktop access with charm
-- Automatic build as web application, to be used online and offline in the browser
-- Automatic [Apple Xcode](https://developer.apple.com/xcode/) project build with [Cordova](https://cordova.apache.org/)
-- Automatic [Android Studio](https://developer.android.com/studio) project build with [Cordova](https://cordova.apache.org/)
-
-Deploy your application:
-
-- Deployment without downtime
-  - to any FTP server as Web App
-  - to the [Firebase Hosting service](https://firebase.google.com/docs/hosting/) as Web App
-  - to the [Apple App Store](https://itunes.apple.com/de/) as native iOS App
-  - to the [Google Play Store](https://play.google.com/) as native Android App
-- Easy rollback solutions
-
-Backup your application:
-
-- Download your [Firebase database content](https://firebase.google.com/docs/database/) and [user list](https://firebase.google.com/docs/auth/) to local JSON files
-- Snapshot creation of all important project files to backup on any external drive or cloud service
 
 ## Milestones
 
@@ -92,6 +45,20 @@ Closed:
 - [1.1 - Apple App Store deployment](https://github.com/scriptPilot/app-framework/milestone/4?closed=1) (2017-02-10)
 - [1.0 - Initial Release](https://github.com/scriptPilot/app-framework/milestone/1?closed=1) (2017-02-05)
 
+## Required knowledge
+
+Essentiell:
+
+- [Node.js and npm](https://docs.npmjs.com/getting-started/what-is-npm) for command line interface handling
+- [Framework7](https://framework7.io/docs/) and [Framework7-Vue](https://framework7.io/vue/) to develop with HTML and JavaScript
+
+Optional:
+
+- [Vue.js](https://vuejs.org/v2/guide/) to make your application state-based and reactive
+- [Firebase services](https://firebase.google.com/docs/web/setup) as free and reliable backend service provider
+- [Cordova/PhoneGap](https://cordova.apache.org/docs/en/latest/) to use device hardware API plugins
+- [iOS design guidelines](https://developer.apple.com/ios/human-interface-guidelines/overview/design-principles/) and [Material design guidelines](https://material.io/guidelines/)
+
 ## Quick start
 
 1. Install [Node.js with npm](https://docs.npmjs.com/getting-started/what-is-npm)
@@ -108,5 +75,5 @@ Closed:
    ```
 
 3. Run `npm install` to install App Framework and setup the project folder
-4. Run `npm run dev` to start the Demo App at localhost:8080
+4. Run `npm run dev` to run your application at localhost:8080
 5. Read our [Documentation](DOCUMENTATION.md)
