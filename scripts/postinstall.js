@@ -71,40 +71,56 @@ let removeCache = function (callback) {
 
 // Step: Create/update project folder files
 let setupProjectFolder = function (callback) {
-  // Run only if App Framework is installed as module
   if (env.installed) {
     alert('Project folder setup ongoing - please wait ...')
-    // Define source and destination folder
-    let from = abs(__dirname, '..')
-    let to = abs(env.proj)
-    // Copy missing Power Point design files
-    fs.copySync(abs(from, 'design'), abs(to, 'design'), {filter: f => /(design|\.pptx)$/.test(f), overwrite: false})
-    // Update PDF design files
-    fs.copySync(abs(from, 'design'), abs(to, 'design'), {filter: f => /(design|\.pdf)$/.test(f)})
-    // Copy images folder if not exists
-    if (!found(to, 'app/images')) fs.copySync(abs(from, 'app/images'), abs(to, 'app/images'))
-    // Copy pages folder if not exists
-    if (!found(to, 'app/pages')) fs.copySync(abs(from, 'app/pages'), abs(to, 'app/pages'))
-    // Update login-screen.vue
-    fs.copySync(abs(from, 'app/pages/login-screen.vue'), abs(to, 'app/pages/login-screen.vue'))
-    // Copy app.vue of not exists
-    if (!found(to, 'app/app.vue')) fs.copySync(abs(from, 'app/app.vue'), abs(to, 'app/app.vue'))
-    // Copy config.json if not exists
-    if (!found(to, 'app/config.json')) fs.copySync(abs(from, 'app/config.json'), abs(to, 'app/config.json'))
-    // Copy database-rules.json if not exists
-    if (!found(to, 'app/database-rules.json')) fs.copySync(abs(from, 'app/database-rules.json'), abs(to, 'app/database-rules.json'))
-    // Copy icon.png if not exists
-    if (!found(to, 'app/icon.png')) fs.copySync(abs(from, 'app/icon.png'), abs(to, 'app/icon.png'))
-    // Copy storage-rules.txt if not exists
-    if (!found(to, 'app/storage-rules.txt')) fs.copySync(abs(from, 'app/storage-rules.txt'), abs(to, 'app/storage-rules.txt'))
-    // Update .babelrc
-    fs.copySync(abs(from, '.babelrc'), abs(to, '.babelrc'))
-    // Update .gitignore
-    fs.copySync(abs(from, '.gitignore'), abs(to, '.gitignore'))
-    // Alert
-    alert('Project folder setup done.')
+    try {
+      // Define source and destination folder
+      let from = abs(__dirname, '..')
+      let to = abs(env.proj)
+      // Copy missing Power Point design files
+      fs.copySync(abs(from, 'design'), abs(to, 'design'), {filter: f => /(design|\.pptx)$/.test(f), overwrite: false})
+      // Update PDF design files
+      fs.copySync(abs(from, 'design'), abs(to, 'design'), {filter: f => /(design|\.pdf)$/.test(f)})
+      // Update login-screen.vue
+      fs.copySync(abs(from, 'app/pages/login-screen.vue'), abs(to, 'app/pages/login-screen.vue'))
+      // Update .babelrc
+      fs.copySync(abs(from, '.babelrc'), abs(to, '.babelrc'))
+      // Update .gitignore
+      fs.copySync(abs(from, '.gitignore'), abs(to, '.gitignore'))
+      // Alert
+      alert('Project folder setup done.')
+      // callback
+      callback()
+    } catch (err) {
+      alert('Project folder setup failed.', 'issue')
+    }
+  } else {
+    callback()
   }
-  callback()
+}
+
+// Setup app folder
+function setupAppFolder (callback) {
+  let reset = function () {
+    alert('Setting up app folder - please wait ...')
+    cmd(__dirname, 'node reset-app', function () {
+      alert('App folder set up done.')
+      callback()
+    }, function () {
+      alert('Failed to setup app folder.', 'issue')
+    })
+  }
+  if (!found(env.app)) {
+    reset()
+  } else {
+    fs.readdir(env.app, function (err, files) {
+      if (files.length === 1 && found(env.app, 'config.json')) {
+        reset()
+      } else {
+        callback()
+      }
+    })
+  }
 }
 
 // Step: Update scripts in package.json
@@ -150,14 +166,16 @@ createSnapshot(function () {
       pruneModules(function () {
         removeCache(function () {
           prepareSetup(function () {
-            setupProjectFolder(function () {
-              updateScriptsAndVersion(function () {
-                // Fix configuration
-                let configFix = jsonScheme.fix(abs(__dirname, '../config-scheme.json'), abs(env.app, 'config.json'))
-                if (Array.isArray(configFix)) {
-                  alert('Failed to fix config file.\nDetails:\n- ' + configFix.join('\n- '), 'issue', 'error')
-                }
-                alert('App Framework installation done.')
+            setupAppFolder(function () {
+              setupProjectFolder(function () {
+                updateScriptsAndVersion(function () {
+                  // Fix configuration
+                  let configFix = jsonScheme.fix(abs(__dirname, '../config-scheme.json'), abs(env.app, 'config.json'))
+                  if (Array.isArray(configFix)) {
+                    alert('Failed to fix config file.\nDetails:\n- ' + configFix.join('\n- '), 'issue', 'error')
+                  }
+                  alert('App Framework installation done.')
+                })
               })
             })
           })

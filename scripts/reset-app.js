@@ -96,7 +96,6 @@ let createAppComponent = function (callback) {
   alert('Creating default app component - please wait ...')
   let content = '<template>\n' +
                 '  <div id="app">\n' +
-                '    <f7-statusbar></f7-statusbar>\n' +
                 '    <f7-views>\n' +
                 '      <f7-view id="main-view" main url="home" navbar-through :dynamic-navbar="true" />\n' +
                 '    </f7-views>\n' +
@@ -120,8 +119,7 @@ let createHomepage = function (callback) {
                 '      <p>It works!</p>\n' +
                 '    </f7-block>\n' +
                 '  </f7-page>\n' +
-                '</template>\n' +
-                '<script>\n'
+                '</template>\n'
   fs.writeFile(abs(dest, 'pages/home.vue'), content, function (err) {
     if (!err) {
       alert('Created default page component.')
