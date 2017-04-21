@@ -11,6 +11,7 @@
   "iconBackgroundColor": "#ffffff",
   "statusbarBackgroundColor": "#000000",
   "statusbarTextColor": "white",
+  "statusbarVisibility": "visible",
   "showPhoneFrameOnDesktop": true,
   "materialSubnavbarFix": true,
   "completeRoutesFile": true,
@@ -21,25 +22,21 @@
     "firebase-private"
   ],
   "firebase": {
-    "useDatabaseService": true,
-    "useStorageService": false,
-    "useEmailLogin": true,
-    "allowEmailRegistration": true,
     "apiKey": "AIzaSyAvzTiqd9fKR-h4asdsadsadasd7Uxl4iXwqSMU1VjGdII",
     "authDomain": "app-framework-9045a.firebaseapp.com",
     "databaseURL": "https://app-framework-9045a.firebaseio.com",
-    "storageBucket": "app-framework-9045a.appspot.com"
+    "storageBucket": "app-framework-9045a.appspot.com",
+    "allowEmailLogin": true,
+    "allowEmailRegistration": true
   },
-  "dev-firebase": {
-    "useDevFirebaseOnTesting": false,
-    "useDatabaseService": true,
-    "useStorageService": true,
-    "useEmailLogin": true,
-    "useEmailRegistration": true,
-    "apiKey": "AIzaSyBL0Xxsc-jFZ2BnmQV08T4O9B56HJVpwXk",
+  "devFirebase": {
+    "deployDevRulesOnTesting": false,
+    "apiKey": "",
     "authDomain": "dev-app-framework.firebaseapp.com",
     "databaseURL": "https://dev-app-framework.firebaseio.com",
-    "storageBucket": "dev-app-framework.appspot.com"
+    "storageBucket": "dev-app-framework.appspot.com",
+    "allowEmailLogin": true,
+    "allowEmailRegistration": false
   },
   "appStoreId": "de.scriptpilot.app-framework",
   "playStoreId": "de.scriptpilot.appframework",

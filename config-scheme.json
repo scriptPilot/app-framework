@@ -68,43 +68,31 @@
   },
   "firebase": {
     "props": {
-      "useDatabaseService": {
-        "type": "boolean",
-        "default": true
+      "apiKey": {
+        "type": "string"
       },
-      "useStorageService": {
-        "type": "boolean",
-        "default": true
+      "authDomain": {
+        "type": "string"
       },
-      "useEmailLogin": {
+      "databaseURL": {
+        "type": "string"
+      },
+      "storageBucket": {
+        "type": "string"
+      },
+      "allowEmailLogin": {
         "type": "boolean",
-        "default": true
+        "default": false
       },
       "allowEmailRegistration": {
         "type": "boolean",
-        "default": true
-      },
-      "apiKey": {
-        "type": "string",
-        "default": "AIzaSyAvzTiqd9fKR-h4asdsadsadasd7Uxl4iXwqSMU1VjGdII"
-      },
-      "authDomain": {
-        "type": "string",
-        "default": "app-framework-9045a.firebaseapp.com"
-      },
-      "databaseURL": {
-        "type": "string",
-        "default": "https://app-framework-9045a.firebaseio.com"
-      },
-      "storageBucket": {
-        "type": "string",
-        "default": "app-framework-9045a.appspot.com"
+        "default": false
       }
     }
   },
-  "dev-firebase": {
+  "devFirebase": {
     "props": {
-      "useDevFirebaseOnTesting": {
+      "deployDevRulesOnTesting": {
         "type": "boolean",
         "default": false
       },
@@ -119,6 +107,14 @@
       },
       "storageBucket": {
         "type": "string"
+      },
+      "allowEmailLogin": {
+        "type": "boolean",
+        "default": false
+      },
+      "allowEmailRegistration": {
+        "type": "boolean",
+        "default": false
       }
     }
   },

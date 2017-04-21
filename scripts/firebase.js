@@ -22,13 +22,13 @@ if (env.arg.version === undefined) {
   env.arg.version = env.pkg.version
 }
 
-// Return if version dev and useDevFirebaseOnTesting not true
-if (env.arg.version === 'dev' && env.cfg['dev-firebase'].useDevFirebaseOnTesting !== true) {
+// Return if version dev and deployDevRulesOnTesting not true
+if (env.arg.version === 'dev' && env.cfg.devFirebase.deployDevRulesOnTesting !== true) {
   alert('Dev-Firebase development deployment not activated in the config.json file.', 'exit')
 }
 
 // Define configuration
-let cfg = env.arg.version === 'dev' ? env.cfg['dev-firebase'] : env.cfg.firebase
+let cfg = env.arg.version === 'dev' ? env.cfg.devFirebase : env.cfg.firebase
 
 // Check configuration
 if (cfg.storageBucket === '' || cfg.authDomain === '') {
