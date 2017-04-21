@@ -9,13 +9,9 @@ env.arg.dev = true
 // Load packages
 let alert = require('../lib/alert')
 let cmd = require('../lib/cmd')
-let found = require('../lib/found')
 let webpackConfig = require('../lib/webpack-config').development
-let fs = require('fs-extra')
 let historyFallback = require('connect-history-api-fallback')
 let express = require('express')
-let packageJson = require('package-json')
-let abs = require('path').resolve
 let webpack = require('webpack')
 let devMiddleware = require('webpack-dev-middleware')
 let hotMiddleware = require('webpack-hot-middleware')
@@ -67,39 +63,15 @@ let startServer = function (callback) {
   })
 }
 
-function checkFrameworkUpdates (callback) {
-  alert('Check latest App Framework version - please wait ...')
-  if (!found(env.cache, 'latest-npm-version.json')) {
-    try {
-      fs.writeJsonSync(abs(env.cache, 'latest-npm-version.json'), {})
-    } catch (err) {
-      alert('Failed to create latest npm version file.', 'issue')
-    }
-  }
-  packageJson('app-framework').then(function (packageInfo) {
-    try {
-      fs.writeJsonSync(abs(env.cache, 'latest-npm-version.json'), {latest: packageInfo.version !== undefined ? packageInfo.version : 'unknown'})
-      alert('Latest App Framework version checked.')
-      callback()
-    } catch (err) {
-      alert('Failed to get latest NPM version.', 'issue')
-    }
-  }).catch(function () {
-    callback()
-  })
-}
-
 alert('Development server preparation ongoing - please wait ...')
 fixCode(function () {
-  checkFrameworkUpdates(function () {
-    cmd(__dirname, 'node update-routes', function () {
-      cmd(__dirname, 'node create-icons', function () {
-        cmd(__dirname, 'node firebase --database --storage --version dev', function () {
-          startServer(function () {
-            let uri = 'http://localhost:' + env.cfg.devServerPort
-            opn(uri)
-            alert('Development server startet at ' + uri + '.\n\nTo be stopped with "CTRL + C".')
-          })
+  cmd(__dirname, 'node update-routes', function () {
+    cmd(__dirname, 'node create-icons', function () {
+      cmd(__dirname, 'node firebase --database --storage --version dev', function () {
+        startServer(function () {
+          let uri = 'http://localhost:' + env.cfg.devServerPort
+          opn(uri)
+          alert('Development server startet at ' + uri + '.\n\nTo be stopped with "CTRL + C".')
         })
       })
     })
