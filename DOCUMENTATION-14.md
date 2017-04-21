@@ -351,9 +351,12 @@ Run `npm update` to update App Framework to latest sub version. A snapshot of yo
 
 - Run `npm run dev` to start the development server in the web browser
   - `CTRL + C` to stop the development server
-- Run `npm run ios` to open Xcode with an iOS development build
-- Run `npm run android` to open Android Studio with a development build
+- Run `npm run ios` to open an iOS simulator with a development build
+- Run `npm run android` to open an Android emulator with a development build
+
   Confirm Gradle sync and removal of older application installations if asked.
+  
+  If you get an error *Failed to find 'JAVA_HOME' environment variable. Try setting setting it manually.* you have to install the Java SE SDK first.
 
 App Framework fix your code automatically on each test or build command. To disable this behavior, you can set the config parameter *fixCodeOnBuild* to false. If some findings could not be fixed automatically, they will be logged to *code-findings.log*.
 
