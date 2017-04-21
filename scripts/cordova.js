@@ -390,12 +390,22 @@ deployDevRules(function () {
           updateWwwFolder(function () {
             installCordovaPlugins(function () {
               addCordovaPlatforms(function () {
-                if (env.arg.ios === true || env.arg.xcode === true) {
+                if (env.arg.ios === true) {
+                  alert('iOS simulator start ongoing - please wait ...')
+                  cmd(binDir, 'cordova emulate ios', function () {
+                    alert('iOS simulator started.')
+                  })
+                } else if (env.arg.xcode === true) {
                   alert('Xcode start ongoing - please wait ...')
                   cmd(__dirname, 'open -a Xcode "' + abs(binDir, 'platforms/ios', env.cfg.title + '.xcodeproj') + '"', function () {
                     alert('Xcode started.')
                   })
-                } else {
+                } else if (env.arg.android === true) {
+                  alert('Android emulator start ongoing - please wait ...')
+                  cmd(binDir, 'cordova emulate android', function () {
+                    alert('Android emulator started.')
+                  })
+                } else if (env.arg.studio === true) {
                   alert('Android Studio start ongoing - please wait ...')
                   if (env.os === 'win') {
                     let possibleInstallations = [
@@ -439,6 +449,8 @@ deployDevRules(function () {
                   } else {
                     alert('Unknown operating system "' + env.os + '".', 'issue')
                   }
+                } else {
+                  alert('No argument found of list ios, android, xcode or studio.', 'issue')
                 }
               })
             })
