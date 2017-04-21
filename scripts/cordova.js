@@ -390,7 +390,12 @@ deployDevRules(function () {
           updateWwwFolder(function () {
             installCordovaPlugins(function () {
               addCordovaPlatforms(function () {
-                if (env.arg.ios === true || env.arg.xcode === true) {
+                if (env.arg.ios === true) {
+                  alert('iOS simulator start ongoing - please wait ...')
+                  cmd(binDir, 'cordova emulate ios', function () {
+                    alert('iOS simulator started.')
+                  })
+                } else if (env.arg.xcode === true) {
                   alert('Xcode start ongoing - please wait ...')
                   cmd(__dirname, 'open -a Xcode "' + abs(binDir, 'platforms/ios', env.cfg.title + '.xcodeproj') + '"', function () {
                     alert('Xcode started.')
