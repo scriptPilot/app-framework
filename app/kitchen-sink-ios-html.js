@@ -1,4 +1,4 @@
-module.exports =
+module.exports = '' +
 '<div class="popup demo-popup">' +
 '  <div class="view navbar-fixed">' +
 '    <div class="pages">' +
