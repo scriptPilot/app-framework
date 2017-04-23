@@ -1,9 +1,9 @@
 /* eslint-disable */
 module.exports = function(vueApp) {
   var myApp = window.f7;
-  let mainView = null
-  let rightView
-  for (let v = 0; v < myApp.views.length; v++) {
+  var mainView = null
+  var rightView
+  for (var v = 0; v < myApp.views.length; v++) {
     if (/^\.view\.view-main/.test(myApp.views[v].selector)) {
       mainView = myApp.views[v]
     } else if (/^#right-panel-view/.test(myApp.views[v].selector)) {
