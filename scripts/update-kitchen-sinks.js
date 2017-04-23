@@ -116,9 +116,9 @@ function proceedFolder (sourceFolder, destinationFolder, callback) {
                       jsFile = '/* eslint-disable */\n' +
                                'module.exports = function (vueApp) {\n' +
                                '  var myApp = window.f7;\n' +
-                               '  let mainView = null\n' +
-                               '  let rightView\n' +
-                               '  for (let v = 0; v < myApp.views.length; v++) {\n' +
+                               '  var mainView = null\n' +
+                               '  var rightView\n' +
+                               '  for (var v = 0; v < myApp.views.length; v++) {\n' +
                                '    if (/^\\.view\\.view-main/.test(myApp.views[v].selector)) {\n' +
                                '      mainView = myApp.views[v]\n' +
                                '    } else if (/^#right-panel-view/.test(myApp.views[v].selector)) {\n' +
@@ -137,7 +137,7 @@ function proceedFolder (sourceFolder, destinationFolder, callback) {
                       jsFile = beautify.js(jsFile, {indent_size: 2, end_with_newline: true})
                       fs.writeFileSync(path.resolve(env.app, 'kitchen-sink-' + theme + '.js'), jsFile)
                       htmlCode = beautify.html(htmlCode, {indent_size: 2})
-                      fs.writeFileSync(path.resolve(env.app, 'kitchen-sink-' + theme + '-html.js'), 'module.exports =\n\'' + htmlCode.replace(/\'/g, '\\\'').replace(/\n/g, '\' +\n\'') + '\'\n') // eslint-disable-line
+                      fs.writeFileSync(path.resolve(env.app, 'kitchen-sink-' + theme + '-html.js'), 'module.exports = \'\' +\n\'' + htmlCode.replace(/\'/g, '\\\'').replace(/\n/g, '\' +\n\'') + '\'\n') // eslint-disable-line
                       callback()
                     } catch (err) {
                       alert('Failed to copy kitchen sink js file.', 'issue')
