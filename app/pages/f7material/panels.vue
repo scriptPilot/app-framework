@@ -1,0 +1,22 @@
+<template>
+  <div data-page="panels" class="page kitchen-sink-material">
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="left"><a class="back link icon-only" href="#"><i class="icon icon-back"></i></a></div>
+        <div class="center">Side Panels</div>
+      </div>
+    </div>
+    <div class="page-content">
+      <div class="content-block">
+        <p>Framework7 comes with 2 panels (on left and on right), both are optional. They have two different layouts/effects - <b>cover</b> above the content (like left panel here) and <b>reveal</b> (like right panel). You can put absolutely anything inside:
+          data lists, forms, custom content, and even other isolated app view (like in right panel now) with its own dynamic navbar. Checkout panels:</p>
+      </div>
+      <div class="content-block">
+        <div class="row">
+          <div class="col-50"><a href="#" class="button button-raised open-panel">Left Panel</a></div>
+          <div class="col-50"><a href="#" data-panel="right" class="button button-raised open-panel">Right Panel</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

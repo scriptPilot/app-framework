@@ -1,0 +1,58 @@
+<template>
+  <div data-page="swiper-gallery" class="page kitchen-sink-ios">
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="left sliding"><a class="back link" href="#"><i class="icon icon-back"></i><span>Back</span></a></div>
+        <div class="center sliding">Two Way Control Gallery</div>
+      </div>
+    </div>
+    <div class="page-content">
+      <div class="swiper-container ks-swiper-gallery-top">
+        <div class="swiper-wrapper">
+          <div style="background-image:url(http://lorempixel.com/800/800/nature/1)" class="swiper-slide"></div>
+          <div style="background-image:url(http://lorempixel.com/800/800/nature/2)" class="swiper-slide"></div>
+          <div style="background-image:url(http://lorempixel.com/800/800/nature/3)" class="swiper-slide"></div>
+          <div style="background-image:url(http://lorempixel.com/800/800/nature/4)" class="swiper-slide"></div>
+          <div style="background-image:url(http://lorempixel.com/800/800/nature/5)" class="swiper-slide"></div>
+          <div style="background-image:url(http://lorempixel.com/800/800/nature/6)" class="swiper-slide"></div>
+          <div style="background-image:url(http://lorempixel.com/800/800/nature/7)" class="swiper-slide"></div>
+          <div style="background-image:url(http://lorempixel.com/800/800/nature/8)" class="swiper-slide"></div>
+          <div style="background-image:url(http://lorempixel.com/800/800/nature/9)" class="swiper-slide"></div>
+        </div>
+        <div class="swiper-button-next color-white"></div>
+        <div class="swiper-button-prev color-white"></div>
+      </div>
+      <div class="swiper-container ks-swiper-gallery-thumbs">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div style="background-image:url(http://lorempixel.com/800/800/nature/1)" class="swiper-slide-pic"></div>
+          </div>
+          <div class="swiper-slide">
+            <div style="background-image:url(http://lorempixel.com/800/800/nature/2)" class="swiper-slide-pic"></div>
+          </div>
+          <div class="swiper-slide">
+            <div style="background-image:url(http://lorempixel.com/800/800/nature/3)" class="swiper-slide-pic"></div>
+          </div>
+          <div class="swiper-slide">
+            <div style="background-image:url(http://lorempixel.com/800/800/nature/4)" class="swiper-slide-pic"></div>
+          </div>
+          <div class="swiper-slide">
+            <div style="background-image:url(http://lorempixel.com/800/800/nature/5)" class="swiper-slide-pic"></div>
+          </div>
+          <div class="swiper-slide">
+            <div style="background-image:url(http://lorempixel.com/800/800/nature/6)" class="swiper-slide-pic"></div>
+          </div>
+          <div class="swiper-slide">
+            <div style="background-image:url(http://lorempixel.com/800/800/nature/7)" class="swiper-slide-pic"></div>
+          </div>
+          <div class="swiper-slide">
+            <div style="background-image:url(http://lorempixel.com/800/800/nature/8)" class="swiper-slide-pic"></div>
+          </div>
+          <div class="swiper-slide">
+            <div style="background-image:url(http://lorempixel.com/800/800/nature/9)" class="swiper-slide-pic"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
