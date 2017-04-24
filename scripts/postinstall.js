@@ -81,8 +81,6 @@ let setupProjectFolder = function (callback) {
       fs.copySync(abs(from, 'design'), abs(to, 'design'), {filter: f => /(design|\.pptx)$/.test(f), overwrite: false})
       // Update PDF design files
       fs.copySync(abs(from, 'design'), abs(to, 'design'), {filter: f => /(design|\.pdf)$/.test(f)})
-      // Update login-screen.vue
-      fs.copySync(abs(from, 'app/pages/login-screen.vue'), abs(to, 'app/pages/login-screen.vue'))
       // Update .babelrc
       fs.copySync(abs(from, '.babelrc'), abs(to, '.babelrc'))
       // Update .gitignore

@@ -165,14 +165,20 @@ let copyFirebaseFiles = function (callback) {
     if (err) {
       alert('Failed to copy "database-rules.json" file.', 'issue')
     } else {
-      fs.copy(abs(env.app, 'storage-rules.txt'), abs(env.cache, 'build/storage-rules.txt'), err => {
-        if (err) {
-          alert('Failed to copy "database-rules.json" file.', 'issue')
-        } else {
-          alert('Firebase files update done.')
-          callback()
-        }
-      })
+      try {
+        let firebaseConfig = mode === 'dev' ? env.cfg.devFirebase : env.cfg.firebase
+        // Correct storage bucket in database rules
+        let rules = fs.readFileSync(abs(env.app, 'storage-rules.txt'), 'utf8')
+        rules = rules.replace(/match \/b\/(.+?)\/o {/, 'match /b/' + (firebaseConfig.storageBucket !== '' ? firebaseConfig.storageBucket : '<your-storage-bucket>') + '/o {')
+        fs.writeFileSync(abs(env.app, 'storage-rules.txt'), rules)
+        // Copy file
+        fs.copySync(abs(env.app, 'storage-rules.txt'), abs(env.cache, 'build/storage-rules.txt'))
+        // Alert
+        alert('Firebase files update done.')
+        callback()
+      } catch (err) {
+        alert('Failed copy "database-rules.json" file.', 'issue')
+      }
     }
   })
 }

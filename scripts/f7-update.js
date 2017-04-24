@@ -39,6 +39,7 @@ cmd(f7Folder, 'gulp build', function () {
       'css/framework7.material.colors.min.css',
       'css/framework7.material.min.css',
       'img',
+      'js/framework7.js',
       'js/framework7.min.js'
     ]
     // Copy basic files

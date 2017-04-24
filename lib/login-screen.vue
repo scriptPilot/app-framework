@@ -1,13 +1,5 @@
-<!--
-
-  DO NOT MODIFY THIS FILE - IT WILL BE OVERWRITTEN AFTER EACH APP FRAMEWORK UPDATE
-
-  This page is managing all the authentication topics with Firebase
-
--->
-
 <template>
-  <f7-page login-screen>
+  <f7-page login-screen no-navbar no-toolbar class="no-swipeback">
     <f7-login-screen-title>{{title}}</f7-login-screen-title>
 
     <!-- Show form, if user is not logged in -->

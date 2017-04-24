@@ -54,6 +54,12 @@
       -->
     </f7-list>
 
+    <!--
+    <f7-list>
+      <f7-list-button title="Test link" open-login-screen />
+    </f7-list>
+    -->
+
     <!-- Link to GitHub repository -->
     <f7-block style="text-align: center">
       <f7-link href="https://github.com/scriptPilot/app-framework" external>

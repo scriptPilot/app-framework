@@ -78,33 +78,31 @@ useIconFonts | *object* |
 &nbsp;&nbsp;&nbsp;ion | *boolean* | false
 &nbsp;&nbsp;&nbsp;fontawesome | *boolean* | false
 iconBackgroundColor | /^#([0-9a-f]{6})$/i | #ffffff
+statusbarBackgroundColor | /^#([0-9a-f]{6})$/i | #000000
 statusbarTextColor | black, white | white
+statusbarVisibility | visible, hidden | visible
 showPhoneFrameOnDesktop | *boolean* | true
 materialSubnavbarFix | *boolean* | true
 completeRoutesFile | *boolean* | true
 specialRoutes | *object* | {}
 pagesWithRequiredLogin | *array* | []
 firebase | *object* |
-&nbsp;&nbsp;&nbsp;useDatabaseService | *boolean* | true
-&nbsp;&nbsp;&nbsp;useStorageService | *boolean* | true
-&nbsp;&nbsp;&nbsp;useEmailLogin | *boolean* | true
-&nbsp;&nbsp;&nbsp;useEmailRegistration | *boolean* | true
-&nbsp;&nbsp;&nbsp;apiKey | *string* | AIzaSyAvzTiqd9fKR-h4asdsadsadasd7Uxl4iXwqSMU1VjGdII
-&nbsp;&nbsp;&nbsp;authDomain | *string* | app-framework-9045a.firebaseapp.com
-&nbsp;&nbsp;&nbsp;databaseURL | *string* | https://app-framework-9045a.firebaseio.com
-&nbsp;&nbsp;&nbsp;storageBucket | *string* | app-framework-9045a.appspot.com
-dev-firebase | *object* |
-&nbsp;&nbsp;&nbsp;useDevFirebaseOnTesting | *boolean* | false
-&nbsp;&nbsp;&nbsp;useDatabaseService | *boolean* | true
-&nbsp;&nbsp;&nbsp;useStorageService | *boolean* | true
-&nbsp;&nbsp;&nbsp;useEmailLogin | *boolean* | true
-&nbsp;&nbsp;&nbsp;useEmailRegistration | *boolean* | true
-&nbsp;&nbsp;&nbsp;apiKey | *string* |
-&nbsp;&nbsp;&nbsp;authDomain | *string* |
-&nbsp;&nbsp;&nbsp;databaseURL | *string* |
-&nbsp;&nbsp;&nbsp;storageBucket | *string* |
-appStoreId | *string* |
-playStoreId | *string* |
+&nbsp;&nbsp;&nbsp;apiKey | *string* | 
+&nbsp;&nbsp;&nbsp;authDomain | *string* | 
+&nbsp;&nbsp;&nbsp;databaseURL | *string* | 
+&nbsp;&nbsp;&nbsp;storageBucket | *string* | 
+&nbsp;&nbsp;&nbsp;allowEmailLogin | *boolean* | false
+&nbsp;&nbsp;&nbsp;allowEmailRegistration | *boolean* | false
+devFirebase | *object* |
+&nbsp;&nbsp;&nbsp;deployDevRulesOnTesting | *boolean* | false
+&nbsp;&nbsp;&nbsp;apiKey | *string* | 
+&nbsp;&nbsp;&nbsp;authDomain | *string* | 
+&nbsp;&nbsp;&nbsp;databaseURL | *string* | 
+&nbsp;&nbsp;&nbsp;storageBucket | *string* | 
+&nbsp;&nbsp;&nbsp;allowEmailLogin | *boolean* | false
+&nbsp;&nbsp;&nbsp;allowEmailRegistration | *boolean* | false
+appStoreId | *string* | 
+playStoreId | *string* | 
 useCordovaPlugins | *array* | ["cordova-plugin-statusbar","cordova-plugin-whitelist"]
 resetLocalStorageOnVersionChange | *boolean* | false
 buildSourcemaps | *boolean* | false
