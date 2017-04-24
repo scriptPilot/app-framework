@@ -4,8 +4,7 @@
 
 > If you want to use App Framework, please read our end user [Documentation](DOCUMENTATION.md).
 
-**Table of contents**
-
+- [Way of working](#way-of-working)
 - [CLI commands](#cli-commands)
 - [Folder structure](#folder-structure)
 - [Coding rules](#coding-rules)
@@ -13,8 +12,12 @@
 
 ## Way of working
 
-1. Create branch
-2. Develop > test > document > commit (with closure reference to issues)
+1. Create a branch (for example "dev-1.4")
+2. Proceed issues
+   - Develop
+   - Test
+   - Document
+   - Commit changes with closure reference to the issue
 3. Merge branch
 
 ## CLI commands
@@ -24,7 +27,7 @@ To inform end users about wrong App Framework usage (forking instead of installi
 Additional development CLI commands:
 
 - `npm run reset` - Reset cache folder
-- `npm run f7` - Build and update Framework7 (must exist on same level as app-framework folder)
+- `npm run f7` - Build and update Framework7 and both kitchen sinks (must exist on same level as app-framework folder)
 - `npm run f7vue` - Build and update Framework7-Vue (must exist on same level as app-framework folder)
 
 ## Folder structure
@@ -40,25 +43,47 @@ Additional development CLI commands:
 ├── vendor                      # Vendor files
 ├── .babelrc                    # Babel configuration file
 ├── .gitignore                  # List of ignored files for Git commits
+├── config-scheme.json          # Scheme for any application configuration file
 ├── DEVELOPMENT.md              # Development documentation
 ├── DOCUMENTATION               # End user documentation
 ├── env.js                      # Object with environment variables
 ├── index.ejs                   # Template for the build index file
 ├── LICENSE                     # App Framework license file
-├── main.css                    # Common CSS file for bug-fixes and phone frame
 ├── package.json                # App Framework project information
 └── README.md                   # Features, Quick start, upcoming and completed milestones
 ```
-# Coding rules
+## Coding rules
 
-- Code files must start with a description of their purpose `/* Purpose: This at the very beginning ... */`
-- After the description, code must be set to strict mode with `use strict`
-- Code must be commented well with `// Next block action` before any logic block
-- Modules must be loaded in the order *./env, ./lib/.., <npm>*, then alphabetically by module
-- Use always absolute paths
-- Comment out for tests with `/* ... */`
-- Comment thing to do with `// tbc`
-- Code must be checked automatically according [Standard JS rules](http://standardjs.com/) on build
+Code must be checked on build automatically according [Standard JS rules](http://standardjs.com/).
+
+### Folder and file naming
+
+Lowercase and hyphen type, example: *folder/sub-folder/file-in-sub-folder.js*
+
+### File structure
+
+1. Notice about purpose: `/* Purpose: ... */`
+2. Strict mode: `'use strict'`
+3. Include components:
+   - ./env (alphabetically sorted)
+   - ./lib/... (alphabetically sorted)
+   - npm modules (alphabetically sorted
+4. Define steps (functions, mixins)
+5. Componse steps
+
+In files, there should be used allways absolute paths.
+
+### Comments
+
+- Logic blocks are to comment before with `// Next block action`
+- For tests, code should be comment out with `/* ... */`
+
+
+
+
+
+
+
 - Asynchronous functions should be preferred
 - Function results should be checked
 - On error alerts, a solution should be provided
