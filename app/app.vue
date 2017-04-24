@@ -29,84 +29,37 @@
     </f7-panel>
 
     <!-- Main view -->
-    <f7-views navbar-through>
-      <f7-view main url="/home/" :dynamic-navbar="true"></f7-view>
+    <f7-views>
+      <f7-view id="main-view" navbar-through :dynamic-navbar="true" main url="home"></f7-view>
     </f7-views>
 
-  </div>
+    <!-- Popup -->
+    <f7-popup id="popup">
+      <f7-view id="popup" navbar-fixed url="popup"></f7-view>
+    </f7-popup>
 
+    <!-- Login screen - Do not change this block! -->
+    <f7-login-screen id="login-screen">
+      <f7-view id="login-screen" url="login-screen"></f7-view>
+    </f7-login-screen>
+    <!-- End of login screen -->
+
+  </div>
 </template>
 
+<!-- Default export, template will be compiled automatically -->
 <script>
-  require('./kitchen-sink-ios.css')
-  require('./kitchen-sink-material.css')
-  let iosKitchenSinkCode = require('./kitchen-sink-ios.js')
-  let materialKitchenSinkCode = require('./kitchen-sink-material.js')
-  let iosKitchenSinkHtml = require('./kitchen-sink-ios-html.js')
-  let materialKitchenSinkHtml = require('./kitchen-sink-material-html.js')
-  module.exports = {
-    data: function () {
-      return {
-        user: {
-          name: 'Vladimir',
-          lastName: 'Kharlampidi',
-          age: 30
-        },
-        popupOpened: false,
-        loginScreenOpened: false,
-        pickerOpened: false,
-        actionsOpened: false
-      }
-    },
-    computed: {
-      themeColor: function () {
-        return this.$root.color
-      }
-    },
-    watch: {
-      themeColor: function (newColor) {
-        this.$root.statusbarBackgroundColor = this.$root.theme === 'material' ? this.$root.colors[this.$root.theme][newColor] : this.$root.config.statusbarBackgroundColor
-      }
-    },
-    methods: {
-      onF7Init: function () {
-        if (this.$root.theme === 'ios') {
-          iosKitchenSinkCode(this.$root)
-        } else {
-          materialKitchenSinkCode(this.$root)
-        }
-        this.$$(document).on('page:beforeinit', function (e) {
-          if (e.detail.page.url && e.detail.page.url.indexOf('f7ios/index') > -1) {
-            this.$$('.popup, .popover, .login-screen, .picker-modal').remove()
-            this.$$('#app').append(iosKitchenSinkHtml)
-          } else if (e.detail.page.url && e.detail.page.url.indexOf('f7material/index') > -1) {
-            this.$$('.popup, .popover, .login-screen, .picker-modal').remove()
-            this.$$('#app').append(materialKitchenSinkHtml)
-          }
-        }.bind(this))
-        window.Dom7('.ks-color-theme').on('click', function () {
-          window.Dom7('.statusbar-overlay').css('background-color', '')
-        })
-      }
-    }
-  }
+module.exports = {}
 </script>
 
+<!-- Style - for whole app, as there is no scope property -->
 <style>
+
   /* Icon sizes */
   .item-media .fa,
   .swipeout-actions-left .fa,
   .swipeout-actions-right .fa  {
     font-size: 20px;
   }
-  .item-media i.icon,
-  .item-media i.f7-icons  {
-    width: 29px;
-    font-size: 29px;
-    height: 29px;
-    text-align: center;
-  }
-  .item-media i.f7-icons {
-    color: gray;
-  }
+
 </style>

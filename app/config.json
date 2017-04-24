@@ -1,12 +1,12 @@
 {
-  "title": "App Framework",
+  "title": "Demo App",
   "defaultLanguage": "en",
-  "theme": "ios-material",
+  "theme": "ios",
   "useIconFonts": {
-    "framework7": true,
-    "material": true,
+    "framework7": false,
+    "material": false,
     "ion": false,
-    "fontawesome": true
+    "fontawesome": false
   },
   "iconBackgroundColor": "#ffffff",
   "statusbarBackgroundColor": "#000000",
@@ -27,16 +27,16 @@
     "databaseURL": "https://app-framework-9045a.firebaseio.com",
     "storageBucket": "app-framework-9045a.appspot.com",
     "allowEmailLogin": true,
-    "allowEmailRegistration": true
+    "allowEmailRegistration": false
   },
   "devFirebase": {
     "deployDevRulesOnTesting": false,
-    "apiKey": "",
+    "apiKey": "AIzaSyBL0Xxsc-jFZ2BnmQV08T4O9B56HJVpwXk",
     "authDomain": "dev-app-framework.firebaseapp.com",
     "databaseURL": "https://dev-app-framework.firebaseio.com",
     "storageBucket": "dev-app-framework.appspot.com",
     "allowEmailLogin": true,
-    "allowEmailRegistration": true
+    "allowEmailRegistration": false
   },
   "appStoreId": "de.scriptpilot.app-framework",
   "playStoreId": "de.scriptpilot.appframework",
