@@ -7,7 +7,7 @@
 - [Way of working](#way-of-working)
 - [CLI commands](#cli-commands)
 - [Folder structure](#folder-structure)
-- [Coding rules](#coding-rules)
+- [Rules](#rules)
 - [Script files](#script-files)
 
 ## Way of working
@@ -52,7 +52,7 @@ Additional development CLI commands:
 ├── package.json                # App Framework project information
 └── README.md                   # Features, Quick start, upcoming and completed milestones
 ```
-## Coding rules
+## Rules
 
 Code must be checked on build automatically according [Standard JS rules](http://standardjs.com/).
 
@@ -71,30 +71,23 @@ Lowercase and hyphen type, example: *folder/sub-folder/file-in-sub-folder.js*
 4. Define steps (functions, mixins)
 5. Componse steps
 
-In files, there should be used allways absolute paths.
-
 ### Comments
 
 - Logic blocks are to comment before with `// Next block action`
 - For tests, code should be comment out with `/* ... */`
 
+### Coding rules
 
-
-
-
-
-
-- Asynchronous functions should be preferred
-- Function results should be checked
-- On error alerts, a solution should be provided
-- Hyphen-type and lower case for folder and file names
-- Camel-case for all names in coding
-- For better readability, shorthands should not be used
+- Use absolute path names
+- Use camelCase for all names in code (variables, functions, ...)
+- Provide solutions on error messsages
+- Prefer asynchronious functions
+- Do not use short hand methods (for better readability)
 
 ## Script files
 
 A script file executes some code and use *lib/alert* to show either a success message or an error message as result. The script could be split up in single steps, arranged with nested callbacks.
 
 - Each step should indicate the run with an alert `<step> ongoing - please wait ...`
-- Each step should indicate an successful run with `<step> done.`
-- Each step should indicate an failed run with `Error: <step> failed. <solution>`
+- Each step should indicate a successful run with `<step> done.`
+- Each step should indicate a failed run with `Error: <step> failed. <solution>`
