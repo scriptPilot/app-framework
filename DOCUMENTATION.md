@@ -72,15 +72,15 @@ Option | Allowed | Default
 title | *string* | My App
 defaultLanguage | /^([a-z]{2})$/ | en
 theme | ios, material, ios-material, material-ios | ios
+statusbarTextColor | black, white | white
+statusbarBackgroundColor | /^#([0-9a-f]{6})$/i | #000000
+statusbarVisibility | visible, hidden | visible
+iconBackgroundColor | /^#([0-9a-f]{6})$/i | #ffffff
 useIconFonts | *object* |
 &nbsp;&nbsp;&nbsp;framework7 | *boolean* | false
 &nbsp;&nbsp;&nbsp;material | *boolean* | false
 &nbsp;&nbsp;&nbsp;ion | *boolean* | false
 &nbsp;&nbsp;&nbsp;fontawesome | *boolean* | false
-iconBackgroundColor | /^#([0-9a-f]{6})$/i | #ffffff
-statusbarBackgroundColor | /^#([0-9a-f]{6})$/i | #000000
-statusbarTextColor | black, white | white
-statusbarVisibility | visible, hidden | visible
 showPhoneFrameOnDesktop | *boolean* | true
 materialSubnavbarFix | *boolean* | true
 completeRoutesFile | *boolean* | true

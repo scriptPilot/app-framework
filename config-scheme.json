@@ -11,6 +11,22 @@
     "allow": ["ios", "material", "ios-material", "material-ios"],
     "default": "ios"
   },
+  "statusbarTextColor": {
+    "allow": ["black", "white"],
+    "default": "white"
+  },
+  "statusbarBackgroundColor": {
+    "regexp": "/^#([0-9a-f]{6})$/i",
+    "default": "#000000"
+  },
+  "statusbarVisibility": {
+    "allow": ["visible", "hidden"],
+    "default": "visible"
+  },
+  "iconBackgroundColor": {
+    "regexp": "/^#([0-9a-f]{6})$/i",
+    "default": "#ffffff"
+  },
   "useIconFonts": {
     "props": {
       "framework7": {
@@ -30,22 +46,6 @@
         "default": false
       }
     }
-  },
-  "iconBackgroundColor": {
-    "regexp": "/^#([0-9a-f]{6})$/i",
-    "default": "#ffffff"
-  },
-  "statusbarBackgroundColor": {
-    "regexp": "/^#([0-9a-f]{6})$/i",
-    "default": "#000000"
-  },
-  "statusbarTextColor": {
-    "allow": ["black", "white"],
-    "default": "white"
-  },
-  "statusbarVisibility": {
-    "allow": ["visible", "hidden"],
-    "default": "visible"
   },
   "showPhoneFrameOnDesktop": {
     "type": "boolean",
