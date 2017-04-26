@@ -60,6 +60,7 @@
     },
     beforeMount: function () {
       this.$root.statusbarBackgroundColor = this.$root.theme === 'material' ? this.$root.colors[this.$root.theme][this.$root.color] : this.$root.config.statusbarBackgroundColor
+      if (window.localStorage.color === undefined) this.$root.color = 'indigo'
     },
     computed: {
       themeColor: function () {

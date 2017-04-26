@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# 854817a809f1cc3810c2
+# 7e61156a3d182231d2c8
 
 fonts/Framework7Icons-Regular.420ba06.eot
 fonts/Framework7Icons-Regular.cc51df0.svg
@@ -16,16 +16,17 @@ img/i-f7-ios.b356cb6.png
 img/i-f7-material.ccc2c70.png
 img/flag-de.69735e1.png
 img/flag-en.500a285.png
+favicon.ico
 img/firebase.472015e.png
 img/standard-js-sticker-small.758c379.png
 img/theme-ios.48f912f.png
 img/theme-material.381a2ea.png
-app.854817a.js
-material.854817a.js
-ios.854817a.js
-app.854817a.css
-ios.854817a.css
-material.854817a.css
+app.7e61156.js
+material.7e61156.js
+ios.7e61156.js
+app.7e61156.css
+ios.7e61156.css
+material.7e61156.css
 index.html
 
 NETWORK:
