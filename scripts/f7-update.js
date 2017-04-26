@@ -34,9 +34,13 @@ cmd(f7Folder, 'gulp build', function () {
     fs.emptyDirSync(abs(env.proj, 'vendor/framework7'))
     // Define basic files to copy
     let files = [
+      'css/framework7.ios.colors.css',
       'css/framework7.ios.colors.min.css',
+      'css/framework7.ios.css',
       'css/framework7.ios.min.css',
+      'css/framework7.material.colors.css',
       'css/framework7.material.colors.min.css',
+      'css/framework7.material.css',
       'css/framework7.material.min.css',
       'img',
       'js/framework7.js',
