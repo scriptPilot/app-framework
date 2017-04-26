@@ -40,7 +40,8 @@ if (env.installed) {
         if (/\.(js|vue)$/.test(file)) {
           let content = fs.readFileSync(file, 'utf8')
           content = content.replace(/\$root\.title/g, '$root.config.title')
-          content = content.replace(/\$root\.packageVersion/g, '$root.frameworkVersion')
+          content = content.replace(/\$root\.packageVersion/g, '$root.framework.version')
+          content = content.replace(/\$root\.version/g, '$root.project.version')
           fs.writeFileSync(file, content)
         }
       })

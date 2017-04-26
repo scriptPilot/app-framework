@@ -58,6 +58,9 @@
         actionsOpened: false
       }
     },
+    beforeMount: function () {
+      this.$root.statusbarBackgroundColor = this.$root.theme === 'material' ? this.$root.colors[this.$root.theme][this.$root.color] : this.$root.config.statusbarBackgroundColor
+    },
     computed: {
       themeColor: function () {
         return this.$root.color
@@ -84,9 +87,6 @@
             this.$$('#app').append(materialKitchenSinkHtml)
           }
         }.bind(this))
-        window.Dom7('.ks-color-theme').on('click', function () {
-          window.Dom7('.statusbar-overlay').css('background-color', '')
-        })
       }
     }
   }

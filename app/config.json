@@ -4,7 +4,7 @@
   "theme": "ios-material",
   "statusbarTextColor": "white",
   "statusbarBackgroundColor": "#000000",
-  "statusbarVisibility": "visible",
+  "statusbarVisibility": "hidden",
   "iconBackgroundColor": "#ffffff",
   "useIconFonts": {
     "framework7": true,

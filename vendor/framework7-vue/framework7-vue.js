@@ -9,7 +9,7 @@
  * 
  * Licensed under MIT
  * 
- * Released on: April 24, 2017
+ * Released on: April 27, 2017
  */
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
