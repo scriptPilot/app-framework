@@ -290,8 +290,21 @@ The state is not restored for standard modals, popovers and code-generated modal
 
 ## Statusbar modification
 
-Limitations:
-- On iOS Web Apps, which are launched from the homescreen, the statusbar text color is allways white
+The statusbar in native and homescreen Apps could be modified from any component after Framework7 initialization.
+
+```
+{
+  watch: {
+    f7Ready: function () {
+      this.$root.statusbarTextColor = 'white'           // allowed are 'black' and 'white'
+      this.$root.statusbarBackgroundColor = '#3f51b5'   // allowed are hex color codes
+      this.$root.statusbarVisibility = true             // allowed are 'true' and 'false'
+    }
+  }
+}
+```
+
+On iOS homesceen Apps, the statusbar text color is allways white.
 
 ## Hooks
 
