@@ -12,6 +12,7 @@
 - [Vue root object](#vue-root-object)
 - [Global data object](#global-data-object)
 - [State restoration](#state-restoration)
+- [Statusbar modification](#statusbar-modification)
 - [Hooks](#hooks)
 - Workflow
   - [Setup your development environment](#setup-your-development-environment)
@@ -286,6 +287,11 @@ This restoration includes the following elements:
 - Focus on form input (requires unique NAME attributes per form)
 
 The state is not restored for standard modals, popovers and code-generated modals.
+
+## Statusbar modification
+
+Limitations:
+- On iOS Web Apps, which are launched from the homescreen, the statusbar text color is allways white
 
 ## Hooks
 
