@@ -290,17 +290,19 @@ The state is not restored for standard modals, popovers and code-generated modal
 
 ## Statusbar modification
 
-The statusbar could be modified in native and homescreen Apps.
+You can modify the statusbar in native and homescreen Apps from any component after its creation hook.
 
 ```
 {
   created: function () {
-    this.$root.statusbarTextColor = 'white'           // allowed are 'black' and 'white' (native iOS Apps only)
+    this.$root.statusbarTextColor = 'white'           // allowed are 'black' and 'white'
     this.$root.statusbarBackgroundColor = '#3f51b5'   // allowed are hex color codes
     this.$root.statusbarVisibility = true             // allowed are 'true' and 'false'
   }
 }
 ```
+
+Changing the text color is limited to native iOS Apps.
 
 ## Hooks
 
