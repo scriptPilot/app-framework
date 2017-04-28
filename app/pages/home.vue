@@ -39,6 +39,7 @@
           </label>
         </div>
       </f7-list-item>
+      <f7-list-item :title="text.changeStatusbarTextColor" @click="$root.statusbarTextColor=$root.statusbarTextColor==='white'?'black':'white'" v-if="$root.$f7.device.ios && $root.statusbarVisibility" link="#" media="<i class='f7-icons'>delete</i>" />
     </f7-list>
 
     <!-- Demonstration -->
@@ -53,12 +54,6 @@
       <f7-list-item link="/" title="Flexible Routing" media="<i class='f7-icons'>forward</i>" />
       -->
     </f7-list>
-
-    <!--
-    <f7-list>
-      <f7-list-button title="Test link" open-login-screen />
-    </f7-list>
-    -->
 
     <!-- Link to GitHub repository -->
     <f7-block style="text-align: center">
@@ -81,6 +76,7 @@
       selectTheme: 'Select Theme',
       selectColors: 'Select Colors',
       showStatusbar: 'Show statusbar',
+      changeStatusbarTextColor: 'Change text color',
       configuration: 'Configuration',
       demonstration: 'Demonstration',
       uiComponents: 'UI Components'
@@ -92,8 +88,9 @@
       selectTheme: 'Thema auswählen',
       selectColors: 'Farben auswählen',
       showStatusbar: 'Statusleiste anzeigen',
+      changeStatusbarTextColor: 'Textfarbe ändern',
       configuration: 'Konfiguration',
-      demonstration: 'Demonstration',
+      demonstration: 'Demonstration (englisch)',
       uiComponents: 'UI-Komponenten'
     }
   }

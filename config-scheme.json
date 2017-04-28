@@ -3,13 +3,25 @@
     "type": "string",
     "default": "My App"
   },
-  "defaultLanguage": {
+  "language": {
     "regexp": "/^([a-z]{2})$/",
     "default": "en"
   },
   "theme": {
     "allow": ["ios", "material", "ios-material", "material-ios"],
     "default": "ios"
+  },
+  "color": {
+    "regexp": "/^[a-z]+$/",
+    "default": "blue"
+  },
+  "layout": {
+    "allow": ["default", "white", "dark"],
+    "default": "default"
+  },
+  "statusbarVisibility": {
+    "type": "boolean",
+    "default": true
   },
   "statusbarTextColor": {
     "allow": ["black", "white"],
@@ -18,10 +30,6 @@
   "statusbarBackgroundColor": {
     "regexp": "/^#([0-9a-f]{6})$/i",
     "default": "#000000"
-  },
-  "statusbarVisibility": {
-    "allow": ["visible", "hidden"],
-    "default": "visible"
   },
   "iconBackgroundColor": {
     "regexp": "/^#([0-9a-f]{6})$/i",

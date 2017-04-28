@@ -1,10 +1,11 @@
 {
   "title": "App Framework",
-  "defaultLanguage": "en",
+  "language": "en",
   "theme": "material-ios",
+  "layout": "default",
+  "statusbarVisibility": false,
   "statusbarTextColor": "white",
-  "statusbarBackgroundColor": "#000000",
-  "statusbarVisibility": "hidden",
+  "statusbarBackgroundColor": "#006699",
   "iconBackgroundColor": "#ffffff",
   "useIconFonts": {
     "framework7": true,

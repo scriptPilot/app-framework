@@ -271,14 +271,16 @@ let updateCordovaConfig = function (callback) {
     }
   ]
   // Preferences
+  /*
   config.preference = [
     {
       $: {
         name: 'StatusBarStyle',
-        value: env.cfg.statusbarTextColor === 'white' ? 'lightcontent' : 'default'
+        value: env.cfg.statusbarTextColor === 'white' ? 'blacktranslucent' : 'lightcontent'
       }
     }
   ]
+  */
   // Update config files
   let builder = new xml.Builder({rootName: 'widget', xmldec: {version: '1.0', encoding: 'utf-8'}})
   let xmlContent = builder.buildObject(config)
