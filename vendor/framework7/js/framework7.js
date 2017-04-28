@@ -10,7 +10,7 @@
  * 
  * Licensed under MIT
  * 
- * Released on: April 27, 2017
+ * Released on: April 28, 2017
  */
 (function () {
 
@@ -1285,7 +1285,7 @@
             var previousQuery = '';
             var virtualList;
             s.search = function (query, internal) {
-                if (query.trim() === previousQuery) return;
+                if (previousQuery && query.trim() === previousQuery) return;
                 previousQuery = query.trim();
         
                 if (!internal) {
