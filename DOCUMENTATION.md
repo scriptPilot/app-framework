@@ -71,12 +71,14 @@ Configure your application easily in the `app/config.js` file.
 Option | Allowed | Default
 :--- |:--- |:---
 title | *string* | My App
-defaultLanguage | /^([a-z]{2})$/ | en
-theme | ios, material, ios-material, material-ios | ios
+language | /^[a-z]{2}$/ | en
+theme | ios, material, ios-material, material-ios | material-ios
+color | /^[a-z]+$/ | indigo
+layout | default, white, dark | default
+statusbarVisibility | *boolean* | true
 statusbarTextColor | black, white | white
-statusbarBackgroundColor | /^#([0-9a-f]{6})$/i | #000000
-statusbarVisibility | visible, hidden | visible
-iconBackgroundColor | /^#([0-9a-f]{6})$/i | #ffffff
+statusbarBackgroundColor | /^#[0-9a-f]{6}$/i | #000000
+iconBackgroundColor | /^#[0-9a-f]{6}$/i | #ffffff
 useIconFonts | *object* |
 &nbsp;&nbsp;&nbsp;framework7 | *boolean* | false
 &nbsp;&nbsp;&nbsp;material | *boolean* | false
@@ -84,6 +86,7 @@ useIconFonts | *object* |
 &nbsp;&nbsp;&nbsp;fontawesome | *boolean* | false
 showPhoneFrameOnDesktop | *boolean* | true
 materialSubnavbarFix | *boolean* | true
+useGlobalDataObject | *boolean* | true
 completeRoutesFile | *boolean* | true
 specialRoutes | *object* | {}
 pagesWithRequiredLogin | *array* | []
@@ -109,7 +112,7 @@ resetLocalStorageOnVersionChange | *boolean* | false
 buildSourcemaps | *boolean* | false
 fixCodeOnTest | *boolean* | true
 fixCodeOnBuild | *boolean* | true
-devServerPort | /^([0-9]{4})$/ | 8080
+devServerPort | /^[0-9]{4}$/ | 8080
 <!-- /config-options -->
 
 ## CLI commands
