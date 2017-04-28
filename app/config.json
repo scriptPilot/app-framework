@@ -15,6 +15,7 @@
   },
   "showPhoneFrameOnDesktop": true,
   "materialSubnavbarFix": true,
+  "useGlobalDataObject": true,
   "completeRoutesFile": true,
   "specialRoutes": {
     "flexible-routing/blog/:blogId/post/:postId": "flexible-routing"

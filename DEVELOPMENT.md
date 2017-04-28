@@ -9,6 +9,7 @@
 - [Folder structure](#folder-structure)
 - [Rules](#rules)
 - [Script files](#script-files)
+- [Bug-fix checklist](#bugfix-checklist)
 
 ## Way of working
 
@@ -91,3 +92,10 @@ A script file executes some code and use *lib/alert* to show either a success me
 - Each step should indicate the run with an alert `<step> ongoing - please wait ...`
 - Each step should indicate a successful run with `<step> done.`
 - Each step should indicate a failed run with `Error: <step> failed. <solution>`
+
+## Bug-fix checklist
+
+Some points to check on bug-fixing:
+
+- All `require()` commands contain only strings, no variables
+- Only `process.env...` is used to decide which `require()`` to use
