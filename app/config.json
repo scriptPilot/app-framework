@@ -2,6 +2,7 @@
   "title": "App Framework",
   "language": "en",
   "theme": "material-ios",
+  "color": "indigo",
   "layout": "default",
   "statusbarVisibility": false,
   "statusbarTextColor": "white",

@@ -4,16 +4,16 @@
     "default": "My App"
   },
   "language": {
-    "regexp": "/^([a-z]{2})$/",
+    "regexp": "/^[a-z]{2}$/",
     "default": "en"
   },
   "theme": {
     "allow": ["ios", "material", "ios-material", "material-ios"],
-    "default": "ios"
+    "default": "material-ios"
   },
   "color": {
     "regexp": "/^[a-z]+$/",
-    "default": "blue"
+    "default": "indigo"
   },
   "layout": {
     "allow": ["default", "white", "dark"],
@@ -28,11 +28,11 @@
     "default": "white"
   },
   "statusbarBackgroundColor": {
-    "regexp": "/^#([0-9a-f]{6})$/i",
+    "regexp": "/^#[0-9a-f]{6}$/i",
     "default": "#000000"
   },
   "iconBackgroundColor": {
-    "regexp": "/^#([0-9a-f]{6})$/i",
+    "regexp": "/^#[0-9a-f]{6}$/i",
     "default": "#ffffff"
   },
   "useIconFonts": {
@@ -160,7 +160,7 @@
     "default": true
   },
   "devServerPort": {
-    "regexp": "/^([0-9]{4})$/",
+    "regexp": "/^[0-9]{4}$/",
     "default": "8080"
   }
 }
