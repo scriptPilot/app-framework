@@ -4,7 +4,7 @@
 
 - [ ] [Requirements](#requirements)
 - [ ] [Development environment](#development-environment)
-- **References**
+- **Reference**
   - [CLI commands](#cli-commands)
   - [Project folder structure](#project-folder-structure)
   - [Configuration options](#configuration-options)
