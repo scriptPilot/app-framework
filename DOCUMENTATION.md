@@ -19,10 +19,10 @@
   - [ ] [Build your application](#build-your-application)
   - [ ] [Deploy your application](#deploy-your-application)
   - [ ] [Backup your project](#backup-your-project)
-- [ ] **References**
+- **References**
   - [CLI commands](#cli-commands)
   - [Project folder structure](#project-folder-structure)
-  - [ ] [Configuration options](#configuration-options)
+  - [Configuration options](#configuration-options)
 
 > Read less, code more - please open a ticket for any open question in our [issue list](https://github.com/scriptPilot/app-framework/issues).
 
