@@ -9,7 +9,7 @@
   - [Project folder structure](#project-folder-structure)
   - [Configuration options](#configuration-options)
 - [ ] **Workflow**
-  - [ ] [Setup your project](#setup-your-project)
+  - [Setup your project](#setup-your-project)
   - [ ] [Design your application](#design-your-application)
   - [ ] [Develop your application](#develop-your-application)
     - [ ] [App component](#app-component)
