@@ -179,7 +179,7 @@ Creating a new application project is easily done in the following three steps:
 2. Run `npm install` to install *App Framework* and setup the project folder
 4. Run `npm run dev` to run your application at localhost:8080
 
-If there is a newer version of *App Framework* available at [NPMjs.com](https://www.npmjs.com/), there will be an alert at the development server.
+If there is a newer version of *App Framework* available at [NPMjs.com](https://www.npmjs.com/package/app-framework), there will be an alert at the development server.
 
 You have to update *App Framework* per application project by running `npm update`.
 
