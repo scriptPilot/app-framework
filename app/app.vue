@@ -58,16 +58,6 @@
         actionsOpened: false
       }
     },
-    computed: {
-      themeColor: function () {
-        return this.$root.color
-      }
-    },
-    watch: {
-      themeColor: function (newColor) {
-        this.$root.statusbarBackgroundColor = this.$root.colors[this.$root.theme][newColor]
-      }
-    },
     methods: {
       onF7Init: function () {
         if (this.$root.theme === 'ios') {
@@ -75,7 +65,7 @@
         } else {
           materialKitchenSinkCode(this.$root)
         }
-        this.$$(document).on('page:beforeinit', function (e) {
+        this.$$(document).on('page:beforeinit', e => {
           if (e.detail.page.url && e.detail.page.url.indexOf('f7ios/index') > -1) {
             this.$$('.popup, .popover, .login-screen, .picker-modal').remove()
             this.$$('#app').append(iosKitchenSinkHtml)
@@ -83,7 +73,7 @@
             this.$$('.popup, .popover, .login-screen, .picker-modal').remove()
             this.$$('#app').append(materialKitchenSinkHtml)
           }
-        }.bind(this))
+        })
       }
     }
   }
