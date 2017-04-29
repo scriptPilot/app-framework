@@ -71,10 +71,6 @@
     "type": "boolean",
     "default": true
   },
-  "specialRoutes": {
-    "type": "object",
-    "default": {}
-  },
   "pagesWithRequiredLogin": {
     "type": "array"
   },
