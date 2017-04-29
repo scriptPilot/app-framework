@@ -118,10 +118,10 @@ Example for the usage in templates:
 
 ```
 <f7-block>
-  <p>UTC date: {{$root.data.item}}</p>
+  <p>UTC date: {{$root.data.dateString}}</p>
   <f7-buttons>
-    <f7-button @click="$root.saveData('item', (new Date()).toUTCString())">Update date</f7-button>
-    <f7-button @click="$root.removeData('item')">Remove date</f7-button>
+    <f7-button @click="$root.saveData('dateString', (new Date()).toUTCString())">Update date</f7-button>
+    <f7-button @click="$root.removeData('dateString')">Remove date</f7-button>
   </f7-buttons>
 </f7-block>
 ```
