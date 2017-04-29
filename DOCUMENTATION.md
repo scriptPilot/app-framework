@@ -38,7 +38,7 @@ color: 'indigo',     // Any theme color name
 layout: 'default'    // 'default', 'white' or 'dark'
 ```
 
-You can modify the application style in Vue hook `created` or later:
+You can modify the application style in any Vue hook `created` or later:
 
 ```
 created: function () {
