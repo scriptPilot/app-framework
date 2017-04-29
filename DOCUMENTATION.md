@@ -152,6 +152,8 @@ firebase: {
 }
 ```
 
+Disabling a service will reduce the build size.
+
 You can use Firebase in any Vue hook `created` or later:
 
 - `window.firebase` - Firebase application instance
