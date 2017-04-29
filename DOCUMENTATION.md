@@ -6,6 +6,8 @@
 - [Development environment](#development-environment)
 - Application project
 - [Development](#development)
+  - [Application style](#application-style)
+  - [Status bar style](#status-bar-style)
 - Testing
 - Deployment
 
@@ -163,22 +165,22 @@ completeRoutesFile | *boolean* | true
 specialRoutes | *object* | {}
 pagesWithRequiredLogin | *array* | []
 firebase | *object* |
-&nbsp;&nbsp;&nbsp;apiKey | *string* | 
-&nbsp;&nbsp;&nbsp;authDomain | *string* | 
-&nbsp;&nbsp;&nbsp;databaseURL | *string* | 
-&nbsp;&nbsp;&nbsp;storageBucket | *string* | 
+&nbsp;&nbsp;&nbsp;apiKey | *string* |
+&nbsp;&nbsp;&nbsp;authDomain | *string* |
+&nbsp;&nbsp;&nbsp;databaseURL | *string* |
+&nbsp;&nbsp;&nbsp;storageBucket | *string* |
 &nbsp;&nbsp;&nbsp;allowEmailLogin | *boolean* | false
 &nbsp;&nbsp;&nbsp;allowEmailRegistration | *boolean* | false
 devFirebase | *object* |
 &nbsp;&nbsp;&nbsp;deployDevRulesOnTesting | *boolean* | false
-&nbsp;&nbsp;&nbsp;apiKey | *string* | 
-&nbsp;&nbsp;&nbsp;authDomain | *string* | 
-&nbsp;&nbsp;&nbsp;databaseURL | *string* | 
-&nbsp;&nbsp;&nbsp;storageBucket | *string* | 
+&nbsp;&nbsp;&nbsp;apiKey | *string* |
+&nbsp;&nbsp;&nbsp;authDomain | *string* |
+&nbsp;&nbsp;&nbsp;databaseURL | *string* |
+&nbsp;&nbsp;&nbsp;storageBucket | *string* |
 &nbsp;&nbsp;&nbsp;allowEmailLogin | *boolean* | false
 &nbsp;&nbsp;&nbsp;allowEmailRegistration | *boolean* | false
-appStoreId | *string* | 
-playStoreId | *string* | 
+appStoreId | *string* |
+playStoreId | *string* |
 useCordovaPlugins | *array* | ["cordova-plugin-statusbar","cordova-plugin-whitelist"]
 resetLocalStorageOnVersionChange | *boolean* | false
 buildSourcemaps | *boolean* | false
