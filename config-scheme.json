@@ -67,10 +67,6 @@
     "type": "boolean",
     "default": true
   },
-  "useGlobalDataObject": {
-    "type": "boolean",
-    "default": true
-  },
   "completeRoutesFile": {
     "type": "boolean",
     "default": true

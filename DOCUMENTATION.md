@@ -8,6 +8,7 @@
 - [Development](#development)
   - [Application style](#application-style)
   - [Status bar style](#status-bar-style)
+  - [Global data object](#global-data-object)
 - Testing
 - Deployment
 
@@ -86,6 +87,43 @@ Limitations:
 - Changing the status bar visibility is limited to native applications
 - Changing the status bar text color is limited to iOS native applications
 - Changing the status bar background color is limited to native or homescreen applications
+
+### Global data object
+
+App Framework provides a global data object, which will be restored immediately on each application reload and is accessible from all your Vue components with the hook `created` or later.
+
+- To save data, use `this.$root.saveData(path, value)`
+- To remove data, use `this.$root.removeData(path)`
+- To retrieve data, use `this.$root.data.path`
+
+The *path* must be a string, use a a point to nest data. Example:
+
+```
+this.$root.saveData('greeting', 'Hello!')
+this.$root.saveData('names', {first: 'Jan', second: 'Tom', third: 'Sophie'})
+this.$root.removeData('names.second')
+
+// Result
+{
+  greeting: 'Hallo',
+  names: {
+    first: 'Jan',
+    third: 'Sophie'
+  }
+}
+```
+
+Example for the usage in templates:
+
+```
+<f7-block>
+  <p>UTC date: {{$root.data.item}}</p>
+  <f7-buttons>
+    <f7-button @click="$root.saveData('item', (new Date()).toUTCString())">Update date</f7-button>
+    <f7-button @click="$root.removeData('item')">Remove date</f7-button>
+  </f7-buttons>
+</f7-block>
+```
 
 ---
 
@@ -169,22 +207,22 @@ completeRoutesFile | *boolean* | true
 specialRoutes | *object* | {}
 pagesWithRequiredLogin | *array* | []
 firebase | *object* |
-&nbsp;&nbsp;&nbsp;apiKey | *string* | 
-&nbsp;&nbsp;&nbsp;authDomain | *string* | 
-&nbsp;&nbsp;&nbsp;databaseURL | *string* | 
-&nbsp;&nbsp;&nbsp;storageBucket | *string* | 
+&nbsp;&nbsp;&nbsp;apiKey | *string* |
+&nbsp;&nbsp;&nbsp;authDomain | *string* |
+&nbsp;&nbsp;&nbsp;databaseURL | *string* |
+&nbsp;&nbsp;&nbsp;storageBucket | *string* |
 &nbsp;&nbsp;&nbsp;allowEmailLogin | *boolean* | false
 &nbsp;&nbsp;&nbsp;allowEmailRegistration | *boolean* | false
 devFirebase | *object* |
 &nbsp;&nbsp;&nbsp;deployDevRulesOnTesting | *boolean* | false
-&nbsp;&nbsp;&nbsp;apiKey | *string* | 
-&nbsp;&nbsp;&nbsp;authDomain | *string* | 
-&nbsp;&nbsp;&nbsp;databaseURL | *string* | 
-&nbsp;&nbsp;&nbsp;storageBucket | *string* | 
+&nbsp;&nbsp;&nbsp;apiKey | *string* |
+&nbsp;&nbsp;&nbsp;authDomain | *string* |
+&nbsp;&nbsp;&nbsp;databaseURL | *string* |
+&nbsp;&nbsp;&nbsp;storageBucket | *string* |
 &nbsp;&nbsp;&nbsp;allowEmailLogin | *boolean* | false
 &nbsp;&nbsp;&nbsp;allowEmailRegistration | *boolean* | false
-appStoreId | *string* | 
-playStoreId | *string* | 
+appStoreId | *string* |
+playStoreId | *string* |
 useCordovaPlugins | *array* | ["cordova-plugin-statusbar","cordova-plugin-whitelist"]
 resetLocalStorageOnVersionChange | *boolean* | false
 buildSourcemaps | *boolean* | false
