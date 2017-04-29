@@ -80,3 +80,47 @@ Limitations:
 - Changing the status bar visibility is limited to native applications
 - Changing the status bar text color is limited to iOS native applications
 - Changing the status bar background color is limited to native or homescreen applications
+
+### Global data object
+
+App Framework provides a global data object, which will be restored immediately on each application reload and is accessible from all your Vue components with the hook `created` or later.
+
+- To save data, use `this.$root.saveData(path, value)`
+- To remove data, use `this.$root.removeData(path)`
+- To retrieve data, use `this.$root.data.path`
+
+The *path* must be a string, use a a point to nest data. Example:
+
+```
+created: function () {
+  this.$root.saveData('greeting', 'Hello!')
+  this.$root.saveData('names', {first: 'Jan', second: 'Tom', third: 'Sophie'})
+  this.$root.removeData('names.second')
+}
+```
+
+Now, the data object will look like following:
+
+```
+{
+  greeting: 'Hallo',
+  names: {
+    first: 'Jan',
+    third: 'Sophie'
+  }
+}
+```
+
+Example for the usage in templates:
+
+```
+<f7-block>
+  <p>UTC date: {{$root.data.dateString}}</p>
+  <f7-buttons>
+    <f7-button @click="$root.saveData('dateString', (new Date()).toUTCString())">Update date</f7-button>
+    <f7-button @click="$root.removeData('dateString')">Remove date</f7-button>
+  </f7-buttons>
+</f7-block>
+```
+
+Do not modify `$root.data` directly, because there wont be any update triggered.
