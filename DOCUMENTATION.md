@@ -9,6 +9,7 @@
   - [Application style](#application-style)
   - [Status bar style](#status-bar-style)
   - [Global data object](#global-data-object)
+  - [Firebase backend](#firebase-backend)
 - Testing
 - Deployment
 
@@ -131,6 +132,12 @@ Example for the usage in templates:
 ```
 
 > Do not modify `$root.data` directly, because there wont be any watcher notification then!
+
+## Firebase backend
+
+App Framework is well-prepared to use [Firebase](https://firebase.google.com/) as a backend provider.
+
+###
 
 ---
 
