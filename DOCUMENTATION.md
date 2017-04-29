@@ -2,7 +2,7 @@
 
 > First contact with App Framework? Please read our [readme file](README.md) first!
 
-- [ ] [Requirements](#requirements)
+- [Requirements](#requirements)
 - [ ] [Development environment](#development-environment)
 - **Reference**
   - [CLI commands](#cli-commands)
@@ -18,6 +18,7 @@
     - [Status bar style](#status-bar-style)
     - [Global data object](#global-data-object)
     - [Firebase backend](#firebase-backend)
+    - [ ] [Cordova plugins](#cordova-plugins)
     - [ ] [Import modules](#import-modules)
     - [ ] [State restoration](#state-restoration)
   - [ ] [Test your application](#test-your-application)
@@ -156,6 +157,31 @@ devServerPort | /^[0-9]{4}$/ | 8080
 <!-- /config-options -->
 
 ## Workflow
+
+### Setup your project
+
+After you have prepared your [development environment](#development-environment), you could start one or more application projects. Using *App Framework* allows you to start quickly with your next amazing application and have all the recurring and tricky stuff out of the box.
+
+Creating a new application project is easily done in the following three steps:
+
+1. Create a **package.json** file in an empty project folder with the following content:
+
+   ```
+   {
+     "name": "my-app",
+     "version": "1.0.0",
+     "devDependencies": {
+       "app-framework": "*"
+     }
+   }
+   ```
+
+2. Run `npm install` to install App Framework and setup the project folder
+4. Run `npm run dev` to run your application at localhost:8080
+
+If there is a newer version of *App Framework* available at [NPMjs.com](https://www.npmjs.com/), there will be an alert at the development server.
+
+You have to update *App Framework* per application project by running `npm update`.
 
 ### Develop your application
 
