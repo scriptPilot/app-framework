@@ -34,6 +34,28 @@ You can use your favorite text editor, but we highly recommend ...
 
 ## Development
 
+### Application style
+
+You can configure the application style in the *config.json* file:
+
+```
+theme: 'material',   // 'ios', 'material', 'ios-material' or 'material-ios'
+color: 'indigo',     // Any [color name](http://framework7.io/docs/color-themes.html)
+layout: 'default'    // 'default', 'white' or 'dark'
+```
+
+You can modify the application style in Vue hook `created` or later:
+
+```
+created: function () {
+  this.$root.theme = 'material'
+  this.$root.color = 'indigo'
+  this.$root.layout = 'default'
+}
+```
+
+If you want to change the theme in any Vue hook, you need to use *ios-material* or *material-ios* as value in the configuration. With *ios-material*, the default theme will be *ios*, but you are able to change the theme to *material*, with *material-ios* in the configuration vice versa. The build file will be smaller if you configure either *ios* or *material*.
+
 ### Status bar style
 
 You can configure the application status bar in the *config.json* file:
@@ -48,9 +70,9 @@ You can modify the application status bar in Vue hook `created` or later:
 
 ```
 created: function () {
-  this.$root.statusbarVisibility: true,            // true or false
-  this.$root.statusbarTextColor: 'white',          // 'black' or 'white'
-  this.$root.statusbarBackgroundColor: '#3f51b5'   // Color hex code
+  this.$root.statusbarVisibility = true
+  this.$root.statusbarTextColor = 'white'
+  this.$root.statusbarBackgroundColor = '#3f51b5'
 }
 ```
 
