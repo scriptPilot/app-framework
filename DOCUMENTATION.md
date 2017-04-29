@@ -4,6 +4,10 @@
 
 - [ ] [Requirements](#requirements)
 - [ ] [Development environment](#development-environment)
+- **References**
+  - [CLI commands](#cli-commands)
+  - [Project folder structure](#project-folder-structure)
+  - [Configuration options](#configuration-options)
 - [ ] **Workflow**
   - [ ] [Setup your project](#setup-your-project)
   - [ ] [Design your application](#design-your-application)
@@ -20,12 +24,121 @@
   - [ ] [Build your application](#build-your-application)
   - [ ] [Deploy your application](#deploy-your-application)
   - [ ] [Backup your project](#backup-your-project)
-- **References**
-  - [CLI commands](#cli-commands)
-  - [Project folder structure](#project-folder-structure)
-  - [Configuration options](#configuration-options)
 
 > Read less, code more - please open a ticket for any open question in our [issue list](https://github.com/scriptPilot/app-framework/issues).
+
+## References
+
+### CLI commands
+
+This is an overview and reference, please see the [Workflow](#workflow) for details.
+
+![Process](media/cli-commands.png)
+
+- Setup
+  - `npm install` to install App Framework and setup the project folder
+  - `npm update` to update App Framework to the latest sub version
+
+- Testing
+  - `npm run dev` to start the development server in the web browser
+    - `CTRL + C` to stop the development server
+  - `npm run ios` to open the iOS simulator with a development build
+  - `npm run android` to open the Android emulator with a development build
+
+- Building
+  - `npm run patch` to build after bug-fixes and improvements
+  - `npm run minor` to build after adding new functionality
+  - `npm run major` to build after backward-capability breaking changes
+
+- Deployment
+  - `npm run firebase` to deploy rules and static files to Firebase
+    - `npm run database` to deploy database rules to Firebase
+    - `npm run storage` to deploy storage rules to Firebase
+    - `npm run hosting` to deploy static files to Firebase
+  - `npm run ftp` to deploy static files to your FTP server
+  - `npm run xcode` to deploy static files as iOS Xcode project
+  - `npm run studio` to deploy static files as Android Studio project
+
+- Backup
+  - `npm run backup` to create snapshots of the Firebase database and user list
+  - `npm run snapshot` to create a snapshot of your project folder
+
+### Project folder structure
+
+The following project folder will be created by default:
+
+```
+├── app                         # App source folder
+│   ├── images                  # App images
+│   ├── pages                   # App page components
+│   ├── app.vue                 # App main component
+│   ├── config.js               # App configuration
+│   ├── database-rules.json     # Firebase database rules
+│   ├── icon.png                # App icon file (minimum size is 1024 pixel)
+│   ├── routes.json             # App routes configuration
+│   └── storage-rules.txt       # Firebase storage rules
+├── build                       # Latest build files (do not modify)
+├── design                      # Design templates (PDF, Power Point)
+├── node_modules                # Installed node modules (do not modify)
+├── snapshots                   # Project snapshots (for rollback)
+├── .babelrc                    # Babel configuration file for ES2015 support
+├── .gitignore                  # List of ignored files for Git commits
+└── package.json                # Project information
+```
+
+### Configuration options
+
+Configure your application easily in the `config.json` file.
+
+This is an overview and reference, please see the [Workflow](#workflow) for details.
+
+<!-- config-options -->
+Option | Allowed | Default
+:--- |:--- |:---
+title | *string* | My App
+language | /^[a-z]{2}$/ | en
+theme | ios, material, ios-material, material-ios | material
+color | /^[a-z]+$/ | indigo
+layout | default, white, dark | default
+statusbarVisibility | *boolean* | true
+statusbarTextColor | black, white | white
+statusbarBackgroundColor | /^#[0-9a-f]{6}$/i | #000000
+changeStatusbarBackgroundColorOnThemeColorChange | *boolean* | true
+iconBackgroundColor | /^#[0-9a-f]{6}$/i | #ffffff
+useIconFonts | *object* |
+&nbsp;&nbsp;&nbsp;framework7 | *boolean* | false
+&nbsp;&nbsp;&nbsp;material | *boolean* | false
+&nbsp;&nbsp;&nbsp;ion | *boolean* | false
+&nbsp;&nbsp;&nbsp;fontawesome | *boolean* | false
+showPhoneFrameOnDesktop | *boolean* | true
+materialSubnavbarFix | *boolean* | true
+completeRoutesFile | *boolean* | true
+specialRoutes | *object* | {}
+pagesWithRequiredLogin | *array* | []
+firebase | *object* |
+&nbsp;&nbsp;&nbsp;apiKey | *string* |
+&nbsp;&nbsp;&nbsp;authDomain | *string* |
+&nbsp;&nbsp;&nbsp;databaseURL | *string* |
+&nbsp;&nbsp;&nbsp;storageBucket | *string* |
+&nbsp;&nbsp;&nbsp;allowEmailLogin | *boolean* | false
+&nbsp;&nbsp;&nbsp;allowEmailRegistration | *boolean* | false
+devFirebase | *object* |
+&nbsp;&nbsp;&nbsp;deployDevRulesOnTesting | *boolean* | false
+&nbsp;&nbsp;&nbsp;apiKey | *string* |
+&nbsp;&nbsp;&nbsp;authDomain | *string* |
+&nbsp;&nbsp;&nbsp;databaseURL | *string* |
+&nbsp;&nbsp;&nbsp;storageBucket | *string* |
+&nbsp;&nbsp;&nbsp;allowEmailLogin | *boolean* | false
+&nbsp;&nbsp;&nbsp;allowEmailRegistration | *boolean* | false
+appStoreId | *string* |
+playStoreId | *string* |
+useCordovaPlugins | *array* | ["cordova-plugin-statusbar","cordova-plugin-whitelist"]
+resetLocalStorageOnVersionChange | *boolean* | false
+buildSourcemaps | *boolean* | false
+fixCodeOnTest | *boolean* | true
+fixCodeOnBuild | *boolean* | true
+devServerPort | /^[0-9]{4}$/ | 8080
+<!-- /config-options -->
 
 ## Workflow
 
@@ -171,116 +284,3 @@ devFirebase: {
 ```
 
 If you set `deployDevRulesOnTesting: true`, on each test command (`npm run dev`, `npm run ios` and `npm run android`), the *database-rules.json* and *storage-rules.txt* files are deployed to your devFirebase project.
-
-## References
-
-### CLI commands
-
-This is an overview and reference, please see the [Workflow](#workflow) for details.
-
-![Process](media/cli-commands.png)
-
-- Setup
-  - `npm install` to install App Framework and setup the project folder
-  - `npm update` to update App Framework to the latest sub version
-
-- Testing
-  - `npm run dev` to start the development server in the web browser
-    - `CTRL + C` to stop the development server
-  - `npm run ios` to open the iOS simulator with a development build
-  - `npm run android` to open the Android emulator with a development build
-
-- Building
-  - `npm run patch` to build after bug-fixes and improvements
-  - `npm run minor` to build after adding new functionality
-  - `npm run major` to build after backward-capability breaking changes
-
-- Deployment
-  - `npm run firebase` to deploy rules and static files to Firebase
-    - `npm run database` to deploy database rules to Firebase
-    - `npm run storage` to deploy storage rules to Firebase
-    - `npm run hosting` to deploy static files to Firebase
-  - `npm run ftp` to deploy static files to your FTP server
-  - `npm run xcode` to deploy static files as iOS Xcode project
-  - `npm run studio` to deploy static files as Android Studio project
-
-- Backup
-  - `npm run backup` to create snapshots of the Firebase database and user list
-  - `npm run snapshot` to create a snapshot of your project folder
-
-### Project folder structure
-
-The following project folder will be created by default:
-
-```
-├── app                         # App source folder
-│   ├── images                  # App images
-│   ├── pages                   # App page components
-│   ├── app.vue                 # App main component
-│   ├── config.js               # App configuration
-│   ├── database-rules.json     # Firebase database rules
-│   ├── icon.png                # App icon file (minimum size is 1024 pixel)
-│   ├── routes.json             # App routes configuration
-│   └── storage-rules.txt       # Firebase storage rules
-├── build                       # Latest build files (do not modify)
-├── design                      # Design templates (PDF, Power Point)
-├── node_modules                # Installed node modules (do not modify)
-├── snapshots                   # Project snapshots (for rollback)
-├── .babelrc                    # Babel configuration file for ES2015 support
-├── .gitignore                  # List of ignored files for Git commits
-└── package.json                # Project information
-```
-
-### Configuration options
-
-Configure your application easily in the `config.json` file.
-
-This is an overview and reference, please see the [Workflow](#workflow) for details.
-
-<!-- config-options -->
-Option | Allowed | Default
-:--- |:--- |:---
-title | *string* | My App
-language | /^[a-z]{2}$/ | en
-theme | ios, material, ios-material, material-ios | material
-color | /^[a-z]+$/ | indigo
-layout | default, white, dark | default
-statusbarVisibility | *boolean* | true
-statusbarTextColor | black, white | white
-statusbarBackgroundColor | /^#[0-9a-f]{6}$/i | #000000
-changeStatusbarBackgroundColorOnThemeColorChange | *boolean* | true
-iconBackgroundColor | /^#[0-9a-f]{6}$/i | #ffffff
-useIconFonts | *object* |
-&nbsp;&nbsp;&nbsp;framework7 | *boolean* | false
-&nbsp;&nbsp;&nbsp;material | *boolean* | false
-&nbsp;&nbsp;&nbsp;ion | *boolean* | false
-&nbsp;&nbsp;&nbsp;fontawesome | *boolean* | false
-showPhoneFrameOnDesktop | *boolean* | true
-materialSubnavbarFix | *boolean* | true
-completeRoutesFile | *boolean* | true
-specialRoutes | *object* | {}
-pagesWithRequiredLogin | *array* | []
-firebase | *object* |
-&nbsp;&nbsp;&nbsp;apiKey | *string* |
-&nbsp;&nbsp;&nbsp;authDomain | *string* |
-&nbsp;&nbsp;&nbsp;databaseURL | *string* |
-&nbsp;&nbsp;&nbsp;storageBucket | *string* |
-&nbsp;&nbsp;&nbsp;allowEmailLogin | *boolean* | false
-&nbsp;&nbsp;&nbsp;allowEmailRegistration | *boolean* | false
-devFirebase | *object* |
-&nbsp;&nbsp;&nbsp;deployDevRulesOnTesting | *boolean* | false
-&nbsp;&nbsp;&nbsp;apiKey | *string* |
-&nbsp;&nbsp;&nbsp;authDomain | *string* |
-&nbsp;&nbsp;&nbsp;databaseURL | *string* |
-&nbsp;&nbsp;&nbsp;storageBucket | *string* |
-&nbsp;&nbsp;&nbsp;allowEmailLogin | *boolean* | false
-&nbsp;&nbsp;&nbsp;allowEmailRegistration | *boolean* | false
-appStoreId | *string* |
-playStoreId | *string* |
-useCordovaPlugins | *array* | ["cordova-plugin-statusbar","cordova-plugin-whitelist"]
-resetLocalStorageOnVersionChange | *boolean* | false
-buildSourcemaps | *boolean* | false
-fixCodeOnTest | *boolean* | true
-fixCodeOnBuild | *boolean* | true
-devServerPort | /^[0-9]{4}$/ | 8080
-<!-- /config-options -->
