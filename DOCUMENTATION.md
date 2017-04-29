@@ -173,7 +173,7 @@ If you set `deployDevRulesOnTesting: true`, on each test command (`npm run dev`,
 
 ## References
 
-## CLI commands
+### CLI commands
 
 This is an overview and reference, please see the [Workflow](#workflow) for details.
 
@@ -207,7 +207,7 @@ This is an overview and reference, please see the [Workflow](#workflow) for deta
   - `npm run backup` to create snapshots of the Firebase database and user list
   - `npm run snapshot` to create a snapshot of your project folder
 
-## Project folder structure
+### Project folder structure
 
 The following project folder will be created by default:
 
@@ -230,7 +230,7 @@ The following project folder will be created by default:
 └── package.json                # Project information
 ```
 
-## Configuration options
+### Configuration options
 
 Configure your application easily in the `config.json` file.
 
