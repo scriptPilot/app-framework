@@ -708,6 +708,10 @@
     "component": "flexible-routing.vue"
   },
   {
+    "path": "/flexible-routing/blog/:blogId/post/:postId/",
+    "component": "flexible-routing.vue"
+  },
+  {
     "path": "/form/",
     "component": "form.vue"
   },
