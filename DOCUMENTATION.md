@@ -21,10 +21,10 @@
   - [ ] [Backup your project](#backup-your-project)
 - [ ] **References**
   - [CLI commands](#cli-commands)
-  - [ ] [Project folder structure](#project-folder-structure)
+  - [Project folder structure](#project-folder-structure)
   - [ ] [Configuration options](#configuration-options)
 
-> Read less, code more - [ ] please open a ticket for any open question in our [issue list](https://github.com/scriptPilot/app-framework/issues).
+> Read less, code more - please open a ticket for any open question in our [issue list](https://github.com/scriptPilot/app-framework/issues).
 
 ## Workflow
 
@@ -129,6 +129,48 @@ Example for the usage in templates:
 
 Do not modify `$root.data` directly, because there wont be any update triggered.
 
+#### Firebase backend
+
+App Framework is well-prepared to use [Firebase](https://firebase.google.com/) as a backend provider.
+
+Configuration file:
+
+```
+firebase: {
+  apiKey: "AIzaSyAvzTiqd9fKR-h4asdsadsadasd7Uxl4iXwqSMU1VjGdII",   // Leave blank to disable Firebase
+  authDomain: "app-framework-9045a.firebaseapp.com",               // Leave blank to disable auth service
+  databaseURL: "https://app-framework-9045a.firebaseio.com",       // Leave blank to disable database service
+  storageBucket: "app-framework-9045a.appspot.com",                // Leave blank to disable storage service
+  allowEmailLogin: true,                                           // true or false
+  allowEmailRegistration: true                                     // true or false
+}
+```
+
+Disabling a service will reduce the build size.
+
+You can use Firebase in any Vue hook `created` or later:
+
+- `window.firebase` - Firebase application instance
+- `this.$root.user` -  Shortlink to `window.firebase.auth().currentUser`
+- `this.$root.db(...)` - Shortlink to `window.firebase.database().ref(...)`
+- `this.$root.store(...)` - Shortlink to `window.firebase.storage().ref(...)`
+
+To test your Firebase rules in development, you have the chance to configure a second Firebase project:
+
+```
+devFirebase: {
+  deployDevRulesOnTesting: false,
+  apiKey: "AIzaSyBL0Xxsc-jFZ2BnmQV08T4O9B56HJVpwXk",
+  authDomain: "dev-app-framework.firebaseapp.com",
+  databaseURL: "https://dev-app-framework.firebaseio.com",
+  storageBucket: "dev-app-framework.appspot.com",
+  allowEmailLogin: true,
+  allowEmailRegistration: true
+}
+```
+
+If you set `deployDevRulesOnTesting: true`, on each test command (`npm run dev`, `npm run ios` and `npm run android`), the *database-rules.json* and *storage-rules.txt* files will be deployed to your second Firebase project.
+
 ## References
 
 ## CLI commands
@@ -186,6 +228,7 @@ The following project folder will be created by default:
 ├── .babelrc                    # Babel configuration file for ES2015 support
 ├── .gitignore                  # List of ignored files for Git commits
 └── package.json                # Project information
+```
 
 ## Configuration options
 
@@ -194,4 +237,49 @@ Configure your application easily in the `config.json` file.
 This is an overview and reference, please see the [Workflow](#workflow) for details.
 
 <!-- config-options -->
+Option | Allowed | Default
+:--- |:--- |:---
+title | *string* | My App
+language | /^[a-z]{2}$/ | en
+theme | ios, material, ios-material, material-ios | material
+color | /^[a-z]+$/ | indigo
+layout | default, white, dark | default
+statusbarVisibility | *boolean* | true
+statusbarTextColor | black, white | white
+statusbarBackgroundColor | /^#[0-9a-f]{6}$/i | #000000
+changeStatusbarBackgroundColorOnThemeColorChange | *boolean* | true
+iconBackgroundColor | /^#[0-9a-f]{6}$/i | #ffffff
+useIconFonts | *object* |
+&nbsp;&nbsp;&nbsp;framework7 | *boolean* | false
+&nbsp;&nbsp;&nbsp;material | *boolean* | false
+&nbsp;&nbsp;&nbsp;ion | *boolean* | false
+&nbsp;&nbsp;&nbsp;fontawesome | *boolean* | false
+showPhoneFrameOnDesktop | *boolean* | true
+materialSubnavbarFix | *boolean* | true
+completeRoutesFile | *boolean* | true
+specialRoutes | *object* | {}
+pagesWithRequiredLogin | *array* | []
+firebase | *object* |
+&nbsp;&nbsp;&nbsp;apiKey | *string* |
+&nbsp;&nbsp;&nbsp;authDomain | *string* |
+&nbsp;&nbsp;&nbsp;databaseURL | *string* |
+&nbsp;&nbsp;&nbsp;storageBucket | *string* |
+&nbsp;&nbsp;&nbsp;allowEmailLogin | *boolean* | false
+&nbsp;&nbsp;&nbsp;allowEmailRegistration | *boolean* | false
+devFirebase | *object* |
+&nbsp;&nbsp;&nbsp;deployDevRulesOnTesting | *boolean* | false
+&nbsp;&nbsp;&nbsp;apiKey | *string* |
+&nbsp;&nbsp;&nbsp;authDomain | *string* |
+&nbsp;&nbsp;&nbsp;databaseURL | *string* |
+&nbsp;&nbsp;&nbsp;storageBucket | *string* |
+&nbsp;&nbsp;&nbsp;allowEmailLogin | *boolean* | false
+&nbsp;&nbsp;&nbsp;allowEmailRegistration | *boolean* | false
+appStoreId | *string* |
+playStoreId | *string* |
+useCordovaPlugins | *array* | ["cordova-plugin-statusbar","cordova-plugin-whitelist"]
+resetLocalStorageOnVersionChange | *boolean* | false
+buildSourcemaps | *boolean* | false
+fixCodeOnTest | *boolean* | true
+fixCodeOnBuild | *boolean* | true
+devServerPort | /^[0-9]{4}$/ | 8080
 <!-- /config-options -->
