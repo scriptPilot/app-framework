@@ -15,6 +15,7 @@
     - [Global data object](#global-data-object)
     - [Firebase backend](#firebase-backend)
     - [ ] [Import modules](#import-modules)
+    - [ ] [State restoration](#state-restoration)
   - [ ] [Test your application](#test-your-application)
   - [ ] [Build your application](#build-your-application)
   - [ ] [Deploy your application](#deploy-your-application)
