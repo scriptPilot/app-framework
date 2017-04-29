@@ -104,8 +104,11 @@ created: function () {
   this.$root.saveData('names', {first: 'Jan', second: 'Tom', third: 'Sophie'})
   this.$root.removeData('names.second')
 }
+```
 
-// Result
+Now, the data object will look like following:
+
+```
 {
   greeting: 'Hallo',
   names: {
