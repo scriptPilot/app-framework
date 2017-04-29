@@ -1,4 +1,4 @@
-# App Framework - [ ] Documentation
+# App Framework - Documentation
 
 > First contact with App Framework? Please read our [readme file](README.md) first!
 
