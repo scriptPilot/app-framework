@@ -2,7 +2,6 @@
 
 > First contact with App Framework? Please read our [readme file](README.md) first!
 
-**Table of contents**
 - [Requirements](#requirements)
 - **Workflow**
   - [Setup your development environment](#setup-your-development-environment)
@@ -25,7 +24,7 @@
   - [Project folder structure](#reference---project-folder-structure)
   - [Configuration options](#reference---configuration-options)
 
-Read less, code more - please open a ticket for any open question in our [issue list](https://github.com/scriptPilot/app-framework/issues).
+> Read less, code more - please open a ticket for any open question in our [issue list](https://github.com/scriptPilot/app-framework/issues).
 
 ## Requirements
 
