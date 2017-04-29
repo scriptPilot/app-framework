@@ -42,7 +42,7 @@ You can configure the application style in the *config.json* file:
 
 ```
 theme: 'material',   // 'ios', 'material', 'ios-material' or 'material-ios'
-color: 'indigo',     // Any [color name](http://framework7.io/docs/color-themes.html)
+color: 'indigo',     // Any theme color name: http://framework7.io/docs/color-themes.html
 layout: 'default'    // 'default', 'white' or 'dark'
 ```
 
@@ -146,7 +146,7 @@ Option | Allowed | Default
 :--- |:--- |:---
 title | *string* | My App
 language | /^[a-z]{2}$/ | en
-theme | ios, material, ios-material, material-ios | material-ios
+theme | ios, material, ios-material, material-ios | material
 color | /^[a-z]+$/ | indigo
 layout | default, white, dark | default
 statusbarVisibility | *boolean* | true
