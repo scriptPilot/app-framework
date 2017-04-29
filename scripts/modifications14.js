@@ -27,7 +27,7 @@ if (env.installed) {
       let routes = fs.readJsonSync(abs(env.app, 'routes.json'))
       let newRoutes = []
       for (let r in routes) {
-        if (/^(\/?)login-form(\/?)$/.test(routes[r].path) === false) {
+        if (routes[r].component !== 'login-screen.vue' && routes[r].component !== 'login-screen') {
           newRoutes.push(routes[r])
         }
       }
