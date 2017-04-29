@@ -65,7 +65,7 @@ You can configure the application status bar style in the *config.json* file:
 ```
 statusbarVisibility: true,            // true or false
 statusbarTextColor: 'white',          // 'black' or 'white'
-statusbarBackgroundColor: '#3f51b5'   // Color hex code
+statusbarBackgroundColor: '#3f51b5'   // Hex color code
 ```
 
 You can modify the application status bar style in Vue hook `created` or later:
