@@ -2,23 +2,34 @@
 
 > First contact with App Framework? Please read our [readme file](README.md) first!
 
-- [Required knowledge](#required-knowledge)
-- [Development environment](#development-environment)
-- Application project
-- [Development](#development)
-  - [Application style](#application-style)
-  - [Status bar style](#status-bar-style)
-  - [Global data object](#global-data-object)
-  - [Firebase backend](#firebase-backend)
-- Testing
-- Deployment
-- Overview - CLI commands
-- [Overview - Project folder structure](#overview---project-folder-structure)
-- Overview - Configuration options
+**Table of contents**
+- [Requirements](#requirements)
+- **Workflow**
+  - [Setup your development environment](#setup-your-development-environment)
+  - [Install App Framework](#install-app-framework)
+  - [Design your application](#design-your-application)
+  - [Develop your application](#develop-your-application)
+    - [App component](#app-component)
+    - [Page components](#page-components)
+    - [Application style](#application-style)
+    - [Status bar style](#status-bar-style)
+    - [Global data object](#global-data-object)
+    - [Firebase backend](#firebase-backend)
+    - [Import modules](#import-modules)
+  - [Test your application](#test-your-application)
+  - [Build your application](#build-your-application)
+  - [Deploy your application](#deploy-your-application)
+  - [Backup your project](#backup-your-application)
+- **References**
+  - [CLI commands](#reference---cli-commands)
+  - [Project folder structure](#reference---project-folder-structure)
+  - [Configuration options](#reference---configuration-options)
 
 Read less, code more - please open a ticket for any open question in our [issue list](https://github.com/scriptPilot/app-framework/issues).
 
-## Required knowledge
+## Requirements
+
+You should be familiar with the following external documentation before you start to use *App Framework*.
 
 Essentiell:
 
@@ -180,7 +191,7 @@ devFirebase: {
 
 If you set `deployDevRulesOnTesting: true`, on each test command (`npm run dev`, `npm run ios` and `npm run android`), the *database-rules.json* and *storage-rules.txt* files will be deployed to your second Firebase project.
 
-## Overview - Project folder
+## Overview - Project folder structure
 
 The following project folder will be created by default.
 
@@ -203,90 +214,18 @@ The following project folder will be created by default.
 └── package.json                # Project information
 ```
 
+## Overview - Configuration options
+
+Configure your application easily in the `config.json` file.
+
+Details are described in the corresponding chapters.
+
+<!-- config-options -->
+<!-- /config-options -->
+
 ---
 
 > OLD DOCUMENTATION BELOW
-
-**Table of contents**
-
-- [Requirements](#requirements)
-- [Project folder structure](#project-folder-structure)
-- [Configuration options](#configuration-options)
-- [CLI commands](#cli-commands)
-- [Window objects](#window-objects)
-- [Vue root object](#vue-root-object)
-- [Global data object](#global-data-object)
-- [State restoration](#state-restoration)
-- [Statusbar modification](#statusbar-modification)
-- [Hooks](#hooks)
-- Workflow
-  - [Setup your development environment](#setup-your-development-environment)
-  - [Install App Framework](#install-app-framework)
-  - [Design your application](#design-your-application)
-  - [Develop your application](#develop-your-application)
-  - [Test your application](#test-your-application)
-  - [Build your application](#build-your-application)
-  - [Deploy your application](#deploy-your-application)
-  - [Backup your project](#backup-your-application)
-
-
-
-## Requirements
-
-
-
-## Configuration options
-
-Configure your application easily in the `app/config.js` file.
-
-<!-- config-options -->
-Option | Allowed | Default
-:--- |:--- |:---
-title | *string* | My App
-language | /^[a-z]{2}$/ | en
-theme | ios, material, ios-material, material-ios | material
-color | /^[a-z]+$/ | indigo
-layout | default, white, dark | default
-statusbarVisibility | *boolean* | true
-statusbarTextColor | black, white | white
-statusbarBackgroundColor | /^#[0-9a-f]{6}$/i | #000000
-changeStatusbarBackgroundColorOnThemeColorChange | *boolean* | true
-iconBackgroundColor | /^#[0-9a-f]{6}$/i | #ffffff
-useIconFonts | *object* |
-&nbsp;&nbsp;&nbsp;framework7 | *boolean* | false
-&nbsp;&nbsp;&nbsp;material | *boolean* | false
-&nbsp;&nbsp;&nbsp;ion | *boolean* | false
-&nbsp;&nbsp;&nbsp;fontawesome | *boolean* | false
-showPhoneFrameOnDesktop | *boolean* | true
-materialSubnavbarFix | *boolean* | true
-useGlobalDataObject | *boolean* | true
-completeRoutesFile | *boolean* | true
-specialRoutes | *object* | {}
-pagesWithRequiredLogin | *array* | []
-firebase | *object* |
-&nbsp;&nbsp;&nbsp;apiKey | *string* |
-&nbsp;&nbsp;&nbsp;authDomain | *string* |
-&nbsp;&nbsp;&nbsp;databaseURL | *string* |
-&nbsp;&nbsp;&nbsp;storageBucket | *string* |
-&nbsp;&nbsp;&nbsp;allowEmailLogin | *boolean* | false
-&nbsp;&nbsp;&nbsp;allowEmailRegistration | *boolean* | false
-devFirebase | *object* |
-&nbsp;&nbsp;&nbsp;deployDevRulesOnTesting | *boolean* | false
-&nbsp;&nbsp;&nbsp;apiKey | *string* |
-&nbsp;&nbsp;&nbsp;authDomain | *string* |
-&nbsp;&nbsp;&nbsp;databaseURL | *string* |
-&nbsp;&nbsp;&nbsp;storageBucket | *string* |
-&nbsp;&nbsp;&nbsp;allowEmailLogin | *boolean* | false
-&nbsp;&nbsp;&nbsp;allowEmailRegistration | *boolean* | false
-appStoreId | *string* |
-playStoreId | *string* |
-useCordovaPlugins | *array* | ["cordova-plugin-statusbar","cordova-plugin-whitelist"]
-resetLocalStorageOnVersionChange | *boolean* | false
-buildSourcemaps | *boolean* | false
-fixCodeOnTest | *boolean* | true
-fixCodeOnBuild | *boolean* | true
-devServerPort | /^[0-9]{4}$/ | 8080
-<!-- /config-options -->
 
 ## CLI commands
 
