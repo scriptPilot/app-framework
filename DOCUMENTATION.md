@@ -10,8 +10,8 @@
   - [ ] [Develop your application](#develop-your-application)
     - [ ] [App component](#app-component)
     - [ ] [Page components](#page-components)
-    - [ ] [Application style](#application-style)
-    - [ ] [Status bar style](#status-bar-style)
+    - [x] [Application style](#application-style)
+    - [x] [Status bar style](#status-bar-style)
     - [ ] [Global data object](#global-data-object)
     - [ ] [Firebase backend](#firebase-backend)
     - [ ] [Import modules](#import-modules)
@@ -48,6 +48,35 @@ created: function () {
 }
 ```
 
-If you want to change the theme in any Vue hook, you need to use `ios-material` or `material-ios` as value in the configuration. With `ios-material`, the default theme will be ios, but you are able to change the theme to `material`, with `material-ios` in the configuration vice versa. The build file will be smaller if you configure either `ios` or `material`.
+If you want to change the theme in any Vue hook, you need to use `ios-material` or `material-ios` as value in the configuration. With `ios-material`, the default theme will be ios, but you are able to change the theme to `material`, with `material-ios` in the configuration vice versa.
+
+You will reduce the build size if you configure either `ios` or `material`.
 
 Find more information about all theme color and layout options [here](http://framework7.io/docs/color-themes.html).
+
+### Status bar style
+
+You can configure the application status bar style in the *config.json* file:
+
+```
+statusbarVisibility: true,                               // true or false
+statusbarTextColor: 'white',                             // 'black' or 'white'
+statusbarBackgroundColor: '#3f51b5',                     // Hex color code
+changeStatusbarBackgroundColorOnThemeColorChange: true   // true or false
+```
+
+You can modify the application status bar style in any Vue hook `created` or later:
+
+```
+created: function () {
+  this.$root.statusbarVisibility = true
+  this.$root.statusbarTextColor = 'white'
+  this.$root.statusbarBackgroundColor = '#3f51b5'
+}
+```
+
+Limitations:
+
+- Changing the status bar visibility is limited to native applications
+- Changing the status bar text color is limited to iOS native applications
+- Changing the status bar background color is limited to native or homescreen applications
