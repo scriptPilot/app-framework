@@ -56,7 +56,7 @@ created: function () {
 }
 ```
 
-If you want to change the theme in any Vue hook, you need to use *ios-material* or *material-ios* as value in the configuration. With *ios-material*, the default theme will be *ios*, but you are able to change the theme to *material*, with *material-ios* in the configuration vice versa. The build file will be smaller if you configure either *ios* or *material*.
+If you want to change the theme in any Vue hook, you need to use `ios-material` or `material-ios` as value in the configuration. With `ios-material`, the default theme will be ios, but you are able to change the theme to `material`, with `material-ios` in the configuration vice versa. The build file will be smaller if you configure either `ios` or `material`.
 
 ### Status bar style
 
