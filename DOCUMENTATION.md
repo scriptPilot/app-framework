@@ -133,9 +133,9 @@ Do not modify `$root.data` directly, because there wont be any update triggered.
 
 ## CLI commands
 
-![Process](media/cli-commands.png)
-
 This is an overview and reference, please see the [Workflow](#workflow) for details.
+
+![Process](media/cli-commands.png)
 
 - Setup
   - `npm install` to install App Framework and setup the project folder
