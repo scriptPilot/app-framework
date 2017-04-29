@@ -60,7 +60,7 @@ If you want to change the theme in any Vue hook, you need to use *ios-material* 
 
 ### Status bar style
 
-You can configure the application status bar in the *config.json* file:
+You can configure the application status bar style in the *config.json* file:
 
 ```
 statusbarVisibility: true,            // true or false
@@ -68,7 +68,7 @@ statusbarTextColor: 'white',          // 'black' or 'white'
 statusbarBackgroundColor: '#3f51b5'   // Color hex code
 ```
 
-You can modify the application status bar in Vue hook `created` or later:
+You can modify the application status bar style in Vue hook `created` or later:
 
 ```
 created: function () {
