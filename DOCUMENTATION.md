@@ -105,8 +105,7 @@ created: function () {
   this.$root.removeData('names.second')
 }
 
-Result:
-
+/* Result */
 {
   greeting: 'Hallo',
   names: {
