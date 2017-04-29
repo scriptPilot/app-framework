@@ -162,5 +162,5 @@ This is an overview and reference, please see the [Workflow](#workflow) for deta
   - `npm run studio` to deploy static files as Android Studio project
 
 - Backup
-  - `npm run backup` to create a snapshot of the Firebase database and user list
+  - `npm run backup` to create snapshots of the Firebase database and user list
   - `npm run snapshot` to create a snapshot of your project folder
