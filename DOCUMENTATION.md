@@ -13,7 +13,7 @@
     - [Application style](#application-style)
     - [Status bar style](#status-bar-style)
     - [Global data object](#global-data-object)
-    - [ ] [Firebase backend](#firebase-backend)
+    - [Firebase backend](#firebase-backend)
     - [ ] [Import modules](#import-modules)
   - [ ] [Test your application](#test-your-application)
   - [ ] [Build your application](#build-your-application)
