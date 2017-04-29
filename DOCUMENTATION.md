@@ -186,3 +186,12 @@ The following project folder will be created by default:
 ├── .babelrc                    # Babel configuration file for ES2015 support
 ├── .gitignore                  # List of ignored files for Git commits
 └── package.json                # Project information
+
+## Configuration options
+
+Configure your application easily in the `config.json` file.
+
+This is an overview and reference, please see the [Workflow](#workflow) for details.
+
+<!-- config-options -->
+<!-- /config-options -->
