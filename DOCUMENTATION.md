@@ -20,15 +20,17 @@
   - [ ] [Deploy your application](#deploy-your-application)
   - [ ] [Backup your project](#backup-your-project)
 - [ ] **References**
-  - [ ] [CLI commands](#reference---cli-commands)
-  - [ ] [Project folder structure](#reference---project-folder-structure)
-  - [ ] [Configuration options](#reference---configuration-options)
+  - [ ] [CLI commands](#cli-commands)
+  - [ ] [Project folder structure](#project-folder-structure)
+  - [ ] [Configuration options](#configuration-options)
 
 > Read less, code more - [ ] please open a ticket for any open question in our [issue list](https://github.com/scriptPilot/app-framework/issues).
 
-## Development
+## Workflow
 
-### Application style
+### Develop your application
+
+#### Application style
 
 You can configure the application style in the *config.json* file:
 
@@ -54,7 +56,7 @@ You will reduce the build size if you configure either `ios` or `material`.
 
 Find more information about all theme color and layout options [here](http://framework7.io/docs/color-themes.html).
 
-### Status bar style
+#### Status bar style
 
 You can configure the application status bar style in the *config.json* file:
 
@@ -81,7 +83,7 @@ Limitations:
 - Changing the status bar text color is limited to iOS native applications
 - Changing the status bar background color is limited to native or homescreen applications
 
-### Global data object
+#### Global data object
 
 App Framework provides a global data object for common used data or setting.
 
@@ -126,3 +128,40 @@ Example for the usage in templates:
 ```
 
 Do not modify `$root.data` directly, because there wont be any update triggered.
+
+## References
+
+## CLI commands
+
+![Process](media/cli-commands.png)
+
+This is an overview and reference, please see the [Workflow](#workflow) for details.
+
+- Setup
+  - `npm install` to install App Framework and setup the project folder
+    - `npm run reset-app` to replace the app folder with minimum files
+  - `npm update` to update App Framework to the latest sub version
+
+- Testing
+  - `npm run dev` to start the development server in the web browser
+    - `CTRL + C` to stop the development server
+  - `npm run ios` to open Xcode with an iOS development build
+  - `npm run android` to open Android Studio with a development build
+
+- Building
+  - `npm run patch` to build after bug-fixes and improvements
+  - `npm run minor` to build after adding new functionality
+  - `npm run major` to build after backward-capability breaking changes
+
+- Deployment
+  - `npm run firebase` to deploy rules and static files to Firebase
+    - `npm run database` to deploy database rules to Firebase
+    - `npm run storage` to deploy storage rules to Firebase
+    - `npm run hosting` to deploy static files to Firebase
+  - `npm run ftp` to deploy static files to your FTP server
+  - `npm run xcode` to deploy static files as iOS Xcode project
+  - `npm run studio` to deploy static files as Android Studio project
+
+- Backup
+  - `npm run backup` to create a snapshot of the Firebase database and user list
+  - `npm run snapshot` to create a snapshot of your project folder
