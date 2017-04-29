@@ -155,7 +155,7 @@ You can use Firebase in any Vue hook `created` or later:
 - `this.$root.db(...)` - Shortlink to `window.firebase.database().ref(...)`
 - `this.$root.store(...)` - Shortlink to `window.firebase.storage().ref(...)`
 
-To test your Firebase rules in development, you have the chance to configure a second Firebase project:
+To test your Firebase rules in development, you have the chance to configure a devFirebase project:
 
 ```
 devFirebase: {
@@ -169,7 +169,7 @@ devFirebase: {
 }
 ```
 
-If you set `deployDevRulesOnTesting: true`, on each test command (`npm run dev`, `npm run ios` and `npm run android`), the *database-rules.json* and *storage-rules.txt* files are deployed to your second Firebase project.
+If you set `deployDevRulesOnTesting: true`, on each test command (`npm run dev`, `npm run ios` and `npm run android`), the *database-rules.json* and *storage-rules.txt* files are deployed to your devFirebase project.
 
 ## References
 
