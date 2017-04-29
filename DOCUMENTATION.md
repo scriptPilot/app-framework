@@ -137,7 +137,18 @@ Example for the usage in templates:
 
 App Framework is well-prepared to use [Firebase](https://firebase.google.com/) as a backend provider.
 
-###
+```
+"firebase": {
+  "apiKey": "AIzaSyAvzTiqd9fKR-h4asdsadsadasd7Uxl4iXwqSMU1VjGdII",
+  "authDomain": "app-framework-9045a.firebaseapp.com",
+  "databaseURL": "https://app-framework-9045a.firebaseio.com",
+  "storageBucket": "app-framework-9045a.appspot.com",
+  "allowEmailLogin": true,
+  "allowEmailRegistration": true
+}
+```
+
+To disable a service (or all services), put empty strings in the configuration file.
 
 ---
 
