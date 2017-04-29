@@ -46,7 +46,7 @@ You can configure the application style in the *config.json* file:
 
 ```
 theme: 'material',   // 'ios', 'material', 'ios-material' or 'material-ios'
-color: 'indigo',     // Any theme color name: http://framework7.io/docs/color-themes.html
+color: 'indigo',     // Any theme color name
 layout: 'default'    // 'default', 'white' or 'dark'
 ```
 
@@ -61,6 +61,8 @@ created: function () {
 ```
 
 If you want to change the theme in any Vue hook, you need to use `ios-material` or `material-ios` as value in the configuration. With `ios-material`, the default theme will be ios, but you are able to change the theme to `material`, with `material-ios` in the configuration vice versa. The build file will be smaller if you configure either `ios` or `material`.
+
+Find more information about all theme color and layout options [here](http://framework7.io/docs/color-themes.html).
 
 ### Status bar style
 
@@ -131,24 +133,31 @@ Example for the usage in templates:
 </f7-block>
 ```
 
-:warning: Do not modify `$root.data` directly, because there wont be any watcher notification then!
+Do not modify `$root.data` directly, because there wont be any update triggered.
 
 ## Firebase backend
 
 App Framework is well-prepared to use [Firebase](https://firebase.google.com/) as a backend provider.
 
+Configuration file:
+
 ```
-"firebase": {
-  "apiKey": "AIzaSyAvzTiqd9fKR-h4asdsadsadasd7Uxl4iXwqSMU1VjGdII",
-  "authDomain": "app-framework-9045a.firebaseapp.com",
-  "databaseURL": "https://app-framework-9045a.firebaseio.com",
-  "storageBucket": "app-framework-9045a.appspot.com",
-  "allowEmailLogin": true,
-  "allowEmailRegistration": true
+firebase: {
+  apiKey: "AIzaSyAvzTiqd9fKR-h4asdsadsadasd7Uxl4iXwqSMU1VjGdII",   // Leave blank to disable Firebase
+  authDomain: "app-framework-9045a.firebaseapp.com",               // Leave blank to disable auth service
+  databaseURL: "https://app-framework-9045a.firebaseio.com",       // Leave blank to disable database service
+  storageBucket: "app-framework-9045a.appspot.com",                // Leave blank to disable storage service
+  allowEmailLogin: true,                                           // true or false
+  allowEmailRegistration: true                                     // true or false
 }
 ```
 
-To disable a service (or all services), put empty strings in the configuration file.
+You can use Firebase in any Vue hook `created` or later:
+
+- `window.firebase` - Firebase application instance
+- `this.$root.user` -  Shortlink to `window.firebase.auth().currentUser`
+- `this.$root.db(...)` - Shortlink to `window.firebase.database().ref(...)`
+- `this.$root.store(...)` - Shortlink to `window.firebase.storage().ref(...)`
 
 ---
 
