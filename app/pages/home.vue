@@ -34,7 +34,7 @@
       <f7-list-item :title="text.showStatusbar" media="<i class='f7-icons'>delete</i>" v-if="$root.appMode==='native'">
         <div slot="after">
           <label class="label-switch">
-            <input type='checkbox' :checked="$root.statusbarVisibility==='visible'" @change="$root.statusbarVisibility=$event.target.checked===true?'visible':'hidden'">
+            <input type='checkbox' :checked="$root.statusbarVisibility" @change="$root.statusbarVisibility=$event.target.checked">
             <div class='checkbox'></div>
           </label>
         </div>

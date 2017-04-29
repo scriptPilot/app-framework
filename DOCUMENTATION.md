@@ -1,6 +1,68 @@
 # App Framework - Documentation
 
-> First contact with App Framework? Please read our [Readme file](README.md) first!
+> First contact with App Framework? Please read our [readme file](README.md) first!
+
+- [Required knowledge](#required-knowledge)
+- [Development environment](#development-environment)
+- Application project
+- [Development](#development)
+- Testing
+- Deployment
+
+Read less, code more - please open a ticket for any open question in our [issue list](https://github.com/scriptPilot/app-framework/issues).
+
+## Required knowledge
+
+Essentiell:
+
+- Computer with macOS, Windows or Linux
+- [Node.js and npm](https://docs.npmjs.com/getting-started/what-is-npm) for command line interface handling
+- [Framework7](https://framework7.io/docs/) and [Framework7-Vue](https://framework7.io/vue/) to develop with HTML and JavaScript
+
+Optional:
+
+- [Vue.js](https://vuejs.org/v2/guide/) to make your application state-based and reactive
+- [Firebase services](https://firebase.google.com/docs/web/setup) as free and reliable backend service provider
+- [Cordova/PhoneGap](https://cordova.apache.org/docs/en/latest/) to use device hardware API plugins
+- [iOS design guidelines](https://developer.apple.com/ios/human-interface-guidelines/overview/design-principles/) and [Material design guidelines](https://material.io/guidelines/)
+
+## Development environment
+
+### Text editor
+
+You can use your favorite text editor, but we highly recommend ...
+
+## Development
+
+### Status bar style
+
+You can configure the application status bar in the *config.json* file:
+
+```
+statusbarVisibility: true,            // true or false
+statusbarTextColor: 'white',          // 'black' or 'white'
+statusbarBackgroundColor: '#3f51b5'   // Color hex code
+```
+
+You can modify the application status bar in Vue hook `created` or later:
+
+```
+created: function () {
+  this.$root.statusbarVisibility: true,            // true or false
+  this.$root.statusbarTextColor: 'white',          // 'black' or 'white'
+  this.$root.statusbarBackgroundColor: '#3f51b5'   // Color hex code
+}
+```
+
+Limitations:
+
+- Changing the status bar visibility is limited to native applications
+- Changing the status bar text color is limited to iOS native applications
+- Changing the status bar background color is limited to native or homescreen applications
+
+---
+
+> OLD DOCUMENTATION BELOW
 
 **Table of contents**
 
@@ -24,21 +86,9 @@
   - [Deploy your application](#deploy-your-application)
   - [Backup your project](#backup-your-application)
 
-Read less, code more - please open a ticket for any open question in our [Issue List](https://github.com/scriptPilot/app-framework/issues).
+
 
 ## Requirements
-
-Essentiell:
-
-- [Node.js and npm](https://docs.npmjs.com/getting-started/what-is-npm) for command line interface handling
-- [Framework7](https://framework7.io/docs/) and [Framework7-Vue](https://framework7.io/vue/) to develop with HTML and JavaScript
-
-Optional:
-
-- [Vue.js](https://vuejs.org/v2/guide/) to make your application state-based and reactive
-- [Firebase services](https://firebase.google.com/docs/web/setup) as free and reliable backend service provider
-- [Cordova/PhoneGap](https://cordova.apache.org/docs/en/latest/) to use device hardware API plugins
-- [iOS design guidelines](https://developer.apple.com/ios/human-interface-guidelines/overview/design-principles/) and [Material design guidelines](https://material.io/guidelines/)
 
 ## Project folder structure
 
@@ -91,22 +141,22 @@ completeRoutesFile | *boolean* | true
 specialRoutes | *object* | {}
 pagesWithRequiredLogin | *array* | []
 firebase | *object* |
-&nbsp;&nbsp;&nbsp;apiKey | *string* | 
-&nbsp;&nbsp;&nbsp;authDomain | *string* | 
-&nbsp;&nbsp;&nbsp;databaseURL | *string* | 
-&nbsp;&nbsp;&nbsp;storageBucket | *string* | 
+&nbsp;&nbsp;&nbsp;apiKey | *string* |
+&nbsp;&nbsp;&nbsp;authDomain | *string* |
+&nbsp;&nbsp;&nbsp;databaseURL | *string* |
+&nbsp;&nbsp;&nbsp;storageBucket | *string* |
 &nbsp;&nbsp;&nbsp;allowEmailLogin | *boolean* | false
 &nbsp;&nbsp;&nbsp;allowEmailRegistration | *boolean* | false
 devFirebase | *object* |
 &nbsp;&nbsp;&nbsp;deployDevRulesOnTesting | *boolean* | false
-&nbsp;&nbsp;&nbsp;apiKey | *string* | 
-&nbsp;&nbsp;&nbsp;authDomain | *string* | 
-&nbsp;&nbsp;&nbsp;databaseURL | *string* | 
-&nbsp;&nbsp;&nbsp;storageBucket | *string* | 
+&nbsp;&nbsp;&nbsp;apiKey | *string* |
+&nbsp;&nbsp;&nbsp;authDomain | *string* |
+&nbsp;&nbsp;&nbsp;databaseURL | *string* |
+&nbsp;&nbsp;&nbsp;storageBucket | *string* |
 &nbsp;&nbsp;&nbsp;allowEmailLogin | *boolean* | false
 &nbsp;&nbsp;&nbsp;allowEmailRegistration | *boolean* | false
-appStoreId | *string* | 
-playStoreId | *string* | 
+appStoreId | *string* |
+playStoreId | *string* |
 useCordovaPlugins | *array* | ["cordova-plugin-statusbar","cordova-plugin-whitelist"]
 resetLocalStorageOnVersionChange | *boolean* | false
 buildSourcemaps | *boolean* | false
@@ -373,7 +423,7 @@ Run `npm update` to update App Framework to latest sub version. A snapshot of yo
 - Run `npm run android` to open an Android emulator with a development build
 
   Confirm Gradle sync and removal of older application installations if asked.
-  
+
   If you get an error *Failed to find 'JAVA_HOME' environment variable. Try setting setting it manually.* you have to install the Java SE SDK first.
 
 App Framework fix your code automatically on each test or build command. To disable this behavior, you can set the config parameter *fixCodeOnBuild* to false. If some findings could not be fixed automatically, they will be logged to *code-findings.log*.

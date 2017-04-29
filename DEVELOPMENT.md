@@ -98,4 +98,5 @@ A script file executes some code and use *lib/alert* to show either a success me
 Some points to check on bug-fixing:
 
 - All `require()` commands contain only strings, no variables
-- Only `process.env...` is used to decide which `require()`` to use
+- Only `process.env...` is used to decide which `require()` to use
+- Values from `window.localStorage` are parsed with `JSON.parse()`

@@ -57,22 +57,7 @@
         pickerOpened: false,
         actionsOpened: false
       }
-    }, /*
-    created: function () {
-      setInterval(() => {
-        this.$root.statusbarVisibility = !this.$root.statusbarVisibility
-      }, 4000)
-      setInterval(() => {
-        this.$root.statusbarTextColor = this.$root.statusbarTextColor === 'black' ? 'white' : 'black'
-      }, 2000)
-      setInterval(() => {
-        this.$root.statusbarBackgroundColor = this.$root.statusbarBackgroundColor === '#ededed' ? '#006699' : '#ededed'
-      }, 1000)
-    }, *//*
-    beforeMount: function () {
-      //this.$root.statusbarBackgroundColor = this.$root.theme === 'material' ? this.$root.colors[this.$root.theme][this.$root.color] : this.$root.config.statusbarBackgroundColor
-      //if (window.localStorage.color === undefined) this.$root.color = 'indigo'
-    }, */
+    },
     computed: {
       themeColor: function () {
         return this.$root.color
