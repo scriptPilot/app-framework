@@ -99,9 +99,11 @@ App Framework provides a global data object, which will be restored immediately 
 The *path* must be a string, use a a point to nest data. Example:
 
 ```
-this.$root.saveData('greeting', 'Hello!')
-this.$root.saveData('names', {first: 'Jan', second: 'Tom', third: 'Sophie'})
-this.$root.removeData('names.second')
+created: function () {
+  this.$root.saveData('greeting', 'Hello!')
+  this.$root.saveData('names', {first: 'Jan', second: 'Tom', third: 'Sophie'})
+  this.$root.removeData('names.second')
+}
 
 Result:
 
