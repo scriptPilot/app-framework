@@ -12,6 +12,9 @@
   - [Firebase backend](#firebase-backend)
 - Testing
 - Deployment
+- Overview - CLI commands
+- [Overview - Project folder structure](#overview---project-folder-structure)
+- Overview - Configuration options
 
 Read less, code more - please open a ticket for any open question in our [issue list](https://github.com/scriptPilot/app-framework/issues).
 
@@ -177,6 +180,29 @@ devFirebase: {
 
 If you set `deployDevRulesOnTesting: true`, on each test command (`npm run dev`, `npm run ios` and `npm run android`), the *database-rules.json* and *storage-rules.txt* files will be deployed to your second Firebase project.
 
+## Overview - Project folder
+
+The following project folder will be created by default.
+
+```
+├── app                         # App source folder
+│   ├── images                  # App images
+│   ├── pages                   # App page components
+│   ├── app.vue                 # App main component
+│   ├── config.js               # App configuration
+│   ├── database-rules.json     # Firebase database rules
+│   ├── icon.png                # App icon file (minimum size is 1024 pixel)
+│   ├── routes.json             # App routes configuration
+│   └── storage-rules.txt       # Firebase storage rules
+├── build                       # Latest build files (do not modify)
+├── design                      # Design templates (PDF, Power Point)
+├── node_modules                # Installed node modules (do not modify)
+├── snapshots                   # Project snapshots (for rollback)
+├── .babelrc                    # Babel configuration file for ES2015 support
+├── .gitignore                  # List of ignored files for Git commits
+└── package.json                # Project information
+```
+
 ---
 
 > OLD DOCUMENTATION BELOW
@@ -207,28 +233,7 @@ If you set `deployDevRulesOnTesting: true`, on each test command (`npm run dev`,
 
 ## Requirements
 
-## Project folder structure
 
-The following project folder will be created by default.
-
-```
-├── app                         # App source folder
-│   ├── images                  # App images
-│   ├── pages                   # App page components
-│   ├── app.vue                 # App main component
-│   ├── config.js               # App configuration
-│   ├── database-rules.json     # Firebase database rules
-│   ├── icon.png                # App icon file (minimum size is 1024 pixel)
-│   ├── routes.json             # App routes configuration
-│   └── storage-rules.txt       # Firebase storage rules
-├── build                       # Latest build files (do not modify)
-├── design                      # Design templates (PDF, Power Point)
-├── node_modules                # Installed node modules (do not modify)
-├── snapshots                   # Project snapshots (for rollback)
-├── .babelrc                    # Babel configuration file for ES2015 support
-├── .gitignore                  # List of ignored files for Git commits
-└── package.json                # Project information
-```
 
 ## Configuration options
 
