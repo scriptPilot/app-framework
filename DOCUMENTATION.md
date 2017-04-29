@@ -130,6 +130,8 @@ Example for the usage in templates:
 </f7-block>
 ```
 
+> Do not modify `$root.data` directly, because there wont be any watcher notification then!
+
 ---
 
 > OLD DOCUMENTATION BELOW
