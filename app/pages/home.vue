@@ -111,18 +111,6 @@
         images: images
       }
     },
-    created: function () {
-      setTimeout(() => {
-        this.$root.statusbarVisibility = true            // true or false
-        this.$root.statusbarTextColor = 'black'          // 'black' or 'white'
-        this.$root.statusbarBackgroundColor = '#f7f7f7'   // Hey color code
-        setTimeout(() => {
-          this.$root.theme = 'ios'
-          this.$root.color = 'red'
-          this.$root.layout = 'dark'
-        }, 5000)
-      }, 5000)
-    },
     computed: {
       text: function () {
         return text[this.$root.language] ? text[this.$root.language] : text[0]
