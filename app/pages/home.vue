@@ -39,7 +39,7 @@
           </label>
         </div>
       </f7-list-item>
-      <f7-list-item :title="text.changeStatusbarTextColor" @click="$root.statusbarTextColor=$root.statusbarTextColor==='white'?'black':'white'" v-if="$root.$f7.device.ios && $root.statusbarVisibility" link="#" media="<i class='f7-icons'>delete</i>" />
+      <f7-list-item :title="text.changeStatusbarTextColor" @click="$root.statusbarTextColor=$root.statusbarTextColor==='white'?'black':'white'" v-if="$root.$f7.device.ios && $root.appMode === 'native' && $root.statusbarVisibility" link="#" media="<i class='f7-icons'>delete</i>" />
     </f7-list>
 
     <!-- Demonstration -->
@@ -110,6 +110,18 @@
       return {
         images: images
       }
+    },
+    created: function () {
+      setTimeout(() => {
+        this.$root.statusbarVisibility = true            // true or false
+        this.$root.statusbarTextColor = 'black'          // 'black' or 'white'
+        this.$root.statusbarBackgroundColor = '#f7f7f7'   // Hey color code
+        setTimeout(() => {
+          this.$root.theme = 'ios'
+          this.$root.color = 'red'
+          this.$root.layout = 'dark'
+        }, 5000)
+      }, 5000)
     },
     computed: {
       text: function () {

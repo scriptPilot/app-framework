@@ -9,7 +9,7 @@
   },
   "theme": {
     "allow": ["ios", "material", "ios-material", "material-ios"],
-    "default": "material-ios"
+    "default": "material"
   },
   "color": {
     "regexp": "/^[a-z]+$/",
@@ -30,6 +30,10 @@
   "statusbarBackgroundColor": {
     "regexp": "/^#[0-9a-f]{6}$/i",
     "default": "#000000"
+  },
+  "changeStatusbarBackgroundColorOnThemeColorChange": {
+    "type": "boolean",
+    "default": true
   },
   "iconBackgroundColor": {
     "regexp": "/^#[0-9a-f]{6}$/i",
