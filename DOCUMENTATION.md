@@ -144,8 +144,8 @@ This is an overview and reference, please see the [Workflow](#workflow) for deta
 - Testing
   - `npm run dev` to start the development server in the web browser
     - `CTRL + C` to stop the development server
-  - `npm run ios` to open Xcode with an iOS development build
-  - `npm run android` to open Android Studio with a development build
+  - `npm run ios` to open the iOS simulator with a development build
+  - `npm run android` to open the Android emulator with a development build
 
 - Building
   - `npm run patch` to build after bug-fixes and improvements
