@@ -265,9 +265,10 @@ Disabling a service will reduce the build size.
 You can use Firebase in any Vue hook `created` or later:
 
 - `window.firebase` - Firebase application instance
-- `this.$root.user` -  Shortlink to `window.firebase.auth().currentUser`
-- `this.$root.db(...)` - Shortlink to `window.firebase.database().ref(...)`
-- `this.$root.store(...)` - Shortlink to `window.firebase.storage().ref(...)`
+- `this.$root.user` or `window.user` -  Shortlink to `window.firebase.auth().currentUser`
+- `this.$root.db(...)` or `window.db(...)` - Shortlink to `window.firebase.database().ref(...)`
+- `this.$root.store(...)` or `window.store(...)` - Shortlink to `window.firebase.storage().ref(...)`
+- `this.$root.timestamp` or `window.timestamp` - Shortlink to `window.database.ServerValue.TIMESTAMP`
 
 To test your Firebase rules in development, you have the chance to configure a devFirebase project:
 
