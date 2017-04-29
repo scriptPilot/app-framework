@@ -139,7 +139,6 @@ This is an overview and reference, please see the [Workflow](#workflow) for deta
 
 - Setup
   - `npm install` to install App Framework and setup the project folder
-    - `npm run reset-app` to replace the app folder with minimum files
   - `npm update` to update App Framework to the latest sub version
 
 - Testing
