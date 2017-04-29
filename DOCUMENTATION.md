@@ -85,7 +85,7 @@ Limitations:
 
 App Framework provides a global data object for common used data or setting.
 
-The data object will be restored immediately on each application reload and is accessible in any Vue hook `created` or later.
+The data object will be restored on each application reload and is accessible in any Vue hook `created` or later.
 
 - To save data, use `this.$root.saveData(path, value)`
 - To remove data, use `this.$root.removeData(path)`
