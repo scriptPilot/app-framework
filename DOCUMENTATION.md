@@ -20,6 +20,7 @@
     - [Firebase backend](#firebase-backend)
     - [ ] [Cordova plugins](#cordova-plugins)
     - [ ] [Import modules](#import-modules)
+    - [ ] [Use images](#use-images)
     - [ ] [State restoration](#state-restoration)
   - [ ] [Test your application](#test-your-application)
   - [ ] [Build your application](#build-your-application)
