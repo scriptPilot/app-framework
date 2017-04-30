@@ -76,6 +76,9 @@
   },
   "firebase": {
     "props": {
+      "projectId": {
+        "type": "string"
+      },
       "authDomain": {
         "type": "string"
       },
@@ -100,6 +103,9 @@
       "deployDevRulesOnTesting": {
         "type": "boolean",
         "default": false
+      },
+      "projectId": {
+        "type": "string"
       },
       "authDomain": {
         "type": "string"

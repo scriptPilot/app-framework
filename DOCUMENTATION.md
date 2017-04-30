@@ -293,6 +293,7 @@ Configuration file:
 
 ```
 firebase: {
+  projectId: "app-framework-9045a",                            // Required for Firebase hosting
   authDomain: "app-framework-9045a.firebaseapp.com",           // Leave blank to disable auth service
   databaseURL: "https://app-framework-9045a.firebaseio.com",   // Leave blank to disable database service
   storageBucket: "app-framework-9045a.appspot.com",            // Leave blank to disable storage service
@@ -316,6 +317,7 @@ To test your Firebase rules in development, you have the chance to configure a d
 ```
 devFirebase: {
   deployDevRulesOnTesting: false,
+  projectId: "dev-app-framework",
   authDomain: "dev-app-framework.firebaseapp.com",
   databaseURL: "https://dev-app-framework.firebaseio.com",
   storageBucket: "dev-app-framework.appspot.com",
