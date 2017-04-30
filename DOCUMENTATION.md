@@ -327,3 +327,13 @@ devFirebase: {
 ```
 
 If you set `deployDevRulesOnTesting: true`, on each test command (`npm run dev`, `npm run ios` and `npm run android`), the *database-rules.json* and *storage-rules.txt* files are deployed to your devFirebase project.
+
+### Build your application
+
+To deploy your application you need to build it. *App Framework* makes it quite easy again for you, bumps the version, compiles the scripts and merges them together. Your logo is used to create many icons and launch screen graphics and at the end all files are compressed to save bandwidth.
+
+Each build command will update the *build* folder on success.
+
+- Run `npm run patch` after bug-fixes and improvements (x.y.z+1)
+- Run `npm run minor` after adding new functionality (x.y+1.0)
+- Run `npm run major` after breaking backward-capability (x+1.0.0)
