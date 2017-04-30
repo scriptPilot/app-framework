@@ -76,9 +76,6 @@
   },
   "firebase": {
     "props": {
-      "apiKey": {
-        "type": "string"
-      },
       "authDomain": {
         "type": "string"
       },
@@ -103,9 +100,6 @@
       "deployDevRulesOnTesting": {
         "type": "boolean",
         "default": false
-      },
-      "apiKey": {
-        "type": "string"
       },
       "authDomain": {
         "type": "string"

@@ -166,10 +166,9 @@ let copyFirebaseFiles = function (callback) {
       alert('Failed to copy "database-rules.json" file.', 'issue')
     } else {
       try {
-        let firebaseConfig = mode === 'dev' ? env.cfg.devFirebase : env.cfg.firebase
-        // Correct storage bucket in database rules
+        // Correct storage bucket in database rules (with prod info only)
         let rules = fs.readFileSync(abs(env.app, 'storage-rules.txt'), 'utf8')
-        rules = rules.replace(/match \/b\/(.+?)\/o {/, 'match /b/' + (firebaseConfig.storageBucket !== '' ? firebaseConfig.storageBucket : '<your-storage-bucket>') + '/o {')
+        rules = rules.replace(/match \/b\/(.+?)\/o {/, 'match /b/' + (env.cfg.firebase.storageBucket !== '' ? env.cfg.firebase.storageBucket : '<your-storage-bucket>') + '/o {')
         fs.writeFileSync(abs(env.app, 'storage-rules.txt'), rules)
         // Copy file
         fs.copySync(abs(env.app, 'storage-rules.txt'), abs(env.cache, 'build/storage-rules.txt'))
