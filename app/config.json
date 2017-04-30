@@ -22,6 +22,7 @@
     "firebase-private"
   ],
   "firebase": {
+    "projectId": "",
     "authDomain": "app-framework-9045a.firebaseapp.com",
     "databaseURL": "https://app-framework-9045a.firebaseio.com",
     "storageBucket": "app-framework-9045a.appspot.com",
@@ -30,6 +31,7 @@
   },
   "devFirebase": {
     "deployDevRulesOnTesting": false,
+    "projectId": "",
     "authDomain": "dev-app-framework.firebaseapp.com",
     "databaseURL": "https://dev-app-framework.firebaseio.com",
     "storageBucket": "dev-app-framework.appspot.com",
