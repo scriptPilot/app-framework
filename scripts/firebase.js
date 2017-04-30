@@ -115,7 +115,7 @@ let updateConfigFiles = (callback) => {
     // Create/update .firebaserc file
     let rc = {
       projects: {
-        'default': cfg.authDomain.substr(0, cfg.authDomain.indexOf('.firebaseapp.com'))
+        'default': projectID
       }
     }
     fs.writeJsonSync(abs(binFolder, '.firebaserc'), rc)
