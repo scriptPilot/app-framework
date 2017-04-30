@@ -76,7 +76,7 @@
   },
   "firebase": {
     "props": {
-      "projectId": {
+      "apiKey": {
         "type": "string"
       },
       "authDomain": {
@@ -86,6 +86,9 @@
         "type": "string"
       },
       "storageBucket": {
+        "type": "string"
+      },
+      "projectId": {
         "type": "string"
       },
       "allowEmailLogin": {
@@ -104,7 +107,7 @@
         "type": "boolean",
         "default": false
       },
-      "projectId": {
+      "apiKey": {
         "type": "string"
       },
       "authDomain": {
@@ -114,6 +117,9 @@
         "type": "string"
       },
       "storageBucket": {
+        "type": "string"
+      },
+      "projectId": {
         "type": "string"
       },
       "allowEmailLogin": {
