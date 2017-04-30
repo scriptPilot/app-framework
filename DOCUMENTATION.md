@@ -293,11 +293,11 @@ Configuration file:
 
 ```
 firebase: {
-  authDomain: "app-framework-9045a.firebaseapp.com",               // Leave blank to disable auth service
-  databaseURL: "https://app-framework-9045a.firebaseio.com",       // Leave blank to disable database service
-  storageBucket: "app-framework-9045a.appspot.com",                // Leave blank to disable storage service
-  allowEmailLogin: true,                                           // true or false
-  allowEmailRegistration: true                                     // true or false
+  authDomain: "app-framework-9045a.firebaseapp.com",           // Leave blank to disable auth service
+  databaseURL: "https://app-framework-9045a.firebaseio.com",   // Leave blank to disable database service
+  storageBucket: "app-framework-9045a.appspot.com",            // Leave blank to disable storage service
+  allowEmailLogin: true,                                       // true or false
+  allowEmailRegistration: true                                 // true or false
 }
 ```
 
