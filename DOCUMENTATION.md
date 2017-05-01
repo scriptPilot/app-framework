@@ -197,7 +197,7 @@ You have to update *App Framework* per application project by running `npm updat
 
 You have to take care for the following rules when you name your *pages/ ... .vue* files:
 
-- Lowercase, hyphen-type: `your-new-page.vue` (allowed: [0-9a-z-])
+- Lowercase and hyphen-type: `your-new-page.vue` (allowed: [0-9a-z-])
 - An underscore indicates tab routes: `your-new-page_tab1.vue`
 - Two underscores indicates alternate tab routes: `your-new-page_tab1_alternate.vue`
 
