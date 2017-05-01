@@ -148,7 +148,7 @@ let checkRoutes = function (routes, callback) {
                   }
                   // Check other route props
                   for (let prop in aTab) {
-                    if (prop !== 'path' && prop !== 'component') {
+                    if (prop !== 'path' && prop !== 'component' && prop !== 'login') {
                       errors.push(aTabIdent + ' - property "' + prop + '" not allowed')
                     }
                   }
@@ -157,7 +157,7 @@ let checkRoutes = function (routes, callback) {
             }
             // Check other route props
             for (let prop in tab) {
-              if (prop !== 'path' && prop !== 'tabId' && prop !== 'component' && prop !== 'routes') {
+              if (prop !== 'path' && prop !== 'tabId' && prop !== 'component' && prop !== 'routes' && prop !== 'login') {
                 errors.push(tabIdent + ' - property "' + prop + '" not allowed')
               }
             }
@@ -166,7 +166,7 @@ let checkRoutes = function (routes, callback) {
       }
       // Check other route props
       for (let prop in routes[r]) {
-        if (prop !== 'path' && prop !== 'component' && prop !== 'tabs') {
+        if (prop !== 'path' && prop !== 'component' && prop !== 'tabs' && prop !== 'login') {
           errors.push((r + 1) + '. object - property "' + prop + '" not allowed')
         }
       }

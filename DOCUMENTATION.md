@@ -201,6 +201,8 @@ You have to take care for the following rules when you name your *pages/ ... .vu
 - An underscore indicates tab routes: `your-new-page_tab1.vue`
 - Two underscores indicates alternate tab routes: `your-new-page_tab1_alternate.vue`
 
+Pages in sub folders *pages/sub-folder/... .vue* are supported. Sub folders do not have any impact to the route structure but let your organize your page components better.
+
 As an example, if you have the following page components:
 
 - *pages/tabs.vue*
@@ -250,7 +252,35 @@ For dynamic routes, you have to add them manually to the *routes.json* file. Exa
 }
 ```
 
-Pages in sub folders *pages/sub-folder/... .vue* are supported. Sub folders do not have any impact to the route structure but let your organize your page components better.
+To protect routes and require user authentication before, just add `login: true` as a property. Example:
+
+```
+{
+  "path": "/tabs/",
+  "component": "tabs.vue",
+  "login": true,
+  "tabs": [
+    {
+      "path": "/tab1/",
+      "tabId": "tab1",
+      "component": "tabs_tab1.vue"
+    },
+    {
+      "path": "/tab2/",
+      "tabId": "tab2",
+      "component": "tabs_tab2.vue",
+      "login": true
+    },
+    {
+      "path": "/tab3/",
+      "tabId": "tab3",
+      "component": "tabs_tab3.vue"
+    }
+  ]
+}
+```
+
+In the example above, */tabs/* and */tabs/tab2/* require login, */tabs/tab1/* and */tabs/tab3/* not.
 
 #### Application style
 

@@ -3,9 +3,12 @@
 <template>
   <f7-page>
     <f7-navbar title="Flexible Routing" back-link="Back" sliding></f7-navbar>
-    <f7-block inner inset>
-      <p style="text-align: center">Use multiple ways to fit the routing perfectly to your application needs.</p>
-      <p style="text-align: center">By default, routes for all pages will be created automatically!</p>
+    <f7-block>
+      Use multiple ways to fit the routing perfectly to your application needs.<br />
+      <br />
+      By default, routes for all nested components are created automatically.<br />
+      <br />
+      In addition, you can easily require dynamic and login-protected routes.
     </f7-block>
     <f7-block inner>
       <ul>
@@ -25,9 +28,5 @@
         <li><b>Hash:</b> {{$route.hash}}</li>
       </ul>
     </f7-block>
-    <f7-block inner>
-      <f7-link @click="$router.back()">Go back via Router API</f7-link>
-    </f7-block>
-
   </f7-page>
 </template>

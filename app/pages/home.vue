@@ -50,9 +50,8 @@
       <f7-list-item link="/state-restoration/" title="App State Restoration" media="<i class='f7-icons'>refresh</i>" />
       <!--
       <f7-list-item link="/" title="Realtime Database" :media="'<img src=\'' + images.firebase + '\' width=\'29\' />'" />
-      <f7-list-item link="/" title="Responsive Charts" media="<i class='f7-icons'>graph_round_fill</i>" />
-      <f7-list-item link="/" title="Flexible Routing" media="<i class='f7-icons'>forward</i>" />
-      -->
+      <f7-list-item link="/" title="Responsive Charts" media="<i class='f7-icons'>graph_round_fill</i>" />-->
+      <f7-list-item link="/flexible-routing/blog/123/post/456/?display=summary#gotoend" :title="text.flexibleRouting" media="<i class='f7-icons'>forward</i>" />
     </f7-list>
 
     <!-- Link to GitHub repository -->
@@ -79,7 +78,8 @@
       changeStatusbarTextColor: 'Change text color',
       configuration: 'Configuration',
       demonstration: 'Demonstration',
-      uiComponents: 'UI Components'
+      uiComponents: 'UI Components',
+      flexibleRouting: 'Flexible Routing'
     },
     de: {
       selectLanguage: 'Sprache auswählen',
@@ -91,7 +91,8 @@
       changeStatusbarTextColor: 'Textfarbe ändern',
       configuration: 'Konfiguration',
       demonstration: 'Demonstration (englisch)',
-      uiComponents: 'UI-Komponenten'
+      uiComponents: 'UI-Komponenten',
+      flexibleRouting: 'Flexibles Routing'
     }
   }
 
