@@ -34,11 +34,21 @@ let loadRoutes = function (callback) {
 }
 let checkRoutes = function (routes, callback) {
   alert('Route check ongoing - please wait ...')
+  // Start error array
   let errors = []
+  let allRoutes = []
+  // Check routes file content
   if (!Array.isArray(routes)) {
     alert('JSON file routes.json must contain an array.', 'error')
   } else {
+    // Loop routes
     for (let r = 0; r < routes.length; r++) {
+      // Add to all routes
+      allRoutes.push({
+        path: routes[r].path,
+        ident: (r + 1) + '. object'
+      })
+      // Check route path
       if (routes[r].path === undefined) {
         errors.push((r + 1) + '. object - "path" property missing')
       } else if (/^(\/|(\/(.+)\/))$/.test(routes[r].path) === false) {
@@ -50,6 +60,7 @@ let checkRoutes = function (routes, callback) {
           }
         }
       }
+      // Check route component
       if (routes[r].component === undefined) {
         errors.push((r + 1) + '. object - "component" property missing')
       } else if (/\.vue$/.test(routes[r].component) === false) {
@@ -57,10 +68,115 @@ let checkRoutes = function (routes, callback) {
       } else if (!found(env.app, 'pages', routes[r].component)) {
         errors.push((r + 1) + '. object - page component file "' + routes[r].component + '" not found')
       }
+      // Check tabs
+      if (routes[r].tabs !== undefined) {
+        if (!Array.isArray(routes[r].tabs)) {
+          errors.push((r + 1) + '. object - "tab" property must be an array')
+        } else {
+          for (let t = 0; t < routes[r].tabs.length; t++) {
+            // Define shortlinks
+            let tab = routes[r].tabs[t]
+            let tabIdent = (r + 1) + '. object / ' + (t + 1) + '. tab'
+            // Add to all routes
+            allRoutes.push({
+              path: (routes[r].path + tab.path).replace(/\/\//g, '/'),
+              ident: tabIdent
+            })
+            // Check path
+            if (tab.path === undefined) {
+              errors.push(tabIdent + ' - "path" property missing')
+            } else if (/^(\/|(\/(.+)\/))$/.test(tab.path) === false) {
+              errors.push(tabIdent + ' - path property must start and end with a slash')
+            } else {
+              for (let t2 = 0; t2 < routes[r].tabs.length; t2++) {
+                if (routes[r].tabs[t2].path === routes[r].tabs[t].path && t2 !== t) {
+                  errors.push(tabIdent + ' - path must be unique (found in ' + (t2 + 1) + '. tab)')
+                }
+              }
+            }
+            // Check tabId
+            if (tab.tabId === undefined) {
+              errors.push(tabIdent + ' - "tabId" property missing')
+            } else {
+              for (let t2 = 0; t2 < routes[r].tabs.length; t2++) {
+                if (routes[r].tabs[t2].tabId === routes[r].tabs[t].tabId && t2 !== t) {
+                  errors.push(tabIdent + ' - tabId must be unique (found in ' + (t2 + 1) + '. tab)')
+                }
+              }
+            }
+            // Check component
+            if (tab.component === undefined) {
+              errors.push(tabIdent + ' - "component" property missing')
+            } else if (/\.vue$/.test(tab.component) === false) {
+              errors.push(tabIdent + ' - component property must end with ".vue"')
+            } else if (!found(env.app, 'pages', tab.component)) {
+              errors.push(tabIdent + ' - page component file "' + tab.component + '" not found')
+            }
+            // Check alternate tabs
+            if (tab.routes !== undefined) {
+              if (!Array.isArray(routes[r].tabs)) {
+                errors.push(tabIdent + '"routes" property must be an array')
+              } else {
+                for (let a = 0; a < tab.routes.length; a++) {
+                  // Define shortlinks
+                  let aTab = tab.routes[a]
+                  let aTabIdent = (r + 1) + '. object / ' + (t + 1) + '. tab / ' + (a + 1) + '. route'
+                  // Add to all routes
+                  allRoutes.push({
+                    path: (routes[r].path + tab.path + aTab.path).replace(/\/\//g, '/'),
+                    ident: aTabIdent
+                  })
+                  // Check path
+                  if (aTab.path === undefined) {
+                    errors.push(aTabIdent + ' - "path" property missing')
+                  } else if (/^(\/|(\/(.+)\/))$/.test(aTab.path) === false) {
+                    errors.push(aTabIdent + ' - path property must start and end with a slash')
+                  } else {
+                    for (let a2 = 0; a2 < tab.routes.length; a2++) {
+                      if (tab.routes[a2].path === tab.routes[a].path && a2 !== a) {
+                        errors.push(aTabIdent + ' - path must be unique (found in ' + (a2 + 1) + '. route)')
+                      }
+                    }
+                  }
+                  // Check component
+                  if (aTab.component === undefined) {
+                    errors.push(aTabIdent + ' - "component" property missing')
+                  } else if (/\.vue$/.test(aTab.component) === false) {
+                    errors.push(aTabIdent + ' - component property must end with ".vue"')
+                  } else if (!found(env.app, 'pages', aTab.component)) {
+                    errors.push(aTabIdent + ' - page component file "' + aTab.component + '" not found')
+                  }
+                  // Check other route props
+                  for (let prop in aTab) {
+                    if (prop !== 'path' && prop !== 'component') {
+                      errors.push(aTabIdent + ' - property "' + prop + '" not allowed')
+                    }
+                  }
+                }
+              }
+            }
+            // Check other route props
+            for (let prop in tab) {
+              if (prop !== 'path' && prop !== 'tabId' && prop !== 'component' && prop !== 'routes') {
+                errors.push(tabIdent + ' - property "' + prop + '" not allowed')
+              }
+            }
+          }
+        }
+      }
+      // Check other route props
       for (let prop in routes[r]) {
         if (prop !== 'path' && prop !== 'component' && prop !== 'tabs') {
           errors.push((r + 1) + '. object - property "' + prop + '" not allowed')
         }
+      }
+    }
+  }
+  // Check all routes paths for dublications
+  for (let r = 0; r < allRoutes.length; r++) {
+    for (let r2 = 0; r2 < allRoutes.length; r2++) {
+      if (allRoutes[r].path === allRoutes[r2].path && r !== r2) {
+        errors.push('Same route: "' + allRoutes[r].path + '" (' + allRoutes[r].ident + ' and ' + allRoutes[r2].ident + ')')
       }
     }
   }

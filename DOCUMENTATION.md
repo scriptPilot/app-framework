@@ -193,7 +193,7 @@ You have to update *App Framework* per application project by running `npm updat
 
 **App Framework** does support all possibilities for nested routing, described [here](http://framework7.io/vue/navigation-router.html). You have just to put the file name as component property, the page component will be imported automatically later on.
 
-*App Framework* completes the *app/routes.json* file automatically on any test or build command. To disable this behavior, set `completeRoutesFile: false` in the configuration file.
+*App Framework* completes and checks the *app/routes.json* file automatically on any test or build command. To disable the completion, set `completeRoutesFile: false` in the configuration file.
 
 You have to take care for the following rules when you name your *app/pages/ ... .vue* files:
 
@@ -252,7 +252,7 @@ For dynamic routes, you have to add them manually to the *app/routes.json* file.
 }
 ```
 
-Pages in sub folders *app/pages/sub-folder/... .vue* are supported.
+Pages in sub folders *app/pages/sub-folder/... .vue* are supported. Sub folders do not have any impact to the route structure but let your organize your page components better.
 
 #### Application style
 
