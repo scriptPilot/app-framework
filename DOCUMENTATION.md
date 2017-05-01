@@ -295,10 +295,11 @@ Configuration file:
 
 ```
 firebase: {
-  projectId: "app-framework-9045a",                            // Required for Firebase hosting
+  apiKey: "AIzaSyAvzTiqd9fKR-h47Uxl4iXwqSMU1VjGdII",           // Required for Firebase initialization
   authDomain: "app-framework-9045a.firebaseapp.com",           // Leave blank to disable auth service
   databaseURL: "https://app-framework-9045a.firebaseio.com",   // Leave blank to disable database service
   storageBucket: "app-framework-9045a.appspot.com",            // Leave blank to disable storage service
+  projectId: "app-framework-9045a",                            // Required for Firebase hosting
   allowEmailLogin: true,                                       // true or false
   allowEmailRegistration: true                                 // true or false
 }
@@ -319,10 +320,11 @@ To test your Firebase rules in development, you have the chance to configure a d
 ```
 devFirebase: {
   deployDevRulesOnTesting: false,
-  projectId: "dev-app-framework",
+  apiKey: "AIzaSyBL0Xxsc-jFZ2BnmQV08T4O9B56HJVpwXk",          
   authDomain: "dev-app-framework.firebaseapp.com",
   databaseURL: "https://dev-app-framework.firebaseio.com",
   storageBucket: "dev-app-framework.appspot.com",
+  projectId: "dev-app-framework",
   allowEmailLogin: true,
   allowEmailRegistration: true
 }
