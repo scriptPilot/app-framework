@@ -43,7 +43,7 @@ if (env.arg.ios === true || env.arg.xcode === true) {
 // Check store id
 if ((env.arg.ios === true || env.arg.xcode === true) && env.cfg.appStoreId === '') {
   alert('You must configure the appStoreId before.', 'error')
-} else if (env.cfg.playStoreId === '') {
+} else if ((env.arg.android === true || env.arg.studio === true) && env.cfg.playStoreId === '') {
   alert('You must configure the playStoreId before.', 'error')
 }
 
