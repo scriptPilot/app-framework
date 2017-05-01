@@ -12,6 +12,7 @@
   - [Setup your project](#setup-your-project)
   - [ ] [Design your application](#design-your-application)
   - [ ] [Develop your application](#develop-your-application)
+    - [ ] [Routing](#routing)
     - [ ] [App component](#app-component)
     - [ ] [Page components](#page-components)
     - [Application style](#application-style)
@@ -187,6 +188,71 @@ If there is a newer version of *App Framework* available at [NPMjs.com](https://
 You have to update *App Framework* per application project by running `npm update`.
 
 ### Develop your application
+
+#### Routing
+
+**App Framework** does support all possibilities for nested routing, described [here](http://framework7.io/vue/navigation-router.html). You have just to put the file name as component property, the page component will be imported automatically later on.
+
+*App Framework* completes the *app/routes.json* file automatically on any test or build command. To disable this behavior, set `completeRoutesFile: false` in the configuration file.
+
+You have to take care for the following rules when you name your *app/pages/ ... .vue* files:
+
+- Lowercase, hyphen-type: `your-new-page.vue` (allowed: [0-9a-z-])
+- An underscore indicates tab routes: `your-new-page_tab1.vue`
+- Two underscores indicates alternate tab routes: `your-new-page_tab1_alternate.vue`
+
+Furthermore,
+
+As an example, if you have the following files:
+
+- *pages/tabs.vue*
+- *pages/tabs_tab1.vue*
+- *pages/tabs_tab2.vue*
+- *pages/tabs_tab2_alternate.vue*
+- *pages/tabs_tab3.vue*
+
+*App Framework* generates the following routes:
+
+```
+{
+  "path": "/tabs/",
+  "component": "tabs.vue",
+  "tabs": [
+    {
+      "path": "/tab1/",
+      "tabId": "tab1",
+      "component": "tabs_tab1.vue"
+    },
+    {
+      "path": "/tab2/",
+      "tabId": "tab2",
+      "component": "tabs_tab2.vue",
+      "routes": [
+        {
+          "path": "/alternate/",
+          "component": "tabs_tab2_alternate.vue"
+        }
+      ]
+    },
+    {
+      "path": "/tab3/",
+      "tabId": "tab3",
+      "component": "tabs_tab3.vue"
+    }
+  ]
+}
+```
+
+For dynamic routes, you have to add them manually to the *app/routes.json* file. Example:
+
+```
+{
+  "path": "/flexible-routing/blog/:blogId/post/:postId/",
+  "component": "flexible-routing.vue"
+}
+```
+
+Pages in sub folders *app/pages/sub-folder/... .vue* are supported.
 
 #### Application style
 

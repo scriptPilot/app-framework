@@ -73,24 +73,33 @@ let checkRoutes = function (routes, callback) {
 let addMissingTabs = function (routes, callback) {
   if (env.cfg.completeRoutesFile === true) {
     alert('Adding missing tab routes - please wait ...')
+    // List page files
     let tabsFolder = path.resolve(env.app, 'pages')
     rec(tabsFolder, function (err, tabs) {
       if (err) {
         alert('Failed to read tabs folder.', 'issue')
       } else {
+        // Loop page files to add standard tabs
         for (let t = 0; t < tabs.length; t++) {
+          // Check for one underscore
           let tabFile = tabs[t].substr(tabsFolder.length + 1)
           let tabSearch = tabFile.match(/^([0-9a-z/-]+)_([0-9a-z/-]+)\.vue$/)
+          // Underscore found
           if (tabSearch !== null) {
             let tabPath = '/' + tabSearch[2] + '/'
             let pagePath = '/' + tabSearch[1] + '/'
+            // Search page index
             let pageNo = us.findIndex(routes, {path: pagePath})
+            // Page not found in routes
             if (pageNo === -1) {
-              alert(tabSearch[0] + ' indicates a tab component.\nPage component "' + tabSearch[1] + '.vue" is missing.')
+              alert(tabSearch[0] + ' indicates a tab component.\nPage component "' + tabSearch[1] + '.vue" is missing.', 'error')
+            // Page found in routes
             } else {
+              // Add tabs array to page route if not exist
               if (routes[pageNo].tabs === undefined) {
                 routes[pageNo].tabs = []
               }
+              // Add missing tab route
               if (us.findIndex(routes[pageNo].tabs, {component: tabSearch[0]}) === -1) {
                 routes[pageNo].tabs.push({
                   path: tabPath,
@@ -98,7 +107,53 @@ let addMissingTabs = function (routes, callback) {
                   component: tabSearch[0]
                 })
               }
+              // Sort tab routes by path
               routes[pageNo].tabs = us.sortBy(routes[pageNo].tabs, 'path')
+            }
+          }
+        }
+        // Loop page files to add alternate tabs
+        for (let t = 0; t < tabs.length; t++) {
+          // Check for two underscores
+          let tabFile = tabs[t].substr(tabsFolder.length + 1)
+          let tabSearch = tabFile.match(/^([0-9a-z/-]+)_([0-9a-z/-]+)_([0-9a-z/-]+)\.vue$/)
+          // Two underscores found
+          if (tabSearch !== null) {
+            let alternateTabPath = '/' + tabSearch[3] + '/'
+            let tabPath = '/' + tabSearch[2] + '/'
+            let pagePath = '/' + tabSearch[1] + '/'
+            // Search page index
+            let pageNo = us.findIndex(routes, {path: pagePath})
+            // Page not found in routes
+            if (pageNo === -1) {
+              alert(tabSearch[0] + ' indicates a tab component.\nPage component "' + tabSearch[1] + '.vue" is missing.', 'error')
+            // Page found in routes
+            } else {
+              // Search tab index
+              let tabNo = us.findIndex(routes[pageNo].tabs, {path: tabPath})
+              // Tab not found in page route
+              if (tabNo === -1) {
+                alert(tabSearch[0] + ' indicates an alternate tab component.\nTab page component "' + tabSearch[1] + '_' + tabSearch[2] + '.vue" is missing.', 'error')
+              // Tab found in routes
+              } else {
+                // Add tabs array to page route if not exist
+                if (routes[pageNo].tabs[tabNo] === undefined) {
+                  routes[pageNo].tabs[tabNo] = []
+                }
+                // Add sub routes to tab route if not exist
+                if (routes[pageNo].tabs[tabNo].routes === undefined) {
+                  routes[pageNo].tabs[tabNo].routes = []
+                }
+                // Add missing tab route
+                if (us.findIndex(routes[pageNo].tabs[tabNo].routes, {component: tabSearch[0]}) === -1) {
+                  routes[pageNo].tabs[tabNo].routes.push({
+                    path: alternateTabPath,
+                    component: tabSearch[0]
+                  })
+                }
+                // Sort alternate tab routes by path
+                routes[pageNo].tabs[tabNo].routes = us.sortBy(routes[pageNo].tabs[tabNo].routes, 'path')
+              }
             }
           }
         }
