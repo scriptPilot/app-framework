@@ -40,6 +40,13 @@ if (env.arg.ios === true || env.arg.xcode === true) {
   alert('Cordova argument missing.', 'issue')
 }
 
+// Check store id
+if ((env.arg.ios === true || env.arg.xcode === true) && env.cfg.appStoreId === '') {
+  alert('You must configure the appStoreId before.', 'error')
+} else if (env.cfg.playStoreId === '') {
+  alert('You must configure the playStoreId before.', 'error')
+}
+
 // Define Cordova bin directory
 let binDir = abs(env.proj, 'node_modules/cordova/bin')
 
