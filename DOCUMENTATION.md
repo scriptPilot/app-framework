@@ -201,7 +201,7 @@ You have to take care for the following rules when you name your *pages/ ... .vu
 - An underscore indicates tab routes: `your-new-page_tab1.vue`
 - Two underscores indicates alternate tab routes: `your-new-page_tab1_alternate.vue`
 
-As an example, if you have the following files:
+As an example, if you have the following page components:
 
 - *pages/tabs.vue*
 - *pages/tabs_tab1.vue*
