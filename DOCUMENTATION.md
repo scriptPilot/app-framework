@@ -191,9 +191,9 @@ You have to update *App Framework* per application project by running `npm updat
 
 #### Routing
 
-*App Framework* does support all possibilities for nested routing, described [for Framework7-Vue](http://framework7.io/vue/navigation-router.html). You have just to put the file name as component property, the page component will be imported automatically later on.
-
 *App Framework* completes and checks the *app/routes.json* file automatically on any test or build command. So, you do not have to manage it manually. To disable the completion, set `completeRoutesFile: false` in the configuration file.
+
+*App Framework* does support all possibilities for nested routing, described [for Framework7-Vue](http://framework7.io/vue/navigation-router.html). You have just to put the file name as component property, the page component will be imported automatically later on.
 
 You have to take care for the following rules when you name your *app/pages/ ... .vue* files:
 
