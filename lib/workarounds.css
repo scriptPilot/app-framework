@@ -3,6 +3,13 @@
   visibility: hidden;
 }
 
+/* Avoid bouncing on iOS with iNoBounce */
+#app {
+  height: 100%;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
 /* Smart select option images shown to big */
 .smart-select-page .item-media img {
   max-width: 29px;
