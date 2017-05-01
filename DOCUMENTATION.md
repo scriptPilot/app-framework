@@ -191,17 +191,15 @@ You have to update *App Framework* per application project by running `npm updat
 
 #### Routing
 
-*App Framework* completes and checks the *app/routes.json* file automatically on any test or build command. So, you do not have to manage it manually. To disable the completion, set `completeRoutesFile: false` in the configuration file.
+*App Framework* completes and checks the *routes.json* file automatically on any test or build command for you. To disable the completion, set `completeRoutesFile: false` in the configuration file.
 
-*App Framework* does support all possibilities for nested routing, described [for Framework7-Vue](http://framework7.io/vue/navigation-router.html). You have just to put the file name as component property, the page component will be imported automatically later on.
+*App Framework* supports all possibilities for nested routing, described [for Framework7-Vue](http://framework7.io/vue/navigation-router.html).
 
-You have to take care for the following rules when you name your *app/pages/ ... .vue* files:
+You have to take care for the following rules when you name your *pages/ ... .vue* files:
 
 - Lowercase, hyphen-type: `your-new-page.vue` (allowed: [0-9a-z-])
 - An underscore indicates tab routes: `your-new-page_tab1.vue`
 - Two underscores indicates alternate tab routes: `your-new-page_tab1_alternate.vue`
-
-Furthermore,
 
 As an example, if you have the following files:
 
@@ -243,7 +241,7 @@ As an example, if you have the following files:
 }
 ```
 
-For dynamic routes, you have to add them manually to the *app/routes.json* file. Example:
+For dynamic routes, you have to add them manually to the *routes.json* file. Example:
 
 ```
 {
@@ -252,7 +250,7 @@ For dynamic routes, you have to add them manually to the *app/routes.json* file.
 }
 ```
 
-Pages in sub folders *app/pages/sub-folder/... .vue* are supported. Sub folders do not have any impact to the route structure but let your organize your page components better.
+Pages in sub folders *pages/sub-folder/... .vue* are supported. Sub folders do not have any impact to the route structure but let your organize your page components better.
 
 #### Application style
 
