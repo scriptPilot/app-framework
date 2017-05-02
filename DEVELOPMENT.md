@@ -17,15 +17,15 @@
 - Each release should be processed according the following checklist
 
 **Release checklist**
-- [ ] Create a branch for the next release
-- [ ] Open a project with the following columns
+- [ ] Create a branch "dev-x.y(.z)" for the next release
+- [ ] Open a project "Release x.y(.z)" with the following columns
   - Backlog
   - Development
   - Postinstall completion
   - Documentation update
   - Testing
   - Done
-- [ ] Assign a bunch of issues to as "Backlog"
+- [ ] Assign a bunch of issues to "Backlog"
 - [ ] Process all issues one by one
   - Development: Realize change
   - Postinstall completion: Realize necessary postinstall actions
@@ -45,6 +45,7 @@
 - [ ] Update milestone planning in readme file
 - [ ] Update external documentation
 - [ ] Promote new version
+- [ ] Close project
 
 ## CLI commands
 
