@@ -42,7 +42,7 @@
 - [ ] Deploy to Apple App Store
 - [ ] Deploy to Google Play Store
 - [ ] Deploy on Firebase hosting
-- [ ] Update milestone planning in readme file
+- [ ] Update roadmap in readme file
 - [ ] Update external documentation
 - [ ] Promote new version
 - [ ] Close project
