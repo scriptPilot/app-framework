@@ -14,10 +14,9 @@
 ## Way of working
 
 - All changes must be managed by an issue
-- Each release should be proceed according the following checklist
+- Each release should be processed according the following checklist
 
 **Release checklist**
-
 - [ ] Create a branch for the next release
 - [ ] Open a project with the following columns
   - Backlog
@@ -27,7 +26,7 @@
   - Testing
   - Done
 - [ ] Assign a bunch of issues to as "Backlog"
-- [ ] Process all issues
+- [ ] Process all issues one by one
   - Development: Realize change
   - Postinstall completion: Realize necessary postinstall actions
   - Documentation update: Update documentation according change
@@ -35,7 +34,17 @@
     - On macOS / Windows / Linux
     - On iOS / Android / Web
     - With new project / updated project
-- 
+  - Done: After change is commited with issue closure reference
+- [ ] Build release according milestone planning
+- [ ] Publish to NPM
+- [ ] Commit to GitHub
+- [ ] Merge to master branch on GitHub
+- [ ] Deploy to Apple App Store
+- [ ] Deploy to Google Play Store
+- [ ] Deploy on Firebase hosting
+- [ ] Update milestone planning in readme file
+- [ ] Update external documentation
+- [ ] Promote new version
 
 ## CLI commands
 
