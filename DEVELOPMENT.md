@@ -29,7 +29,7 @@
 - [ ] Process all issues one by one
   - Development: Realize change
   - Postinstall: Complete necessary postinstall actions
-  - Documentation: Update documentation according change
+  - Documentation: Update documentation and readme according change
   - Testing: Test change according documentation
     - On macOS / Windows / Linux
     - On iOS / Android / Web
