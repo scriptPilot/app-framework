@@ -13,13 +13,29 @@
 
 ## Way of working
 
-1. Create a branch (for example "dev-1.4")
-2. Proceed issues
-   - Develop
-   - Test
-   - Document
-   - Commit changes with closure reference to the issue
-3. Merge branch
+- All changes must be managed by an issue
+- Each release should be proceed according the following checklist
+
+**Release checklist**
+
+- [ ] Create a branch for the next release
+- [ ] Open a project with the following columns
+  - Backlog
+  - Development
+  - Postinstall completion
+  - Documentation update
+  - Testing
+  - Done
+- [ ] Assign a bunch of issues to as "Backlog"
+- [ ] Process all issues
+  - Development: Realize change
+  - Postinstall completion: Realize necessary postinstall actions
+  - Documentation update: Update documentation according change
+  - Testing: Test change according documentation
+    - On macOS / Windows / Linux
+    - On iOS / Android / Web
+    - With new project / updated project
+- 
 
 ## CLI commands
 
