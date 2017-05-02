@@ -21,15 +21,15 @@
 - [ ] Open a project "Release x.y(.z)" with the following columns
   - Backlog
   - Development
-  - Postinstall completion
-  - Documentation update
+  - Postinstall
+  - Documentation
   - Testing
   - Done
 - [ ] Assign a bunch of issues to "Backlog"
 - [ ] Process all issues one by one
   - Development: Realize change
-  - Postinstall completion: Realize necessary postinstall actions
-  - Documentation update: Update documentation according change
+  - Postinstall: Complete necessary postinstall actions
+  - Documentation: Update documentation according change
   - Testing: Test change according documentation
     - On macOS / Windows / Linux
     - On iOS / Android / Web
