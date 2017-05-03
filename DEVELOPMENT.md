@@ -20,20 +20,18 @@
 - [ ] Create a branch "dev-x.y(.z)" for the next release
 - [ ] Open a project "Release x.y(.z)" with the following columns
   - Backlog
-  - Development
-  - Postinstall
-  - Documentation
+  - Development & Postinstall
   - Testing
+  - Documentation
   - Done
 - [ ] Assign a bunch of issues to "Backlog"
 - [ ] Process all issues one by one
-  - Development: Realize change
-  - Postinstall: Complete necessary postinstall actions
+  - Development & Postinstall: Realize change and complete postinstall
+  - Testing:
+    - Affected scripts on macOS / Windows / Linux
+    - Affected client code on Web / iOS / Android
+    - Affected postinstall changes on updated projects
   - Documentation: Update documentation and readme according change
-  - Testing: Test change according documentation
-    - On macOS / Windows / Linux
-    - On iOS / Android / Web
-    - With new project / updated project
   - Done: After change is commited with issue closure reference
 - [ ] Build release according roadmap
 - [ ] Publish to NPM
