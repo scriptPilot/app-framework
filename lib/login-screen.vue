@@ -1,5 +1,5 @@
 <template>
-  <f7-page no-navbar no-toolbar no-swipeback>
+  <f7-page no-navbar no-toolbar no-swipeback layout="white">
 
     <!-- Title -->
     <f7-block style="text-align: center; font-size: 25px;">{{!$root.user ? text.titleSignIn : text.titleSignOut}}</f7-block>
@@ -25,33 +25,33 @@
 
     <!-- Email sign in buttons -->
     <f7-block v-if="mode === 'signIn' && firebaseConfig.allowEmailLogin">
-      <f7-button raised color="green" fill @click="handleSignIn">{{text.signIn}}</f7-button>
+      <f7-button big raised color="green" fill @click="handleSignIn">{{text.signIn}}</f7-button big>
     </f7-block>
 
     <!-- Email registration buttons -->
     <f7-block v-if="mode === 'signIn' && firebaseConfig.allowEmailRegistration">
-      <f7-button raised color="green" @click="mode='registration'">{{text.createAccount}}</f7-button>
+      <f7-button big raised color="green" @click="mode='registration'">{{text.createAccount}}</f7-button big>
     </f7-block>
     <f7-block v-if="mode === 'registration' && firebaseConfig.allowEmailRegistration">
-      <f7-button raised color="green" fill @click="handleRegistration">{{text.handleRegistration}}</f7-button>
+      <f7-button big raised color="green" fill @click="handleRegistration">{{text.handleRegistration}}</f7-button big>
     </f7-block>
 
     <!-- Email reset buttons -->
     <f7-block v-if="mode === 'signIn' && firebaseConfig.allowEmailLogin">
-      <f7-button raised color="orange" @click="mode='reset'">{{text.resetPassword}}</f7-button>
+      <f7-button big raised color="orange" @click="mode='reset'">{{text.resetPassword}}</f7-button big>
     </f7-block>
     <f7-block v-if="mode === 'reset' && firebaseConfig.allowEmailLogin">
-      <f7-button raised color="orange" fill @click="handleReset">{{text.handleReset}}</f7-button>
+      <f7-button big raised color="orange" fill @click="handleReset">{{text.handleReset}}</f7-button big>
     </f7-block>
 
     <!-- Logout button -->
     <f7-block v-if="mode === 'signOut'">
-      <f7-button raised color="red" fill @click="handleSignOut">{{text.signOut}}</f7-button>
+      <f7-button big raised color="red" fill @click="handleSignOut">{{text.signOut}}</f7-button big>
     </f7-block>
 
     <!-- Cancel button -->
     <f7-block>
-      <f7-button raised color="red" @click="cancel">{{text.cancel}}</f7-button>
+      <f7-button big raised color="red" @click="cancel">{{text.cancel}}</f7-button big>
     </f7-block>
 
   </f7-page>
@@ -143,10 +143,10 @@
     created: function () {
       this.mode = this.$root.user ? 'signOut' : 'signIn'
     },
+    mounted: function () {
+      window.Dom7('#app-framework-login-screen input[type=email]').focus()
+    },
     methods: {
-      onF7Init: function () {
-        window.Dom7('#app-framework-login-screen input[type=email]').focus()
-      },
       cancel: function () {
         // Reset form
         this.email = ''
