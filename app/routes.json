@@ -713,16 +713,8 @@
     "component": "flexible-routing.vue"
   },
   {
-    "path": "/form/",
-    "component": "form.vue"
-  },
-  {
     "path": "/home/",
     "component": "home.vue"
-  },
-  {
-    "path": "/image/",
-    "component": "image.vue"
   },
   {
     "path": "/multiple-languages/",
@@ -739,10 +731,6 @@
   {
     "path": "/popup/",
     "component": "popup.vue"
-  },
-  {
-    "path": "/simple-page/",
-    "component": "simple-page.vue"
   },
   {
     "path": "/simple-todo/",
