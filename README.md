@@ -42,7 +42,7 @@ Upcoming:
 
 - [ ] [1.4 - Client code robustness improvements](https://github.com/scriptPilot/app-framework/projects/2)
 - [ ] 1.5 - Demo App robustness improvements
-- [ ] 1.6 - Tutorial: ToDo App)
+- [ ] 1.6 - Tutorial: ToDo App
 - [ ] 1.7 - Extensions
 - [ ] 1.8 - GUI helper tool
 
