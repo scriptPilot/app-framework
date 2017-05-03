@@ -34,11 +34,11 @@
     - On macOS / Windows / Linux any script changes
     - On iOS / Android / Web any client code changes
     - With updated project any postinstall changes
-    - Commit bug-fixes with issue closure reference
+    - Commit bug-fixes with issue reference
   - Documentation
     - Update documentation
     - Update readme file
-    - Commit changes with issue closure reference
+    - Commit changes with issue reference
 - [ ] Build release according milestone planning
 - [ ] Publish to NPM
 - [ ] Commit to GitHub
