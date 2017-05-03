@@ -35,7 +35,7 @@
     - On iOS / Android / Web
     - With new project / updated project
   - Done: After change is commited with issue closure reference
-- [ ] Build release according milestone planning
+- [ ] Build release according roadmap
 - [ ] Publish to NPM
 - [ ] Commit to GitHub
 - [ ] Merge to master branch on GitHub
