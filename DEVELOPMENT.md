@@ -21,20 +21,24 @@
 - [ ] Open a project "Release x.y(.z)" with the following columns
   - Backlog
   - Development
-  - Postinstall
-  - Documentation
   - Testing
+  - Documentation
   - Done
 - [ ] Assign a bunch of issues to "Backlog"
 - [ ] Process all issues one by one
-  - Development: Realize change
-  - Postinstall: Complete necessary postinstall actions
-  - Documentation: Update documentation and readme according change
-  - Testing: Test change according documentation
-    - On macOS / Windows / Linux
-    - On iOS / Android / Web
-    - With new project / updated project
-  - Done: After change is commited with issue closure reference
+  - Development
+    - Develop solution
+    - Develop postinstall changes
+    - Commit changes with issue closure reference
+  - Testing
+    - On macOS / Windows / Linux any script changes
+    - On iOS / Android / Web any client code changes
+    - With updated project any postinstall changes
+    - Commit bug-fixes with issue closure reference
+  - Documentation
+    - Update documentation
+    - Update readme file
+    - Commit changes with issue closure reference
 - [ ] Build release according milestone planning
 - [ ] Publish to NPM
 - [ ] Commit to GitHub
