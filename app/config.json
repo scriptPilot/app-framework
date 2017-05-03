@@ -18,9 +18,6 @@
   "showPhoneFrameOnDesktop": true,
   "materialSubnavbarFix": true,
   "completeRoutesFile": true,
-  "pagesWithRequiredLogin": [
-    "firebase-private"
-  ],
   "firebase": {
     "apiKey": "AIzaSyAvzTiqd9fKR-h47Uxl4iXwqSMU1VjGdII",
     "authDomain": "app-framework-9045a.firebaseapp.com",
@@ -38,7 +35,7 @@
     "storageBucket": "dev-app-framework.appspot.com",
     "projectId": "",
     "allowEmailLogin": true,
-    "allowEmailRegistration": true
+    "allowEmailRegistration": false
   },
   "appStoreId": "de.scriptpilot.app-framework",
   "playStoreId": "de.scriptpilot.appframework",

@@ -4,7 +4,9 @@
   <f7-page>
 
     <!-- Navbar -->
-    <f7-navbar sliding :title="$root.config.title" />
+    <f7-navbar sliding :title="$root.config.title">
+      <f7-nav-right v-if="$root.user"><f7-link icon-material="person" href="/app-framework-login-screen/" /></f7-nav-right>
+    </f7-navbar>
 
     <!-- Installation notice -->
     <f7-block inner inset style="text-align: center" v-if="$root.appMode==='mobile'">

@@ -1,108 +1,85 @@
 <template>
-  <f7-page login-screen no-navbar no-toolbar class="no-swipeback">
-    <f7-login-screen-title>{{title}}</f7-login-screen-title>
+  <f7-page no-navbar no-toolbar no-swipeback>
 
-    <!-- Show form, if user is not logged in -->
-    <f7-list form v-if="!$root.user">
+    <!-- Title -->
+    <f7-block style="text-align: center; font-size: 25px;">{{!$root.user ? text.titleSignIn : text.titleSignOut}}</f7-block>
 
-      <f7-list-item v-if="showEmail">
+    <!-- Sign in disabled alert -->
+    <f7-block inner inset v-if="!firebaseConfig.allowEmailLogin && mode === 'signIn'">{{text.currentlyDisabled}}</f7-block>
+
+    <!-- Form for email sign in / registration / password reset -->
+    <f7-list form id="app-framework-login-screen" inset v-if="!$root.user && (firebaseConfig.allowEmailLogin || (firebaseConfig.allowEmailRegistration && mode === 'registration'))">
+      <f7-list-item v-if="firebaseConfig.allowEmailLogin || (firebaseConfig.allowEmailRegistration && mode === 'registration')">
         <f7-label>{{text.email}}</f7-label>
-        <f7-input v-model="email" :placeholder="text.email" type="email"></f7-input>
+        <f7-input type="email" :placeholder="text.email" v-model="email" />
       </f7-list-item>
-
-      <f7-list-item v-if="showPassword">
+      <f7-list-item v-if="(firebaseConfig.allowEmailLogin && mode === 'signIn') || (firebaseConfig.allowEmailRegistration && mode === 'registration')">
         <f7-label>{{text.password}}</f7-label>
-        <f7-input v-model="password" :placeholder="text.password" type="password"></f7-input>
+        <f7-input type="password" :placeholder="text.password" v-model="password" />
       </f7-list-item>
-
-      <f7-list-item v-if="mode === 'create'">
+      <f7-list-item v-if="firebaseConfig.allowEmailRegistration && mode === 'registration'">
         <f7-label>{{text.password}}</f7-label>
-        <f7-input v-model="passwordConfirmation" :placeholder="text.confirmation" type="password"></f7-input>
+        <f7-input type="password" :placeholder="text.passwordConfirmation" v-model="passwordConfirmation" />
       </f7-list-item>
-
     </f7-list>
 
-    <!-- Show buttons, if user is not logged in -->
-    <f7-list form v-if="!$root.user">
+    <!-- Email sign in buttons -->
+    <f7-block v-if="mode === 'signIn' && firebaseConfig.allowEmailLogin">
+      <f7-button raised color="green" fill @click="handleSignIn">{{text.signIn}}</f7-button>
+    </f7-block>
 
-      <f7-list-button
-        :title="text.signIn"
-        v-if="mode === 'login' && email !== '' && password !== ''"
-        @click="login">
-        </f7-list-button>
+    <!-- Email registration buttons -->
+    <f7-block v-if="mode === 'signIn' && firebaseConfig.allowEmailRegistration">
+      <f7-button raised color="green" @click="mode='registration'">{{text.createAccount}}</f7-button>
+    </f7-block>
+    <f7-block v-if="mode === 'registration' && firebaseConfig.allowEmailRegistration">
+      <f7-button raised color="green" fill @click="handleRegistration">{{text.handleRegistration}}</f7-button>
+    </f7-block>
 
-      <f7-list-button
-        :title="text.createAccount"
-        v-if="$root.config.firebase.allowUserRegistration === true && mode === 'login'"
-        @click="mode = 'create'">
-        </f7-list-button>
+    <!-- Email reset buttons -->
+    <f7-block v-if="mode === 'signIn' && firebaseConfig.allowEmailLogin">
+      <f7-button raised color="orange" @click="mode='reset'">{{text.resetPassword}}</f7-button>
+    </f7-block>
+    <f7-block v-if="mode === 'reset' && firebaseConfig.allowEmailLogin">
+      <f7-button raised color="orange" fill @click="handleReset">{{text.handleReset}}</f7-button>
+    </f7-block>
 
-      <f7-list-button
-        :title="text.save"
-        v-if="email !== '' && password !== '' && passwordConfirmation !== ''"
-        @click="createAccount">
-        </f7-list-button>
+    <!-- Logout button -->
+    <f7-block v-if="mode === 'signOut'">
+      <f7-button raised color="red" fill @click="handleSignOut">{{text.signOut}}</f7-button>
+    </f7-block>
 
-      <f7-list-button
-        :title="text.resetPassword"
-        v-if="mode === 'login'"
-        @click="mode = 'reset'">
-        </f7-list-button>
-
-      <f7-list-button
-        :title="text.send"
-        v-if="mode === 'reset' && email !== ''"
-        @click="sendResetLink">
-        </f7-list-button>
-
-      <f7-list-button
-        :title="text.cancel"
-        close-login-screen
-        @click="resetView">
-        </f7-list-button>
-
-    </f7-list>
-
-    <!-- Show logout link, if user is logged in -->
-    <f7-block inner inset style="text-align: center" v-if="$root.user">
-      <p>{{text.loggedInAs}}</p>
-      <p><b>{{$root.user.email}}</b></p>
-      <p>&nbsp;</p>
-      <f7-grid>
-        <f7-col width="25" />
-        <f7-col><f7-button width="50" @click="logout">{{text.logout}}</f7-button></f7-col>
-        <f7-col width="25" />
-      </f7-grid>
-      <p>&nbsp;</p>
-      <p><f7-link @click="resetView" close-login-screen>{{text.cancel}}</f7-link></p>
+    <!-- Cancel button -->
+    <f7-block>
+      <f7-button raised color="red" @click="cancel">{{text.cancel}}</f7-button>
     </f7-block>
 
   </f7-page>
 </template>
-
 <script>
-
-  // Text patterns
-  var text = {
+  // Define text patterns
+  let text = {
     en: {
+      titleSignIn: 'Sign in',
+      titleSignOut: 'Sign out',
+      currentlyDisabled: 'The sign in is currently disabled.',
       email: 'Email',
       password: 'Password',
-      confirmation: 'Confirmation',
+      passwordConfirmation: 'Confirmation',
+      handleRegistration: 'Create account',
+      handleReset: 'Reset password',
       signIn: 'Sign in',
-      createAccount: 'Create account',
-      save: 'Save',
-      resetPassword: 'Reset password',
-      send: 'Send',
+      signOut: 'Sign out',
+      createAccount: 'Create new account',
+      resetPassword: 'Reset your password',
       cancel: 'Cancel',
-      loggedInAs: 'You are logged in as',
-      logout: 'Logout',
-      login: 'Login',
-      emailMissing: 'Please type your email address.',
-      passwordMissing: 'Please choose a password.',
-      passwordsDifferent: 'Passwords do not match.',
-      error: 'Error',
       emailSent: 'Email sent',
       checkYourInbox: 'Please check your inbox.',
+      signOutDone: 'Sign out done',
+      error: 'Error',
+      errorNoEmail: 'Please enter your email address.',
+      errorNoPassword: 'Please enter a password.',
+      errorPasswordsDifferent: 'You entered two different passwords.',
       firebaseErrors: {
         'auth/email-already-in-use': 'The email address is already linked to another account.',
         'auth/invalid-email': 'The email address is invalid.',
@@ -114,24 +91,26 @@
       }
     },
     de: {
+      titleSignIn: 'Anmelden',
+      titleSignOut: 'Abmelden',
+      currentlyDisabled: 'Die Anmeldung ist zurzeit deaktiviert.',
       email: 'E-Mail',
       password: 'Passwort',
-      confirmation: 'Bestätigung',
+      passwordConfirmation: 'Bestätigung',
+      handleRegistration: 'Konto erstellen',
+      handleReset: 'Passwort zurücksetzen',
       signIn: 'Anmelden',
-      createAccount: 'Konto erstellen',
-      save: 'Speichern',
+      signOut: 'Abmelden',
+      createAccount: 'Neues Konto erstellen',
       resetPassword: 'Passwort zurücksetzen',
-      send: 'Senden',
       cancel: 'Abbrechen',
-      loggedInAs: 'Du bist angemeldet als',
-      logout: 'Logout',
-      login: 'Login',
-      emailMissing: 'Bitte gib deine E-Mail-Adresse ein.',
-      passwordMissing: 'Bitte wähle ein Passwort aus.',
-      passwordsDifferent: 'Die Passwörter stimmen nicht überein.',
-      error: 'Fehler',
       emailSent: 'E-Mail verschickt',
       checkYourInbox: 'Bitte schau in deinem Posteingang.',
+      signOutDone: 'Abmeldung erfolgreich',
+      error: 'Fehler',
+      errorNoEmail: 'Bitte gib Deine E-Mail-Adresse ein.',
+      errorNoPassword: 'Bitte gib ein Passwort ein.',
+      errorPasswordsDifferent: 'Du hast zwei unterschiedliche Passwörter eingegeben.',
       firebaseErrors: {
         'auth/email-already-in-use': 'Die E-Mail-Adresse wird bereits verwendet.',
         'auth/invalid-email': 'Die E-Mail-Adresse ist fehlerhaft.',
@@ -143,117 +122,148 @@
       }
     }
   }
-
-  // Shortlink to local storage
-  var localStorage = window.localStorage
-
-  module.exports = {
+  // Export module
+  export default {
     data: function () {
       return {
+        email: '',
         password: '',
         passwordConfirmation: '',
-        email: '',
-        mode: 'login'
+        mode: ''
       }
     },
     computed: {
+      firebaseConfig: function () {
+        return process.env.NODE_ENV === 'production' ? this.$root.config.firebase : this.$root.config.devFirebase
+      },
       text: function () {
         return text[this.$root.language] || text['en']
-      },
-      title: function () {
-        return this.$root.user ? this.text.logout : this.text.login
-      },
-      showEmail: function () {
-        return this.mode === 'login' || this.mode === 'create' || this.mode === 'reset'
-      },
-      showPassword: function () {
-        return this.mode === 'login' || this.mode === 'create'
       }
     },
+    created: function () {
+      this.mode = this.$root.user ? 'signOut' : 'signIn'
+    },
     methods: {
-      resetView: function () {
-        this.title = 'Login'
+      onF7Init: function () {
+        window.Dom7('#app-framework-login-screen input[type=email]').focus()
+      },
+      cancel: function () {
+        // Reset form
+        this.email = ''
         this.password = ''
         this.passwordConfirmation = ''
-        this.email = ''
-        this.mode = 'login'
-        if (localStorage.requestedView) {
-          localStorage.removeItem('requestedView')
-        }
-        if (localStorage.requestedUrl) {
-          localStorage.removeItem('requestedUrl')
-        }
+        // Navigate back
+        let viewId = null
+        window.f7.views.map((view, id) => {
+          if (view.selector === window.localStorage.requestedView) viewId = id
+        })
+        window.f7.views[viewId || 'main'].router.back()
+        // Reset local storage
+        window.localStorage.removeItem('requestedView')
+        window.localStorage.removeItem('requestedUrl')
       },
-      createAccount: function () {
+      handleSignIn: function () {
         if (this.email === '') {
-          this.$f7.alert(this.text.emailMissing, this.text.error)
+          window.f7.alert(this.text.errorNoEmail, this.text.error)
         } else if (this.password === '') {
-          this.$f7.alert(this.text.passwordMissing, this.text.error)
-        } else if (this.password !== this.passwordConfirmation) {
-          this.$f7.alert(this.text.passwordsDifferent, this.text.error)
+          window.f7.alert(this.text.errorNoPassword, this.text.error)
         } else {
-          window.firebase.auth().createUserWithEmailAndPassword(this.email, this.password)
-            .then(function (user) {
-              this.login()
-            }.bind(this))
-            .catch(function (err) {
-              this.$f7.alert(this.text.firebaseErrors[err.code], this.text.error)
-            }.bind(this))
+          // Sign in user
+          window.firebase.auth().signInWithEmailAndPassword(this.email, this.password)
+            // On success
+            .then(user => {
+              // Reset form
+              this.email = ''
+              this.password = ''
+              this.passwordConfirmation = ''
+              this.mode = 'signOut'
+              // Show requested URL or navigate back
+              let viewId = null
+              window.f7.views.map((view, id) => {
+                if (view.selector === window.localStorage.requestedView) viewId = id
+              })
+              if (window.localStorage.requestedUrl) {
+                let url = window.localStorage.requestedUrl
+                setTimeout(() =>{
+                  window.f7.views.main.router.back({animatePages: false})
+                  setTimeout(() => {
+                    window.f7.views.main.router.load({url: url})
+                  })
+                })
+              } else {
+                window.f7.views.main.router.back()
+              }
+              // Reset local storage
+              window.localStorage.removeItem('requestedView')
+              window.localStorage.removeItem('requestedUrl')
+            })
+            // On error, show alert
+            .catch(err => {
+              window.f7.alert(this.text.firebaseErrors[err.code], this.text.error)
+            })
         }
       },
-      sendResetLink: function () {
+      handleSignOut: function () {
+        window.firebase.auth().signOut()
+          .then(() => {
+            // Reset form
+            this.mode = 'signIn'
+            // Navigate back
+            let viewId = null
+            window.f7.views.map((view, id) => {
+              if (view.selector === window.localStorage.requestedView) viewId = id
+            })
+            window.f7.views[viewId || 'main'].router.back()
+            // Show notification
+            window.f7.addNotification({
+              title: this.text.signOutDone,
+              hold: 3000,
+              closeIcon: false
+            })
+          })
+      },
+      handleRegistration: function () {
         if (this.email === '') {
-          this.$f7.alert(this.text.emailMissing, this.text.error)
+          window.f7.alert(this.text.errorNoEmail, this.text.error)
+        } else if (this.password === '') {
+          window.f7.alert(this.text.errorNoPassword, this.text.error)
+        } else if (this.passwordConfirmation !== this.password) {
+          window.f7.alert(this.text.errorPasswordsDifferent, this.text.error)
         } else {
+          // Create new user
+          window.firebase.auth().createUserWithEmailAndPassword(this.email, this.password)
+            // On success, sign in user
+            .then(user => {
+              this.handleSignIn()
+            })
+            // On error, show alert
+            .catch(err => {
+              window.f7.alert(this.text.firebaseErrors[err.code], this.text.error)
+            })
+        }
+      },
+      handleReset: function () {
+        if (this.email === '') {
+          window.f7.alert(this.text.errorNoEmail, this.text.error)
+        } else {
+          // Send reset link
           window.firebase.auth().sendPasswordResetEmail(this.email)
-            .then(function (user) {
-              this.$f7.addNotification({
+            .then(user => {
+              // Update mode
+              this.mode = 'signIn'
+              // On success, show notfication and login screen again
+              window.f7.addNotification({
                 title: this.text.emailSent,
                 message: this.text.checkYourInbox,
                 hold: 3000,
                 closeIcon: false
               })
-              this.resetView()
-            }.bind(this))
-            .catch(function (err) {
-              this.$f7.alert(this.text.firebaseErrors[err.code], this.text.error)
-            }.bind(this))
+              this.mode = 'signIn'
+            })
+            .catch(err => {
+              window.f7.alert(this.text.firebaseErrors[err.code], this.text.error)
+            })
         }
-      },
-      login: function () {
-        if (this.email === '') {
-          this.$f7.alert(this.text.emailMissing, this.text.error)
-        } else if (this.password === '') {
-          this.$f7.alert(this.text.passwordMissing, this.text.error)
-        } else {
-          window.firebase.auth().signInWithEmailAndPassword(this.email, this.password)
-            .then(function (user) {
-              // Forward to requested page
-              if (localStorage.requestedView && localStorage.requestedUrl) {
-                setTimeout(function () {
-                  this.$f7.views[window.views[localStorage.requestedView].no].router.load({url: localStorage.requestedUrl, animatePages: false})
-                  this.resetView()
-                  this.$f7.closeModal('.login-screen')
-                }.bind(this), 0)
-              // Close modal, no requested page before
-              } else {
-                this.resetView()
-                this.$f7.closeModal('.login-screen')
-              }
-            }.bind(this))
-            .catch(function (err) {
-              this.$f7.alert(this.text.firebaseErrors[err.code], this.text.error)
-            }.bind(this))
-        }
-      },
-      logout: function () {
-        window.firebase.auth().signOut()
-          .then(function () {
-            setTimeout(function () {
-              this.resetView()
-              this.$f7.closeModal('.login-screen')
-            }.bind(this), 0)
-          }.bind(this))
       }
     }
   }

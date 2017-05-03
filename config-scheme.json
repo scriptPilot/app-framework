@@ -71,9 +71,6 @@
     "type": "boolean",
     "default": true
   },
-  "pagesWithRequiredLogin": {
-    "type": "array"
-  },
   "firebase": {
     "props": {
       "apiKey": {

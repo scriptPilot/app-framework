@@ -697,7 +697,8 @@
   },
   {
     "path": "/firebase-private/",
-    "component": "firebase-private.vue"
+    "component": "firebase-private.vue",
+    "login": true
   },
   {
     "path": "/firebase-public/",
