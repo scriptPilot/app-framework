@@ -132,7 +132,6 @@ useIconFonts | *object* |
 showPhoneFrameOnDesktop | *boolean* | true
 materialSubnavbarFix | *boolean* | true
 completeRoutesFile | *boolean* | true
-pagesWithRequiredLogin | *array* | []
 firebase | *object* |
 &nbsp;&nbsp;&nbsp;apiKey | *string* |
 &nbsp;&nbsp;&nbsp;authDomain | *string* |
