@@ -36,15 +36,15 @@ For your workflow:
 &nbsp;&nbsp;&nbsp;
 [![Open as Web App](media/web-app-visit.png)](https://app-framework.scriptpilot.de/)
 
-## Milestones
+## Roadmap
 
 Upcoming:
 
-- [ ] [1.4 - Client code robustness improvements](https://github.com/scriptPilot/app-framework/milestone/9)
-- [ ] [1.5 - Demo App robustness improvements](https://github.com/scriptPilot/app-framework/milestone/10)
-- [ ] [1.6 - Tutorial: ToDo App](https://github.com/scriptPilot/app-framework/milestone/3)
-- [ ] [1.7 - Extensions](https://github.com/scriptPilot/app-framework/milestone/7)
-- [ ] [1.8 - GUI helper tool](https://github.com/scriptPilot/app-framework/milestone/8)
+- [ ] [1.4 - Client code robustness improvements](https://github.com/scriptPilot/app-framework/projects/2)
+- [ ] 1.5 - Demo App robustness improvements
+- [ ] 1.6 - Tutorial: ToDo App
+- [ ] 1.7 - Extensions
+- [ ] 1.8 - GUI helper tool
 
 Closed:
 

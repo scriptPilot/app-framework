@@ -39,8 +39,7 @@
     - Update documentation
     - Update readme file
     - Commit changes with issue closure reference
-- [ ] Build release according milestone planning
-- [ ] Publish to NPM
+- [ ] Build release according milestone planning- [ ] Publish to NPM
 - [ ] Commit to GitHub
 - [ ] Merge to master branch on GitHub
 - [ ] Deploy to Apple App Store
