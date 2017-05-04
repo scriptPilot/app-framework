@@ -59,6 +59,14 @@
       }
     }
   },
+  "limitApplicationWidth": {
+    "regexp": "/^[0-9]+$/",
+    "default": 375
+  },
+  "limitApplicationHeight": {
+    "regexp": "/^[0-9]+$/",
+    "default": 675
+  },
   "showPhoneFrameOnDesktop": {
     "type": "boolean",
     "default": true

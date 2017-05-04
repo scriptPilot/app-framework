@@ -1,7 +1,19 @@
+/* Default frame size and position */
+#frame {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
 
+/* Limit height */
+body.limitHeight,
+body.limitWidth {
+  background: #333333;
+}
 
 
 /* Phone frame */
+/*
 .bodyDark {
   background: #333 !important;
 }
@@ -56,8 +68,10 @@
   top: calc((100% - 568px) / 2) !important;
   height: 568px !important;
 }
+*/
 
 /* Simulate iPhone-like scrollbars in other browsers */
+/*
 .light-scrollbars div::-webkit-scrollbar {
   width: 5px;
 }
@@ -71,10 +85,4 @@
   height: 5px;
   display: block;
 }
-
-
-
-/* Initial reload splash fix */
-.framework7-root {
-  visibility: hidden;
-}
+*/

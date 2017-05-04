@@ -15,6 +15,8 @@
     "ion": false,
     "fontawesome": true
   },
+  "limitApplicationWidth": 375,
+  "limitApplicationHeight": 675,
   "showPhoneFrameOnDesktop": true,
   "materialSubnavbarFix": true,
   "completeRoutesFile": true,
