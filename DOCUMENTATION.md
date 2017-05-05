@@ -375,32 +375,10 @@ This restoration includes the following elements:
 - Login screens (requires unique ID attribute)
 - Pickers (requires unique ID attribute)
 - Popups (requires unique ID attribute)
+- Form inputs (requires unique form ID attribute and unique NAME attributes per form)
 - Focus on form input (requires unique NAME attributes per form)
 
 The state is not restored for standard modals, popovers and code-generated modals.
-
-In addition, all page component data will be restored. You should use `v-model` to restore form inputs selectively. Example:
-
-```
-<template>
-  ...
-  <f7-block>{{title}}</f7-block>
-  <f7-input type="text" v-model="someTextInput" />
-  <f7-input type="password" />
-  ...
-</template>
-<script>
-  export default {
-    data: function () {
-      return {
-        title: 'Some title, changed by any later code',
-        someTextInput: ''
-      }
-    }
-  }
-```
-
-I the example above, the text title and input value are restored after application refresh.
 
 ### Test your application
 
