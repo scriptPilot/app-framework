@@ -2,27 +2,27 @@
 
 > First contact with App Framework? Please read our [readme file](README.md) first!
 
-- [Requirements](#requirements)
+- [x] [Requirements](#requirements)
 - [Development environment](#development-environment)
 - [ ] **Workflow**
-  - [Setup your project](#setup-your-project)
-  - [Design your application](#design-your-application)
+  - [x] [Setup your project](#setup-your-project)
+  - [x] [Design your application](#design-your-application)
   - [ ] [Develop your application](#develop-your-application)
-    - [Routing](#routing)
+    - [x] [Routing](#routing)
     - [ ] [App component](#app-component)
     - [ ] [Page components](#page-components)
-    - [Application style](#application-style)
-    - [Status bar style](#status-bar-style)
-    - [Global data object](#global-data-object)
-    - [Firebase backend](#firebase-backend)
+    - [x] [Application style](#application-style)
+    - [x] [Status bar style](#status-bar-style)
+    - [x] [Global data object](#global-data-object)
+    - [x] [Firebase backend](#firebase-backend)
     - [ ] [Cordova plugins](#cordova-plugins)
     - [ ] [Import modules](#import-modules)
     - [ ] [Use images](#use-images)
-    - [State restoration](#state-restoration)
-  - [Test your application](#test-your-application)
-  - [Build your application](#build-your-application)
-  - [Deploy your application](#deploy-your-application)
-  - [Backup your project](#backup-your-project)
+    - [x] [State restoration](#state-restoration)
+  - [ ] [Test your application](#test-your-application)
+  - [ ] [Build your application](#build-your-application)
+  - [ ] [Deploy your application](#deploy-your-application)
+  - [ ] [Backup your project](#backup-your-project)
 - **Reference**
   - [Project folder structure](#project-folder-structure)
   - [Configuration options](#configuration-options)
@@ -121,6 +121,15 @@ You have to update *App Framework* per application project by running `npm updat
 - Use our icon template as [PDF to sketch](design/icon-template.pdf) and [PPTX to draw](design/icon-template.pptx) your application icon
 
 ### Develop your application
+
+- Update the configuration in *app/config.json* file
+- Run `npm run dev` to start the development server at localhost:8080
+- Save images to *app/images* folder
+- Edit the app component in *app/app.vue* file
+- Edit page components in *app/pages* folder
+- Edit your [database rules](https://firebase.google.com/docs/database/security/quickstart) in *app/database-rules.json* file
+- Edit your [storage rules](https://firebase.google.com/docs/storage/security/) in *app/storage-rules.txt* file
+- Add Cordova / PhoneGap plugins easily in the *config.json* file with property *useCordovaPlugins*
 
 #### Routing
 
