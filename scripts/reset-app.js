@@ -116,7 +116,7 @@ let createHomepage = function (callback) {
                 '  <f7-page>\n' +
                 '    <f7-navbar title="My App" />\n' +
                 '    <f7-block inner inset>It works!</f7-block>\n' +
-                '    <f7-block inset>\n' +
+                '    <f7-block>\n' +
                 '      <f7-button big fill bg="green" href="https://github.com/scriptPilot/app-framework/blob/master/DOCUMENTATION.md" external>Documentation</f7-button>\n' +
                 '    </f7-block>\n' +
                 '  </f7-page>\n' +
