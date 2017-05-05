@@ -97,7 +97,8 @@ After you have prepared your [development environment](#development-environment)
 
 Creating a new application project is easily done in the following three steps:
 
-1. Create a **package.json** file in an empty project folder with the following content:
+1. Create an empty project folder
+2. Create a **package.json** file in it with the following content:
 
    ```
    {
@@ -109,8 +110,7 @@ Creating a new application project is easily done in the following three steps:
    }
    ```
 
-2. Run `npm install` to install *App Framework* and setup the project folder
-4. Run `npm run dev` to run your application at localhost:8080
+3. Run `npm install` to install *App Framework* and setup the project folder
 
 If there is a newer version of *App Framework* available at [NPMjs.com](https://www.npmjs.com/package/app-framework), there will be an alert at the development server.
 
