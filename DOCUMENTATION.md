@@ -48,8 +48,6 @@ Optional:
 
 ## Development environment
 
-To develop applications with App Framework, you need
-
 ### Atom
 
 First of all, you need a code editor. We really recommend Atom, which is open source, configurable and available for macOS, Windows and Linux.
