@@ -61,7 +61,7 @@ First of all, you need a code editor. We really recommend Atom, which is open so
 7. Close the settings tab and Atom itself
 
 
-## Node.js
+### Node.js
 
 To run the App Framework scripts and the development server, you need to install [Nodejs.org](https://nodejs.org/), which is available for macOS, Windows and Linux and is free of charge. You can install it with the default settings.
 
@@ -73,7 +73,7 @@ To run the App Framework scripts and the development server, you need to install
 
 [Android Studio](https://developer.android.com/studio/index.html) is required if you want to publish your application to the Google Play Store. It is available free of charge for macOS, Windows and Linux.
 
-## GitHub Desktop
+### GitHub Desktop
 
 App Framework will create lightweight and well-organized project folders, which are well-prepared for Git publishing.
 
@@ -85,7 +85,7 @@ Because of the multiple ways for collaboration, we recommend GitHub. There is a 
 4. Configure your user name and a email address under which your will commit to GitHub
 5. Close the GitHub Desktop client
 
-## Reboot
+### Reboot
 
 At the end of the installation process, you should reboot your computer.
 
