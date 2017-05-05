@@ -3,7 +3,7 @@
 > First contact with App Framework? Please read our [readme file](README.md) first!
 
 - [x] [Requirements](#requirements)
-- [Development environment](#development-environment)
+- [x] [Development environment](#development-environment)
 - [ ] **Workflow**
   - [x] [Setup your project](#setup-your-project)
   - [x] [Design your application](#design-your-application)
