@@ -357,7 +357,7 @@ If you set `deployDevRulesOnTesting: true`, on each test command (`npm run dev`,
 
 ### Build your application
 
-To deploy your application you need to build it. *App Framework* makes it quite easy again for you, bumps the version, compiles the scripts and merges them together. Your logo is used to create many icons and launch screen graphics and at the end all files are compressed to save bandwidth.
+To deploy your application you need to build it before. *App Framework* makes it quite easy again for you, bumps the version, compiles the scripts and merges them together. Your logo is used to create many icons and launch screen graphics and at the end all files are compressed to save bandwidth.
 
 Each build command will update the *build* folder on success.
 
@@ -459,8 +459,8 @@ This is an overview and reference, please see the [Workflow](#workflow) for deta
 - Testing
   - `npm run dev` to start the development server in the web browser
     - `CTRL + C` to stop the development server
-  - `npm run ios` to open the iOS emulator with a development build
-  - `npm run android` to open the Android emulator with a development build
+  - `npm run ios` to open Xcode with a development build
+  - `npm run android` to open Android Studio with a development build
 
 - Building
   - `npm run patch` to build after bug-fixes and improvements
