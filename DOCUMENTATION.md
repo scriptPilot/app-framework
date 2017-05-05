@@ -6,7 +6,7 @@
 - [Development environment](#development-environment)
 - [ ] **Workflow**
   - [Setup your project](#setup-your-project)
-  - [ ] [Design your application](#design-your-application)
+  - [Design your application](#design-your-application)
   - [ ] [Develop your application](#develop-your-application)
     - [Routing](#routing)
     - [ ] [App component](#app-component)
@@ -19,10 +19,10 @@
     - [ ] [Import modules](#import-modules)
     - [ ] [Use images](#use-images)
     - [State restoration](#state-restoration)
-  - [ ] [Test your application](#test-your-application)
-  - [ ] [Build your application](#build-your-application)
-  - [ ] [Deploy your application](#deploy-your-application)
-  - [ ] [Backup your project](#backup-your-project)
+  - [Test your application](#test-your-application)
+  - [Build your application](#build-your-application)
+  - [Deploy your application](#deploy-your-application)
+  - [Backup your project](#backup-your-project)
 - **Reference**
   - [Project folder structure](#project-folder-structure)
   - [Configuration options](#configuration-options)
@@ -115,6 +115,10 @@ Creating a new application project is easily done in the following three steps:
 If there is a newer version of *App Framework* available at [NPMjs.com](https://www.npmjs.com/package/app-framework), there will be an alert at the development server.
 
 You have to update *App Framework* per application project by running `npm update`.
+
+### Design your application
+- Use our printable [smartphone template](design/smartphone-template.pdf) to sketch your application
+- Use our icon template as [PDF to sketch](design/icon-template.pdf) and [PPTX to draw](design/icon-template.pptx) your application icon
 
 ### Develop your application
 
@@ -398,6 +402,21 @@ In addition, all page component data will be restored. You should use `v-model` 
 
 I the example above, the text title and input value are restored after application refresh.
 
+### Test your application
+
+- Run `npm run dev` to start the development server in the web browser
+  - `CTRL + C` to stop the development server
+- Run `npm run ios` to open an iOS simulator with a development build
+- Run `npm run android` to open an Android emulator with a development build
+
+  Confirm Gradle sync and removal of older application installations if asked.
+
+  If you get an error *Failed to find 'JAVA_HOME' environment variable. Try setting setting it manually.* you have to install the Java SE SDK first.
+
+App Framework fix your code automatically on each test or build command. To disable this behavior, you can set the config parameter *fixCodeOnBuild* to false. If some findings could not be fixed automatically, they will be logged to *code-findings.log*.
+
+If *dev-firebase* is configured in *config.json* file, on each test command, the Firebase database and storage rules are deployed automatically.
+
 ### Build your application
 
 To deploy your application you need to build it before. *App Framework* makes it quite easy again for you, bumps the version, compiles the scripts and merges them together. Your logo is used to create many icons and launch screen graphics and at the end all files are compressed to save bandwidth.
@@ -407,6 +426,66 @@ Each build command will update the *build* folder on success.
 - Run `npm run patch` after bug-fixes and improvements (version bump to x.y.z+1)
 - Run `npm run minor` after adding new functionality (version bump to x.y+1.0)
 - Run `npm run major` after breaking backward-capability (version bump to x+1.0.0)
+
+### Deploy your application
+
+*App Framework* does many adjustments in the background to enable you to deploy your App easily as Web App or as native App. So you could start fast and become professional later on without any change. But what are the differences?
+
+| &nbsp; |Web App|Native App|
+|---|---|---|
+|Installation|Are running in the device browser and could be pinned to the homescreen.|Are installed from an App Store or manually to the device (Android only).|
+|Performance|Reload on reopen, but could be cached for offline usage. Offline warning.|Kept in runtime of the device, smoother usage. No offline warning.|
+|Capability|Only browser features.|Access to the device hardware and OS features.|
+|Deployment|In seconds.|Additional native build plus approval process, which takes some time and could be refused at the Apple App Store.|
+|Costs|Firebase hosting service is free for small apps.|Apple requires developer program (around 99€ per year), Google Play store requires registration fee (around 25 USD once). For selling apps, Apple and Google charge around 30% of the sales.|
+|Promotion|All regular ways.|All regular ways plus special promotions and user ratings in the store.|
+
+Deployment to a FTP server (Web App)
+
+- Run `npm run ftp` to deploy your latest build to your FTP server, on first call, the config file *ftp-config.json* is created automatically and you have to update it with your FTP server data
+- For rollback, run `npm run ftp -- --version x.y.z`
+
+Deployment to [Firebase Hosting](https://firebase.google.com/docs/hosting/) (Web App)
+
+- Run `npm run firebase` to deploy your latest build, database rules and storage rules to Firebase
+- Run `npm run database` to deploy your latest build database rules to Firebase
+- Run `npm run storage` to deploy your latest build storage rules to Firebase
+- Run `npm run hosting` to deploy your latest build static files to Firebase
+- For rollback, run all the commands above and extend with ` -- --version x.y.z` or use the Firebase Console
+
+Deployment to the Apple App Store (native App)
+
+- You need a Mac with [macOS](http://www.apple.com/de/macos/) and installed [Xcode](https://developer.apple.com/xcode/) (free)
+- You need to sign to the [Apple developer program](https://developer.apple.com/programs/) (around 99€ per year)
+- Create a production certificate in iTunes Connect, download and install it on your Mac
+- Create a distribution provisioning profile in iTunes Connect, download and install it on your Mac
+- You need to prepare the publishing in [iTunes Connect](https://itunesconnect.apple.com/)
+- Run `npm run xcode` to create a project file for Xcode, based on [Cordova](https://cordova.apache.org/)
+- Make screenshots on the biggest iPhone (you will need them in iTunes Connect later on)
+- Deactivate automatic managed signing, select your certificate and provisioning profiles created before
+- Select the Generic iOS Device
+- Create an archive (Product > Archive) of the Xcode project and upload it to iTunes Connect
+- Send your App in iTunes Connect for the review to Apple
+- For rollback, run `npm run xcode -- --version x.y.z` or use iTunes Connect
+
+Deployment to the Google Play Store (native App)
+
+- You need to install the [Android Studio](https://developer.android.com/studio/)
+- You need to register at the [Google Play Developer Console](https://play.google.com/apps/publish/signup/) (around 25 USD once)
+- Run `npm run studio` to create a project file for Android Studio, based on [Cordova](https://cordova.apache.org/)
+- Select your project and confirm Gradle sync
+- Make screenshots, you will need them later in the Google Play Developer Console
+- Generate signed APK
+- Log in to the Google Play Developer console to deploy your application
+- For rollback, run `npm run studio -- --version x.y.z` or use the Google Play Developer Console
+
+### Backup your project
+
+- Run `npm run backup` to save the Firebase database content and user list as JSON to the *snapshots* folder
+- Run `npm run snapshot` to create a snapshot of all important project files to the *snapshots* folder
+- Backup your project folder frequently by
+  - Copying the *snapshots* folder to any external drive or cloud
+  - *and/or* pushing and synchronizing your changes to GitHub
 
 ## References
 
