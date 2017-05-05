@@ -69,7 +69,7 @@ Optional:
 
 ## Quick start
 
-1. Install [Node.js with npm](https://docs.npmjs.com/getting-started/what-is-npm)
+1. Install [Node.js](https://nodejs.org/)
 2. Create a **package.json** file in an empty project folder with the following content:
 
    ```
