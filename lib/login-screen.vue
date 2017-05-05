@@ -11,7 +11,7 @@
     <f7-list form id="app-framework-login-screen" inset v-if="!$root.user && (firebaseConfig.allowEmailLogin || (firebaseConfig.allowEmailRegistration && mode === 'registration'))">
       <f7-list-item v-if="firebaseConfig.allowEmailLogin || (firebaseConfig.allowEmailRegistration && mode === 'registration')">
         <f7-label>{{text.email}}</f7-label>
-        <f7-input name="email" type="email" :placeholder="text.email" v-model="email" />
+        <f7-input type="email" :placeholder="text.email" v-model="email" />
       </f7-list-item>
       <f7-list-item v-if="(firebaseConfig.allowEmailLogin && mode === 'signIn') || (firebaseConfig.allowEmailRegistration && mode === 'registration')">
         <f7-label>{{text.password}}</f7-label>

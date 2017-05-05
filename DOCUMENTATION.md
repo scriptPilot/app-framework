@@ -377,8 +377,11 @@ This restoration includes the following elements:
 - Popups (requires unique ID attribute)
 - Form inputs (requires unique form ID attribute and unique NAME attributes per form)
 - Focus on form input (requires unique NAME attributes per form)
+- Page component data
 
 The state is not restored for standard modals, popovers and code-generated modals.
+
+If you use `v-model` on an input, the state will be restored by page component data, you can use a name attribute, but it is not required in this case.
 
 ### Test your application
 

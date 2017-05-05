@@ -738,6 +738,7 @@
   },
   {
     "path": "/state-restoration/",
-    "component": "state-restoration.vue"
+    "component": "state-restoration.vue",
+    "login": true
   }
 ]
