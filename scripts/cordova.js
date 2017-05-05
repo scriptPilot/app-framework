@@ -388,6 +388,7 @@ deployDevRules(function () {
           updateWwwFolder(function () {
             installCordovaPlugins(function () {
               addCordovaPlatforms(function () {
+                /*
                 if (env.arg.ios === true) {
                   alert('iOS simulator start ongoing - please wait ...')
                   cmd(binDir, 'cordova emulate ios', function () {
@@ -404,6 +405,13 @@ deployDevRules(function () {
                     alert('Android emulator started.')
                   })
                 } else if (env.arg.studio === true) {
+                */
+                if (env.arg.ios === true || env.arg.xcode === true) {
+                  alert('Xcode start ongoing - please wait ...')
+                  cmd(__dirname, 'open -a Xcode "' + abs(binDir, 'platforms/ios', env.cfg.title + '.xcodeproj') + '"', function () {
+                    alert('Xcode started.')
+                  })
+                } else {
                   alert('Android Studio start ongoing - please wait ...')
                   if (env.os === 'win') {
                     let possibleInstallations = [
