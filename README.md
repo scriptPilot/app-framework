@@ -13,7 +13,7 @@ For your application:
 - [x] **Easy styling** - of the theme, color, layout and the status bar colors and visibility
 - [x] **Comprehensive icon fonts** - [FontAwesome](http://fontawesome.io/), [Framework7](http://framework7.io/icons/), [Ion](http://ionicons.com/) and [Material Icons](https://material.io/icons/)
 - [x] **Powerful user interface** - state-based and reactive with the simplicity of [Vue.js](https://vuejs.org/)
-- [x] **Reliable backend** - with Firebase for [user authentication](https://firebase.google.com/docs/auth/), [realtime database](https://firebase.google.com/docs/database/) and [storage services](https://firebase.google.com/docs/storage/)
+- [x] **Reliable backend** - with Firebase for [user authentication](https://firebase.google.com/docs/auth/), [realtime database](https://firebase.google.com/docs/database/) and [storage](https://firebase.google.com/docs/storage/)
 - [x] **Global data object** - to use the same data and settings across your whole application
 - [x] **Flexible routing** - [nestable](http://framework7.io/vue/navigation-router.html) and easily to be protected by required user login
 - [x] **State restoration** - for history, tabs, scroll positions, form inputs, focus, modals and components
