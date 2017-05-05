@@ -75,7 +75,7 @@ To run the *App Framework* scripts and the development server, you need to insta
 
 ### GitHub Desktop
 
-App Framework will create lightweight and well-organized project folders, which are well-prepared for Git publishing.
+*App Framework* will create lightweight and well-organized project folders, which are well-prepared for Git publishing.
 
 Because of the multiple ways for collaboration, we recommend GitHub. There is a desktop client available for macOS and Windows free of charge.
 
