@@ -42,7 +42,7 @@ Essentiell:
 Optional:
 
 - [Vue.js](https://vuejs.org/v2/guide/) to make your application state-based and reactive
-- [Firebase services](https://firebase.google.com/docs/web/setup) as free and reliable backend service provider
+- [Firebase](https://firebase.google.com/docs/web/setup) to use as reliable backend service provider
 - [Cordova/PhoneGap](https://cordova.apache.org/docs/en/latest/) to use device hardware API plugins
 - [iOS design guidelines](https://developer.apple.com/ios/human-interface-guidelines/overview/design-principles/) and [Material design guidelines](https://material.io/guidelines/)
 
