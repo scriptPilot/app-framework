@@ -63,7 +63,7 @@ First of all, you need a code editor. We really recommend Atom, which is open so
 
 ### Node.js
 
-To run the App Framework scripts and the development server, you need to install [Nodejs.org](https://nodejs.org/), which is available for macOS, Windows and Linux and is free of charge. You can install it with the default settings.
+To run the *App Framework* scripts and the development server, you need to install [Nodejs.org](https://nodejs.org/), which is available for macOS, Windows and Linux and is free of charge. You can install it with the default settings.
 
 ### Xcode
 
