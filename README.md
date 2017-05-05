@@ -10,7 +10,7 @@ For your application:
 
 - [x] **Single file components** - with template, scripts and style included to manage big projects easily
 - [x] **Beautiful user interface** - with all well-known [iOS and Material](http://framework7.io/) elements and transitions
-- [x] **Easy styling** - of the theme and the status bar
+- [x] **Easy styling** - of the theme, color, layout and the status bar colors and visibility
 - [x] **Comprehensive icon fonts** - [FontAwesome](http://fontawesome.io/), [Framework7](http://framework7.io/icons/), [Ion](http://ionicons.com/) and [Material Icons](https://material.io/icons/) out of the box to use
 - [x] **Powerful user interface** - state-based and reactive with the simplicity of [Vue.js](https://vuejs.org/), ready for [ES2015](https://babeljs.io/learn-es2015/)
 - [x] **Reliable backend** - with Firebase for [user authentication](https://firebase.google.com/docs/auth/), [realtime database](https://firebase.google.com/docs/database/) and [storage services](https://firebase.google.com/docs/storage/)
