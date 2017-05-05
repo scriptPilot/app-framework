@@ -361,9 +361,9 @@ To deploy your application you need to build it before. *App Framework* makes it
 
 Each build command will update the *build* folder on success.
 
-- Run `npm run patch` after bug-fixes and improvements (x.y.z+1)
-- Run `npm run minor` after adding new functionality (x.y+1.0)
-- Run `npm run major` after breaking backward-capability (x+1.0.0)
+- Run `npm run patch` after bug-fixes and improvements (version bump to x.y.z+1)
+- Run `npm run minor` after adding new functionality (version bump to x.y+1.0)
+- Run `npm run major` after breaking backward-capability (version bump to x+1.0.0)
 
 ## References
 
