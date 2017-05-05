@@ -411,7 +411,7 @@ deployDevRules(function () {
                   cmd(__dirname, 'open -a Xcode "' + abs(binDir, 'platforms/ios', env.cfg.title + '.xcodeproj') + '"', function () {
                     alert('Xcode started.')
                   })
-                } else {
+                } else if (env.arg.android === true || env.arg.studio === true) {
                   alert('Android Studio start ongoing - please wait ...')
                   if (env.os === 'win') {
                     let possibleInstallations = [
