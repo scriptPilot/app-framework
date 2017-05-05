@@ -4,18 +4,52 @@
 
 > If you want to use App Framework, please read our end user [Documentation](DOCUMENTATION.md).
 
-**Table of contents**
-
+- [Way of working](#way-of-working)
 - [CLI commands](#cli-commands)
 - [Folder structure](#folder-structure)
-- [Coding rules](#coding-rules)
+- [Rules](#rules)
 - [Script files](#script-files)
+- [Bug-fix checklist](#bugfix-checklist)
 
 ## Way of working
 
-1. Create branch
-2. Develop > test > document > commit (with closure reference to issues)
-3. Merge branch
+- All changes must be managed by an issue
+- Each release should be processed according the following checklist
+
+**Release checklist**
+- [ ] Create a branch "dev-x.y(.z)" for the next release
+- [ ] Open a project "Release x.y(.z)" with the following columns
+  - Backlog
+  - Development
+  - Testing
+  - Documentation
+  - Done
+- [ ] Assign a bunch of issues to "Backlog"
+- [ ] Process all issues one by one
+  - Development
+    - Develop solution
+    - Develop postinstall changes
+    - Commit changes with issue closure reference
+  - Testing
+    - On macOS / Windows / Linux any script changes
+    - On iOS / Android / Web any client code changes
+    - With updated project any postinstall changes
+    - Commit bug-fixes with issue reference
+  - Documentation
+    - Update documentation
+    - Update readme file
+    - Commit changes with issue reference
+- [ ] Build release according milestone planning
+- [ ] Publish to NPM
+- [ ] Commit to GitHub
+- [ ] Merge to master branch on GitHub
+- [ ] Deploy to Apple App Store
+- [ ] Deploy to Google Play Store
+- [ ] Deploy on Firebase hosting
+- [ ] Update roadmap in readme file
+- [ ] Update external documentation
+- [ ] Promote new version
+- [ ] Close project
 
 ## CLI commands
 
@@ -24,7 +58,7 @@ To inform end users about wrong App Framework usage (forking instead of installi
 Additional development CLI commands:
 
 - `npm run reset` - Reset cache folder
-- `npm run f7` - Build and update Framework7 (must exist on same level as app-framework folder)
+- `npm run f7` - Build and update Framework7 and both kitchen sinks (must exist on same level as app-framework folder)
 - `npm run f7vue` - Build and update Framework7-Vue (must exist on same level as app-framework folder)
 
 ## Folder structure
@@ -40,36 +74,60 @@ Additional development CLI commands:
 ├── vendor                      # Vendor files
 ├── .babelrc                    # Babel configuration file
 ├── .gitignore                  # List of ignored files for Git commits
+├── config-scheme.json          # Scheme for any application configuration file
 ├── DEVELOPMENT.md              # Development documentation
 ├── DOCUMENTATION               # End user documentation
 ├── env.js                      # Object with environment variables
 ├── index.ejs                   # Template for the build index file
 ├── LICENSE                     # App Framework license file
-├── main.css                    # Common CSS file for bug-fixes and phone frame
 ├── package.json                # App Framework project information
 └── README.md                   # Features, Quick start, upcoming and completed milestones
 ```
-# Coding rules
+## Rules
 
-- Code files must start with a description of their purpose `/* Purpose: This at the very beginning ... */`
-- After the description, code must be set to strict mode with `use strict`
-- Code must be commented well with `// Next block action` before any logic block
-- Modules must be loaded in the order *./env, ./lib/.., <npm>*, then alphabetically by module
-- Use always absolute paths
-- Comment out for tests with `/* ... */`
-- Comment thing to do with `// tbc`
-- Code must be checked automatically according [Standard JS rules](http://standardjs.com/) on build
-- Asynchronous functions should be preferred
-- Function results should be checked
-- On error alerts, a solution should be provided
-- Hyphen-type and lower case for folder and file names
-- Camel-case for all names in coding
-- For better readability, shorthands should not be used
+Code must be checked on build automatically according [Standard JS rules](http://standardjs.com/).
+
+### Folder and file naming
+
+Lowercase and hyphen type, example: *folder/sub-folder/file-in-sub-folder.js*
+
+### File structure
+
+1. Notice about purpose: `/* Purpose: ... */`
+2. Strict mode: `'use strict'`
+3. Include components:
+   - ./env (alphabetically sorted)
+   - ./lib/... (alphabetically sorted)
+   - npm modules (alphabetically sorted
+4. Define steps (functions, mixins)
+5. Componse steps
+
+### Comments
+
+- Logic blocks are to comment before with `// Next block action`
+- For tests, code should be comment out with `/* ... */`
+
+### Coding rules
+
+- Use absolute path names
+- Use camelCase for all names in code (variables, functions, ...)
+- Provide solutions on error messsages
+- Prefer asynchronious functions
+- Do not use short hand methods (for better readability)
 
 ## Script files
 
 A script file executes some code and use *lib/alert* to show either a success message or an error message as result. The script could be split up in single steps, arranged with nested callbacks.
 
 - Each step should indicate the run with an alert `<step> ongoing - please wait ...`
-- Each step should indicate an successful run with `<step> done.`
-- Each step should indicate an failed run with `Error: <step> failed. <solution>`
+- Each step should indicate a successful run with `<step> done.`
+- Each step should indicate a failed run with `Error: <step> failed. <solution>`
+
+## Bug-fix checklist
+
+Some points to check on bug-fixing:
+
+- No interferences with other files
+- All `require()` commands contain only strings, no variables
+- Only `process.env...` is used to decide which `require()` to use
+- Values from `window.localStorage` are parsed with `JSON.parse()`

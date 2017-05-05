@@ -1,42 +1,43 @@
 {
   "title": "App Framework",
-  "defaultLanguage": "en",
-  "theme": "ios-material",
+  "language": "en",
+  "theme": "material-ios",
+  "color": "indigo",
+  "layout": "default",
+  "statusbarVisibility": false,
+  "statusbarTextColor": "white",
+  "statusbarBackgroundColor": "#3f51b5",
+  "changeStatusbarBackgroundColorOnThemeColorChange": true,
+  "iconBackgroundColor": "#ffffff",
   "useIconFonts": {
     "framework7": true,
     "material": true,
     "ion": false,
     "fontawesome": true
   },
-  "iconBackgroundColor": "#ffffff",
-  "statusbarBackgroundColor": "#000000",
-  "statusbarTextColor": "white",
-  "statusbarVisibility": "visible",
+  "limitApplicationWidth": 375,
+  "limitApplicationHeight": 675,
   "showPhoneFrameOnDesktop": true,
   "materialSubnavbarFix": true,
   "completeRoutesFile": true,
-  "specialRoutes": {
-    "flexible-routing/blog/:blogId/post/:postId": "flexible-routing"
-  },
-  "pagesWithRequiredLogin": [
-    "firebase-private"
-  ],
   "firebase": {
-    "apiKey": "AIzaSyAvzTiqd9fKR-h4asdsadsadasd7Uxl4iXwqSMU1VjGdII",
+    "apiKey": "AIzaSyAvzTiqd9fKR-h47Uxl4iXwqSMU1VjGdII",
     "authDomain": "app-framework-9045a.firebaseapp.com",
     "databaseURL": "https://app-framework-9045a.firebaseio.com",
     "storageBucket": "app-framework-9045a.appspot.com",
+    "projectId": "",
     "allowEmailLogin": true,
     "allowEmailRegistration": true
   },
   "devFirebase": {
     "deployDevRulesOnTesting": false,
-    "apiKey": "",
+    "apiKey": "AIzaSyBL0Xxsc-jFZ2BnmQV08T4O9B56HJVpwXk",
     "authDomain": "dev-app-framework.firebaseapp.com",
     "databaseURL": "https://dev-app-framework.firebaseio.com",
     "storageBucket": "dev-app-framework.appspot.com",
+    "projectId": "",
     "allowEmailLogin": true,
-    "allowEmailRegistration": true
+    "allowEmailRegistration": false
   },
   "appStoreId": "de.scriptpilot.app-framework",
   "playStoreId": "de.scriptpilot.appframework",

@@ -3,13 +3,41 @@
     "type": "string",
     "default": "My App"
   },
-  "defaultLanguage": {
-    "regexp": "/^([a-z]{2})$/",
+  "language": {
+    "regexp": "/^[a-z]{2}$/",
     "default": "en"
   },
   "theme": {
     "allow": ["ios", "material", "ios-material", "material-ios"],
-    "default": "ios"
+    "default": "material"
+  },
+  "color": {
+    "regexp": "/^[a-z]+$/",
+    "default": "indigo"
+  },
+  "layout": {
+    "allow": ["default", "white", "dark"],
+    "default": "default"
+  },
+  "statusbarVisibility": {
+    "type": "boolean",
+    "default": true
+  },
+  "statusbarTextColor": {
+    "allow": ["black", "white"],
+    "default": "white"
+  },
+  "statusbarBackgroundColor": {
+    "regexp": "/^#[0-9a-f]{6}$/i",
+    "default": "#000000"
+  },
+  "changeStatusbarBackgroundColorOnThemeColorChange": {
+    "type": "boolean",
+    "default": true
+  },
+  "iconBackgroundColor": {
+    "regexp": "/^#[0-9a-f]{6}$/i",
+    "default": "#ffffff"
   },
   "useIconFonts": {
     "props": {
@@ -31,21 +59,13 @@
       }
     }
   },
-  "iconBackgroundColor": {
-    "regexp": "/^#([0-9a-f]{6})$/i",
-    "default": "#ffffff"
+  "limitApplicationWidth": {
+    "regexp": "/^[0-9]+$/",
+    "default": 375
   },
-  "statusbarBackgroundColor": {
-    "regexp": "/^#([0-9a-f]{6})$/i",
-    "default": "#000000"
-  },
-  "statusbarTextColor": {
-    "allow": ["black", "white"],
-    "default": "white"
-  },
-  "statusbarVisibility": {
-    "allow": ["visible", "hidden"],
-    "default": "visible"
+  "limitApplicationHeight": {
+    "regexp": "/^[0-9]+$/",
+    "default": 675
   },
   "showPhoneFrameOnDesktop": {
     "type": "boolean",
@@ -59,13 +79,6 @@
     "type": "boolean",
     "default": true
   },
-  "specialRoutes": {
-    "type": "object",
-    "default": {}
-  },
-  "pagesWithRequiredLogin": {
-    "type": "array"
-  },
   "firebase": {
     "props": {
       "apiKey": {
@@ -78,6 +91,9 @@
         "type": "string"
       },
       "storageBucket": {
+        "type": "string"
+      },
+      "projectId": {
         "type": "string"
       },
       "allowEmailLogin": {
@@ -106,6 +122,9 @@
         "type": "string"
       },
       "storageBucket": {
+        "type": "string"
+      },
+      "projectId": {
         "type": "string"
       },
       "allowEmailLogin": {
@@ -148,7 +167,7 @@
     "default": true
   },
   "devServerPort": {
-    "regexp": "/^([0-9]{4})$/",
+    "regexp": "/^[0-9]{4}$/",
     "default": "8080"
   }
 }

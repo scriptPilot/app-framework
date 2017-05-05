@@ -697,7 +697,8 @@
   },
   {
     "path": "/firebase-private/",
-    "component": "firebase-private.vue"
+    "component": "firebase-private.vue",
+    "login": true
   },
   {
     "path": "/firebase-public/",
@@ -708,20 +709,12 @@
     "component": "flexible-routing.vue"
   },
   {
-    "path": "/form/",
-    "component": "form.vue"
+    "path": "/flexible-routing/blog/:blogId/post/:postId/",
+    "component": "flexible-routing.vue"
   },
   {
     "path": "/home/",
     "component": "home.vue"
-  },
-  {
-    "path": "/image/",
-    "component": "image.vue"
-  },
-  {
-    "path": "/login-screen/",
-    "component": "login-screen.vue"
   },
   {
     "path": "/multiple-languages/",
@@ -738,10 +731,6 @@
   {
     "path": "/popup/",
     "component": "popup.vue"
-  },
-  {
-    "path": "/simple-page/",
-    "component": "simple-page.vue"
   },
   {
     "path": "/simple-todo/",

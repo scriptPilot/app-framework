@@ -4,7 +4,9 @@
   <f7-page>
 
     <!-- Navbar -->
-    <f7-navbar sliding :title="$root.config.title" />
+    <f7-navbar sliding :title="$root.config.title">
+      <f7-nav-right v-if="$root.user"><f7-link icon-material="person" href="/app-framework-login-screen/" /></f7-nav-right>
+    </f7-navbar>
 
     <!-- Installation notice -->
     <f7-block inner inset style="text-align: center" v-if="$root.appMode==='mobile'">
@@ -34,11 +36,12 @@
       <f7-list-item :title="text.showStatusbar" media="<i class='f7-icons'>delete</i>" v-if="$root.appMode==='native'">
         <div slot="after">
           <label class="label-switch">
-            <input type='checkbox' :checked="$root.statusbarVisibility==='visible'" @change="$root.statusbarVisibility=$event.target.checked===true?'visible':'hidden'">
+            <input type='checkbox' :checked="$root.statusbarVisibility" @change="$root.statusbarVisibility=$event.target.checked">
             <div class='checkbox'></div>
           </label>
         </div>
       </f7-list-item>
+      <f7-list-item :title="text.changeStatusbarTextColor" @click="$root.statusbarTextColor=$root.statusbarTextColor==='white'?'black':'white'" v-if="$root.$f7.device.ios && $root.appMode === 'native' && $root.statusbarVisibility" link="#" media="<i class='f7-icons'>delete</i>" />
     </f7-list>
 
     <!-- Demonstration -->
@@ -49,15 +52,14 @@
       <f7-list-item link="/state-restoration/" title="App State Restoration" media="<i class='f7-icons'>refresh</i>" />
       <!--
       <f7-list-item link="/" title="Realtime Database" :media="'<img src=\'' + images.firebase + '\' width=\'29\' />'" />
-      <f7-list-item link="/" title="Responsive Charts" media="<i class='f7-icons'>graph_round_fill</i>" />
-      <f7-list-item link="/" title="Flexible Routing" media="<i class='f7-icons'>forward</i>" />
-      -->
+      <f7-list-item link="/" title="Responsive Charts" media="<i class='f7-icons'>graph_round_fill</i>" />-->
+      <f7-list-item link="/flexible-routing/blog/123/post/456/?display=summary#gotoend" :title="text.flexibleRouting" media="<i class='f7-icons'>forward</i>" />
     </f7-list>
 
     <!-- Link to GitHub repository -->
     <f7-block style="text-align: center">
       <f7-link href="https://github.com/scriptPilot/app-framework" external>
-        <f7-icon fa="github" size="20"></f7-icon>&nbsp;&nbsp;App Framework - v{{$root.frameworkVersion}}
+        <f7-icon fa="github" size="20"></f7-icon>&nbsp;&nbsp;App Framework - v{{$root.framework.version}}
       </f7-link>
     </f7-block>
 
@@ -75,9 +77,11 @@
       selectTheme: 'Select Theme',
       selectColors: 'Select Colors',
       showStatusbar: 'Show statusbar',
+      changeStatusbarTextColor: 'Change text color',
       configuration: 'Configuration',
       demonstration: 'Demonstration',
-      uiComponents: 'UI Components'
+      uiComponents: 'UI Components',
+      flexibleRouting: 'Flexible Routing'
     },
     de: {
       selectLanguage: 'Sprache auswählen',
@@ -86,9 +90,11 @@
       selectTheme: 'Thema auswählen',
       selectColors: 'Farben auswählen',
       showStatusbar: 'Statusleiste anzeigen',
+      changeStatusbarTextColor: 'Textfarbe ändern',
       configuration: 'Konfiguration',
-      demonstration: 'Demonstration',
-      uiComponents: 'UI-Komponenten'
+      demonstration: 'Demonstration (englisch)',
+      uiComponents: 'UI-Komponenten',
+      flexibleRouting: 'Flexibles Routing'
     }
   }
 

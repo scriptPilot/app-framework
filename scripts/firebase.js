@@ -30,9 +30,25 @@ if (env.arg.version === 'dev' && env.cfg.devFirebase.deployDevRulesOnTesting !==
 // Define configuration
 let cfg = env.arg.version === 'dev' ? env.cfg.devFirebase : env.cfg.firebase
 
+// Get project ID
+let projectID = null
+if (cfg.projectId !== '') {
+  projectID = cfg.projectId
+} else if (cfg.authDomain.match(/^(.+)\.firebaseapp\.com$/) !== null) {
+  projectID = cfg.authDomain.match(/^(.+)\.firebaseapp\.com$/)[1]
+} else if (cfg.databaseURL.match(/^https:\/\/(.+)\.firebaseio\.com$/) !== null) {
+  projectID = cfg.databaseURL.match(/^https:\/\/(.+)\.firebaseio\.com$/)[1]
+} else if (cfg.storageBucket.match(/^(.+)\.appspot\.com$/) !== null) {
+  projectID = cfg.storageBucket.match(/^(.+)\.appspot\.com$/)[1]
+}
+
 // Check configuration
-if (cfg.storageBucket === '' || cfg.authDomain === '') {
-  alert((env.arg.version === 'dev' ? 'Dev-' : '') + 'Firebase configuration must be set for storageBucket and authDomain.', 'error')
+if (env.arg.hosting === true && projectID === null) {
+  alert((env.arg.version === 'dev' ? 'dev' : '') + 'Firebase configuration must be set for projectId to deploy static files.', 'error')
+} else if (env.arg.database === true && cfg.databaseURL === '') {
+  alert((env.arg.version === 'dev' ? 'dev' : '') + 'Firebase configuration must be set for databaseURL to deploy database rules.', 'error')
+} else if (env.arg.storage === true && cfg.storageBucket === '') {
+  alert((env.arg.version === 'dev' ? 'dev' : '') + 'Firebase configuration must be set for storageBucket to deploy storage rules.', 'error')
 }
 
 // Run
@@ -103,7 +119,7 @@ let updateConfigFiles = (callback) => {
     // Create/update .firebaserc file
     let rc = {
       projects: {
-        'default': cfg.authDomain.substr(0, cfg.authDomain.indexOf('.firebaseapp.com'))
+        'default': projectID
       }
     }
     fs.writeJsonSync(abs(binFolder, '.firebaserc'), rc)

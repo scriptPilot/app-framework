@@ -40,6 +40,13 @@ if (env.arg.ios === true || env.arg.xcode === true) {
   alert('Cordova argument missing.', 'issue')
 }
 
+// Check store id
+if ((env.arg.ios === true || env.arg.xcode === true) && env.cfg.appStoreId === '') {
+  alert('You must configure the appStoreId before.', 'error')
+} else if ((env.arg.android === true || env.arg.studio === true) && env.cfg.playStoreId === '') {
+  alert('You must configure the playStoreId before.', 'error')
+}
+
 // Define Cordova bin directory
 let binDir = abs(env.proj, 'node_modules/cordova/bin')
 
@@ -270,15 +277,6 @@ let updateCordovaConfig = function (callback) {
       }
     }
   ]
-  // Preferences
-  config.preference = [
-    {
-      $: {
-        name: 'StatusBarStyle',
-        value: env.cfg.statusbarTextColor === 'white' ? 'lightcontent' : 'default'
-      }
-    }
-  ]
   // Update config files
   let builder = new xml.Builder({rootName: 'widget', xmldec: {version: '1.0', encoding: 'utf-8'}})
   let xmlContent = builder.buildObject(config)
@@ -390,6 +388,7 @@ deployDevRules(function () {
           updateWwwFolder(function () {
             installCordovaPlugins(function () {
               addCordovaPlatforms(function () {
+                /*
                 if (env.arg.ios === true) {
                   alert('iOS simulator start ongoing - please wait ...')
                   cmd(binDir, 'cordova emulate ios', function () {
@@ -406,6 +405,13 @@ deployDevRules(function () {
                     alert('Android emulator started.')
                   })
                 } else if (env.arg.studio === true) {
+                */
+                if (env.arg.ios === true || env.arg.xcode === true) {
+                  alert('Xcode start ongoing - please wait ...')
+                  cmd(__dirname, 'open -a Xcode "' + abs(binDir, 'platforms/ios', env.cfg.title + '.xcodeproj') + '"', function () {
+                    alert('Xcode started.')
+                  })
+                } else if (env.arg.android === true || env.arg.studio === true) {
                   alert('Android Studio start ongoing - please wait ...')
                   if (env.os === 'win') {
                     let possibleInstallations = [

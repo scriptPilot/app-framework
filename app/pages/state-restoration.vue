@@ -92,14 +92,15 @@
     </f7-block>
 
     <!-- Form inputs and focus -->
-    <f7-list form id="state-restoration" inset>
+    <f7-list form inset>
       <f7-list-item>
         <f7-label>Text input</f7-label>
-        <f7-input type="text" name="textInput" placeholder="Some text ..." />
+        <f7-input type="text" placeholder="Some text ..." v-model="text" />
       </f7-list-item>
       <f7-list-item>
         <f7-label>Select</f7-label>
-        <f7-input name="selectInput" type="select">
+        <f7-input type="select" v-model="select">
+          <option value=""></option>
           <option value="first">First value</option>
           <option value="second">Second value</option>
           <option value="third">Third value</option>
@@ -109,3 +110,13 @@
 
   </f7-page>
 </template>
+<script>
+  export default {
+    data: function () {
+      return {
+        text: '',
+        select: ''
+      }
+    }
+  }
+</script>

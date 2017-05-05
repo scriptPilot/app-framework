@@ -32,7 +32,7 @@ cmd(f7VueFolder, 'npm run build', function () {
     fs.emptyDirSync(abs(env.proj, 'vendor/Framework7-Vue'))
     /* fs.emptyDirSync(abs(env.app, 'pages/f7vue')) */
     // Copy file
-    fs.copySync(abs(f7VueFolder, 'dist/framework7-vue.min.js'), abs(env.proj, 'vendor/Framework7-Vue/framework7-vue.min.js'))
+    fs.copySync(abs(f7VueFolder, 'dist/framework7-vue.js'), abs(env.proj, 'vendor/Framework7-Vue/framework7-vue.js'))
     /* fs.copySync(abs(f7VueFolder, 'kitchen-sink/pages'), abs(env.app, 'pages/f7vue'))
     // Rename files (to be in line with automatic routing)
     let rename = [

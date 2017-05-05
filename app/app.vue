@@ -58,16 +58,6 @@
         actionsOpened: false
       }
     },
-    computed: {
-      themeColor: function () {
-        return this.$root.color
-      }
-    },
-    watch: {
-      themeColor: function (newColor) {
-        this.$root.statusbarBackgroundColor = this.$root.theme === 'material' ? this.$root.colors[this.$root.theme][newColor] : this.$root.config.statusbarBackgroundColor
-      }
-    },
     methods: {
       onF7Init: function () {
         if (this.$root.theme === 'ios') {
@@ -75,7 +65,7 @@
         } else {
           materialKitchenSinkCode(this.$root)
         }
-        this.$$(document).on('page:beforeinit', function (e) {
+        this.$$(document).on('page:beforeinit', e => {
           if (e.detail.page.url && e.detail.page.url.indexOf('f7ios/index') > -1) {
             this.$$('.popup, .popover, .login-screen, .picker-modal').remove()
             this.$$('#app').append(iosKitchenSinkHtml)
@@ -83,9 +73,6 @@
             this.$$('.popup, .popover, .login-screen, .picker-modal').remove()
             this.$$('#app').append(materialKitchenSinkHtml)
           }
-        }.bind(this))
-        window.Dom7('.ks-color-theme').on('click', function () {
-          window.Dom7('.statusbar-overlay').css('background-color', '')
         })
       }
     }
