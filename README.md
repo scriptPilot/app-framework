@@ -40,14 +40,14 @@ For your workflow:
 
 Upcoming:
 
-- [ ] [1.4 - Client code robustness improvements](https://github.com/scriptPilot/app-framework/milestone/7)
 - [ ] 1.5 - Demo App robustness improvements
 - [ ] 1.6 - Tutorial: ToDo App
 - [ ] 1.7 - Extensions
 - [ ] 1.8 - GUI helper tool
 
-Closed:
+Reached:
 
+- [x] [1.4 - Client code robustness improvements](https://github.com/scriptPilot/app-framework/milestone/7?closed=1) (2017-05-05)
 - [x] [1.3 - CLI robustness improvements](https://github.com/scriptPilot/app-framework/milestone/6?closed=1) (2017-03-19)
 - [x] [1.2 - Google Play Store deployment](https://github.com/scriptPilot/app-framework/milestone/5?closed=1) (2017-02-12)
 - [x] [1.1 - Apple App Store deployment](https://github.com/scriptPilot/app-framework/milestone/4?closed=1) (2017-02-10)
