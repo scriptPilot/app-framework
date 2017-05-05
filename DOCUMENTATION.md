@@ -18,7 +18,7 @@
     - [ ] [Cordova plugins](#cordova-plugins)
     - [ ] [Import modules](#import-modules)
     - [ ] [Use images](#use-images)
-    - [ ] [State restoration](#state-restoration)
+    - [State restoration](#state-restoration)
   - [ ] [Test your application](#test-your-application)
   - [ ] [Build your application](#build-your-application)
   - [ ] [Deploy your application](#deploy-your-application)
@@ -354,6 +354,49 @@ devFirebase: {
 ```
 
 If you set `deployDevRulesOnTesting: true`, on each test command (`npm run dev`, `npm run ios` and `npm run android`), the *database-rules.json* and *storage-rules.txt* files are deployed to your devFirebase project.
+
+#### State restoration
+
+After an application switch or closure, the application state may be reset. This means, if your user changed the page or tab, scrolled, opened modals, put in some data before - everything will be gone.
+
+App Framework has an automatic state restoration on each application restart, to let your users continue with the same application state they have had before they left the application.
+
+This restoration includes the following elements:
+
+- URL history per view
+- Selected tabs (requires unique ID attribute per page)
+- Scroll positions
+- Side panels
+- Action sheets (requires unique ID attribute)
+- Login screens (requires unique ID attribute)
+- Pickers (requires unique ID attribute)
+- Popups (requires unique ID attribute)
+- Focus on form input (requires unique NAME attributes per form)
+
+The state is not restored for standard modals, popovers and code-generated modals.
+
+In addition, all page component data will be restored. You should use `v-model` to restore form inputs selectively. Example:
+
+```
+<template>
+  ...
+  <f7-block>{{title}}</f7-block>
+  <f7-input type="text" v-model="someTextInput" />
+  <f7-input type="password" />
+  ...
+</template>
+<script>
+  export default {
+    data: function () {
+      return {
+        title: 'Some title, changed by any later code',
+        someTextInput: ''
+      }
+    }
+  }
+```
+
+I the example above, the text title and input value are restored after application refresh.
 
 ### Build your application
 
