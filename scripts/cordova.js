@@ -406,7 +406,7 @@ deployDevRules(function () {
                   })
                 } else if (env.arg.studio === true) {
                 */
-                if (env.arg.ios === true || env.arg.xcode === true) {
+                if (env.arg.ios === true || env.arg.xcode === true) {
                   alert('Xcode start ongoing - please wait ...')
                   cmd(__dirname, 'open -a Xcode "' + abs(binDir, 'platforms/ios', env.cfg.title + '.xcodeproj') + '"', function () {
                     alert('Xcode started.')
