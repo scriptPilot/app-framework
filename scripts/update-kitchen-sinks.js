@@ -125,6 +125,8 @@ function proceedFolder (sourceFolder, destinationFolder, callback) {
                       jsFile = jsFile.replace('img/lock.jpg', 'http://lorempixel.com/500/500/nature/2/')
                       jsFile = jsFile.replace('img/monkey.jpg', 'http://lorempixel.com/500/500/nature/3/')
                       jsFile = jsFile.replace('img/mountains.jpg', 'http://lorempixel.com/500/500/nature/4/')
+                      // Workaround: #400 - UI components - Infinite scroll does not work
+                      jsFile = jsFile.replace("$$.get('infinite-scroll-load.php',", "function loadInifinitList(params, callback) {myApp.showIndicator(); setTimeout(function () {let data = ''; for (let n = params.leftIndex; n < params.leftIndex + 20; n++) {data += '<li class=item-content><div class=item-inner><div class=item-title>Item ' + n + '</div></div></li>'}; callback(data); myApp.hideIndicator(); }, 1000) }; loadInifinitList(")
                       // Wrap JS file
                       jsFile = '/* eslint-disable */\n' +
                                'module.exports = function (vueApp) {\n' +

@@ -369,7 +369,18 @@ module.exports = function(vueApp) {
       // Set loading trigger
       loading = true;
       // Request some file with data
-      $$.get('infinite-scroll-load.php', {
+      function loadInifinitList(params, callback) {
+        myApp.showIndicator();
+        setTimeout(function() {
+          let data = '';
+          for (let n = params.leftIndex; n < params.leftIndex + 20; n++) {
+            data += '<li class=item-content><div class=item-inner><div class=item-title>Item ' + n + '</div></div></li>'
+          };
+          callback(data);
+          myApp.hideIndicator();
+        }, 1000)
+      };
+      loadInifinitList({
         leftIndex: lastLoadedIndex + 1
       }, function(data) {
         loading = false;
