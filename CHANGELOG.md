@@ -11,6 +11,7 @@
 - [#402 - UI components - Lazy images: One image is black](https://github.com/scriptPilot/app-framework/issues/402)
 - [#403 - UI components - Overlay login: No way to close it](https://github.com/scriptPilot/app-framework/issues/403)
 - [#406 - UI components - Scrollable tabbar does not work](https://github.com/scriptPilot/app-framework/issues/406)
+- [#496 - Console error on dynamic page load (view.history undefined)](https://github.com/scriptPilot/app-framework/issues/496)
 
 ### Improvements
 
