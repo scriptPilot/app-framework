@@ -2,8 +2,6 @@
 
 ## Version 1.4.23 (released on 2017-05-08)
 
-### New features
-
 ### Bug-fixes
 
 - [#110 - Public list has sometimes trouble with multiple access the same time](https://github.com/scriptPilot/app-framework/issues/110)
