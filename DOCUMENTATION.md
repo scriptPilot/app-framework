@@ -15,6 +15,7 @@
     - [x] [Status bar style](#status-bar-style)
     - [x] [Global data object](#global-data-object)
     - [x] [Firebase backend](#firebase-backend)
+    - [ ] [sortObject helper function](#sortobject-helper-function)
     - [ ] [Cordova plugins](#cordova-plugins)
     - [ ] [Import modules](#import-modules)
     - [ ] [Use images](#use-images)
