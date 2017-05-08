@@ -118,6 +118,11 @@ function proceedFolder (sourceFolder, destinationFolder, callback) {
                       // Workaround: #403: UI components - Overlay login: No way to close it
                       jsFile = jsFile.replace("$$('.login-screen').find('.list-button').on('click',", "$$$$(document).on('click', '.login-screen .list-button',")
                       jsFile = jsFile.replace("$$('.login-screen').find('.button').on('click',", "$$$$(document).on('click', '.login-screen .button',")
+                      // Workaround: #401: UI components - Most photos not shown in photo browser
+                      jsFile = jsFile.replace('img/beach.jpg', 'http://lorempixel.com/500/500/nature/1/')
+                      jsFile = jsFile.replace('img/lock.jpg', 'http://lorempixel.com/500/500/nature/2/')
+                      jsFile = jsFile.replace('img/monkey.jpg', 'http://lorempixel.com/500/500/nature/3/')
+                      jsFile = jsFile.replace('img/mountains.jpg', 'http://lorempixel.com/500/500/nature/4/')
                       // Wrap JS file
                       jsFile = '/* eslint-disable */\n' +
                                'module.exports = function (vueApp) {\n' +

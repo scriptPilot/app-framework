@@ -287,17 +287,17 @@ module.exports = function(vueApp) {
   /* ===== Photo Browser Examples ===== */
   // Create photoprobsers first:
   var photoBrowserPhotos = [{
-      url: 'img/beach.jpg',
+      url: 'http://lorempixel.com/500/500/nature/1/',
       caption: 'Amazing beach in Goa, India'
     },
     'http://placekitten.com/1024/1024',
-    'img/lock.jpg',
+    'http://lorempixel.com/500/500/nature/2/',
     {
-      url: 'img/monkey.jpg',
+      url: 'http://lorempixel.com/500/500/nature/3/',
       caption: 'I met this monkey in Chinese mountains'
     },
     {
-      url: 'img/mountains.jpg',
+      url: 'http://lorempixel.com/500/500/nature/4/',
       caption: 'Beautiful mountains in Zhangjiajie, China'
     }
 
