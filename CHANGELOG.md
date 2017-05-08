@@ -1,8 +1,6 @@
 # Changelog
 
-## Next
-
-### New features
+## Version 1.4.4 (released on 2017-05-08)
 
 ### Bug-fixes
 
