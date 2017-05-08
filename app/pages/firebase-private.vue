@@ -3,22 +3,22 @@
 
 <template>
   <f7-page>
-  
+
     <!-- Navbar and backlink -->
     <f7-navbar title="Private Firebase Storage" back-link="Back" sliding></f7-navbar>
-    
+
     <!-- Description box -->
     <f7-block inset style="text-align: center">
       <p>Enter some notes, upload a photo, login from multiple devices and see how everything is synchronized in real time.</p>
     </f7-block>
-    
+
     <!-- Private notes textfield -->
     <f7-list form inset>
       <f7-list-item>
         <f7-input v-model="notes" name="notes" type="textarea" placeholder="Your private Notes ..."></f7-input>
       </f7-list-item>
     </f7-list>
-    
+
     <!-- Private photo selection -->
     <f7-list inset>
       <f7-list-item>
@@ -26,18 +26,18 @@
       </f7-list-item>
       <f7-list-button @click="uploadPhoto">Upload photo</f7-list-button>
     </f7-list>
-    
+
     <!-- Private photo display -->
     <f7-block inset v-if="photo">
       <img :src="photo" width="100%" />
     </f7-block>
-    
-  </f7-page>  
+
+  </f7-page>
 </template>
 <script>
 
   module.exports = {
-  
+
     // Define intial data as a function
     data: function () {
       return {
@@ -45,7 +45,7 @@
         photo: null
       }
     },
-  
+
     // Upload photo
     methods: {
       uploadPhoto: function (e) {
@@ -89,7 +89,7 @@
         }
       }
     },
-  
+
     // Attach data change listener to firebase
     mounted: function () {
       window.db('privateData/' + window.user.uid).on('value', function (snapshot) {
@@ -100,7 +100,7 @@
         }
       }.bind(this))
     },
-  
+
     // Save notes after change immediately
     watch: {
       notes: function () {
@@ -111,7 +111,7 @@
           }.bind(this))
       }
     }
-  
+
   }
-  
+
 </script>

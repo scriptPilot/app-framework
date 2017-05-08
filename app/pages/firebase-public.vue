@@ -1,24 +1,21 @@
-<!-- Example todo list to demonstrate the way of working with the Firebase realtime database service -->
 
 <template>
   <f7-page>
-  
-    <!-- Navbar and backlink -->
-    <f7-navbar title="Public Firebase ToDo" back-link="Back" sliding></f7-navbar>
-    
+
+    <!-- Navbar -->
+    <f7-navbar title="Realtime Database" back-link="Back" sliding />
+
     <!-- Description box -->
-    <f7-block inner inset style="text-align: center">
-      <p>Open this page from multiple devices. This public task list is synchronized in real time and shows newest {{maxEntries}} tasks.</p>
-    </f7-block>
-    
-    <!-- Input field for new todo -->    
-    <f7-list>    
+    <f7-block>Open this page from multiple devices. This public task list is synchronized in real time and shows newest {{maxEntries}} tasks.</f7-block>
+
+    <!-- Input field for new todo -->
+    <f7-list>
       <f7-list-item>
         <div slot="inner-start"><f7-input type="text" placeholder="What is to do?" v-model="newTodo" @keydown.13="saveTodo"></f7-input></div>
         <span slot="after" v-show="newTodo"><f7-link @click="saveTodo">Save</f7-link></span>
-      </f7-list-item>      
+      </f7-list-item>
     </f7-list>
-    
+
     <!-- Task list -->
     <f7-list v-if="todos">
       <f7-list-item swipeout
@@ -34,43 +31,70 @@
         </f7-swipeout-actions>
       </f7-list-item>
     </f7-list>
-    
+
     <!-- Instruction how to complete todos -->
     <f7-block v-if="todos && completedTodos == 0">
       <p style="text-align: center">Swipe todo to the right complete it</p>
     </f7-block>
-    
+
     <!-- Link to delete all completed todos -->
     <f7-block inset v-if="completedTodos > 0" style="text-align: center">
       <f7-link @click="deleteCompleted">Delete all completed todos</f7-link>
     </f7-block>
-    
+
     <!-- Message if there are no todos -->
     <f7-block inner inset v-if="!todos">
       <p style="text-align: center"><f7-icon fa="smile-o"></f7-icon> &nbsp;Nothing to do</p>
     </f7-block>
-    
-  </f7-page>  
+
+  </f7-page>
 </template>
 <script>
 
   /*
-  
+
      You can use the following Firebase shortlinks:
-  
+
      - "window.user" as object with user data (uid, email) or null
      - "window.db()" as shortlink to "window.firebase.database().ref()"
      - "window.store()" as shortlink to "window.firebase.database().storage()"
      - "window.timestamp" as shortlink to "window.firebase.database.ServerValue.TIMESTAMP"
-  
+
      You can use the following functions:
-  
+
      - window.sortObject([Object]object, [String]sortByKey, [Boolean, optional, default=false]descendingOrder)
-  
+
   */
 
+  import fromPairs from 'lodash/fromPairs'
+  import orderBy from 'lodash/orderBy'
+  import toPairs from 'lodash/toPairs'
+
+  // window.snapshot('created', 'desc')
+
+  window.snapshot('publicData/todos', 'created desc', 10, val => {
+
+  })
+
+  window.snapshot('publicData/todos', val => {
+    /*
+      val = [
+        {_key: '-xyz890', created: 123, title: 'text 123', users: [])
+      ]
+    */
+
+/*
+
+publicData: [
+  {todos: }
+]
+
+*/
+
+  })
+
   module.exports = {
-  
+
     // Define intial data as a function
     data: function () {
       return {
@@ -79,14 +103,14 @@
         maxEntries: 10
       }
     },
-  
+
     // Attach data change listener to firebase todo list
     mounted: function () {
       window.db('publicData/todos').orderByChild('created').limitToLast(this.maxEntries).on('value', function (snapshot) {
-        this.todos = window.sortObject(snapshot.val(), 'created', true)
+        this.todos = fromPairs(orderBy(toPairs(snapshot.val()), 'created', 'desc'))
       }.bind(this))
     },
-  
+
     // Compute number of completed todos
     computed: {
       completedTodos: function () {
@@ -99,10 +123,10 @@
         return completed
       }
     },
-  
+
     // Methods - With error handling
     methods: {
-  
+
       // Save new todo
       saveTodo: function (e) {
         if (this.newTodo !== '') {
@@ -113,7 +137,7 @@
               this.$f7.showIndicator()
             }
           }.bind(this), 1000)
-  
+
           window.db('publicData/todos')
             .push({
               text: this.newTodo,
@@ -132,16 +156,17 @@
             }.bind(this))
         }
       },
-  
+
       // Mark todo as completed / not completed
       toggleTodo: function (key) {
+        console.log('toggle: ' + key)
         window.db('publicData/todos/' + key + '/completed')
           .set(!this.todos[key].completed)
           .catch(function () {
             this.$f7.alert('Cannot update task :-(<br />Please try again later', 'Trouble with Firebase')
           }.bind(this))
       },
-  
+
       // Delete todo
       deleteCompleted: function () {
         let deletes = {}
@@ -156,9 +181,14 @@
               this.$f7.alert('Cannot delete task' + (this.completedTodos > 1 ? 's' : '') + ' :-(<br />Please try again later', 'Trouble with Firebase')
             }.bind(this))
       }
-  
+
     }
-  
+
   }
-  
+
 </script>
+<style scoped>
+  .swipeout-actions-left .fa {
+    color: #ffffff;
+  }
+</style>
