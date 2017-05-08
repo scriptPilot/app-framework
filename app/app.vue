@@ -92,8 +92,6 @@
     font-size: 29px;
     height: 29px;
     text-align: center;
-  }
-  .item-media i.f7-icons {
     color: gray;
   }
 </style>
