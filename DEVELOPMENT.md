@@ -38,6 +38,7 @@
   - Documentation
     - Update documentation
     - Update readme file
+    - Update change log
     - Commit changes with issue reference
 - [ ] Build release according milestone planning
 - [ ] Publish to NPM
