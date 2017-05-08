@@ -21,7 +21,8 @@
       <f7-list-item swipeout
         v-for="(todo, key) in todos"
         :title="(todo.completed ? '<span style=\'text-decoration: line-through\' class=\'color-gray\'>' : '') + todo.text + (todo.completed ? '</span>' : '')"
-        :media="'<i class=\'fa fa-' + (todo.completed ? 'check-circle color-green' : 'circle-thin color-gray') + '\'></i>'">
+        :media="'<i class=\'fa fa-' + (todo.completed ? 'check-circle color-green' : 'circle-thin color-gray') + '\'></i>'"
+        :key="key">
         <f7-swipeout-actions left>
           <f7-swipeout-button overswipe close
             :color="(todo.completed ? 'grey' : 'green')"
