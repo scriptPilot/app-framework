@@ -526,8 +526,8 @@ useIconFonts | *object* |
 &nbsp;&nbsp;&nbsp;material | *boolean* | false
 &nbsp;&nbsp;&nbsp;ion | *boolean* | false
 &nbsp;&nbsp;&nbsp;fontawesome | *boolean* | false
-limitApplicationWidth | /^[0-9]+$/ | 375
-limitApplicationHeight | /^[0-9]+$/ | 675
+limitApplicationWidth | /^[0-9]+$/ | 320
+limitApplicationHeight | /^[0-9]+$/ | 570
 showPhoneFrameOnDesktop | *boolean* | true
 materialSubnavbarFix | *boolean* | true
 completeRoutesFile | *boolean* | true
