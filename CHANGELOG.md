@@ -7,6 +7,7 @@
 ### Bug-fixes
 
 - [#387 - Calendar timeline is not scrollable](https://github.com/scriptPilot/app-framework/issues/387)
+- [#402 - UI components - Lazy images: One image is black](https://github.com/scriptPilot/app-framework/issues/402)
 - [#403 - UI components - Overlay login: No way to close it](https://github.com/scriptPilot/app-framework/issues/403)
 - [#406 - UI components - Scrollable tabbar does not work](https://github.com/scriptPilot/app-framework/issues/406)
 

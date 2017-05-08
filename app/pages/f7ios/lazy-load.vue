@@ -39,7 +39,7 @@
           <p> <img data-src="http://lorempixel.com/500/500/nature/8" width="1500" height="1500" class="lazy lazy-fadeIn ks-demo-lazy"></p>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tempus viverra lectus sit amet lobortis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Quisque faucibus consectetur mauris eget lobortis.
             Maecenas efficitur efficitur mauris ac vehicula. Sed ut lectus laoreet, semper nisi vel, maximus massa. Duis at lorem vitae sem auctor condimentum a at neque. Phasellus vel scelerisque dui. Morbi varius nibh eu finibus rutrum.</p>
-          <p> <img data-src="http://lorempixel.com/500/500/nature/9" width="1500" height="1500" class="lazy lazy-fadeIn ks-demo-lazy"></p>
+          <p> <img data-src="http://lorempixel.com/500/500/people/1/" width="1500" height="1500" class="lazy lazy-fadeIn ks-demo-lazy"></p>
           <p>Pellentesque aliquam maximus libero a tincidunt. Nunc rhoncus tellus ac congue commodo. Aenean malesuada ante sit amet erat efficitur vehicula ac id ipsum. Suspendisse sed purus vel nisl rhoncus feugiat et ut ante. Mauris vehicula ligula sed nisl
             vulputate, nec ullamcorper quam vehicula. Etiam eu turpis eget sem luctus rutrum at porta nulla. Ut posuere lorem et nisi faucibus molestie.</p>
           <p> <img data-src="http://lorempixel.com/500/500/nature/10" width="1500" height="1500" class="lazy lazy-fadeIn ks-demo-lazy"></p>

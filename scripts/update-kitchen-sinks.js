@@ -53,6 +53,8 @@ function proceedFolder (sourceFolder, destinationFolder, callback) {
                     let fileContent = fs.readFileSync(path.resolve(sourceFolder, htmlFiles[f]), 'utf8')
                     fileContent = fileContent.replace(/"([0-9a-z-]+)\.html"/g, '"/' + path.basename(destinationFolder) + '/$1/"')
                     fileContent = fileContent.replace(/href="(.+?)" class="back link(| icon-only)?"/g, 'class="back link$2"')
+                    // Workaround: #402 - UI components - Lazy images: One image is black
+                    fileContent = fileContent.replace(/http:\/\/lorempixel\.com\/500\/500\/nature\/9/g, 'http://lorempixel.com/500/500/people/1/')
                     $('body').html(fileContent)
                     if (htmlFiles[f] === 'index.html') {
                       $('.popup, .popover, .login-screen, .picker-modal').each(function (i, el) {
