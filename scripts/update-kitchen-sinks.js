@@ -113,6 +113,10 @@ function proceedFolder (sourceFolder, destinationFolder, callback) {
                       jsFile = jsFile.replace(/\$\$\('body'\)\.removeClass\(layouts\)\.addClass\('layout-' \+ \$\$\(this\)\.attr\('data-theme'\)\);/, 'vueApp.layout = $$$$(this).attr(\'data-theme\') || \'default\'')
                       jsFile = jsFile.replace(/\$\$\(page\.container\)\.find\('\.ks-color-theme'\)\.click\(function \(\) \{([\s\S.]+?)\}\);/, '$$$$(page.container).find(\'.ks-color-theme\').click(function () { vueApp.color = $$$$(this).attr(\'data-theme\'); });')
                       jsFile = jsFile.replace(/\$\$\(page\.container\)\.find\('\.ks-layout-theme'\)\.click\(function \(\) \{([\s\S.]+?)\}\);/, '$$$$(page.container).find(\'.ks-layout-theme\').click(function () { vueApp.layout = $$$$(this).attr(\'data-theme\') || \'default\' });')
+                      // Workaround: #403: UI components - Overlay login: No way to close it
+                      jsFile = jsFile.replace("$$('.login-screen').find('.list-button').on('click',", "$$$$(document).on('click', '.login-screen .list-button',")
+                      jsFile = jsFile.replace("$$('.login-screen').find('.button').on('click',", "$$$$(document).on('click', '.login-screen .button',")
+                      // Wrap JS file
                       jsFile = '/* eslint-disable */\n' +
                                'module.exports = function (vueApp) {\n' +
                                '  var myApp = window.f7;\n' +
