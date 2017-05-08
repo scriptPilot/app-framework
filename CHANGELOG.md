@@ -15,6 +15,7 @@
 - [#406 - UI components - Scrollable tabbar does not work](https://github.com/scriptPilot/app-framework/issues/406)
 - [#496 - Console error on dynamic page load (view.history undefined)](https://github.com/scriptPilot/app-framework/issues/496)
 - [#499 - JS files not compressed in 1.4.11](https://github.com/scriptPilot/app-framework/issues/499)
+- [#500 - window.sortObject not defined in 1.4.3](https://github.com/scriptPilot/app-framework/issues/500)
 
 ### Improvements
 
