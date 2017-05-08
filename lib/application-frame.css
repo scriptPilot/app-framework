@@ -54,18 +54,3 @@
   height: 10px;
   border-radius: 10px;
 }
-
-/* Scrollbars */
-.light-scrollbars div::-webkit-scrollbar {
-  width: 5px;
-}
-.light-scrollbars div::-webkit-scrollbar-thumb:vertical {
-  margin: 5px;
-  background-color: #999;
-  -webkit-border-radius: 5px;
-}
-.light-scrollbars div::-webkit-scrollbar-button:start:decrement,
-.light-scrollbars div::-webkit-scrollbar-button:end:increment {
-  height: 5px;
-  display: block;
-}
