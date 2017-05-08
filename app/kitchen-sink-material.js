@@ -372,8 +372,8 @@ module.exports = function(vueApp) {
       function loadInifinitList(params, callback) {
         myApp.showIndicator();
         setTimeout(function() {
-          let data = '';
-          for (let n = params.leftIndex; n < params.leftIndex + 20; n++) {
+          var data = '';
+          for (var n = params.leftIndex; n < params.leftIndex + 20; n++) {
             data += '<li class=item-content><div class=item-inner><div class=item-title>Item ' + n + '</div></div></li>'
           };
           callback(data);
