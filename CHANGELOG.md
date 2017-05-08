@@ -6,7 +6,12 @@
 
 ### Bug-fixes
 
+- [#406 - UI components - Scrollable tabbar does not work](https://github.com/scriptPilot/app-framework/issues/406)
+- [#387 - Calendar timeline is not scrollable](https://github.com/scriptPilot/app-framework/issues/387)
+
 ### Improvements
+
+- [#422 - Get rid of iNoBounce](https://github.com/scriptPilot/app-framework/issues/422)
 
 ## Version 1.4.4 (released on 2017-05-08)
 
