@@ -34,19 +34,6 @@ let prepareSetup = function (callback) {
   callback()
 }
 
-// Step: Update platform specific packages
-let updateModules = function (callback) {
-  if (env.os === 'mac') {
-    alert('iOS deployment package installation ongoing - please wait ...')
-    cmd(env.proj, 'npm update ios-deploy', function () {
-      alert('iOS deployment package installation done.')
-      callback()
-    })
-  } else {
-    callback()
-  }
-}
-
 // Step: Prune node folder
 let pruneModules = function (callback) {
   alert('Node modules folder clean-up ongoing - please wait ...')
@@ -162,20 +149,18 @@ let createSnapshot = function (callback) {
 createSnapshot(function () {
   cmd(__dirname, 'node modifications13', function () {
     cmd(__dirname, 'node modifications14', function () {
-      updateModules(function () {
-        pruneModules(function () {
-          removeCache(function () {
-            prepareSetup(function () {
-              setupAppFolder(function () {
-                setupProjectFolder(function () {
-                  updateScriptsAndVersion(function () {
-                    // Fix configuration
-                    let configFix = jsonScheme.fix(abs(__dirname, '../config-scheme.json'), abs(env.app, 'config.json'))
-                    if (Array.isArray(configFix)) {
-                      alert('Failed to fix config file.\nDetails:\n- ' + configFix.join('\n- '), 'issue', 'error')
-                    }
-                    alert('App Framework installation done.')
-                  })
+      pruneModules(function () {
+        removeCache(function () {
+          prepareSetup(function () {
+            setupAppFolder(function () {
+              setupProjectFolder(function () {
+                updateScriptsAndVersion(function () {
+                  // Fix configuration
+                  let configFix = jsonScheme.fix(abs(__dirname, '../config-scheme.json'), abs(env.app, 'config.json'))
+                  if (Array.isArray(configFix)) {
+                    alert('Failed to fix config file.\nDetails:\n- ' + configFix.join('\n- '), 'issue', 'error')
+                  }
+                  alert('App Framework installation done.')
                 })
               })
             })

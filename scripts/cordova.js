@@ -43,8 +43,12 @@ if (env.arg.ios === true || env.arg.xcode === true) {
 // Check store id
 if ((env.arg.ios === true || env.arg.xcode === true) && env.cfg.appStoreId === '') {
   alert('You must configure the appStoreId before.', 'error')
-} else if ((env.arg.android === true || env.arg.studio === true) && env.cfg.playStoreId === '') {
-  alert('You must configure the playStoreId before.', 'error')
+} else if (env.arg.android === true || env.arg.studio === true) {
+  if (env.cfg.playStoreId === '') {
+    alert('You must configure the playStoreId before.', 'error')
+  } else if (!/^[0-9a-zA-Zäöü_-]+\.[0-9a-zA-Zäöü_-]+\.[0-9a-zA-Zäöü_-]+$/.test(env.cfg.playStoreId)) {
+    alert('The configured playStoreId is not valid.', 'error')
+  }
 }
 
 // Define Cordova bin directory
@@ -123,7 +127,7 @@ let updateCordovaConfig = function (callback) {
   config = {
     '$': {
       'id': env.arg.ios === true || env.arg.xcode === true ? env.cfg.appStoreId : env.cfg.playStoreId,
-      'version': env.arg.version === 'dev' ? env.arg.version + '-' + (new Date().getTime()) : env.arg.version,
+      'version': env.arg.version === 'dev' ? env.pkg.version + '.' + Date.now() : env.arg.version,
       'xmlns': 'http://www.w3.org/ns/widgets',
       'xmlns:cdv': 'http://cordova.apache.org/ns/1.0'
     }
@@ -348,7 +352,7 @@ let addCordovaPlatforms = function (callback) {
   alert('Cordova platform installation ongoing - please wait ...')
   if (env.arg.ios === true || env.arg.xcode === true) {
     cmd(binDir, 'cordova platform add ios', function () {
-      alert('Cordova platform installation done for iOS.')
+      alert('Cordova platform installation done for Android.')
       callback()
     }, function () {
       alert('Cordova platform installation failed for iOS.', 'issue')
@@ -363,6 +367,8 @@ let addCordovaPlatforms = function (callback) {
           alert('Failed to create .idea folder for Cordova Android platform.', 'issue')
         }
       })
+      alert('Cordova platform installation done for Android.')
+      callback()
     }, function () {
       alert('Cordova platform installation failed for Android.', 'issue')
     })
@@ -388,7 +394,6 @@ deployDevRules(function () {
           updateWwwFolder(function () {
             installCordovaPlugins(function () {
               addCordovaPlatforms(function () {
-                /*
                 if (env.arg.ios === true) {
                   alert('iOS simulator start ongoing - please wait ...')
                   cmd(binDir, 'cordova emulate ios', function () {
@@ -400,18 +405,11 @@ deployDevRules(function () {
                     alert('Xcode started.')
                   })
                 } else if (env.arg.android === true) {
-                  alert('Android emulator start ongoing - please wait ...')
+                  alert('Android simulator start ongoing - please wait ...')
                   cmd(binDir, 'cordova emulate android', function () {
-                    alert('Android emulator started.')
+                    alert('Android simulator started.')
                   })
                 } else if (env.arg.studio === true) {
-                */
-                if (env.arg.ios === true || env.arg.xcode === true) {
-                  alert('Xcode start ongoing - please wait ...')
-                  cmd(__dirname, 'open -a Xcode "' + abs(binDir, 'platforms/ios', env.cfg.title + '.xcodeproj') + '"', function () {
-                    alert('Xcode started.')
-                  })
-                } else if (env.arg.android === true || env.arg.studio === true) {
                   alert('Android Studio start ongoing - please wait ...')
                   if (env.os === 'win') {
                     let possibleInstallations = [

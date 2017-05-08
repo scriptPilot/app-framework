@@ -71,7 +71,9 @@ To run the *App Framework* scripts and the development server, you need to insta
 
 ### Android Studio
 
-[Android Studio](https://developer.android.com/studio/index.html) is optional. You need it, if you want to publish your application to the Google Play Store. It is available free of charge for macOS, Windows and Linux.
+Android Studio is optional. You need it, if you want to publish your application to the Google Play Store. It is available free of charge for macOS, Windows and Linux.
+
+To ensure you install Android Studio and its SDK properly, please read the [official installation guide](https://developer.android.com/studio/install.html).
 
 ### GitHub Desktop
 
@@ -395,7 +397,7 @@ If you use `v-model` on an input, the state will be restored by page component d
 - Run `npm run dev` to start the development server in the web browser
   - `CTRL + C` to stop the development server
 - Run `npm run ios` to open an iOS simulator with a development build
-- Run `npm run android` to open an Android emulator with a development build
+- Run `npm run android` to open an Android simulator with a development build
 
   Confirm Gradle sync and removal of older application installations if asked.
 
@@ -569,8 +571,8 @@ This is an overview and reference, please see the [Workflow](#workflow) for deta
 - Testing
   - `npm run dev` to start the development server in the web browser
     - `CTRL + C` to stop the development server
-  - `npm run ios` to open Xcode with a development build
-  - `npm run android` to open Android Studio with a development build
+  - `npm run ios` to open an iOS simulator with a development build
+  - `npm run android` to open an Android simulator with a development build
 
 - Building
   - `npm run patch` to build after bug-fixes and improvements
