@@ -4,6 +4,7 @@
       <div class="navbar-inner">
         <div class="left"><a class="back link icon-only" href="#"><i class="icon icon-back"></i></a></div>
         <div class="center">Sortable List</div>
+        <div class="right"><a href="#" class="link toggle-sortable icon-only">Edit</a></div>
       </div>
     </div>
     <div class="page-content">

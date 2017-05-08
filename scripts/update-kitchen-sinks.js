@@ -79,7 +79,9 @@ function proceedFolder (sourceFolder, destinationFolder, callback) {
                         $('.navbar').remove()
                         $('.page').prepend($(navbar[0]).prop('outerHTML'))
                       }
-                      $('.navbar .right').remove()
+                      if (htmlFiles[f] !== 'sortable-list.html') {
+                        $('.navbar .right').remove()
+                      }
                       $('.page').addClass('kitchen-sink-' + theme)
                       $('a.back').attr('href', '#')
                       $('a.back span').html('Back')

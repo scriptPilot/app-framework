@@ -7,6 +7,7 @@
 ### Bug-fixes
 
 - [#387 - Calendar timeline is not scrollable](https://github.com/scriptPilot/app-framework/issues/387)
+- [#394 - UI components - Sortable list: Edit button not visible](https://github.com/scriptPilot/app-framework/issues/394)
 - [#401 - UI components - Most photos not shown in photo browser](https://github.com/scriptPilot/app-framework/issues/401)
 - [#402 - UI components - Lazy images: One image is black](https://github.com/scriptPilot/app-framework/issues/402)
 - [#403 - UI components - Overlay login: No way to close it](https://github.com/scriptPilot/app-framework/issues/403)
