@@ -66,33 +66,6 @@
 
   */
 
-  import fromPairs from 'lodash/fromPairs'
-  import orderBy from 'lodash/orderBy'
-  import toPairs from 'lodash/toPairs'
-
-  // window.snapshot('created', 'desc')
-
-  window.snapshot('publicData/todos', 'created desc', 10, val => {
-
-  })
-
-  window.snapshot('publicData/todos', val => {
-    /*
-      val = [
-        {_key: '-xyz890', created: 123, title: 'text 123', users: [])
-      ]
-    */
-
-/*
-
-publicData: [
-  {todos: }
-]
-
-*/
-
-  })
-
   module.exports = {
 
     // Define intial data as a function
@@ -106,9 +79,9 @@ publicData: [
 
     // Attach data change listener to firebase todo list
     mounted: function () {
-      window.db('publicData/todos').orderByChild('created').limitToLast(this.maxEntries).on('value', function (snapshot) {
-        this.todos = fromPairs(orderBy(toPairs(snapshot.val()), 'created', 'desc'))
-      }.bind(this))
+      window.db('publicData/todos').orderByChild('created').limitToLast(this.maxEntries).on('value', snapshot => {
+        this.todos = window.sortObject(snapshot.val(), 'created', 'desc')
+      })
     },
 
     // Compute number of completed todos
@@ -159,7 +132,6 @@ publicData: [
 
       // Mark todo as completed / not completed
       toggleTodo: function (key) {
-        console.log('toggle: ' + key)
         window.db('publicData/todos/' + key + '/completed')
           .set(!this.todos[key].completed)
           .catch(function () {

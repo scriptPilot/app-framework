@@ -21,6 +21,7 @@
 
 - [#422 - Get rid of iNoBounce](https://github.com/scriptPilot/app-framework/issues/422)
 - [#428 - Get rid of lodash in client code](https://github.com/scriptPilot/app-framework/issues/428)
+- [#447 - Include realtime database example](https://github.com/scriptPilot/app-framework/issues/447)
 
 ## Version 1.4.4 (released on 2017-05-08)
 
