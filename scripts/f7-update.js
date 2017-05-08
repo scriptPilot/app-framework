@@ -62,7 +62,9 @@ cmd(f7Folder, 'gulp build', function () {
     fs.writeJsonSync(abs(env.proj, 'lib/theme-colors.json'), colors)
     // Update kitchen sinks
     cmd(__dirname, 'node update-kitchen-sinks', function () {
-      alert('Framework7 update done.')
+      cmd(__dirname, 'node update-routes', function () {
+        alert('Framework7 update done.')
+      })
     })
   }, 'Framework7 distribution process failed.')
 }, 'Framework7 build process failed.')
