@@ -1,6 +1,6 @@
 # Changelog
 
-## Next
+## Version 1.4.23 (released on 2017-05-08)
 
 ### New features
 
