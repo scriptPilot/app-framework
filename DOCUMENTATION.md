@@ -82,7 +82,7 @@ GitHub Desktop client is optional. We recommend it as a Git client, because GitH
 1. Create an account on [GitHub.com](https://github.com/join)
 2. Download from [GitHub.com](https://desktop.github.com/) the right installer for your operating system
 3. Install GitHub Desktop and log in with your credentials
-4. Configure your user name and a email address under which your will commit to GitHub
+4. Configure your user name and a email address under which you will commit to GitHub
 5. Close the GitHub Desktop client
 
 ### Reboot
