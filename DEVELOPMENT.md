@@ -45,6 +45,11 @@
 - [ ] Commit to GitHub
 - [ ] Merge to master branch on GitHub
 - [ ] Deploy to Apple App Store
+  - [ ] Rename *icon.png* to *icon-default.png*
+  - [ ] Rename *icon-apple.png* to *icon.png*
+  - [ ] Create new build with `npm run patch`
+  - [ ] Deploy App
+  - [ ] Discard changes
 - [ ] Deploy to Google Play Store
 - [ ] Deploy on Firebase hosting
 - [ ] Update roadmap in readme file
