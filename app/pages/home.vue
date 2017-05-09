@@ -45,7 +45,7 @@
       <f7-list-item link="/firebase-private/" title="Authentication & Storage" :media="'<img src=\'' + images.firebase + '\' width=\'29\' />'" />
       <f7-list-item link="/state-restoration/" title="App State Restoration" media="<i class='f7-icons'>refresh</i>" />
       <f7-list-item link="/flexible-routing/blog/123/post/456/?display=summary#gotoend" title="Flexible Routing" media="<i class='f7-icons'>forward</i>" />
-      <f7-list-item link="/multiple-languages/" title="Multiple languages" media="<img src=images/flag-de.png />" />
+      <f7-list-item link="/multiple-languages/" title="Multiple languages" :media="'<img src=' + images.flag_de + ' />'" />
     </f7-list>
 
     <!-- Link to GitHub repository -->
