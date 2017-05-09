@@ -22,7 +22,7 @@ Develop your application:
 - Realize beautiful user interfaces with all well-known components and transitions, based on [Framework7](https://framework7.io/)
 - Easy to maintain [single file components](https://vuejs.org/guide/single-file-components) with [reusable UI elements](https://framework7.io/vue/), based on [Vue.js](https://vuejs.org/)
 - One code base for all devices with HTML, CSS and JavaScript - realized with [Cordova](https://cordova.apache.org/), supporting [ES2015](https://babeljs.io/learn-es2015/)
-- Use comprehensive icon fonts like [FontAwesome](http://fontawesome.io/), [Framework7](http://framework7.io/icons/), [Ion](http://ionicons.com/) and [Material Icons](https://material.io/icons/) out of the box
+- Comprehensive icon fonts like [FontAwesome](http://fontawesome.io/), [Framework7](http://framework7.io/icons/), [Ion](http://ionicons.com/) and [Material Icons](https://material.io/icons/) out of the box
 - Well prepared to use [Firebase authentication](https://firebase.google.com/products/auth/), [realtime database](https://firebase.google.com/products/database/) and [storage services](https://firebase.google.com/products/storage/)
 - State kept for history, tabs, scroll positions, focus, panels, modals, form inputs and page component data
 - Global data object to use the same data and setting across your whole application
