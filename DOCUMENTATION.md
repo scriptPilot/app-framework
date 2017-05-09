@@ -28,6 +28,7 @@
   - [Project folder structure](#project-folder-structure)
   - [Configuration options](#configuration-options)
   - [CLI commands](#cli-commands)
+- [Changelog](CHANGELOG.md)
 
 > Read less, code more - please open a ticket for any open question in our [issue list](https://github.com/scriptPilot/app-framework/issues).
 
