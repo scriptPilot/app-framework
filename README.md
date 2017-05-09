@@ -4,8 +4,7 @@
 
 ![Process](media/process.png)
 
-
-> With **App Framework**, you could spend all your time for your next amazing App and not for the tricky stuff around!
+**With App Framework, you could spend all your time for your next amazing App and not for the tricky stuff around!**
 
 ## Features
 
@@ -17,7 +16,7 @@ Setup your project:
 Design your application:
 
 - Printable [template](design/smartphone-template.pdf) to design your application with paper and pencil
-- Template for your icon design - as [PDF for sketching](design/icon-template.pdf) and [PPTX](design/icon-template.pptx) for drawing
+- Templates for your icon design - as [PDF for sketching](design/icon-template.pdf) and [PPTX](design/icon-template.pptx) for drawing
 
 Develop your application:
 
@@ -27,6 +26,8 @@ Develop your application:
 - Use comprehensive icon fonts like [FontAwesome](http://fontawesome.io/), [Framework7](http://framework7.io/icons/), [Ion](http://ionicons.com/) and [Material Icons](https://material.io/icons/) out of the box
 - Well prepared to use [Firebase authentication](https://firebase.google.com/docs/auth/), [realtime database](https://firebase.google.com/docs/database/) and [storage services](https://firebase.google.com/docs/storage/)
 - State kept for history, tabs, scroll positions, focus, panels, modals, form inputs and page component data
+- Global data object to use the same data and setting across your whole application
+- [Flexible routing](http://framework7.io/vue/navigation-router.html) with dynamic, nesting and login protection
 - Offline capability, flexible routing and multi-language support out of the box
 
 Test your application:
