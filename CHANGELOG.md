@@ -6,6 +6,7 @@
 
 - [#501 - JS error when DOM element not found](https://github.com/scriptPilot/app-framework/issues/501)
 - [#502 - App folder excluded from Babel loader](https://github.com/scriptPilot/app-framework/issues/502)
+- [#505 - After page component deletion during live server, "Main view not found" is displayed](https://github.com/scriptPilot/app-framework/issues/505)
 
 ## Version 1.4.23 (released on 2017-05-08)
 
