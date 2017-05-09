@@ -38,4 +38,4 @@ For your workflow:
 
 ## Documentation
 
-![Documentation](media/documentation.png)
+[![Documentation](media/documentation.png)](DOCUMENTATION.md)
