@@ -4,29 +4,60 @@
 
 ![Process](media/process.png)
 
+**With App Framework, you could spend all your time for your next amazing App and not for the tricky stuff around!**
+
 ## Features
 
-For your application:
+Setup your project:
 
-- [x] **Single file components** - with template, scripts and style included, ready for [ES2015](https://babeljs.io/learn-es2015/)
-- [x] **Beautiful user interface** - with all well-known [iOS and Material](http://framework7.io/) elements and transitions
-- [x] **Easy styling** - of the theme, color, layout and the status bar colors and visibility
-- [x] **Comprehensive icon fonts** - [FontAwesome](http://fontawesome.io/), [Framework7](http://framework7.io/icons/), [Ion](http://ionicons.com/) and [Material Icons](https://material.io/icons/)
-- [x] **Powerful user interface** - state-based and reactive with the simplicity of [Vue.js](https://vuejs.org/)
-- [x] **Reliable backend** - with Firebase for [user authentication](https://firebase.google.com/docs/auth/), [realtime database](https://firebase.google.com/docs/database/) and [storage](https://firebase.google.com/docs/storage/)
-- [x] **Global data object** - to use the same data and settings across your whole application
-- [x] **Flexible routing** - [nestable](http://framework7.io/vue/navigation-router.html) and easily to be protected by required user login
-- [x] **State restoration** - for history, tabs, scroll positions, form inputs, focus, modals and components
-- [x] **Many more** - like offline capability, multi-language support, ...
+- Creation of a lightweight and well-organized project folder, ready to publish on [GitHub](https://github.com/about)
 
-For your workflow:
+Design your application:
 
-- [x] **Project folder generation** - lightweight, well-organized and ready for Git publishing
-- [x] **Local testing** - on a live-server, on your own device or on any iOS or Android simulator
-- [x] **Integrated checks** - with automatic fix for code [correctness](http://eslint.org/) and [standard conformity](http://standardjs.com/)
-- [x] **Optimized build** - with version bump, icon generation and compression of all files
-- [x] **Safe deployment** - without downtime to any FTP server, [Firebase](https://firebase.google.com/docs/hosting/), [Xcode](https://developer.apple.com/xcode/) or [Android Studio](https://developer.android.com/studio)
-- [x] **Snapshots** - of the Firebase backend and all project files to backup on any external drive or cloud
+- Printable [template](design/smartphone-template.pdf) to design your application with paper and pencil
+- Templates for your icon design - as [PDF for sketching](design/icon-template.pdf) and [PPTX](design/icon-template.pptx) for drawing
+
+Develop your application:
+
+- Realize beautiful user interfaces with all well-known components and transitions, based on [Framework7](https://framework7.io/)
+- Easy to maintain [single file components](https://vuejs.org/guide/single-file-components) with [reusable UI elements](https://framework7.io/vue/), based on [Vue.js](https://vuejs.org/)
+- One code base for all devices with HTML, CSS and JavaScript - realized with [Cordova](https://cordova.apache.org/), supporting [ES2015](https://babeljs.io/learn-es2015/)
+- Comprehensive icon fonts like [FontAwesome](http://fontawesome.io/), [Framework7](http://framework7.io/icons/), [Ion](http://ionicons.com/) and [Material Icons](https://material.io/icons/) out of the box
+- Well prepared to use [Firebase authentication](https://firebase.google.com/products/auth/), [realtime database](https://firebase.google.com/products/database/) and [storage services](https://firebase.google.com/products/storage/)
+- State kept for history, tabs, scroll positions, focus, panels, modals, form inputs and page component data
+- Global data object to use the same data and setting across your whole application
+- [Flexible routing](http://framework7.io/vue/navigation-router.html) with dynamic, nesting and login protection
+- Offline capability and multi-language support out of the box
+
+Test your application:
+
+- Integrated code check for [correctness](http://eslint.org/) and automatic fix for [standard conformity](http://standardjs.com/)
+- Local development server with live reload, perfectly to use together with [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools/)
+- Test your application on any iOS or Android device with an emulator or on your own device
+- Use a development Firebase project with automatic [database](https://firebase.google.com/products/database/) and [storage](https://firebase.google.com/products/storage/) rule update
+
+Build your application:
+
+- Build process with version bump and compression of all HTML, CSS, JavaScript and image files
+- Generation of favicons, touch icons and splash screens out of a single image file
+- Phone frame around your application on big screens, so you can offer desktop access with charm
+- Automatic build as web application, to be used online and offline in the browser
+- Automatic [Apple Xcode](https://developer.apple.com/xcode/) project build with [Cordova](https://cordova.apache.org/)
+- Automatic [Android Studio](https://developer.android.com/studio) project build with [Cordova](https://cordova.apache.org/)
+
+Deploy your application:
+
+- Deployment without downtime
+  - to any FTP server as Web App
+  - to the [Firebase Hosting service](https://firebase.google.com/products/hosting/) as Web App
+  - to the [Apple App Store](https://itunes.apple.com/de/) as native iOS App
+  - to the [Google Play Store](https://play.google.com/) as native Android App
+- Easy rollback solutions
+
+Backup your project:
+
+- Download the [Firebase database content](https://firebase.google.com/products/database/) and [user list](https://firebase.google.com/products/auth/) to local JSON files
+- Snapshot creation of all important project files to backup on any external drive or cloud service
 
 ## Demo App
 
@@ -36,52 +67,6 @@ For your workflow:
 &nbsp;&nbsp;&nbsp;
 [![Open as Web App](media/web-app-visit.png)](https://app-framework.scriptpilot.de/)
 
-## Milestones
+## Documentation
 
-Upcoming:
-
-- [ ] 1.5 - Demo App robustness improvements
-- [ ] 1.6 - Tutorial: ToDo App
-- [ ] 1.7 - Extensions
-- [ ] 1.8 - GUI helper tool
-
-Reached:
-
-- [x] [1.4 - Client code robustness improvements](https://github.com/scriptPilot/app-framework/milestone/7?closed=1) (2017-05-05)
-- [x] [1.3 - CLI robustness improvements](https://github.com/scriptPilot/app-framework/milestone/6?closed=1) (2017-03-19)
-- [x] [1.2 - Google Play Store deployment](https://github.com/scriptPilot/app-framework/milestone/5?closed=1) (2017-02-12)
-- [x] [1.1 - Apple App Store deployment](https://github.com/scriptPilot/app-framework/milestone/4?closed=1) (2017-02-10)
-- [x] [1.0 - Initial Release](https://github.com/scriptPilot/app-framework/milestone/1?closed=1) (2017-02-05)
-
-## Required knowledge
-
-Essentiell:
-
-- [Node.js and npm](https://docs.npmjs.com/getting-started/what-is-npm) for command line interface handling
-- [Framework7](https://framework7.io/docs/) and [Framework7-Vue](https://framework7.io/vue/) to develop with HTML and JavaScript
-
-Optional:
-
-- [Vue.js](https://vuejs.org/v2/guide/) to make your application state-based and reactive
-- [Firebase](https://firebase.google.com/docs/web/setup) to use as reliable backend service provider
-- [Cordova/PhoneGap](https://cordova.apache.org/docs/en/latest/) to use device hardware API plugins
-- [iOS design guidelines](https://developer.apple.com/ios/human-interface-guidelines/overview/design-principles/) and [Material design guidelines](https://material.io/guidelines/)
-
-## Quick start
-
-1. Install [Node.js](https://nodejs.org/)
-2. Create a **package.json** file in an empty project folder with the following content:
-
-   ```
-   {
-     "name": "my-app",
-     "version": "1.0.0",
-     "devDependencies": {
-       "app-framework": "*"
-     }
-   }
-   ```
-
-3. Run `npm install` to install App Framework and setup the project folder
-4. Run `npm run dev` to run your application at localhost:8080
-5. Read our [Documentation](DOCUMENTATION.md)
+[![Documentation](media/documentation.png)](DOCUMENTATION.md)
