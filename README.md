@@ -28,7 +28,7 @@ Develop your application:
 - State kept for history, tabs, scroll positions, focus, panels, modals, form inputs and page component data
 - Global data object to use the same data and setting across your whole application
 - [Flexible routing](http://framework7.io/vue/navigation-router.html) with dynamic, nesting and login protection
-- Offline capability, flexible routing and multi-language support out of the box
+- Offline capability and multi-language support out of the box
 
 Test your application:
 
