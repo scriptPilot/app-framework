@@ -14,26 +14,18 @@
     </f7-block>
 
     <!-- Configuration -->
-    <f7-block-title>{{text.configuration}}</f7-block-title>
+    <f7-block-title>Style Configuration</f7-block-title>
     <f7-list>
       <f7-list-item smart-select smart-select-back-on-select
-        :title="text.selectLanguage"
-        :media="'<img src=\'' + images['flag_' + $root.language] + '\' width=\'29\' />'">
-        <select @change="updateSmartlist" v-model="$root.language">
-          <option value="en" :data-option-image="images.flag_en">{{text.english}}</option>
-          <option value="de" :data-option-image="images.flag_de">{{text.german}}</option>
-        </select>
-      </f7-list-item>
-      <f7-list-item smart-select smart-select-back-on-select
-        :title="text.selectTheme"
+        title="Select Theme"
         :media="'<img src=\'' + images['theme_' + $root.theme] + '\' width=\'29\' />'">
         <select v-model="$root.theme">
           <option value="ios" :data-option-image="images.theme_ios">iOS</option>
           <option value="material" :data-option-image="images.theme_material">Material</option>
         </select>
       </f7-list-item>
-      <f7-list-item :title="text.selectColors" :link="'/f7' + $root.theme + '/color-themes/'" media="<i class='f7-icons'>keyboard_fill</i>" />
-      <f7-list-item :title="text.showStatusbar" media="<i class='f7-icons'>delete</i>" v-if="$root.appMode==='native'">
+      <f7-list-item title="Select Color" :link="'/f7' + $root.theme + '/color-themes/'" media="<i class='f7-icons'>keyboard_fill</i>" />
+      <f7-list-item title="Show Statusbar" media="<i class='f7-icons'>delete</i>" v-if="$root.appMode==='native'">
         <div slot="after">
           <label class="label-switch">
             <input type='checkbox' :checked="$root.statusbarVisibility" @change="$root.statusbarVisibility=$event.target.checked">
@@ -41,17 +33,19 @@
           </label>
         </div>
       </f7-list-item>
-      <f7-list-item :title="text.changeStatusbarTextColor" @click="$root.statusbarTextColor=$root.statusbarTextColor==='white'?'black':'white'" v-if="$root.$f7.device.ios && $root.appMode === 'native' && $root.statusbarVisibility" link="#" media="<i class='f7-icons'>delete</i>" />
+      <f7-list-item title="Change text color" @click="$root.statusbarTextColor=$root.statusbarTextColor==='white'?'black':'white'" v-if="$root.$f7.device.ios && $root.appMode === 'native' && $root.statusbarVisibility" link="#" media="<i class='f7-icons'>delete</i>" />
     </f7-list>
 
     <!-- Demonstration -->
-    <f7-block-title>{{text.demonstration}}</f7-block-title>
+    <f7-block-title>Feature Demonstration</f7-block-title>
     <f7-list>
-      <f7-list-item link="/f7ios/index/" :title="'iOS ' + text.uiComponents" media="<i class='icon icon-f7' />" v-if="$root.theme === 'ios'" />
-      <f7-list-item link="/f7material/index/" :title="'Material ' + text.uiComponents" media="<i class='icon icon-f7' />" v-if="$root.theme === 'material'" />
+      <f7-list-item link="/f7ios/index/" title="iOS Components" media="<i class='icon icon-f7' />" v-if="$root.theme === 'ios'" />
+      <f7-list-item link="/f7material/index/" title="Material Components" media="<i class='icon icon-f7' />" v-if="$root.theme === 'material'" />
       <f7-list-item link="/firebase-public/" title="Realtime Database" :media="'<img src=\'' + images.firebase + '\' width=\'29\' />'" />
+      <f7-list-item link="/firebase-private/" title="Authentication & Storage" :media="'<img src=\'' + images.firebase + '\' width=\'29\' />'" />
       <f7-list-item link="/state-restoration/" title="App State Restoration" media="<i class='f7-icons'>refresh</i>" />
-      <f7-list-item link="/flexible-routing/blog/123/post/456/?display=summary#gotoend" :title="text.flexibleRouting" media="<i class='f7-icons'>forward</i>" />
+      <f7-list-item link="/flexible-routing/blog/123/post/456/?display=summary#gotoend" title="Flexible Routing" media="<i class='f7-icons'>forward</i>" />
+      <f7-list-item link="/multiple-languages/" title="Multiple languages" media="<img src=images/flag-de.png />" />
     </f7-list>
 
     <!-- Link to GitHub repository -->
@@ -65,36 +59,6 @@
 </template>
 
 <script>
-
-  // Define text patterns
-  let text = {
-    en: {
-      selectLanguage: 'Select Language',
-      english: 'English',
-      german: 'German',
-      selectTheme: 'Select Theme',
-      selectColors: 'Select Colors',
-      showStatusbar: 'Show statusbar',
-      changeStatusbarTextColor: 'Change text color',
-      configuration: 'Configuration',
-      demonstration: 'Demonstration',
-      uiComponents: 'UI Components',
-      flexibleRouting: 'Flexible Routing'
-    },
-    de: {
-      selectLanguage: 'Sprache auswählen',
-      english: 'Englisch',
-      german: 'Deutsch',
-      selectTheme: 'Thema auswählen',
-      selectColors: 'Farben auswählen',
-      showStatusbar: 'Statusleiste anzeigen',
-      changeStatusbarTextColor: 'Textfarbe ändern',
-      configuration: 'Konfiguration',
-      demonstration: 'Demonstration (englisch)',
-      uiComponents: 'UI-Komponenten',
-      flexibleRouting: 'Flexibles Routing'
-    }
-  }
 
   // Define images
   let images = {
@@ -110,11 +74,6 @@
     data: function () {
       return {
         images: images
-      }
-    },
-    computed: {
-      text: function () {
-        return text[this.$root.language] ? text[this.$root.language] : text[0]
       }
     },
     methods: {
