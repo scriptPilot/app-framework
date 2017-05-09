@@ -56,7 +56,7 @@ Deploy your application:
 
 Backup your project:
 
-- Download your [Firebase database content](https://firebase.google.com/products/database/) and [user list](https://firebase.google.com/products/auth/) to local JSON files
+- Download the [Firebase database content](https://firebase.google.com/products/database/) and [user list](https://firebase.google.com/products/auth/) to local JSON files
 - Snapshot creation of all important project files to backup on any external drive or cloud service
 
 ## Demo App
