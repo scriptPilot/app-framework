@@ -36,42 +36,6 @@ For your workflow:
 &nbsp;&nbsp;&nbsp;
 [![Open as Web App](media/web-app-visit.png)](https://app-framework.scriptpilot.de/)
 
-## Milestones
-
-Upcoming:
-
-- [ ] 1.5 - Demo App robustness improvements
-- [ ] 1.6 - Tutorial: ToDo App
-- [ ] 1.7 - Extensions
-- [ ] 1.8 - GUI helper tool
-
-Reached:
-
-- [x] [1.4 - Client code robustness improvements](https://github.com/scriptPilot/app-framework/milestone/7?closed=1) (2017-05-05)
-- [x] [1.3 - CLI robustness improvements](https://github.com/scriptPilot/app-framework/milestone/6?closed=1) (2017-03-19)
-- [x] [1.2 - Google Play Store deployment](https://github.com/scriptPilot/app-framework/milestone/5?closed=1) (2017-02-12)
-- [x] [1.1 - Apple App Store deployment](https://github.com/scriptPilot/app-framework/milestone/4?closed=1) (2017-02-10)
-- [x] [1.0 - Initial Release](https://github.com/scriptPilot/app-framework/milestone/1?closed=1) (2017-02-05)
-
-
-## Quick start
-
-1. Install [Node.js](https://nodejs.org/)
-2. Create a **package.json** file in an empty project folder with the following content:
-
-   ```
-   {
-     "name": "my-app",
-     "version": "1.0.0",
-     "devDependencies": {
-       "app-framework": "*"
-     }
-   }
-   ```
-
-3. Run `npm install` to install App Framework and setup the project folder
-4. Run `npm run dev` to run your application at localhost:8080
-5. Read our [Documentation](DOCUMENTATION.md)
+## Documentation
 
 ![Documentation](media/documentation.png)
-
