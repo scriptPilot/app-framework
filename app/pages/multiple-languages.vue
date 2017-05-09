@@ -17,19 +17,13 @@
       </f7-list-item>
     </f7-list>
 
-    <f7-block inner inset><p>{{text.text}}</p></f7-block>
+    <f7-block><p>{{text.text}}</p></f7-block>
 
     <f7-block inset>
-      <f7-button :text="text.openPage" href="simple-page"></f7-button>
-    </f7-block>
-
-    <f7-block inset>
-      <f7-button open-login-screen="#login-screen" :text="$root.user ? text.logout : text.login"></f7-button>
+      <f7-button href="/app-framework-login-screen/" :text="$root.user ? text.logout : text.login"></f7-button>
     </f7-block inset>
 
-    <f7-block inner inset style="text-align: center">
-      <p>Standard text patterns and the login screen will change their language as well - currently English and German are supported - Please request other in our <f7-link href="https://github.com/scriptPilot/app-framework/issues" external>GitHub Issue List</f7-link>.</p>
-    </f7-block>
+    <f7-block>{{text.text2}} <f7-link href="https://github.com/scriptPilot/app-framework/issues" external>GitHub Issue List</f7-link>.</f7-block>
 
   </f7-page>
 </template>
@@ -40,7 +34,8 @@
     en: {
       backlink: 'Back',
       title: 'Multiple Languages',
-      text: 'This page is made with Framework7-vue components and ready for multiple languages. Your selection is saved in the local storage and restored after you reopen the application. Please check the source code to see how it\'s done.',
+      text: 'This page is made with Framework7-Vue components and ready for multiple languages. Your selection is saved in the local storage and restored after you reopen the application.',
+      text2: 'Standard text patterns and the login screen will change their language as well - currently English and German are supported. Please request other in our',
       selectLang: 'Select language',
       de: 'German',
       en: 'English',
@@ -51,7 +46,8 @@
     de: {
       backlink: 'Zurück',
       title: 'Mehrsprachigkeit',
-      text: 'Diese Seite wurde mit Framework7-vue-Komponenten erstellt und ist mehrsprachig. Deine Auswahl wird im Local Storage gespeichert und beim Neuladen der Anwendung wiederhergestellt. Bitte schau dir den Quelltext als Beispiel an.',
+      text: 'Diese Seite wurde mit Framework7-Vue-Komponenten erstellt und ist mehrsprachig. Deine Auswahl wird im Local Storage gespeichert und beim Neuladen der Anwendung wiederhergestellt.',
+      text2: 'Standard-Textbausteine und der Anmeldeschirm passen ihren Sprache entsprechend der Auswahl an - zurzeit werden Englisch und Deutsch unterstützt. Bitte frag nach weitere Sprachen auf unserer',
       selectLang: 'Sprache wählen',
       de: 'Deutsch',
       en: 'Englisch',

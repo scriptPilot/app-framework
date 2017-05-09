@@ -5,11 +5,11 @@
   <f7-page>
 
     <!-- Navbar and backlink -->
-    <f7-navbar title="Private Firebase Storage" back-link="Back" sliding></f7-navbar>
+    <f7-navbar title="Private Firebase Storage" back-link="Back" sliding />
 
     <!-- Description box -->
-    <f7-block inset style="text-align: center">
-      <p>Enter some notes, upload a photo, login from multiple devices and see how everything is synchronized in real time.</p>
+    <f7-block>
+      Enter some notes, upload a photo, login from multiple devices and see how everything is synchronized in real time.
     </f7-block>
 
     <!-- Private notes textfield -->

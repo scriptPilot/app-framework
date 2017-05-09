@@ -42,10 +42,10 @@
       <f7-list-item link="/f7ios/index/" title="iOS Components" media="<i class='icon icon-f7' />" v-if="$root.theme === 'ios'" />
       <f7-list-item link="/f7material/index/" title="Material Components" media="<i class='icon icon-f7' />" v-if="$root.theme === 'material'" />
       <f7-list-item link="/firebase-public/" title="Realtime Database" :media="'<img src=\'' + images.firebase + '\' width=\'29\' />'" />
-      <!--<f7-list-item link="/firebase-private/" title="Authentication & Storage" :media="'<img src=\'' + images.firebase + '\' width=\'29\' />'" />-->
-      <!--<f7-list-item link="/state-restoration/" title="App State Restoration" media="<i class='f7-icons'>refresh</i>" />-->
+      <f7-list-item link="/firebase-private/" title="Authentication & Storage" :media="'<img src=\'' + images.firebase + '\' width=\'29\' />'" />
+      <f7-list-item link="/state-restoration/" title="App State Restoration" media="<i class='f7-icons'>refresh</i>" />
       <f7-list-item link="/flexible-routing/blog/123/post/456/?display=summary#gotoend" title="Flexible Routing" media="<i class='f7-icons'>forward</i>" />
-      <!--<f7-list-item link="/multiple-languages/" title="Multiple languages" :media="'<img src=' + images.flag_de + ' />'" />-->
+      <f7-list-item link="/multiple-languages/" title="Multiple languages" :media="'<img src=' + (images['flag_' + $root.language] || images['flag_en']) + ' />'" />
     </f7-list>
 
     <!-- Link to GitHub repository -->
