@@ -1,6 +1,6 @@
 # Changelog
 
-## Next version
+## Version 1.4.27 (released on 2017-05-09)
 
 ### Bug-fixes
 
