@@ -4,7 +4,7 @@
 
 ![Process](media/process.png)
 
-**You could spend all your time for your next amazing App and not for the tricky stuff around!**
+**With App Framework, you could spend your time for your next amazing App and not for the tricky stuff around!**
 
 ## Features
 
