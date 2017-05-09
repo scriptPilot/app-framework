@@ -11,7 +11,6 @@
 Setup your project:
 
 - Creation of a lightweight and well-organized project folder, ready to publish on [GitHub](https://github.com/about)
-- [Demo App](https://app-framework.scriptpilot.de/) to use as base for your own application with typical use cases
 
 Design your application:
 
