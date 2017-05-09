@@ -55,6 +55,9 @@ function proceedFolder (sourceFolder, destinationFolder, callback) {
                     fileContent = fileContent.replace(/href="(.+?)" class="back link(| icon-only)?"/g, 'class="back link$2"')
                     // Workaround: #402 - UI components - Lazy images: One image is black
                     fileContent = fileContent.replace(/http:\/\/lorempixel\.com\/500\/500\/nature\/9/g, 'http://lorempixel.com/500/500/people/1/')
+                    // Workaround: #388 - UI components - Autocomplete / Ajax does not work (2x)
+                    fileContent = fileContent.replace(/<div class="content-block-title">Dropdown With Ajax-Data<\/div>[\s\S.]+<div class="content-block-title">Standalone Autocomplete<\/div>/, '<div class="content-block-title">Standalone Autocomplete</div>')
+                    fileContent = fileContent.replace(/<div class="content-block-title">Standalone With Ajax-Data<\/div>[\s\S.]/, '</div></div></div>')
                     $('body').html(fileContent)
                     if (htmlFiles[f] === 'index.html') {
                       $('.popup, .popover, .login-screen, .picker-modal').each(function (i, el) {

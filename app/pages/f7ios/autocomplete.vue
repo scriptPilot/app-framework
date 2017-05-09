@@ -55,17 +55,6 @@
           </li>
         </ul>
       </div>
-      <div class="content-block-title">Dropdown With Ajax-Data</div>
-      <div class="list-block">
-        <ul>
-          <li class="item-content">
-            <div class="item-title label">Language</div>
-            <div class="item-input">
-              <input type="text" placeholder="Language" id="autocomplete-dropdown-ajax">
-            </div>
-          </li>
-        </ul>
-      </div>
       <div class="content-block-title">Standalone Autocomplete</div>
       <div class="content-block">
         <p>Standalone autocomplete provides better mobile UX by opening it in a new page or popup. Good to use when you need to get strict values without allowing free-type values.</p>
@@ -106,20 +95,6 @@
               <input type="hidden">
               <div class="item-inner">
                 <div class="item-title">Favorite Fruite</div>
-                <div class="item-after"></div>
-              </div>
-            </a>
-          </li>
-        </ul>
-      </div>
-      <div class="content-block-title">Standalone With Ajax-Data</div>
-      <div class="list-block">
-        <ul>
-          <li>
-            <a href="#" id="autocomplete-standalone-ajax" class="item-link item-content autocomplete-opener">
-              <input type="hidden">
-              <div class="item-inner">
-                <div class="item-title">Language</div>
                 <div class="item-after"></div>
               </div>
             </a>

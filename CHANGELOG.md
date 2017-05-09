@@ -13,6 +13,7 @@
 
 - [#110 - Public list has sometimes trouble with multiple access the same time](https://github.com/scriptPilot/app-framework/issues/110)
 - [#387 - Calendar timeline is not scrollable](https://github.com/scriptPilot/app-framework/issues/387)
+- [#388 - UI components - Autocomplete / Ajax does not work (2x)](https://github.com/scriptPilot/app-framework/issues/388)
 - [#394 - UI components - Sortable list: Edit button not visible](https://github.com/scriptPilot/app-framework/issues/394)
 - [#400 - UI components - Infinite scroll does not work](https://github.com/scriptPilot/app-framework/issues/400)
 - [#401 - UI components - Most photos not shown in photo browser](https://github.com/scriptPilot/app-framework/issues/401)
