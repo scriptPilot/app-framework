@@ -58,7 +58,7 @@
   }
 
   // Load images (flags)
-  var images = {
+  let images = {
     'flag_en': require('../images/flag-en.png'),
     'flag_de': require('../images/flag-de.png')
   }
