@@ -13,7 +13,7 @@
   - [ ] [Build your application](#)
   - [ ] [Deploy your application](#)
   - [ ] [Backup your project](#)
-- [ ] **References**
+- [ ] **Reference**
   - [ ] [Project folder structure](#)
   - [ ] [Configuration options](#)
   - [ ] [CLI commands](#)
