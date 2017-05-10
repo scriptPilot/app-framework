@@ -18,7 +18,7 @@
     - [ ] [Modules and scripts](#)
     - [ ] [Cordova plugins](#)
     - [ ] [Application style](#)
-    - [ ] [Statusbar style](#)
+    - [ ] [Status bar style](#)
     - [ ] [Firebase backend](#)
   - [ ] [Test your application](#)
   - [ ] [Build your application](#)
