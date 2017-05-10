@@ -10,8 +10,8 @@ For any open question, feature request or bug, please use our [issue list](https
 
 ## Requirements
 
-- [ ] Knowledge requirements
-- [ ] Software requirements
+- [x] [Knowledge requirements](docs/knowledge-requirements.md)
+- [x] [Software requirements](docs/software-requirements.md)
 - [ ] Account requirements
 
 ## Workflow
