@@ -213,7 +213,8 @@
             window.f7.views[viewId || 'main'].router.back()
             // Show notification
             window.f7.addNotification({
-              title: this.text.signOutDone,
+              title: this.text.signOut,
+              message: this.text.signOutDone,
               hold: 3000,
               closeIcon: false
             })
