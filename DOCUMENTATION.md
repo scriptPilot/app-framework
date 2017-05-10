@@ -12,33 +12,33 @@ For any open question, feature request or bug, please use our [issue list](https
 
 - [x] [Knowledge requirements](docs/knowledge.md)
 - [x] [Software requirements](docs/software.md)
-- [ ] Account requirements
+- [ ] [Account requirements](docs/accounts.md)
 
 ## Workflow
 
-- [ ] [Setup your project](#)
+- [ ] [Setup your project](docs/setup.md)
 - [ ] [Design your application](docs/design.md)
 - [ ] Develop your application
-  - [ ] [App component](#)
-  - [ ] [Page components](#)
+  - [ ] [App component](docs/app-component.md)
+  - [ ] [Page components](docs/page-components.md)
   - [ ] [Routing](docs/routing.md)
   - [ ] [Global data object](docs/data-object.md)
-  - [ ] [sortObject function](#)
-  - [ ] [Images](#)
-  - [ ] [Modules and scripts](#)
-  - [ ] [Cordova plugins](#)
+  - [ ] [sortObject function](docs/sort-object.md)
+  - [ ] [Images](docs/images.md)
+  - [ ] [Modules and scripts](docs/modules-and-scripts.md)
+  - [ ] [Cordova plugins](docs/cordova-plugins.md)
   - [ ] [Firebase backend](docs/firebase.md)
   - [ ] [State restoration](docs/state-restoration.md)
-  - [ ] [Application style](#)
-  - [ ] [Status bar style](#))
-- [ ] [Test your application](#)
-- [ ] [Build your application](#)
-- [ ] [Deploy your application](#)
-- [ ] [Backup your project](#)
+  - [ ] [Application style](docs/application-style.md)
+  - [ ] [Status bar style](docs/status-bar-style.md))
+- [ ] [Test your application](docs/test.md)
+- [ ] [Build your application](docs/build.md)
+- [ ] [Deploy your application](docs/deploy.md)
+- [ ] [Backup your project](docs/backup.md)
 
 ## Reference
 
-- [ ] [Project folder structure](#)
-- [ ] [Configuration options](#)
+- [ ] [Project folder structure](docs/folder-structure.md)
+- [ ] [Configuration options](docs/configuration.md)
 - [x] [CLI commands](docs/cli-commands.md)
 - [x] [Changelog](CHANGELOG.md)
