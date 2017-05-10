@@ -149,6 +149,7 @@
         this.email = ''
         this.password = ''
         this.passwordConfirmation = ''
+        this.mode = this.$root.user ? 'signOut' : 'signIn'
         // Navigate back
         let viewId = null
         window.f7.views.map((view, id) => {

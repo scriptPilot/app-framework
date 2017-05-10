@@ -9,6 +9,7 @@
 # Bug-fixes
 
 - [#514 - Scoped colors overwritten by app component CSS](https://github.com/scriptPilot/app-framework/issues/514)
+- [#515 - State not reset after "cancel" on login screen](https://github.com/scriptPilot/app-framework/issues/515)
 
 ### Improvements
 
