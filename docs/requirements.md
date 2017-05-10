@@ -30,7 +30,7 @@ First of all, you need a code editor. We really recommend Atom, which is open so
 
 1. Download from [Atom.io](https://atom.io/) the right installer for your operating system
 2. Install Atom and open it afterwards
-3. Select the "Welcome" tab, disable the checkbox *Show welcome guide when opening Atom* and close the tab
+3. Select the *Welcome* tab, disable the checkbox *Show welcome guide when opening Atom* and close the tab
 4. Select the *Telemetry Consent* tab and decide whether you want to send statistics or not to Atom
 5. Open from the top menu *File > Settings* and select in the left menu *Install*
 6. Search for package `language-vue-component` and click on *install*
@@ -39,7 +39,7 @@ First of all, you need a code editor. We really recommend Atom, which is open so
 
 ### Node.js
 
-To run the *App Framework* scripts and the development server, you need to install [Nodejs.org](https://nodejs.org/), which is available for macOS, Windows and Linux and is free of charge. You can install it with the default settings.
+To run the App Framework scripts and the development server, you need to install [Nodejs.org](https://nodejs.org/), which is available for macOS, Windows and Linux and is free of charge. You can install it with the default settings.
 
 ### Xcode
 
@@ -51,15 +51,15 @@ Android Studio is optional. You need it, if you want to publish your application
 
 To ensure you install Android Studio and its SDK properly, please read the [official installation guide](https://developer.android.com/studio/install.html).
 
-### GitHub Desktop
+### GitHub desktop client
 
-GitHub Desktop client is optional. We recommend it as a Git client, because GitHub is great for collaboration or as a backup for your own code. The desktop client is available for macOS and Windows and is free of charge.
+The GitHub desktop client is optional. We recommend it as a Git client, because GitHub is great for collaboration or as a backup for your own code. The desktop client is available for macOS and Windows and is free of charge.
 
 1. Create an account on [GitHub.com](https://github.com/join)
 2. Download from [GitHub.com](https://desktop.github.com/) the right installer for your operating system
-3. Install GitHub Desktop and log in with your credentials
+3. Install the GitHub desktop client and log in with your credentials
 4. Configure your user name and a email address under which you will commit to GitHub
-5. Close the GitHub Desktop client
+5. Close the GitHub desktop client
 
 ### Reboot
 
