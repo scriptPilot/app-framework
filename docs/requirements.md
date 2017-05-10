@@ -4,7 +4,7 @@
 
 <br />
 
-## Knowledge
+## Required knowledge
 
 Before you start to work with App Framework, you should be familiar with the following documentation.
 
