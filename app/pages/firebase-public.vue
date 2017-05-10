@@ -21,13 +21,17 @@
       <f7-list-item swipeout
         v-for="(todo, key) in todos"
         :title="(todo.completed ? '<span style=\'text-decoration: line-through\' class=\'color-gray\'>' : '') + todo.text + (todo.completed ? '</span>' : '')"
-        :media="'<i class=\'fa fa-' + (todo.completed ? 'check-circle color-green' : 'circle-thin color-gray') + '\'></i>'"
         :key="key">
+        <div slot="media-start">
+          <f7-icon
+            :material="todo.completed ? 'check_box' : 'check_box_outline_blank'"
+            :color="todo.completed ? 'green' : 'gray'" />
+        </div>
         <f7-swipeout-actions left>
           <f7-swipeout-button overswipe close
             :color="(todo.completed ? 'grey' : 'green')"
             @click="toggleTodo(key)">
-            <f7-icon :fa="(todo.completed ? 'undo' : 'check')"></f7-icon>
+            <f7-icon :material="(todo.completed ? 'undo' : 'check')"></f7-icon>
           </f7-swipeout-button>
         </f7-swipeout-actions>
       </f7-list-item>
@@ -161,7 +165,11 @@
 
 </script>
 <style scoped>
-  .swipeout-actions-left .fa {
+  .swipeout-actions-left .material-icons {
     color: #ffffff;
+  }
+  .item-media .material-icons {
+    font-size: 22px;
+    line-height: 32px;
   }
 </style>

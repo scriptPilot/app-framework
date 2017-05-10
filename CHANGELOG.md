@@ -9,6 +9,7 @@
 ### Improvements
 
 - [#510 - Use app-framework.com](https://github.com/scriptPilot/app-framework/issues/510)
+- [#513 - Remove fontAwesome from demo app](https://github.com/scriptPilot/app-framework/issues/513)
 
 ## Version 1.4.27
 

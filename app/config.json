@@ -13,7 +13,7 @@
     "framework7": true,
     "material": true,
     "ion": false,
-    "fontawesome": true
+    "fontawesome": false
   },
   "limitApplicationWidth": 320,
   "limitApplicationHeight": 570,
