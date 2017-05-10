@@ -16,9 +16,9 @@ For any open question, feature request or bug, please use our [issue list](https
 
 ## Workflow
 
-- [ ] [**Setup** your project](#)
-- [ ] [**Design** your application](#)
-- [ ] **Develop** your application
+- [ ] [Setup your project](#)
+- [ ] [Design your application](#)
+- [ ] Develop your application
   - [ ] [App component](#)
   - [ ] [Page components](#)
   - [ ] [Routing](#)
@@ -30,14 +30,14 @@ For any open question, feature request or bug, please use our [issue list](https
   - [ ] [Application style](#)
   - [ ] [Status bar style](#)
   - [ ] [Firebase backend](#)
-- [ ] [**Test** your application](#)
-- [ ] [**Build** your application](#)
-- [ ] [**Deploy** your application](#)
-- [ ] [**Backup** your project](#)
+- [ ] [Test your application](#)
+- [ ] [Build your application](#)
+- [ ] [Deploy your application](#)
+- [ ] [Backup your project](#)
 
 ## Reference
 
 - [ ] [Project folder structure](#)
 - [ ] [Configuration options](#)
 - [ ] [CLI commands](#)
-- [x] **[Changelog](CHANGELOG.md)**
+- [x] [Changelog](CHANGELOG.md)
