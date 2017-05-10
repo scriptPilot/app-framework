@@ -2,8 +2,6 @@
 
 > This page is part of the [App Framework Documentation](../DOCUMENTATION.md)
 
-<br />
-
 ## Version 1.4.27
 
 Released on 2017-05-09
