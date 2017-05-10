@@ -17,4 +17,4 @@
   - [ ] [Project folder structure](#)
   - [ ] [Configuration options](#)
   - [ ] [CLI commands](#)
-  - [ ] [Changelog](#)
+  - [x] [Changelog](CHANGELOG.md)
