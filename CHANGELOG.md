@@ -4,18 +4,21 @@
 
 <br />
 
-## Next version
+## Version 1.4.34
+
+Released on 2017-05-10
 
 # Bug-fixes
 
-- [#514 - Scoped colors overwritten by app component CSS](https://github.com/scriptPilot/app-framework/issues/514)
-- [#515 - State not reset after "cancel" on login screen](https://github.com/scriptPilot/app-framework/issues/515)
-- [#516 - App component data saved as page component data in local storage](https://github.com/scriptPilot/app-framework/issues/516)
+- [x] [#514 - Scoped colors overwritten by app component CSS](https://github.com/scriptPilot/app-framework/issues/514)
+- [x] [#515 - State not reset after "cancel" on login screen](https://github.com/scriptPilot/app-framework/issues/515)
+- [x] [#516 - App component data saved as page component data in local storage](https://github.com/scriptPilot/app-framework/issues/516)
 
 ### Improvements
 
-- [#510 - Use app-framework.com](https://github.com/scriptPilot/app-framework/issues/510)
-- [#513 - Remove fontAwesome from demo app](https://github.com/scriptPilot/app-framework/issues/513)
+- [x] [#510 - Use app-framework.com](https://github.com/scriptPilot/app-framework/issues/510)
+- [x] [#513 - Remove fontAwesome from demo app](https://github.com/scriptPilot/app-framework/issues/513)
+- [x] [Firebase Demo App](https://demo.app-framework.com) updated
 
 ## Version 1.4.27
 
@@ -30,7 +33,7 @@ Released on 2017-05-09
 
 ### Improvements
 
-- [x] [Firebase Demo App](https://app-framework.scriptpilot.de/) updated
+- [x] [Firebase Demo App](https://demo.app-framework.com) updated
 
 ## Version 1.4.23
 
