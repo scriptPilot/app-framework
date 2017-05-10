@@ -1,4 +1,4 @@
-# Knowledge requirements
+# Account requirements
 
 > This page is part of the [App Framework Documentation](../DOCUMENTATION.md)
 
