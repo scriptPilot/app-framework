@@ -699,7 +699,6 @@
     "path": "/firebase-private/",
     "component": "firebase-private.vue",
     "login": true
-
   },
   {
     "path": "/firebase-public/",
@@ -711,7 +710,7 @@
   },
   {
     "path": "/flexible-routing/blog/:blogId/post/:postId/",
-    "component": "flexible-routing"
+    "component": "flexible-routing.vue"
   },
   {
     "path": "/home/",
