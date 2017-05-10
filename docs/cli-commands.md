@@ -4,8 +4,6 @@
 
 <br />
 
-This is an overview and reference, please see the [Workflow](#workflow) for details.
-
 ![Process](../media/cli-commands.png)
 
 - Setup
@@ -13,10 +11,10 @@ This is an overview and reference, please see the [Workflow](#workflow) for deta
   - `npm update` to update App Framework to the latest sub version
 
 - Testing
-  - `npm run dev` to start the development server in the web browser
+  - `npm run dev` to start the development server
     - `CTRL + C` to stop the development server
-  - `npm run ios` to open an iOS simulator with a development build
-  - `npm run android` to open an Android simulator with a development build
+  - `npm run ios` to open an iOS emulator with a development build
+  - `npm run android` to open an Android emulator with a development build
 
 - Building
   - `npm run patch` to build after bug-fixes and improvements

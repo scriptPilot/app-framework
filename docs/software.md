@@ -6,7 +6,7 @@
 
 Before you start to work with App Framework, you need to install some free available softare.
 
-### Atom
+## Atom
 
 First of all, you need a code editor. We really recommend Atom, which is open source, supports correct syntax highlighting and is available for macOS, Windows and Linux.
 
@@ -19,21 +19,21 @@ First of all, you need a code editor. We really recommend Atom, which is open so
 7. Close the settings tab and Atom itself
 
 
-### Node.js
+## Node.js
 
 To run the App Framework scripts and the development server, you need to install [Node.js](https://nodejs.org/), which is available for macOS, Windows and Linux and is free of charge. You can install it with the default settings.
 
-### Xcode
+## Xcode
 
 [Xcode](https://developer.apple.com/xcode/) is optional. You need it, if you want to publish your application to the Apple App Store. You can install Xcode only to macOS machines, like iMac or macBook. You can download Xcode free of charge from the macOS App Store.
 
-### Android Studio
+## Android Studio
 
 Android Studio is optional. You need it, if you want to publish your application to the Google Play Store. It is available free of charge for macOS, Windows and Linux.
 
 To ensure you install Android Studio and its SDK properly, please read the [official installation guide](https://developer.android.com/studio/install.html).
 
-### GitHub desktop client
+## GitHub desktop client
 
 The GitHub desktop client is optional. We recommend it as a Git client, because GitHub is great for collaboration or as a backup for your own code. The desktop client is available for macOS and Windows and is free of charge.
 
@@ -43,6 +43,6 @@ The GitHub desktop client is optional. We recommend it as a Git client, because 
 4. Configure your user name and a email address under which you will commit to GitHub
 5. Close the GitHub desktop client
 
-### Reboot
+## Reboot
 
 At the end of the installation process, you should reboot your computer.
