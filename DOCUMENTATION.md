@@ -8,7 +8,7 @@
 - [ ] **Workflow**
   - [ ] [Setup your project](#)
   - [ ] [Design your application](#)
-  - Develop your application
+  - [ ] Develop your application
     - [ ] [App component](#)
     - [ ] [Page components](#)
     - [ ] [Routing](#)
