@@ -8,7 +8,7 @@
 
 Released on 2017-05-10
 
-# Bug-fixes
+### Bug-fixes
 
 - [x] [#514 - Scoped colors overwritten by app component CSS](https://github.com/scriptPilot/app-framework/issues/514)
 - [x] [#515 - State not reset after "cancel" on login screen](https://github.com/scriptPilot/app-framework/issues/515)
