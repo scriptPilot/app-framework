@@ -4,6 +4,12 @@
 
 <br />
 
+**The best way to dicover App Framework?**
+
+Check all requirements, follow the workflow step by step and use the reference as a quick refresher. 
+
+<br />
+
 - [x] **[Requirements](docs/requirements.md)**
 - [ ] **Workflow**
   - [ ] [Setup your project](#)
