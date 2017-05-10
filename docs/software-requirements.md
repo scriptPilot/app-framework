@@ -8,7 +8,7 @@ Before you start to work with App Framework, you need to install some free avail
 
 ### Atom
 
-First of all, you need a code editor. We really recommend Atom, which is open source, supports correct syntax highlighting and available for macOS, Windows and Linux.
+First of all, you need a code editor. We really recommend Atom, which is open source, supports correct syntax highlighting and is available for macOS, Windows and Linux.
 
 1. Download from [Atom.io](https://atom.io/) the right installer for your operating system
 2. Install Atom and open it afterwards
