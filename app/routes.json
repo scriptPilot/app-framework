@@ -710,6 +710,10 @@
     "component": "flexible-routing.vue"
   },
   {
+    "path": "/flexible-routing/blog/:blogId/post/:postId/",
+    "component": "flexible-routing"
+  },
+  {
     "path": "/home/",
     "component": "home.vue"
   },
