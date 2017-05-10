@@ -1,16 +1,11 @@
 CACHE MANIFEST
-# 82684746202e734b1cc2
+# 010fc5f6f4bb374130ea
 
 fonts/Framework7Icons-Regular.bb6aae4.eot
 fonts/Framework7Icons-Regular.9900d2b.ttf
 fonts/Framework7Icons-Regular.eb7a418.woff
 fonts/Framework7Icons-Regular.f3e1eae.woff2
 fonts/material-icons.6fa175c.woff2
-fonts/fontawesome-webfont.674f50d.eot
-fonts/fontawesome-webfont.912ec66.svg
-fonts/fontawesome-webfont.b06871f.ttf
-fonts/fontawesome-webfont.af7ae50.woff2
-fonts/fontawesome-webfont.fee66e7.woff
 img/i-f7-ios.b356cb6.png
 img/i-f7-material.ccc2c70.png
 img/flag-de.69735e1.png
@@ -19,12 +14,12 @@ favicon.ico
 img/firebase.472015e.png
 img/theme-ios.48f912f.png
 img/theme-material.381a2ea.png
-app.8268474.js
-material.8268474.js
-ios.8268474.js
-app.8268474.css
-ios.8268474.css
-material.8268474.css
+app.010fc5f.js
+material.010fc5f.js
+ios.010fc5f.js
+app.010fc5f.css
+ios.010fc5f.css
+material.010fc5f.css
 index.html
 
 NETWORK:
