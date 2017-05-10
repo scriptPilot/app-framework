@@ -40,5 +40,5 @@ For any open question, feature request or bug, please use our [issue list](https
 
 - [ ] [Project folder structure](#)
 - [ ] [Configuration options](#)
-- [ ] [CLI commands](#)
+- [ ] [CLI commands](docs/cli-commands.md)
 - [x] [Changelog](CHANGELOG.md)
