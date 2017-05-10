@@ -1,6 +1,8 @@
 # Changelog
 
-## Version 1.4.27 (released on 2017-05-09)
+## Version 1.4.27
+
+Released on 2017-05-09
 
 ### Bug-fixes
 
@@ -13,7 +15,9 @@
 
 - [x] [Firebase Demo App](https://app-framework.scriptpilot.de/) updated
 
-## Version 1.4.23 (released on 2017-05-08)
+## Version 1.4.23
+
+Released on 2017-05-08
 
 ### Bug-fixes
 
@@ -37,7 +41,9 @@
 - [x] [#428 - Get rid of lodash in client code](https://github.com/scriptPilot/app-framework/issues/428)
 - [x] [#447 - Include realtime database example](https://github.com/scriptPilot/app-framework/issues/447)
 
-## Version 1.4.4 (released on 2017-05-08)
+## Version 1.4.4
+
+Released on 2017-05-08
 
 ### Bug-fixes
 
@@ -48,10 +54,32 @@
 
 - [x] [#429 - Deploy directly to device during tests](https://github.com/scriptPilot/app-framework/issues/429)
 
-## Milestones 1.0 to 1.4
+## Version 1.4 "Client code robustness improvements"
 
-- [x] [1.4 - Client code robustness improvements](https://github.com/scriptPilot/app-framework/milestone/7?closed=1) (2017-05-05)
-- [x] [1.3 - CLI robustness improvements](https://github.com/scriptPilot/app-framework/milestone/6?closed=1) (2017-03-19)
-- [x] [1.2 - Google Play Store deployment](https://github.com/scriptPilot/app-framework/milestone/5?closed=1) (2017-02-12)
-- [x] [1.1 - Apple App Store deployment](https://github.com/scriptPilot/app-framework/milestone/4?closed=1) (2017-02-10)
-- [x] [1.0 - Initial Release](https://github.com/scriptPilot/app-framework/milestone/1?closed=1) (2017-02-05)
+Released on 2017-05-05
+
+About 115 new features, bug-fixes or improvements - see [milestone](https://github.com/scriptPilot/app-framework/milestone/7?closed=1) for detailed information.
+
+## Version 1.3 "CLI robustness improvements"
+
+Released on 2017-03-19
+
+About 146 new features, bug-fixes or improvements - see [milestone](https://github.com/scriptPilot/app-framework/milestone/6?closed=1) for detailed information.
+
+## Version 1.2 "Google Play Store deployment"
+
+Released on 2017-02-12
+
+About 6 new features, bug-fixes or improvements - see [milestone](https://github.com/scriptPilot/app-framework/milestone/5?closed=1) for detailed information.
+
+## Version 1.1 "Apple App Store deployment"
+
+Released on 2017-02-10
+
+About 28 new features, bug-fixes or improvements - see [milestone](https://github.com/scriptPilot/app-framework/milestone/4?closed=1) for detailed information.
+
+## Version 1.0 "Initial Release"
+
+Released on 2017-02-05
+
+About 82 new features, bug-fixes or improvements - see [milestone](https://github.com/scriptPilot/app-framework/milestone/1?closed=1) for detailed information.
