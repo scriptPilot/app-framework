@@ -1,4 +1,4 @@
-# Page component
+# App component
 
 > This page is part of the [App Framework Documentation](../DOCUMENTATION.md)
 
