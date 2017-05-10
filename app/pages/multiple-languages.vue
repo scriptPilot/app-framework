@@ -6,7 +6,7 @@
     <f7-navbar :title="text.title" :back-link="text.backlink" sliding></f7-navbar>
 
     <!-- Language selection > $root.language must be changed to update language -->
-    <f7-list inset>
+    <f7-list>
       <f7-list-item smart-select smart-select-back-on-select
         :title="text.selectLang"
         :media="'<img src=\'' + images['flag_' + $root.language] + '\' width=\'29\' />'">
@@ -20,7 +20,7 @@
     <f7-block><p>{{text.text}}</p></f7-block>
 
     <f7-block inset>
-      <f7-button href="/app-framework-login-screen/" :text="$root.user ? text.logout : text.login"></f7-button>
+      <f7-button href="/app-framework-login-screen/" :text="$root.user ? text.logout : text.login" raised></f7-button>
     </f7-block inset>
 
     <f7-block>{{text.text2}} <f7-link href="https://github.com/scriptPilot/app-framework/issues" external>GitHub Issue List</f7-link>.</f7-block>

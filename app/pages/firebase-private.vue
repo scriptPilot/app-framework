@@ -12,20 +12,18 @@
       Enter some notes, upload a photo, login from multiple devices and see how everything is synchronized in real time.
     </f7-block>
 
-    <!-- Private notes textfield -->
-    <f7-list form inset>
+    <!-- Private notes textfield and photo -->
+    <f7-list form>
       <f7-list-item>
         <f7-input v-model="notes" name="notes" type="textarea" placeholder="Your private Notes ..."></f7-input>
       </f7-list-item>
     </f7-list>
-
-    <!-- Private photo selection -->
-    <f7-list inset>
+    <f7-list form>
       <f7-list-item>
         <f7-input type="file" accept="image/*;capture=camera"></f7-input>
       </f7-list-item>
-      <f7-list-button @click="uploadPhoto">Upload photo</f7-list-button>
     </f7-list>
+    <f7-block><f7-button @click="uploadPhoto" raised>Upload photo</f7-button></f7-block>
 
     <!-- Private photo display -->
     <f7-block inset v-if="photo">
