@@ -6,6 +6,8 @@
 
 Before you start to work with App Framework, you should be familiar with the following documentation.
 
+<br />
+
 Essentiell:
 
 - [Node.js and npm](https://docs.npmjs.com/getting-started/what-is-npm) for command line interface handling
