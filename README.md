@@ -65,7 +65,7 @@ Backup your project:
 &nbsp;&nbsp;&nbsp;
 [![Get it on Google Play](media/google-play-download.png)](https://play.google.com/store/apps/details?id=de.scriptpilot.appframework)
 &nbsp;&nbsp;&nbsp;
-[![Open as Web App](media/web-app-visit.png)](https://app-framework.scriptpilot.de/)
+[![Open as Web App](media/web-app-visit.png)](https://demo.app-framework.com/)
 
 ## Documentation
 
