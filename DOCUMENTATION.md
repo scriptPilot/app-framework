@@ -1,6 +1,6 @@
 # App Framework - Documentation
 
-> Read less, code more - please open a ticket for any open question in our [issue list](https://github.com/scriptPilot/app-framework/issues).
+Read less, code more - please open a ticket for any open question in our [issue list](https://github.com/scriptPilot/app-framework/issues).
 
 - [ ] **Requirements**
   - [ ] [Knowledge]()
