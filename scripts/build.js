@@ -81,7 +81,7 @@ let updateLicense = function (callback) {
 let updateDocumentation = function (callback) {
   if (env.installed === false) {
     alert('Documentation update ongoing - please wait ...')
-    let update = jsonScheme.markdown(abs(__dirname, '../config-scheme.json'), abs(__dirname, '../DOCUMENTATION.md'), 'config-options')
+    let update = jsonScheme.markdown(abs(__dirname, '../config-scheme.json'), abs(__dirname, '../docs/configuration.md'), 'config-options')
     if (Array.isArray(update)) {
       alert('Failed to update the documentation file.\n' + update.join('\n'), 'issue')
     } else {
