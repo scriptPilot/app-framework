@@ -8,8 +8,6 @@ The become comfortable with App Framework, you should check the requirements fir
 
 For any open question, feature request or bug, please use our [issue list](https://github.com/scriptPilot/app-framework/issues).
 
-Have fun!
-
 ## Requirements
 
 - [ ] Knowledge requirements
@@ -39,21 +37,7 @@ Have fun!
 
 # Reference
 
-> Read less, code more - please open a ticket for any open question in our [issue list](https://github.com/scriptPilot/app-framework/issues).
-
-<br />
-
-**The best way to dicover App Framework?**
-
-Check all requirements, follow the workflow step by step and use the reference as a quick refresher. 
-
-<br />
-
-- [x] **[Requirements](docs/requirements.md)**
-- [ ] **Workflow**
-  
-- [ ] **Reference**
-  - [ ] [Project folder structure](#)
-  - [ ] [Configuration options](#)
-  - [ ] [CLI commands](#)
+- [ ] [Project folder structure](#)
+- [ ] [Configuration options](#)
+- [ ] [CLI commands](#)
 - [x] **[Changelog](CHANGELOG.md)**
