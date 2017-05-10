@@ -85,3 +85,13 @@
   }
 
 </script>
+
+<style>
+  .f7-icons  {
+    width: 29px;
+    font-size: 29px;
+    height: 29px;
+    text-align: center;
+    color: gray;
+  }
+</style>

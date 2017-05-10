@@ -6,6 +6,10 @@
 
 ## Next version
 
+# Bug-fixes
+
+- [#514 - Scoped colors overwritten by app component CSS](https://github.com/scriptPilot/app-framework/issues/514)
+
 ### Improvements
 
 - [#510 - Use app-framework.com](https://github.com/scriptPilot/app-framework/issues/510)

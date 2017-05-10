@@ -78,20 +78,3 @@
     }
   }
 </script>
-
-<style>
-  /* Icon sizes */
-  .item-media .fa,
-  .swipeout-actions-left .fa,
-  .swipeout-actions-right .fa  {
-    font-size: 20px;
-  }
-  .item-media i.icon,
-  .item-media i.f7-icons  {
-    width: 29px;
-    font-size: 29px;
-    height: 29px;
-    text-align: center;
-    color: gray;
-  }
-</style>
