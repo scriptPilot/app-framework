@@ -3,7 +3,7 @@
 > Read less, code more - please open a ticket for any open question in our [issue list](https://github.com/scriptPilot/app-framework/issues).
 
 - [ ] **Requirements**
-  - [ ] [Knowledge](#)
+  - [ ] [Knowledge](docs/knowledge.md)
   - [ ] [Software](#)
 - [ ] **Workflow**
   - [ ] [Setup your project](#)
