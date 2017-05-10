@@ -1,5 +1,5 @@
 # Requirements - Knowledge
 
-> This page is part of the **[App Framework Documentation](../DOCUMENTATION.md)**
+> This page is part of the [App Framework Documentation](../DOCUMENTATION.md)
 
 ...
