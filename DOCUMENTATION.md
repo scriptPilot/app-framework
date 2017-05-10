@@ -4,9 +4,7 @@
 
 <br />
 
-- [ ] **Requirements**
-  - [x] [Knowledge](docs/knowledge.md)
-  - [ ] [Software](#)
+- [ ] **[Requirements](docs/requirements)**
 - [ ] **Workflow**
   - [ ] [Setup your project](#)
   - [ ] [Design your application](#)
