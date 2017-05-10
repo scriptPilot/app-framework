@@ -4,7 +4,7 @@
 
 <br />
 
-- [ ] **[Requirements](docs/requirements.md)**
+- [x] **[Requirements](docs/requirements.md)**
 - [ ] **Workflow**
   - [ ] [Setup your project](#)
   - [ ] [Design your application](#)
