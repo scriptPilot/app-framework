@@ -5,7 +5,7 @@
 <br />
 
 - [ ] **Requirements**
-  - [ ] [Knowledge](docs/knowledge.md)
+  - [x] [Knowledge](docs/knowledge.md)
   - [ ] [Software](#)
 - [ ] **Workflow**
   - [ ] [Setup your project](#)
@@ -19,4 +19,4 @@
   - [ ] [Project folder structure](#)
   - [ ] [Configuration options](#)
   - [ ] [CLI commands](#)
-  - [x] [Changelog](CHANGELOG.md)
+  - [x] [Changelog](docs/changelog.md)
