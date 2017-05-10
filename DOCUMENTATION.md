@@ -4,7 +4,7 @@
 
 App Framework supports your whole workflow to create amazing iOS and Material Apps with HTML, JavaScript and CSS. All the tricky stuff, which has to be done for each application, is done by App Framework. You could spend your time on what makes your App special.
 
-To become comfortable with App Framework, you should check the requirements first, follow the workflow step by step and use the reference as a quick refresher.
+To become comfortable with App Framework, you should check the requirements first, follow the workflow step by step afterwards and use the reference as a quick refresher.
 
 For any open question, feature request or bug, please use our [issue list](https://github.com/scriptPilot/app-framework/issues).
 
