@@ -62,28 +62,28 @@ Released on 2017-05-08
 
 Released on 2017-05-05
 
-About 115 new features, bug-fixes and improvements - see [milestone](https://github.com/scriptPilot/app-framework/milestone/7?closed=1) for detailed information.
+- [x] About 115 new features, bug-fixes and improvements - see [milestone](https://github.com/scriptPilot/app-framework/milestone/7?closed=1) for detailed information.
 
 ## Version 1.3 "CLI robustness improvements"
 
 Released on 2017-03-19
 
-About 146 new features, bug-fixes and improvements - see [milestone](https://github.com/scriptPilot/app-framework/milestone/6?closed=1) for detailed information.
+- [x] About 146 new features, bug-fixes and improvements - see [milestone](https://github.com/scriptPilot/app-framework/milestone/6?closed=1) for detailed information.
 
 ## Version 1.2 "Google Play Store deployment"
 
 Released on 2017-02-12
 
-About 6 new features, bug-fixes and improvements - see [milestone](https://github.com/scriptPilot/app-framework/milestone/5?closed=1) for detailed information.
+- [x] About 6 new features, bug-fixes and improvements - see [milestone](https://github.com/scriptPilot/app-framework/milestone/5?closed=1) for detailed information.
 
 ## Version 1.1 "Apple App Store deployment"
 
 Released on 2017-02-10
 
-About 28 new features, bug-fixes and improvements - see [milestone](https://github.com/scriptPilot/app-framework/milestone/4?closed=1) for detailed information.
+- [x] About 28 new features, bug-fixes and improvements - see [milestone](https://github.com/scriptPilot/app-framework/milestone/4?closed=1) for detailed information.
 
 ## Version 1.0 "Initial Release"
 
 Released on 2017-02-05
 
-About 82 new features, bug-fixes and improvements - see [milestone](https://github.com/scriptPilot/app-framework/milestone/1?closed=1) for detailed information.
+- [x] About 82 new features, bug-fixes and improvements - see [milestone](https://github.com/scriptPilot/app-framework/milestone/1?closed=1) for detailed information.
