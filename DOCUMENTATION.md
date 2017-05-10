@@ -35,7 +35,7 @@ For any open question, feature request or bug, please use our [issue list](https
 - [ ] [**Deploy** your application](#)
 - [ ] [**Backup** your project](#)
 
-# Reference
+## Reference
 
 - [ ] [Project folder structure](#)
 - [ ] [Configuration options](#)
