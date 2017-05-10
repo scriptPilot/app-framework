@@ -2,7 +2,7 @@
 
 > This page is part of the [App Framework Documentation](../DOCUMENTATION.md)
 
----
+<br />
 
 Before you start to work with App Framework, you should be familiar with the following documentation.
 
