@@ -10,14 +10,14 @@ For any open question, feature request or bug, please use our [issue list](https
 
 ## Requirements
 
-- [x] [Knowledge requirements](docs/knowledge-requirements.md)
-- [x] [Software requirements](docs/software-requirements.md)
+- [x] [Knowledge requirements](docs/knowledge.md)
+- [x] [Software requirements](docs/software.md)
 - [ ] Account requirements
 
 ## Workflow
 
 - [ ] [Setup your project](#)
-- [ ] [Design your application](#)
+- [ ] [Design your application](docs/design.md)
 - [ ] Develop your application
   - [ ] [App component](#)
   - [ ] [Page components](#)
