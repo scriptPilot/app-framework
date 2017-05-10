@@ -4,6 +4,12 @@
 
 <br />
 
+## Next version
+
+### Improvements
+
+- [#510 - Use app-framework.com](https://github.com/scriptPilot/app-framework/issues/510)
+
 ## Version 1.4.27
 
 Released on 2017-05-09
