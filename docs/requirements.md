@@ -1,6 +1,7 @@
 # Requirements
 
-> This page is part of the [App Framework Documentation](../DOCUMENTATION.md)<br />
+> This page is part of the [App Framework Documentation](../DOCUMENTATION.md)
+<br />
 
 ## Knowledge
 
