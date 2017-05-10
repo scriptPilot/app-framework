@@ -8,6 +8,8 @@ To become comfortable with App Framework, you should check the requirements firs
 
 For any open question, feature request or bug, please use our [issue list](https://github.com/scriptPilot/app-framework/issues).
 
+The check boxes indicates articles which are already reworked.
+
 ## Requirements
 
 - [x] [Knowledge requirements](docs/knowledge.md)
