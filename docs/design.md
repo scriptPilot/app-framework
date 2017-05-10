@@ -1,4 +1,4 @@
-# Knowledge requirements
+# Design your application
 
 > This page is part of the [App Framework Documentation](../DOCUMENTATION.md)
 
