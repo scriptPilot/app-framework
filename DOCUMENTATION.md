@@ -4,7 +4,7 @@
 
 <br />
 
-- [ ] **[Requirements](docs/requirements)**
+- [ ] **[Requirements](docs/requirements.md)**
 - [ ] **Workflow**
   - [ ] [Setup your project](#)
   - [ ] [Design your application](#)
@@ -17,4 +17,4 @@
   - [ ] [Project folder structure](#)
   - [ ] [Configuration options](#)
   - [ ] [CLI commands](#)
-  - [x] [Changelog](docs/changelog.md)
+- [x] **[Changelog](docs/changelog.md)**
