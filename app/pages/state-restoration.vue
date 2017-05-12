@@ -17,7 +17,6 @@
     </f7-block>
 
     <!-- Action sheet -->
-    <!--
     <f7-actions id="demoActions">
       <f7-actions-group>
         <f7-actions-label>Whatever you want</f7-actions-label>
@@ -31,10 +30,8 @@
     <f7-block>
       <f7-col><f7-button raised @click="$f7.openModal('#demoActions')">Action sheet</f7-button></f7-col>
     </f7-block>
-    -->
 
     <!-- Login screen -->
-    <!--
     <f7-login-screen id="demoLoginScreen">
       <f7-login-screen-title>My App</f7-login-screen-title>
       <f7-list form id="state-restoration-login-screen" inset>
@@ -57,7 +54,6 @@
     <f7-block>
       <f7-col><f7-button raised open-login-screen="#demoLoginScreen">Login screen</f7-button></f7-col>
     </f7-block>
-    -->
 
     <!-- Picker -->
     <f7-picker-modal id="demoPicker" overlay>
