@@ -19,7 +19,7 @@
 
 ### Improvements
 
-- [x] [#405 - Avoid bouncing on iOS](https://github.com/scriptPilot/app-framework/issues/405)
+- [x] [#425 - Avoid bouncing on iOS](https://github.com/scriptPilot/app-framework/issues/425)
 
 ## Version 1.4.34
 
