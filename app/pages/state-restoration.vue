@@ -60,7 +60,7 @@
     -->
 
     <!-- Picker -->
-    <f7-picker-modal id="demoPicker">
+    <f7-picker-modal id="demoPicker" overlay>
       <f7-toolbar>
         <f7-nav-left></f7-nav-left>
         <f7-nav-right>
