@@ -6,6 +6,10 @@
 
 ## Next Version
 
+### New features
+
+- [x] [#408 - Show app icon on load (like splash screen)](https://github.com/scriptPilot/app-framework/issues/408)
+
 ### Bug-fixes
 
 - [x] [#430 - Modals in page components are buggy](https://github.com/scriptPilot/app-framework/issues/430)

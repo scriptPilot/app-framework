@@ -36,6 +36,7 @@ let icons = [
   ['ico', 16, 16],
   ['ico', 32, 32],
   ['ico', 48, 48],
+  ['ico', 128, 128], // used on preloader
   ['android-chrome', 192, 192],
   ['android-chrome', 512, 512],
   ['mstile', 150, 150],
@@ -235,35 +236,30 @@ let createFilledIcons = function (icon, iconList, hashFolder, callback) {
 // Create special icons
 let createIcoFile = function (hashFolder, callback) {
   alert('Favicon.ico creation ongoing - please wait ...')
-  // Define including sizes
-  let sizes = [16, 32, 48]
   // Load files
   let files = []
-  sizes.map(s => {
-    let path = abs(hashFolder, 'ico-' + s + 'x' + s + '.png')
-    if (!found(path)) {
-      alert('Cannot find ico-' + s + 'x' + s + '.png in hash cache folder.', 'issue')
-    } else {
-      files.push(fs.readFileSync(path))
+  icons.map(icon => {
+    if (icon[0] === 'ico') {
+      let path = abs(hashFolder, 'ico-' + icon[1] + 'x' + icon[2] + '.png')
+      if (!found(path)) {
+        alert('Cannot find ico-' + icon[1] + 'x' + icon[2] + '.png in hash cache folder.', 'issue')
+      } else {
+        files.push(fs.readFileSync(path))
+      }
     }
   })
-  if (sizes.length !== files.length) {
-    alert('Failed to read all ico files.', 'issue')
-  } else {
-    // Create ico file
-    toIco(files).then(function (buf) {
-      fs.writeFile(abs(hashFolder, 'favicon.ico'), buf, function (err) {
-        if (err || !found(hashFolder, 'favicon.ico')) {
-          alert('Failed to save favicon.ico to hash cache folder.', 'issue')
-        } else {
-          alert('Favicon.ico creation done.')
-          callback()
-        }
-      })
-    }).catch(function () {
-      alert('Failed to generate favicon.ico file.', 'issue')
+  toIco(files).then(function (buf) {
+    fs.writeFile(abs(hashFolder, 'favicon.ico'), buf, function (err) {
+      if (err || !found(hashFolder, 'favicon.ico')) {
+        alert('Failed to save favicon.ico to hash cache folder.', 'issue')
+      } else {
+        alert('Favicon.ico creation done.')
+        callback()
+      }
     })
-  }
+  }).catch(function () {
+    alert('Failed to generate favicon.ico file.', 'issue')
+  })
 }
 
 // Downsize ms tile icons, keep transparency

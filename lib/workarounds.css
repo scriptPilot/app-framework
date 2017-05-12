@@ -1,8 +1,3 @@
-/* Avoid blinking at the state restoration */
-#app {
-  visibility: hidden;
-}
-
 /* Smart select option images shown to big */
 .smart-select-page .item-media img {
   max-width: 29px;
