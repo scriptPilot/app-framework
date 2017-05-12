@@ -175,6 +175,13 @@ let updateCordovaConfig = function (callback) {
       'src': 'index.html'
     }
   }
+  // Disallow overscroll
+  config.preference = {
+    '$': {
+      'name': 'DisallowOverscroll',
+      'value': true
+    }
+  }
   // Add Android platform
   if (env.arg.android === true || env.arg.studio) {
     config.platform = {

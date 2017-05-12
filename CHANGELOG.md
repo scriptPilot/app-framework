@@ -15,6 +15,10 @@
 - [x] [#430 - Modals in page components are buggy](https://github.com/scriptPilot/app-framework/issues/430)
 - [x] [#519 - Kitchen sink update removes all routes](https://github.com/scriptPilot/app-framework/issues/519)
 
+### Improvements
+
+- [x] [#405 - Avoid bouncing on iOS](https://github.com/scriptPilot/app-framework/issues/405)
+
 ## Version 1.4.34
 
 Released on 2017-05-10
