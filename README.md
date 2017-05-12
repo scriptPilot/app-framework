@@ -50,7 +50,7 @@ Deploy your application:
 - Deployment without downtime
   - to any FTP server as Web App
   - to the [Firebase Hosting service](https://firebase.google.com/products/hosting/) as Web App
-  - to the [Apple App Store](https://itunes.apple.com/de/) as native iOS App
+  - to the [Apple App Store](https://itunes.apple.com/) as native iOS App
   - to the [Google Play Store](https://play.google.com/) as native Android App
 - Easy rollback solutions
 
@@ -65,7 +65,7 @@ Backup your project:
 &nbsp;&nbsp;&nbsp;
 [![Get it on Google Play](media/google-play-download.png)](https://play.google.com/store/apps/details?id=de.scriptpilot.appframework)
 &nbsp;&nbsp;&nbsp;
-[![Open as Web App](media/web-app-visit.png)](https://demo.app-framework.com/)
+[![Open as Web App](media/web-app-visit.png)](https://demo.app-framework.com)
 
 ## Documentation
 
