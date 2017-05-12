@@ -99,7 +99,7 @@ function proceedFolder (sourceFolder, destinationFolder, callback) {
                   let routes = fs.readJsonSync(path.resolve(env.app, 'routes.json'))
                   let routesNew = []
                   for (let r = 0; r < routes.length; r++) {
-                    if ((new RegExp('$\/' + path.basename(sourceFolder) + '\/')).test(routes[r]).path === false) { // eslint-disable-line
+                    if ((new RegExp('^\/' + path.basename(sourceFolder).replace('kitchen-sink-', 'f7') + '\/')).test(routes[r].path) === false) { // eslint-disable-line
                       routesNew.push(routes[r])
                     }
                   }

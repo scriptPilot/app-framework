@@ -4,6 +4,12 @@
 
 <br />
 
+## Next Version
+
+### Bug-fixes
+
+- [x] [#519 - Kitchen sink update removes all routes](https://github.com/scriptPilot/app-framework/issues/519)
+
 ## Version 1.4.34
 
 Released on 2017-05-10
