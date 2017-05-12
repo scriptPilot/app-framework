@@ -12,6 +12,7 @@
 
 ### Bug-fixes
 
+- [x] [#387 - Horizontal calendar timeline is not scrollable](https://github.com/scriptPilot/app-framework/issues/387)
 - [x] [#406 - UI components - Scrollable tabbar does not work](https://github.com/scriptPilot/app-framework/issues/406)
 - [x] [#430 - Modals in page components are buggy](https://github.com/scriptPilot/app-framework/issues/430)
 - [x] [#519 - Kitchen sink update removes all routes](https://github.com/scriptPilot/app-framework/issues/519)
