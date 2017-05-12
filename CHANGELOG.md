@@ -4,6 +4,16 @@
 
 <br />
 
+## Version 1.5.2
+
+Released on 2017-05-13
+
+### Improvements
+
+- [x] [Apple App Store App](https://itunes.apple.com/us/app/app-framework-demo/id1203927581?mt=8) update
+- [x] [Google Play Store App](https://play.google.com/store/apps/details?id=de.scriptpilot.appframework) update
+- [x] [Firebase Web App](https://demo.app-framework.com) update
+
 ## Version 1.4.53
 
 Released on 2017-05-12
