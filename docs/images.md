@@ -53,7 +53,7 @@ The following example shows *imageA.png* initially and after five seconds *image
 </script>
 ```
 
-Another solution is, that you require the images in the script:
+Another solution is, that you require all images in the script:
 
 ```
 <template>
