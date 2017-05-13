@@ -10,6 +10,10 @@
 
 - [x] [#520 - Preload all images before application start](https://github.com/scriptPilot/app-framework/issues/520)
 
+### Improvements
+
+- [x] [#440 - Use npm for Framework7](ttps://github.com/scriptPilot/app-framework/issues/440)
+
 ## Version 1.5.2
 
 Released on 2017-05-13

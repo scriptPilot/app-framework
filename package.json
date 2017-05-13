@@ -57,6 +57,7 @@
     "firebase": "^3.6.6",
     "firebase-tools": "^3.2.3",
     "font-awesome": "^4.7.0",
+    "framework7": "^1.6.0",
     "framework7-icons": "^0.8.0",
     "fs-extra": "^2.0.0",
     "ftp": "^0.3.10",
