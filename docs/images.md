@@ -76,7 +76,8 @@ Another solution is, that you require the images in the script:
       }, 5000)
     }
   }
-</script
+</script>
+```
 
 ## Image preloading
 
