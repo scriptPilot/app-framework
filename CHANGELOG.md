@@ -13,6 +13,7 @@
 ### Improvements
 
 - [x] [#440 - Use npm for Framework7](ttps://github.com/scriptPilot/app-framework/issues/440)
+- [x] [#522 - Use npm for Framework7-Icons](ttps://github.com/scriptPilot/app-framework/issues/522)
 - [x] [#523 - Use npm for FontAwesome](https://github.com/scriptPilot/app-framework/issues/523)
 - [x] [#524 - Use npm for ion icons](https://github.com/scriptPilot/app-framework/issues/524)
 
