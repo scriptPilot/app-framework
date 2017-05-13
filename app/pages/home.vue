@@ -57,21 +57,16 @@
 </template>
 
 <script>
-
-  // Define images
-  let images = {
-    flag_en: require('../images/flag-en.png'),
-    flag_de: require('../images/flag-de.png'),
-    theme_ios: require('../images/theme-ios.png'),
-    theme_material: require('../images/theme-material.png'),
-    firebase: require('../images/firebase.png')
-  }
-
-  // Export page module
   module.exports = {
     data: function () {
       return {
-        images: images
+        images: {
+          flag_en: require('../images/flag-en.png'),
+          flag_de: require('../images/flag-de.png'),
+          theme_ios: require('../images/theme-ios.png'),
+          theme_material: require('../images/theme-material.png'),
+          firebase: require('../images/firebase.png')
+        }
       }
     },
     methods: {
@@ -83,7 +78,6 @@
       }
     }
   }
-
 </script>
 
 <style>
