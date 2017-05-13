@@ -52,6 +52,7 @@ appStoreId | *string* |
 playStoreId | *string* |
 useCordovaPlugins | *array* | ["cordova-plugin-statusbar","cordova-plugin-whitelist"]
 resetLocalStorageOnVersionChange | *boolean* | false
+preloadImages | *boolean* | true
 buildSourcemaps | *boolean* | false
 fixCodeOnTest | *boolean* | true
 fixCodeOnBuild | *boolean* | true

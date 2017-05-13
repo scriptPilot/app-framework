@@ -4,6 +4,12 @@
 
 <br />
 
+## Next version
+
+### New features
+
+- [x] [#520 - Preload all images before application start](https://github.com/scriptPilot/app-framework/issues/520)
+
 ## Version 1.5.2
 
 Released on 2017-05-13

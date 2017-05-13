@@ -26,7 +26,7 @@ The check boxes indicate articles which are already reworked.
   - [ ] [Routing](docs/routing.md)
   - [ ] [Global data object](docs/data-object.md)
   - [ ] [sortObject function](docs/sort-object.md)
-  - [ ] [Images](docs/images.md)
+  - [x] [Images](docs/images.md)
   - [ ] [Modules and scripts](docs/modules-and-scripts.md)
   - [ ] [Cordova plugins](docs/cordova-plugins.md)
   - [ ] [Firebase backend](docs/firebase.md)

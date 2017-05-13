@@ -154,6 +154,10 @@
     "type": "boolean",
     "default": false
   },
+  "preloadImages": {
+    "type": "boolean",
+    "default": true
+  },
   "buildSourcemaps": {
     "type": "boolean",
     "default": false
