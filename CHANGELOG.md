@@ -4,7 +4,9 @@
 
 <br />
 
-## Next version
+## Version 1.5.16
+
+Released on 2017-05-13
 
 ### New features
 
