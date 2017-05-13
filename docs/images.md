@@ -22,7 +22,7 @@ To remove images, you should remove the image tag first and delete the file afte
 
 ## Dynamic image usage
 
-During the build process, all *src* attributes are parsed by Webpack and mapped to the hashed image files. This does only work, if the *src* contains only string - no variables.
+During the build process, all *src* attributes are parsed by Webpack and mapped to the hashed image files. This does only work, if the *src* contains a string only - no variables.
 
 So, for dynamic images, you should use single *img* elements and display them or not.
 
