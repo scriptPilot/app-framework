@@ -8,11 +8,13 @@
 
 ### New features
 
-- [x] [#520 - Preload all images before application start](https://github.com/scriptPilot/app-framework/issues/520)
+- [x] [#520 - Preload all images before application start](https://github.com/scriptPilot/app-framework/issues/520))
 
 ### Improvements
 
 - [x] [#440 - Use npm for Framework7](ttps://github.com/scriptPilot/app-framework/issues/440)
+- [x] [#523 - Use npm for FontAwesome](https://github.com/scriptPilot/app-framework/issues/523)
+- [x] [#524 - Use npm for ion icons](https://github.com/scriptPilot/app-framework/issues/524)
 
 ## Version 1.5.2
 
