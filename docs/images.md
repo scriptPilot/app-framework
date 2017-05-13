@@ -87,4 +87,4 @@ This could increase the initial loading time, but will improve the behavior of y
 
 To disable image preloading, set `preloadImages: false` in the configuration file. To use the updated setting, you have to restart the development server.
 
-To update the preloader, you have to restart the development server as well.
+To update the preloader after adding new images to your application, you have to restart the development server as well.
