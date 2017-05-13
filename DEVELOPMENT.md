@@ -129,9 +129,9 @@ A script file executes some code and use *lib/alert* to show either a success me
 - Each step should indicate a successful run with `<step> done.`
 - Each step should indicate a failed run with `Error: <step> failed. <solution>`
 
-## Bug-fix checklist
+## Trouble-shooting
 
-Some points to check on bug-fixing:
+Some points to check on trouble-shooting:
 
 - No interferences with other files
 - All `require()` commands contain only strings, no variables
