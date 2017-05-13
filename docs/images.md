@@ -46,7 +46,7 @@ The following example shows *imageA.png* initially and after five seconds *image
     },
     mounted: function () {
       setTimeout(() => {
-        this.image= 'imageB'
+        this.image = 'imageB'
       }, 5000)
     }
   }
