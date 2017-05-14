@@ -67,6 +67,8 @@ Backup your project:
 &nbsp;&nbsp;&nbsp;
 [![Open as Web App](media/web-app-visit.png)](https://demo.app-framework.com)
 
+![Screenshots](media/screenshots.png)
+
 ## Documentation
 
 [![Documentation](media/documentation.png)](DOCUMENTATION.md)
