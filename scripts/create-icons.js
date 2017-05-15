@@ -36,7 +36,6 @@ let icons = [
   ['ico', 16, 16],
   ['ico', 32, 32],
   ['ico', 48, 48],
-  ['ico', 128, 128], // used on preloader
   ['android-chrome', 192, 192],
   ['android-chrome', 512, 512],
   ['mstile', 150, 150],
