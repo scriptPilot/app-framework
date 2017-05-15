@@ -4,6 +4,12 @@
 
 <br />
 
+## Next version
+
+### New features
+
+- [x] [#529 - Use service workers for offline cache](https://github.com/scriptPilot/app-framework/issues/440)
+
 ## Version 1.5.16
 
 Released on 2017-05-13
@@ -14,8 +20,8 @@ Released on 2017-05-13
 
 ### Improvements
 
-- [x] [#440 - Use npm for Framework7](ttps://github.com/scriptPilot/app-framework/issues/440)
-- [x] [#522 - Use npm for Framework7-Icons](ttps://github.com/scriptPilot/app-framework/issues/522)
+- [x] [#440 - Use npm for Framework7](https://github.com/scriptPilot/app-framework/issues/440)
+- [x] [#522 - Use npm for Framework7-Icons](https://github.com/scriptPilot/app-framework/issues/522)
 - [x] [#523 - Use npm for FontAwesome](https://github.com/scriptPilot/app-framework/issues/523)
 - [x] [#524 - Use npm for ion icons](https://github.com/scriptPilot/app-framework/issues/524)
 

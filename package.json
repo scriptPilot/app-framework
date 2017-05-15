@@ -3,7 +3,7 @@
   "description": "iOS and Android Apps with HTML & JavaScript - develop, build and deploy - free and open source!",
   "author": "scriptPilot <mail@scriptPilot.de> (https://github.com/scriptPilot)",
   "repository": "https://github.com/scriptPilot/app-framework.git",
-  "version": "1.5.16",
+  "version": "1.5.62",
   "license": "MIT",
   "scripts": {
     "postinstall": "node scripts/postinstall",
@@ -70,6 +70,7 @@
     "json-loader": "^0.5.4",
     "lodash": "^4.17.4",
     "minimist": "^1.2.0",
+    "offline-plugin": "^4.7.0",
     "on-build-webpack": "^0.1.0",
     "opn": "^4.0.2",
     "package-json": "^4.0.1",
