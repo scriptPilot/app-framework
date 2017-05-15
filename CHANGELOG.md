@@ -8,7 +8,11 @@
 
 ### New features
 
-- [x] [#529 - Use service workers for offline cache](https://github.com/scriptPilot/app-framework/issues/440)
+- [x] [#529 - Use service workers for offline cache](https://github.com/scriptPilot/app-framework/issues/529)
+
+### Bug-fixes
+
+- [x] [#531 - App reloads on initial load](https://github.com/scriptPilot/app-framework/issues/531)
 
 ## Version 1.5.16
 
