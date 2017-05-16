@@ -4,6 +4,12 @@
 
 <br />
 
+## Next version
+
+### Bug-fixes
+
+- [x] [#533 - Material navbar not initialized properly](https://github.com/scriptPilot/app-framework/issues/533)
+
 ## Version 1.6.0
 
 Released on 2017-05-16
