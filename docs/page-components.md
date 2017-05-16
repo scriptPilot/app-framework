@@ -39,6 +39,8 @@ To add CSS, you use the *style* block:
 </style>
 ```
 
+To scope the style only for that page component, use `<style scoped>`.
+
 And to add functionality, you use the *script* block:
 
 ```
