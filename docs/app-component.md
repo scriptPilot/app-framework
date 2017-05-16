@@ -37,7 +37,7 @@ And to add functionality, you use the *script* block:
 <script>
   export default {
     mounted: function () {
-      this.$f7.alert('Page is mounted!')
+      this.$f7.alert('App is mounted!')
     }
   }
 </script>
