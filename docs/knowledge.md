@@ -20,4 +20,4 @@ Before you start to work with App Framework, you should be familiar with the fol
 
 <br />
 
-> [Overview](../DOCUMENTATION.md) &nbsp; - &nbsp; [Software requirements](software.md)
+> [Overview](../DOCUMENTATION.md) &nbsp; | &nbsp; Next: [Software requirements](software.md)
