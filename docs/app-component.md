@@ -45,4 +45,4 @@ And to add functionality, you use the *script* block:
 
 In [Framework7-Vue documentation](http://framework7.io/vue/app-layout.html), the app component is described as the *#app* div - you will find all details there.
 
-[Babel / ES2015](https://babeljs.io/learn-es2015/) is supported in page components.
+[Babel / ES2015](https://babeljs.io/learn-es2015/) is supported in the app component.
