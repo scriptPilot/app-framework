@@ -12,7 +12,7 @@ For page component naming, please read the chapter [Routing](routing.md).
 
 ## Structure
 
-A basic page component could look like this:
+A basic page component could look like this *app/pages/home.vue* file:
 
 ```
 <template>
