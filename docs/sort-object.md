@@ -27,16 +27,22 @@ let objUnsorted = {
     age: 30
   }
 }
+```
 
-// Sort by name ascending
+Sort by name ascending:
+
+```
 let objSortedByName = window.sortObject(objUnsorted, 'name')
 {
   keyB: { name: 'Aaron', age: 40 },
   keyA: { name: 'Berta', age: 25 },
   keyC: { name: `Charlie`, age: 30 }
 }
+```
 
-// Sort by age descending
+Sort by age descending:
+
+```
 let objSortedByAgeDesc = window.sortObject(objectUnsorted, 'age', 'desc')
 {
   
@@ -44,5 +50,6 @@ let objSortedByAgeDesc = window.sortObject(objectUnsorted, 'age', 'desc')
   keyC: { name: `Charlie`, age: 30 },
   keyB: { name: 'Aaron', age: 40 }
 }
+```
 
 For more complex data manipulation you can think about the integration of [Underscore.js](http://underscorejs.org/) or [Lodash](https://lodash.com/). Please see the chapter [Modules and Scripts](modules-and-scripts.md) for details
