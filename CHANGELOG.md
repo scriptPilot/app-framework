@@ -4,27 +4,7 @@
 
 <br />
 
-## Version 1.6.34
-
-Released on 2017-05-16
-
-### Improvements
-
-- [x] Offline cache configuration
-
-## Version 1.6.1
-
-Released on 2017-05-16
-
-### Bug-fixes
-
-- [x] [#533 - Material navbar not initialized properly](https://github.com/scriptPilot/app-framework/issues/533)
-
-### Improvements
-
-- [x] [#407 - Get good Google lighthouse score](https://github.com/scriptPilot/app-framework/issues/407)
-
-## Version 1.6.0
+## Version 1.6.37
 
 Released on 2017-05-16
 
@@ -35,6 +15,11 @@ Released on 2017-05-16
 ### Bug-fixes
 
 - [x] [#531 - App reloads on initial load](https://github.com/scriptPilot/app-framework/issues/531)
+- [x] [#533 - Material navbar not initialized properly](https://github.com/scriptPilot/app-framework/issues/533)
+
+### Improvements
+
+- [x] [#407 - Get good Google lighthouse score](https://github.com/scriptPilot/app-framework/issues/407)
 
 ## Version 1.5.16
 
