@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#ver:cache-version-ff05cf4a67bf7b2052d580712e11c762c8a89308
+#ver:v1.6.33
 #plugin:4.7.0
 
 CACHE:
@@ -12,18 +12,18 @@ CACHE:
 /img/i-f7-material.ccc2c70.png
 /img/flag-de.69735e1.png
 /img/flag-en.500a285.png
-/favicon.ico
 /preloader.svg
 /img/firebase.472015e.png
 /img/theme-ios.48f912f.png
 /img/theme-material.381a2ea.png
-/app.14b79d3.js
-/material.14b79d3.js
-/ios.14b79d3.js
-/app.14b79d3.css
-/ios.14b79d3.css
-/material.14b79d3.css
+/app.9c3d75a.js
+/material.9c3d75a.js
+/ios.9c3d75a.js
+/app.9c3d75a.css
+/ios.9c3d75a.css
+/material.9c3d75a.css
 /
+/offline-service-worker.js
 /manifest.json
 /favicon-16x16.png
 /favicon-32x32.png
