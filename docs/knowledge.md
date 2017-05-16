@@ -17,3 +17,7 @@ Before you start to work with App Framework, you should be familiar with the fol
 - [Firebase](https://firebase.google.com/docs/web/setup) to use the reliable backend service provider
 - [Cordova/PhoneGap](https://cordova.apache.org/docs/en/latest/) to use device hardware API plugins
 - [iOS design guidelines](https://developer.apple.com/ios/human-interface-guidelines/overview/design-principles/) and [Material design guidelines](https://material.io/guidelines/)
+
+---
+
+[Overview](../DOCUMENTATION.md) &nbsp; - &nbsp; Next: [Software requirements](software.md)
