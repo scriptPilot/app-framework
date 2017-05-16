@@ -46,3 +46,7 @@ The GitHub desktop client is optional. We recommend it as a Git client, because 
 ## Reboot
 
 At the end of the installation process, you should reboot your computer.
+
+<br />
+
+> Previous: [Knowledge requirements](knowledge.md) &nbsp; | &nbsp; [Overview](../DOCUMENTATION.md) &nbsp; | &nbsp; Next: [Account requirements](accounts.md)
