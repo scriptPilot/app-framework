@@ -26,7 +26,7 @@ Now, the data object will look like following:
 
 ```
 {
-  greeting: 'Hallo',
+  greeting: 'Hello!',
   names: {
     first: 'Jan',
     third: 'Sophie'
