@@ -4,6 +4,14 @@
 
 <br />
 
+## Version 1.6.33
+
+Released on 2017-05-16
+
+### Improvements
+
+- [x] Offline cache configuration
+
 ## Version 1.6.1
 
 Released on 2017-05-16
