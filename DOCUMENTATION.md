@@ -21,7 +21,7 @@ The check boxes indicate articles which are already reworked.
 - [ ] [Setup your project](docs/setup.md)
 - [ ] [Design your application](docs/design.md)
 - [ ] Develop your application
-  - [ ] [App component](docs/app-component.md)
+  - [x] [App component](docs/app-component.md)
   - [ ] [Page components](docs/page-components.md)
   - [ ] [Routing](docs/routing.md)
   - [ ] [Global data object](docs/data-object.md)
