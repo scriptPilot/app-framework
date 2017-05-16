@@ -30,4 +30,4 @@ If you want to assign CSS declarations to your application, you should do it in 
 </style>
 ```
 
-In [Framework-Vue 7 documentation](http://framework7.io/vue/app-layout.html), the app component is described as the *#app* div.
+In [Framework-Vue 7 documentation](http://framework7.io/vue/app-layout.html), the app component is described as the *#app* div - you will find all details there.
