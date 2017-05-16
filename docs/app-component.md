@@ -6,7 +6,7 @@
 
 The structure of your application is defined in a Framework7-Vue component, so you should be familar with [Vue.js single file components](https://vuejs.org/v2/guide/single-file-components.html) as well as [Framework7-Vue](http://framework7.io/vue/).
 
-The following content is sufficient for a basic appication:
+The following content is sufficient for a basic application:
 
 ```
 <template>
@@ -18,7 +18,7 @@ The following content is sufficient for a basic appication:
 </template>
 ```
 
-If you want to assign CSS declarations to your application, you should do it in the app component:
+If you want to assign CSS declarations to your complete application, you should do it in the app component:
 
 ```
   ...
