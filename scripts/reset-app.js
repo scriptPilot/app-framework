@@ -109,7 +109,7 @@ let createHomepage = function (callback) {
   alert('Creating default page component - please wait ...')
   let content = '<template>\n' +
                 '  <f7-page>\n' +
-                '    <f7-navbar :title="$root.title" />\n' +
+                '    <f7-navbar :title="$root.config.title" />\n' +
                 '    <f7-block inner inset>It works!</f7-block>\n' +
                 '    <f7-block>\n' +
                 '      <f7-button big fill raised bg="green" href="https://github.com/scriptPilot/app-framework/blob/master/DOCUMENTATION.md" external>Documentation</f7-button>\n' +
