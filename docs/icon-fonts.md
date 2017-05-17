@@ -8,6 +8,4 @@ This section will be described in detail in the future.
 
 ## Legacy support
 
-To display icon fonts in older browsers and Android versions, App Framework will automatically replace ligatures to code:
-
-Example: `<f7-icon material "done" />` will generate `<i class="material-icons">&#xE876;</i>`
+To display icon fonts in older browsers and Android versions, App Framework will automatically replace ligatures to code. Example: `<f7-icon material "done" />` will generate `<i class="material-icons">&#xE876;</i>`
