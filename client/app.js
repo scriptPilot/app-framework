@@ -302,7 +302,7 @@ mixins.resetCache = {
   created: function () {
     if (this.config.resetLocalStorageOnVersionChange === true &&
         window.localStorage.projectVersion !== undefined &&
-        window.localStorage.projectVersion !== this.project.version) {
+        window.localStorage.projectVersion !== this.projectVersion) {
       // Remember alert
       let text = {
         en: 'The application has been updated and the cache has been reset.',
@@ -323,7 +323,7 @@ mixins.resetCache = {
       }
     }
     // Update framework version in local storage
-    window.localStorage.projectVersion = this.project.version
+    window.localStorage.projectVersion = this.projectVersion
   },
   // Show Alert
   watch: {
@@ -346,12 +346,12 @@ mixins.checkNPMupdates = {
           if (npm.latest === 'unknown') {
             window.f7.alert('Failed to get latest NPM version. Please open an incident on GitHub.', 'App Framework')
           } else if (/^[0-9]+\.[0-9]+\.[0-9]+$/.test(npm.latest)) {
-            let currentVersion = this.framework.version.split('.')
+            let currentVersion = this.frameworkVersion.split('.')
             let npmVersion = npm.latest.split('.')
             if (parseInt(currentVersion[0]) < parseInt(npmVersion[0]) ||
                 parseInt(currentVersion[1]) < parseInt(npmVersion[1]) ||
                 parseInt(currentVersion[2]) < parseInt(npmVersion[2])) {
-              window.f7.alert('Please update App Framework to the latest version <b>' + npm.latest + '</b>.<br /><br />You have installed version ' + this.framework.version + '.<br /><br />The CLI commands are "CTRL + C" to stop the development server and "npm update" to update App Framework.', 'App Framework')
+              window.f7.alert('Please update App Framework to the latest version <b>' + npm.latest + '</b>.<br /><br />You have installed version ' + this.frameworkVersion + '.<br /><br />The CLI commands are "CTRL + C" to stop the development server and "npm update" to update App Framework.', 'App Framework')
             }
           } else {
             window.f7.alert('Failed to get parse NPM version. Please open an incident on GitHub.', 'App Framework')
