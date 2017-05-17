@@ -12,7 +12,7 @@ For each change to App Framework code, please follow these steps:
    - Will be categorized as "new feature", "bug" or "improvement"
    - Should be discussed for new features
 2. Create a branch
-   - Should be named "feature-123", "bug-123" or "improvement-123" where 123 is the issue number
+   - Should be named "feature-123", "fix-123" or "improvement-123" where 123 is the issue number
 3. Develop the solution
 4. Test the solution
    - On macOS / Windows / Linux any changes to folder *scripts*
