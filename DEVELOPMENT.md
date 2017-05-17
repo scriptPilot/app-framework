@@ -1,8 +1,8 @@
 # App Framework - Development
 
-> This document is only for the developers of App Framework.
+> This document is only for the developers of App Framework itself.
 
-> If you want to use App Framework, please read our end user [Documentation](DOCUMENTATION.md).
+> If you want to use App Framework for your own application, please read our end user [Documentation](DOCUMENTATION.md).
 
 - [Way of working](#way-of-working)
 - [CLI commands](#cli-commands)
