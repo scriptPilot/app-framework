@@ -81,10 +81,7 @@ All disabled code blocks for tests should be commented out with `/* ... */`. All
 let names = ['Tom', 'Susi', 'Aaron']
 */
 let names = 'everything but no array' /* test */
-// List with names is an array
-if (Array.isArray(names)) {
-  ...
-}
+...
 ```
 
 ## Standard JavaScript
