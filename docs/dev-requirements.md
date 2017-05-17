@@ -6,7 +6,7 @@
 
 ## App Framework
 
-Before you develop App Framework itself, you should be familiar how to work with App Framework. So, please follow the [end user documentation](DOCUMENTATION.md) first.
+Before you develop for App Framework itself, you should be familiar how to work with App Framework. So, please follow the [end user documentation](DOCUMENTATION.md) first.
 
 ## Enable development mode
 
