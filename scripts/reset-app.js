@@ -92,7 +92,7 @@ let createAppComponent = function (callback) {
   let content = '<template>\n' +
                 '  <div id="app">\n' +
                 '    <f7-views>\n' +
-                '      <f7-view id="main-view" main url="home" navbar-through :dynamic-navbar="true" />\n' +
+                '      <f7-view main url="/home/" navbar-through :dynamic-navbar="$theme.ios" />\n' +
                 '    </f7-views>\n' +
                 '  </div>\n' +
                 '</template>\n'
@@ -109,7 +109,7 @@ let createHomepage = function (callback) {
   alert('Creating default page component - please wait ...')
   let content = '<template>\n' +
                 '  <f7-page>\n' +
-                '    <f7-navbar title="My App" />\n' +
+                '    <f7-navbar :title="$root.title" />\n' +
                 '    <f7-block inner inset>It works!</f7-block>\n' +
                 '    <f7-block>\n' +
                 '      <f7-button big fill raised bg="green" href="https://github.com/scriptPilot/app-framework/blob/master/DOCUMENTATION.md" external>Documentation</f7-button>\n' +
