@@ -3,10 +3,11 @@
 'use strict'
 
 // Load modules
-let env = require('../env')
-let alert = require('../lib/alert')
+let env = require('./env')
+let alert = require('./alert')
 let fs = require('fs-extra')
 let abs = require('path').resolve
+let path = require('path')
 let rec = require('recursive-readdir-sync')
 let us = require('underscore')
 let webpack = require('webpack')
@@ -18,7 +19,7 @@ fs.emptyDirSync(abs(env.cache, 'build'))
 let createConfiguration = function (mode) {
   // Copy index.ejs file to cache
   try {
-    fs.copySync(abs(__dirname, '../index.ejs'), abs(env.cache, 'index.ejs'))
+    fs.copySync(abs(__dirname, '../client/index.ejs'), abs(env.cache, 'index.ejs'))
   } catch (err) {
     alert('Failed to cache index.ejs file.', 'issue')
   }
@@ -36,7 +37,7 @@ let createConfiguration = function (mode) {
       test: /\.js$/,
       loader: 'babel',
       include: [
-        abs(__dirname, '../lib'),
+        abs(__dirname, '../client'),
         abs(__dirname, '../scripts'),
         abs(env.app)
       ]
@@ -85,7 +86,7 @@ let createConfiguration = function (mode) {
     },
     // Loader image
     {
-      test: /preloader\.svg/,
+      test: /preloader\.svg$/,
       loader: 'url',
       query: {
         limit: 1,
@@ -107,7 +108,7 @@ let createConfiguration = function (mode) {
   // Start configuration object
   let config = {
     entry: {
-      app: [abs(__dirname, '../lib/app.js')]
+      app: [abs(__dirname, '../client/app.js')]
     },
     output: {
       path: mode === 'development' ? abs(env.app) : abs(env.cache, 'build/www'),
@@ -129,11 +130,11 @@ let createConfiguration = function (mode) {
   if (mode === 'production') {
     if (env.cfg.theme === 'ios-material' || env.cfg.theme === 'material-ios') {
       config.entry = us.extend({
-        ios: [abs(__dirname, '../lib/ios.js')],
-        material: [abs(__dirname, '../lib/material.js')]
+        ios: [abs(__dirname, '../client/ios.js')],
+        material: [abs(__dirname, '../client/material.js')]
       }, config.entry)
     } else {
-      config.entry.app.unshift(abs(__dirname, '../lib/' + env.cfg.theme + '.js'))
+      config.entry.app.unshift(abs(__dirname, '../client/' + env.cfg.theme + '.js'))
     }
   }
 
@@ -163,7 +164,7 @@ let createConfiguration = function (mode) {
     new webpack.DefinePlugin({
       'process.env': {
         THEME: '"' + env.cfg.theme + '"',
-        APP_ROOT_FROM_SCRIPTS: '"' + (env.installed ? '../../../app/' : '../app/') + '"',
+        APP_ROOT_FROM_SCRIPTS: '"' + path.relative(__dirname, env.app) + path.sep + '"',
         PROJECT_ROOT_FROM_SCRIPTS: '"' + (env.installed ? '../../../' : '../') + '"',
         CACHE_ROOT_FROM_SCRIPTS: '"' + (env.installed ? '../../../node_modules/.app-framework-cache/' : '../node_modules/.app-framework-cache/') + '"',
         USE_GLOBAL_DATA_OBJECT: '"' + env.cfg.useGlobalDataObject + '"',
@@ -192,7 +193,7 @@ let createConfiguration = function (mode) {
 
   // Add hot file reload in development mode
   if (mode === 'development') {
-    config.entry['app'].unshift(abs(__dirname, '../lib/dev-client.js'))
+    config.entry['app'].unshift(abs(__dirname, 'dev-client.js'))
     config.plugins.push(new webpack.HotModuleReplacementPlugin())
   }
 

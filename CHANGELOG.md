@@ -9,6 +9,7 @@
 ### Improvements
 
 - [x] [#539 - Create script to update Material Icons fonts automatically](https://github.com/scriptPilot/app-framework/issues/539)
+- [x] [#540 - Split-up code to scripts, client and demo folders](https://github.com/scriptPilot/app-framework/issues/540)
 
 ## Version 1.6.37
 

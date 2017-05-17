@@ -2,8 +2,8 @@
 
 'use strict'
 
-let found = require('../lib/found')
-let alert = require('../lib/alert')
+let found = require('./found')
+let alert = require('./alert')
 let abs = require('path').resolve
 let fs = require('fs-extra')
 let img = require('jimp')

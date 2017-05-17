@@ -3,8 +3,8 @@
 'use strict'
 
 // Import modules
-let alert = require('../lib/alert')
-let found = require('../lib/found')
+let alert = require('./alert')
+let found = require('./found')
 let fs = require('fs-extra')
 let abs = require('path').resolve
 

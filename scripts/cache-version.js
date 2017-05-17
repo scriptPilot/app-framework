@@ -7,9 +7,9 @@
 'use strict'
 
 // Include modules
-let env = require('../env')
-let alert = require('../lib/alert')
-let cmd = require('../lib/cmd')
+let env = require('./env')
+let alert = require('./alert')
+let cmd = require('./cmd')
 
 // Check version
 if (/^(dev|(([0-9]+)\.([0-9]+)\.([0-9]+)))$/.test(env.arg.version) !== true) {

@@ -7,9 +7,9 @@
 'use strict'
 
 // Include modules
-let env = require('../env')
-let alert = require('../lib/alert')
-let found = require('../lib/found')
+let env = require('./env')
+let alert = require('./alert')
+let found = require('./found')
 let fs = require('fs-extra')
 let abs = require('path').resolve
 let rec = require('recursive-readdir')

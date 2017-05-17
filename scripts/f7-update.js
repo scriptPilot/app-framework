@@ -5,10 +5,10 @@
 'use strict'
 
 // Load modules
-let env = require('../env')
-let alert = require('../lib/alert')
-let cmd = require('../lib/cmd')
-let found = require('../lib/found')
+let env = require('./env')
+let alert = require('./alert')
+let cmd = require('./cmd')
+let found = require('./found')
 let fs = require('fs-extra')
 let abs = require('path').resolve
 let rec = require('recursive-readdir')
@@ -59,7 +59,7 @@ cmd(f7Folder, 'gulp build', function () {
       colors.material[colorSearch[1]] = colorSearch[3]
     })
     colors.default.material = materialColorFile.match(/@themeColor:( )?@([a-z]+);/)[2]
-    fs.writeJsonSync(abs(env.proj, 'lib/theme-colors.json'), colors)
+    fs.writeJsonSync(abs('../client/theme-colors.json'), colors)
     // Update kitchen sinks
     cmd(__dirname, 'node update-kitchen-sinks', function () {
       cmd(__dirname, 'node update-routes', function () {

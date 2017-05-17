@@ -7,8 +7,8 @@
 'use strict'
 
 // Include modules
-let env = require('../env')
-let alert = require('../lib/alert')
+let env = require('./env')
+let alert = require('./alert')
 let fs = require('fs-extra')
 let ftpClient = require('ftp-client')
 let abs = require('path').resolve

@@ -182,7 +182,7 @@ mixins.loadFavicon = {
 }
 mixins.managePreloader = {
   beforeCreate: function () {
-    require('../preloader.svg')
+    require('./preloader.svg')
   },
   watch: {
     stateReady: function () {

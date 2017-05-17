@@ -9,9 +9,9 @@
 'use strict'
 
 // Load modules
-let env = require('../env')
-let alert = require('../lib/alert')
-let found = require('../lib/found')
+let env = require('./env')
+let alert = require('./alert')
+let found = require('./found')
 let fs = require('fs-extra')
 let path = require('path')
 let zip = require('zip-dir')

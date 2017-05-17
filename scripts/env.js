@@ -17,10 +17,10 @@
 'use strict'
 
 // Include Modules
-let alert = require('./lib/alert')
-let found = require('./lib/found')
-let jsonScheme = require('./lib/json-scheme')
-let upgradeConfig = require('./lib/upgrade-config')
+let alert = require('./alert')
+let found = require('./found')
+let jsonScheme = require('./json-scheme')
+let upgradeConfig = require('./upgrade-config')
 let fs = require('fs-extra')
 let argParser = require('minimist')
 let rel = require('path').join
@@ -29,7 +29,7 @@ let sep = require('path').sep
 let ver = require('semver')
 
 // Include framework information
-let framework = require('./package.json')
+let framework = require('../package.json')
 
 // Check node version
 if (framework.engines && framework.engines.node && ver.satisfies(process.version, framework.engines.node) !== true) {
@@ -40,11 +40,11 @@ if (framework.engines && framework.engines.node && ver.satisfies(process.version
 let arg = argParser(process.argv.slice(2))
 
 // Define installation status
-let installed = found(__dirname, '../../package.json')
+let installed = found(__dirname, '../../../package.json')
 
 // Define paths
-let proj = installed ? abs(__dirname, '../../') : abs(__dirname)
-let app = abs(proj, 'app')
+let proj = installed ? abs(__dirname, '../../../') : abs(__dirname, '../')
+let app = installed ? abs(proj, 'app') : abs(proj, 'demo')
 let cache = abs(proj, 'node_modules/.app-framework-cache')
 
 // Check if user has forked the repo
@@ -55,7 +55,7 @@ if (!installed && !found(proj, '.enable-dev-mode')) {
 // Fix configuration file
 if (found(app, 'config.json')) {
   upgradeConfig(app)
-  let configFix = jsonScheme.fix(abs(__dirname, 'config-scheme.json'), abs(app, 'config.json'))
+  let configFix = jsonScheme.fix(abs(__dirname, '../config-scheme.json'), abs(app, 'config.json'))
   if (Array.isArray(configFix)) {
     alert('Failed to fix config file.\nDetails:\n- ' + configFix.join('\n- '), 'issue', 'issue')
   }

@@ -3,14 +3,14 @@
 'use strict'
 
 // Set dev argument (for webpack config)
-let env = require('../env')
+let env = require('./env')
 env.arg.dev = true
 
 // Load packages
-let alert = require('../lib/alert')
-let cmd = require('../lib/cmd')
-let found = require('../lib/found')
-let webpackConfig = require('../lib/webpack-config').development
+let alert = require('./alert')
+let cmd = require('./cmd')
+let found = require('./found')
+let webpackConfig = require('./webpack-config').development
 let fs = require('fs-extra')
 let historyFallback = require('connect-history-api-fallback')
 let express = require('express')

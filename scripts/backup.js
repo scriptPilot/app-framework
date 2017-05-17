@@ -7,9 +7,9 @@
 'use strict'
 
 // Include modules
-let env = require('../env')
-let alert = require('../lib/alert')
-let cmd = require('../lib/cmd')
+let env = require('./env')
+let alert = require('./alert')
+let cmd = require('./cmd')
 let fs = require('fs-extra')
 let abs = require('path').resolve
 

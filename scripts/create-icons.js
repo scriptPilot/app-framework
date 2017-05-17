@@ -9,10 +9,10 @@
 'use strict'
 
 // Include packages
-let env = require('../env')
-let alert = require('../lib/alert')
-let cmd = require('../lib/cmd')
-let found = require('../lib/found')
+let env = require('./env')
+let alert = require('./alert')
+let cmd = require('./cmd')
+let found = require('./found')
 let fs = require('fs-extra')
 let hex2rgb = require('hex-rgb')
 let img = require('jimp')

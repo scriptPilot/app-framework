@@ -3,11 +3,11 @@
 'use strict'
 
 // Import modules
-let env = require('../env')
-let alert = require('../lib/alert')
-let cmd = require('../lib/cmd')
-let found = require('../lib/found')
-let jsonScheme = require('../lib/json-scheme')
+let env = require('./env')
+let alert = require('./alert')
+let cmd = require('./cmd')
+let found = require('./found')
+let jsonScheme = require('./json-scheme')
 let fs = require('fs-extra')
 let img = require('jimp')
 let abs = require('path').resolve
@@ -43,7 +43,7 @@ let fixCode = function (callback) {
 // Step: Build webpack
 let buildWebpack = function (callback) {
   alert('Webpack build process ongoing - please wait ...')
-  let webpackConfig = require('../lib/webpack-config').production
+  let webpackConfig = require('./webpack-config').production
   // Empty webpack cache folder
   fs.emptyDir(abs(env.cache, 'build/www'), function (err) {
     if (err) {

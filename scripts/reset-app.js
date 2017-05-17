@@ -7,17 +7,12 @@
 'use strict'
 
 // Include modules
-let env = require('../env')
-let alert = require('../lib/alert')
-let cmd = require('../lib/cmd')
-let jsonScheme = require('../lib/json-scheme')
+let env = require('./env')
+let alert = require('./alert')
+let cmd = require('./cmd')
+let jsonScheme = require('./json-scheme')
 let fs = require('fs-extra')
 let abs = require('path').resolve
-
-// Cancel in App Framework development mode
-if (env.installed !== true) {
-  alert('App reset not possible in App Framework development mode.', 'exit')
-}
 
 // Define source and destination folders
 let dest = abs(env.proj, 'app')
@@ -36,7 +31,7 @@ let resetAppFolder = function (callback) {
   }
 }
 let copyIconFile = function (callback) {
-  fs.copy(abs(__dirname, '../app/icon.png'), abs(dest, 'icon.png'), function (err) {
+  fs.copy(abs(__dirname, '../demo/icon.png'), abs(dest, 'icon.png'), function (err) {
     alert('Copying icon file - please wait ...')
     if (!err) {
       alert('Icon file copied.')

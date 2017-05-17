@@ -2,8 +2,8 @@
 
 'use strict'
 
-let env = require('../env')
-let alert = require('../lib/alert')
+let env = require('./env')
+let alert = require('./alert')
 let fs = require('fs-extra')
 
 alert('Cache reset ongoing - please wait ...')
