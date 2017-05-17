@@ -68,10 +68,10 @@ let manageComponentData = {
 let mixins = {}
 mixins.loadConfig = {
   data: {
-    // Load App Framework information
-    framework: require('../package.json'),
-    // Load project information
-    project: require(process.env.PROJECT_ROOT_FROM_SCRIPTS + 'package.json'),
+    // Load App Framework version
+    frameworkVersion: process.env.FRAMEWORK_VERSION,
+    // Load project version
+    version: process.env.PROJECT_VERSION,
     // Load application configuration
     config: require(process.env.APP_ROOT_FROM_SCRIPTS + 'config.json')
   },

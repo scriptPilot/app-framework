@@ -160,9 +160,12 @@ let createConfiguration = function (mode) {
 
   // Add environment variables
   let firebaseConfig = mode === 'production' ? env.cfg.firebase : env.cfg.devFirebase
+  let framework = require('../package.json')
   config.plugins.push(
     new webpack.DefinePlugin({
       'process.env': {
+        PROJECT_VERSION: '"' + env.pkg.version + '"',
+        FRAMEWORK_VERSION: '"' + framework.version + '"',
         THEME: '"' + env.cfg.theme + '"',
         APP_ROOT_FROM_SCRIPTS: '"' + path.relative(__dirname, env.app) + path.sep + '"',
         PROJECT_ROOT_FROM_SCRIPTS: '"' + (env.installed ? '../../../' : '../') + '"',

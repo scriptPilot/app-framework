@@ -14,6 +14,8 @@
 
 - [x] [#539 - Create script to update Material Icons fonts automatically](https://github.com/scriptPilot/app-framework/issues/539)
 - [x] [#540 - Split-up code to scripts, client and demo folders](https://github.com/scriptPilot/app-framework/issues/540)
+- [x] [#545 - Add only version, not complete project package.json to build](https://github.com/scriptPilot/app-framework/issues/545)
+- [x] [#546 - Add only version, not complete Framework package.json to build](https://github.com/scriptPilot/app-framework/issues/546)
 
 ## Version 1.6.37
 
