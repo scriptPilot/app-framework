@@ -4,7 +4,9 @@
 
 <br />
 
-## Next version
+## Version 1.6.46
+
+Released on 2017-05-17
 
 ### Bug-fixes
 
@@ -16,6 +18,8 @@
 - [x] [#540 - Split-up code to scripts, client and demo folders](https://github.com/scriptPilot/app-framework/issues/540)
 - [x] [#545 - Add only version, not complete project package.json to build](https://github.com/scriptPilot/app-framework/issues/545)
 - [x] [#546 - Add only version, not complete Framework package.json to build](https://github.com/scriptPilot/app-framework/issues/546)
+- [x] [Development Documentation](DEVELOPMENT.md) updated
+- [x] [Google Play Store App](https://play.google.com/store/apps/details?id=de.scriptpilot.appframework) updated
 
 ## Version 1.6.37
 
