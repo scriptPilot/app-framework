@@ -13,8 +13,6 @@ let fs = require('fs-extra')
 let abs = require('path').resolve
 let rec = require('recursive-readdir')
 
-alert('Framework7 is used from npm, not from vendor folder anymore.\nTo use again an own build, update app.js / material.js / ios.js and remove this alert.', 'error')
-
 // Check App Framework development mode
 if (env.installed === true) {
   alert('Framework7 update is only possible in App Framework development mode.', 'error')
