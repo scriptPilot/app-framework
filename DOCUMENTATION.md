@@ -1,4 +1,4 @@
-# App Framework Documentation
+# App Framework - Documentation
 
 ## Introduction
 
