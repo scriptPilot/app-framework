@@ -14,6 +14,8 @@ To update Framework7 in the vendor folder:
 2. Run `npm install` in *Framework7* folder
 3. Run `npm run f7`in *app-framework* folder
 
+The kitchen sink files in the *demo* folder are updated as well. 
+
 ## Framework7-Vue
 
 To be able to use the newest master branch of Framework7-Vue and let developers use their modified Framework7-Vue build, it is shipped directly with App Framework in the *vendor* folder.
