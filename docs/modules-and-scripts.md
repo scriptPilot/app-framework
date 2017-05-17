@@ -30,13 +30,13 @@ Example: `npm install --save-dev underscore`
 </script>
 ```
 
-## Local scripts
+## Local module
 
-Follow these steps to use a local script:
+Follow these steps to use a local module (js / json / vue):
 
 1. If not exists, create a folder *app/vendor*
-2. Save the script to *vendor/<script_name>.js*
-3. Import the module at the beginning of the script block with `import <var_name> from '../vendor/<script_name>'`
+2. Save the module to *vendor/<module_name>.<module_ext>*
+3. Import the module at the beginning of the script block with `import <var_name> from '../vendor/<module_name>'`
 
 Example: *vendor/underscore.js*
 
