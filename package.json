@@ -11,6 +11,7 @@
     "reset": "node scripts/reset-cache",
     "f7": "node scripts/f7-update",
     "f7vue": "node scripts/f7vue-update",
+    "iconfonts": "node scripts/iconfonts",
     "check": "node scripts/code-check",
     "fix": "node scripts/code-check --fix",
     "dev": "node scripts/dev",

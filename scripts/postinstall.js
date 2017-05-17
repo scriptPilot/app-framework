@@ -115,7 +115,7 @@ let updateScriptsAndVersion = function (callback) {
     alert('Script update onging - please wait ...')
     let scripts = fs.readJsonSync(abs(__dirname, '../package.json')).scripts
     for (let script in scripts) {
-      if (['postinstall', 'reset', 'f7', 'f7vue'].indexOf(script) !== -1) {
+      if (['postinstall', 'reset', 'f7', 'f7vue', 'iconfonts'].indexOf(script) !== -1) {
         delete scripts[script]
       } else {
         scripts[script] = scripts[script].replace('node scripts/', 'node node_modules/app-framework/scripts/')

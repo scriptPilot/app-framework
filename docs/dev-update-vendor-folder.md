@@ -31,4 +31,4 @@ To avoid the need to install the huge Material Design Icons archive, it is shipp
 To update Material Design Icons in the vendor folder:
 
 1. Clone [Material Design Icons repo](https://github.com/google/material-design-icons) in *material-design-icons* folder next to *app-framework* folder
-2. Run `npm run icons` in *app-framework* folder
+2. Run `npm run iconfonts` in *app-framework* folder
