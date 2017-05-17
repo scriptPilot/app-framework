@@ -17,7 +17,7 @@ A basic page component could look like this *app/pages/home.vue* file:
 ```
 <template>
   <f7-page>
-    <f7-navbar back-link="Back" title="Home Page" />
+    <f7-navbar title="Home Page" />
     <f7-block>
       Welcome to your App!
     </f7-block>
