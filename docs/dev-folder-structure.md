@@ -22,7 +22,7 @@
 ├── config-scheme.json       # Scheme for any application configuration file
 ├── DEVELOPMENT.md           # Development documentation main page
 ├── DOCUMENTATION            # End user documentation main page
-├── LICENSE                  # App Framework license file (year is updated automatically on each build)
+├── LICENSE                  # App Framework license file (year is updated on each build)
 ├── package.json             # App Framework project information
 └── README.md                # Introduction, Features, Demo App, Documentation link
 ```
