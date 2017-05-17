@@ -12,7 +12,7 @@
         <ul>
           <li>
             <div class="item-content">
-              <div class="item-media"><i class="icon material-icons">person_outline</i></div>
+              <div class="item-media"><i class="icon material-icons"></i></div>
               <div class="item-inner">
                 <div class="item-title label">Name</div>
                 <div class="item-input">
@@ -23,7 +23,7 @@
           </li>
           <li>
             <div class="item-content">
-              <div class="item-media"><i class="icon material-icons">email</i></div>
+              <div class="item-media"><i class="icon material-icons"></i></div>
               <div class="item-inner">
                 <div class="item-title label">E-mail</div>
                 <div class="item-input">
@@ -34,7 +34,7 @@
           </li>
           <li>
             <div class="item-content">
-              <div class="item-media"><i class="icon material-icons">language</i></div>
+              <div class="item-media"><i class="icon material-icons"></i></div>
               <div class="item-inner">
                 <div class="item-title label">URL</div>
                 <div class="item-input">
@@ -45,7 +45,7 @@
           </li>
           <li>
             <div class="item-content">
-              <div class="item-media"><i class="icon material-icons">lock_outline</i></div>
+              <div class="item-media"><i class="icon material-icons"></i></div>
               <div class="item-inner">
                 <div class="item-title label">Password</div>
                 <div class="item-input">
@@ -56,7 +56,7 @@
           </li>
           <li>
             <div class="item-content">
-              <div class="item-media"><i class="icon material-icons">call</i></div>
+              <div class="item-media"><i class="icon material-icons"></i></div>
               <div class="item-inner">
                 <div class="item-title label">Phone</div>
                 <div class="item-input">
@@ -67,7 +67,7 @@
           </li>
           <li>
             <div class="item-content">
-              <div class="item-media"><i class="icon material-icons">people_outline</i></div>
+              <div class="item-media"><i class="icon material-icons"></i></div>
               <div class="item-inner">
                 <div class="item-title label">Gender</div>
                 <div class="item-input">
@@ -81,7 +81,7 @@
           </li>
           <li>
             <div class="item-content">
-              <div class="item-media"><i class="icon material-icons">today</i></div>
+              <div class="item-media"><i class="icon material-icons"></i></div>
               <div class="item-inner">
                 <div class="item-title label">Birth date</div>
                 <div class="item-input">
@@ -92,7 +92,7 @@
           </li>
           <li>
             <div class="item-content">
-              <div class="item-media"><i class="icon material-icons">today</i></div>
+              <div class="item-media"><i class="icon material-icons"></i></div>
               <div class="item-inner">
                 <div class="item-title label">Date time</div>
                 <div class="item-input">
@@ -103,7 +103,7 @@
           </li>
           <li>
             <div class="item-content">
-              <div class="item-media"><i class="icon material-icons">check</i></div>
+              <div class="item-media"><i class="icon material-icons"></i></div>
               <div class="item-inner">
                 <div class="item-title label">Switch</div>
                 <div class="item-input">
@@ -117,7 +117,7 @@
           </li>
           <li>
             <div class="item-content">
-              <div class="item-media"><i class="icon material-icons">settings</i></div>
+              <div class="item-media"><i class="icon material-icons"></i></div>
               <div class="item-inner">
                 <div class="item-title label">Slider</div>
                 <div class="item-input">
@@ -130,7 +130,7 @@
           </li>
           <li class="align-top">
             <div class="item-content">
-              <div class="item-media"><i class="icon material-icons">chat_bubble_outline</i></div>
+              <div class="item-media"><i class="icon material-icons"></i></div>
               <div class="item-inner">
                 <div class="item-title label">Resizeable Textarea</div>
                 <div class="item-input">
@@ -146,7 +146,7 @@
         <ul>
           <li>
             <div class="item-content">
-              <div class="item-media"><i class="icon material-icons">person_outline</i></div>
+              <div class="item-media"><i class="icon material-icons"></i></div>
               <div class="item-inner">
                 <div class="item-title floating-label">Your name</div>
                 <div class="item-input">
@@ -157,7 +157,7 @@
           </li>
           <li>
             <div class="item-content">
-              <div class="item-media"><i class="icon material-icons">email</i></div>
+              <div class="item-media"><i class="icon material-icons"></i></div>
               <div class="item-inner">
                 <div class="item-title floating-label">E-mail</div>
                 <div class="item-input">
@@ -168,7 +168,7 @@
           </li>
           <li>
             <div class="item-content">
-              <div class="item-media"><i class="icon material-icons">language</i></div>
+              <div class="item-media"><i class="icon material-icons"></i></div>
               <div class="item-inner">
                 <div class="item-title floating-label">URL</div>
                 <div class="item-input">
@@ -179,7 +179,7 @@
           </li>
           <li>
             <div class="item-content">
-              <div class="item-media"><i class="icon material-icons">lock_outline</i></div>
+              <div class="item-media"><i class="icon material-icons"></i></div>
               <div class="item-inner">
                 <div class="item-title floating-label">Password</div>
                 <div class="item-input">
@@ -190,7 +190,7 @@
           </li>
           <li>
             <div class="item-content">
-              <div class="item-media"><i class="icon material-icons">call</i></div>
+              <div class="item-media"><i class="icon material-icons"></i></div>
               <div class="item-inner">
                 <div class="item-title floating-label">Phone</div>
                 <div class="item-input">
@@ -201,7 +201,7 @@
           </li>
           <li>
             <div class="item-content">
-              <div class="item-media"><i class="icon material-icons">people_outline</i></div>
+              <div class="item-media"><i class="icon material-icons"></i></div>
               <div class="item-inner">
                 <div class="item-title floating-label">Gender</div>
                 <div class="item-input">
@@ -216,7 +216,7 @@
           </li>
           <li class="align-top">
             <div class="item-content">
-              <div class="item-media"><i class="icon material-icons">chat_bubble_outline</i></div>
+              <div class="item-media"><i class="icon material-icons"></i></div>
               <div class="item-inner">
                 <div class="item-title floating-label">Resizeable Textarea</div>
                 <div class="item-input">
@@ -232,7 +232,7 @@
         <ul>
           <li>
             <div class="item-content">
-              <div class="item-media"><i class="icon material-icons">person_outline</i></div>
+              <div class="item-media"><i class="icon material-icons"></i></div>
               <div class="item-inner">
                 <div class="item-input">
                   <input type="text" placeholder="Your name">
@@ -242,7 +242,7 @@
           </li>
           <li>
             <div class="item-content">
-              <div class="item-media"><i class="icon material-icons">email</i></div>
+              <div class="item-media"><i class="icon material-icons"></i></div>
               <div class="item-inner">
                 <div class="item-input">
                   <input type="email" placeholder="E-mail">
@@ -252,7 +252,7 @@
           </li>
           <li>
             <div class="item-content">
-              <div class="item-media"><i class="icon material-icons">people_outline</i></div>
+              <div class="item-media"><i class="icon material-icons"></i></div>
               <div class="item-inner">
                 <div class="item-input">
                   <select>
@@ -265,7 +265,7 @@
           </li>
           <li>
             <div class="item-content">
-              <div class="item-media"><i class="icon material-icons">today</i></div>
+              <div class="item-media"><i class="icon material-icons"></i></div>
               <div class="item-inner">
                 <div class="item-input">
                   <input type="date" placeholder="Birth day" value="2014-04-30">
@@ -275,7 +275,7 @@
           </li>
           <li>
             <div class="item-content">
-              <div class="item-media"><i class="icon material-icons">check</i></div>
+              <div class="item-media"><i class="icon material-icons"></i></div>
               <div class="item-inner">
                 <div class="item-input">
                   <label class="label-switch">

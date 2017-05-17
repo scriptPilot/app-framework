@@ -362,6 +362,9 @@ mixins.checkNPMupdates = {
   }
 }
 mixins.initWorkarounds = {
+  data: {
+    materialCodepoints: null
+  },
   beforeCreate: function () {
     require('./workarounds.css')
     // Actions not show/hide properly
@@ -375,6 +378,12 @@ mixins.initWorkarounds = {
     window.Dom7(document).on('page:init', (e) => {
       window.Dom7(e.target).find('.login-screen.modal-out').hide()
     })
+  },
+  created: function () {
+    // Materical Icons not shown in older browsers / android versions
+    if (process.env.FONT_MATERIAL) {
+      this.materialCodepoints = require('./material-codepoints.json')
+    }
   }
 }
 mixins.manageGlobalDataObject = {

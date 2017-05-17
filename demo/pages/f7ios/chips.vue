@@ -80,32 +80,26 @@
       <div class="content-block">
         <div class="content-block-inner">
           <div class="chip">
-            <div class="chip-label">Example Chip</div>
-            <a href="#" class="chip-delete"></a>
+            <div class="chip-label">Example Chip</div><a href="#" class="chip-delete"></a>
           </div>
           <div class="chip">
             <div class="chip-media bg-orange color-black">C</div>
-            <div class="chip-label">Chris</div>
-            <a href="#" class="chip-delete"></a>
+            <div class="chip-label">Chris</div><a href="#" class="chip-delete"></a>
           </div>
           <div class="chip">
             <div class="chip-media"><img src="http://lorempixel.com/100/100/people/9/"></div>
-            <div class="chip-label">Jane Doe</div>
-            <a href="#" class="chip-delete"></a>
+            <div class="chip-label">Jane Doe</div><a href="#" class="chip-delete"></a>
           </div>
           <div class="chip">
-            <div class="chip-label">One More Chip</div>
-            <a href="#" class="chip-delete"></a>
+            <div class="chip-label">One More Chip</div><a href="#" class="chip-delete"></a>
           </div>
           <div class="chip">
             <div class="chip-media bg-pink">J</div>
-            <div class="chip-label">Jennifer</div>
-            <a href="#" class="chip-delete"></a>
+            <div class="chip-label">Jennifer</div><a href="#" class="chip-delete"></a>
           </div>
           <div class="chip">
             <div class="chip-media"><img src="http://lorempixel.com/100/100/people/7/"></div>
-            <div class="chip-label">Adam Smith</div>
-            <a href="#" class="chip-delete"></a>
+            <div class="chip-label">Adam Smith</div><a href="#" class="chip-delete"></a>
           </div>
         </div>
       </div>

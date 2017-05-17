@@ -6,6 +6,10 @@
 
 ## Next version
 
+### Bug-fixes
+
+- [x] [#526 - Material icons not shown in Android 4](https://github.com/scriptPilot/app-framework/issues/526)
+
 ### Improvements
 
 - [x] [#539 - Create script to update Material Icons fonts automatically](https://github.com/scriptPilot/app-framework/issues/539)

@@ -13,6 +13,8 @@ let jsdom = require('jsdom')
 let path = require('path')
 let rec = require('recursive-readdir')
 
+let materialCodepoints = require('../client/material-codepoints')
+
 // Check App Framework development mode
 if (env.installed === true) {
   alert('Kitchen sink update is only possible in App Framework development mode.', 'error')
@@ -58,7 +60,14 @@ function proceedFolder (sourceFolder, destinationFolder, callback) {
                     // Workaround: #388 - UI components - Autocomplete / Ajax does not work (2x)
                     fileContent = fileContent.replace(/<div class="content-block-title">Dropdown With Ajax-Data<\/div>[\s\S.]+<div class="content-block-title">Standalone Autocomplete<\/div>/, '<div class="content-block-title">Standalone Autocomplete</div>')
                     fileContent = fileContent.replace(/<div class="content-block-title">Standalone With Ajax-Data<\/div>[\s\S.]/, '</div></div></div>')
+                    // Get file content into body
                     $('body').html(fileContent)
+                    // Workaround: #526 - Material icons not shown in older browsers / android versions
+                    $('body').find('.material-icons').each(function (i, el) {
+                      if (materialCodepoints[$(el).html()]) {
+                        $(el).html('&#x' + materialCodepoints[$(el).html()] + ';')
+                      }
+                    })
                     if (htmlFiles[f] === 'index.html') {
                       $('.popup, .popover, .login-screen, .picker-modal').each(function (i, el) {
                         htmlCode += $(el).prop('outerHTML')

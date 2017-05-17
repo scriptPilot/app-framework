@@ -41,11 +41,31 @@ function updateMaterialDesignIcons (callback) {
       files.map(file => {
         fs.copySync(abs(source, file), abs(dest, file))
       })
-      alert('Material design icons font update done.')
-      callback()
     } catch (err) {
       alert('Failed to copy material icons files.')
     }
+    // Update codepoint file
+    try {
+      // Read codepoints
+      let codepointsFile = fs.readFileSync(abs(source, 'codepoints'), 'utf8')
+      let codepointsRows = codepointsFile.match(/([a-z0-9_]+) ([a-z0-9_]+)/g)
+      // Extract codepoints
+      let codepoints = {}
+      codepointsRows.map(codepoint => {
+        codepoint = codepoint.split(' ')
+        codepoints[codepoint[0]] = codepoint[1]
+      })
+      // Save codepoints as JSON
+      let jsonFile = abs(__dirname, '../client/material-codepoints.json')
+      fs.ensureFileSync(jsonFile)
+      fs.writeJsonSync(jsonFile, codepoints, {spaces: 2})
+    } catch (err) {
+      alert('Failed to update material codepoints file.', 'issue')
+    }
+    // Show alert
+    alert('Material design icons font update done.')
+    // Callback
+    callback()
   // Material Design Icons folder not found
   } else {
     // Show error alert

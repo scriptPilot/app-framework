@@ -7,7 +7,7 @@
       </div>
     </div>
     <div class="toolbar toolbar-bottom">
-      <div class="toolbar-inner"><a href="#tab-1" class="link"><i class="icon material-icons">email</i></a><a href="#tab-2" class="link"><i class="icon material-icons">today</i></a><a href="#tab-3" class="link"><i class="icon material-icons">file_upload</i></a><a href="#tab-1" class="link">Text Link</a></div>
+      <div class="toolbar-inner"><a href="#tab-1" class="link"><i class="icon material-icons"></i></a><a href="#tab-2" class="link"><i class="icon material-icons"></i></a><a href="#tab-3" class="link"><i class="icon material-icons"></i></a><a href="#tab-1" class="link">Text Link</a></div>
     </div>
     <div class="page-content">
       <div class="content-block">

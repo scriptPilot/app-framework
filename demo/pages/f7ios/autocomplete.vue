@@ -62,43 +62,34 @@
       <div class="content-block-title">Simple Standalone Autocomplete</div>
       <div class="list-block">
         <ul>
-          <li>
-            <a href="#" id="autocomplete-standalone" class="item-link item-content autocomplete-opener">
-              <input type="hidden">
-              <div class="item-inner">
-                <div class="item-title">Favorite Fruite</div>
-                <div class="item-after"></div>
-              </div>
-            </a>
-          </li>
+          <li><a href="#" id="autocomplete-standalone" class="item-link item-content autocomplete-opener">
+                <input type="hidden">
+                <div class="item-inner">
+                  <div class="item-title">Favorite Fruite</div>
+                  <div class="item-after"></div>
+                </div></a></li>
         </ul>
       </div>
       <div class="content-block-title">Popup Standalone Autocomplete</div>
       <div class="list-block">
         <ul>
-          <li>
-            <a href="#" id="autocomplete-standalone-popup" class="item-link item-content autocomplete-opener">
-              <input type="hidden">
-              <div class="item-inner">
-                <div class="item-title">Favorite Fruite</div>
-                <div class="item-after"></div>
-              </div>
-            </a>
-          </li>
+          <li><a href="#" id="autocomplete-standalone-popup" class="item-link item-content autocomplete-opener">
+                <input type="hidden">
+                <div class="item-inner">
+                  <div class="item-title">Favorite Fruite</div>
+                  <div class="item-after"></div>
+                </div></a></li>
         </ul>
       </div>
       <div class="content-block-title">Multiple Values Standalone Autocomplete</div>
       <div class="list-block">
         <ul>
-          <li>
-            <a href="#" id="autocomplete-standalone-multiple" class="item-link item-content autocomplete-opener">
-              <input type="hidden">
-              <div class="item-inner">
-                <div class="item-title">Favorite Fruite</div>
-                <div class="item-after"></div>
-              </div>
-            </a>
-          </li>
+          <li><a href="#" id="autocomplete-standalone-multiple" class="item-link item-content autocomplete-opener">
+                <input type="hidden">
+                <div class="item-inner">
+                  <div class="item-title">Favorite Fruite</div>
+                  <div class="item-after"></div>
+                </div></a></li>
         </ul>
       </div>
     </div>

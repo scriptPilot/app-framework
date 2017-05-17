@@ -116,7 +116,7 @@ module.exports = '' +
 '        </li>' +
 '        <li>' +
 '          <a href="#" class="item-link item-content bg-purple color-white ripple-white">' +
-'            <div class="item-media"><i class="icon material-icons">mode_edit</i></div>' +
+'            <div class="item-media"><i class="icon material-icons"></i></div>' +
 '            <div class="item-inner">' +
 '              <div class="item-title-row">' +
 '                <div class="item-title">Add New</div>' +

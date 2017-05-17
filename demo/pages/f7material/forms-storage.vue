@@ -17,7 +17,7 @@
         <ul>
           <li>
             <div class="item-content">
-              <div class="item-media"><i class="icon material-icons">person_outline</i></div>
+              <div class="item-media"><i class="icon material-icons"></i></div>
               <div class="item-inner">
                 <div class="item-title label">Name</div>
                 <div class="item-input">
@@ -28,7 +28,7 @@
           </li>
           <li>
             <div class="item-content">
-              <div class="item-media"><i class="icon material-icons">email</i></div>
+              <div class="item-media"><i class="icon material-icons"></i></div>
               <div class="item-inner">
                 <div class="item-title label">E-mail</div>
                 <div class="item-input">
@@ -39,7 +39,7 @@
           </li>
           <li>
             <div class="item-content">
-              <div class="item-media"><i class="icon material-icons">language</i></div>
+              <div class="item-media"><i class="icon material-icons"></i></div>
               <div class="item-inner">
                 <div class="item-title label">URL</div>
                 <div class="item-input">
@@ -50,7 +50,7 @@
           </li>
           <li>
             <div class="item-content">
-              <div class="item-media"><i class="icon material-icons">lock_outline</i></div>
+              <div class="item-media"><i class="icon material-icons"></i></div>
               <div class="item-inner">
                 <div class="item-title label">Password</div>
                 <div class="item-input">
@@ -61,7 +61,7 @@
           </li>
           <li>
             <div class="item-content">
-              <div class="item-media"><i class="icon material-icons">call</i></div>
+              <div class="item-media"><i class="icon material-icons"></i></div>
               <div class="item-inner">
                 <div class="item-title label">Phone</div>
                 <div class="item-input">
@@ -72,7 +72,7 @@
           </li>
           <li>
             <div class="item-content">
-              <div class="item-media"><i class="icon material-icons">people_outline</i></div>
+              <div class="item-media"><i class="icon material-icons"></i></div>
               <div class="item-inner">
                 <div class="item-title label">Gender</div>
                 <div class="item-input">
@@ -86,7 +86,7 @@
           </li>
           <li>
             <div class="item-content">
-              <div class="item-media"><i class="icon material-icons">today</i></div>
+              <div class="item-media"><i class="icon material-icons"></i></div>
               <div class="item-inner">
                 <div class="item-title label">Birth date</div>
                 <div class="item-input">
@@ -97,7 +97,7 @@
           </li>
           <li>
             <div class="item-content">
-              <div class="item-media"><i class="icon material-icons">check</i></div>
+              <div class="item-media"><i class="icon material-icons"></i></div>
               <div class="item-inner">
                 <div class="item-title label">Switch</div>
                 <div class="item-input">
@@ -111,7 +111,7 @@
           </li>
           <li>
             <div class="item-content">
-              <div class="item-media"><i class="icon material-icons">settings</i></div>
+              <div class="item-media"><i class="icon material-icons"></i></div>
               <div class="item-inner">
                 <div class="item-title label">Slider</div>
                 <div class="item-input">
@@ -124,7 +124,7 @@
           </li>
           <li class="align-top">
             <div class="item-content">
-              <div class="item-media"><i class="icon material-icons">chat_bubble_outline</i></div>
+              <div class="item-media"><i class="icon material-icons"></i></div>
               <div class="item-inner">
                 <div class="item-title label">About Me</div>
                 <div class="item-input">

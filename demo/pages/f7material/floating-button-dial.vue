@@ -7,7 +7,7 @@
       </div>
     </div>
     <div class="speed-dial"><a href="#" class="floating-button"><i class="icon icon-plus"></i><i class="icon icon-close"></i></a>
-      <div class="speed-dial-buttons"><a href="#"><i class="icon material-icons">email</i></a><a href="#"><i class="icon material-icons">today</i></a><a href="#"><i class="icon material-icons">file_upload</i></a></div>
+      <div class="speed-dial-buttons"><a href="#"><i class="icon material-icons"></i></a><a href="#"><i class="icon material-icons"></i></a><a href="#"><i class="icon material-icons"></i></a></div>
     </div>
     <div class="page-content">
       <div class="content-block">

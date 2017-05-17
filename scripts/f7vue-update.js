@@ -99,6 +99,15 @@ cmd(f7VueFolder, 'npm run build', function () {
       }
     })
     */
+    // Workaround: #526 - Material icons Not Shown in Android 4
+    try {
+      let fileContent = fs.readFileSync(abs(env.proj, 'vendor/Framework7-Vue/framework7-vue.js'), 'utf8')
+      fileContent = fileContent.replace('_vm.sizeComputed})},[_vm._v(_vm._s(_vm.iconTextComputed)),_vm._t("default")],2)},', '_vm.sizeComputed}),domProps:{innerHTML:this.iconTextComputed}})},')
+      fileContent = fileContent.replace('iconTextComputed: function () {', 'iconTextComputed: function () { if (process.env.FONT_MATERIAL && this.material && this.$root.materialCodepoints && this.$root.materialCodepoints[this.material]) { this.material = "&#x" + this.$root.materialCodepoints[this.material] + ";" }')
+      fs.writeFileSync(abs(env.proj, 'vendor/Framework7-Vue/framework7-vue.js'), fileContent)
+    } catch (err) {
+      alert('Failed to apply workaround for material icons.', 'issue')
+    }
     alert('Framework7-Vue update done.')
   }, 'Framework7-Vue distribution process failed.')
 }, 'Framework7-Vue build process failed.')

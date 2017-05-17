@@ -8,8 +8,7 @@
     </div>
     <form data-search-list=".search-here" data-search-in=".item-title" class="searchbar searchbar-init">
       <div class="searchbar-input">
-        <input type="search" placeholder="Search">
-        <a href="#" class="searchbar-clear"></a>
+        <input type="search" placeholder="Search"><a href="#" class="searchbar-clear"></a>
       </div><a href="#" class="searchbar-cancel">Cancel</a>
     </form>
     <div class="searchbar-overlay"></div>

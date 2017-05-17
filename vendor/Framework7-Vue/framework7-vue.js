@@ -1026,7 +1026,7 @@ staticRenderFns: [],
   };
 
 var Icon = {
-render: function(){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('i',{staticClass:"icon",class:_vm.classesObject,style:({'font-size':_vm.sizeComputed})},[_vm._v(_vm._s(_vm.iconTextComputed)),_vm._t("default")],2)},
+render: function(){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('i',{staticClass:"icon",class:_vm.classesObject,style:({'font-size':_vm.sizeComputed}),domProps:{innerHTML:this.iconTextComputed}})},
 staticRenderFns: [],
     props: {
       'color': String,
@@ -1048,7 +1048,7 @@ staticRenderFns: [],
         }
         return size;
       },
-      iconTextComputed: function () {
+      iconTextComputed: function () { if (process.env.FONT_MATERIAL && this.material && this.$root.materialCodepoints && this.$root.materialCodepoints[this.material]) { this.material = "&#x" + this.$root.materialCodepoints[this.material] + ";" }
         var self = this;
         var text = self.material || self.f7;
         if (self.ifMaterial && self.$theme.material && (self.ifMaterial.indexOf('material:')>=0 || self.ifMaterial.indexOf('f7:')>=0)) {

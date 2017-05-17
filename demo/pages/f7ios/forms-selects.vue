@@ -10,9 +10,8 @@
       <div class="content-block">Framework7 allows you to easily convert your usual form selects to dynamic pages with radios:</div>
       <div class="list-block">
         <ul>
-          <li>
-            <a href="#" class="item-link smart-select">
-              <select name="fruits">
+          <li><a href="#" class="item-link smart-select">
+                <select name="fruits">
                   <option value="apple" selected="selected">Apple</option>
                   <option value="pineapple">Pineapple</option>
                   <option value="pear">Pear</option>
@@ -21,16 +20,13 @@
                   <option value="peach">Peach</option>
                   <option value="banana">Banana</option>
                 </select>
-              <div class="item-content">
-                <div class="item-inner">
-                  <div class="item-title">Fruit</div>
-                </div>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="#" class="item-link smart-select">
-              <select name="car" multiple="multiple">
+                <div class="item-content">
+                  <div class="item-inner">
+                    <div class="item-title">Fruit</div>
+                  </div>
+                </div></a></li>
+          <li><a href="#" class="item-link smart-select">
+                <select name="car" multiple="multiple">
                   <optgroup label="Japanese">
                     <option value="honda" selected="selected">Honda</option>
                     <option value="lexus">Lexus</option>
@@ -52,26 +48,21 @@
                     <option value="ford" selected="selected">Ford</option>
                   </optgroup>
                 </select>
-              <div class="item-content">
-                <div class="item-inner">
-                  <div class="item-title">Car</div>
-                </div>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="#" class="item-link smart-select">
-              <select name="mac-windows">
+                <div class="item-content">
+                  <div class="item-inner">
+                    <div class="item-title">Car</div>
+                  </div>
+                </div></a></li>
+          <li><a href="#" class="item-link smart-select">
+                <select name="mac-windows">
                   <option value="mac" selected="selected">Mac</option>
                   <option value="windows">Windows</option>
                 </select>
-              <div class="item-content">
-                <div class="item-inner">
-                  <div class="item-title">Mac or Windows</div>
-                </div>
-              </div>
-            </a>
-          </li>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <div class="item-title">Mac or Windows</div>
+                  </div>
+                </div></a></li>
         </ul>
       </div>
     </div>

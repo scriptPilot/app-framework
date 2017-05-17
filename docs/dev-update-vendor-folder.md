@@ -28,9 +28,11 @@ To update Framework7-Vue in the vendor folder:
 
 ## Material Design Icons
 
-To avoid the need to install the huge Material Design Icons archive, it is shipped directly with App Framework in the *vendor* folder.
+To avoid the need to install the huge Material Design Icons archive and to get the mapping between ligatures and codepoints, it is shipped directly with App Framework in the *vendor* folder.
 
 To update Material Design Icons in the vendor folder:
 
 1. Clone [Material Design Icons repo](https://github.com/google/material-design-icons) in *material-design-icons* folder next to *app-framework* folder
 2. Run `npm run iconfonts` in *app-framework* folder
+
+The *client/material-codepoints.json* file is updated as well.

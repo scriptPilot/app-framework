@@ -182,7 +182,7 @@
               <th class="numeric-cell">Fat (g)</th>
               <th class="numeric-cell">Carbs</th>
               <th class="numeric-cell">Protein (g)</th>
-              <th class="tablet-only"><i class="material-icons">message</i> Comments</th>
+              <th class="tablet-only"><i class="material-icons"></i> Comments</th>
             </tr>
           </thead>
           <tbody>
@@ -245,7 +245,7 @@
       <div class="data-table data-table-init card">
         <div class="card-header">
           <div class="data-table-title">Nutrition</div>
-          <div class="data-table-actions"><a class="link icon-only"><i class="icon material-icons">sort</i></a><a class="link icon-only"><i class="icon material-icons">more_vert</i></a></div>
+          <div class="data-table-actions"><a class="link icon-only"><i class="icon material-icons"></i></a><a class="link icon-only"><i class="icon material-icons"></i></a></div>
         </div>
         <div class="card-content">
           <table>
@@ -261,7 +261,7 @@
                 <th class="numeric-cell">Fat (g)</th>
                 <th class="numeric-cell">Carbs</th>
                 <th class="numeric-cell">Protein (g)</th>
-                <th class="tablet-only"><i class="material-icons">message</i> Comments</th>
+                <th class="tablet-only"><i class="material-icons"></i> Comments</th>
               </tr>
             </thead>
             <tbody>
@@ -325,7 +325,7 @@
       <div class="data-table data-table-init card">
         <div class="card-header">
           <div class="data-table-title">Nutrition</div>
-          <div class="data-table-actions"><a class="link icon-only"><i class="icon material-icons">sort</i></a><a class="link icon-only"><i class="icon material-icons">more_vert</i></a></div>
+          <div class="data-table-actions"><a class="link icon-only"><i class="icon material-icons"></i></a><a class="link icon-only"><i class="icon material-icons"></i></a></div>
         </div>
         <div class="card-content">
           <table>
@@ -341,7 +341,7 @@
                 <th class="numeric-cell sortable-cell">Fat (g)</th>
                 <th class="numeric-cell sortable-cell">Carbs</th>
                 <th class="numeric-cell sortable-cell">Protein (g)</th>
-                <th class="tablet-only"><i class="material-icons">message</i> Comments</th>
+                <th class="tablet-only"><i class="material-icons"></i> Comments</th>
               </tr>
             </thead>
             <tbody>
@@ -406,11 +406,11 @@
         <div class="card-header">
           <div class="data-table-header">
             <div class="data-table-title">Nutrition</div>
-            <div class="data-table-actions"><a class="link icon-only"><i class="icon material-icons">sort</i></a><a class="link icon-only"><i class="icon material-icons">more_vert</i></a></div>
+            <div class="data-table-actions"><a class="link icon-only"><i class="icon material-icons"></i></a><a class="link icon-only"><i class="icon material-icons"></i></a></div>
           </div>
           <div class="data-table-header-selected">
             <div class="data-table-title-selected"><span class="data-table-selected-count"></span> items selected</div>
-            <div class="data-table-actions"><a class="link icon-only"><i class="icon material-icons">delete</i></a><a class="link icon-only"><i class="icon material-icons">more_vert</i></a></div>
+            <div class="data-table-actions"><a class="link icon-only"><i class="icon material-icons"></i></a><a class="link icon-only"><i class="icon material-icons"></i></a></div>
           </div>
         </div>
         <div class="card-content">
@@ -427,7 +427,7 @@
                 <th class="numeric-cell">Fat (g)</th>
                 <th class="numeric-cell">Carbs</th>
                 <th class="numeric-cell">Protein (g)</th>
-                <th class="tablet-only"><i class="material-icons">message</i> Comments</th>
+                <th class="tablet-only"><i class="material-icons"></i> Comments</th>
               </tr>
             </thead>
             <tbody>
@@ -491,7 +491,7 @@
       <div class="data-table data-table-init card">
         <div class="card-header">
           <div class="data-table-links"><a class="link">Add</a><a class="link">Remove</a></div>
-          <div class="data-table-actions"><a class="link icon-only"><i class="icon material-icons">sort</i></a><a class="link icon-only"><i class="icon material-icons">more_vert</i></a></div>
+          <div class="data-table-actions"><a class="link icon-only"><i class="icon material-icons"></i></a><a class="link icon-only"><i class="icon material-icons"></i></a></div>
         </div>
         <div class="card-content">
           <table>
@@ -507,7 +507,7 @@
                 <th class="numeric-cell">Fat (g)</th>
                 <th class="numeric-cell">Carbs</th>
                 <th class="numeric-cell">Protein (g)</th>
-                <th class="tablet-only"><i class="material-icons">message</i> Comments</th>
+                <th class="tablet-only"><i class="material-icons"></i> Comments</th>
                 <th></th>
               </tr>
             </thead>
@@ -524,7 +524,7 @@
                 <td class="numeric-cell">24</td>
                 <td class="numeric-cell">4.0</td>
                 <td class="tablet-only">I like frozen yogurt</td>
-                <td class="actions-cell"><a class="link icon-only"><i class="icon material-icons">edit</i></a><a class="link icon-only"><i class="icon material-icons">delete</i></a></td>
+                <td class="actions-cell"><a class="link icon-only"><i class="icon material-icons"></i></a><a class="link icon-only"><i class="icon material-icons"></i></a></td>
               </tr>
               <tr>
                 <td class="checkbox-cell">
@@ -538,7 +538,7 @@
                 <td class="numeric-cell">37</td>
                 <td class="numeric-cell">4.4</td>
                 <td class="tablet-only">But like ice cream more</td>
-                <td class="actions-cell"><a class="link icon-only"><i class="icon material-icons">edit</i></a><a class="link icon-only"><i class="icon material-icons">delete</i></a></td>
+                <td class="actions-cell"><a class="link icon-only"><i class="icon material-icons"></i></a><a class="link icon-only"><i class="icon material-icons"></i></a></td>
               </tr>
               <tr>
                 <td class="checkbox-cell">
@@ -552,7 +552,7 @@
                 <td class="numeric-cell">24</td>
                 <td class="numeric-cell">6.0</td>
                 <td class="tablet-only">Super tasty</td>
-                <td class="actions-cell"><a class="link icon-only"><i class="icon material-icons">edit</i></a><a class="link icon-only"><i class="icon material-icons">delete</i></a></td>
+                <td class="actions-cell"><a class="link icon-only"><i class="icon material-icons"></i></a><a class="link icon-only"><i class="icon material-icons"></i></a></td>
               </tr>
               <tr>
                 <td class="checkbox-cell">
@@ -566,7 +566,7 @@
                 <td class="numeric-cell">67</td>
                 <td class="numeric-cell">4.3</td>
                 <td class="tablet-only">Don't like it</td>
-                <td class="actions-cell"><a class="link icon-only"><i class="icon material-icons">edit</i></a><a class="link icon-only"><i class="icon material-icons">delete</i></a></td>
+                <td class="actions-cell"><a class="link icon-only"><i class="icon material-icons"></i></a><a class="link icon-only"><i class="icon material-icons"></i></a></td>
               </tr>
             </tbody>
           </table>
@@ -579,7 +579,7 @@
       <div class="card data-table data-table-collapsible data-table-init">
         <div class="card-header">
           <div class="data-table-title">Nutrition</div>
-          <div class="data-table-actions"><a class="link icon-only"><i class="icon material-icons">sort</i></a><a class="link icon-only"><i class="icon material-icons">more_vert</i></a></div>
+          <div class="data-table-actions"><a class="link icon-only"><i class="icon material-icons"></i></a><a class="link icon-only"><i class="icon material-icons"></i></a></div>
         </div>
         <div class="card-content">
           <table>
