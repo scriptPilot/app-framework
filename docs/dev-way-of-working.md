@@ -39,7 +39,7 @@ For each new pull request, please follow these steps:
 
 ## Releases
 
-For each new release, please follow these steps:
+For each release, please follow these steps:
 
 1. Build a new App Framework version and commit to GitHub
    - Run `npm run patch` after bug-fixes and improvements (version bump to x.y.z+1)
