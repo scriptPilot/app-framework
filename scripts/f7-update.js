@@ -59,7 +59,7 @@ cmd(f7Folder, 'gulp build', function () {
       colors.material[colorSearch[1]] = colorSearch[3]
     })
     colors.default.material = materialColorFile.match(/@themeColor:( )?@([a-z]+);/)[2]
-    fs.writeJsonSync(abs('../client/theme-colors.json'), colors)
+    fs.writeJsonSync(abs(__dirname, '../client/theme-colors.json'), colors)
     // Update kitchen sinks
     cmd(__dirname, 'node update-kitchen-sinks', function () {
       cmd(__dirname, 'node update-routes', function () {
