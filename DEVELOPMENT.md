@@ -1,4 +1,4 @@
-# App Framework - Development
+# App Framework - Development Documentation
 
 This document is only for the developers of App Framework itself. If you want to use App Framework for your own application, please read your [end user documentation](DOCUMENTATION.md).
 
