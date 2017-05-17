@@ -12,17 +12,18 @@ For each change to App Framework code, please follow these steps:
    - Will be categorized as "new feature", "bug" or "improvement"
    - Should be discussed for new features
 2. Create a branch
-   - Should be named "feature-123", "bug-123" or "improvement-123" where 123 is the issue number
+   - Should be named "feature-123", "fix-123" or "improvement-123" where 123 is the issue number
 3. Develop the solution
+   - Update the postinstall routine to apply changes to previous versions
 4. Test the solution
-   - On macOS / Windows / Linux any changes to folder *scripts*
-   - On iOS / Android / Web any changes to folder *client* or *demo*
-   - With an updated project all changes to postinstall scripts
+   - On macOS / Windows / Linux after changes to *scripts* folder
+   - On iOS / Android / Web after changes to *client* or *demo* folder
+   - With an updated project after changes to the postinstall routine
 5. Update the documentation
    - Features in file *README.md*
    - End user documentation in file *DOCUMENTATION.md*
    - Development documentation in file *DEVELOPMENT.md*
-6. Commit the branch as pull request
+6. Commit the branch as a pull request
 
 ## Pull requests
 
@@ -38,14 +39,14 @@ For each new pull request, please follow these steps:
 
 ## Releases
 
-For each new release, please follow these steps:
+For each release, please follow these steps:
 
-1. Build a new App Framework version and commit to GitHub
+1. Build a new App Framework version and commit it to GitHub
    - Run `npm run patch` after bug-fixes and improvements (version bump to x.y.z+1)
    - Run `npm run minor` after adding new functionality (version bump to x.y+1.0)
    - Run `npm run major` after breaking backward-capability (version bump to x+1.0.0)
-2. Publish to the [npm repository](https://www.npmjs.com/) with `npm publish`
-3. Update the version with release date in file *CHANGELOG.md* and commit to GitHub
+2. Update the version with release date in file *CHANGELOG.md* and commit it to GitHub
+3. Publish to the [npm repository](https://www.npmjs.com/) with `npm publish`
 4. Deploy new Demo App version
    - to Firebase hosting with `npm run firebase`
    - to Google Play Store, update all information before commit ([read documentation](deploy.md))

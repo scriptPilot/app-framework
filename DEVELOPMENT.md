@@ -1,4 +1,4 @@
-# App Framework - Development
+# App Framework - Development Documentation
 
 This document is only for the developers of App Framework itself. If you want to use App Framework for your own application, please read your [end user documentation](DOCUMENTATION.md).
 
@@ -6,5 +6,5 @@ This document is only for the developers of App Framework itself. If you want to
 - [Way of working](docs/dev-way-of-working.md)
 - [Folder structure](docs/dev-folder-structure.md)
 - [Coding rules](docs/dev-coding-rules.md)
-- [Trouble shooting](docs/dev-touble-shooting.md)
+- [Trouble shooting](docs/dev-trouble-shooting.md)
 - [Update vendor folder](docs/dev-update-vendor-folder.md)
