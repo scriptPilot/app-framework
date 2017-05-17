@@ -12,7 +12,7 @@ To update Framework7 in the vendor folder:
 
 1. Clone [Framework7 repo](https://github.com/nolimits4web/Framework7) in *Framework7* folder next to *app-framework* folder
 2. Run `npm install` in *Framework7* folder
-3. Run `npm run f7`in *app-framework* folder
+3. Run `npm run f7` in *app-framework* folder
 
 The kitchen sink files in the *demo* folder are updated as well. 
 
@@ -24,7 +24,7 @@ To update Framework7-Vue in the vendor folder:
 
 1. Clone [Framework7-Vue repo](https://github.com/nolimits4web/Framework7-Vue) in *Framework7-Vue* folder next to *app-framework* folder
 2. Run `npm install` in *Framework7-Vue* folder
-3. Run `npm run f7vue`in *app-framework* folder
+3. Run `npm run f7vue` in *app-framework* folder
 
 ## Material Design Icons
 
