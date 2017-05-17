@@ -31,11 +31,11 @@ Example:
 
 'use strict'
 
-// Import modules
-import moduleA from './aFolder/aModule'
-import moduleC from './aFolder/cModule'
-import moduleB from './bFolder/bModule'
-import set from 'lodash/set'
+// Require modules
+let moduleA = require('./aFolder/aModule')
+let moduleC = require('./aFolder/cModule')
+let moduleB = require('./bFolder/bModule')
+let lodash = require('lodash')
 
 // Define single steps
 function stepA (callback) {
@@ -113,7 +113,7 @@ You should always consider wrong input data and possible errors and react with a
 
 All scripts, mainly called by `npm run ...`, should indicate the steps by a status alert, shown in the command line tool. Further output should be avoided.
 
-Therefore, you could use the *scripts/alert.js* function with `import alert from './alert'`.
+Therefore, you could use the *scripts/alert.js* function with `let alert = require('./alert')`.
 
 - Use `alert('<step> ongoing - please wait ...')` to indicate the begin of each step
 - Use `alert('<step> done.')` to indicate the successful end of each step
@@ -127,8 +127,8 @@ Example:
 
 'use strict'
 
-// Import modules
-import alert from './alerts'
+// Require modules
+let alert = require('./alert')
 
 // Define single steps
 function stepA (callback) {
