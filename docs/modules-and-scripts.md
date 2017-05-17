@@ -34,16 +34,16 @@ Example: `npm install --save-dev underscore`
 
 Follow these steps to use a local module (js / json / vue):
 
-1. If not exists, create a folder *app/vendor*
+1. If not exists, create a folder *vendor*
 2. Save the module to *vendor/<module_name>.<module_ext>*
-3. Import the module at the beginning of the script block with `import <var_name> from '../vendor/<module_name>'`
+3. Import the module at the beginning of the script block with `import <var_name> from '../../vendor/<module_name>'`
 
 Example: *vendor/underscore.js*
 
 ```
 <script>
 
-  import _ from '../vendor/underscore'
+  import _ from '../../vendor/underscore'
 
   export default {
     mounted: function () {
