@@ -14,7 +14,7 @@ To update Framework7 in the vendor folder:
 2. Run `npm install` in *Framework7* folder
 3. Run `npm run f7` in *app-framework* folder
 
-The kitchen sink files in the *demo* folder are updated as well. 
+The kitchen sink files in the *demo* folder and the *client/theme-colors.json* file are updated as well.
 
 ## Framework7-Vue
 
