@@ -28,7 +28,7 @@ The check boxes indicate articles which are already reworked.
   - [x] [sortObject function](docs/sort-object.md)
   - [x] [Images](docs/images.md)
   - [ ] [Icon fonts](docs/icon-fonts.md)
-  - [ ] [Modules and scripts](docs/modules-and-scripts.md)
+  - [x] [Modules and scripts](docs/modules-and-scripts.md)
   - [ ] [Cordova plugins](docs/cordova-plugins.md)
   - [ ] [Firebase backend](docs/firebase.md)
   - [ ] [State restoration](docs/state-restoration.md)
