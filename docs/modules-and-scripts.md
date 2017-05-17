@@ -35,7 +35,7 @@ Example: `npm install --save-dev underscore`
 Follow these steps to use a local script:
 
 1. If not exists, create a folder *app/vendor*
-2. Save the script locally to *vendor/<scipt_name>.js*
+2. Save the script to *vendor/<scipt_name>.js*
 3. Import the module at the beginning of the script block with `import <var_name> from '../vendor/<script_name>'`
 
 Example: *vendor/underscore.js*
