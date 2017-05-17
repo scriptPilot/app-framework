@@ -44,11 +44,10 @@ Sort by age descending:
 
 ```
 let objSortedByAgeDesc = window.sortObject(objectUnsorted, 'age', 'desc')
-{
-  
-  keyA: { name: 'Berta', age: 25 }, 
+{  
+  keyB: { name: 'Aaron', age: 40 },
   keyC: { name: `Charlie`, age: 30 },
-  keyB: { name: 'Aaron', age: 40 }
+  keyA: { name: 'Berta', age: 25 } 
 }
 ```
 
