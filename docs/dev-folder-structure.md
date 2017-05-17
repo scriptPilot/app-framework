@@ -10,7 +10,7 @@
 ├── client/                     # Client code files
 ├── demo/                       # Demo App files
 ├── design/                     # Design templates (PDF and PPTX)
-├── docs/                       # Documentation files (*configuration.md* is updated automatically on each build)
+├── docs/                       # Documentation files (configuration.md is updated automatically on each build)
 ├── media/                      # Graphics for documentation and promotion
 ├── node_modules/               # Installed node modules (do not modify)
 ├── scripts/                    # Scripts and supporting files
