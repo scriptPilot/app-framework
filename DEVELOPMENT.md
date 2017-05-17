@@ -8,5 +8,3 @@ This document is only for the developers of App Framework itself. If you want to
 - [Coding rules](docs/dev-coding-rules.md)
 - [Trouble shooting](docs/dev-touble-shooting.md)
 - [Update vendor folder](docs/dev-update-vendor-folder.md)
-
-We invite you to propose any feature request, bug or improvement to our [issue list](https://github.com/scriptPilot/app-framework/issues).
