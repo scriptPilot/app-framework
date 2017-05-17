@@ -4,8 +4,6 @@
 
 <br />
 
-This section will be described in detail in the future.
-
 ## NPM module
 
 Follow these steps to install and use a module from the [npm repository](https://www.npmjs.com/):
