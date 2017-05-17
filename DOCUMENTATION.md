@@ -44,3 +44,7 @@ The check boxes indicate articles which are already reworked.
 - [ ] [Configuration options](docs/configuration.md)
 - [x] [CLI commands](docs/cli-commands.md)
 - [x] [Changelog](CHANGELOG.md)
+
+## Contribution
+
+To modify this App Framework repository, please read our [development documentation](DEVELOPMENT.md).
