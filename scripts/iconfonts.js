@@ -42,7 +42,7 @@ function updateMaterialDesignIcons (callback) {
         fs.copySync(abs(source, file), abs(dest, file))
       })
     } catch (err) {
-      alert('Failed to copy material icons files.')
+      alert('Failed to copy material icons files.', 'issue')
     }
     // Update codepoint file
     try {
