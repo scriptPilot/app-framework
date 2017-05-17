@@ -83,15 +83,7 @@ let names = ['Tom', 'Susi', 'Aaron']
 let names = 'everything but no array' /* test */
 // List with names is an array
 if (Array.isArray(names)) {
-  // Loop list with names
-  for (let n = 0; n < names.length; n++) {
-    // Print name to console
-    console.log('Name no. ' + (n + 1) + ' is ' + names[n])
-  }
-// List with names is no array
-} else {
-  // Print error to console
-  console.error('List with names is no array')
+  ...
 }
 ```
 
