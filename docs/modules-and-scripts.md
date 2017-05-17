@@ -54,3 +54,5 @@ Example: *vendor/underscore.js*
   
 </script>
 ```
+
+Because all scripts or compressed during the build process, you can prefer development versions.
