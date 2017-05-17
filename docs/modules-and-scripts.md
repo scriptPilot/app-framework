@@ -6,9 +6,9 @@
 
 This section will be described in detail in the future.
 
-## NPM modules
+## NPM module
 
-Follow these steps to install and use a package from the [npm repository](https://www.npmjs.com/):
+Follow these steps to install and use a module from the [npm repository](https://www.npmjs.com/):
 
 1. Install module with `npm install --save-dev <package_name>`
 2. Import module at the beginning of the script block with `import <var_name> from '<package_name>'`
