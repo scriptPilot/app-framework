@@ -4,6 +4,12 @@
 
 <br />
 
+## Next version
+
+### Improvements
+
+- [x] [#539 - Create script to update Material Icons fonts automatically](https://github.com/scriptPilot/app-framework/issues/539)
+
 ## Version 1.6.37
 
 Released on 2017-05-16
