@@ -4,6 +4,8 @@
 
 <br />
 
+If available, you should prefer npm modules to keep your project folder lightweigt.
+
 ## NPM module
 
 Follow these steps to install and use a module from the [npm repository](https://www.npmjs.com/):
