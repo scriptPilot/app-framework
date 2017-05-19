@@ -6,6 +6,10 @@
 
 ## Next Version
 
+### Bug-fixes
+
+- [x] [#488 - Failed to copy icon folder](https://github.com/scriptPilot/app-framework/issues/488)
+
 ### Improvements
 
 - [x] [#551 - Allow "npm run android" without configured playStoreId](https://github.com/scriptPilot/app-framework/issues/551)

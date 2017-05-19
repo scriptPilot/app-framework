@@ -106,7 +106,7 @@ if (found(versionFolder)) {
 
 // Function to get icon file name
 let getIconFilename = function (callback) {
-  if (env.arg.version === 'dev' && found(env.app, 'icon.png')) {
+  if ((env.arg.version === 'dev' || env.arg.version === env.pkg.version) && found(env.app, 'icon.png')) {
     callback(abs(env.app, 'icon.png'))
   } else {
     // Ensure version snapshot cache
