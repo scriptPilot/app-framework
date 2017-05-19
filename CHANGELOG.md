@@ -4,25 +4,20 @@
 
 <br />
 
-## Next Version
-
-### Bug-fixes
-
-- [x] [#488 - Failed to copy icon folder](https://github.com/scriptPilot/app-framework/issues/488)
-- [x] [#541 - firebase instead of devFirebase config used for npm run ios/android](https://github.com/scriptPilot/app-framework/issues/541)
-
-### Improvements
-
-- [x] [#551 - Allow "npm run android" without configured playStoreId](https://github.com/scriptPilot/app-framework/issues/551)
-- [x] [#552 - Allow "npm run ios" without configured appStoreId](https://github.com/scriptPilot/app-framework/issues/552)
-
-## Version 1.6.52
+## Version 1.6.53
 
 Released 2017-05-20
 
 ### Bug-fixes
 
+- [x] [#488 - Failed to copy icon folder](https://github.com/scriptPilot/app-framework/issues/488)
+- [x] [#541 - firebase instead of devFirebase config used for npm run ios/android](https://github.com/scriptPilot/app-framework/issues/541)
 - [x] [#548 - Error after update to latest version](https://github.com/scriptPilot/app-framework/issues/548)
+
+### Improvements
+
+- [x] [#551 - Allow "npm run android" without configured playStoreId](https://github.com/scriptPilot/app-framework/issues/551)
+- [x] [#552 - Allow "npm run ios" without configured appStoreId](https://github.com/scriptPilot/app-framework/issues/552)
 
 ## Version 1.6.46
 
