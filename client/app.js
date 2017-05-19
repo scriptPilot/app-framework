@@ -208,7 +208,7 @@ mixins.manageFirebase = {
       if (process.env.USE_FIREBASE_DATABASE === 'true') require('firebase/database')
       if (process.env.USE_FIREBASE_STORAGE === 'true') require('firebase/storage')
       // Initialize Firebase
-      window.firebase = firebase.initializeApp(process.env.NODE_ENV === 'production' ? this.config.firebase : this.config.devFirebase)
+      window.firebase = firebase.initializeApp(this.config[process.env.FIREBASE_CONFIG])
       // Use auth service
       if (process.env.USE_FIREBASE_AUTH === 'true') {
         // Get initial user data from local storage
