@@ -41,14 +41,15 @@ if (env.arg.ios === true || env.arg.xcode === true) {
 }
 
 // Check store id
-if ((env.arg.ios === true || env.arg.xcode === true) && env.cfg.appStoreId === '') {
-  alert('You must configure the appStoreId before.', 'error')
-} else if (env.arg.android === true || env.arg.studio === true) {
-  if (env.cfg.playStoreId === '') {
-    alert('You must configure the playStoreId before.', 'error')
-  } else if (!/^[0-9a-zA-Zäöü_-]+\.[0-9a-zA-Zäöü_-]+\.[0-9a-zA-Zäöü_-]+$/.test(env.cfg.playStoreId)) {
-    alert('The configured playStoreId is not valid.', 'error')
-  }
+let storeId = env.arg.ios === true || env.arg.android === true
+            ? 'com.app_framework.development_build'
+            : env.arg.xcode === true
+            ? env.cfg.appStoreId
+            : env.cfg.playStoreId
+if (storeId === '') {
+  alert('You must configure the ' + (env.arg.xcode === true ? 'appStoreId' : 'playStoreId') + ' before.', 'error')
+} else if (env.arg.studio === true && /^([A-Za-z]{1}[A-Za-z\d_]*\.)*[A-Za-z][A-Za-z\d_]*$/.test(storeId) === false) {
+  alert('The configured playStoreId is not valid.', 'error')
 }
 
 // Define Cordova bin directory
@@ -126,7 +127,7 @@ let updateCordovaConfig = function (callback) {
   // Add widget
   config = {
     '$': {
-      'id': env.arg.ios === true || env.arg.xcode === true ? env.cfg.appStoreId : env.cfg.playStoreId,
+      'id': storeId,
       'version': env.arg.version === 'dev' ? env.pkg.version + '.' + Date.now() : env.arg.version,
       'xmlns': 'http://www.w3.org/ns/widgets',
       'xmlns:cdv': 'http://cordova.apache.org/ns/1.0'

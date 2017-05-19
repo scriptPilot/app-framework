@@ -4,6 +4,14 @@
 
 <br />
 
+## Next Version
+
+### Improvements
+
+- [x] [#551 - Allow "npm run android" without configured playStoreId](https://github.com/scriptPilot/app-framework/issues/551)
+- [x] [#552 - Allow "npm run ios" without configured appStoreId](https://github.com/scriptPilot/app-framework/issues/552)
+
+
 ## Version 1.6.52
 
 Released 2017-05-20
