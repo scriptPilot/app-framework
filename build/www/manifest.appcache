@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#ver:v1.6.52
+#ver:v1.6.53
 #plugin:4.7.0
 
 CACHE:
@@ -19,12 +19,12 @@ CACHE:
 /img/firebase.472015e.png
 /img/theme-ios.48f912f.png
 /img/theme-material.381a2ea.png
-/app.1edff0c.js
-/material.1edff0c.js
-/ios.1edff0c.js
-/app.1edff0c.css
-/ios.1edff0c.css
-/material.1edff0c.css
+/app.b143400.js
+/material.b143400.js
+/ios.b143400.js
+/app.b143400.css
+/ios.b143400.css
+/material.b143400.css
 /
 /offline-service-worker.js
 /manifest.json
