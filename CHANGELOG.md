@@ -4,6 +4,14 @@
 
 <br />
 
+## Version 1.6.52
+
+Released 2017-05-20
+
+### Bug-fixes
+
+- [x] [#548 - Error after update to latest version](https://github.com/scriptPilot/app-framework/issues/548)
+
 ## Version 1.6.46
 
 Released on 2017-05-17
