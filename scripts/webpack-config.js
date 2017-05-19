@@ -180,8 +180,7 @@ let createConfiguration = function (mode) {
         USE_FIREBASE_DATABASE: '"' + (firebaseConfig.databaseURL !== '') + '"',
         USE_FIREBASE_STORAGE: '"' + (firebaseConfig.storageBucket !== '') + '"',
         RESET_LOCAL_STORAGE: '"' + env.cfg.resetLocalStorageOnVersionChange + '"',
-        NODE_ENV: '"' + mode + '"',
-        DEV_BUILD: '"' + (env.arg.dev === true) + '"'
+        NODE_ENV: '"' + mode + '"'
       }
     })
   )
