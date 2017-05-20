@@ -10,6 +10,7 @@ Released 2017-05-20
 
 ### Bug-fixes
 
+- [x] [#427 - FTP deployment does not work on Windows](https://github.com/scriptPilot/app-framework/issues/427)
 - [x] [#488 - Failed to copy icon folder](https://github.com/scriptPilot/app-framework/issues/488)
 - [x] [#541 - firebase instead of devFirebase config used for npm run ios/android](https://github.com/scriptPilot/app-framework/issues/541)
 - [x] [#548 - Error after update to latest version](https://github.com/scriptPilot/app-framework/issues/548)

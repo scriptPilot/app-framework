@@ -73,12 +73,12 @@ let uploadFiles = function (client, localFolder, remoteFolder, files, callback) 
     let folder = path.join(remoteFolder, path.dirname(file))
     let parentFolder = path.dirname(folder)
     let putFile = function () {
-      client.put(abs(localFolder, file), path.join(remoteFolder, file), function (err) {
+      client.put(abs(localFolder, file), path.join(remoteFolder, file).replace(/\\/g, '/'), function (err) {
         if (err) alert('Failed to upload file "' + path.join(folder, file) + '" to the FTP server.', 'issue')
         uploadFiles(client, localFolder, remoteFolder, files, callback)
       })
     }
-    client.list(parentFolder, function (err, folders) {
+    client.list(parentFolder.replace(/\\/g, '/'), function (err, folders) {
       if (err) alert('Failed to list files from FTP server.', 'issue')
       let folderFound = false
       folders.map(function (f) {
@@ -89,7 +89,7 @@ let uploadFiles = function (client, localFolder, remoteFolder, files, callback) 
       if (folderFound === true) {
         putFile()
       } else {
-        client.mkdir(folder, true, function (err) {
+        client.mkdir(folder.replace(/\\/g, '/'), true, function (err) {
           if (err) alert('Failed to create folder "' + folder + '" on the FTP server.', 'issue')
           putFile()
         })
