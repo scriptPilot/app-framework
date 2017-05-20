@@ -3,7 +3,7 @@
   "description": "iOS and Android Apps with HTML & JavaScript - develop, build and deploy - free and open source!",
   "author": "scriptPilot <mail@scriptPilot.de> (https://github.com/scriptPilot)",
   "repository": "https://github.com/scriptPilot/app-framework.git",
-  "version": "1.6.78",
+  "version": "1.6.89",
   "license": "MIT",
   "scripts": {
     "postinstall": "node scripts/postinstall",
@@ -86,7 +86,6 @@
     "vue-loader": "^10.0.0",
     "vue-style-loader": "^1.0.0",
     "vue-template-compiler": "^2.1.0",
-    "webfontloader": "^1.6.27",
     "webpack": "^1.13.2",
     "webpack-dev-middleware": "^1.8.3",
     "webpack-hot-middleware": "^2.12.2",
