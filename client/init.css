@@ -3,6 +3,12 @@ html, body {
   margin: 0;
   line-height: 1.5;
 }
+#hiddenOverlay: {
+  z-index: 1
+}
+#loadingOverlay: {
+  z-index: 2
+}
 #loadingOverlay,
 #errorOverlay {
   position: fixed;

@@ -8,7 +8,7 @@
 
 ### New features
 
-- [x] [##527 - Preloader für icon fonts](https://github.com/scriptPilot/app-framework/issues/527)
+- [x] [##527 - Preloader for icon fonts](https://github.com/scriptPilot/app-framework/issues/527)
 
 ### Bug-fixes
 
