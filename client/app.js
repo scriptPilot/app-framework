@@ -5,21 +5,6 @@
 import set from 'lodash/set'
 import unset from 'lodash/unset'
 
-// Add offline support for non-native applications
-if (process.env.NODE_ENV === 'production') {
-  let offlinePlugin = require('offline-plugin/runtime')
-  if (!window.cordova) {
-    offlinePlugin.install({
-      onUpdateReady: function () {
-        offlinePlugin.applyUpdate()
-      },
-      onUpdated: function () {
-        window.location.reload()
-      }
-    })
-  }
-}
-
 let manageComponentData = {
   created: function () {
     this.$nextTick(function () {
@@ -170,24 +155,6 @@ mixins.loadIconFonts = {
     if (process.env.FONT_MATERIAL === 'true') require('../vendor/material-icons/material-icons.css')
     if (process.env.FONT_ION === 'true') require('ionicons/dist/css/ionicons.css')
     if (process.env.FONT_AWESOME === 'true') require('font-awesome/css/font-awesome.css')
-  }
-}
-mixins.loadFavicon = {
-  created: function () {
-    if (process.env.NODE_ENV === 'development') {
-      require(process.env.CACHE_ROOT_FROM_SCRIPTS + 'icons/dev/favicon.ico')
-      require(process.env.CACHE_ROOT_FROM_SCRIPTS + 'icons/dev/android-chrome-192x192.png')
-    }
-  }
-}
-mixins.managePreloader = {
-  beforeCreate: function () {
-    require('./preloader.svg')
-  },
-  watch: {
-    stateReady: function () {
-      window.Dom7('#preloader').remove()
-    }
   }
 }
 mixins.manageFirebase = {
@@ -931,6 +898,7 @@ mixins.manageState = {
         restoreFormInputOnPageLoad()
         restoreViews(function () {
           restoreOverlays(function () {
+            window.Dom7('#frame').show()
             restoreFocus()
             callback()
           })
@@ -1154,7 +1122,7 @@ mixins.manageState = {
   }
 }
 
-function initF7VueApp () {
+window.initF7VueApp = () => {
   // Load Vue
   let vue = require('vue/dist/vue.common.js')
   // Load Framework7
@@ -1190,5 +1158,3 @@ function initF7VueApp () {
     }
   })
 }
-
-window.onload = initF7VueApp

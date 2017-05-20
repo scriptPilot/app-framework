@@ -8,7 +8,6 @@ let alert = require('./alert')
 let fs = require('fs-extra')
 let abs = require('path').resolve
 let path = require('path')
-let rec = require('recursive-readdir-sync')
 let us = require('underscore')
 let webpack = require('webpack')
 
@@ -84,19 +83,9 @@ let createConfiguration = function (mode) {
         name: '[name].[ext]'
       }
     },
-    // Loader image
-    {
-      test: /preloader\.svg$/,
-      loader: 'url',
-      query: {
-        limit: 1,
-        name: '[name].[ext]'
-      }
-    },
     // Font files
     {
       test: /\.(woff2?|eot|ttf|otf|svg)(\?.*)?$/,
-      exclude: /preloader\.svg/,
       loader: 'url',
       query: {
         limit: 1,
@@ -108,11 +97,12 @@ let createConfiguration = function (mode) {
   // Start configuration object
   let config = {
     entry: {
+      init: [abs(__dirname, '../client/init.js')],
       app: [abs(__dirname, '../client/app.js')]
     },
     output: {
       path: mode === 'development' ? abs(env.app) : abs(env.cache, 'build/www'),
-      filename: '[name].[hash:7].js'
+      filename: mode === 'development' ? '[name].js' : '[name].[hash:7].js'
     },
     resolve: {
       extensions: ['', '.js', '.vue', '.json'],
@@ -135,26 +125,6 @@ let createConfiguration = function (mode) {
       }, config.entry)
     } else {
       config.entry.app.unshift(abs(__dirname, '../client/' + env.cfg.theme + '.js'))
-    }
-  }
-
-  // Handle image preloading
-  if (env.cfg.preloadImages) {
-    try {
-      // List image files
-      let files = rec(abs(env.app, 'images'))
-      // Create preloading DIV
-      let div = '<div style="display: none">'
-      files.map((file) => {
-        div += '<img src="<%=require(\'' + file + '\')%>" />'
-      })
-      div += '</div>'
-      // Update cached index.ejs
-      let indexFile = fs.readFileSync(abs(env.cache, 'index.ejs'), 'utf8')
-      indexFile = indexFile.replace('</body>', div + '</body>')
-      fs.writeFileSync(abs(env.cache, 'index.ejs'), indexFile)
-    } catch (err) {
-      alert('Failed to handle image preloading.', 'issue')
     }
   }
 
@@ -226,6 +196,7 @@ let createConfiguration = function (mode) {
   let HtmlPlugin = require('html-webpack-plugin')
   config.plugins.push(
     new HtmlPlugin({
+      chunks: ['init'],
       filename: mode === 'development' ? abs(env.app, 'index.html') : abs(env.cache, 'build/www/index.html'),
       template: abs(env.cache, 'index.ejs'),
       title: env.cfg.title,

@@ -46,7 +46,8 @@
     "cordova-plugin-whitelist"
   ],
   "resetLocalStorageOnVersionChange": false,
-  "preloadImages": false,
+  "preloadIconFonts": true,
+  "preloadImages": true,
   "buildSourcemaps": false,
   "fixCodeOnTest": true,
   "fixCodeOnBuild": true,
