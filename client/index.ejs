@@ -8,61 +8,38 @@
     <title><%= htmlWebpackPlugin.options.title %></title>
     <%= htmlWebpackPlugin.options.iconTags %>
   </head>
-  <body>
+  <body style="background: #fafafa;">
 
     <!-- Noscript -->
     <noscript>Please activate JavaScript!</noscript>
 
-    <!-- Preloader -->
-    <div id="preloader" style="z-index: 100;
-                               position: fixed;
-                               top: 0;
-                               left: 0;
-                               width: 100%;
-                               height: 100%;
-                               background: #fafafa">
-
-      <!-- Inner DIV -->
-      <div style="position: relative;
-                  top: calc(50% - (128px + 40px + 30px + 50px)/2);
-                  text-align: center">
-
-        <!-- Favicon -->
-        <div style="height: 128px; text-align: center">
-          <img src="android-chrome-192x192.png" style="width: 128px; height: 128px" />
+    <!-- Loading overlay -->
+    <div id="loadingOverlay" style="display: none">
+      <div class="inner">
+        <div class="icon"><img src="android-chrome-192x192.png" /></div>
+        <div class="title"><%= htmlWebpackPlugin.options.title %></div>
+        <div class="progressBar">
+          <div class="progressBarInner"></div>
         </div>
-
-        <!-- Title -->
-        <div style="padding-top: 20px;
-                    font-size: 20px;
-                    font-family: Verdana, sans-serif;
-                    text-align: center;
-                    color: #848484">
-          <%= htmlWebpackPlugin.options.title %>
-        </div>
-
-        <!-- Loading text -->
-        <div style="font-size: 12px;
-                    padding-top: 18px;
-                    text-align: center;
-                    font-family: Verdana, sans-serif;
-                    color: #848484">
-          Loading ...
-        </div>
-
-        <!-- Loading icon -->
-        <div style="height: 40px;
-                    padding-top: 10px;
-                    text-align: center;">
-          <img src="preloader.svg" style="width: 40px; height: 40px;" />
-        </div>
-
+        <div class="spinner"></div>
       </div>
     </div>
 
+    <!-- Error overlay -->
+    <div id="errorOverlay" style="display: none">
+      <div class="inner">
+        <div class="icon"><img src="android-chrome-192x192.png" /></div>
+        <div class="title"><%= htmlWebpackPlugin.options.title %></div>
+        <div class="error">App initialization error</div>
+      </div>
+    </div>
+
+    <!-- Hidden overlay -->
+    <div id="hiddenOverlay" style="display: none"></div>
+
     <!-- Application frame -->
-    <div id="frame">
-      <div id="app"></div>
+    <div id="frame" style="display: none">
+      <div id="app">App</div>
     </div>
 
   </body>

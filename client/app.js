@@ -172,24 +172,6 @@ mixins.loadIconFonts = {
     if (process.env.FONT_AWESOME === 'true') require('font-awesome/css/font-awesome.css')
   }
 }
-mixins.loadFavicon = {
-  created: function () {
-    if (process.env.NODE_ENV === 'development') {
-      require(process.env.CACHE_ROOT_FROM_SCRIPTS + 'icons/dev/favicon.ico')
-      require(process.env.CACHE_ROOT_FROM_SCRIPTS + 'icons/dev/android-chrome-192x192.png')
-    }
-  }
-}
-mixins.managePreloader = {
-  beforeCreate: function () {
-    require('./preloader.svg')
-  },
-  watch: {
-    stateReady: function () {
-      window.Dom7('#preloader').remove()
-    }
-  }
-}
 mixins.manageFirebase = {
   // Set initial values
   data: {
@@ -931,6 +913,7 @@ mixins.manageState = {
         restoreFormInputOnPageLoad()
         restoreViews(function () {
           restoreOverlays(function () {
+            window.Dom7('#frame').show()
             restoreFocus()
             callback()
           })
@@ -1154,7 +1137,7 @@ mixins.manageState = {
   }
 }
 
-function initF7VueApp () {
+window.initF7VueApp = () => {
   // Load Vue
   let vue = require('vue/dist/vue.common.js')
   // Load Framework7
@@ -1190,5 +1173,3 @@ function initF7VueApp () {
     }
   })
 }
-
-window.onload = initF7VueApp

@@ -237,6 +237,38 @@ let compressImages = function (callback, files) {
     callback()
   }
 }
+function updatePreloader (callback) {
+  alert('Preloader update ongoing - please wait ...')
+  try {
+    // Read appcache file
+    let appcache = fs.readFileSync(abs(env.cache, 'build/www/manifest.appcache'), 'utf8')
+    // Get init file name and cache files
+    let initFile = ''
+    let cacheFiles = []
+    appcache.split('\n').map(function (file) {
+      file = file.substr(1)
+      // Init file
+      if (/^init\.[0-9a-z]+\.js$/.test(file)) {
+        initFile = file
+      // JavaScript and CSS files (with icon fonts)
+      } else if (/\.(js|css)$/.test(file) && !/^init\.[0-9a-z]+\.css$/.test(file)) {
+        cacheFiles.push(file)
+      // Image files
+      } else if (env.cfg.preloadImages === true && /\.(png|jpe?g|gif)$/.test(file)) {
+        cacheFiles.push(file)
+      }
+    })
+    // Update preloader files in init.js
+    let fileContent = fs.readFileSync(abs(env.cache, 'build/www', initFile), 'utf8')
+    fileContent = fileContent.replace('["app.js"]', JSON.stringify(cacheFiles))
+    fs.writeFileSync(abs(env.cache, 'build/www', initFile), fileContent)
+    // Alert and callback
+    alert('Preloader update done.')
+    callback()
+  } catch (err) {
+    alert('Preloader update failed.', 'issue')
+  }
+}
 
 // Run steps
 fixCode(function () {
@@ -259,33 +291,35 @@ fixCode(function () {
               cmd(__dirname, 'node create-icons', function () {
                 manageIcons(function () {
                   copyFirebaseFiles(function () {
-                    // Dev build
-                    if (mode === 'dev') {
-                      alert('Development build done.')
-                    // Pruduction build
-                    } else {
-                      alert('Build folder update ongoing - please wait ...')
-                      // Empty existing build folder
-                      fs.emptyDir(abs(env.proj, 'build'), function (err) {
-                        if (err) {
-                          alert('Clean-up the existing build folder failed.', 'issue')
-                        } else {
-                          // Copy files
-                          fs.copy(abs(env.cache, 'build'), abs(env.proj, 'build'), function (err) {
-                            if (err) {
-                              alert('Build folder update failed.', 'issue')
-                            } else {
-                              compressImages(function () {
-                                // Create snapshot
-                                cmd(__dirname, 'node create-snapshot --name "build-' + env.pkg.version + '"', function () {
-                                  alert('Build process done for version ' + env.pkg.version + '.')
+                    updatePreloader(function () {
+                      // Dev build
+                      if (mode === 'dev') {
+                        alert('Development build done.')
+                      // Pruduction build
+                      } else {
+                        alert('Build folder update ongoing - please wait ...')
+                        // Empty existing build folder
+                        fs.emptyDir(abs(env.proj, 'build'), function (err) {
+                          if (err) {
+                            alert('Clean-up the existing build folder failed.', 'issue')
+                          } else {
+                            // Copy files
+                            fs.copy(abs(env.cache, 'build'), abs(env.proj, 'build'), function (err) {
+                              if (err) {
+                                alert('Build folder update failed.', 'issue')
+                              } else {
+                                compressImages(function () {
+                                  // Create snapshot
+                                  cmd(__dirname, 'node create-snapshot --name "build-' + env.pkg.version + '"', function () {
+                                    alert('Build process done for version ' + env.pkg.version + '.')
+                                  })
                                 })
-                              })
-                            }
-                          })
-                        }
-                      })
-                    }
+                              }
+                            })
+                          }
+                        })
+                      }
+                    })
                   })
                 })
               })

@@ -4,6 +4,21 @@
 
 <br />
 
+## Next version
+
+### New features
+
+- [x] [##527 - Preloader für icon fonts](https://github.com/scriptPilot/app-framework/issues/527)
+
+### Bug-fixes
+
+- [x] [##521 - Loading indicator not animated in Safari and Android](https://github.com/scriptPilot/app-framework/issues/521)
+- [x] [##534 - Loading sequence not ok, App shown before icons and images are loaded](https://github.com/scriptPilot/app-framework/issues/534)
+
+### Improvements
+
+- [x] [##537 - Add preloader with progress bar on preloading screen](https://github.com/scriptPilot/app-framework/issues/537)
+
 ## Version 1.6.54
 
 Released 2017-05-20
