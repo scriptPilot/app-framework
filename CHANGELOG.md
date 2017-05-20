@@ -4,7 +4,9 @@
 
 <br />
 
-## Next version
+## Version 1.7.0
+
+Released 2017-05-20
 
 ### New features
 
@@ -18,6 +20,7 @@
 ### Improvements
 
 - [x] [##537 - Add preloader with progress bar on preloading screen](https://github.com/scriptPilot/app-framework/issues/537)
+- [x] [Firebase Web App](https://demo.app-framework.com) update
 
 ## Version 1.6.54
 
