@@ -4,7 +4,7 @@
 
 <br />
 
-## Version 1.6.53
+## Version 1.6.54
 
 Released 2017-05-20
 
