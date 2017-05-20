@@ -5,21 +5,6 @@
 import set from 'lodash/set'
 import unset from 'lodash/unset'
 
-// Add offline support for non-native applications
-if (process.env.NODE_ENV === 'production') {
-  let offlinePlugin = require('offline-plugin/runtime')
-  if (!window.cordova) {
-    offlinePlugin.install({
-      onUpdateReady: function () {
-        offlinePlugin.applyUpdate()
-      },
-      onUpdated: function () {
-        window.location.reload()
-      }
-    })
-  }
-}
-
 let manageComponentData = {
   created: function () {
     this.$nextTick(function () {

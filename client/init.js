@@ -4,9 +4,23 @@
 'use strict'
 
 // Load modules
-import webFonts from 'webfontloader'
-import Spinner from '../vendor/spin'
 require('./init.css')
+let Spinner = require('../vendor/spin')
+
+// Add offline support for non-native applications
+if (process.env.NODE_ENV === 'production') {
+  let offlinePlugin = require('offline-plugin/runtime')
+  if (!window.cordova) {
+    offlinePlugin.install({
+      onUpdateReady: function () {
+        offlinePlugin.applyUpdate()
+      },
+      onUpdated: function () {
+        window.location.reload()
+      }
+    })
+  }
+}
 
 // Load graphics in development mode
 if (process.env.NODE_ENV === 'development') {
@@ -70,12 +84,35 @@ function loadExtendedRessources (callback) {
       loadScript(ressources[r], updateProgress)
     } else if (/\.css$/.test(ressources[r])) {
       loadCss(ressources[r], updateProgress)
-    } else if (/\.(jpg|jpeg|svg|png|gif|ico)$/.test(ressources[r])) {
+    } else if (/\.(jpe?g|png|gif)$/.test(ressources[r])) {
       loadImage(ressources[r], updateProgress)
     } else {
       console.error('Unknown file type to load: ' + ressources[r])
       showErrorOverlay()
     }
+  }
+  // Add icon tags for preload
+  if (process.env.FONT_FRAMEWORK7 === 'true') {
+    let el = document.createElement('i')
+    el.className = 'f7-icons'
+    el.innerHTML = 'check'
+    document.querySelector('#hiddenOverlay').append(el)
+  }
+  if (process.env.FONT_MATERIAL === 'true') {
+    let el = document.createElement('i')
+    el.className = 'material-icons'
+    el.innerHTML = 'check'
+    document.querySelector('#hiddenOverlay').append(el)
+  }
+  if (process.env.FONT_ION === 'true') {
+    let el = document.createElement('i')
+    el.className = 'icon ion-checkmark-round'
+    document.querySelector('#hiddenOverlay').append(el)
+  }
+  if (process.env.FONT_AWESOME === 'true') {
+    let el = document.createElement('i')
+    el.className = 'fa fa-check'
+    document.querySelector('#hiddenOverlay').append(el)
   }
 }
 function loadScript (script, callback) {
@@ -91,22 +128,17 @@ function loadScript (script, callback) {
   document.body.appendChild(el)
 }
 function loadCss (css, callback) {
-  webFonts.load({
-    custom: {
-      urls: ['/' + css]
-    },
-    active: function () {
-      callback(css, true)
-    },
-    inactive: function () {
-      console.error('Failed to load file: ' + css)
-      callback(css, false)
-    },
-    loading: () => { console.log('webfonts loading') },
-    fontloading: () => { console.log('webfonts fontloading') },
-    fontinactive: () => { console.log('webfonts fontinactive') },
-    fontactive: () => { console.log('webfonts fontactive') }
-  })
+  var el = document.createElement('link')
+  el.rel = 'stylesheet'
+  el.href = css
+  el.onload = function () {
+    callback(css, true)
+  }
+  el.onerror = function () {
+    console.error('Failed to load file: ' + css)
+    callback(css, false)
+  }
+  document.head.appendChild(el)
 }
 function loadImage (image, callback) {
   var el = document.createElement('img')
@@ -120,21 +152,13 @@ function loadImage (image, callback) {
   }
   document.querySelector('#hiddenOverlay').appendChild(el)
 }
-function showApplicationFrame (callback) {
-  document.querySelector('#loadingOverlay').style.display = 'none'
-  document.querySelector('#errorOverlay').style.display = 'none'
-  document.querySelector('#frame').style.display = 'block'
-  callback()
-}
 
 // Initialize application
 loadInitialRessources(() => {
   loadSpinner(() => {
     showLoadingOverlay(() => {
       loadExtendedRessources(() => {
-        showApplicationFrame(() => {
-          window.initF7VueApp()
-        })
+        window.initF7VueApp()
       })
     })
   })

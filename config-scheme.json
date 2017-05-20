@@ -154,6 +154,10 @@
     "type": "boolean",
     "default": false
   },
+  "preloadIconFonts": {
+    "type": "boolean",
+    "default": true
+  },
   "preloadImages": {
     "type": "boolean",
     "default": true
