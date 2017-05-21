@@ -9,6 +9,7 @@
 ### Bug-fixes
 
 - [x] [#543 - Statusbar shown on initial native app start, but configured as false](https://github.com/scriptPilot/app-framework/issues/543)
+- [x] [#554 - Vue warning due to material icon workaround for Android 4](https://github.com/scriptPilot/app-framework/issues/554)
 
 ### Improvements
 

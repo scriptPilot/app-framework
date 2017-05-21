@@ -103,7 +103,7 @@ cmd(f7VueFolder, 'npm run build', function () {
     try {
       let fileContent = fs.readFileSync(abs(env.proj, 'vendor/Framework7-Vue/framework7-vue.js'), 'utf8')
       fileContent = fileContent.replace('_vm.sizeComputed})},[_vm._v(_vm._s(_vm.iconTextComputed)),_vm._t("default")],2)},', '_vm.sizeComputed}),domProps:{innerHTML:this.iconTextComputed}})},')
-      fileContent = fileContent.replace('iconTextComputed: function () {', 'iconTextComputed: function () { if (process.env.FONT_MATERIAL && this.material && this.$root.materialCodepoints && this.$root.materialCodepoints[this.material]) { this.material = "&#x" + this.$root.materialCodepoints[this.material] + ";" }')
+      fileContent = fileContent.replace('iconTextComputed: function () {', 'iconTextComputed: function () { if (process.env.FONT_MATERIAL && this.material && this.$root.materialCodepoints && this.$root.materialCodepoints[this.material]) { return "&#x" + this.$root.materialCodepoints[this.material] + ";" }')
       fs.writeFileSync(abs(env.proj, 'vendor/Framework7-Vue/framework7-vue.js'), fileContent)
     } catch (err) {
       alert('Failed to apply workaround for material icons.', 'issue')

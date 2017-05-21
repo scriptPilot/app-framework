@@ -9,7 +9,7 @@
  * 
  * Licensed under MIT
  * 
- * Released on: May 17, 2017
+ * Released on: May 21, 2017
  */
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
@@ -1048,7 +1048,7 @@ staticRenderFns: [],
         }
         return size;
       },
-      iconTextComputed: function () { if (process.env.FONT_MATERIAL && this.material && this.$root.materialCodepoints && this.$root.materialCodepoints[this.material]) { this.material = "&#x" + this.$root.materialCodepoints[this.material] + ";" }
+      iconTextComputed: function () { if (process.env.FONT_MATERIAL && this.material && this.$root.materialCodepoints && this.$root.materialCodepoints[this.material]) { return "&#x" + this.$root.materialCodepoints[this.material] + ";" }
         var self = this;
         var text = self.material || self.f7;
         if (self.ifMaterial && self.$theme.material && (self.ifMaterial.indexOf('material:')>=0 || self.ifMaterial.indexOf('f7:')>=0)) {
