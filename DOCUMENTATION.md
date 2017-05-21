@@ -18,7 +18,7 @@ The check boxes indicate articles which are already reworked.
 
 ## Workflow
 
-- [ ] [Setup your project](docs/setup.md)
+- [x] [Setup your project](docs/setup.md)
 - [ ] [Design your application](docs/design.md)
 - [ ] Develop your application
   - [x] [App component](docs/app-component.md)
