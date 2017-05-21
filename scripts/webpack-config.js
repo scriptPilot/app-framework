@@ -128,14 +128,27 @@ let createConfiguration = function (mode) {
     }
   }
 
+  // Get updated versions
+  let frameworkVersion
+  try {
+    frameworkVersion = fs.readJsonSync(abs(__dirname, '../package.json')).version
+  } catch (err) {
+    alert('Failed to read framework version.', 'issue')
+  }
+  let projectVersion
+  try {
+    projectVersion = fs.readJsonSync(abs(env.proj, 'package.json')).version
+  } catch (err) {
+    alert('Failed to read project version.', 'issue')
+  }
+
   // Add environment variables
   let firebaseConfig = mode === 'development' || env.arg.dev === true ? 'devFirebase' : 'firebase'
-  let framework = require('../package.json')
   config.plugins.push(
     new webpack.DefinePlugin({
       'process.env': {
-        PROJECT_VERSION: '"' + env.pkg.version + '"',
-        FRAMEWORK_VERSION: '"' + framework.version + '"',
+        PROJECT_VERSION: '"' + projectVersion + '"',
+        FRAMEWORK_VERSION: '"' + frameworkVersion + '"',
         THEME: '"' + env.cfg.theme + '"',
         APP_ROOT_FROM_SCRIPTS: '"' + (path.relative(__dirname, env.app) + path.sep).replace(/\\/g, '\\\\\\\\') + '"',
         PROJECT_ROOT_FROM_SCRIPTS: '"' + (path.relative(__dirname, env.proj) + path.sep).replace(/\\/g, '\\\\\\\\') + '"',
