@@ -4,7 +4,7 @@
 
 <br />
 
-The following project folder will be created after App Framework installation:
+The following project folder will be created by default:
 
 ```
 ├── app                         # App source folder
