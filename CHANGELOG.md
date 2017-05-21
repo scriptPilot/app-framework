@@ -4,30 +4,23 @@
 
 <br />
 
-## Next version
-
-### Bug-fixes
-
-- [x] [#542 - New app version not loaded after page refresh](https://github.com/scriptPilot/app-framework/issues/542)
-
-### Improvements
-
-- [x] [#137 - Handle slow / offline Firebase registration/reset/login/logout properly](https://github.com/scriptPilot/app-framework/issues/137)
-
-## Version 1.7.9
+## Version 1.7.23
 
 Released on 2017-05-21
 
 ### Bug-fixes
 
 - [x] [#536 - Statusbar background color change delayed on application start](https://github.com/scriptPilot/app-framework/issues/536)
+- [x] [#542 - New app version not loaded after page refresh](https://github.com/scriptPilot/app-framework/issues/542)
 - [x] [#543 - Statusbar shown on initial native app start, but configured as false](https://github.com/scriptPilot/app-framework/issues/543)
 - [x] [#554 - Vue warning due to material icon workaround for Android 4](https://github.com/scriptPilot/app-framework/issues/554)
 - [x] [#558 - $root.frameworkVersion / $root.version show previous version](https://github.com/scriptPilot/app-framework/issues/558)
 
 ### Improvements
 
+- [x] [#137 - Handle slow / offline Firebase registration/reset/login/logout properly](https://github.com/scriptPilot/app-framework/issues/137)
 - [x] [#559 - Ensure deviceready before application start](https://github.com/scriptPilot/app-framework/issues/559)
+- [x] [Firebase Web App](https://demo.app-framework.com) update
 
 ## Version 1.7.1
 
