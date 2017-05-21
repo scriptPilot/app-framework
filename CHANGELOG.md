@@ -6,6 +6,10 @@
 
 ## Next version
 
+### Bug-fixes
+
+- [x] [#543 - Statusbar shown on initial native app start, but configured as false](https://github.com/scriptPilot/app-framework/issues/543)
+
 ### Improvements
 
 - [x] [#559 - Ensure deviceready before application start](https://github.com/scriptPilot/app-framework/issues/559)

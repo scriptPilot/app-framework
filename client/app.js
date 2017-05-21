@@ -682,12 +682,16 @@ mixins.manageLayout = {
   }
 }
 mixins.manageStatusbarVisibility = {
-  // Set initial value
+  // Set variable
   data: {
     statusbarVisibility: null
   },
+  // Deactivate automatic status bar handling
+  beforeCreate: function () {
+    this.$options.framework7.statusbarOverlay = false
+  },
+  // Handle change
   watch: {
-    // Watch for change
     statusbarVisibility: function (newState, oldState) {
       if (newState === true || newState === false) {
         // Update local storage
@@ -701,41 +705,34 @@ mixins.manageStatusbarVisibility = {
           }
         }
         // Update DOM
-        if (this.f7Ready) {
-          if (newState === true && window.f7.device.statusBar === true) {
-            window.Dom7('html').addClass('with-statusbar-overlay')
-          } else if (newState === false && window.cordova) {
-            window.Dom7('html').removeClass('with-statusbar-overlay')
-          }
+        if (window.StatusBar !== undefined && newState === true && window.Framework7.prototype.device.statusBar === true) {
+          window.Dom7('html').addClass('with-statusbar-overlay')
+        } else {
+          window.Dom7('html').removeClass('with-statusbar-overlay')
         }
+        console.log(JSON.stringify(window.f7.params.statusbarOverlay))
       } else {
         // Rollback old or config value
         this.statusbarVisibility = oldState !== null ? oldState : this.config.statusbarVisibility
       }
-    },
-    // Update DOM initially
-    f7Ready: function () {
-      if (this.statusbarVisibility === true && window.f7.device.statusBar === true) {
-        window.Dom7('html').addClass('with-statusbar-overlay')
-      } else if (window.cordova) {
-        window.Dom7('html').removeClass('with-statusbar-overlay')
-      }
     }
   },
-  // Restore local storage
+  // Restore / set initial value
   created: function () {
     if (window.localStorage.statusbarVisibility !== undefined) {
       this.statusbarVisibility = JSON.parse(window.localStorage.statusbarVisibility)
+    } else {
+      this.statusbarVisibility = this.config.statusbarVisibility
     }
   }
 }
 mixins.manageStatusbarTextColor = {
-  // Set initial value
+  // Set variable
   data: {
     statusbarTextColor: null
   },
+  // Handle change
   watch: {
-    // Watch for change
     statusbarTextColor: function (newColor, oldColor) {
       if (newColor === 'black' || newColor === 'white') {
         // Update local storage
@@ -754,18 +751,22 @@ mixins.manageStatusbarTextColor = {
       }
     }
   },
-  // Restore local storage
+  // Restore / set initial value
   created: function () {
-    this.statusbarTextColor = window.localStorage.statusbarTextColor
+    if (window.localStorage.statusbarTextColor !== undefined) {
+      this.statusbarTextColor = window.localStorage.statusbarTextColor
+    } else {
+      this.statusbarTextColor = this.config.statusbarTextColor
+    }
   }
 }
 mixins.manageStatusbarBackgroundColor = {
-  // Initial state
+  // Set variable
   data: {
     statusbarBackgroundColor: null
   },
+  // Handle change
   watch: {
-    // Watch for change
     statusbarBackgroundColor: function (newColor, oldColor) {
       // Add missing hash sign
       if (/^[0-9a-f]{6}$/.test(newColor)) {
@@ -787,14 +788,12 @@ mixins.manageStatusbarBackgroundColor = {
       }
     }
   },
-  // Restore local storage
+  // Restore / set initial value
   created: function () {
-    this.statusbarBackgroundColor = window.localStorage.statusbarBackgroundColor
-  },
-  // Update DOM initially
-  mounted: function () {
-    if (this.statusbarBackgroundColor !== null) {
-      window.Dom7('.statusbar-overlay').css('background', this.statusbarBackgroundColor)
+    if (window.localStorage.statusbarBackgroundColor !== undefined) {
+      this.statusbarBackgroundColor = window.localStorage.statusbarBackgroundColor
+    } else {
+      this.statusbarBackgroundColor = this.config.statusbarBackgroundColor
     }
   }
 }
