@@ -4,7 +4,9 @@
 
 <br />
 
-You can configure the application status bar style in the *config.json* file:
+## Configuration
+
+You can configure the application status bar style in the configuration file:
 
 ```
 statusbarVisibility: true,                               // true or false
@@ -12,6 +14,8 @@ statusbarTextColor: 'white',                             // 'black' or 'white'
 statusbarBackgroundColor: '#3f51b5',                     // Hex color code
 changeStatusbarBackgroundColorOnThemeColorChange: true   // true or false
 ```
+
+## Runtime modification
 
 You can modify the application status bar style in any Vue hook `created` or later:
 
@@ -23,7 +27,9 @@ created: function () {
 }
 ```
 
-Limitations:
+The current style is restored after application restart and overwrites the configuration.
+
+## Limitations
 
 - Changing the status bar visibility is limited to native applications
 - Changing the status bar text color is limited to iOS native applications
