@@ -92,6 +92,15 @@
 
       // Save new todo
       saveTodo: function (e) {
+        if (!navigator.onLine) {
+          window.f7.addNotification({
+            title: 'Offline',
+            message: 'This action is not possible in offline mode.',
+            hold: 3000,
+            closeIcon: false
+          })
+          return
+        }
         if (this.newTodo !== '') {
         // Show loading indicator with delay
           let saved = false
@@ -122,6 +131,15 @@
 
       // Mark todo as completed / not completed
       toggleTodo: function (key) {
+        if (!navigator.onLine) {
+          window.f7.addNotification({
+            title: 'Offline',
+            message: 'This action is not possible in offline mode.',
+            hold: 3000,
+            closeIcon: false
+          })
+          return
+        }
         window.db('publicData/todos/' + key + '/completed')
           .set(!this.todos[key].completed)
           .catch(function () {
@@ -131,6 +149,15 @@
 
       // Delete todo
       deleteCompleted: function () {
+        if (!navigator.onLine) {
+          window.f7.addNotification({
+            title: 'Offline',
+            message: 'This action is not possible in offline mode.',
+            hold: 3000,
+            closeIcon: false
+          })
+          return
+        }
         let deletes = {}
         for (let key in this.todos) {
           if (this.todos[key].completed) {

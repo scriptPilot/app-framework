@@ -47,6 +47,15 @@
     // Upload photo
     methods: {
       uploadPhoto: function (e) {
+        if (!navigator.onLine) {
+          window.f7.addNotification({
+            title: 'Offline',
+            message: 'This action is not possible in offline mode.',
+            hold: 3000,
+            closeIcon: false
+          })
+          return
+        }
       // File selected
         let file = this.$$(e.target).parents('.page-content').find('input[type=file]')[0].files[0]
         if (file !== undefined) {
