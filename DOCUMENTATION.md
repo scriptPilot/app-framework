@@ -32,7 +32,7 @@ The check boxes indicate articles which are already reworked.
   - [x] [Cordova plugins](docs/cordova-plugins.md)
   - [ ] [Firebase backend](docs/firebase.md)
   - [ ] [State restoration](docs/state-restoration.md)
-  - [ ] [Application style](docs/application-style.md)
+  - [x] [Application style](docs/application-style.md)
   - [ ] [Status bar style](docs/status-bar-style.md)
 - [ ] [Test your application](docs/test.md)
 - [ ] [Build your application](docs/build.md)
