@@ -23,11 +23,13 @@ You can use the plugin now in any of your components. Example:
   export default {
     created: function () {
       // Set badge to 10
-      cordova.plugins.notification.badge.set(10)
+      window.cordova.plugins.notification.badge.set(10)
     }
   }
 </script>
 ```
+
+Take care to use `window.` to access any plugin.
 
 ## Plugin repository
 
