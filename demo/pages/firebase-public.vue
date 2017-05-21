@@ -56,21 +56,6 @@
 </template>
 <script>
 
-  /*
-
-     You can use the following Firebase shortlinks:
-
-     - "window.user" as object with user data (uid, email) or null
-     - "window.db()" as shortlink to "window.firebase.database().ref()"
-     - "window.store()" as shortlink to "window.firebase.database().storage()"
-     - "window.timestamp" as shortlink to "window.firebase.database.ServerValue.TIMESTAMP"
-
-     You can use the following functions:
-
-     - window.sortObject([Object]object, [String]sortByKey, [Boolean, optional, default=false]descendingOrder)
-
-  */
-
   module.exports = {
 
     // Define intial data as a function
