@@ -41,7 +41,7 @@ The check boxes indicate articles which are already reworked.
 
 ## Reference
 
-- [ ] [Project folder structure](docs/folder-structure.md)
+- [x] [Project folder structure](docs/folder-structure.md)
 - [x] [Configuration options](docs/configuration.md)
 - [x] [CLI commands](docs/cli-commands.md)
 - [x] [Changelog](CHANGELOG.md)
