@@ -6,7 +6,7 @@
 
 ### Configuration options
 
-Configure your application easily in the *app/config.json* file.
+Configure your application easily in the *app/config.json* file. For details, please read the *Workflow* section.
 
 <!-- config-options -->
 Option | Allowed | Default
