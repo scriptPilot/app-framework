@@ -12,7 +12,7 @@ To use an icon font, you have to set `true` in the configuration:
 
 ```
 "useIconFonts": {
-  "framework7": true,
+  "framework7": false,
   "material": true,
   "ion": false,
   "fontawesome": false
