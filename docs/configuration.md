@@ -6,7 +6,7 @@
 
 ### Configuration options
 
-Configure your application easily in the `config.json` file.
+Configure your application easily in the *app/config.json* file.
 
 <!-- config-options -->
 Option | Allowed | Default
