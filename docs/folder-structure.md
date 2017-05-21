@@ -4,7 +4,7 @@
 
 <br />
 
-The following project folder will be created by default:
+The following project folder will be created by default.
 
 ```
 ├── app                         # App source folder
@@ -23,3 +23,6 @@ The following project folder will be created by default:
 ├── .babelrc                    # Babel configuration file for ES2015 support
 ├── .gitignore                  # List of ignored files for Git commits
 └── package.json                # Project information
+```
+
+You can reset your application folder with `npm run reset` - but be careful, this will delete your current *app* folder!
