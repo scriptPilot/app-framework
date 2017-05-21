@@ -33,7 +33,7 @@ The check boxes indicate articles which are already reworked.
   - [ ] [Firebase backend](docs/firebase.md)
   - [ ] [State restoration](docs/state-restoration.md)
   - [x] [Application style](docs/application-style.md)
-  - [ ] [Status bar style](docs/status-bar-style.md)
+  - [x] [Status bar style](docs/status-bar-style.md)
 - [ ] [Test your application](docs/test.md)
 - [ ] [Build your application](docs/build.md)
 - [ ] [Deploy your application](docs/deploy.md)
