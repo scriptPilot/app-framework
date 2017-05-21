@@ -6,11 +6,11 @@
 
 ## Configuration
 
-App Framework supports well the usage of Cordova / PhoneGap plugins. You just have to add them in the configuration file. Example with [cordova-plugin-inappbrowser](https://www.npmjs.com/package/cordova-plugin-inappbrowser):
+App Framework supports well the usage of Cordova / PhoneGap plugins. You just have to add them in the configuration file. Example with [cordova-plugin-badge](https://github.com/katzer/cordova-plugin-badge):
 
 ```
 useCordovaPlugins: [
-  'cordova-plugin-inappbrowser'
+  'cordova-plugin-badge'
 ]
 ```
 
