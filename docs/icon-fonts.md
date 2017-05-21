@@ -4,7 +4,7 @@
 
 <br />
 
-## Usage
+## Configuration
 
 App Framework is well prepared to use comprehensive icon fonts for your application.
 
@@ -21,6 +21,11 @@ To use an icon font, you have to set `true` in the configuration:
 
 After you changed the configuration, you have to restart the development server.
 
+## Usage
+
+- HTML: `<i class="material-icons">done</i>`
+- Framework7-Vue: `<f7-icon icon="done" />`
+
 ## Icon overview
 
 - [Framework7 Icons](https://framework7.io/icons/)
@@ -30,6 +35,6 @@ After you changed the configuration, you have to restart the development server.
 
 ## Legacy support
 
-To display icon fonts in older browsers and Android versions, App Framework will automatically replace ligatures to code. Currently, this works only for the Material icon font.
+To display icon fonts in older browsers and Android versions, App Framework will automatically replace ligatures to code. Currently, this works only for the Material icon fonts.
 
 Example: `<f7-icon material "done" />` will generate `<i class="material-icons">&#xE876;</i>`
