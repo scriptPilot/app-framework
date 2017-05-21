@@ -50,7 +50,7 @@ devFirebase | *object* |
 &nbsp;&nbsp;&nbsp;allowEmailRegistration | *boolean* | false
 appStoreId | *string* |
 playStoreId | *string* |
-useCordovaPlugins | *array* | ["cordova-plugin-statusbar","cordova-plugin-whitelist"]
+useCordovaPlugins | *array* | []
 resetLocalStorageOnVersionChange | *boolean* | false
 preloadImages | *boolean* | true
 buildSourcemaps | *boolean* | false
