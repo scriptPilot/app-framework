@@ -12,6 +12,9 @@ if (process.env.NODE_ENV === 'production') {
   let offlinePlugin = require('offline-plugin/runtime')
   if (!window.cordova) {
     offlinePlugin.install({
+      onInstalled: function () {
+        offlinePlugin.update()
+      },
       onUpdateReady: function () {
         offlinePlugin.applyUpdate()
       },

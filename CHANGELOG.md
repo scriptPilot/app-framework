@@ -4,6 +4,12 @@
 
 <br />
 
+## Next version
+
+### Bug-fixes
+
+- [x] [#542 - New app version not loaded after page refresh](https://github.com/scriptPilot/app-framework/issues/542)
+
 ## Version 1.7.9
 
 Released on 2017-05-21
