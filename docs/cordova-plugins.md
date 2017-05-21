@@ -10,7 +10,7 @@ App Framework supports well the usage of Cordova / PhoneGap plugins. You just ha
 
 ```
 useCordovaPlugins: [
-  'cordova-plugin-badge'
+  "cordova-plugin-badge"
 ]
 ```
 
