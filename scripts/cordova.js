@@ -334,15 +334,11 @@ let installCordovaPlugins = function (callback, pluginList) {
   alert('Cordova plugin installation ongoing - please wait ...')
   if (pluginList === undefined) {
     pluginList = env.cfg.useCordovaPlugins
-    try {
-      let defaultPlugins = fs.readJsonSync(abs(__dirname, '../config-scheme.json')).useCordovaPlugins.default
-      for (let d = 0; d < defaultPlugins.length; d++) {
-        if (pluginList.indexOf(defaultPlugins[d]) === -1) {
-          pluginList.push(defaultPlugins[d])
-        }
-      }
-    } catch (err) {
-      alert('Failed to read default plugin list.', 'issue')
+    if (pluginList.indexOf('cordova-plugin-whitelist') === -1) {
+      pluginList.push('cordova-plugin-whitelist')
+    }
+    if (pluginList.indexOf('cordova-plugin-statusbar') === -1) {
+      pluginList.push('cordova-plugin-statusbar')
     }
   }
   if (Array.isArray(pluginList) && pluginList.length > 0) {

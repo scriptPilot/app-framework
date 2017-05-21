@@ -29,7 +29,7 @@ The check boxes indicate articles which are already reworked.
   - [x] [Images](docs/images.md)
   - [x] [Icon fonts](docs/icon-fonts.md)
   - [x] [Modules and scripts](docs/modules-and-scripts.md)
-  - [ ] [Cordova plugins](docs/cordova-plugins.md)
+  - [x] [Cordova plugins](docs/cordova-plugins.md)
   - [ ] [Firebase backend](docs/firebase.md)
   - [ ] [State restoration](docs/state-restoration.md)
   - [ ] [Application style](docs/application-style.md)
