@@ -705,12 +705,11 @@ mixins.manageStatusbarVisibility = {
           }
         }
         // Update DOM
-        if (window.StatusBar !== undefined && newState === true && window.Framework7.prototype.device.statusBar === true) {
+        if (newState === true && window.Framework7.prototype.device.statusBar === true) {
           window.Dom7('html').addClass('with-statusbar-overlay')
         } else {
           window.Dom7('html').removeClass('with-statusbar-overlay')
         }
-        console.log(JSON.stringify(window.f7.params.statusbarOverlay))
       } else {
         // Rollback old or config value
         this.statusbarVisibility = oldState !== null ? oldState : this.config.statusbarVisibility
