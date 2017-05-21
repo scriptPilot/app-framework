@@ -27,7 +27,7 @@ The check boxes indicate articles which are already reworked.
   - [x] [Global data object](docs/data-object.md)
   - [x] [sortObject function](docs/sort-object.md)
   - [x] [Images](docs/images.md)
-  - [ ] [Icon fonts](docs/icon-fonts.md)
+  - [x] [Icon fonts](docs/icon-fonts.md)
   - [x] [Modules and scripts](docs/modules-and-scripts.md)
   - [ ] [Cordova plugins](docs/cordova-plugins.md)
   - [ ] [Firebase backend](docs/firebase.md)
