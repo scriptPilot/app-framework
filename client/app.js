@@ -705,7 +705,8 @@ mixins.manageStatusbarVisibility = {
           }
         }
         // Update DOM
-        if (newState === true && window.Framework7.prototype.device.statusBar === true) {
+        if ((window.StatusBar !== undefined && newState === true && window.Framework7.prototype.device.statusBar === true) ||
+            (window.StatusBar === undefined && window.Framework7.prototype.device.statusBar === true)) {
           window.Dom7('html').addClass('with-statusbar-overlay')
         } else {
           window.Dom7('html').removeClass('with-statusbar-overlay')
