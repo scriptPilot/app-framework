@@ -76,7 +76,9 @@
       emailSent: 'Email sent',
       checkYourInbox: 'Please check your inbox.',
       signOutDone: 'Sign out done',
+      accountCreated: 'Account created',
       error: 'Error',
+      errorOffline: 'This action is offline not possible.',
       errorNoEmail: 'Please enter your email address.',
       errorNoPassword: 'Please enter a password.',
       errorPasswordsDifferent: 'You entered two different passwords.',
@@ -107,7 +109,9 @@
       emailSent: 'E-Mail verschickt',
       checkYourInbox: 'Bitte schau in deinem Posteingang.',
       signOutDone: 'Abmeldung erfolgreich',
+      accountCreated: 'Konto erstellt',
       error: 'Fehler',
+      errorOffline: 'Diese Aktion ist offline nicht möglich.',
       errorNoEmail: 'Bitte gib Deine E-Mail-Adresse ein.',
       errorNoPassword: 'Bitte gib ein Passwort ein.',
       errorPasswordsDifferent: 'Du hast zwei unterschiedliche Passwörter eingegeben.',
@@ -161,45 +165,57 @@
         window.localStorage.removeItem('requestedUrl')
       },
       handleSignIn: function () {
-        if (this.email === '') {
+        if (navigator.onLine === false) {
+          window.f7.alert(this.text.errorOffline, this.text.error)
+        } else if (this.email === '') {
           window.f7.alert(this.text.errorNoEmail, this.text.error)
         } else if (this.password === '') {
           window.f7.alert(this.text.errorNoPassword, this.text.error)
         } else {
+          // Show loading indicator
+          window.f7.showIndicator()
           // Sign in user
           window.firebase.auth().signInWithEmailAndPassword(this.email, this.password)
             // On success
             .then(user => {
-              // Reset form
-              this.email = ''
-              this.password = ''
-              this.passwordConfirmation = ''
-              this.mode = 'signOut'
-              // Show requested URL or navigate back
-              let viewId = null
-              window.f7.views.map((view, id) => {
-                if (view.selector === window.localStorage.requestedView) viewId = id
-              })
-              if (window.localStorage.requestedUrl) {
-                let url = window.localStorage.requestedUrl
-                setTimeout(() =>{
-                  window.f7.views.main.router.back({animatePages: false})
-                  setTimeout(() => {
-                    window.f7.views.main.router.load({url: url})
-                  })
-                })
-              } else {
-                window.f7.views.main.router.back()
-              }
-              // Reset local storage
-              window.localStorage.removeItem('requestedView')
-              window.localStorage.removeItem('requestedUrl')
+              this.handleSignInDone()
             })
             // On error, show alert
             .catch(err => {
+              // Hide loading indicator
+              window.f7.hideIndicator()
+              // Shoe error alert
               window.f7.alert(this.text.firebaseErrors[err.code], this.text.error)
             })
         }
+      },
+      handleSignInDone: function ()  {
+        // Hide loading indicator
+        window.f7.hideIndicator()
+        // Reset form
+        this.email = ''
+        this.password = ''
+        this.passwordConfirmation = ''
+        this.mode = 'signOut'
+        // Show requested URL or navigate back
+        let viewId = null
+        window.f7.views.map((view, id) => {
+          if (view.selector === window.localStorage.requestedView) viewId = id
+        })
+        if (window.localStorage.requestedUrl) {
+          let url = window.localStorage.requestedUrl
+          setTimeout(() =>{
+            window.f7.views.main.router.back({animatePages: false})
+            setTimeout(() => {
+              window.f7.views.main.router.load({url: url})
+            })
+          })
+        } else {
+          window.f7.views.main.router.back()
+        }
+        // Reset local storage
+        window.localStorage.removeItem('requestedView')
+        window.localStorage.removeItem('requestedUrl')
       },
       handleSignOut: function () {
         window.firebase.auth().signOut()
@@ -222,32 +238,55 @@
           })
       },
       handleRegistration: function () {
-        if (this.email === '') {
+        if (navigator.onLine === false) {
+          window.f7.alert(this.text.errorOffline, this.text.error)
+        } else if (this.email === '') {
           window.f7.alert(this.text.errorNoEmail, this.text.error)
         } else if (this.password === '') {
           window.f7.alert(this.text.errorNoPassword, this.text.error)
         } else if (this.passwordConfirmation !== this.password) {
           window.f7.alert(this.text.errorPasswordsDifferent, this.text.error)
         } else {
+          // Show loading indicator
+          window.f7.showIndicator()
           // Create new user
           window.firebase.auth().createUserWithEmailAndPassword(this.email, this.password)
             // On success, sign in user
             .then(user => {
-              this.handleSignIn()
+              // Hide loading indicator
+              window.f7.hideIndicator()
+              // Show notification
+              window.f7.addNotification({
+                title: this.text.accountCreated,
+                message: this.text.checkYourInbox,
+                hold: 3000,
+                closeIcon: false
+              })
+              // Handle sign in
+              this.handleSignInDone()
             })
             // On error, show alert
             .catch(err => {
+              // Hide loading indicator
+              window.f7.hideIndicator()
+              // Show error alert
               window.f7.alert(this.text.firebaseErrors[err.code], this.text.error)
             })
         }
       },
       handleReset: function () {
-        if (this.email === '') {
+        if (navigator.onLine === false) {
+          window.f7.alert(this.text.errorOffline, this.text.error)
+        } else if (this.email === '') {
           window.f7.alert(this.text.errorNoEmail, this.text.error)
         } else {
+          // Show loading indicator
+          window.f7.showIndicator()
           // Send reset link
           window.firebase.auth().sendPasswordResetEmail(this.email)
             .then(user => {
+              // Hide loading indicator
+              window.f7.hideIndicator()
               // Update mode
               this.mode = 'signIn'
               // On success, show notfication and login screen again
@@ -260,6 +299,9 @@
               this.mode = 'signIn'
             })
             .catch(err => {
+              // Hide loading indicator
+              window.f7.hideIndicator()
+              // Show error alert
               window.f7.alert(this.text.firebaseErrors[err.code], this.text.error)
             })
         }

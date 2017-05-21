@@ -10,6 +10,10 @@
 
 - [x] [#542 - New app version not loaded after page refresh](https://github.com/scriptPilot/app-framework/issues/542)
 
+### Improvements
+
+- [x] [#137 - Handle slow / offline Firebase registration/reset/login/logout properly](https://github.com/scriptPilot/app-framework/issues/137)
+
 ## Version 1.7.9
 
 Released on 2017-05-21
