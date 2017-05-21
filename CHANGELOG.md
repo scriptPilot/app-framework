@@ -4,7 +4,9 @@
 
 <br />
 
-## Next version
+## Version 1.7.9
+
+Released on 2017-05-21
 
 ### Bug-fixes
 
