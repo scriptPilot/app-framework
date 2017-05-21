@@ -5,6 +5,20 @@
 import set from 'lodash/set'
 import unset from 'lodash/unset'
 
+function initCordova (callback) {
+  if (window.cordova !== undefined) {
+    if (window.StatusBar !== undefined) {
+      callback()
+    } else {
+      document.addEventListener('deviceready', () => {
+        callback()
+      }, false)
+    }
+  } else {
+    callback()
+  }
+}
+
 let manageComponentData = {
   created: function () {
     this.$nextTick(function () {
@@ -386,22 +400,6 @@ mixins.manageGlobalDataObject = {
     this.data = window.localStorage.data !== undefined ? JSON.parse(window.localStorage.data) : {}
   }
 }
-mixins.getDeviceReadyState = {
-  data: {
-    deviceReady: false
-  },
-  created: function () {
-    if (window.cordova !== undefined) {
-      if (window.StatusBar !== undefined) {
-        this.deviceReady = true
-      } else {
-        window.Dom7(document).on('deviceready', () => {
-          this.deviceReady = true
-        })
-      }
-    }
-  }
-}
 mixins.appMode = {
   data: {
     appMode: null
@@ -695,7 +693,7 @@ mixins.manageStatusbarVisibility = {
         // Update local storage
         window.localStorage.statusbarVisibility = newState
         // Update cordova
-        if (this.deviceReady) {
+        if (window.StatusBar) {
           if (newState === true) {
             window.StatusBar.show()
           } else {
@@ -713,14 +711,6 @@ mixins.manageStatusbarVisibility = {
       } else {
         // Rollback old or config value
         this.statusbarVisibility = oldState !== null ? oldState : this.config.statusbarVisibility
-      }
-    },
-    // Update Cordova initially
-    deviceReady: function () {
-      if (this.statusbarVisibility === true) {
-        window.StatusBar.show()
-      } else if (this.statusbarVisibility === false) {
-        window.StatusBar.hide()
       }
     },
     // Update DOM initially
@@ -751,7 +741,7 @@ mixins.manageStatusbarTextColor = {
         // Update local storage
         window.localStorage.statusbarTextColor = newColor
         // Update cordova
-        if (this.deviceReady) {
+        if (window.StatusBar) {
           if (newColor === 'white') {
             window.StatusBar.styleBlackTranslucent()
           } else {
@@ -761,14 +751,6 @@ mixins.manageStatusbarTextColor = {
       } else {
         // Rollback old or config value
         this.statusbarTextColor = oldColor !== null ? oldColor : this.config.statusbarTextColor
-      }
-    },
-    // Update Cordova initially
-    deviceReady: function () {
-      if (this.statusbarTextColor === 'white') {
-        window.StatusBar.styleBlackTranslucent()
-      } else {
-        window.StatusBar.styleDefault()
       }
     }
   },
@@ -796,17 +778,13 @@ mixins.manageStatusbarBackgroundColor = {
         // Update DOM
         window.Dom7('.statusbar-overlay').css('background', newColor)
         // Update Cordova
-        if (this.deviceReady) {
+        if (window.StatusBar) {
           window.StatusBar.backgroundColorByHexString(newColor)
         }
       } else {
         // Rollback old or config value
         this.statusbarBackgroundColor = oldColor !== null ? oldColor : this.config.statusbarBackgroundColor
       }
-    },
-    // Update Cordova initially
-    deviceReady: function () {
-      window.StatusBar.backgroundColorByHexString(this.statusbarBackgroundColor)
     }
   },
   // Restore local storage
@@ -1122,7 +1100,7 @@ mixins.manageState = {
   }
 }
 
-window.initF7VueApp = () => {
+function initF7VueApp () {
   // Load Vue
   let vue = require('vue/dist/vue.common.js')
   // Load Framework7
@@ -1156,5 +1134,11 @@ window.initF7VueApp = () => {
         this.f7Ready = true
       }
     }
+  })
+}
+
+window.initApplication = () => {
+  initCordova(() => {
+    initF7VueApp()
   })
 }

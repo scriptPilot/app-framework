@@ -158,7 +158,7 @@ loadInitialRessources(() => {
   loadSpinner(() => {
     showLoadingOverlay(() => {
       loadExtendedRessources(() => {
-        window.initF7VueApp()
+        window.initApplication()
       })
     })
   })

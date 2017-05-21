@@ -4,6 +4,12 @@
 
 <br />
 
+## Next version
+
+### Improvements
+
+- [x] [#559 - Ensure deviceready before application start](https://github.com/scriptPilot/app-framework/issues/559)
+
 ## Version 1.7.1
 
 Released 2017-05-20
