@@ -21,6 +21,8 @@ To use an icon font, you have to set `true` in the configuration:
 
 After you changed the configuration, you have to restart the development server.
 
+Each additional icon font will increase your build size.
+
 ## Usage
 
 - HTML: `<i class="material-icons">done</i>`
