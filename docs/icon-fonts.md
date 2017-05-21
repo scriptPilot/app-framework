@@ -25,6 +25,8 @@ Each additional icon font will increase your build size.
 
 ## Usage
 
+As an example with Material Design Icons:
+
 - HTML: `<i class="material-icons">done</i>`
 - Framework7-Vue: `<f7-icon icon="done" />`
 
