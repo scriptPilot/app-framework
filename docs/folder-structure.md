@@ -25,4 +25,4 @@ The following project folder will be created by default:
 └── package.json                # Project information
 ```
 
-You can reset your application folder with `npm run reset` - but be careful, this will delete your current *app* folder!
+You can reset your application folder with `npm run reset-app` - but be careful, this will delete your current *app* folder!
