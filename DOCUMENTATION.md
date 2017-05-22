@@ -6,19 +6,19 @@ App Framework supports your whole workflow to create amazing iOS and Material Ap
 
 To become comfortable with App Framework, you should check the requirements first, follow the workflow step by step afterwards and use the reference as a quick refresher later on.
 
-For any open question, feature request or bug, please use our [issue list](https://github.com/scriptPilot/app-framework/issues).
+If you want to contribute to App Framework itself, please read the contribution chapters.
 
-The check boxes indicate articles which are already reworked.
+For any open question, feature request or bug, please use our [issue list](https://github.com/scriptPilot/app-framework/issues).
 
 ## Requirements
 
-- [x] [Knowledge requirements](docs/knowledge.md)
-- [x] [Software requirements](docs/software.md)
+- [Knowledge requirements](docs/knowledge.md)
+- [Software requirements](docs/software.md)
 
 ## Workflow
 
-- [x] [Setup your project](docs/setup.md)
-- [x] [Design your application](docs/design.md)
+- [Setup your project](docs/setup.md)
+- [Design your application](docs/design.md)
 - [ ] Develop your application
   - [x] [App component](docs/app-component.md)
   - [x] [Page components](docs/page-components.md)
@@ -33,18 +33,23 @@ The check boxes indicate articles which are already reworked.
   - [ ] [State restoration](docs/state-restoration.md)
   - [x] [Application style](docs/application-style.md)
   - [x] [Status bar style](docs/status-bar-style.md)
-- [x] [Test your application](docs/test.md)
-- [x] [Build your application](docs/build.md)
-- [x] [Deploy your application](docs/deploy.md)
-- [x] [Backup your project](docs/backup.md)
+- [Test your application](docs/test.md)
+- [Build your application](docs/build.md)
+- [Deploy your application](docs/deploy.md)
+- [Backup your project](docs/backup.md)
 
 ## Reference
 
-- [x] [Project folder structure](docs/folder-structure.md)
-- [x] [Configuration options](docs/configuration.md)
-- [x] [CLI commands](docs/cli-commands.md)
-- [x] [Changelog](CHANGELOG.md)
+- [Project folder structure](docs/folder-structure.md)
+- [Configuration options](docs/configuration.md)
+- [CLI commands](docs/cli-commands.md)
+- [Changelog](CHANGELOG.md)
 
 ## Contribution
 
-To modify this App Framework repository, please read our [development documentation](DEVELOPMENT.md).
+- [Requirements](docs/dev-requirements.md)
+- [Way of working](docs/dev-way-of-working.md)
+- [Folder structure](docs/dev-folder-structure.md)
+- [Coding rules](docs/dev-coding-rules.md)
+- [Trouble shooting](docs/dev-trouble-shooting.md)
+- [Update vendor folder](docs/dev-update-vendor-folder.md)
