@@ -4789,7 +4789,7 @@ html.pixel-ratio-3 .actions-popover-label:after {
   display: block;
 }
 @media all and (min-width: 630px) and (min-height: 630px) {
-  .popup:not(.tablet-fullscreen) {
+  body:not(.phoneFrame):not(.limitHeight):not(.limitWidth) .popup:not(.tablet-fullscreen) {
     width: 630px;
     height: 630px;
     left: 50%;
@@ -4799,11 +4799,11 @@ html.pixel-ratio-3 .actions-popover-label:after {
     -webkit-transform: translate3d(0, 1024px, 0);
     transform: translate3d(0, 1024px, 0);
   }
-  .popup:not(.tablet-fullscreen).modal-in {
+  body:not(.phoneFrame):not(.limitHeight):not(.limitWidth) .popup:not(.tablet-fullscreen).modal-in {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
   }
-  .popup:not(.tablet-fullscreen).modal-out {
+  body:not(.phoneFrame):not(.limitHeight):not(.limitWidth) .popup:not(.tablet-fullscreen).modal-out {
     -webkit-transform: translate3d(0, 1024px, 0);
     transform: translate3d(0, 1024px, 0);
   }

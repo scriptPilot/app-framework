@@ -60,6 +60,20 @@ cmd(f7Folder, 'gulp build', function () {
     })
     colors.default.material = materialColorFile.match(/@themeColor:( )?@([a-z]+);/)[2]
     fs.writeJsonSync(abs(__dirname, '../client/theme-colors.json'), colors)
+    // Workaround: #121 - Popup open to large on big screens
+    try {
+      let js
+      // iOS CSS file
+      js = fs.readFileSync(abs(env.proj, 'vendor/framework7/css/framework7.ios.css'), 'utf8')
+      js = js.replace(/\.popup:not\(\.tablet-fullscreen\)/g, 'body:not(.phoneFrame):not(.limitHeight):not(.limitWidth) .popup:not(.tablet-fullscreen)')
+      fs.writeFileSync(abs(env.proj, 'vendor/framework7/css/framework7.ios.css'), js)
+      // Material CSS file
+      js = fs.readFileSync(abs(env.proj, 'vendor/framework7/css/framework7.material.css'), 'utf8')
+      js = js.replace(/\.popup:not\(\.tablet-fullscreen\)/g, 'body:not(.phoneFrame):not(.limitHeight):not(.limitWidth) .popup:not(.tablet-fullscreen)')
+      fs.writeFileSync(abs(env.proj, 'vendor/framework7/css/framework7.material.css'), js)
+    } catch (err) {
+      alert('Failed to apply workaround #121.', 'issue')
+    }
     // Update kitchen sinks
     cmd(__dirname, 'node update-kitchen-sinks', function () {
       cmd(__dirname, 'node update-routes', function () {
