@@ -18,8 +18,8 @@ This restoration includes the following elements:
 - Login screens (requires unique ID attribute)
 - Pickers (requires unique ID attribute)
 - Popups (requires unique ID attribute)
-- Form inputs (requires unique form ID attribute and unique NAME attribute per form)
-- Focus on form input (requires unique form ID attribute and unique NAME attribute per form)
+- Form inputs (requires unique form ID attribute and unique NAME attributes per form)
+- Focus on form input (requires unique form ID attribute and unique NAME attributes per form)
 - Page component data
 
 The state is not restored for standard modals, popovers and code-generated modals.
