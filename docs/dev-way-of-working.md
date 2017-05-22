@@ -48,7 +48,7 @@ For each release, please follow these steps:
    - Run `npm run minor` after adding new functionality (version bump to x.y+1.0)
    - Run `npm run major` after breaking backward-capability (version bump to x+1.0.0)
 2. Update the version with release date in file *CHANGELOG.md* and commit it to GitHub
-3. Publish to the [npm repository](https://www.npmjs.com/) with `npm publish`
+3. Publish to the [npm repository](https://www.npmjs.com/package/app-framework) with `npm publish`
 4. Deploy new Demo App version
    - to Firebase hosting with `npm run firebase`
    - to Google Play Store, update all information before commit ([read documentation](deploy.md))
