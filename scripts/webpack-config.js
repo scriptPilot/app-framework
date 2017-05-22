@@ -248,7 +248,6 @@ let createConfiguration = function (mode) {
   if (mode === 'production') {
     config.plugins.push(new OfflinePlugin({
       version: 'v' + env.pkg.version,
-      updateStrategy: 'all',
       autoUpdate: 1000 * 60 * 15,
       publicPath: '/',
       externals: [
@@ -260,11 +259,11 @@ let createConfiguration = function (mode) {
       ],
       ServiceWorker: {
         output: 'offline-service-worker.js',
-        navigateFallbackURL: '/',
         events: true
       },
       AppCache: {
-        directory: ''
+        directory: '',
+        events: true
       }
     }))
   }

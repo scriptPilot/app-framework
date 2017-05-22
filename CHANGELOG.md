@@ -9,6 +9,7 @@
 ### Bug-fixes
 
 - [x] [#560 - Error on "npm run android"](https://github.com/scriptPilot/app-framework/issues/560)
+- [x] [#566 - App cache does not work in online mode](https://github.com/scriptPilot/app-framework/issues/566)
 - [x] [#575 - Icons not updated on image background color change](https://github.com/scriptPilot/app-framework/issues/575)
 
 ## Version 1.7.23
