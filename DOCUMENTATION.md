@@ -36,7 +36,7 @@ The check boxes indicate articles which are already reworked.
 - [ ] [Test your application](docs/test.md)
 - [ ] [Build your application](docs/build.md)
 - [ ] [Deploy your application](docs/deploy.md)
-- [ ] [Backup your project](docs/backup.md)
+- [x] [Backup your project](docs/backup.md)
 
 ## Reference
 
