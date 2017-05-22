@@ -32,10 +32,18 @@ App Framework does many adjustments in the background to enable you to deploy yo
 
 ## Deployment to the Apple App Store (native App)
 
+### Requirements
+
 - You need a Mac with [macOS](http://www.apple.com/de/macos/) and installed [Xcode](https://developer.apple.com/xcode/) (free)
 - You need to sign to the [Apple developer program](https://developer.apple.com/programs/) (around 99€ per year)
+
+### Preparation
+
 - Create a production certificate in iTunes Connect, download and install it on your Mac
 - Create a distribution provisioning profile in iTunes Connect, download and install it on your Mac
+
+### Deployment
+
 - You need to prepare the publishing in [iTunes Connect](https://itunesconnect.apple.com/)
 - Run `npm run xcode` to create a project file for Xcode, based on [Cordova](https://cordova.apache.org/)
 - Make screenshots on the biggest iPhone (you will need them in iTunes Connect later on)
@@ -43,15 +51,25 @@ App Framework does many adjustments in the background to enable you to deploy yo
 - Select the Generic iOS Device
 - Create an archive (Product > Archive) of the Xcode project and upload it to iTunes Connect
 - Send your App in iTunes Connect for the review to Apple
+
+### Rollback
 - For rollback, run `npm run xcode -- --version x.y.z` or use iTunes Connect
 
 ## Deployment to the Google Play Store (native App)
 
+### Requirements
+
 - You need to install the [Android Studio](https://developer.android.com/studio/)
 - You need to register at the [Google Play Developer Console](https://play.google.com/apps/publish/signup/) (around 25 USD once)
+
+### Deployment
+
 - Run `npm run studio` to create a project file for Android Studio, based on [Cordova](https://cordova.apache.org/)
 - Select your project and confirm Gradle sync
 - Make screenshots, you will need them later in the Google Play Developer Console
 - Generate signed APK
 - Log in to the Google Play Developer console to deploy your application
+
+### Rollback
+
 - For rollback, run `npm run studio -- --version x.y.z` or use the Google Play Developer Console
