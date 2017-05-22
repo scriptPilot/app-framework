@@ -4,6 +4,12 @@
 
 <br />
 
+## Next version
+
+### Bug-fixes
+
+- [x] [#575 - Icons not updated on image background color change](https://github.com/scriptPilot/app-framework/issues/575)
+
 ## Version 1.7.23
 
 Released on 2017-05-21
