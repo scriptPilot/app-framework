@@ -42,7 +42,7 @@ App Framework does many adjustments in the background to enable you to deploy yo
 - Create a production certificate in iTunes Connect, download and install it on your Mac
 - Create a distribution provisioning profile in iTunes Connect, download and install it on your Mac
 - Create a new App in [iTunes Connect](https://itunesconnect.apple.com/)
-- Configure the SKU from iTunes Connect in the configuration as `appStoreId`
+- Configure the SKU from iTunes Connect in the configuration file as `appStoreId`
 
 ### Deployment
 
@@ -64,13 +64,18 @@ App Framework does many adjustments in the background to enable you to deploy yo
 - You need to install the [Android Studio](https://developer.android.com/studio/)
 - You need to register at the [Google Play Developer Console](https://play.google.com/apps/publish/signup/) (around 25 USD once)
 
+### Preparation
+
+- Create a new App in the [Google Play Developer Console](https://play.google.com/apps/publish)
+- Configure the app ID in the configuration file as `playStoreId`
+
 ### Deployment
 
 - Run `npm run studio` to create a project file for Android Studio, based on [Cordova](https://cordova.apache.org/)
 - Select your project and confirm Gradle sync
 - Make screenshots, you will need them later in the Google Play Developer Console
 - Generate signed APK
-- Log in to the Google Play Developer console to deploy your application
+- Deploy your application from the Google Play Developer Console
 
 ### Rollback
 
