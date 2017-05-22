@@ -16,6 +16,7 @@
 - [x] [#575 - Icons not updated on image background color change](https://github.com/scriptPilot/app-framework/issues/575)
 - [x] [#576 - Error message in console if firebase configuration is empty](https://github.com/scriptPilot/app-framework/issues/576)
 - [x] [#577 - Preloading screen should have same background color as icons](https://github.com/scriptPilot/app-framework/issues/577)
+- [x] [#578 - Action sheets shown to big with phone frame](https://github.com/scriptPilot/app-framework/issues/578)
 
 ### Improvements
 

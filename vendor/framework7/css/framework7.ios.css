@@ -4400,7 +4400,7 @@ html.pixel-ratio-3 .modal-buttons-vertical .modal-button:after {
   -webkit-overflow-scrolling: touch;
 }
 @media (min-width: 496px) {
-  .actions-modal {
+  body:not(.phoneFrame):not(.limitHeight):not(.limitWidth) .actions-modal {
     width: 480px;
     left: 50%;
     margin-left: -240px;

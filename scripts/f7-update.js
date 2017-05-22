@@ -74,6 +74,16 @@ cmd(f7Folder, 'gulp build', function () {
     } catch (err) {
       alert('Failed to apply workaround #121.', 'issue')
     }
+    // Workaround #578 - Action sheets shown to big width phone frame
+    try {
+      let js
+      // iOS CSS file
+      js = fs.readFileSync(abs(env.proj, 'vendor/framework7/css/framework7.ios.css'), 'utf8')
+      js = js.replace(/@media \(min-width: 496px\) \{[\n ]*\.actions-modal/g, '@media (min-width: 496px) {\n  body:not(.phoneFrame):not(.limitHeight):not(.limitWidth) .actions-modal')
+      fs.writeFileSync(abs(env.proj, 'vendor/framework7/css/framework7.ios.css'), js)
+    } catch (err) {
+      alert('Failed to apply workaround #578.', 'issue')
+    }
     // Update kitchen sinks
     cmd(__dirname, 'node update-kitchen-sinks', function () {
       cmd(__dirname, 'node update-routes', function () {
