@@ -22,9 +22,9 @@ App Framework does many adjustments in the background to enable you to deploy yo
 - Run `npm run ftp` to deploy your latest build to your FTP server, on first call, the config file *ftp-config.json* is created automatically and you have to update it with your FTP server data
 - For rollback, run `npm run ftp -- --version x.y.z`
 
-## Deployment to [Firebase Hosting](https://firebase.google.com/docs/hosting/) (Web App)
+## Deployment to Firebase Hosting (Web App)
 
-- Run `npm run firebase` to deploy your latest build, database rules and storage rules to Firebase
+- Run `npm run firebase` to deploy your latest build, database rules and storage rules to [Firebase Hosting](https://firebase.google.com/products/hosting/)
 - Run `npm run database` to deploy your latest build database rules to Firebase
 - Run `npm run storage` to deploy your latest build storage rules to Firebase
 - Run `npm run hosting` to deploy your latest build static files to Firebase
