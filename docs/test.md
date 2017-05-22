@@ -46,6 +46,6 @@ If some findings could not be fixed automatically, they are logged to *code-find
 
 ## Development Firebase rules
 
-On each development command, the Firebase database rules are deployed, if *devFirebase.deployDevRulesOnTesting* is true and *devFirebase.databaseURL* is not empty.
+On each test command, the Firebase database rules are deployed, if *devFirebase.deployDevRulesOnTesting* is true and *devFirebase.databaseURL* is not empty.
 
-On each development command, the Firebase storage rules are deployed, if *devFirebase.deployDevRulesOnTesting* is true and *devFirebase.storageBucket* is not empty.
+On each test command, the Firebase storage rules are deployed, if *devFirebase.deployDevRulesOnTesting* is true and *devFirebase.storageBucket* is not empty.
