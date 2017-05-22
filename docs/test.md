@@ -8,6 +8,10 @@
 
 Run `npm run dev` to start the development server in the web browser. With `CTRL + C`, you stop the development server.
 
+If the web browser does not open automatically, you have to visit http://localhost:8080 manually.
+
+The default port 8080 could be configured with *devServerPort*.
+
 ## iOS emulator
 
 Run `npm run ios` to open an iOS simulator with a development build.
