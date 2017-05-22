@@ -9,7 +9,7 @@
  * 
  * Licensed under MIT
  * 
- * Released on: May 21, 2017
+ * Released on: May 22, 2017
  */
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
@@ -2400,7 +2400,6 @@ var FormInput = {
         multiple: self.multiple,
         readonly: self.readonly,
         required: self.required,
-        style: self.inputStyle,
         color: self.color,
 	      pattern: self.pattern
       };
@@ -2434,17 +2433,17 @@ var FormInput = {
         delete attrs.value;
         if (self.type === 'select') {
           if (self.hasSelectModel) {
-            inputEl = c('select', {attrs: attrs, on: on}, self.$slots.default);
+            inputEl = c('select', {attrs: attrs, on: on, style: self.inputStyle}, self.$slots.default);
           }
           else {
-            inputEl = c('select', {attrs: attrs, on: on, domProps: {value: self.valueComputed}}, self.$slots.default);
+            inputEl = c('select', {attrs: attrs, on: on, style: self.inputStyle, domProps: {value: self.valueComputed}}, self.$slots.default);
           }
         }
         else if (self.type === 'file') {
-          inputEl = c('input', {attrs: attrs, on: on}, self.$slots.default);
+          inputEl = c('input', {attrs: attrs, style: self.inputStyle, on: on}, self.$slots.default);
         }
         else {
-          inputEl = c('textarea', {attrs: attrs, on: on, class: {resizable: self.resizable}, domProps: {value: self.valueComputed}}, self.$slots.default);
+          inputEl = c('textarea', {attrs: attrs, style: self.inputStyle, on: on, class: {resizable: self.resizable}, domProps: {value: self.valueComputed}}, self.$slots.default);
         }
       }
       else {
@@ -2458,7 +2457,7 @@ var FormInput = {
           else if (self.type === 'range') {
             inputEl = c('f7-range', {props: attrs, on: on});
           }
-          else { inputEl = c('input', {attrs: attrs, on: on, domProps: {value: self.valueComputed, checked: self.checkedComputed}}); }
+          else { inputEl = c('input', {attrs: attrs, style: self.inputStyle, on: on, domProps: {value: self.valueComputed, checked: self.checkedComputed}}); }
         }
       }
 
