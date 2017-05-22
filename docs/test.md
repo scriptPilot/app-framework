@@ -34,7 +34,7 @@ To change the default emulator, you have to open Android Studio and configure th
 
 ## Own device
 
-To deploy the test build to your own device, please follow these steps:
+To deploy the application to your own device, please follow these steps:
 
 1. Build your application with `npm run patch/minor/major` (see chapter [Build your application](build.md))
 2. Open Xcode or Android Studio
