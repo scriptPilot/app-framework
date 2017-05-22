@@ -42,7 +42,7 @@ if (env.arg.ios === true || env.arg.xcode === true) {
 
 // Check store id
 let storeId = env.arg.ios === true || env.arg.android === true
-            ? 'com.app_framework.development_build'
+            ? 'com.app_framework.dev_build'
             : env.arg.xcode === true
             ? env.cfg.appStoreId
             : env.cfg.playStoreId
@@ -128,7 +128,7 @@ let updateCordovaConfig = function (callback) {
   config = {
     '$': {
       'id': storeId,
-      'version': env.arg.version === 'dev' ? env.pkg.version + '.' + Date.now() : env.arg.version,
+      'version': env.arg.version === 'dev' ? '0.0.' + Date.now() : env.arg.version,
       'xmlns': 'http://www.w3.org/ns/widgets',
       'xmlns:cdv': 'http://cordova.apache.org/ns/1.0'
     }
