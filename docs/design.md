@@ -15,5 +15,6 @@ Use our Power Point [icon template](../design/icon-template.pptx) to create your
 
 ## Design guidelines
 
+- For UI components: [http://framework7.io/vue](http://framework7.io/vue)
 - For iOS: [https://developer.apple.com/ios/human-interface-guidelines](https://developer.apple.com/ios/human-interface-guidelines)
 - For Material: [https://material.io/guidelines/](https://material.io/guidelines)
