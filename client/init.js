@@ -55,6 +55,9 @@ function loadSpinner (callback) {
   callback()
 }
 function showLoadingOverlay (callback) {
+  if (process.env.NODE_ENV === 'development') {
+    document.querySelector('#loadingOverlay .progressBar').style.display = 'none'
+  }
   document.querySelector('#loadingOverlay').style.display = 'block'
   callback()
 }

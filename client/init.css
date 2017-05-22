@@ -48,6 +48,7 @@ html, body {
   padding: 1px;
   border: 1px solid #4caf50;
   border-radius: 5px;
+  background: #ffffff;
 }
 #loadingOverlay .progressBarInner {
   width: 0;
