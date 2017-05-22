@@ -15,6 +15,8 @@ For each change to App Framework code, please follow these steps:
    - Should be named "feature-123", "fix-123" or "improvement-123" where 123 is the issue number
 3. Develop the solution
    - Update the postinstall routine to apply changes to previous versions
+   - On variables change, check dependencies in source code
+   - On file change, check dependencies in source code
 4. Test the solution
    - On macOS / Windows / Linux after changes to *scripts* folder
    - On iOS / Android / Web after changes to *client* or *demo* folder
