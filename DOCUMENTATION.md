@@ -29,7 +29,7 @@ For any open question, feature request or bug, please use our [issue list](https
   - [x] [Icon fonts](docs/icon-fonts.md)
   - [x] [Modules and scripts](docs/modules-and-scripts.md)
   - [x] [Cordova plugins](docs/cordova-plugins.md)
-  - [ ] [Firebase backend](docs/firebase.md)
+  - [x] [Firebase backend](docs/firebase.md)
   - [ ] [State restoration](docs/state-restoration.md)
   - [x] [Application style](docs/application-style.md)
   - [x] [Status bar style](docs/status-bar-style.md)
