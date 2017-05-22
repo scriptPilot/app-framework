@@ -14,7 +14,6 @@ The check boxes indicate articles which are already reworked.
 
 - [x] [Knowledge requirements](docs/knowledge.md)
 - [x] [Software requirements](docs/software.md)
-- [ ] [Account requirements](docs/accounts.md)
 
 ## Workflow
 
