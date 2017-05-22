@@ -47,9 +47,9 @@ For any open question, feature request or bug, please use our [issue list](https
 
 ## Contribution
 
-- [Requirements](docs/dev-requirements.md)
-- [Way of working](docs/dev-way-of-working.md)
-- [Folder structure](docs/dev-folder-structure.md)
-- [Coding rules](docs/dev-coding-rules.md)
-- [Trouble shooting](docs/dev-trouble-shooting.md)
-- [Update vendor folder](docs/dev-update-vendor-folder.md)
+- [Requirements](dev-requirements.md)
+- [Way of working](dev-way-of-working.md)
+- [Folder structure](dev-folder-structure.md)
+- [Coding rules](dev-coding-rules.md)
+- [Trouble shooting](dev-trouble-shooting.md)
+- [Update vendor folder](dev-update-vendor-folder.md)
