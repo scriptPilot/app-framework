@@ -24,4 +24,4 @@ This restoration includes the following elements:
 
 The state is not restored for standard modals, popovers and code-generated modals.
 
-If you use `v-model` on an input, the state will be restored by page component data, you can use a name attribute, but it is not required in this case.
+If you use `v-model` on an input, the state will be restored by page component data, you can use a name attribute to restore the form focus, but it is not required in this case to restore form input.
