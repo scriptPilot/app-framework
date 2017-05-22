@@ -14,7 +14,7 @@ The default port 8080 could be configured with *devServerPort*.
 
 ## iOS emulator
 
-Run `npm run ios` to open an iOS simulator with a development build.
+Run `npm run ios` to open an iOS emulator with a development build.
 
 The iOS emulator requires a macOS device (iMac, macBook, ...) and installed Xcode - please read the chapter [Software requirements](software.md) for details.
 
@@ -22,7 +22,7 @@ To change the default emulator, you have to open Xcode and configure the default
 
 ## Android emulator
 
-Run `npm run android` to open an Android simulator with a development build.
+Run `npm run android` to open an Android emulator with a development build.
 
 Confirm Gradle sync and removal of older application installations if asked.
 
