@@ -328,7 +328,7 @@ alert('Icon generation ongoing - please wait ...')
 getIconFilename(function (filename) {
   readIconFile(filename, function (icon) {
     // Icon with same hash already cached
-    let hashFolder = abs(env.cache, 'icons', icon.hash() + '-' + env.cfg.iconBackgroundColor.substr(1))
+    let hashFolder = abs(env.cache, 'icons', icon.hash() + '-' + env.cfg.iconBackgroundColor.substr(1).toLowerCase())
     if (found(hashFolder)) {
       cacheHashFolder(hashFolder, function () {
         alert('Icon generation done.', 'exit')
