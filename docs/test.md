@@ -50,4 +50,4 @@ On each test command, the Firebase database rules are deployed, if *devFirebase.
 
 On each test command, the Firebase storage rules are deployed, if *devFirebase.deployDevRulesOnTesting* is true and *devFirebase.storageBucket* is not empty.
 
-Please read chapter [Firebase backend](firebase.md) for details.
+Please read the chapter [Firebase backend](firebase.md) for details.
