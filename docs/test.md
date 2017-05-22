@@ -42,7 +42,7 @@ App Framework fixes your code automatically on each test or build command.
 
 To disable this behavior, you can set the configuration parameter *fixCodeOnBuild* to false.
 
-If some findings could not be fixed automatically, they will be logged to *code-findings.log* file.
+If some findings could not be fixed automatically, they are logged to *code-findings.log* file.
 
 ## Development Firebase rules
 
