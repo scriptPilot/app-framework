@@ -41,6 +41,8 @@ App Framework does many adjustments in the background to enable you to deploy yo
 
 - Create a production certificate in iTunes Connect, download and install it on your Mac
 - Create a distribution provisioning profile in iTunes Connect, download and install it on your Mac
+- Create a new App in [iTunes Connect](https://itunesconnect.apple.com/)
+- Configure the SKU from iTunes Connect in the configuration as `appStoreId`
 
 ### Deployment
 
