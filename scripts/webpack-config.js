@@ -143,7 +143,7 @@ let createConfiguration = function (mode) {
   }
 
   // Add environment variables
-  let firebaseConfig = mode === 'development' || env.arg.dev === true ? 'devFirebase' : 'firebase'
+  let firebaseConfig = env.cfg[mode === 'development' || env.arg.dev === true ? 'devFirebase' : 'firebase']
   config.plugins.push(
     new webpack.DefinePlugin({
       'process.env': {
@@ -158,7 +158,7 @@ let createConfiguration = function (mode) {
         FONT_MATERIAL: '"' + env.cfg.useIconFonts.material + '"',
         FONT_ION: '"' + env.cfg.useIconFonts.ion + '"',
         FONT_AWESOME: '"' + env.cfg.useIconFonts.fontawesome + '"',
-        USE_FIREBASE_APP: '"' + (firebaseConfig.authDomain !== '' || firebaseConfig.databaseURL !== '' || firebaseConfig.storageBucket !== '') + '"',
+        USE_FIREBASE_APP: '"' + (firebaseConfig.apiKey !== '' && (firebaseConfig.authDomain !== '' || firebaseConfig.databaseURL !== '' || firebaseConfig.storageBucket !== '')) + '"',
         USE_FIREBASE_AUTH: '"' + (firebaseConfig.authDomain !== '') + '"',
         USE_FIREBASE_DATABASE: '"' + (firebaseConfig.databaseURL !== '') + '"',
         USE_FIREBASE_STORAGE: '"' + (firebaseConfig.storageBucket !== '') + '"',

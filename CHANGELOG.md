@@ -13,6 +13,7 @@
 - [x] [#566 - App cache does not work in online mode](https://github.com/scriptPilot/app-framework/issues/566)
 - [x] [#571 - iOS homescreen app: Statusbar overlay but no statusbar visible in landscape mode](https://github.com/scriptPilot/app-framework/issues/571)
 - [x] [#575 - Icons not updated on image background color change](https://github.com/scriptPilot/app-framework/issues/575)
+- [x] [#576 - Error message in console if firebase configuration is empty](https://github.com/scriptPilot/app-framework/issues/576)
 - [x] [#577 - Preloading screen should have same background color as icons](https://github.com/scriptPilot/app-framework/issues/577)
 
 ### Improvements
