@@ -693,6 +693,24 @@ mixins.manageStatusbarVisibility = {
   // Handle change
   watch: {
     statusbarVisibility: function (newState, oldState) {
+      this.updateStatusBarVisibility(newState, oldState)
+    }
+  },
+  created: function () {
+    // Restore / set initial value
+    if (window.localStorage.statusbarVisibility !== undefined) {
+      this.statusbarVisibility = JSON.parse(window.localStorage.statusbarVisibility)
+    } else {
+      this.statusbarVisibility = this.config.statusbarVisibility
+    }
+    // Update on resize
+    window.Dom7(window).on('resize', () => {
+      this.updateStatusBarVisibility(this.statusbarVisibility, this.statusbarVisibility)
+    })
+  },
+  // Methods
+  methods: {
+    updateStatusBarVisibility: function (newState, oldState) {
       if (newState === true || newState === false) {
         // Update local storage
         window.localStorage.statusbarVisibility = newState
@@ -706,7 +724,7 @@ mixins.manageStatusbarVisibility = {
         }
         // Update DOM
         if ((window.StatusBar !== undefined && newState === true && window.Framework7.prototype.device.statusBar === true) ||
-            (window.StatusBar === undefined && window.Framework7.prototype.device.statusBar === true)) {
+            (window.StatusBar === undefined && window.Framework7.prototype.device.statusBar === true && (window.Framework7.prototype.device.iphone === false || window.Dom7('html').width() < window.Dom7('html').height()))) {
           window.Dom7('html').addClass('with-statusbar-overlay')
         } else {
           window.Dom7('html').removeClass('with-statusbar-overlay')
@@ -715,14 +733,6 @@ mixins.manageStatusbarVisibility = {
         // Rollback old or config value
         this.statusbarVisibility = oldState !== null ? oldState : this.config.statusbarVisibility
       }
-    }
-  },
-  // Restore / set initial value
-  created: function () {
-    if (window.localStorage.statusbarVisibility !== undefined) {
-      this.statusbarVisibility = JSON.parse(window.localStorage.statusbarVisibility)
-    } else {
-      this.statusbarVisibility = this.config.statusbarVisibility
     }
   }
 }
