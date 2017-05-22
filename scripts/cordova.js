@@ -401,7 +401,7 @@ deployDevRules(function () {
                 if (env.arg.ios === true) {
                   alert('iOS simulator start ongoing - please wait ...')
                   cmd(binDir, 'cordova emulate ios', function () {
-                    alert('iOS simulator started.')
+                    alert('iOS emulator started.')
                   })
                 } else if (env.arg.xcode === true) {
                   alert('Xcode start ongoing - please wait ...')
@@ -411,7 +411,7 @@ deployDevRules(function () {
                 } else if (env.arg.android === true) {
                   alert('Android simulator start ongoing - please wait ...')
                   cmd(binDir, 'cordova emulate android', function () {
-                    alert('Android simulator started.')
+                    alert('Android emulator started.')
                   })
                 } else if (env.arg.studio === true) {
                   alert('Android Studio start ongoing - please wait ...')
