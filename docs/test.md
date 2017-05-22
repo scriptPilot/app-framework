@@ -34,11 +34,20 @@ To change the default emulator, you have to open Android Studio and configure th
 
 ## Own device
 
-To deploy the application to your own device, please follow these steps:
+To deploy to your iOS device:
 
 1. Build your application with `npm run patch/minor/major` (see chapter [Build your application](build.md))
-2. Open Xcode or Android Studio
-3. Connect your device to your computer
+2. Connect your device to your computer
+3. Deploy the latest build to Xcode with `npm run xcode`
+4. Select a team at Signing section
+5. Select your device as deployment target
+6. Deploy to your device
+
+To deploy to your Android device:
+
+1. Build your application with `npm run patch/minor/major` (see chapter [Build your application](build.md))
+2. Connect your device to your computer
+3. Deploy the latest build to Android Studio with `npm run studio`
 4. Select your device as deployment target
 5. Deploy to your device
 
