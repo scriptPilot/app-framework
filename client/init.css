@@ -11,7 +11,6 @@ html, body {
 }
 #loadingOverlay,
 #errorOverlay {
-  background: #fafafa;
   position: fixed;
   top: 0;
   left: 0;

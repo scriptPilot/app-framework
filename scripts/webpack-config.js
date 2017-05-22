@@ -214,6 +214,7 @@ let createConfiguration = function (mode) {
       template: abs(env.cache, 'index.ejs'),
       title: env.cfg.title,
       iconTags: iconTags, // favicon.ico will be loaded by browser default from root directory
+      iconBackgroundColor: env.cfg.iconBackgroundColor,
       inject: true,
       minify: mode === 'production' ? {
         removeComments: true,
