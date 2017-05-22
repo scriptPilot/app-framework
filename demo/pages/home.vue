@@ -50,7 +50,7 @@
 
     <!-- Link to GitHub repository -->
     <f7-block style="text-align: center">
-      <f7-link href="http://app-framework.com" external>Made with App Framework - {{$root.frameworkVersion}}</f7-link>
+      <f7-link href="http://app-framework.com" external><f7-icon material="open_in_browser" size="18" style="padding-bottom: 3px" />&nbsp;&nbsp;Made with App Framework - {{$root.frameworkVersion}}</f7-link>
     </f7-block>
 
   </f7-page>

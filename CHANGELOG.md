@@ -15,6 +15,10 @@
 - [x] [#575 - Icons not updated on image background color change](https://github.com/scriptPilot/app-framework/issues/575)
 - [x] [#577 - Preloading screen should have same background color as icons](https://github.com/scriptPilot/app-framework/issues/577)
 
+### Improvements
+
+- [x] [#570 - Demo App: Add external link icon to "Made with ..."](https://github.com/scriptPilot/app-framework/issues/570)
+
 ## Version 1.7.23
 
 Released on 2017-05-21
