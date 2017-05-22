@@ -30,7 +30,7 @@ If you get an error *Failed to find 'JAVA_HOME' environment variable*, you have 
 
 The Android emulator requires installed Android Studio - please read the chapter [Software requirements](software.md) for details.
 
-To change the default emulator, you have to open Android Studio and configure the default deployment target.
+To change the default emulator, you have to open Android Studio and configure the default deployment target at *Tools > Android > AVD Manager*.
 
 ## Own device
 
