@@ -4,7 +4,7 @@
 
 <br />
 
-To deploy your application you need to build it before. *App Framework* makes it quite easy again for you, bumps the version, compiles the scripts and merges them together. Your logo is used to create many icons and launch screen graphics and at the end all files are compressed to save bandwidth.
+To deploy your application you need to build it before. App Framework makes it quite easy for you, bumps the version, compiles the scripts and merges them together. Your logo is used to create many icons and launch screen graphics and at the end all files are compressed to save bandwidth.
 
 Each build command will update the *build* folder on success.
 
