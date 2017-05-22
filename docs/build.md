@@ -6,7 +6,7 @@
 
 To deploy your application you need to build it before. App Framework makes it quite easy for you, bumps the version, compiles the scripts and merges them together. Your logo is used to create many icons and launch screen graphics and at the end all files are compressed to save bandwidth.
 
-GZIP compression will be added in addition after deployment to Firebase hosting.
+GZIP compression will be done in addition after deployment to Firebase hosting.
 
 Each build command will update the *build* folder on success.
 
