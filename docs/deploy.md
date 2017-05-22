@@ -4,7 +4,7 @@
 
 <br />
 
-*App Framework* does many adjustments in the background to enable you to deploy your App easily as Web App or as native App. So you could start fast and become professional later on without any change. But what are the differences?
+App Framework does many adjustments in the background to enable you to deploy your App easily as Web App or as native App. So you could start fast and become professional later on without any change. But what are the differences?
 
 ## Comparison between Web App and Native App
 
