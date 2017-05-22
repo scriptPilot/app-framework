@@ -34,7 +34,7 @@ The check boxes indicate articles which are already reworked.
   - [x] [Application style](docs/application-style.md)
   - [x] [Status bar style](docs/status-bar-style.md)
 - [x] [Test your application](docs/test.md)
-- [ ] [Build your application](docs/build.md)
+- [x] [Build your application](docs/build.md)
 - [ ] [Deploy your application](docs/deploy.md)
 - [x] [Backup your project](docs/backup.md)
 
