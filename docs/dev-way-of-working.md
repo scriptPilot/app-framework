@@ -20,7 +20,7 @@ For each change to App Framework code, please follow these steps:
 4. Test the solution
    - On macOS / Windows / Linux after changes to *scripts* folder
    - On iOS / Android / Web after changes to *client* or *demo* folder
-   - With an updated project after changes to the postinstall routine
+   - With an updated project after changes to the postinstall routine
 5. Update the documentation
    - Features in file *README.md*
    - End user documentation in file *DOCUMENTATION.md*
