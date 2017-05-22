@@ -4,5 +4,16 @@
 
 <br />
 
+## Paper and pencil
+
 - Use our printable [smartphone template](../design/smartphone-template.pdf) to sketch your application
-- Use our icon template as [PDF to sketch](../design/icon-template.pdf) and [PPTX to draw](../design/icon-template.pptx) your application icon
+- Use our printable [icon template](../design/icon-template.pdf) to sketch your application icon
+
+## Icon creation
+
+Use our Power Point [icon template](../design/icon-template.pptx) to create your application icon. Select all elements, right click, save as image, save as *app/icon.png*.
+
+## Design guidelines
+
+- For iOS: [https://developer.apple.com/ios/human-interface-guidelines](https://developer.apple.com/ios/human-interface-guidelines)
+- For Material: [https://material.io/guidelines/](https://material.io/guidelines)
