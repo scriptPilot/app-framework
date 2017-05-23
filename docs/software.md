@@ -33,6 +33,14 @@ Android Studio is optional. You need it, if you want to publish your application
 
 To ensure you install Android Studio and its SDK properly, please read the [official installation guide](https://developer.android.com/studio/install.html).
 
+Please take care to unpack Android Studio to one of the following locations to ensure that App Framework will find the *studio.sh* file:
+
+- /bin/android-studio/bin/studio.sh
+- /opt/android-studio/bin/studio.sh
+- /usr/bin/android-studio/bin/studio.sh
+- /usr/local/android-studio/bin/studio.sh
+- /usr/local/bin/android-studio/bin/studio.sh
+
 ## GitHub desktop client
 
 The GitHub desktop client is optional. We recommend it as a Git client, because GitHub is great for collaboration or as a backup for your own code. The desktop client is available for macOS and Windows and is free of charge.
