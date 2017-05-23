@@ -9,6 +9,7 @@
 ### Bug-fixes
 
 - [x] [#579 - Framework7-Vue not found on Linux](https://github.com/scriptPilot/app-framework/issues/579)
+- [x] [#580 - Firebase does not work in 1.7.65](https://github.com/scriptPilot/app-framework/issues/580)
 
 ## Version 1.7.65
 

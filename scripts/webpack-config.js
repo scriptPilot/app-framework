@@ -143,7 +143,8 @@ let createConfiguration = function (mode) {
   }
 
   // Add environment variables
-  let firebaseConfig = env.cfg[mode === 'development' || env.arg.dev === true ? 'devFirebase' : 'firebase']
+  let firebaseConfigSource = mode === 'development' || env.arg.dev === true ? 'devFirebase' : 'firebase'
+  let firebaseConfig = env.cfg[firebaseConfigSource]
   config.plugins.push(
     new webpack.DefinePlugin({
       'process.env': {
@@ -164,7 +165,7 @@ let createConfiguration = function (mode) {
         USE_FIREBASE_STORAGE: '"' + (firebaseConfig.storageBucket !== '') + '"',
         RESET_LOCAL_STORAGE: '"' + env.cfg.resetLocalStorageOnVersionChange + '"',
         NODE_ENV: '"' + mode + '"',
-        FIREBASE_CONFIG: '"' + firebaseConfig + '"'
+        FIREBASE_CONFIG: '"' + firebaseConfigSource + '"'
       }
     })
   )
