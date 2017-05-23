@@ -4,6 +4,12 @@
 
 <br />
 
+## Next version
+
+### Bug-fixes
+
+- [x] [#579 - Framework7-Vue not found on Linux](https://github.com/scriptPilot/app-framework/issues/579)
+
 ## Version 1.7.65
 
 Released on 2017-05-22

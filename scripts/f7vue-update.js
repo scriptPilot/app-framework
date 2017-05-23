@@ -16,23 +16,26 @@ if (env.installed === true) {
   alert('Framework7-Vue update is only possible in App Framework development mode.', 'error')
 }
 
-// Check Framework7-Vue folder
-let f7VueFolder = abs(env.proj, '../Framework7-Vue')
-if (!found(f7VueFolder)) {
+// Check Framework7-Vue source folder
+let source = abs(__dirname, '../../Framework7-Vue')
+if (!found(source)) {
   alert('Cannot find Framework7-Vue folder.', 'error')
 }
 
+// Determine target folder
+let target = abs(__dirname, '../vendor/framework7-vue')
+
 // Build Framework7-Vue
 alert('Framework7-Vue build process ongoing - please wait ...')
-cmd(f7VueFolder, 'npm run build', function () {
+cmd(source, 'npm run build', function () {
   alert('Framework7-Vue distribution process ongoing - please wait ...')
-  cmd(f7VueFolder, 'npm run dist', function () {
+  cmd(source, 'npm run dist', function () {
     alert('Copying build files to App Framework folder - please wait ...')
-    // Empty current directories
-    fs.emptyDirSync(abs(env.proj, 'vendor/Framework7-Vue'))
+    // Empty target directory
+    fs.emptyDirSync(target)
     /* fs.emptyDirSync(abs(env.app, 'pages/f7vue')) */
     // Copy file
-    fs.copySync(abs(f7VueFolder, 'dist/framework7-vue.js'), abs(env.proj, 'vendor/Framework7-Vue/framework7-vue.js'))
+    fs.copySync(abs(source, 'dist/framework7-vue.js'), abs(target, 'framework7-vue.js'))
     /* fs.copySync(abs(f7VueFolder, 'kitchen-sink/pages'), abs(env.app, 'pages/f7vue'))
     // Rename files (to be in line with automatic routing)
     let rename = [
@@ -101,10 +104,10 @@ cmd(f7VueFolder, 'npm run build', function () {
     */
     // Workaround: #526 - Material icons Not Shown in Android 4
     try {
-      let fileContent = fs.readFileSync(abs(env.proj, 'vendor/Framework7-Vue/framework7-vue.js'), 'utf8')
+      let fileContent = fs.readFileSync(abs(target, 'framework7-vue.js'), 'utf8')
       fileContent = fileContent.replace('_vm.sizeComputed})},[_vm._v(_vm._s(_vm.iconTextComputed)),_vm._t("default")],2)},', '_vm.sizeComputed}),domProps:{innerHTML:this.iconTextComputed}})},')
       fileContent = fileContent.replace('iconTextComputed: function () {', 'iconTextComputed: function () { if (process.env.FONT_MATERIAL && this.material && this.$root.materialCodepoints && this.$root.materialCodepoints[this.material]) { return "&#x" + this.$root.materialCodepoints[this.material] + ";" }')
-      fs.writeFileSync(abs(env.proj, 'vendor/Framework7-Vue/framework7-vue.js'), fileContent)
+      fs.writeFileSync(abs(target, 'framework7-vue.js'), fileContent)
     } catch (err) {
       alert('Failed to apply workaround for material icons.', 'issue')
     }
