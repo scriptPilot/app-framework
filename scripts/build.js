@@ -148,7 +148,7 @@ let manageIcons = function (callback) {
     // Copy store icons
     iconFiles.map(i => {
       if (/^(.+)-store-(.+)/.test(i) === true) {
-        fs.copySync(abs(iconCacheFolder, i), abs(env.cache, 'build', i.replace(/^(.+)-store-icon(.+)\.png/, '$1-store-icon.png')))
+        fs.copySync(abs(iconCacheFolder, i), abs(env.cache, 'build', i.replace(/^(.+)-store-icon(.+)\.(png|jpg)/, '$1-store-icon.png')))
       }
     })
     // Callback

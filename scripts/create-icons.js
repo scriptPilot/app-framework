@@ -140,7 +140,7 @@ let getIconsToCreate = function (icon, callback) {
     // Define attributes
     let width = icons[i][1]
     let height = icons[i][2]
-    let name = icons[i][0] + '-' + width + 'x' + height + '.png'
+    let name = icons[i][0] + '-' + width + 'x' + height + (icons[i][0] === 'app-store-icon' ? '.jpg' : '.png')
     let isFilled = icons[i][3] !== undefined
     // Calculate icon size
     let maxIconWidth = width === height ? width : width / 2
