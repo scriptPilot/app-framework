@@ -44,7 +44,7 @@ Build your application:
 - Automatic build as web application, to be used online and offline in the browser
 - Automatic [Apple Xcode](https://developer.apple.com/xcode/) project build with [Cordova](https://cordova.apache.org/)
 - Automatic [Android Studio](https://developer.android.com/studio) project build with [Cordova](https://cordova.apache.org/)
-- App Framework builds score 100% at [Google Lighthouse test](https://developers.google.com/web/tools/lighthouse/) and grade A at [YSlow test](http://yslow.org/)
+- App Framework builds scores very good at performance tests like [Google Lighthouse](https://developers.google.com/web/tools/lighthouse/) or [YSlow](http://yslow.org/)
 
 Deploy your application:
 
