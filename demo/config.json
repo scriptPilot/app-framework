@@ -41,10 +41,7 @@
   },
   "appStoreId": "de.scriptpilot.app-framework",
   "playStoreId": "de.scriptpilot.appframework",
-  "useCordovaPlugins": [
-    "cordova-plugin-statusbar",
-    "cordova-plugin-whitelist"
-  ],
+  "useCordovaPlugins": [],
   "resetLocalStorageOnVersionChange": false,
   "preloadImages": true,
   "buildSourcemaps": false,
