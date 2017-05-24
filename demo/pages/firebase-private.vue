@@ -12,7 +12,7 @@
     <!-- Private notes text field -->
     <f7-list form>
       <f7-list-item>
-        <f7-input v-model="notes" name="notes" type="textarea" placeholder="Your private Notes ..."></f7-input>
+        <f7-input name="notes" :value="notes" @change="updateNotes" type="textarea" placeholder="Your private Notes ..."></f7-input>
       </f7-list-item>
     </f7-list>
 
@@ -31,39 +31,33 @@
   </f7-page>
 </template>
 <script>
-
   module.exports = {
-
-    // Define intial data as a function
+    // Set initial data
     data: function () {
       return {
         notes: '',
         photo: null
       }
     },
-
-    // Attach data change listener to firebase
+    // Update notes and photo from Firebase
     mounted: function () {
-      window.db('privateData/' + window.user.uid).on('value', function (snapshot) {
+      window.db('privateData/' + window.user.uid).on('value', snapshot => {
         let data = snapshot.val()
         if (data) {
           this.notes = data.notes
           this.photo = data.photo
         }
-      }.bind(this))
+      })
     },
-
-    // Save notes after change immediately
-    watch: {
-      notes: function () {
+    // Update notes after change
+    methods: {
+      updateNotes: function (e) {
         window.db('privateData/' + window.user.uid + '/notes')
-          .set(this.notes)
-          .catch(function () {
-            this.$f7.alert('Cannot update the notes :-(<br />Please try again later', 'Trouble with Firebase')
-          }.bind(this))
+          .set(e.target.value)
+          .catch(err => {
+            window.f7.alert('Cannot update the notes :-(<br />Please try again later', 'Trouble with Firebase')
+          })
       }
     }
-
   }
-
 </script>

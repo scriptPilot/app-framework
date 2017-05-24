@@ -12,6 +12,7 @@
 
 ## Bug-fixes
 
+- [#562 - Notes in private notes example buggy with two open devices](https://github.com/scriptPilot/app-framework/issues/562)
 - [#569 - File input does not work in native iOS app](https://github.com/scriptPilot/app-framework/issues/569)
 
 ## Version 1.7.67
