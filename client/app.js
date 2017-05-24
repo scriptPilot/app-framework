@@ -1125,6 +1125,8 @@ function initF7VueApp () {
   vue.use(require('../vendor/framework7-vue/framework7-vue.js'), {theme: theme})
   // Load app component
   let appComponent = require(process.env.APP_ROOT_FROM_SCRIPTS + 'app.vue')
+  // Load image-uploader component
+  vue.component('image-uploader', require('./image-uploader.vue'))
   // Use global mixins
   vue.mixin(manageComponentData)
   // Get local mixins as array

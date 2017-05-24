@@ -30,6 +30,7 @@ For any open question, feature request or bug, please use our [issue list](https
   - [Modules and scripts](docs/modules-and-scripts.md)
   - [Cordova plugins](docs/cordova-plugins.md)
   - [Firebase backend](docs/firebase.md)
+  - [Image upload component](docs/image-upload-component.md)
   - [State restoration](docs/state-restoration.md)
   - [Application style](docs/application-style.md)
   - [Status bar style](docs/status-bar-style.md)

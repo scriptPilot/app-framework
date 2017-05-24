@@ -4,6 +4,16 @@
 
 <br />
 
+## Next version
+
+### New features
+
+- [Image upload component](docs/image-upload-component.md)
+
+## Bug-fixes
+
+- [#569 - File input does not work in native iOS app](https://github.com/scriptPilot/app-framework/issues/569)
+
 ## Version 1.7.67
 
 Released on 2017-05-23

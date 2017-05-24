@@ -1,6 +1,3 @@
-<!-- Example of a login-requiring page with Firebase realtime database and storage service -->
-<!-- Login requiring pages could be defined easily in the package.json file -->
-
 <template>
   <f7-page>
 
@@ -12,20 +9,21 @@
       Enter some notes, upload a photo, login from multiple devices and see how everything is synchronized in real time.
     </f7-block>
 
-    <!-- Private notes textfield and photo -->
+    <!-- Private notes text field -->
     <f7-list form>
       <f7-list-item>
         <f7-input v-model="notes" name="notes" type="textarea" placeholder="Your private Notes ..."></f7-input>
       </f7-list-item>
     </f7-list>
-    <f7-list form>
-      <f7-list-item>
-        <f7-input type="file" accept="image/*;capture=camera"></f7-input>
-      </f7-list-item>
-    </f7-list>
-    <f7-block><f7-button @click="uploadPhoto" raised>Upload photo</f7-button></f7-block>
 
-    <!-- Private photo display -->
+    <!-- Image uploader component -->
+    <f7-block>
+      <image-uploader
+        :store="'privateData/' + $root.user.uid"
+        :db="'privateData/' + $root.user.uid + '/photo'" />
+    </f7-block>
+
+    <!-- Image -->
     <f7-block inset v-if="photo">
       <img :src="photo" width="100%" />
     </f7-block>
@@ -41,59 +39,6 @@
       return {
         notes: '',
         photo: null
-      }
-    },
-
-    // Upload photo
-    methods: {
-      uploadPhoto: function (e) {
-        if (!navigator.onLine) {
-          window.f7.addNotification({
-            title: 'Offline',
-            message: 'This action is not possible in offline mode.',
-            hold: 3000,
-            closeIcon: false
-          })
-          return
-        }
-      // File selected
-        let file = this.$$(e.target).parents('.page-content').find('input[type=file]')[0].files[0]
-        if (file !== undefined) {
-        // Upload file to Firebase
-          this.$f7.showIndicator()
-          window.store('privateData/' + window.user.uid).put(file)
-            .then(function () {
-            // Get download URL
-              window.store('privateData/' + window.user.uid).getDownloadURL()
-                .then(function (url) {
-                // Save download URL to user data
-                  window.db('privateData/' + window.user.uid + '/photo').set(url)
-                    .then(function () {
-                      this.$f7.hideIndicator()
-                    }.bind(this))
-                    // Saving the URL failed
-                    .catch(function () {
-                      this.$f7.hideIndicator()
-                      this.$f7.alert('Cannot update the photo url :-(<br />Please try again later', 'Trouble with Firebase')
-                    }.bind(this))
-                }.bind(this))
-                // URL download failed
-                .catch(function () {
-                  this.$f7.hideIndicator()
-                  this.$f7.alert('Cannot load the photo url :-(<br />Please try again later', 'Trouble with Firebase')
-                }.bind(this))
-              // Reset the file selection
-              this.$$(e.target).parents('.page-content').find('input[type=file]').val('')
-            }.bind(this))
-            // File upload failed
-            .catch(function () {
-              this.$f7.hideIndicator()
-              this.$f7.alert('Cannot upload the photo :-(<br />Please try again later', 'Trouble with Firebase')
-            }.bind(this))
-        // No file selected
-        } else {
-          this.$f7.alert('Please select a photo first!')
-        }
       }
     },
 

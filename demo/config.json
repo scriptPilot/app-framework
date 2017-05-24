@@ -41,7 +41,10 @@
   },
   "appStoreId": "de.scriptpilot.app-framework",
   "playStoreId": "de.scriptpilot.appframework",
-  "useCordovaPlugins": [],
+  "useCordovaPlugins": [
+    "cordova-plugin-camera",
+    "cordova-plugin-file"
+  ],
   "resetLocalStorageOnVersionChange": false,
   "preloadImages": true,
   "buildSourcemaps": false,
