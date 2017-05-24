@@ -54,7 +54,7 @@
       updateNotes: function (e) {
         window.db('privateData/' + window.user.uid + '/notes')
           .set(e.target.value)
-          .catch(err => {
+          .catch(() => {
             window.f7.alert('Cannot update the notes :-(<br />Please try again later', 'Trouble with Firebase')
           })
       }
