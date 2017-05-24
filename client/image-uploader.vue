@@ -24,15 +24,15 @@
   export default {
     props: {
       store: {
-        type: 'string',
+        type: String,
         required: true
       },
       db: {
-        type: 'string',
+        type: String,
         default: ''
       },
       size: {
-        type: 'number',
+        type: Number,
         default: 1024
       }
     },
