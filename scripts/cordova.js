@@ -342,7 +342,11 @@ let installCordovaPlugins = function (callback, pluginList) {
     }
   }
   if (Array.isArray(pluginList) && pluginList.length > 0) {
-    cmd(binDir, 'cordova plugin add ' + pluginList.shift(), function () {
+    let nextPlugin = pluginList.shift()
+    let additionalCommand = nextPlugin === 'cordova-plugin-camera'
+                          ? ' --variable CAMERA_USAGE_DESCRIPTION="' + env.cfg.title + ' camera use" --variable PHOTOLIBRARY_USAGE_DESCRIPTION="' + env.cfg.title + ' photo library use"'
+                          : ''
+    cmd(binDir, 'cordova plugin add ' + nextPlugin + additionalCommand, function () {
       installCordovaPlugins(callback, pluginList)
     }, function () {
       alert('Failed to install Cordova plugins.', 'issue')

@@ -4,19 +4,20 @@
 
 <br />
 
-## Version 1.8.0
+## Version 1.8.4
 
 Released on 2017-05-24
 
 ### New features
 
-- [Image upload component](docs/image-upload-component.md)
+- [x] [Image upload component](docs/image-upload-component.md)
 
 ## Bug-fixes
 
-- [#547 - App Store icon not allowed due to transparency](https://github.com/scriptPilot/app-framework/issues/547)
-- [#562 - Notes in private notes example buggy with two open devices](https://github.com/scriptPilot/app-framework/issues/562)
-- [#569 - File input does not work in native iOS app](https://github.com/scriptPilot/app-framework/issues/569)
+- [x] [#547 - App Store icon not allowed due to transparency](https://github.com/scriptPilot/app-framework/issues/547)
+- [x] [#562 - Notes in private notes example buggy with two open devices](https://github.com/scriptPilot/app-framework/issues/562)
+- [x] [#569 - File input does not work in native iOS app](https://github.com/scriptPilot/app-framework/issues/569)
+ - [x] [#584 - Missing info.plist key error after update to 1.8.0](https://github.com/scriptPilot/app-framework/issues/584)
 
 ## Version 1.7.67
 
