@@ -4,7 +4,7 @@
 
 <br />
 
-## Version 1.8.4
+## Version 1.8.7
 
 Released on 2017-05-24
 
