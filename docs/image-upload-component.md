@@ -25,12 +25,12 @@ Just add the following component to any of your page components:
 
 ```
 <f7-block>
-  <image-uploader store="imageOnFirebaseHosting" db="urlInFirebaseDatabase" size="500" />
+  <image-uploader store="..." db="..." size="..." />
 </f7-block>
 ```
 
-- `store` is the Firebase storage path to your image (no extension)
-- `db` is the Firebase database path to save the image URI (optional)
-- `size` is the maximum image width or height (optional, ratio kept)
+- `store` is the Firebase storage path to your image (string, no extension)
+- `db` is the Firebase database path to save the image URI (string, optional)
+- `size` is the maximum image width or height (number, optional, ratio kept)
 
 Please take care that the storage rules and database rules are correctly configured.
