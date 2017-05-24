@@ -33,6 +33,8 @@ Android Studio is optional. You need it, if you want to publish your application
 
 To ensure you install Android Studio and its SDK properly, please read the [official installation guide](https://developer.android.com/studio/install.html).
 
+### On Linux
+
 Please take care to unpack Android Studio to one of the following locations to ensure that App Framework will find the *studio.sh* file:
 
 - /bin/android-studio/bin/studio.sh
