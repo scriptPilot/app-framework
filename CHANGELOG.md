@@ -12,7 +12,7 @@ Released on 2017-05-24
 
 - [x] [Image upload component](docs/image-upload-component.md)
 
-## Bug-fixes
+### Bug-fixes
 
 - [x] [#547 - App Store icon not allowed due to transparency](https://github.com/scriptPilot/app-framework/issues/547)
 - [x] [#562 - Notes in private notes example buggy with two open devices](https://github.com/scriptPilot/app-framework/issues/562)
