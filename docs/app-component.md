@@ -50,8 +50,8 @@ In [Framework7-Vue documentation](http://framework7.io/vue/app-layout.html), the
 You can pass custom Framework7 parameters to your application in the configuration file. Example:
 
 ```
-framework7parameters: {
-  swipePanel: left
+"framework7parameters": {
+  "swipePanel": "left"
 }
 ```
 
