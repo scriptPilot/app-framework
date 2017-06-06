@@ -29,6 +29,7 @@ useIconFonts | *object* |
 limitApplicationWidth | /^[0-9]+$/ | 320
 limitApplicationHeight | /^[0-9]+$/ | 570
 showPhoneFrameOnDesktop | *boolean* | true
+framework7parameters | *object* | {}
 materialSubnavbarFix | *boolean* | true
 completeRoutesFile | *boolean* | true
 firebase | *object* |
