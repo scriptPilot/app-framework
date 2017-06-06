@@ -1140,7 +1140,7 @@ function initF7VueApp () {
     // Load local mixins
     mixins: useMixins,
     // Add Framework7
-    framework7: {},
+    framework7: config.framework7parameters,
     data: {
       f7Ready: false
     },

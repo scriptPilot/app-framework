@@ -18,6 +18,7 @@
   "limitApplicationWidth": 320,
   "limitApplicationHeight": 570,
   "showPhoneFrameOnDesktop": true,
+  "framework7parameters": {},
   "materialSubnavbarFix": true,
   "completeRoutesFile": true,
   "firebase": {

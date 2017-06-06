@@ -6,6 +6,10 @@
 
 ## Next version
 
+### New features
+
+- [x] [#587 - Use custom Framework7 parameters on App initialization](https://github.com/scriptPilot/app-framework/issues/587)
+
 ### Bug-fixes
 
 - [x] [#588 - On Build: ERROR: Failed to read image files](https://github.com/scriptPilot/app-framework/issues/588)

@@ -71,6 +71,9 @@
     "type": "boolean",
     "default": true
   },
+  "framework7parameters": {
+    "type": "object"
+  },
   "materialSubnavbarFix": {
     "type": "boolean",
     "default": true
