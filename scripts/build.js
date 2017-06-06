@@ -185,14 +185,18 @@ let copyFirebaseFiles = function (callback) {
 // Step: Compress images
 let compressImages = function (callback, files) {
   if (files === undefined) {
-    alert('Images compression ongoing - please wait ...')
-    rec(abs(env.cache, 'build/www/img'), function (err, files) {
-      if (err) {
-        alert('Failed to read image files.' + err, 'issue')
-      } else {
-        compressImages(callback, files)
-      }
-    })
+    if (found(env.cache, 'build/www/img')) {
+      alert('Images compression ongoing - please wait ...')
+      rec(abs(env.cache, 'build/www/img'), function (err, files) {
+        if (err) {
+          alert('Failed to read image files.' + err, 'issue')
+        } else {
+          compressImages(callback, files)
+        }
+      })
+    } else {
+      callback()
+    }
   } else if (Array.isArray(files) && files.length > 0) {
     let file = files.shift()
     if (/\.jpg$/.test(file)) {

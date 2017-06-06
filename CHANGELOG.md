@@ -4,6 +4,12 @@
 
 <br />
 
+## Next version
+
+### Bug-fixes
+
+- [x] [#588 - On Build: ERROR: Failed to read image files](https://github.com/scriptPilot/app-framework/issues/588)
+
 ## Version 1.8.7
 
 Released on 2017-05-24
