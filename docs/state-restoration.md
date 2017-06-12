@@ -10,7 +10,7 @@ App Framework has an automatic state restoration on each application restart, to
 
 This restoration includes the following elements:
 
-- URL history per view
+- URL history per view (requires unique class or ID attribute per view)
 - Selected tabs (requires unique ID attribute per page)
 - Scroll positions
 - Side panels
