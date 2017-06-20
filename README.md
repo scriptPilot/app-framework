@@ -6,6 +6,8 @@
 
 **With App Framework, you could spend your time for your next amazing App and not for the tricky stuff around!**
 
+[![Documentation](media/documentation.png)](DOCUMENTATION.md)
+
 ## Features
 
 Setup your project:
