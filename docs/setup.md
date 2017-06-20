@@ -23,6 +23,8 @@ Creating a new application project is easily done in the following three steps:
 
 3. Run `npm install` to install *App Framework* and setup the project folder
 
+After the installation process finished, you should see [this folder structure](dev-folder-structure.md).
+
 ## Update
 
 If there is a newer version of App Framework available at the [npm repository](https://www.npmjs.com/package/app-framework), there will be an alert at the development server.
