@@ -30,3 +30,7 @@ After the installation process finished, you should see [this folder structure](
 If there is a newer version of App Framework available at the [npm repository](https://www.npmjs.com/package/app-framework), there will be an alert at the development server.
 
 You have to update App Framework per application project by running `npm update`.
+
+## Notes
+
+The proper way to install the App Framework is to include it as a dev-dependency in your app's *package.json* file, i.e. it must be installed as a module, and not cloned as a repo. The *npm install* command will generate the appropriate directories in your app's root directory, and will add the relevant scripts to your app's *package.json* file.
