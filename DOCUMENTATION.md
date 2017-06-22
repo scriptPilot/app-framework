@@ -48,6 +48,8 @@ For any open question, feature request or bug, please use our [issue list](https
 
 ## Contribution
 
+This chapters are only for contributors of App Framework itself.
+
 - [Requirements](docs/dev-requirements.md)
 - [Way of working](docs/dev-way-of-working.md)
 - [Folder structure](docs/dev-folder-structure.md)
