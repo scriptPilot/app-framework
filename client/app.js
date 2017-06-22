@@ -883,6 +883,7 @@ mixins.manageState = {
   },
   watch: {
     f7Ready: function () {
+      const config = this.config
       function restoreState (callback) {
         restoreScrollOnPageLoad()
         restoreTabOnPageLoad()
@@ -915,6 +916,9 @@ mixins.manageState = {
           } catch (err) {
             window.localStorage.removeItem('urls|' + window.f7.views[viewId].selector)
           }
+        }
+        if (config.restoreHistory === true && urls.length > 0) {
+          urls = urls.slice(-1)
         }
         if (urlId < urls.length) {
           setTimeout(function () {

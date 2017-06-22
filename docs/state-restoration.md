@@ -25,3 +25,11 @@ This restoration includes the following elements:
 The state is not restored for standard modals, popovers and code-generated modals.
 
 If you use `v-model` on an input, the state will be restored by page component data, you can use a name attribute to restore the form focus, but it is not required in this case to restore form input.
+
+## URL history per view
+
+With App Framework > 1.9.0. and configuration setting `restoreHistory: false`, only the last URL per view will be restored.
+
+This solves issues where pages have been loaded several times in the DOM.
+
+But you have to take care now to assign a `href` or `back-link-url` property to each backlink, as described in the Framework7-Vue documentation for [links](http://framework7.io/vue/link.html) or [navbars](http://framework7.io/vue/navbar.html).

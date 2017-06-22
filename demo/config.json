@@ -20,6 +20,7 @@
   "showPhoneFrameOnDesktop": true,
   "framework7parameters": {},
   "materialSubnavbarFix": true,
+  "restoreHistory": true,
   "completeRoutesFile": true,
   "firebase": {
     "apiKey": "AIzaSyAvzTiqd9fKR-h47Uxl4iXwqSMU1VjGdII",
