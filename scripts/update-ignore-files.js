@@ -22,6 +22,10 @@ const gitIgnore = {
 
 const npmIgnore = JSON.parse(JSON.stringify(gitIgnore))
 npmIgnore['Build folder'] = 'build/'
+npmIgnore['Demo folder'] = 'demo/'
+npmIgnore['Documentation folder'] = 'docs/'
+npmIgnore['Documentation file'] = 'DOCUMENTATION.md'
+npmIgnore['media folder'] = 'media/'
 
 const introduction = '# This file is updated automatically - Please do not change!\n\n'
 

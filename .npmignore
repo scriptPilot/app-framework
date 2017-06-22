@@ -33,3 +33,15 @@ ftp-config.json
 # Exclude Build folder
 build/
 
+# Exclude Demo folder
+demo/
+
+# Exclude Documentation folder
+docs/
+
+# Exclude Documentation file
+DOCUMENTATION.md
+
+# Exclude media folder
+media/
+
