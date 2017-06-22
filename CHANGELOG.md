@@ -8,6 +8,7 @@
 
 ### Bug-fixes
 
+- [x] [#606 - this.$f7 is undefined](https://github.com/scriptPilot/app-framework/issues/606)
 - [x] [#610 - Pages are load multiple times with Tabbar usage](https://github.com/scriptPilot/app-framework/issues/610)
 
 ## Version 1.9.0

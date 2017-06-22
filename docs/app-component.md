@@ -36,8 +36,10 @@ And to add functionality, you use the *script* block:
   ...
 <script>
   export default {
-    mounted: function () {
-      this.$f7.alert('App is mounted!')
+    methods: {
+      onF7Init: function () {
+        this.$f7.alert('App is mounted!')        
+      }
     }
   }
 </script>
@@ -54,4 +56,3 @@ You can pass custom Framework7 parameters to your application in the configurati
   "swipePanel": "left"
 }
 ```
-

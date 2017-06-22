@@ -47,8 +47,10 @@ And to add functionality, you use the *script* block:
   ...
 <script>
   export default {
-    mounted: function () {
-      this.$f7.alert('Page is mounted!')
+    methods: {
+      onF7Init: function () {
+        this.$f7.alert('Page is mounted!')        
+      }
     }
   }
 </script>
