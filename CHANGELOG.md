@@ -4,7 +4,7 @@
 
 <br />
 
-## Version 1.9.2
+## Version 1.9.3
 
 Released on 2017-06-22
 
@@ -15,6 +15,7 @@ Released on 2017-06-22
 
 ### Improvements
 
+- [x] [#490 - Remove build folder from npm package](https://github.com/scriptPilot/app-framework/issues/490)
 - [x] [#599 - Remove loading overlay from DOM when done](https://github.com/scriptPilot/app-framework/issues/599)
 
 ## Version 1.9.0

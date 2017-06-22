@@ -1,0 +1,34 @@
+# Exclude Allway Sync folder
+_SYNCAPP/
+
+# Exclude Git folder
+.git/
+
+# Exclude node modules (with cache)
+node_modules/
+
+# Exclude project snapshots
+snapshots/
+
+# Exclude macOS system files
+.DS_Store
+
+# Exclude development mode enabling file
+.enable-dev-mode
+
+# Exclude log files
+*.log*
+
+# Exclude zip files (deprecated)
+*.zip
+
+# Exclude database backups (deprecated)
+database-backup.json
+
+# Exclude FTP config file
+ftp-config.json
+
+### Different to .gitignore file:
+
+# Exclude build folder
+build/
