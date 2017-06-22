@@ -4,7 +4,7 @@
 
 <br />
 
-## Version 1.9.3
+## Version 1.9.4
 
 Released on 2017-06-22
 

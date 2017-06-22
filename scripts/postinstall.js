@@ -156,12 +156,14 @@ createSnapshot(function () {
               setupAppFolder(function () {
                 setupProjectFolder(function () {
                   updateScriptsAndVersion(function () {
-                    // Fix configuration
-                    let configFix = jsonScheme.fix(abs(__dirname, '../config-scheme.json'), abs(env.app, 'config.json'))
-                    if (Array.isArray(configFix)) {
-                      alert('Failed to fix config file.\nDetails:\n- ' + configFix.join('\n- '), 'issue', 'error')
-                    }
-                    alert('App Framework installation done.')
+                    cmd(__dirname, 'node update-ignore-files', function () {
+                      // Fix configuration
+                      let configFix = jsonScheme.fix(abs(__dirname, '../config-scheme.json'), abs(env.app, 'config.json'))
+                      if (Array.isArray(configFix)) {
+                        alert('Failed to fix config file.\nDetails:\n- ' + configFix.join('\n- '), 'issue', 'error')
+                      }
+                      alert('App Framework installation done.')
+                    })
                   })
                 })
               })

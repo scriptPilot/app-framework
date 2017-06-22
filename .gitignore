@@ -1,3 +1,5 @@
+# This file is updated automatically - Please do not change!
+
 # Exclude Allway Sync folder
 _SYNCAPP/
 
@@ -27,3 +29,4 @@ database-backup.json
 
 # Exclude FTP config file
 ftp-config.json
+
