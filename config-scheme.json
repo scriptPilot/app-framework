@@ -80,7 +80,7 @@
   },
   "restoreHistory": {
     "type": "boolean",
-    "default": true
+    "default": false
   },
   "completeRoutesFile": {
     "type": "boolean",
