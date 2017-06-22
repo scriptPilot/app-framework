@@ -11,6 +11,10 @@
 - [x] [#606 - this.$f7 is undefined](https://github.com/scriptPilot/app-framework/issues/606)
 - [x] [#610 - Pages are load multiple times with Tabbar usage](https://github.com/scriptPilot/app-framework/issues/610)
 
+### Improvements
+
+- [x] [#599 - Remove loading overlay from DOM when done](https://github.com/scriptPilot/app-framework/issues/599)
+
 ## Version 1.9.0
 
 Released on 2017-06-06

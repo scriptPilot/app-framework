@@ -165,6 +165,10 @@ loadInitialRessources(() => {
     showLoadingOverlay(() => {
       loadExtendedRessources(() => {
         window.initApplication()
+        // Remove initialization overlays from DOM
+        window.Dom7('#loadingOverlay').remove()
+        window.Dom7('#errorOverlay').remove()
+        window.Dom7('#hiddenOverlay').remove()
       })
     })
   })
