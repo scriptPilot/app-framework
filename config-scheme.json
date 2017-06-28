@@ -154,6 +154,10 @@
     "type": "array",
     "default": []
   },
+  "cordovaPreferences": {
+    "type": "object",
+    "default": {}
+  },
   "resetLocalStorageOnVersionChange": {
     "type": "boolean",
     "default": false
