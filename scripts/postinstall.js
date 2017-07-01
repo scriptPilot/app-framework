@@ -23,6 +23,7 @@ let found = require('./found')
 let jsonScheme = require('./json-scheme')
 let fs = require('fs-extra')
 let abs = require('path').resolve
+const path = require('path')
 
 // Step: Prepare the project folder setup
 let prepareSetup = function (callback) {
@@ -145,24 +146,43 @@ let createSnapshot = function (callback) {
   }
 }
 
+const completePackageJson = (callback) => {
+  const pkg = fs.readJsonSync(abs(env.proj, 'package.json'))
+  if (JSON.stringify(pkg) === '{}') {
+    const projectFolderName = path.basename(env.proj)
+    const pkg = {
+      name: projectFolderName,
+      version: '1.0.0',
+      devDependencies: {
+        'app-framework': '*'
+      }
+    }
+    fs.writeJsonSync(abs(env.proj, 'package.json'), pkg, { spaces: 2 })
+    env.pkg = pkg
+  }
+  callback()
+}
+
 // Run steps
-createSnapshot(function () {
-  cmd(__dirname, 'node modifications13', function () {
-    cmd(__dirname, 'node modifications14', function () {
-      cmd(__dirname, 'node modifications16plus', function () {
-        pruneModules(function () {
-          removeCache(function () {
-            prepareSetup(function () {
-              setupAppFolder(function () {
-                setupProjectFolder(function () {
-                  updateScriptsAndVersion(function () {
-                    cmd(__dirname, 'node update-ignore-files', function () {
-                      // Fix configuration
-                      let configFix = jsonScheme.fix(abs(__dirname, '../config-scheme.json'), abs(env.app, 'config.json'))
-                      if (Array.isArray(configFix)) {
-                        alert('Failed to fix config file.\nDetails:\n- ' + configFix.join('\n- '), 'issue', 'error')
-                      }
-                      alert('App Framework installation done.')
+completePackageJson(() => {
+  createSnapshot(function () {
+    cmd(__dirname, 'node modifications13', function () {
+      cmd(__dirname, 'node modifications14', function () {
+        cmd(__dirname, 'node modifications16plus', function () {
+          pruneModules(function () {
+            removeCache(function () {
+              prepareSetup(function () {
+                setupAppFolder(function () {
+                  setupProjectFolder(function () {
+                    updateScriptsAndVersion(function () {
+                      cmd(__dirname, 'node update-ignore-files', function () {
+                        // Fix configuration
+                        let configFix = jsonScheme.fix(abs(__dirname, '../config-scheme.json'), abs(env.app, 'config.json'))
+                        if (Array.isArray(configFix)) {
+                          alert('Failed to fix config file.\nDetails:\n- ' + configFix.join('\n- '), 'issue', 'error')
+                        }
+                        alert('App Framework installation done.')
+                      })
                     })
                   })
                 })

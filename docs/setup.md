@@ -6,22 +6,15 @@
 
 ## Installation
 
-Creating a new application project is easily done in the following three steps:
+Creating a new application project *my-app* is easily done in the following four steps:
 
-1. Create an empty project folder
-2. Create a **package.json** file in it with the following content:
-
-   ```
-   {
-     "name": "my-app",
-     "version": "1.0.0",
-     "devDependencies": {
-       "app-framework": "*"
-     }
-   }
-   ```
-
-3. Run `npm install` to install *App Framework* and setup the project folder
+1. Run `mkdir my-app` to create a new folder *my-app*
+2. Run `cd my-app` to open the folder *my-app*
+3. Run `echo {} > package.json` to create a *package.json* file
+4. Run `npm install --save-dev app-framework` to
+   - install App Framework and its dependencies
+   - create the project folder structure
+   - complete the *package.json* file
 
 After the installation process finished, you should see [this folder structure](dev-folder-structure.md).
 
