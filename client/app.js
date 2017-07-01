@@ -892,6 +892,9 @@ mixins.manageState = {
           restoreOverlays(function () {
             window.Dom7('#frame').show()
             restoreFocus()
+            setTimeout(() => {
+              window.Dom7(window).trigger('resize')
+            }, 0)
             callback()
           })
         })
