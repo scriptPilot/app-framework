@@ -4,12 +4,13 @@
 
 <br />
 
-## Version 1.9.9
+## Version 1.9.10
 
 Released on 2017-07-01
 
 ### Bug-fixes
 
+- [x] [#404 - UI components - Popover shown to big in general on iPhone SE in Demo App](https://github.com/scriptPilot/app-framework/issues/404)
 - [x] [#563 - Popover buggy](https://github.com/scriptPilot/app-framework/issues/563)
 - [x] [#615 - npm install - Error: Failed to setup app folder](https://github.com/scriptPilot/app-framework/issues/615)
 - [x] [#617 - Failed to setup](https://github.com/scriptPilot/app-framework/issues/617)

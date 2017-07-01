@@ -78,3 +78,9 @@
     }
   }
 </script>
+
+<style>
+  .popover {
+    max-width: 95%;
+  }
+</style>
