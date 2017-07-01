@@ -31,7 +31,7 @@ let resetAppFolder = function (callback) {
   }
 }
 let copyIconFile = function (callback) {
-  fs.copy(abs(__dirname, '../demo/icon.png'), abs(dest, 'icon.png'), function (err) {
+  fs.copy(abs(__dirname, '../client/icon.png'), abs(dest, 'icon.png'), function (err) {
     alert('Copying icon file - please wait ...')
     if (!err) {
       alert('Icon file copied.')

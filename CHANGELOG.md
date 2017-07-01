@@ -4,6 +4,15 @@
 
 <br />
 
+## Version 1.9.7
+
+Released on 2017-07-01
+
+### Bug-fixes
+
+- [x] [#615 - npm install - Error: Failed to setup app folder](https://github.com/scriptPilot/app-framework/issues/615)
+- [x] [#617 - Failed to setup](https://github.com/scriptPilot/app-framework/issues/617)
+
 ## Version 1.9.6
 
 Released on 2017-06-22
