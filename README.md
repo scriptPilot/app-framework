@@ -6,6 +6,32 @@
 
 **With App Framework, you could spend your time for your next amazing App and not for the tricky stuff around!**
 
+## Requirements
+
+## Installation
+
+Creating a new application project *my-app* is easily done in the following four steps:
+
+1. Run `mkdir my-app` to create a new folder *my-app*
+2. Run `cd my-app` to open the folder *my-app*
+3. Run `echo {} > package.json` to create a *package.json* file
+4. Run `npm install --save-dev app-framework` to
+   - install App Framework and its dependencies
+   - create the project folder structure
+   - complete the *package.json* file
+
+After the installation process finished, you should see [this folder structure](docs/folder-structure.md).
+
+## Development
+
+## Testing
+
+## Building
+
+## Deployment
+
+---
+
 ## Features
 
 Setup your project:
