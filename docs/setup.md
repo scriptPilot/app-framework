@@ -16,7 +16,7 @@ Creating a new application project *my-app* is easily done in the following four
    - create the project folder structure
    - complete the *package.json* file
 
-After the installation process finished, you should see [this folder structure](dev-folder-structure.md).
+After the installation process finished, you should see [this folder structure](folder-structure.md).
 
 ## Update
 
