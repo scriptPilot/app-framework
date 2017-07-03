@@ -59,7 +59,7 @@ let connect = function (config, callback) {
   client.on('ready', function () {
     callback(client)
   })
-  client.on('error', (err) => {
+  client.on('error', () => {
     alert('Failed to connect to the FTP server.\nPlease check your "ftp-config.json" file.', 'error')
   })
   client.connect(config)
