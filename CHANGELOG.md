@@ -4,13 +4,17 @@
 
 <br />
 
-## Version 1.9.17
+## Version 1.10.0
 
-Released on 2017-07-03
+Released on 2017-07-04
 
 ### New features
 
 - [x] [#616 - Add custom Cordova preferences](https://github.com/scriptPilot/app-framework/issues/616)
+
+## Version 1.9.16
+
+Released on 2017-07-03
 
 ### Bug-fixes
 
