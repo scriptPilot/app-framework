@@ -55,15 +55,14 @@ let getConfig = function (callback) {
 }
 let connect = function (config, callback) {
   alert('Connecting to the FTP server - please wait ...')
-  try {
-    let client = new ftp() // eslint-disable-line
-    client.on('ready', function () {
-      callback(client)
-    })
-    client.connect(config)
-  } catch (err) {
+  let client = new ftp() // eslint-disable-line
+  client.on('ready', function () {
+    callback(client)
+  })
+  client.on('error', (err) => {
     alert('Failed to connect to the FTP server.\nPlease check your "ftp-config.json" file.', 'error')
-  }
+  })
+  client.connect(config)
 }
 let uploadFiles = function (client, localFolder, remoteFolder, files, callback) {
   if (!Array.isArray(files) || files.length === 0) {

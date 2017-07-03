@@ -4,6 +4,12 @@
 
 <br />
 
+## Next version
+
+### Bug-fixes
+
+- [x] [#346 - Error on npm run ftp without proper FTP server data](https://github.com/scriptPilot/app-framework/issues/346)
+
 ## Version 1.9.10
 
 Released on 2017-07-01
