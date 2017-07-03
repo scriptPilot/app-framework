@@ -125,10 +125,16 @@ let updateCordovaConfig = function (callback) {
   // Start configuration
   let config = {}
   // Add widget
+  const d = new Date()
+  const devVersion = d.getFullYear() - 2000 +
+                     (d.getMonth() < 9 ? '0' : '') + (d.getMonth() + 1) +
+                     (d.getDate() < 10 ? '0' : '') + d.getDate() +
+                     (d.getHours() < 10 ? '0' : '') + d.getHours() +
+                     (d.getMinutes() < 10 ? '0' : '') + d.getMinutes()
   config = {
     '$': {
       'id': storeId,
-      'version': env.arg.version === 'dev' ? '0.0.' + Date.now() : env.arg.version,
+      'version': env.arg.version === 'dev' ? '0.0.' + devVersion : env.arg.version,
       'xmlns': 'http://www.w3.org/ns/widgets',
       'xmlns:cdv': 'http://cordova.apache.org/ns/1.0'
     }

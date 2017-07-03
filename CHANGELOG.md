@@ -9,6 +9,7 @@
 ### Bug-fixes
 
 - [x] [#346 - Error on npm run ftp without proper FTP server data](https://github.com/scriptPilot/app-framework/issues/346)
+- [x] [#592 - npm run android failed - Float types not allowed for versionCode](https://github.com/scriptPilot/app-framework/issues/592)
 
 ## Version 1.9.10
 
