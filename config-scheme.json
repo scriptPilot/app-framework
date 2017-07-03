@@ -31,10 +31,6 @@
     "regexp": "/^#[0-9a-f]{6}$/i",
     "default": "#000000"
   },
-  "changeStatusbarBackgroundColorOnThemeColorChange": {
-    "type": "boolean",
-    "default": true
-  },
   "iconBackgroundColor": {
     "regexp": "/^#[0-9a-f]{6}$/i",
     "default": "#ffffff"

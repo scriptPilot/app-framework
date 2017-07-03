@@ -19,7 +19,6 @@ layout | default, white, dark | default
 statusbarVisibility | *boolean* | true
 statusbarTextColor | black, white | white
 statusbarBackgroundColor | /^#[0-9a-f]{6}$/i | #000000
-changeStatusbarBackgroundColorOnThemeColorChange | *boolean* | true
 iconBackgroundColor | /^#[0-9a-f]{6}$/i | #ffffff
 useIconFonts | *object* |
 &nbsp;&nbsp;&nbsp;framework7 | *boolean* | false

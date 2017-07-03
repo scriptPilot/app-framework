@@ -12,7 +12,22 @@ You can configure the application status bar style in the configuration file:
 statusbarVisibility: true,                               // true or false
 statusbarTextColor: 'white',                             // 'black' or 'white'
 statusbarBackgroundColor: '#3f51b5',                     // Hex color code
-changeStatusbarBackgroundColorOnThemeColorChange: true   // true or false
+```
+
+**changeStatusbarBackgroundColorOnThemeColorChange**
+
+This configuration option was removed with App Framework 1.9.15. You can apply the following code to your *app.vue* file to have the same behavior:
+
+```
+created() {
+  // Update status bar text color after theme color change
+  this.$watch(() => {
+    return this.$root.color
+  }, (newColor, oldColor) => {
+    this.$root.statusbarTextColor = newColor === 'white' ? 'black' : 'white'
+    this.$root.statusbarBackgroundColor = newColor === 'white' && window.cordova === undefined ? '000000' : this.$root.colors[this.$root.theme][newColor]
+  })
+}
 ```
 
 ## Runtime modification

@@ -58,6 +58,15 @@
         actionsOpened: false
       }
     },
+    created () {
+      // Update status bar text color after theme color change
+      this.$watch(() => {
+        return this.$root.color
+      }, (newColor, oldColor) => {
+        this.$root.statusbarTextColor = newColor === 'white' ? 'black' : 'white'
+        this.$root.statusbarBackgroundColor = newColor === 'white' && window.cordova === undefined ? '000000' : this.$root.colors[this.$root.theme][newColor]
+      })
+    },
     methods: {
       onF7Init: function () {
         if (this.$root.theme === 'ios') {

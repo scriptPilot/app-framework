@@ -7,7 +7,6 @@
   "statusbarVisibility": false,
   "statusbarTextColor": "white",
   "statusbarBackgroundColor": "#3f51b5",
-  "changeStatusbarBackgroundColorOnThemeColorChange": true,
   "iconBackgroundColor": "#ffffff",
   "useIconFonts": {
     "framework7": true,

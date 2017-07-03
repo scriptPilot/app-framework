@@ -641,11 +641,6 @@ mixins.manageColor = {
           if (/^theme-[a-z]+$/.test(cName)) window.Dom7('body').removeClass(cName)
         })
         window.Dom7('body').addClass('theme-' + newColor)
-        // Update status bar background color accordingly
-        if (this.config.changeStatusbarBackgroundColorOnThemeColorChange === true) {
-          this.statusbarTextColor = newColor === 'white' ? 'black' : 'white'
-          this.statusbarBackgroundColor = newColor === 'white' && window.cordova === undefined ? '000000' : this.colors[this.theme][newColor]
-        }
       // New color is not valid
       } else {
         // Rollback old, config or default value
