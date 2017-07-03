@@ -20,7 +20,6 @@ let zip = require('zip-dir')
 if (env.pkg.devDependencies &&
     env.pkg.devDependencies['app-framework'] &&
     env.pkg.devDependencies['app-framework'] !== '*') {
-
   // Alert
   alert('Snapshot creation ongoing - please wait ...')
 
@@ -55,5 +54,4 @@ if (env.pkg.devDependencies &&
       }
     }
   )
-
 }
