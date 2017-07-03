@@ -20,7 +20,7 @@ This configuration option was removed with App Framework 1.9.15. You can apply t
 
 ```
 created() {
-  // Update status bar text color after theme color change
+  // Update status bar background and text color after theme color change
   this.$watch(() => {
     return this.$root.color
   }, (newColor, oldColor) => {
