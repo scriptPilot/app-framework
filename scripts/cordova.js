@@ -189,6 +189,19 @@ let updateCordovaConfig = function (callback) {
       'value': true
     }
   }
+  // Apply custom Cordova preferences
+  if (env.cfg.cordovaPreferences !== undefined) {
+    var preferences = [config.preference];
+    for (var key in env.cfg.cordovaPreferences) {
+      preferences.push({
+        '$': {
+          'name': key,
+          'value': env.cfg.cordovaPreferences[key]
+        }
+      })
+    }
+    config.preference = preferences;
+  }
   // Add Android platform
   if (env.arg.android === true || env.arg.studio) {
     config.platform = {
