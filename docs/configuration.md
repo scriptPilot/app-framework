@@ -52,6 +52,7 @@ devFirebase | *object* |
 appStoreId | *string* |
 playStoreId | *string* |
 useCordovaPlugins | *array* | []
+cordovaPreferences | *object* | {"DisallowOverscroll":true}
 resetLocalStorageOnVersionChange | *boolean* | false
 preloadImages | *boolean* | true
 buildSourcemaps | *boolean* | false

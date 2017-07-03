@@ -46,6 +46,9 @@
     "cordova-plugin-camera",
     "cordova-plugin-file"
   ],
+  "cordovaPreferences": {
+    "DisallowOverscroll": true
+  },
   "resetLocalStorageOnVersionChange": false,
   "preloadImages": true,
   "buildSourcemaps": false,

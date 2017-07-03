@@ -152,7 +152,9 @@
   },
   "cordovaPreferences": {
     "type": "object",
-    "default": {}
+    "default": {
+      "DisallowOverscroll": true
+    }
   },
   "resetLocalStorageOnVersionChange": {
     "type": "boolean",

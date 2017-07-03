@@ -29,6 +29,7 @@ For any open question, feature request or bug, please use our [issue list](https
   - [Icon fonts](docs/icon-fonts.md)
   - [Modules and scripts](docs/modules-and-scripts.md)
   - [Cordova plugins](docs/cordova-plugins.md)
+  - [Cordova preferences](docs/cordova-preferences.md)
   - [Firebase backend](docs/firebase.md)
   - [Image upload component](docs/image-upload-component.md)
   - [State restoration](docs/state-restoration.md)

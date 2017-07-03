@@ -182,16 +182,9 @@ let updateCordovaConfig = function (callback) {
       'src': 'index.html'
     }
   }
-  // Disallow overscroll
-  config.preference = {
-    '$': {
-      'name': 'DisallowOverscroll',
-      'value': true
-    }
-  }
   // Apply custom Cordova preferences
   if (env.cfg.cordovaPreferences !== undefined) {
-    var preferences = [config.preference];
+    var preferences = config.preference ? [config.preference] : []
     for (var key in env.cfg.cordovaPreferences) {
       preferences.push({
         '$': {
@@ -200,7 +193,9 @@ let updateCordovaConfig = function (callback) {
         }
       })
     }
-    config.preference = preferences;
+    if (preferences.length > 0) {
+      config.preference = preferences
+    }
   }
   // Add Android platform
   if (env.arg.android === true || env.arg.studio) {
