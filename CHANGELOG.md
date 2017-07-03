@@ -24,7 +24,7 @@ Released on 2017-07-03
 - [x] [#620 - Snapshot is created at initial installation](https://github.com/scriptPilot/app-framework/issues/620)
 - [x] [#626 - npm run ios fails with "cannot read property 'replace' of undefined"](https://github.com/scriptPilot/app-framework/issues/626)
 
-## Improvements
+### Improvements
 
 - [x] Removed configuration option "changeStatusbarBackgroundColorOnThemeColorChange" ([read the docs](docs/status-bar-style.md))
 
