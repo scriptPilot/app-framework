@@ -60,6 +60,10 @@ Backup your project:
 - Download the [Firebase database content](https://firebase.google.com/products/database/) and [user list](https://firebase.google.com/products/auth/) to local JSON files
 - Snapshot creation of all important project files to backup on any external drive or cloud service
 
+## Documentation
+
+[![Documentation](media/documentation.png)](DOCUMENTATION.md)
+
 ## Demo App
 
 [![Download on the App Store Play](media/app-store-download.png)](https://itunes.apple.com/us/app/app-framework-demo/id1203927581?mt=8')
@@ -69,7 +73,3 @@ Backup your project:
 [![Open as Web App](media/web-app-visit.png)](https://demo.app-framework.com)
 
 ![Screenshots](media/screenshots.png)
-
-## Documentation
-
-[![Documentation](media/documentation.png)](DOCUMENTATION.md)
