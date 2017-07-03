@@ -17,6 +17,8 @@ let path = require('path')
 let abs = require('path').resolve
 let rec = require('recursive-readdir')
 
+let log = ''
+
 // Deploy current version by default
 if (env.arg.version === undefined) {
   env.arg.version = env.pkg.version
@@ -72,16 +74,19 @@ let uploadFiles = function (client, localFolder, remoteFolder, files, callback) 
     let folder = path.join(remoteFolder, path.dirname(file))
     let parentFolder = path.dirname(folder)
     let putFile = function () {
+      log = log + 'PUT: ' + path.join(remoteFolder, file).replace(/\\/g, '/') + '\n'
       client.put(abs(localFolder, file), path.join(remoteFolder, file).replace(/\\/g, '/'), function (err) {
         if (err) alert('Failed to upload file "' + path.join(folder, file) + '" to the FTP server.', 'issue')
         uploadFiles(client, localFolder, remoteFolder, files, callback)
       })
     }
     client.list(parentFolder.replace(/\\/g, '/'), function (err, folders) {
+      log = log + 'LIST: ' + parentFolder.replace(/\\/g, '/') + '\n'
       if (err) alert('Failed to list files from FTP server.', 'issue')
       let folderFound = false
       folders.map(function (f) {
-        if (f === path.basename(folder)) {
+        log = log + 'f = ' + f.name + ' => ' + path.basename(folder) + '\n'
+        if (f.name === path.basename(folder)) {
           folderFound = true
         }
       })
@@ -89,6 +94,7 @@ let uploadFiles = function (client, localFolder, remoteFolder, files, callback) 
         putFile()
       } else {
         client.mkdir(folder.replace(/\\/g, '/'), true, function (err) {
+          log = log + 'MKDIR: ' + folder.replace(/\\/g, '/') + '\n'
           if (err) alert('Failed to create folder "' + folder + '" on the FTP server.', 'issue')
           putFile()
         })
@@ -170,6 +176,7 @@ getConfig(function (config) {
         updateHtaccess(client, function () {
           client.end()
           alert('FTP deployment done for version ' + env.arg.version + '.')
+          fs.writeFileSync('ftp-log.txt', log)
         })
       })
     })
