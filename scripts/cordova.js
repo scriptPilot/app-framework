@@ -366,7 +366,20 @@ let addCordovaPlatforms = function (callback) {
   alert('Cordova platform installation ongoing - please wait ...')
   if (env.arg.ios === true || env.arg.xcode === true) {
     cmd(binDir, 'cordova platform add ios', function () {
+      // workaround: #626 - npm run ios fails with <cannot read property 'replace' of undefined>
+      try {
+        const filename = path.resolve(binDir, 'platforms/ios/cordova/node_modules/ios-sim/src/lib.js')
+        const string = 'list.push(util.format(\'%s, %s\', name_id_map[ deviceName ].replace(/^com.apple.CoreSimulator.SimDeviceType./, \'\'), runtime.replace(/^iOS /, \'\')));'
+        const wrapper = 'if (name_id_map[deviceName] && runtime) { ' + string + ' }'
+        let filecontent = fs.readFileSync(filename, 'utf8')
+        filecontent = filecontent.replace(string, wrapper)
+        fs.writeFileSync(filename, filecontent)
+      } catch (err) {
+        alert('Failed to apply workaround #626.')
+      }
+      // Alert
       alert('Cordova platform installation done for Android.')
+      // Callback
       callback()
     }, function () {
       alert('Cordova platform installation failed for iOS.', 'issue')
