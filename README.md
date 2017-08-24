@@ -2,7 +2,7 @@
 
 **iOS and Android Apps with HTML & JavaScript - develop, build and deploy - free and open source!**
 
-<img src="https://raw.githubusercontent.com/scriptPilot/app-framework/master/media/process.png" style="max-width: 100%">
+<img src="https://raw.githubusercontent.com/scriptPilot/app-framework/master/media/process.png" style="max-width: 100%" />
 
 **With App Framework, you could spend your time for your next amazing App and not for the tricky stuff around!**
 
@@ -17,7 +17,7 @@ Design your application:
 - Printable [template](design/smartphone-template.pdf) to design your application with paper and pencil
 - Templates for your icon design - as [PDF for sketching](design/icon-template.pdf) and [PPTX](design/icon-template.pptx) for drawing
 
-Develop your application:
+Develop your application:s
 
 - Realize beautiful user interfaces with all well-known components and transitions, based on [Framework7](https://framework7.io/)
 - Easy to maintain [single file components](https://vuejs.org/guide/single-file-components) with [reusable UI elements](https://framework7.io/vue/), based on [Vue.js](https://vuejs.org/)
