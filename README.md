@@ -2,7 +2,7 @@
 
 **iOS and Android Apps with HTML & JavaScript - develop, build and deploy - free and open source!**
 
-![Process](media/process.png)
+![Process](https://github.com/scriptPilot/app-framework/blob/master/media/process.png)
 
 **With App Framework, you could spend your time for your next amazing App and not for the tricky stuff around!**
 
