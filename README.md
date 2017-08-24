@@ -4,6 +4,8 @@
 
 <img src="https://raw.githubusercontent.com/scriptPilot/app-framework/master/media/process.png" style="max-width: 100%" />
 
+![](media/process.png)
+
 **With App Framework, you could spend your time for your next amazing App and not for the tricky stuff around!**
 
 ## Features
