@@ -31,6 +31,7 @@ showPhoneFrameOnDesktop | *boolean* | true
 framework7parameters | *object* | {}
 materialSubnavbarFix | *boolean* | true
 restoreHistory | *boolean* | true
+restoreComponentData | *boolean* | true
 completeRoutesFile | *boolean* | true
 firebase | *object* |
 &nbsp;&nbsp;&nbsp;apiKey | *string* |

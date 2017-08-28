@@ -4,6 +4,12 @@
 
 <br />
 
+## Next version
+
+### New features
+
+- [x] [#643 - Deactivate automatic component data restoration](https://github.com/scriptPilot/app-framework/issues/643)
+
 ## Version 1.10.0
 
 Released on 2017-07-04

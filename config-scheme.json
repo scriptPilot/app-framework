@@ -78,6 +78,10 @@
     "type": "boolean",
     "default": true
   },
+  "restoreComponentData": {
+    "type": "boolean",
+    "default": true
+  },
   "completeRoutesFile": {
     "type": "boolean",
     "default": true

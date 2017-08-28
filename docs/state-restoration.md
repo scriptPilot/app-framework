@@ -33,3 +33,7 @@ With App Framework > 1.9.0. and configuration setting `restoreHistory: false`, o
 This solves issues where pages have been loaded several times in the DOM.
 
 But you have to take care now to assign a `href` or `back-link-url` property to each backlink, as described in the Framework7-Vue documentation for [links](http://framework7.io/vue/link.html) or [navbars](http://framework7.io/vue/navbar.html).
+
+## Page component data
+
+With App Framework > 1.11.0 you can disable the page component data restoration with `restoreComponentData: false` in the configuration file.

@@ -1130,7 +1130,9 @@ function initF7VueApp () {
   // Load image-uploader component
   vue.component('image-uploader', require('./image-uploader.vue'))
   // Use global mixins
-  vue.mixin(manageComponentData)
+  if (config.restoreComponentData) {
+    vue.mixin(manageComponentData)
+  }
   // Get local mixins as array
   let useMixins = Object.keys(mixins).map(mixin => mixins[mixin])
   // Init Framework7-Vue application
