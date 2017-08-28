@@ -23,8 +23,7 @@ For each change to App Framework code, please follow these steps:
    - With an updated project after changes to the postinstall routine
 5. Update the documentation
    - Features in file *README.md*
-   - End user documentation in file *DOCUMENTATION.md*
-   - Development documentation in file *DEVELOPMENT.md*
+   - Documentation in folder *docs*
 6. Commit the branch as a pull request
 
 ## Pull requests
