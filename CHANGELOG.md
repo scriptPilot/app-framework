@@ -6,7 +6,7 @@
 
 ## Next version
 
-### Version 1.12.0
+### Version 1.12.1
 
 Released on 2017-08-29
 
