@@ -15,10 +15,10 @@ The data object will be restored on each application reload and is accessible in
 - Template: ```<f7-button @click="$save('main.sub', 'value')">Save data</f7-button>```
 - Script: ```this.$save('main.sub', 'value')```
 
-**Retrieve data**
+**Get data**
 
-- Template: ```{{$db.main.sub}}```
-- Script: ```this.$db.main.sub```
+- Template: ```{{$get.main.sub}}```
+- Script: ```this.$get.main.sub```
 
 **Remove data**
 

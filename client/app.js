@@ -65,7 +65,7 @@ let manageComponentData = {
 }
 let easierGlobalDataObject = {
   computed: {
-    $db () {
+    $get () {
       return this.$root.data
     }
   },
