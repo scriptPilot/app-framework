@@ -16,12 +16,14 @@ The following project folder will be created by default:
 │   ├── icon.png                # App icon file (minimum size is 1024 pixel)
 │   ├── routes.json             # App routes configuration
 │   └── storage-rules.txt       # Firebase storage rules
-├── build/                      # Latest build files (do not modify)
+├── build/                      # Latest build files (created after first build, do not modify)
 ├── design/                     # Design templates (PDF, Power Point)
 ├── node_modules/               # Installed node modules (do not modify)
 ├── snapshots/                  # Project snapshots (for rollback)
-├── .babelrc                    # Babel configuration file for ES2015 support
-├── .gitignore                  # List of ignored files for Git commits
+├── .babelrc                    # Babel configuration file for ES2015 support (do not modify)
+├── .gitignore                  # List of ignored files for Git commits (do not modify)
+├── .npmignore                  # List of ignored files for NPM publishing (do not modify)
+├── package-lock.json           # Installation information (do not modify)
 └── package.json                # Project information
 ```
 
