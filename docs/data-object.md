@@ -4,7 +4,7 @@
 
 <br />
 
-App Framework provides a global data object for common used data or setting.
+App Framework provides a global data object for common used data or settings.
 
 The data object will be restored on each application reload and is accessible in any Vue hook `created` or later.
 
