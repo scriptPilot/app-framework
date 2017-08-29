@@ -65,15 +65,15 @@ let manageComponentData = {
 }
 let easierGlobalDataObject = {
   computed: {
-    $db() {
+    $db () {
       return this.$root.data
     }
   },
   methods: {
-    $save(...args) {
+    $save (...args) {
       this.$root.saveData(...args)
     },
-    $remove(...args) {
+    $remove (...args) {
       this.$root.removeData(...args)
     }
   }
