@@ -4,6 +4,12 @@
 
 <br />
 
+## Next version
+
+### Improvements
+
+- [x] [#644 - Make global data object easier to use](https://github.com/scriptPilot/app-framework/issues/644) ([read the docs](docs/data-object.md))
+
 ## Version 1.11.0
 
 Released on 2017-08-28

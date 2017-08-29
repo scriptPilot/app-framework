@@ -63,6 +63,21 @@ let manageComponentData = {
     }
   }
 }
+let easierGlobalDataObject = {
+  computed: {
+    $db() {
+      return this.$root.data
+    }
+  },
+  methods: {
+    $save(...args) {
+      this.$root.saveData(...args)
+    },
+    $remove(...args) {
+      this.$root.removeData(...args)
+    }
+  }
+}
 
 let mixins = {}
 mixins.loadConfig = {
@@ -1130,6 +1145,7 @@ function initF7VueApp () {
   // Load image-uploader component
   vue.component('image-uploader', require('./image-uploader.vue'))
   // Use global mixins
+  vue.mixin(easierGlobalDataObject)
   if (config.restoreComponentData) {
     vue.mixin(manageComponentData)
   }
