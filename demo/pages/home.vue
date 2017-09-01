@@ -75,9 +75,6 @@
           let text = this.$$(e.target).find('option[value=' + e.target.value + ']').text()
           this.$$(e.target).parent().find('.item-after').html(text)
         }.bind(this), 0)
-      },
-      testAlert () {
-        window.f7.alert(this.$lang('message', {username: 'Bugs Bunny'}), this.$lang('subject'))
       }
     }
   }
