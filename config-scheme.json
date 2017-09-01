@@ -3,9 +3,13 @@
     "type": "string",
     "default": "My App"
   },
-  "language": {
+  "defaultLanguage": {
     "regexp": "/^[a-z]{2}$/",
     "default": "en"
+  },
+  "defaultLanguageFallback": {
+    "type": "boolean",
+    "default": false
   },
   "theme": {
     "allow": ["ios", "material", "ios-material", "material-ios"],

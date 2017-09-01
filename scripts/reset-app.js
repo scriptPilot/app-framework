@@ -24,6 +24,7 @@ let resetAppFolder = function (callback) {
     fs.emptyDirSync(abs(dest))
     fs.ensureDirSync(abs(dest, 'images'))
     fs.ensureDirSync(abs(dest, 'pages'))
+    fs.ensureDirSync(abs(dest, 'lang'))
     alert('Reset app folder.')
     callback()
   } catch (err) {
@@ -110,7 +111,7 @@ let createHomepage = function (callback) {
   let content = '<template>\n' +
                 '  <f7-page>\n' +
                 '    <f7-navbar :title="$root.config.title" />\n' +
-                '    <f7-block inner inset>It works!</f7-block>\n' +
+                '    <f7-block inner inset>{{$lang(\'text\')}}</f7-block>\n' +
                 '    <f7-block>\n' +
                 '      <f7-button big fill raised bg="green" href="https://github.com/scriptPilot/app-framework/blob/master/DOCUMENTATION.md" external>Documentation</f7-button>\n' +
                 '    </f7-block>\n' +
@@ -126,18 +127,42 @@ let createHomepage = function (callback) {
   })
 }
 
+const createLanguageFiles = (callback) => {
+  alert('Creating default language files - please wait ...')
+  try {
+    fs.writeJsonSync(abs(dest, 'lang/en.json'), { text: 'It works!' }, { spaces: 2 })
+    fs.writeJsonSync(abs(dest, 'lang/de.json'), { text: 'Es funktioniert!' }, { spaces: 2 })
+  } catch (err) {
+    alert('Failed to create languages files.', 'issue')
+  }
+  alert('Created language files.')
+  callback()
+}
+
+const updateRoutes = (callback) => {
+  if (dest === env.app) {
+    cmd(__dirname, 'node update-routes', function () {
+      callback()
+    })
+  } else {
+    callback()
+  }
+}
+
 // Run
 alert('Replacing app folder with minimum files - please wait ...')
 cmd(__dirname, 'node snapshot', function () {
   resetAppFolder(function () {
     copyIconFile(function () {
       createConfigFile(function () {
-        createDatabaseRules(function () {
-          createStorageRules(function () {
-            createAppComponent(function () {
-              createHomepage(function () {
-                cmd(__dirname, 'node update-routes', function () {
-                  alert('App folder replaced with minimum files.')
+        createLanguageFiles(function () {
+          createDatabaseRules(function () {
+            createStorageRules(function () {
+              createAppComponent(function () {
+                createHomepage(function () {
+                  updateRoutes(function () {
+                    alert('App folder replaced with minimum files.')
+                  })
                 })
               })
             })

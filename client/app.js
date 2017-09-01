@@ -78,6 +78,13 @@ let easierGlobalDataObject = {
     }
   }
 }
+let easierLanguagePattern = {
+  methods: {
+    $lang (key, data = null) {
+      return this.$root.getLanguagePattern(key, data)
+    }
+  }
+}
 
 let mixins = {}
 mixins.loadConfig = {
@@ -1129,6 +1136,31 @@ mixins.manageState = {
     }
   }
 }
+mixins.languagePattern = {
+  data: {
+    languages: [],
+    languagePattern: {}
+  },
+  created () {
+    this.languages = process.env.LANGUAGES.split(',')
+    this.languages.forEach((lang) => {
+      this.languagePattern[lang] = require(process.env.APP_ROOT_FROM_SCRIPTS + 'lang/' + lang + '.json')
+    })
+  },
+  methods: {
+    getLanguagePattern (key, data) {
+      const requestedText = this.languagePattern[this.language] ? this.languagePattern[this.language][key] : undefined
+      const defaultText = this.languagePattern[this.config.defaultLanguage] ? this.languagePattern[this.config.defaultLanguage][key] : undefined
+      let text = requestedText || defaultText || (data !== null ? '{{' + key + ', ' + JSON.stringify(data) + '}}' : '{{' + key + '}}')
+      if (data !== null) {
+        for (let item in data) {
+          text = text.replace(new RegExp('\\{\\{' + item + '\\}\\}', 'g'), data[item])
+        }
+      }
+      return text
+    }
+  }
+}
 
 function initF7VueApp () {
   // Load Vue
@@ -1146,6 +1178,7 @@ function initF7VueApp () {
   vue.component('image-uploader', require('./image-uploader.vue'))
   // Use global mixins
   vue.mixin(easierGlobalDataObject)
+  vue.mixin(easierLanguagePattern)
   if (config.restoreComponentData) {
     vue.mixin(manageComponentData)
   }

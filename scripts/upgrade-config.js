@@ -76,6 +76,8 @@ module.exports = function (appRoot) {
           alert('Failed to transfer login requiring pages to routes file.', 'issue')
         }
       }
+      // To 1.13
+      if (cfg.language && !cfg.defaultLanguage) cfg.defaultLanguage = cfg.language
       // Write config
       fs.writeJsonSync(path.resolve(appRoot, 'config.json'), cfg)
     } catch (err) {

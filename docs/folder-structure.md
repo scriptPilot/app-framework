@@ -9,6 +9,7 @@ The following project folder will be created by default:
 ```
 ├── app/                        # App source folder
 │   ├── images/                 # App images
+│   ├── lang/                   # App language files
 │   ├── pages/                  # App page components
 │   ├── app.vue                 # App main component
 │   ├── config.js               # App configuration

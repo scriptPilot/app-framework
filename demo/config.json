@@ -1,6 +1,7 @@
 {
   "title": "App Framework",
-  "language": "en",
+  "defaultLanguage": "en",
+  "defaultLanguageFallback": false,
   "theme": "material-ios",
   "color": "indigo",
   "layout": "default",

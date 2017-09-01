@@ -92,13 +92,15 @@ function checkFrameworkUpdates (callback) {
 alert('Development server preparation ongoing - please wait ...')
 fixCode(function () {
   checkFrameworkUpdates(function () {
-    cmd(__dirname, 'node update-routes', function () {
-      cmd(__dirname, 'node create-icons', function () {
-        cmd(__dirname, 'node firebase --database --storage --version dev', function () {
-          startServer(function () {
-            let uri = 'http://localhost:' + env.cfg.devServerPort
-            opn(uri)
-            alert('Development server startet at ' + uri + '.\n\nTo be stopped with "CTRL + C".')
+    cmd(__dirname, 'node checkLanguageFiles', function () {
+      cmd(__dirname, 'node update-routes', function () {
+        cmd(__dirname, 'node create-icons', function () {
+          cmd(__dirname, 'node firebase --database --storage --version dev', function () {
+            startServer(function () {
+              let uri = 'http://localhost:' + env.cfg.devServerPort
+              opn(uri)
+              alert('Development server startet at ' + uri + '.\n\nTo be stopped with "CTRL + C".')
+            })
           })
         })
       })

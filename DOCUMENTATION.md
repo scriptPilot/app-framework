@@ -25,6 +25,7 @@ For any open question, feature request or bug, please use our [issue list](https
   - [Routing](docs/routing.md)
   - [Global data object](docs/data-object.md)
   - [sortObject function](docs/sort-object.md)
+  - [Language files](docs/language-files.md)
   - [Images](docs/images.md)
   - [Icon fonts](docs/icon-fonts.md)
   - [Modules and scripts](docs/modules-and-scripts.md)

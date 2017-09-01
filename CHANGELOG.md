@@ -4,7 +4,11 @@
 
 <br />
 
-## Next version
+### Version 1.13
+
+Released on 2017-09-02
+
+- [x] [#649 - Use language files for multilingual apps](https://github.com/scriptPilot/app-framework/issues/649)
 
 ### Version 1.12.1
 

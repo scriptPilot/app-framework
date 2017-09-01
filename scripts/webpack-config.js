@@ -3,13 +3,14 @@
 'use strict'
 
 // Load modules
-let env = require('./env')
-let alert = require('./alert')
-let fs = require('fs-extra')
-let abs = require('path').resolve
-let path = require('path')
-let us = require('underscore')
-let webpack = require('webpack')
+const env = require('./env')
+const alert = require('./alert')
+const fs = require('fs-extra')
+const abs = require('path').resolve
+const path = require('path')
+const us = require('underscore')
+const webpack = require('webpack')
+const rec = require('recursive-readdir-sync')
 
 // Empty cache folder
 fs.emptyDirSync(abs(env.cache, 'build'))
@@ -142,6 +143,17 @@ let createConfiguration = function (mode) {
     alert('Failed to read project version.', 'issue')
   }
 
+  // Get all language file names
+  const languages = []
+  try {
+    const files = rec(abs(env.app, 'lang'))
+    files.forEach((file) => {
+      languages.push(path.basename(file).slice(0, -5))
+    })
+  } catch (err) {
+    alert('Failed to list the language files.', 'issue')
+  }
+
   // Add environment variables
   let firebaseConfigSource = mode === 'development' || env.arg.dev === true ? 'devFirebase' : 'firebase'
   let firebaseConfig = env.cfg[firebaseConfigSource]
@@ -165,7 +177,8 @@ let createConfiguration = function (mode) {
         USE_FIREBASE_STORAGE: '"' + (firebaseConfig.storageBucket !== '') + '"',
         RESET_LOCAL_STORAGE: '"' + env.cfg.resetLocalStorageOnVersionChange + '"',
         NODE_ENV: '"' + mode + '"',
-        FIREBASE_CONFIG: '"' + firebaseConfigSource + '"'
+        FIREBASE_CONFIG: '"' + firebaseConfigSource + '"',
+        LANGUAGES: '"' + languages.join(',') + '"'
       }
     })
   )
