@@ -8,7 +8,7 @@
 
 Released on 2017-09-02
 
-- [x] [#649 - Use language files for multilingual apps](https://github.com/scriptPilot/app-framework/issues/649)
+- [x] [#649 - Use language files for multilingual apps](https://github.com/scriptPilot/app-framework/issues/649) ([read the docs](https://github.com/scriptPilot/app-framework/blob/master/docs/language-files.md))
 
 ### Version 1.12.1
 
