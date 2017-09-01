@@ -9,7 +9,9 @@
 // Include modules
 let env = require('./env')
 let alert = require('./alert')
+let found = require('./found')
 let fs = require('fs-extra')
+let path = require('path')
 let rec = require('recursive-readdir')
 
 if (env.installed) {
@@ -25,6 +27,15 @@ if (env.installed) {
         fs.writeFileSync(file, content)
       }
     })
+    // Add missing language folder
+    if (!found(env.app, 'lang')) {
+      try {
+        fs.ensureDirSync(path.resolve(env.app, 'lang'))
+        fs.writeJsonSync(path.resolve(env.app, 'lang/' + (env.cfg.language || env.cfg.defaultLanguage || 'en') + '.json'), {}, { spaces: 2 })
+      } catch (err) {
+        alert('Failed to create languages folder.', 'issue')
+      }
+    }
     alert('Release modifications of v1.6+ done.')
   })
 }
