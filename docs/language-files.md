@@ -10,12 +10,21 @@ Languages files provide a simple way to make your app multi-lingual.
 
 Language files should be saved in folder *app/lang*. They should be JSON files with plain key:string pairs.
 
-Example `lang/de.json`:
+Example:
 
+`lang/en.json`
 ```
 {
   "emailSubject": "Greetings from Hamburg",
   "emailBody": "Hello {{username}}!"
+}
+```
+
+`lang/de.json`
+```
+{
+  "emailSubject": "Grüße aus Hamburg",
+  "emailBody": "Hallo {{username}}!"
 }
 ```
 
