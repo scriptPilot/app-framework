@@ -12,7 +12,8 @@ Configure your application easily in the *app/config.json* file. For details, pl
 Option | Allowed | Default
 :--- |:--- |:---
 title | *string* | My App
-language | /^[a-z]{2}$/ | en
+defaultLanguage | /^[a-z]{2}$/ | en
+defaultLanguageFallback | *boolean* | false
 theme | ios, material, ios-material, material-ios | material
 color | /^[a-z]+$/ | indigo
 layout | default, white, dark | default
