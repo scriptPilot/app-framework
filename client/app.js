@@ -3,8 +3,6 @@
 'use strict'
 
 import _ from 'lodash'
-import set from 'lodash/set'
-import unset from 'lodash/unset'
 
 function initCordova (callback) {
   if (window.cordova !== undefined) {
