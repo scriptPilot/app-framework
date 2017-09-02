@@ -2,6 +2,7 @@
 
 'use strict'
 
+import _ from 'lodash'
 import set from 'lodash/set'
 import unset from 'lodash/unset'
 
@@ -65,11 +66,16 @@ let manageComponentData = {
 }
 let easierGlobalDataObject = {
   computed: {
+    // Legacy support
     $get () {
       return this.$root.data
     }
   },
   methods: {
+    $db (...args) {
+      return this.$root.$db(...args)
+    },
+    // Legacy support
     $save (...args) {
       this.$root.saveData(...args)
     },
@@ -396,25 +402,36 @@ mixins.manageGlobalDataObject = {
   },
   // Methods to add or remove data
   methods: {
+    $db (...args) {
+      // Check arguments
+      if (args.length < 1 || args.length > 2 || typeof args[0] !== 'string') {
+        throw new Error('$db() should have one or two arguments, the first one should be a string')
+      // Read data
+      } else if (args.length === 1) {
+        return _.get(this.data, args[0], undefined)
+      // Write/Remove data
+      } else {
+        // Clone current data
+        const data = _.cloneDeep(this.data)
+        // Update data
+        if (args[1] !== null) {
+          _.set(data, args[0], args[1])
+        // Remove data
+        } else {
+          _.unset(data, args[0])
+        }
+        // Save data to Vue object
+        this.$set(this, 'data', data)
+        // Save data to local storage
+        window.localStorage.data = JSON.stringify(this.data)
+      }
+    },
+    // Legacy support
     saveData: function (path, value) {
-      // Clone current data
-      let data = JSON.parse(JSON.stringify(this.data))
-      // Add value to path
-      data = set(data, path, value)
-      // Update root data object
-      this.$set(this, 'data', data)
-      // Update local storage
-      window.localStorage.data = JSON.stringify(this.data)
+      this.$db(path, value)
     },
     removeData: function (path) {
-      // Clone current data
-      let data = JSON.parse(JSON.stringify(this.data))
-      // Remove path
-      unset(data, path)
-      // Update root data object
-      this.$set(this, 'data', data)
-      // Update local storage
-      window.localStorage.data = JSON.stringify(this.data)
+      this.$db(path, null)
     }
   },
   // Restore local storage

@@ -8,6 +8,20 @@ App Framework provides a global data object for common used data or settings.
 
 The data object will be restored on each application reload and is accessible in any Vue hook `created` or later.
 
+## With App Framework v1.13.2 or later
+
+**Save data**
+- Template: `<f7-button @click="$db('main.sub', 'value')">Save data</f7-button>`
+- Script: `this.$db('main.sub')`
+
+**Get data**
+- Template: `{{$db('main.sub')}}`
+- Script: `this.$db('main.sub')`
+ 
+**Remove data**
+- Template: `<f7-button @click="$db('main.sub', null)">Remove data</f7-button>`
+- Script: `this.$db('main.sub', null)`
+
 ## With App Framework v1.12 or later
 
 **Save data**

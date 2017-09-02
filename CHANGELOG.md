@@ -4,15 +4,27 @@
 
 <br />
 
-### Version 1.13.1
+## Version 1.13.2
 
 Released on 2017-09-02
 
-- [x] [#649 - Use language files for multilingual apps](https://github.com/scriptPilot/app-framework/issues/649) ([read the docs](https://github.com/scriptPilot/app-framework/blob/master/docs/language-files.md))
+### New features
 
-### Version 1.12.1
+- [x] [#649 - Use language files for multilingual apps](https://github.com/scriptPilot/app-framework/issues/649) ([read the docs](docs/language-files.md))
+
+### Bug-fixes
+
+- [x] [#557 - Error on global data sub item request](https://github.com/scriptPilot/app-framework/issues/557)
+
+### Improvements
+
+- [x] Simplified the global data object handling ([read the docs](docs/data-object.md))
+
+## Version 1.12.1
 
 Released on 2017-08-29
+
+### Improvements
 
 - [x] [#644 - Make global data object easier to use](https://github.com/scriptPilot/app-framework/issues/644) ([read the docs](docs/data-object.md))
 
