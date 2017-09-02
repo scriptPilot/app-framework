@@ -14,7 +14,7 @@ Released on 2017-09-02
 
 ### Bug-fixes
 
-- [x] [#557 - Error on global data sub item request](https://github.com/scriptPilot/app-framework/issues/557)
+- [x] [#657 - Error on global data sub item request](https://github.com/scriptPilot/app-framework/issues/657)
 
 ### Improvements
 
