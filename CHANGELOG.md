@@ -10,7 +10,7 @@ Released on 2017-09-04
 
 ### Bug-fixes
 
-- [x] [#660 - App folder structure is not created properly after installation](https://github.com/scriptPilot/app-framework/issues/649)
+- [x] [#660 - App folder structure is not created properly after installation](https://github.com/scriptPilot/app-framework/issues/660)
 
 ## Version 1.13.2
 s
