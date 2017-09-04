@@ -1,5 +1,5 @@
 /**
- * Framework7 Vue 0.9.0
+ * Framework7 Vue 0.9.2
  * Build full featured iOS & Android apps using Framework7 & Vue
  * http://www.framework7.io/vue/
  * 
@@ -9,7 +9,7 @@
  * 
  * Licensed under MIT
  * 
- * Released on: May 23, 2017
+ * Released on: September 4, 2017
  */
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
@@ -758,6 +758,9 @@ var Navbar = {
               backLink: self.backLink,
               sliding: self.sliding,
               backLinkHref: self.backLinkUrl || self.backLinkHref
+            },
+            on: {
+              'back-click': self.onBackClick
             }
           });
         }
@@ -1203,7 +1206,8 @@ var List = {
       'virtual-search-by-item': Function,
       'virtual-search-all': Function,
       'virtual-render-item': Function,
-      'virtual-empty-template': String
+      'virtual-empty-template': String,
+      'virtual-render-external': Function,
     },
     methods: {
       onSortableOpen: function (event) {
@@ -1233,7 +1237,7 @@ var List = {
           template = templateScript[0].outerHTML;
           template = /\<script type="text\/template7"\>(.*)<\/script>/.exec(template)[1];
         }
-        if (!template && !self.virtualRenderItem) { return; }
+        if (!template && !self.virtualRenderItem && !self.virtualRenderExternal) { return; }
         if (template) { template = self.$t7.compile(template); }
 
         self.f7VirtualList = f7.virtualList(self.$el, {
@@ -1247,6 +1251,7 @@ var List = {
           searchByItem: self.virtualSearchByItem,
           searchAll: self.virtualSearchAll,
           renderItem: self.virtualRenderItem,
+          renderExternal: self.virtualRenderExternal,
           emptyTemplate: self.virtualEmptyTemplate,
           onItemBeforeInsert: function (list, item) {
             self.$emit('virtual:itembeforeinsert', list, item);
@@ -1746,9 +1751,10 @@ staticRenderFns: [],
   };
 
 var ListItemSwipeoutButton = {
-render: function(){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('a',{class:_vm.classObject,attrs:{"href":"#"},on:{"click":_vm.onClick}},[_vm._t("default")],2)},
+render: function(){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('a',{class:_vm.classObject,attrs:{"href":"#"},on:{"click":_vm.onClick}},[_vm._t("default",[_vm._v(_vm._s(_vm.text))])],2)},
 staticRenderFns: [],
     props: {
+      'text': String,
       'overswipe': Boolean,
       'close': Boolean,
       'delete': Boolean,
@@ -1810,6 +1816,7 @@ var ListButton = {
       'title': [String, Number],
       'link': [Boolean, String],
       'href': [Boolean, String],
+      'tabindex': [Number, String],
       'external': Boolean,
       'link-external': Boolean,
       'back': Boolean,
@@ -1872,6 +1879,7 @@ var ListButton = {
         if (self.pageName) { ao['data-page-name'] = self.pageName; }
         if (self.template) { ao['data-template'] = self.template; }
         if (self.view) { ao['data-view'] = self.view; }
+        if (self.tabindex) { ao['tabindex'] = self.tabindex; }
 
         function trustyString(s) {
           if (typeof s === 'string' && s !== '') { return true; }
@@ -2401,7 +2409,8 @@ var FormInput = {
         readonly: self.readonly,
         required: self.required,
         color: self.color,
-	      pattern: self.pattern
+	      pattern: self.pattern,
+        tabindex: self.tabindex,
       };
       var on = {
         focus: self.onFocus,
@@ -2511,7 +2520,8 @@ var FormInput = {
       readonly: Boolean,
       required: Boolean,
       inputStyle: String,
-	    pattern: String,
+      pattern: String,
+	    tabindex: [String, Number],
       resizable: Boolean,
 
       // Components
@@ -2776,7 +2786,7 @@ staticRenderFns: [],
       mediaClassObject: function () {
         var c = {};
         if (this.mediaColor) { c['color-' + this.mediaColor] = true; }
-        if (this.mediaBg) { c['color-' + this.mediaBg] = true; }
+        if (this.mediaBg) { c['bg-' + this.mediaBg] = true; }
         return c;
       },
       chipClassObject: function () {
@@ -2960,7 +2970,7 @@ staticRenderFns: [],
       if (this.f7Messages && this.f7Messages.layout && this.autoLayout) {
         this.f7Messages.layout();
       }
-      if (this.f7Messages && this.f7Messages.layout && this.autoLayout) {
+      if (this.f7Messages && this.f7Messages.scrollMessages && this.scrollMessages) {
         this.f7Messages.scrollMessages();
       }
     },
@@ -3466,7 +3476,7 @@ staticRenderFns: [],
   };
 
 var Popup = {
-render: function(){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"popup",class:_vm.classesObject,on:{"popup:open":_vm.onOpen,"popup:opened":_vm.onOpened,"popup:close":_vm.onClose,"popup:closed":_vm.onClosed}},[_vm._t("default")],2)},
+render: function(){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"popup",class:_vm.classesObject,on:{"popup:open":_vm.onOpen,"popup:opened":_vm.onOpened,"popup:close":_vm.onClose,"popup:closed":_vm.onClosed}},[(_vm.opened)?_vm._t("default"):_vm._e()],2)},
 staticRenderFns: [],
     mounted: function () {
       var self = this;
@@ -4122,7 +4132,7 @@ staticRenderFns: [],
     }
   };
 
-var CalendarMixin = {
+var CalendarDatePickerMixin = {
     props: {
       value: [String, Array, Number],
       monthNames: Array,
@@ -4235,7 +4245,7 @@ var CalendarMixin = {
 var DatePicker = {
 render: function(){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"item-input"},[_c('input',{attrs:{"type":"text","name":_vm.name},domProps:{"value":_vm.value}})])},
 staticRenderFns: [],
-    mixins: [CalendarMixin],
+    mixins: [CalendarDatePickerMixin],
     props: {
       name: String,
     },
@@ -4277,7 +4287,7 @@ staticRenderFns: [],
 var Calendar = {
 render: function(){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"calendar-inline"})},
 staticRenderFns: [],
-    mixins: [CalendarMixin],
+    mixins: [CalendarDatePickerMixin],
     methods: {
       onF7Init: function onF7Init(f7) {
         var self = this;
@@ -4714,10 +4724,9 @@ var Framework7Router = function Framework7Router(originalRoutes, framework7, dom
   framework7.params.preroute = function (view, options) {
     var passToVueRouter = true;
 
-    if (initialPreroute) {
+    if (initialPreroute && !options.pageElement) {
       passToVueRouter = initialPreroute(view, options);
     }
-
     if (passToVueRouter) {
       return handleRouteChangeFromFramework7(view, options, this$1.changeRoute.bind(this$1));
     } else {
@@ -4758,6 +4767,7 @@ Framework7Router.prototype.changeRoute = function changeRoute (url, view, option
 Framework7Router.prototype.findMatchingRoute = function findMatchingRoute (url) {
   var matchingRoute;
   if (!url) { return matchingRoute; }
+  url = ""+url; //Insures that the url is of type string so url.split does not crash app in weird situations.
 
   var routes = this.routes;
   var query = this.dom7.parseUrlQuery(url);
