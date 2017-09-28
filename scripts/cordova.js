@@ -435,8 +435,12 @@ deployDevRules(function () {
                     alert('iOS emulator started.')
                   })
                 } else if (env.arg.xcode === true) {
-                  alert('Xcode start ongoing - please wait ...')
-                  cmd(__dirname, 'open -a Xcode "' + abs(binDir, 'platforms/ios', env.cfg.title + '.xcodeproj') + '"', function () {
+                  alert('Xcode start ongoing - please wait !!! ...')
+                  let iosProjectPath = abs(binDir, 'platforms/ios', env.cfg.title + '')
+                  let xcworkspacePath = iosProjectPath + '.xcworkspace'
+                  let xcodeprojPath = iosProjectPath + '.xcodeproj'
+                  let xcodeFileToOpen = (fs.existsSync(xcworkspacePath)) ? xcworkspacePath : xcodeprojPath
+                  cmd(__dirname, 'open -a Xcode "' + xcodeFileToOpen + '"', function () {
                     alert('Xcode started.')
                   })
                 } else if (env.arg.android === true) {

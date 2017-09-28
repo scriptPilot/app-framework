@@ -4,6 +4,14 @@
 
 <br />
 
+## Version 1.13.4
+
+Released on 2017-09-25
+
+### Bug-fixes
+
+- [x] [#668 - npm run xcode : should open .xcworkspace if exists](https://github.com/scriptPilot/app-framework/issues/668)
+
 ## Version 1.13.3
 
 Released on 2017-09-04
