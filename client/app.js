@@ -421,7 +421,11 @@ mixins.manageGlobalDataObject = {
         // Save data to Vue object
         this.$set(this, 'data', data)
         // Save data to local storage
-        window.localStorage.data = JSON.stringify(this.data)
+        if (window.cordova) {
+          window.NativeStorage.setItem('data', data)
+        } else {
+          window.localStorage.data = JSON.stringify(this.data)
+        }
       }
     },
     // Legacy support
@@ -434,7 +438,16 @@ mixins.manageGlobalDataObject = {
   },
   // Restore local storage
   created: function () {
-    this.data = window.localStorage.data !== undefined ? JSON.parse(window.localStorage.data) : {}
+    if (window.cordova) {
+      const self = this
+      window.NativeStorage.getItem('data', function (data) {
+        self.data = data
+      }, function () {
+        self.data = {}
+      })
+    } else {
+      this.data = window.localStorage.data !== undefined ? JSON.parse(window.localStorage.data) : {}
+    }
   }
 }
 mixins.appMode = {

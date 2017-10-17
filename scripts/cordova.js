@@ -354,6 +354,9 @@ let installCordovaPlugins = function (callback, pluginList) {
     if (pluginList.indexOf('cordova-plugin-statusbar') === -1) {
       pluginList.push('cordova-plugin-statusbar')
     }
+    if (pluginList.indexOf('cordova-plugin-nativestorage') === -1) {
+      pluginList.push('cordova-plugin-nativestorage')
+    }
   }
   if (Array.isArray(pluginList) && pluginList.length > 0) {
     let nextPlugin = pluginList.shift()
