@@ -2,7 +2,13 @@
 
 > This page is part of the [App Framework Documentation](DOCUMENTATION.md)
 
-<br />
+## Version 1.13.4
+
+Released on 2017-10-18
+
+### New features
+
+- [x] [#243 - Use persistent storage for files and data](https://github.com/scriptPilot/app-framework/issues/243)
 
 ## Version 1.13.3
 
