@@ -8,7 +8,7 @@ Released on 2017-10-18
 
 ### New features
 
-- [x] [#243 - Use persistent storage for files and data](https://github.com/scriptPilot/app-framework/issues/243)
+- [x] [#243 - Use persistent storage for data](https://github.com/scriptPilot/app-framework/issues/243)
 
 ## Version 1.13.3
 
