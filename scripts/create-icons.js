@@ -39,6 +39,7 @@ let icons = [
   ['android-chrome', 192, 192],
   ['android-chrome', 512, 512],
   ['mstile', 150, 150],
+  ['ios-icon', 1024, 1024, true],
   ['ios-icon', 180, 180, true],
   ['ios-icon', 167, 167, true],
   ['ios-icon', 152, 152, true],

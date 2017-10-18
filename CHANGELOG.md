@@ -2,9 +2,13 @@
 
 > This page is part of the [App Framework Documentation](DOCUMENTATION.md)
 
-## Version 1.14.0
+## Version 1.14.1
 
 Released on 2017-10-18
+
+### Bug-fixes
+
+- [x] [#675 - Missing iOS Marketing Icon](https://github.com/scriptPilot/app-framework/issues/675)
 
 ### New features
 
