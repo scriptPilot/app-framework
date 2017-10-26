@@ -23,7 +23,7 @@ Develop your application:s
 - Comprehensive icon fonts like [FontAwesome](http://fontawesome.io/), [Framework7](http://framework7.io/icons/), [Ion](http://ionicons.com/) and [Material Icons](https://material.io/icons/) out of the box
 - Well prepared to use [Firebase authentication](https://firebase.google.com/products/auth/), [realtime database](https://firebase.google.com/products/database/) and [storage services](https://firebase.google.com/products/storage/)
 - State kept for history, tabs, scroll positions, focus, panels, modals, form inputs and page component data
-- Global data object to use the same data and setting across your whole application
+- Global persistent data object to use the same data and setting across your whole application
 - [Flexible routing](http://framework7.io/vue/navigation-router.html) with dynamic, nesting and login protection
 - Offline capability, image preloading and multi-language support out of the box
 
