@@ -1,6 +1,6 @@
 # Changelog
 
-> This page is part of the [App Framework Documentation](DOCUMENTATION.md)
+> This page is part of the [App Framework Documentation](DOCUMENTATION.md) ([read the docs](https://github.com/scriptPilot/app-framework/blob/master/docs/extend-vue-root-object.md))
 
 ## Version 1.15.0
 
