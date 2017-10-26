@@ -82,8 +82,8 @@ let checkFolders = function (buildFolder, callback) {
     alert('Build folder not found.', 'error')
   } else if (!found(buildFolder, 'database-rules.json')) {
     alert('File "database-rules.json" not found in build folder.', 'error')
-  } else if (!found(buildFolder, 'storage-rules.txt')) {
-    alert('File "storage-rules.txt" not found in build folder.', 'error')
+  } else if (!found(buildFolder, 'firebase-storage.txt')) {
+    alert('File "firebase-storage.txt" not found in build folder.', 'error')
   } else {
     callback()
   }
@@ -92,9 +92,9 @@ let prepareFiles = (buildFolder, callback) => {
   alert('Firebase deployment preparation ongoing - please wait ...')
   try {
     // Correct storage bucket in database rules
-    let rules = fs.readFileSync(abs(buildFolder, 'storage-rules.txt'), 'utf8')
+    let rules = fs.readFileSync(abs(buildFolder, 'firebase-storage.txt'), 'utf8')
     rules = rules.replace(/match \/b\/(.+?)\/o {/, 'match /b/' + (cfg.storageBucket !== '' ? cfg.storageBucket : '<your-storage-bucket>') + '/o {')
-    fs.writeFileSync(abs(buildFolder, 'storage-rules.txt'), rules)
+    fs.writeFileSync(abs(buildFolder, 'firebase-storage.txt'), rules)
     // Reset build folder in firebase
     fs.removeSync(abs(binFolder, 'build'))
     if (env.arg.hosting === true) {
@@ -104,7 +104,7 @@ let prepareFiles = (buildFolder, callback) => {
       fs.copy(abs(buildFolder, 'database-rules.json'), abs(binFolder, 'build/database-rules.json'))
     }
     if (env.arg.hosting !== true && env.arg.storage === true) {
-      fs.copy(abs(buildFolder, 'storage-rules.txt'), abs(binFolder, 'build/storage-rules.txt'))
+      fs.copy(abs(buildFolder, 'firebase-storage.txt'), abs(binFolder, 'build/firebase-storage.txt'))
     }
     callback()
   } catch (err) {
@@ -132,7 +132,7 @@ let updateConfigFiles = (callback) => {
     }
     if (env.arg.storage === true) {
       config.storage = {
-        rules: join('build', 'storage-rules.txt')
+        rules: join('build', 'firebase-storage.txt')
       }
     }
     if (env.arg.hosting === true) {

@@ -14,9 +14,9 @@ The following project folder will be created by default:
 │   ├── app.vue                 # App main component
 │   ├── config.js               # App configuration
 │   ├── database-rules.json     # Firebase database rules
+│   ├── firebase-storage.txt    # Firebase storage rules
 │   ├── icon.png                # App icon file (minimum size is 1024 pixel)
-│   ├── routes.json             # App routes configuration
-│   └── storage-rules.txt       # Firebase storage rules
+│   └── routes.json             # App routes configuration
 ├── build/                      # Latest build files (created after first build, do not modify)
 ├── design/                     # Design templates (PDF, Power Point)
 ├── node_modules/               # Installed node modules (do not modify)

@@ -167,11 +167,11 @@ let copyFirebaseFiles = function (callback) {
     } else {
       try {
         // Correct storage bucket in database rules (with prod info only)
-        let rules = fs.readFileSync(abs(env.app, 'storage-rules.txt'), 'utf8')
+        let rules = fs.readFileSync(abs(env.app, 'firebase-storage.txt'), 'utf8')
         rules = rules.replace(/match \/b\/(.+?)\/o {/, 'match /b/' + (env.cfg.firebase.storageBucket !== '' ? env.cfg.firebase.storageBucket : '<your-storage-bucket>') + '/o {')
-        fs.writeFileSync(abs(env.app, 'storage-rules.txt'), rules)
+        fs.writeFileSync(abs(env.app, 'firebase-storage.txt'), rules)
         // Copy file
-        fs.copySync(abs(env.app, 'storage-rules.txt'), abs(env.cache, 'build/storage-rules.txt'))
+        fs.copySync(abs(env.app, 'firebase-storage.txt'), abs(env.cache, 'build/firebase-storage.txt'))
         // Alert
         alert('Firebase files update done.')
         callback()

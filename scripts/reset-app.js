@@ -79,7 +79,7 @@ let createStorageRules = function (callback) {
               '    }\n' +
               '  }\n' +
               '}\n'
-  fs.writeFile(abs(dest, 'storage-rules.txt'), rules, function (err) {
+  fs.writeFile(abs(dest, 'firebase-storage.txt'), rules, function (err) {
     if (!err) {
       alert('Created default storage rules.')
       callback()
