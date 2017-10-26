@@ -1212,6 +1212,8 @@ function initF7VueApp () {
   }
   // Get local mixins as array
   let useMixins = Object.keys(mixins).map(mixin => mixins[mixin])
+  // Load custom vue script
+  vue = process.env.CUSTOM_VUE_SCRIPT === 'true' ? require(process.env.APP_ROOT_FROM_SCRIPTS + 'vue.js')(vue) : vue
   // Init Framework7-Vue application
   new vue({ // eslint-disable-line
     // Define root element

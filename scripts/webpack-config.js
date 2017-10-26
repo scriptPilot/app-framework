@@ -5,6 +5,7 @@
 // Load modules
 const env = require('./env')
 const alert = require('./alert')
+const found = require('./found')
 const fs = require('fs-extra')
 const abs = require('path').resolve
 const path = require('path')
@@ -178,7 +179,8 @@ let createConfiguration = function (mode) {
         RESET_LOCAL_STORAGE: '"' + env.cfg.resetLocalStorageOnVersionChange + '"',
         NODE_ENV: '"' + mode + '"',
         FIREBASE_CONFIG: '"' + firebaseConfigSource + '"',
-        LANGUAGES: '"' + languages.join(',') + '"'
+        LANGUAGES: '"' + languages.join(',') + '"',
+        CUSTOM_VUE_SCRIPT: '"' + found(env.app, 'vue.js') + '"'
       }
     })
   )

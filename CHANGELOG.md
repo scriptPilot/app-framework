@@ -2,6 +2,12 @@
 
 > This page is part of the [App Framework Documentation](DOCUMENTATION.md)
 
+## Next release
+
+### New features
+
+- [x] [#593 - Make it possible to edit root vue component](https://github.com/scriptPilot/app-framework/issues/593)
+
 ## Version 1.14.7
 
 Released on 2017-10-18
