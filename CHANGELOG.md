@@ -1,12 +1,12 @@
 # Changelog
 
-> This page is part of the [App Framework Documentation](DOCUMENTATION.md) ([read the docs](https://github.com/scriptPilot/app-framework/blob/master/docs/extend-vue-root-object.md))
+> This page is part of the [App Framework Documentation](DOCUMENTATION.md)
 
 ## Version 1.15.0
 
 ### New features
 
-- [x] [#593 - Make it possible to edit root vue component](https://github.com/scriptPilot/app-framework/issues/593)
+- [x] [#593 - Make it possible to edit root vue component](https://github.com/scriptPilot/app-framework/issues/593) ([read the docs](https://github.com/scriptPilot/app-framework/blob/master/docs/extend-vue-root-object.md))
 
 ## Version 1.14.7
 
