@@ -8,7 +8,6 @@
 
 // Include modules
 let env = require('./env')
-let abs = require('./abs')
 let alert = require('./alert')
 let found = require('./found')
 let fs = require('fs-extra')
@@ -44,11 +43,11 @@ if (env.installed) {
     }
     // Rename storage-rules.txt
     if (found(env.app, 'storage-rules.txt') && !found(env.app, 'firebase-storage.txt')) {
-      fs.renameSync(abs(env.app, 'storage-rules.txt'), abs(env.app, 'firebase-storage.txt'))
+      fs.renameSync(path.resolve(env.app, 'storage-rules.txt'), path.resolve(env.app, 'firebase-storage.txt'))
     }
     // Rename database-rules.json
     if (found(env.app, 'database-rules.json') && !found(env.app, 'firebase-database.json')) {
-      fs.renameSync(abs(env.app, 'database-rules.json'), abs(env.app, 'firebase-database.json'))
+      fs.renameSync(path.resolve(env.app, 'database-rules.json'), path.resolve(env.app, 'firebase-database.json'))
     }
     // Alert
     alert('Release modifications of v1.6+ done.')
