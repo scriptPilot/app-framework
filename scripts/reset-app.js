@@ -61,7 +61,7 @@ let createDatabaseRules = function (callback) {
       '.write': 'auth != null'
     }
   }
-  fs.writeJson(abs(dest, 'database-rules.json'), rules, function (err) {
+  fs.writeJson(abs(dest, 'firebase-database.json'), rules, function (err) {
     if (!err) {
       alert('Created default database rules.')
       callback()

@@ -161,9 +161,9 @@ let manageIcons = function (callback) {
 // Step: Copy Firebase files
 let copyFirebaseFiles = function (callback) {
   alert('Firebase files update ongoing - please wait ...')
-  fs.copy(abs(env.app, 'database-rules.json'), abs(env.cache, 'build/database-rules.json'), err => {
+  fs.copy(abs(env.app, 'firebase-database.json'), abs(env.cache, 'build/firebase-database.json'), err => {
     if (err) {
-      alert('Failed to copy "database-rules.json" file.', 'issue')
+      alert('Failed to copy "firebase-database.json" file.', 'issue')
     } else {
       try {
         // Correct storage bucket in database rules (with prod info only)
@@ -176,7 +176,7 @@ let copyFirebaseFiles = function (callback) {
         alert('Firebase files update done.')
         callback()
       } catch (err) {
-        alert('Failed copy "database-rules.json" file.', 'issue')
+        alert('Failed copy "firebase-database.json" file.', 'issue')
       }
     }
   })

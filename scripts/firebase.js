@@ -80,8 +80,8 @@ let defineBuildFolder = function (callback) {
 let checkFolders = function (buildFolder, callback) {
   if (!found(buildFolder)) {
     alert('Build folder not found.', 'error')
-  } else if (!found(buildFolder, 'database-rules.json')) {
-    alert('File "database-rules.json" not found in build folder.', 'error')
+  } else if (!found(buildFolder, 'firebase-database.json')) {
+    alert('File "firebase-database.json" not found in build folder.', 'error')
   } else if (!found(buildFolder, 'firebase-storage.txt')) {
     alert('File "firebase-storage.txt" not found in build folder.', 'error')
   } else {
@@ -101,7 +101,7 @@ let prepareFiles = (buildFolder, callback) => {
       fs.copy(buildFolder, abs(binFolder, 'build'))
     }
     if (env.arg.hosting !== true && env.arg.database === true) {
-      fs.copy(abs(buildFolder, 'database-rules.json'), abs(binFolder, 'build/database-rules.json'))
+      fs.copy(abs(buildFolder, 'firebase-database.json'), abs(binFolder, 'build/firebase-database.json'))
     }
     if (env.arg.hosting !== true && env.arg.storage === true) {
       fs.copy(abs(buildFolder, 'firebase-storage.txt'), abs(binFolder, 'build/firebase-storage.txt'))
@@ -127,7 +127,7 @@ let updateConfigFiles = (callback) => {
     let config = {}
     if (env.arg.database === true) {
       config.database = {
-        rules: join('build', 'database-rules.json')
+        rules: join('build', 'firebase-database.json')
       }
     }
     if (env.arg.storage === true) {

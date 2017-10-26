@@ -45,6 +45,10 @@ if (env.installed) {
     if (found(env.app, 'storage-rules.txt') && !found(env.app, 'firebase-storage.txt')) {
       fs.renameSync(abs(env.app, 'storage-rules.txt'), abs(env.app, 'firebase-storage.txt'))
     }
+    // Rename database-rules.json
+    if (found(env.app, 'database-rules.json') && !found(env.app, 'firebase-database.json')) {
+      fs.renameSync(abs(env.app, 'database-rules.json'), abs(env.app, 'firebase-database.json'))
+    }
     // Alert
     alert('Release modifications of v1.6+ done.')
   })

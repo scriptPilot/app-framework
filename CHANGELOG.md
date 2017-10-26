@@ -2,6 +2,13 @@
 
 > This page is part of the [App Framework Documentation](DOCUMENTATION.md)
 
+## Next version
+
+### Improvements
+
+- [x] [#572 - Rename database-rules.json to firebase-database.json](https://github.com/scriptPilot/app-framework/issues/572)
+- [x] [#573 - Rename storage-rules.txt to firebase-storage.txt](https://github.com/scriptPilot/app-framework/issues/573)
+
 ## Version 1.15.0
 
 Released on 2017-10-26

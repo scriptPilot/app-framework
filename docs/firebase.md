@@ -45,4 +45,4 @@ devFirebase: {
 }
 ```
 
-If you set `deployDevRulesOnTesting: true`, on each test command (`npm run dev`, `npm run ios` and `npm run android`), the *database-rules.json* and *firebase-storage.txt* files are deployed to your devFirebase project.
+If you set `deployDevRulesOnTesting: true`, on each test command (`npm run dev`, `npm run ios` and `npm run android`), the *firebase-database.json* and *firebase-storage.txt* files are deployed to your devFirebase project.

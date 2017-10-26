@@ -13,7 +13,7 @@ The following project folder will be created by default:
 │   ├── pages/                  # App page components
 │   ├── app.vue                 # App main component
 │   ├── config.js               # App configuration
-│   ├── database-rules.json     # Firebase database rules
+│   ├── firebase-database.json  # Firebase database rules
 │   ├── firebase-storage.txt    # Firebase storage rules
 │   ├── icon.png                # App icon file (minimum size is 1024 pixel)
 │   └── routes.json             # App routes configuration
