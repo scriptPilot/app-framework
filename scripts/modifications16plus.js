@@ -8,6 +8,7 @@
 
 // Include modules
 let env = require('./env')
+let abs = require('./abs')
 let alert = require('./alert')
 let found = require('./found')
 let fs = require('fs-extra')
