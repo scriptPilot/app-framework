@@ -4,6 +4,10 @@
 
 ## Next version
 
+### New Features
+
+- [x] [#628 - Overriding StandardJS rules](https://github.com/scriptPilot/app-framework/issues/628) ([read the docs](https://github.com/scriptPilot/app-framework/blob/master/docs/eslint.md))
+
 ### Improvements
 
 - [x] [#572 - Rename database-rules.json to firebase-database.json](https://github.com/scriptPilot/app-framework/issues/572)

@@ -176,6 +176,20 @@
     "type": "boolean",
     "default": false
   },
+  "eslint": {
+    "props": {
+      "extends": {
+        "allow": ["airbnb", "standard"],
+        "default": "airbnb"
+      },
+      "rules": {
+        "type": "object",
+        "default": {
+          "semi": ["error", "never"]
+        }
+      }
+    }
+  },
   "fixCodeOnTest": {
     "type": "boolean",
     "default": true

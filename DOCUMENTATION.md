@@ -38,6 +38,7 @@ For any open question, feature request or bug, please use our [issue list](https
   - [Application style](docs/application-style.md)
   - [Status bar style](docs/status-bar-style.md)
 - [Test your application](docs/test.md)
+  - [Configure ESLint code checks](docs/eslint.md)
 - [Build your application](docs/build.md)
 - [Deploy your application](docs/deploy.md)
 - [Backup your project](docs/backup.md)

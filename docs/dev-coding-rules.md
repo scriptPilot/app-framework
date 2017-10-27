@@ -84,9 +84,9 @@ let names = 'everything but no array' /* test */
 ...
 ```
 
-## Standard JavaScript
+## Airbnb JavaScript rules
 
-All code is checked according [Standard JS rules](http://standardjs.com/) before each build.
+All code is checked according [Airbnb JavaScript rules](https://github.com/airbnb/javascript) (but without semicolons) before each build.
 
 ## Naming in code
 

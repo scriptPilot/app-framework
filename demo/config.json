@@ -54,6 +54,10 @@
   "resetLocalStorageOnVersionChange": false,
   "preloadImages": true,
   "buildSourcemaps": false,
+  "eslint": {
+    "extends": "standard",
+    "rules": {}
+  },
   "fixCodeOnTest": true,
   "fixCodeOnBuild": true,
   "devServerPort": "8080"

@@ -17,7 +17,8 @@ const gitIgnore = {
   'log files': '*.log*',
   'zip files (deprecated)': '*.zip',
   'database backups (deprecated)': 'database-backup.json',
-  'FTP config file': 'ftp-config.json'
+  'FTP config file': 'ftp-config.json',
+  'ESLint configuration file': '.eslintrc'
 }
 
 const npmIgnore = JSON.parse(JSON.stringify(gitIgnore))

@@ -30,3 +30,6 @@ database-backup.json
 # Exclude FTP config file
 ftp-config.json
 
+# Exclude ESLint configuration file
+.eslintrc
+
