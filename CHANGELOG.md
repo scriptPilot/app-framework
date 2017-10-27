@@ -8,6 +8,7 @@
 
 - [x] [#572 - Rename database-rules.json to firebase-database.json](https://github.com/scriptPilot/app-framework/issues/572)
 - [x] [#573 - Rename storage-rules.txt to firebase-storage.txt](https://github.com/scriptPilot/app-framework/issues/573)
+- [x] [#683 - Make Firebase shortlink available in each component](https://github.com/scriptPilot/app-framework/issues/683) ([read the docs](https://github.com/scriptPilot/app-framework/blob/master/docs/firebase.md))
 
 ## Version 1.15.0
 

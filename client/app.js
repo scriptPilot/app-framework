@@ -89,6 +89,25 @@ let easierLanguagePattern = {
     }
   }
 }
+let easierFirebase = {
+  computed: {
+    // Authentication
+    $fireAuth() {
+      return window.firebase && window.firebase.auth ? window.firebase.auth : null
+    },
+    $user() {
+      return this.$root.user
+    },
+    // Realtime Database
+    $fireDB() {
+      return window.firebase && window.firebase.database ? (ref) => { return window.firebase.database().ref(ref) } : null
+    },
+    // Cloud Storage
+    $fireStore() {
+      return window.firebase && window.firebase.storage ? (ref) => { return window.firebase.storage().ref(ref) } : null
+    },
+  }
+}
 
 let mixins = {}
 mixins.loadConfig = {
@@ -1207,6 +1226,7 @@ function initF7VueApp () {
   // Use global mixins
   vue.mixin(easierGlobalDataObject)
   vue.mixin(easierLanguagePattern)
+  vue.mixin(easierFirebase)
   if (config.restoreComponentData) {
     vue.mixin(manageComponentData)
   }
