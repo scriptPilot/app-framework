@@ -28,7 +28,9 @@ useIconFonts | *object* |
 &nbsp;&nbsp;&nbsp;fontawesome | *boolean* | false
 limitApplicationWidth | /^[0-9]+$/ | 320
 limitApplicationHeight | /^[0-9]+$/ | 570
+limitedSizeBodyBackgroundColor | /^#[0-9a-f]{6}$/i | #333333
 showPhoneFrameOnDesktop | *boolean* | true
+phoneFrameBodyBackgroundColor | /^#[0-9a-f]{6}$/i | #fafafa
 framework7parameters | *object* | {}
 materialSubnavbarFix | *boolean* | true
 restoreHistory | *boolean* | true
