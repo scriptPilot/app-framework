@@ -8,6 +8,7 @@ Released on 2017-10-27
 
 ### New Features
 
+- [x] [#591 - Allow custom preroutes or more options for permissions based viewing](https://github.com/scriptPilot/app-framework/issues/591)
 - [x] [#628 - Overriding StandardJS rules](https://github.com/scriptPilot/app-framework/issues/628) ([read the docs](https://github.com/scriptPilot/app-framework/blob/master/docs/eslint.md))
 - [x] [#679 - Option to change body background color with phone frame / limited application size](https://github.com/scriptPilot/app-framework/issues/679) ([read the docs](https://github.com/scriptPilot/app-framework/blob/master/docs/application-style.md))
 
