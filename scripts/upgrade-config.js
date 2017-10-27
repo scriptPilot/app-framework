@@ -78,6 +78,13 @@ module.exports = function (appRoot) {
       }
       // To 1.13
       if (cfg.language && !cfg.defaultLanguage) cfg.defaultLanguage = cfg.language
+      // To 1.16
+      if (!cfg.eslint) {
+        cfg.eslint = {
+          extends: 'standard',
+          rules: {}
+        }
+      }
       // Write config
       fs.writeJsonSync(path.resolve(appRoot, 'config.json'), cfg)
     } catch (err) {
