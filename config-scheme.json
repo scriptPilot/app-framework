@@ -156,6 +156,10 @@
       }
     }
   },
+  "loginRequiredForAllPages": {
+    "type": "boolean",
+    "default": false
+  },
   "appStoreId": {
     "type": "string"
   },

@@ -1,4 +1,4 @@
- # Routing
+# Routing
 
 > This page is part of the [App Framework Documentation](../DOCUMENTATION.md)
 
@@ -28,31 +28,31 @@ As an example, if you have the following page components:
 
 ```
 {
-  "path": "/tabs/",
-  "component": "tabs.vue",
-  "tabs": [
-    {
-      "path": "/tab1/",
-      "tabId": "tab1",
-      "component": "tabs_tab1.vue"
-    },
-    {
-      "path": "/tab2/",
-      "tabId": "tab2",
-      "component": "tabs_tab2.vue",
-      "routes": [
-        {
-          "path": "/alternate/",
-          "component": "tabs_tab2_alternate.vue"
-        }
-      ]
-    },
-    {
-      "path": "/tab3/",
-      "tabId": "tab3",
-      "component": "tabs_tab3.vue"
-    }
-  ]
+ "path": "/tabs/",
+ "component": "tabs.vue",
+ "tabs": [
+   {
+     "path": "/tab1/",
+     "tabId": "tab1",
+     "component": "tabs_tab1.vue"
+   },
+   {
+     "path": "/tab2/",
+     "tabId": "tab2",
+     "component": "tabs_tab2.vue",
+     "routes": [
+       {
+         "path": "/alternate/",
+         "component": "tabs_tab2_alternate.vue"
+       }
+     ]
+   },
+   {
+     "path": "/tab3/",
+     "tabId": "tab3",
+     "component": "tabs_tab3.vue"
+   }
+ ]
 }
 ```
 
@@ -60,8 +60,8 @@ For dynamic routes, you have to add them manually to the *routes.json* file. Exa
 
 ```
 {
-  "path": "/flexible-routing/blog/:blogId/post/:postId/",
-  "component": "flexible-routing.vue"
+ "path": "/flexible-routing/blog/:blogId/post/:postId/",
+ "component": "flexible-routing.vue"
 }
 ```
 
@@ -69,31 +69,35 @@ To protect routes and require user authentication before, just add `login: true`
 
 ```
 {
-  "path": "/tabs/",
-  "component": "tabs.vue",
-  "login": true,
-  "tabs": [
-    {
-      "path": "/tab1/",
-      "tabId": "tab1",
-      "component": "tabs_tab1.vue"
-    },
-    {
-      "path": "/tab2/",
-      "tabId": "tab2",
-      "component": "tabs_tab2.vue",
-      "login": true
-    },
-    {
-      "path": "/tab3/",
-      "tabId": "tab3",
-      "component": "tabs_tab3.vue"
-    }
-  ]
+ "path": "/tabs/",
+ "component": "tabs.vue",
+ "login": true,
+ "tabs": [
+   {
+     "path": "/tab1/",
+     "tabId": "tab1",
+     "component": "tabs_tab1.vue"
+   },
+   {
+     "path": "/tab2/",
+     "tabId": "tab2",
+     "component": "tabs_tab2.vue",
+     "login": true
+   },
+   {
+     "path": "/tab3/",
+     "tabId": "tab3",
+     "component": "tabs_tab3.vue"
+   }
+ ]
 }
 ```
 
 In the example above, */tabs/* and */tabs/tab2/* require login, */tabs/tab1/* and */tabs/tab3/* not.
+
+## Login protection for all pages
+
+You can enable login protection for all pages in the *app/config.json* file with `loginRequiredForAllPages: true`.
 
 ## Workarounds
 

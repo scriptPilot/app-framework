@@ -192,10 +192,10 @@ mixins.loadRoutes = {
     // Add preroute function for login-requiring pages to Framework7
     if (this.loginRoutes.length > 0) {
       this.$options.framework7.preroute = (view, options) => {
-        if (this.user !== null || options.isBack === true || options.url === undefined) {
+        if (this.user !== null || options.isBack === true || options.url === undefined || options.url === '/app-framework-login-screen/') {
           return true
         } else {
-          if (this.urlRequiresLogin(options.url)) {
+          if (this.$root.config.loginRequiredForAllPages || this.urlRequiresLogin(options.url)) {
             window.localStorage.requestedView = view.selector
             window.localStorage.requestedUrl = options.url
             view.router.load({url: '/app-framework-login-screen/'})

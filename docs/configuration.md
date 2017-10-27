@@ -53,6 +53,7 @@ devFirebase | *object* |
 &nbsp;&nbsp;&nbsp;projectId | *string* |
 &nbsp;&nbsp;&nbsp;allowEmailLogin | *boolean* | false
 &nbsp;&nbsp;&nbsp;allowEmailRegistration | *boolean* | false
+loginRequiredForAllPages | *boolean* | false
 appStoreId | *string* |
 playStoreId | *string* |
 useCordovaPlugins | *array* | []
