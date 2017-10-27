@@ -45,3 +45,9 @@ devFirebase: {
 ```
 
 If you set `deployDevRulesOnTesting: true`, on each test command (`npm run dev`, `npm run ios` and `npm run android`), the *firebase-database.json* and *firebase-storage.txt* files are deployed to your devFirebase project.
+
+## Firebase sign out
+
+Please read the official Firebase documentation for more information. As quick info how to sign out a user:
+
+`<f7-button @click="$fireAuth().signOut()">Sign out</f7-button>`
