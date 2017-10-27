@@ -6,7 +6,7 @@
 
 In some cases you want to extend the Vue or Framework7 root object. To make App Framework easier for most of the users, the root object is handled in the background. But for advanced users, there is a simple way to extend the root object.
 
-All you have to do, is to create a *app/vue.js* file, which exports a function with one parameter (the Vue object) and returns the modified Vue object:
+All you have to do, is to create a ***app/vue.js*** file, which exports a function with one parameter (the Vue object) and returns the modified Vue object:
 
 ```
 module.exports = (vue) => {
@@ -24,7 +24,7 @@ module.exports = (vue) => {
 
 App Frameworks detects that file automatically, there is no need for further configuration.
 
-After creating or deleting the *vue.js* file, you have to run again `npm run dev` to update the dev server.
+After creating or deleting the *app/vue.js* file, you have to run again `npm run dev` to update the dev server.
 
 ## Overwrite Framework7 options
 
