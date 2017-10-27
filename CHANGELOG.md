@@ -2,7 +2,9 @@
 
 > This page is part of the [App Framework Documentation](DOCUMENTATION.md)
 
-## Next version
+## Version 1.16.0
+
+Released on 2017-10-27
 
 ### New Features
 
