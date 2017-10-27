@@ -2,17 +2,14 @@
 
 > This page is part of the [App Framework Documentation](DOCUMENTATION.md)
 
-## Next version
-
-- [x] [#679 - Option to change body background color with phone frame / limited application size](https://github.com/scriptPilot/app-framework/issues/679)
-
-## Version 1.16.2
+## Version 1.16.3
 
 Released on 2017-10-27
 
 ### New Features
 
 - [x] [#628 - Overriding StandardJS rules](https://github.com/scriptPilot/app-framework/issues/628) ([read the docs](https://github.com/scriptPilot/app-framework/blob/master/docs/eslint.md))
+- [x] [#679 - Option to change body background color with phone frame / limited application size](https://github.com/scriptPilot/app-framework/issues/679)
 
 ### Improvements
 
