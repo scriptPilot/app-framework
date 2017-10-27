@@ -97,5 +97,7 @@ In the example above, */tabs/* and */tabs/tab2/* require login, */tabs/tab1/* an
 
 ## Workarounds
 
+To solve Framework7 / Framework7-Vue behavior:
+
 - Load two flexible routes after another: https://github.com/scriptPilot/app-framework/issues/597
-- Multiple instances of components get created with non-linear navigation: https://github.com/scriptPilot/app-framework/issues/632
+- Avoid multiple pages in DOM with non-linear navigation: https://github.com/scriptPilot/app-framework/issues/632
