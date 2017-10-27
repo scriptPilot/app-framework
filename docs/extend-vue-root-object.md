@@ -31,25 +31,28 @@ After creating or deleting the *vue.js* file, you have to run again `npm run dev
 In this file you can modify the [Framework7 initialization parameters](http://framework7.io/docs/init-app.html) as well. As an example, we overwrite the `preroute()` function.
 
 ```
-// Export function with Vue object as argument
 module.exports = (vue) => {
-  // Add mixin
+
+  // Add modification as mixin with created() hook
   vue.mixin({
-    // Add created() hook
     created() {
-      // Apply only for root element
+    
+      // Check for root element
       if (this === this.$root) {
+      
         // Overwrite Framework7 preroute
         this.$options.framework7.preroute = (view, options) => {
-          // Log view and options
           console.log(view)
           console.log(options)
-          // Stop further page load
+          console.log('No further page load now ...')
           return false
         }
+        
       }
-    },
+      
+    }
   })
+  
   return vue
 }
 ```
