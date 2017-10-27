@@ -92,20 +92,20 @@ let easierLanguagePattern = {
 let easierFirebase = {
   computed: {
     // Authentication
-    $fireAuth() {
+    $fireAuth () {
       return window.firebase && window.firebase.auth ? window.firebase.auth : null
     },
-    $user() {
+    $user () {
       return this.$root.user
     },
     // Realtime Database
-    $fireDB() {
+    $fireDB () {
       return window.firebase && window.firebase.database ? (ref) => { return window.firebase.database().ref(ref) } : null
     },
     // Cloud Storage
-    $fireStore() {
+    $fireStore () {
       return window.firebase && window.firebase.storage ? (ref) => { return window.firebase.storage().ref(ref) } : null
-    },
+    }
   }
 }
 
