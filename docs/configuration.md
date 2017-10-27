@@ -58,6 +58,9 @@ cordovaPreferences | *object* | {"DisallowOverscroll":true}
 resetLocalStorageOnVersionChange | *boolean* | false
 preloadImages | *boolean* | true
 buildSourcemaps | *boolean* | false
+eslint | *object* |
+&nbsp;&nbsp;&nbsp;extends | airbnb, standard | airbnb
+&nbsp;&nbsp;&nbsp;rules | *object* | {"semi":["error","never"]}
 fixCodeOnTest | *boolean* | true
 fixCodeOnBuild | *boolean* | true
 devServerPort | /^[0-9]{4}$/ | 8080

@@ -56,7 +56,7 @@ if (found(proj, 'package.json')) {
   // Remove .gitattributes
   fs.remove(abs(proj, '.gitattributes'))
 
-    // Move app.vue
+  // Move app.vue
   if (!found(proj, 'app/app.vue') && found(proj, 'app.vue')) {
     fs.copySync(abs(proj, 'app.vue'), abs(proj, 'app/app.vue'))
     if (abs(proj, 'app/app.vue')) {
@@ -64,7 +64,7 @@ if (found(proj, 'package.json')) {
     }
   }
 
-    // Move database-rules.json
+  // Move database-rules.json
   if (!found(proj, 'app/database-rules.json') && found(proj, 'database-rules.json')) {
     fs.copySync(abs(proj, 'database-rules.json'), abs(proj, 'app/database-rules.json'))
     if (abs(proj, 'app/database-rules.json')) {
@@ -72,7 +72,7 @@ if (found(proj, 'package.json')) {
     }
   }
 
-    // Move storage-rules.txt
+  // Move storage-rules.txt
   if (!found(proj, 'app/storage-rules.txt') && found(proj, 'storage-rules.txt')) {
     fs.copySync(abs(proj, 'storage-rules.txt'), abs(proj, 'app/storage-rules.txt'))
     if (abs(proj, 'app/storage-rules.txt')) {
@@ -80,7 +80,7 @@ if (found(proj, 'package.json')) {
     }
   }
 
-    // Create config.json
+  // Create config.json
   if (!found(proj, 'app/config.json')) {
     let cfg = fs.readJsonSync(abs(proj, 'package.json'))
     delete cfg.name

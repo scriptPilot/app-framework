@@ -46,12 +46,12 @@ if (env.pkg.devDependencies &&
       path = path.substr(env.proj.length + 1)
       return !env.ignored(path) && /^node_modules/.test(path) === false
     }},
-    function (err) {
-      if (err) {
-        alert('Snapshot creation failed.', 'issue')
-      } else {
-        alert('Snapshot creation done.')
-      }
+  function (err) {
+    if (err) {
+      alert('Snapshot creation failed.', 'issue')
+    } else {
+      alert('Snapshot creation done.')
     }
+  }
   )
 }

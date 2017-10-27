@@ -46,7 +46,7 @@ module.exports = {
       return ['Scheme source is no valid object or json file']
     }
   },
-  getObject: function (source) {  // Return object or false
+  getObject: function (source) { // Return object or false
     if (type(source) === 'object') {
       return source
     } else if (type(source) === 'string') {

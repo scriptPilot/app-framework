@@ -506,14 +506,14 @@ mixins.manageApplicationFrame = {
       let phoneFrameMinHeight = appMaxHeight + 250
       let phoneFrameMinWidth = appMaxWidth + 50
       let mode = showPhoneFrame && desktopMode && windowHeight >= phoneFrameMinHeight && windowWidth >= phoneFrameMinWidth
-               ? 'phoneFrame'
-               : desktopMode && windowHeight >= appMaxHeight && windowWidth >= appMaxWidth
-               ? 'limitBoth'
-               : desktopMode && windowHeight >= appMaxHeight
-               ? 'limitHeight'
-               : desktopMode && windowWidth >= appMaxWidth
-               ? 'limitWidth'
-               : 'noFrame'
+        ? 'phoneFrame'
+        : desktopMode && windowHeight >= appMaxHeight && windowWidth >= appMaxWidth
+          ? 'limitBoth'
+          : desktopMode && windowHeight >= appMaxHeight
+            ? 'limitHeight'
+            : desktopMode && windowWidth >= appMaxWidth
+              ? 'limitWidth'
+              : 'noFrame'
       // Update classes
       if (mode === 'phoneFrame') {
         window.Dom7('body').css('background', '#fafafa')
@@ -1217,7 +1217,7 @@ function initF7VueApp () {
   // Load Framework7-Vue (with workaround for theme integration)
   let config = require(process.env.APP_ROOT_FROM_SCRIPTS + 'config.json')
   let theme = (/^(ios|material)$/.test(window.localStorage.theme) && config.theme.split('-').indexOf(window.localStorage.theme) >= 0)
-            ? window.localStorage.theme : config.theme.split('-')[0]
+    ? window.localStorage.theme : config.theme.split('-')[0]
   vue.use(require('../vendor/framework7-vue/framework7-vue.js'), {theme: theme})
   // Load app component
   let appComponent = require(process.env.APP_ROOT_FROM_SCRIPTS + 'app.vue')

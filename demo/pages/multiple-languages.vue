@@ -28,7 +28,6 @@
   </f7-page>
 </template>
 <script>
-
   // Multi language pages need an object (we use "text") with sub-item per language and sub-sub-items per text pattern
   var text = {
     en: {
@@ -91,5 +90,4 @@
     }
 
   }
-
 </script>

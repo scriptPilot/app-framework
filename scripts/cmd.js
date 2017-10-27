@@ -67,11 +67,11 @@ module.exports = function (workingDirectory, commands, onSuccess, onError) {
     shell: true
   })
   // Callback on sub process closure
-  .on('close', function (exitCode) {
-    if (exitCode === 0) {
-      onSuccess()
-    } else {
-      onError()
-    }
-  })
+    .on('close', function (exitCode) {
+      if (exitCode === 0) {
+        onSuccess()
+      } else {
+        onError()
+      }
+    })
 }

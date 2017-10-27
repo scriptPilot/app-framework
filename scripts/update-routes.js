@@ -29,7 +29,7 @@ let loadRoutes = function (callback) {
       }
     })
   } else {
-    callback([])
+    callback([]) // eslint-disable-line
   }
 }
 let checkRoutes = function (routes, callback) {

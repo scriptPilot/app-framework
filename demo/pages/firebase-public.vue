@@ -55,7 +55,6 @@
   </f7-page>
 </template>
 <script>
-
   module.exports = {
 
     // Define intial data as a function
@@ -165,16 +164,15 @@
           }
         }
         window.db('publicData/todos')
-            .update(deletes)
-            .catch(function () {
-              this.$f7.alert('Cannot delete task' + (this.completedTodos > 1 ? 's' : '') + ' :-(<br />Please try again later', 'Trouble with Firebase')
-            }.bind(this))
+          .update(deletes)
+          .catch(function () {
+            this.$f7.alert('Cannot delete task' + (this.completedTodos > 1 ? 's' : '') + ' :-(<br />Please try again later', 'Trouble with Firebase')
+          }.bind(this))
       }
 
     }
 
   }
-
 </script>
 <style scoped>
   .swipeout-actions-left .material-icons {

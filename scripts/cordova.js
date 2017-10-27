@@ -42,10 +42,10 @@ if (env.arg.ios === true || env.arg.xcode === true) {
 
 // Check store id
 let storeId = env.arg.ios === true || env.arg.android === true
-            ? 'com.app_framework.dev_build'
-            : env.arg.xcode === true
-            ? env.cfg.appStoreId
-            : env.cfg.playStoreId
+  ? 'com.app_framework.dev_build'
+  : env.arg.xcode === true
+    ? env.cfg.appStoreId
+    : env.cfg.playStoreId
 if (storeId === '') {
   alert('You must configure the ' + (env.arg.xcode === true ? 'appStoreId' : 'playStoreId') + ' before.', 'error')
 } else if (env.arg.studio === true && /^([A-Za-z]{1}[A-Za-z\d_]*\.)*[A-Za-z][A-Za-z\d_]*$/.test(storeId) === false) {
@@ -361,8 +361,8 @@ let installCordovaPlugins = function (callback, pluginList) {
   if (Array.isArray(pluginList) && pluginList.length > 0) {
     let nextPlugin = pluginList.shift()
     let additionalCommand = nextPlugin === 'cordova-plugin-camera'
-                          ? ' --variable CAMERA_USAGE_DESCRIPTION="' + env.cfg.title + ' camera use" --variable PHOTOLIBRARY_USAGE_DESCRIPTION="' + env.cfg.title + ' photo library use"'
-                          : ''
+      ? ' --variable CAMERA_USAGE_DESCRIPTION="' + env.cfg.title + ' camera use" --variable PHOTOLIBRARY_USAGE_DESCRIPTION="' + env.cfg.title + ' photo library use"'
+      : ''
     cmd(binDir, 'cordova plugin add ' + nextPlugin + additionalCommand, function () {
       installCordovaPlugins(callback, pluginList)
     }, function () {
