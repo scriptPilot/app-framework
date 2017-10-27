@@ -3,7 +3,7 @@
   "description": "iOS and Android Apps with HTML & JavaScript - develop, build and deploy - free and open source!",
   "author": "scriptPilot <mail@scriptPilot.de> (https://github.com/scriptPilot)",
   "repository": "https://github.com/scriptPilot/app-framework.git",
-  "version": "1.16.1",
+  "version": "1.16.2",
   "license": "MIT",
   "scripts": {
     "postinstall": "node scripts/postinstall",
@@ -33,7 +33,6 @@
     "icons": "node scripts/deprecated"
   },
   "devDependencies": {
-    "eslint-plugin-promise": "^3.6.0",
     "jquery": "^3.2.1",
     "js-beautify": "^1.6.12",
     "jsdom": "^9.12.0"
@@ -54,6 +53,7 @@
     "eslint-config-standard": "^10.2.1",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
     "eslint-plugin-standard": "^3.0.1",
     "eslint-plugin-vue": "^2.1.0",
     "eventsource-polyfill": "^0.9.6",
