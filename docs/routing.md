@@ -97,7 +97,7 @@ In the example above, */tabs/* and */tabs/tab2/* require login, */tabs/tab1/* an
 
 ## Login protection for all pages
 
-You can enable login protection for all pages in the *app/config.json* file with `loginRequiredForAllPages: true`.
+You can save time and enable login protection for all pages in the *app/config.json* file with `loginRequiredForAllPages: true`.
 
 ## Workarounds
 
