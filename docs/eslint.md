@@ -29,4 +29,4 @@ The old default configuration:
 }
 ```
 
-Currently, `airbnb` and `standard` are available to extend - if you which to extend another shared configuration, please ask for it in our [issue list](https://github.com/scriptPilot/app-framework/issues).
+Currently, `airbnb` and `standard` are available to extend - if you wish to extend another shared configuration, please ask for it in our [issue list](https://github.com/scriptPilot/app-framework/issues).
