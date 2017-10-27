@@ -48,6 +48,6 @@ If you set `deployDevRulesOnTesting: true`, on each test command (`npm run dev`,
 
 ## Firebase sign out
 
-Please read the official Firebase documentation for more information. As quick info how to sign out a user:
+It is quite easy to sign out a user with App Framework from Firebase:
 
 `<f7-button @click="$fireAuth().signOut()">Sign out</f7-button>`
