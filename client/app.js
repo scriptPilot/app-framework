@@ -516,22 +516,22 @@ mixins.manageApplicationFrame = {
               : 'noFrame'
       // Update classes
       if (mode === 'phoneFrame') {
-        window.Dom7('body').css('background', '#fafafa')
+        window.Dom7('body').css('background', this.$root.config.phoneFrameBodyBackgroundColor)
         window.Dom7('body').addClass('phoneFrame')
         window.Dom7('body').removeClass('limitHeight')
         window.Dom7('body').removeClass('limitWidth')
       } else if (mode === 'limitBoth') {
-        window.Dom7('body').css('background', '#333333')
+        window.Dom7('body').css('background', this.$root.config.limitedSizeBodyBackgroundColor)
         window.Dom7('body').removeClass('phoneFrame')
         window.Dom7('body').addClass('limitHeight')
         window.Dom7('body').addClass('limitWidth')
       } else if (mode === 'limitHeight') {
-        window.Dom7('body').css('background', '#333333')
+        window.Dom7('body').css('background', this.$root.config.limitedSizeBodyBackgroundColor)
         window.Dom7('body').removeClass('phoneFrame')
         window.Dom7('body').addClass('limitHeight')
         window.Dom7('body').removeClass('limitWidth')
       } else if (mode === 'limitWidth') {
-        window.Dom7('body').css('background', '#333333')
+        window.Dom7('body').css('background', this.$root.config.limitedSizeBodyBackgroundColor)
         window.Dom7('body').removeClass('phoneFrame')
         window.Dom7('body').removeClass('limitHeight')
         window.Dom7('body').addClass('limitWidth')

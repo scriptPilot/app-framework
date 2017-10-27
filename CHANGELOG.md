@@ -2,6 +2,10 @@
 
 > This page is part of the [App Framework Documentation](DOCUMENTATION.md)
 
+## Next version
+
+- [x] [#679 - Option to change body background color with phone frame / limited application size](https://github.com/scriptPilot/app-framework/issues/679)
+
 ## Version 1.16.2
 
 Released on 2017-10-27

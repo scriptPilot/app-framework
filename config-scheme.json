@@ -67,9 +67,17 @@
     "regexp": "/^[0-9]+$/",
     "default": 570
   },
+  "limitedSizeBodyBackgroundColor": {
+    "regexp": "/^#[0-9a-f]{6}$/i",
+    "default": "#333333"
+  },
   "showPhoneFrameOnDesktop": {
     "type": "boolean",
     "default": true
+  },
+  "phoneFrameBodyBackgroundColor": {
+    "regexp": "/^#[0-9a-f]{6}$/i",
+    "default": "#fafafa"
   },
   "framework7parameters": {
     "type": "object"

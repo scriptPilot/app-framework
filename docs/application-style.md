@@ -9,9 +9,15 @@
 You can set the following style options in the configuration file:
 
 ```
-theme: 'material',   // 'ios', 'material', 'ios-material' or 'material-ios'
-color: 'indigo',     // Any theme color name
-layout: 'default'    // 'default', 'white' or 'dark'
+theme: 'material',                           // 'ios', 'material', 'ios-material' or 'material-ios'
+color: 'indigo',                             // Any theme color name
+layout: 'default'                            // 'default', 'white' or 'dark'
+limitApplicationWidth: 320,                  // Pixel
+limitApplicationHeight: 570,                 // Pixel
+limitedSizeBodyBackgroundColor: '#333333',   // HEX color code
+showPhoneFrameOnDesktop: true,               // true or false
+phoneFrameBodyBackgroundColor: '#fafafa',    // HEX color code
+framework7parameters: {}                     // Object, see Framework7 documentation
 ```
 
 If you want to change the theme during runtime, you need to use `ios-material` or `material-ios` as value in the configuration. With `ios-material`, the default theme will be ios, but you are able to change the theme to `material`, with `material-ios` in the configuration vice versa.
