@@ -1,4 +1,4 @@
- Routing
+ # Routing
 
 > This page is part of the [App Framework Documentation](../DOCUMENTATION.md)
 
@@ -94,3 +94,8 @@ To protect routes and require user authentication before, just add `login: true`
 ```
 
 In the example above, */tabs/* and */tabs/tab2/* require login, */tabs/tab1/* and */tabs/tab3/* not.
+
+## Workarounds
+
+- Load two flexible routes after another: https://github.com/scriptPilot/app-framework/issues/597
+- Multiple instances of components get created with non-linear navigation: https://github.com/scriptPilot/app-framework/issues/632
