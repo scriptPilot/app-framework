@@ -5,7 +5,7 @@
 
     <!-- Navbar -->
     <f7-navbar sliding :title="$root.config.title">
-      <f7-nav-right v-if="$root.user"><f7-link icon-material="person" href="/app-framework-login-screen/" /></f7-nav-right>
+      <f7-nav-right v-if="$root.user"><f7-link icon-material="person" open-popup="#app-framework-login-popup" /></f7-nav-right>
     </f7-navbar>
 
     <!-- Installation notice -->

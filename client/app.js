@@ -125,8 +125,24 @@ mixins.loadConfig = {
   }
 }
 mixins.loadRoutes = {
-  data: {
-    loginRoutes: []
+  data () {
+    return {
+      loginRoutes: [],
+      loginRequiringPages: {},
+      loginRequiringPagesOnStart: false
+    }
+  },
+  watch: {
+    f7Ready () {
+      // Check default routes for login requiring pages
+      this.$f7.views.forEach((view) => {
+        if (this.urlRequiresLogin(view.params.url)) {
+          // Remember URL (popup will be opened on init by login-screen.vue)
+          this.$set(this.loginRequiringPages, view.selector, view.params.url)
+          this.loginRequiringPagesOnStart = true
+        }
+      })
+    }
   },
   methods: {
     urlRequiresLogin: function (url) {
@@ -192,13 +208,16 @@ mixins.loadRoutes = {
     // Add preroute function for login-requiring pages to Framework7
     if (this.loginRoutes.length > 0) {
       this.$options.framework7.preroute = (view, options) => {
-        if (this.user !== null || options.isBack === true || options.url === undefined || options.url === '/app-framework-login-screen/') {
+        // User not logged in, no back link, no dynamic content
+        if (this.user !== null || options.isBack === true || options.url === undefined) {
           return true
         } else {
-          if (this.$root.config.loginRequiredForAllPages || this.urlRequiresLogin(options.url)) {
-            window.localStorage.requestedView = view.selector
-            window.localStorage.requestedUrl = options.url
-            view.router.load({url: '/app-framework-login-screen/'})
+          // Login required for all pages or for this page
+          if (this.config.loginRequiredForAllPages || this.urlRequiresLogin(options.url)) {
+            // Remember URL
+            this.$set(this.loginRequiringPages, view.selector, options.url)
+            // Show login popup
+            this.$f7.popup('#app-framework-login-popup')
             return false
           } else {
             return true
@@ -632,7 +651,7 @@ mixins.manageLanguage = {
   },
   // Restore local storage
   created: function () {
-    this.language = window.localStorage.language
+    this.language = window.localStorage.language ? window.localStorage.language : this.config.defaultLanguage
   }
 }
 mixins.manageTheme = {
@@ -1123,14 +1142,16 @@ mixins.manageState = {
           let type = e.type.split(':')[0]
           let action = e.type.split(':')[1]
           let id = e.target.id
-          let classes = e.target.className.split(' ')
-          // Update local storage
-          if (action === 'close') {
-            window.localStorage.removeItem(type)
-          } else if (type === 'panel') {
-            window.localStorage.panel = classes.indexOf('panel-left') !== -1 ? 'left' : 'right'
-          } else if (['popup', 'loginscreen', 'picker', 'actions'].indexOf(type) !== -1 && id !== '') {
-            window.localStorage[type] = '#' + id
+          if (id !== 'app-framework-login-popup') {
+            let classes = e.target.className.split(' ')
+            // Update local storage
+            if (action === 'close') {
+              window.localStorage.removeItem(type)
+            } else if (type === 'panel') {
+              window.localStorage.panel = classes.indexOf('panel-left') !== -1 ? 'left' : 'right'
+            } else if (['popup', 'loginscreen', 'picker', 'actions'].indexOf(type) !== -1 && id !== '') {
+              window.localStorage[type] = '#' + id
+            }
           }
         })
       }
@@ -1219,6 +1240,8 @@ function initF7VueApp () {
   let theme = (/^(ios|material)$/.test(window.localStorage.theme) && config.theme.split('-').indexOf(window.localStorage.theme) >= 0)
     ? window.localStorage.theme : config.theme.split('-')[0]
   vue.use(require('../vendor/framework7-vue/framework7-vue.js'), {theme: theme})
+  // Use login popup
+  vue.component('login-popup', require('./login-popup.vue'))
   // Load app component
   let appComponent = require(process.env.APP_ROOT_FROM_SCRIPTS + 'app.vue')
   // Load image-uploader component

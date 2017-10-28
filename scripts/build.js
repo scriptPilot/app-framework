@@ -274,6 +274,26 @@ function updatePreloader (callback) {
   }
 }
 
+const addMissingLoginPopupComponent = (callback) => {
+  fs.readFile(abs(env.app, 'app.vue'), {encoding: 'utf8'}, (err, str) => {
+    if (err) alert('Failed to read app.vue file', 'issue')
+    const appElementFound = str.match(/<div(.*)id="app"(.*)>/)
+    const loginPopupElementFound = str.match(/<login-popup \/>/)
+    if (!appElementFound) {
+      alert('No #app element found in the app.vue file. Please read the documentation.', 'error')
+    } else if (!loginPopupElementFound) {
+      const newStr = str.replace(/<div(.*)id="app"(.*)>/, '<div$1id="app"$2>\n    <login-popup />')
+      fs.writeFile(abs(env.app, 'app.vue'), newStr, (err) => {
+        if (err) alert('Failed to write app.vue file.', 'issue')
+        // callback()
+        alert('Updated app.vue file.')
+      })
+    } else {
+      callback()
+    }
+  })
+}
+
 // Run steps
 fixCode(function () {
   cmd(__dirname, 'node checkLanguageFiles', function () {
@@ -286,51 +306,53 @@ fixCode(function () {
         env.pkg.version = pkg.version
         require.cache = {}
       }
-      updateLicense(function () {
-        updateDocumentation(function () {
-          cmd(__dirname, 'node update-ignore-files', function () {
-            fs.emptyDir(abs(env.cache, 'build'), function (err) {
-              if (err) {
-                alert('Failed to empty build folder in cache.', 'issue')
-              } else {
-                buildWebpack(function () {
-                  cmd(__dirname, 'node create-icons', function () {
-                    manageIcons(function () {
-                      copyFirebaseFiles(function () {
-                        updatePreloader(function () {
-                          // Dev build
-                          if (mode === 'dev') {
-                            alert('Development build done.')
-                          // Pruduction build
-                          } else {
-                            alert('Build folder update ongoing - please wait ...')
-                            // Empty existing build folder
-                            fs.emptyDir(abs(env.proj, 'build'), function (err) {
-                              if (err) {
-                                alert('Clean-up the existing build folder failed.', 'issue')
-                              } else {
-                                // Copy files
-                                fs.copy(abs(env.cache, 'build'), abs(env.proj, 'build'), function (err) {
-                                  if (err) {
-                                    alert('Build folder update failed.', 'issue')
-                                  } else {
-                                    compressImages(function () {
-                                      // Create snapshot
-                                      cmd(__dirname, 'node create-snapshot --name "build-' + env.pkg.version + '"', function () {
-                                        alert('Build process done for version ' + env.pkg.version + '.')
+      addMissingLoginPopupComponent(() => {
+        updateLicense(function () {
+          updateDocumentation(function () {
+            cmd(__dirname, 'node update-ignore-files', function () {
+              fs.emptyDir(abs(env.cache, 'build'), function (err) {
+                if (err) {
+                  alert('Failed to empty build folder in cache.', 'issue')
+                } else {
+                  buildWebpack(function () {
+                    cmd(__dirname, 'node create-icons', function () {
+                      manageIcons(function () {
+                        copyFirebaseFiles(function () {
+                          updatePreloader(function () {
+                            // Dev build
+                            if (mode === 'dev') {
+                              alert('Development build done.')
+                            // Pruduction build
+                            } else {
+                              alert('Build folder update ongoing - please wait ...')
+                              // Empty existing build folder
+                              fs.emptyDir(abs(env.proj, 'build'), function (err) {
+                                if (err) {
+                                  alert('Clean-up the existing build folder failed.', 'issue')
+                                } else {
+                                  // Copy files
+                                  fs.copy(abs(env.cache, 'build'), abs(env.proj, 'build'), function (err) {
+                                    if (err) {
+                                      alert('Build folder update failed.', 'issue')
+                                    } else {
+                                      compressImages(function () {
+                                        // Create snapshot
+                                        cmd(__dirname, 'node create-snapshot --name "build-' + env.pkg.version + '"', function () {
+                                          alert('Build process done for version ' + env.pkg.version + '.')
+                                        })
                                       })
-                                    })
-                                  }
-                                })
-                              }
-                            })
-                          }
+                                    }
+                                  })
+                                }
+                              })
+                            }
+                          })
                         })
                       })
                     })
                   })
-                })
-              }
+                }
+              })
             })
           })
         })

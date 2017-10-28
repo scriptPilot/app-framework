@@ -2,6 +2,13 @@
 
 > This page is part of the [App Framework Documentation](DOCUMENTATION.md)
 
+## Next version
+
+### Bug-fixes
+
+- [x] [#595 - First page shown even if not logged in and login required for that page](https://github.com/scriptPilot/app-framework/issues/595)
+- [x] [#596 - Login-requiring pages shown in other views than .view-main if user not logged-in ](https://github.com/scriptPilot/app-framework/issues/596)
+
 ## Version 1.16.4
 
 Released on 2017-10-27

@@ -50,7 +50,7 @@
     </f7-block>
 
     <!-- Cancel button -->
-    <f7-block>
+    <f7-block v-if="!$root.loginRequiringPagesOnStart || mode !== 'signIn'">
       <f7-button big raised color="red" @click="cancel">{{text.cancel}}</f7-button big>
     </f7-block>
 
@@ -147,22 +147,30 @@
     created: function () {
       this.mode = this.$root.user ? 'signOut' : 'signIn'
     },
+    mounted() {
+      // Workaround to close login popup on initial load and shift it back to the left -->
+      // Close only if there are no login requiring pages on start or the user is logged in
+      if (!this.$root.loginRequiringPagesOnStart || this.$root.user) {
+        this.$f7.closeModal('#app-framework-login-popup', false)
+      }
+      this.$$('#app-framework-login-popup').css('left', '0')
+    },
     methods: {
       cancel: function () {
-        // Reset form
-        this.email = ''
-        this.password = ''
-        this.passwordConfirmation = ''
-        this.mode = this.$root.user ? 'signOut' : 'signIn'
-        // Navigate back
-        let viewId = null
-        window.f7.views.map((view, id) => {
-          if (view.selector === window.localStorage.requestedView) viewId = id
-        })
-        window.f7.views[viewId || 'main'].router.back()
-        // Reset local storage
-        window.localStorage.removeItem('requestedView')
-        window.localStorage.removeItem('requestedUrl')
+        if (this.mode === 'reset' || this.mode === 'registration') {
+          this.mode = this.$root.user ? 'signOut' : 'signIn'
+        } else {
+          // Reset form
+          this.email = ''
+          this.password = ''
+          this.passwordConfirmation = ''
+          this.mode = this.$root.user ? 'signOut' : 'signIn'
+          // Reset required URLs
+          this.$root.loginRequiringPages = []
+          this.$root.loginRequiringPagesOnStart = false
+          // Close popup
+          this.$f7.closeModal('#app-framework-login-popup')
+        }
       },
       handleSignIn: function () {
         if (navigator.onLine === false) {
@@ -184,7 +192,7 @@
             .catch(err => {
               // Hide loading indicator
               window.f7.hideIndicator()
-              // Shoe error alert
+              // Show error alert
               window.f7.alert(this.text.firebaseErrors[err.code], this.text.error)
             })
         }
@@ -197,37 +205,28 @@
         this.password = ''
         this.passwordConfirmation = ''
         this.mode = 'signOut'
-        // Show requested URL or navigate back
-        let viewId = null
-        window.f7.views.map((view, id) => {
-          if (view.selector === window.localStorage.requestedView) viewId = id
-        })
-        if (window.localStorage.requestedUrl) {
-          let url = window.localStorage.requestedUrl
-          setTimeout(() =>{
-            window.f7.views.main.router.back({animatePages: false})
-            setTimeout(() => {
-              window.f7.views.main.router.load({url: url})
+        // Load required URL per view
+        const loginRequiringPages = this.$root.loginRequiringPages
+        this.$f7.views.forEach((view) => {
+          if (loginRequiringPages[view.selector]) {
+            this.$nextTick(() => {
+              view.router.load({url: loginRequiringPages[view.selector], animatePages: false})
             })
-          })
-        } else {
-          window.f7.views.main.router.back()
-        }
-        // Reset local storage
-        window.localStorage.removeItem('requestedView')
-        window.localStorage.removeItem('requestedUrl')
+          }
+        })
+        // Reset required URLs
+        this.$root.loginRequiringPages = []
+        this.$root.loginRequiringPagesOnStart = false
+        // Close popup
+        this.$f7.closeModal('#app-framework-login-popup')
       },
       handleSignOut: function () {
         window.firebase.auth().signOut()
           .then(() => {
             // Reset form
             this.mode = 'signIn'
-            // Navigate back
-            let viewId = null
-            window.f7.views.map((view, id) => {
-              if (view.selector === window.localStorage.requestedView) viewId = id
-            })
-            window.f7.views[viewId || 'main'].router.back()
+            // Close popup
+            this.$f7.closeModal('#app-framework-login-popup')
             // Show notification
             window.f7.addNotification({
               title: this.text.signOut,

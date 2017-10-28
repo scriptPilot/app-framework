@@ -2,6 +2,7 @@
 
   <!-- Will replace app container -->
   <div id="app">
+    <login-popup />
 
     <!-- Statusbar -->
     <f7-statusbar></f7-statusbar>
