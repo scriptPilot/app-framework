@@ -99,7 +99,7 @@ fixCode(function () {
             startServer(function () {
               let uri = 'http://localhost:' + env.cfg.devServerPort
               opn(uri)
-              alert('Development server startet at ' + uri + '.\n\nTo be stopped with "CTRL + C".')
+              alert('Development server started at ' + uri + '.\n\nTo be stopped with "CTRL + C".')
             })
           })
         })
