@@ -23,6 +23,7 @@ For any open question, feature request or bug, please use our [issue list](https
   - [App component](docs/app-component.md)
   - [Page components](docs/page-components.md)
   - [Routing](docs/routing.md)
+  - [Login and Logout](docs/login-and-logout.md)
   - [Global data object](docs/data-object.md)
   - [sortObject function](docs/sort-object.md)
   - [Language files](docs/language-files.md)
