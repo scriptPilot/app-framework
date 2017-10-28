@@ -181,7 +181,7 @@ completePackageJson(() => {
                         if (Array.isArray(configFix)) {
                           alert('Failed to fix config file.\nDetails:\n- ' + configFix.join('\n- '), 'issue', 'error')
                         }
-                        alert('App Framework installation done.')
+                        alert('App Framework installation done.\n\nPlease take a look at the change log:\nhttps://github.com/scriptPilot/app-framework/blob/master/CHANGELOG.md')
                       })
                     })
                   })
