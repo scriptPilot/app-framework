@@ -206,22 +206,20 @@ mixins.loadRoutes = {
     // Add routes to Framework7 initialization object
     this.$options.framework7.routes = routes
     // Add preroute function for login-requiring pages to Framework7
-    if (this.loginRoutes.length > 0) {
-      this.$options.framework7.preroute = (view, options) => {
-        // User not logged in, no back link, no dynamic content
-        if (this.user !== null || options.isBack === true || options.url === undefined) {
-          return true
+    this.$options.framework7.preroute = (view, options) => {
+      // User not logged in, no back link, no dynamic content
+      if (this.user !== null || options.isBack === true || options.url === undefined) {
+        return true
+      } else {
+        // Login required for all pages or for this page
+        if (this.config.loginRequiredForAllPages || this.urlRequiresLogin(options.url)) {
+          // Remember URL
+          this.$set(this.loginRequiringPages, view.selector, options.url)
+          // Show login popup
+          this.$f7.popup('#app-framework-login-popup')
+          return false
         } else {
-          // Login required for all pages or for this page
-          if (this.config.loginRequiredForAllPages || this.urlRequiresLogin(options.url)) {
-            // Remember URL
-            this.$set(this.loginRequiringPages, view.selector, options.url)
-            // Show login popup
-            this.$f7.popup('#app-framework-login-popup')
-            return false
-          } else {
-            return true
-          }
+          return true
         }
       }
     }
