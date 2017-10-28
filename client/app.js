@@ -129,7 +129,7 @@ mixins.loadRoutes = {
     return {
       loginRoutes: [],
       loginRequiringPages: {},
-      loginRequiringPagesOnStart: false
+      loginRequiringPagesOnStart: this.config.loginRequiredForAllPages
     }
   },
   watch: {
