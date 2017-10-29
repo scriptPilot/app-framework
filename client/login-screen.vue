@@ -151,7 +151,7 @@
     mounted() {
       // Workaround to close login popup on initial load and shift it back to the left -->
       // Close only if there are no login requiring pages on start or the user is logged in
-      if (!this.$root.loginRequiringPagesOnStart || this.$root.user) {
+      if ((!this.$root.loginRequiringPagesOnStart && !this.$root.config.loginRequiredForAllPages) || this.$root.user) {
         this.$f7.closeModal('#app-framework-login-popup', false)
       }
       this.$$('#app-framework-login-popup').css('left', '0')
