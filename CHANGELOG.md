@@ -6,7 +6,7 @@
 
 ### Bug-fixes
 
-- [x] [#689 - Signout button does not sign out properly if complete is is login-protected](https://github.com/scriptPilot/app-framework/issues/689) ([read the docs](https://github.com/scriptPilot/app-framework/blob/master/docs/firebase.md))
+- [x] [#689 - Signout button does not sign out properly if complete app is is login-protected](https://github.com/scriptPilot/app-framework/issues/689) ([read the docs](https://github.com/scriptPilot/app-framework/blob/master/docs/firebase.md))
 
 ## Version 1.16.13
 
