@@ -136,7 +136,7 @@ mixins.loadRoutes = {
     f7Ready () {
       // Check default routes for login requiring pages
       this.$f7.views.forEach((view) => {
-        if (this.urlRequiresLogin(view.params.url)) {
+        if (view.params.url && this.urlRequiresLogin(view.params.url)) {
           // Remember URL (popup will be opened on init by login-screen.vue)
           this.$set(this.loginRequiringPages, view.selector, view.params.url)
           this.loginRequiringPagesOnStart = true

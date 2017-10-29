@@ -2,13 +2,14 @@
 
 > This page is part of the [App Framework Documentation](DOCUMENTATION.md)
 
-## Version 1.16.15
+## Version 1.16.16
 
 Released on 2017-10-29
 
 ### Bug-fixes
 
 - [x] [#689 - Signout button does not sign out properly if complete app is is login-protected](https://github.com/scriptPilot/app-framework/issues/689) ([read the docs](https://github.com/scriptPilot/app-framework/blob/master/docs/firebase.md))
+- [x] [#693 - Login popup component error](https://github.com/scriptPilot/app-framework/issues/693)
 
 ## Version 1.16.13
 
