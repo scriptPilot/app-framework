@@ -439,7 +439,11 @@ deployDevRules(function () {
                   })
                 } else if (env.arg.xcode === true) {
                   alert('Xcode start ongoing - please wait ...')
-                  cmd(__dirname, 'open -a Xcode "' + abs(binDir, 'platforms/ios', env.cfg.title + '.xcodeproj') + '"', function () {
+                  // Determine .xcworkspace or .xcodeproj file (with cocoapod / default)
+                  const iOSWorkspaceFile = abs(binDir, 'platforms/ios', env.cfg.title + '.xcworkspace')
+                  const iOSProjFile = abs(binDir, 'platforms/ios', env.cfg.title + '.xcodeproj')
+                  const useFile = found(iOSWorkspaceFile) ? iOSWorkspaceFile : iOSProjFile
+                  cmd(__dirname, 'open -a Xcode "' + useFile + '"', function () {
                     alert('Xcode started.')
                   })
                 } else if (env.arg.android === true) {
