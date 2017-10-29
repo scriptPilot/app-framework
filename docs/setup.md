@@ -18,6 +18,8 @@ Creating a new application project *my-app* is easily done in the following four
 
 After the installation process finished, you should see [this folder structure](folder-structure.md).
 
+You can run `npm run dev` to see if your new app opens in the browser.
+
 ## Update
 
 If there is a newer version of App Framework available at the [npm repository](https://www.npmjs.com/package/app-framework), there will be an alert at the development server.
