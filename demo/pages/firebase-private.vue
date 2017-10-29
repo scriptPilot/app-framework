@@ -17,7 +17,7 @@
     </f7-list>
 
     <!-- Image uploader component -->
-    <f7-block>
+    <f7-block v-if="$root.user">
       <image-uploader
         :store="'privateData/' + $root.user.uid"
         :db="'privateData/' + $root.user.uid + '/photo'" />

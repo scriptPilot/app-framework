@@ -50,7 +50,7 @@
     </f7-block>
 
     <!-- Cancel button -->
-    <f7-block v-if="!$root.loginRequiringPagesOnStart || mode !== 'signIn'">
+    <f7-block v-if="(!$root.loginRequiringPagesOnStart && !$root.config.loginRequiredForAllPages) || mode !== 'signIn'">
       <f7-button big raised color="red" @click="cancel">{{text.cancel}}</f7-button big>
     </f7-block>
 
@@ -146,6 +146,7 @@
     },
     created: function () {
       this.mode = this.$root.user ? 'signOut' : 'signIn'
+      this.$root.$signOut = this.handleSignOut
     },
     mounted() {
       // Workaround to close login popup on initial load and shift it back to the left -->
@@ -167,7 +168,6 @@
           this.mode = this.$root.user ? 'signOut' : 'signIn'
           // Reset required URLs
           this.$root.loginRequiringPages = []
-          this.$root.loginRequiringPagesOnStart = false
           // Close popup
           this.$f7.closeModal('#app-framework-login-popup')
         }
@@ -216,24 +216,47 @@
         })
         // Reset required URLs
         this.$root.loginRequiringPages = []
-        this.$root.loginRequiringPagesOnStart = false
         // Close popup
         this.$f7.closeModal('#app-framework-login-popup')
       },
       handleSignOut: function () {
+        this.$f7.popup('#app-framework-login-popup')
         window.firebase.auth().signOut()
           .then(() => {
             // Reset form
             this.mode = 'signIn'
-            // Close popup
-            this.$f7.closeModal('#app-framework-login-popup')
-            // Show notification
-            window.f7.addNotification({
-              title: this.text.signOut,
-              message: this.text.signOutDone,
-              hold: 3000,
-              closeIcon: false
+            // Navigate pages back
+            const navBack = (view, times) => {
+              if (times > 0) {
+                view.router.back()
+                this.$nextTick(() => {
+                  times--
+                  navBack(view, times)
+                })
+              }
+            }
+            this.$f7.views.forEach((view) => {
+              const history = view.history
+              let historyRequiresLoginAtPosition = 0
+              history.forEach((url) => {
+                if (this.$root.urlRequiresLogin(url) == false) {
+                  historyRequiresLoginAtPosition++
+                }
+              })
+              navBack(view, history.length - historyRequiresLoginAtPosition)
             })
+            // Do only if there are pages which do not require login
+            if (!this.$root.config.loginRequiredForAllPages && !this.$root.loginRequiringPagesOnStart) {
+              // Close popup
+              this.$f7.closeModal('#app-framework-login-popup')
+              // Show notification
+              window.f7.addNotification({
+                title: this.text.signOut,
+                message: this.text.signOutDone,
+                hold: 3000,
+                closeIcon: false
+              })
+            }
           })
       },
       handleRegistration: function () {

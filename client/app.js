@@ -134,10 +134,6 @@ mixins.loadRoutes = {
   },
   watch: {
     f7Ready () {
-      // Check login requirement for complete app
-      if (this.config.loginRequiredForAllPages) {
-        this.loginRequiringPagesOnStart = true
-      }
       // Check default routes for login requiring pages
       this.$f7.views.forEach((view) => {
         if (this.urlRequiresLogin(view.params.url)) {
