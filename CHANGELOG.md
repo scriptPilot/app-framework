@@ -4,6 +4,8 @@
 
 ## Version 1.16.14
 
+Released on 2017-10-29
+
 ### Bug-fixes
 
 - [x] [#689 - Signout button does not sign out properly if complete app is is login-protected](https://github.com/scriptPilot/app-framework/issues/689) ([read the docs](https://github.com/scriptPilot/app-framework/blob/master/docs/firebase.md))
