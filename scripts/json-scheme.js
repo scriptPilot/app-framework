@@ -115,7 +115,11 @@ module.exports = {
     if (properties.default && this.validateValue(properties, properties.default) !== true) {
       errors.push(subItemStr + ' default property is not valid')
     }
-    // 4. Other props are not allowed
+    // 4. Default is required for allow and regexp
+    if ((properties.allow || properties.regexp) && !properties.default) {
+      errors.push(subItemStr + ' must contain a default value')
+    }
+    // 5. Other props are not allowed
     propsFound = 0
     for (let p in properties) {
       if (['type', 'allow', 'regexp', 'props', 'default'].indexOf(p) === -1) {
@@ -170,9 +174,9 @@ module.exports = {
   createItem: function (item, schemeItem) {
     if (schemeItem.default !== undefined) {
       return schemeItem.default
-    } else if (schemeItem.allow || schemeItem.type === 'array') {
+    } else if (schemeItem.type === 'array') {
       return []
-    } else if (schemeItem.regexp || schemeItem.type === 'string') {
+    } else if (schemeItem.type === 'string') {
       return ''
     } else if (schemeItem.type === 'object') {
       return {}
