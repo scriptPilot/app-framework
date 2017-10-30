@@ -38,6 +38,7 @@ Example:
   "end_of_line": "lf",
   "max_line_length": "null"
 }
+```
 
 ### .eslintrc file
 
