@@ -17,11 +17,12 @@ First of all, you need a code editor. We really recommend Atom, which is open so
 5. Open from the top menu *File > Settings* and select in the left menu *Install*
 6. Search for package `language-vue-component` and click on *install*
 7. Search for package `linter-eslint` and click on *install*
-8. Close the settings tab and Atom itself
+8. Search for package `editorconfig` and click on *install*
+9. Close the settings tab and Atom itself
 
-Atom is linting your code now according the ESLint configuration (read more later on). But if you prefer to have the *.editorconfig* file - don't worry, it will be created and updated automatically, according your configuration in the *app/config.json* file.
+### .editorconfig file
 
-To write a line without value, for example `[*]`, assign value `null`, else assign the value as string or number.
+The *.editorconfig* file will be created / updated automatically. You can configure it in the *config.json* file. To write a line without value, for example `[*]`, assign value `null`, else assign the value as string or number.
 
 Example:
 
@@ -37,9 +38,26 @@ Example:
   "end_of_line": "lf",
   "max_line_length": "null"
 }
+
+### .eslintrc file
+
+The *.eslintrc* file will be created / updated automatically. You can configure it in the *config.json* file.
+
+Example:
+
+```
+"eslint": {
+  "extends": "airbnb",
+  "rules": {
+    "semi": [
+      "error",
+      "never"
+    ]
+  }
+}
 ```
 
-If you work with Atom, the .editorconfig file is not considered automatically, you need the package *editorconfig*.
+Currently, `airbnb` and `standard` are available to extend - if you wish to extend another shared configuration, please ask for it in our [issue list](https://github.com/scriptPilot/app-framework/issues).
 
 ## Node.js
 
