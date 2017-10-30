@@ -8,6 +8,10 @@
 
 - [x] [#639 - Add .editorconfig file](https://github.com/scriptPilot/app-framework/issues/639) ([read the docs](https://github.com/scriptPilot/app-framework/blob/master/docs/software.md))
 
+### Improvements
+
+- [x] [#696 - Update Vue.js](https://github.com/scriptPilot/app-framework/issues/696)
+
 ## Version 1.16.18
 
 Released on 2017-10-29
