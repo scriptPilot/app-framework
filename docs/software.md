@@ -18,6 +18,7 @@ First of all, you need a code editor. We really recommend Atom, which is open so
 6. Search for package `language-vue-component` and click on *install*
 7. Close the settings tab and Atom itself
 
+An *.editorconfig* file will be created / updated automatically. You can configure it in the *app/config.json* file, item `editorConfig`. To write a line without value, for example `[*]`, assign value `null`, else assign value as string or number.
 
 ## Node.js
 

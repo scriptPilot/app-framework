@@ -2,6 +2,12 @@
 
 > This page is part of the [App Framework Documentation](DOCUMENTATION.md)
 
+## Next version
+
+### New features
+
+- [x] [#639 - Add .editorconfig file](https://github.com/scriptPilot/app-framework/issues/639) ([read the docs](https://github.com/scriptPilot/app-framework/blob/master/docs/software.md))
+
 ## Version 1.16.18
 
 Released on 2017-10-29

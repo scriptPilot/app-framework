@@ -18,7 +18,8 @@ const gitIgnore = {
   'zip files (deprecated)': '*.zip',
   'database backups (deprecated)': 'database-backup.json',
   'FTP config file': 'ftp-config.json',
-  'ESLint configuration file': '.eslintrc'
+  'ESLint configuration file': '.eslintrc',
+  'Editor configuration file': '.editorconfig'
 }
 
 const npmIgnore = JSON.parse(JSON.stringify(gitIgnore))
