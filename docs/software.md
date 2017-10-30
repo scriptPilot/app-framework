@@ -16,9 +16,33 @@ First of all, you need a code editor. We really recommend Atom, which is open so
 4. Select the *Telemetry Consent* tab and decide whether you want to send statistics or not to Atom
 5. Open from the top menu *File > Settings* and select in the left menu *Install*
 6. Search for package `language-vue-component` and click on *install*
-7. Close the settings tab and Atom itself
+7. Search for package `linter-eslint` and click on *install*
+8. Close the settings tab and Atom itself
 
-An *.editorconfig* file will be created / updated automatically. You can configure it in the *app/config.json* file, item `editorConfig`. To write a line without value, for example `[*]`, assign value `null`, else assign value as string or number.
+Atom is linting your code now according the ESLint configuration (read more later on). But if you prefer to have the *.editorconfig* file - don't worry, it will be created and updated automatically, according your configuration in the *app/config.json* file.
+
+To write a line without value, for example `[*]`, assign value `null`, else assign the value as string or number.
+
+Example:
+
+```
+"editorConfig": {
+  "type": "object",
+  "default": {
+    "root": "true",
+    "[*]": null,
+    "indent_style": "space",
+    "indent_size": "2",
+    "charset": "utf-8",
+    "trim_trailing_whitespace": "true",
+    "insert_final_newline": "true",
+    "end_of_line": "lf",
+    "max_line_length": "null"
+  }
+}
+```
+
+If you work with Atom, the .editorconfig file is not considered automatically, you need the package *editorconfig*.
 
 ## Node.js
 
