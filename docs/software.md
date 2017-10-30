@@ -22,7 +22,7 @@ First of all, you need a code editor. We really recommend Atom, which is open so
 
 ### .editorconfig file
 
-The *.editorconfig* file will be created / updated automatically. You can configure it in the *config.json* file. To write a line without value, for example `[*]`, assign value `null`, else assign the value as string or number.
+The *.editorconfig* file will be created / updated automatically. You can configure it in the *config.json* file after App Framework installation. To write a line without value, for example `[*]`, assign value `null`, else assign the value as string or number.
 
 Example:
 
@@ -42,7 +42,7 @@ Example:
 
 ### .eslintrc file
 
-The *.eslintrc* file will be created / updated automatically. You can configure it in the *config.json* file.
+The *.eslintrc* file will be created / updated automatically. You can configure it in the *config.json* file after App Framework installation.
 
 Example:
 
