@@ -2,6 +2,7 @@
 
 // Import modules
 const env = require('./env')
+const alert = require('./alert')
 const fs = require('fs-extra')
 const path = require('path')
 
@@ -19,5 +20,5 @@ for (let item in env.cfg.editorConfig) {
 // Create/update .editorconfig file
 fs.writeFile(path.resolve(env.app, '.editorconfig'), content, (err) => {
   if (err) throw err
-  console.log('.editorconfig file updated.')
+  alert('.editorconfig file updated.')
 })

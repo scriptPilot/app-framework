@@ -95,12 +95,14 @@ fixCode(function () {
     cmd(__dirname, 'node addLoginPopup', function () {
       cmd(__dirname, 'node checkLanguageFiles', function () {
         cmd(__dirname, 'node update-routes', function () {
-          cmd(__dirname, 'node create-icons', function () {
-            cmd(__dirname, 'node firebase --database --storage --version dev', function () {
-              startServer(function () {
-                let uri = 'http://localhost:' + env.cfg.devServerPort
-                opn(uri)
-                alert('Development server started at ' + uri + '.\n\nTo be stopped with "CTRL + C".')
+          cmd(__dirname, 'node updateEditorConfigFile', function () {
+            cmd(__dirname, 'node create-icons', function () {
+              cmd(__dirname, 'node firebase --database --storage --version dev', function () {
+                startServer(function () {
+                  let uri = 'http://localhost:' + env.cfg.devServerPort
+                  opn(uri)
+                  alert('Development server started at ' + uri + '.\n\nTo be stopped with "CTRL + C".')
+                })
               })
             })
           })
