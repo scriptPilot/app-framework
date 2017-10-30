@@ -7,7 +7,9 @@ const fs = require('fs-extra')
 const path = require('path')
 
 // Check availability of the config
-if (!env.cfg.editorConfig) throw new Error('Missing editorConfig item in config.json file.')
+if (!env.cfg.editorConfig) {
+  throw new Error('Missing editorConfig item in config.json file.')
+}
 
 // Create file content
 let content = ''
