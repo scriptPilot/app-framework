@@ -28,7 +28,7 @@ For any open question, feature request or bug, please use our [issue list](https
   - [Language files](docs/language-files.md)
   - [Images](docs/images.md)
   - [Icon fonts](docs/icon-fonts.md)
-  - [Extend the Vue / Framework7 root object](docs/extend-vue-root-object.md)
+  - [Extend Vue root object / own components / Framework7 init options](docs/extend-vue-root-object.md)
   - [Modules and scripts](docs/modules-and-scripts.md)
   - [Cordova plugins](docs/cordova-plugins.md)
   - [Cordova preferences](docs/cordova-preferences.md)
