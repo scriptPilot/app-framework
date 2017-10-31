@@ -61,6 +61,7 @@ cordovaPreferences | *object* | {"DisallowOverscroll":true}
 resetLocalStorageOnVersionChange | *boolean* | false
 preloadImages | *boolean* | true
 buildSourcemaps | *boolean* | false
+editorConfig | *object* | {"root":"true","[*]":null,"indent_style":"space","indent_size":"2","charset":"utf-8","trim_trailing_whitespace":"true","insert_final_newline":"true","end_of_line":"lf","max_line_length":"null"}
 eslint | *object* |
 &nbsp;&nbsp;&nbsp;extends | airbnb, standard | airbnb
 &nbsp;&nbsp;&nbsp;rules | *object* | {"semi":["error","never"]}
