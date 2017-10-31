@@ -54,7 +54,7 @@ It is quite easy to sign out a user with App Framework from Firebase:
 
 ## Example
 
-Common task: Keep local user data in sync with Firebase
+Common task: Keep some local data in sync with Firebase
 
 ```
 <template>
@@ -72,4 +72,3 @@ Common task: Keep local user data in sync with Firebase
   }
 </script>
 ```
-}
