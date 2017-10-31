@@ -11,7 +11,7 @@
 ### Improvements
 
 - [x] [#696 - Update Vue.js](https://github.com/scriptPilot/app-framework/issues/696)
-- [x] [#700 - Explain way to create a custom component](https://github.com/scriptPilot/app-framework/issues/700) ([read the docs](https://github.com/scriptPilot/app-framework/blob/master/docs/extend-vue-root-object.md))
+- [x] [#700 - Make own Vue components available on all pages](https://github.com/scriptPilot/app-framework/issues/700) ([read the docs](https://github.com/scriptPilot/app-framework/blob/master/docs/extend-vue-root-object.md))
 
 ## Version 1.16.18
 

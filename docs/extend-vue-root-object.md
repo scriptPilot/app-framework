@@ -58,7 +58,6 @@ You can easily create your own reusable Vue components, which are available in t
      vue.component('custom-button', require('./components/custom-button.vue'))
      return vue
    }
-
    ```
 4. Integrate the component in any page or the app component
    ```
