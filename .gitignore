@@ -33,3 +33,6 @@ ftp-config.json
 # Exclude ESLint configuration file
 .eslintrc
 
+# Exclude Editor configuration file
+.editorconfig
+
