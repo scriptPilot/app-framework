@@ -2,13 +2,17 @@
 
 > This page is part of the [App Framework Documentation](DOCUMENTATION.md)
 
-## Version 1.17.0
+## Version 1.17.1
 
 Released on 2017-10-31
 
 ### New features
 
 - [x] [#639 - Add .editorconfig file](https://github.com/scriptPilot/app-framework/issues/639) ([read the docs](https://github.com/scriptPilot/app-framework/blob/master/docs/software.md))
+
+### Bug-fixes
+
+- [x] [#703 - Project folder setup failed.](https://github.com/scriptPilot/app-framework/issues/703)
 
 ### Improvements
 
