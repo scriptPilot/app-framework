@@ -37,7 +37,7 @@ You can easily create your own reusable Vue components, which are available in t
    }
 
    ```
-2. Create the component *components/custom-button.vue*
+2. Create the component *app/components/custom-button.vue*
    ```
    <template>
      <f7-button @click="handleCustomButtonClick" raised fill>Custom Button</f7-button>
@@ -52,7 +52,7 @@ You can easily create your own reusable Vue components, which are available in t
      }
    </script>
    ```
-3. Add the component in your *vue.js* file
+3. Add the component in your *app/vue.js* file
    ```
    module.exports = (vue) => {
      vue.component('custom-button', require('./components/custom-button.vue'))
