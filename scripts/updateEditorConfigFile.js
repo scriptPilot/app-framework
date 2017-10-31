@@ -20,7 +20,7 @@ for (let item in env.cfg.editorConfig) {
 }
 
 // Create/update .editorconfig file
-fs.writeFile(path.resolve(env.app, '.editorconfig'), content, (err) => {
+fs.writeFile(path.resolve(env.proj, '.editorconfig'), content, (err) => {
   if (err) throw err
   alert('.editorconfig file updated.')
 })
