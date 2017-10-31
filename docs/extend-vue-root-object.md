@@ -32,9 +32,7 @@ You can easily create your own reusable Vue components, which are available in t
 
 1. Create the *app/vue.js* file with basic content
    ```
-   module.exports = (vue) => {
-     return vue
-   }
+   module.exports = (vue) => vue
 
    ```
 2. Create the component *app/components/custom-button.vue*
