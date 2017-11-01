@@ -20,26 +20,6 @@ First of all, you need a code editor. We really recommend Atom, which is open so
 8. Search for package `editorconfig` and click on *install*
 9. Close the settings tab and Atom itself
 
-### .eslintrc file
-
-The *.eslintrc* file will be created / updated automatically. You can configure it in the *config.json* file after App Framework installation.
-
-Example:
-
-```
-"eslint": {
-  "extends": "airbnb",
-  "rules": {
-    "semi": [
-      "error",
-      "never"
-    ]
-  }
-}
-```
-
-Currently, `airbnb` and `standard` are available to extend - if you wish to extend another shared configuration, please ask for it in our [issue list](https://github.com/scriptPilot/app-framework/issues).
-
 ## Node.js
 
 To run the App Framework scripts and the development server, you need to install [Node.js](https://nodejs.org/), which is available for macOS, Windows and Linux and is free of charge. You can install it with the default settings.
