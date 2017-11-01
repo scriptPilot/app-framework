@@ -18,6 +18,7 @@ For any open question, feature request or bug, please use our [issue list](https
 ## Workflow
 
 - [Setup your project](docs/setup.md)
+  - [Configure .editorconfig file](docs/editorconfigFile.md)
   - [Configure .gitignore and .npmignore files](docs/ignoreFiles.md)
 - [Design your application](docs/design.md)
 - Develop your application

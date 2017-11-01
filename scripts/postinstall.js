@@ -162,15 +162,13 @@ completePackageJson(() => {
               setupAppFolder(function () {
                 setupProjectFolder(function () {
                   updateScriptsAndVersion(function () {
-                    cmd(__dirname, 'node updateEditorConfigFile', function () {
-                      cmd(__dirname, 'node update-ignore-files', function () {
-                        // Fix configuration
-                        let configFix = jsonScheme.fix(abs(__dirname, '../config-scheme.json'), abs(env.app, 'config.json'))
-                        if (Array.isArray(configFix)) {
-                          alert('Failed to fix config file.\nDetails:\n- ' + configFix.join('\n- '), 'issue', 'error')
-                        }
-                        alert('App Framework installation done.\n\nPlease take a look at the change log:\nhttps://github.com/scriptPilot/app-framework/blob/master/CHANGELOG.md')
-                      })
+                    cmd(__dirname, 'node applyConfiguration', function () {
+                      // Fix configuration
+                      let configFix = jsonScheme.fix(abs(__dirname, '../config-scheme.json'), abs(env.app, 'config.json'))
+                      if (Array.isArray(configFix)) {
+                        alert('Failed to fix config file.\nDetails:\n- ' + configFix.join('\n- '), 'issue', 'error')
+                      }
+                      alert('App Framework installation done.\n\nPlease take a look at the change log:\nhttps://github.com/scriptPilot/app-framework/blob/master/CHANGELOG.md')
                     })
                   })
                 })

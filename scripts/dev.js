@@ -95,7 +95,7 @@ fixCode(function () {
     cmd(__dirname, 'node addLoginPopup', function () {
       cmd(__dirname, 'node checkLanguageFiles', function () {
         cmd(__dirname, 'node update-routes', function () {
-          cmd(__dirname, 'node updateEditorConfigFile', function () {
+          cmd(__dirname, 'node applyConfiguration', function () {
             cmd(__dirname, 'node create-icons', function () {
               cmd(__dirname, 'node firebase --database --storage --version dev', function () {
                 startServer(function () {

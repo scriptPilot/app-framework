@@ -20,26 +20,6 @@ First of all, you need a code editor. We really recommend Atom, which is open so
 8. Search for package `editorconfig` and click on *install*
 9. Close the settings tab and Atom itself
 
-### .editorconfig file
-
-The *.editorconfig* file will be created / updated automatically. You can configure it in the *config.json* file after App Framework installation. To write a line without value, for example `[*]`, assign value `null`, else assign the value as string or number.
-
-Example:
-
-```
-"editorConfig": {
-  "root": "true",
-  "[*]": null,
-  "indent_style": "space",
-  "indent_size": 2,
-  "charset": "utf-8",
-  "trim_trailing_whitespace": "true",
-  "insert_final_newline": "true",
-  "end_of_line": "lf",
-  "max_line_length": "null"
-}
-```
-
 ### .eslintrc file
 
 The *.eslintrc* file will be created / updated automatically. You can configure it in the *config.json* file after App Framework installation.
