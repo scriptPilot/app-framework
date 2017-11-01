@@ -66,7 +66,7 @@ You can easily create your own reusable Vue components, which are available in t
       <f7-block>
 
         <!-- here it is! -->
-        <customButton />
+        <custom-button />
 
       </f7-block>
     </f7-page>
