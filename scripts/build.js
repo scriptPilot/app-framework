@@ -290,7 +290,7 @@ fixCode(function () {
         cmd(__dirname, 'node addLoginPopup', function () {
           updateLicense(function () {
             updateDocumentation(function () {
-              cmd(__dirname, 'node update-ignore-files', function () {
+              cmd(__dirname, 'node applyConfiguration', function () {
                 fs.emptyDir(abs(env.cache, 'build'), function (err) {
                   if (err) {
                     alert('Failed to empty build folder in cache.', 'issue')

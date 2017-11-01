@@ -227,5 +227,11 @@
   "devServerPort": {
     "regexp": "/^[0-9]{4}$/",
     "default": "8080"
+  },
+  "gitignore": {
+    "type": "object"
+  },
+  "npmignore": {
+    "type": "object"
   }
 }

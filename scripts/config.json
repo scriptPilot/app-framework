@@ -1,0 +1,35 @@
+{
+  "gitignore": {
+    "_SYNCAPP/": true,
+    ".git/": true,
+    "node_modules/": true,
+    "snapshots/": true,
+    ".DS_Store": true,
+    ".enable-dev-mode": true,
+    "*.log*": true,
+    "*.zip": true,
+    "database-backup.json": true,
+    "ftp-config.json": true,
+    ".eslintrc": true,
+    ".editorconfig": true
+  },
+  "npmignore": {
+    "_SYNCAPP/": true,
+    ".git/": true,
+    "node_modules/": true,
+    "snapshots/": true,
+    ".DS_Store": true,
+    ".enable-dev-mode": true,
+    "*.log*": true,
+    "*.zip": true,
+    "database-backup.json": true,
+    "ftp-config.json": true,
+    ".eslintrc": true,
+    ".editorconfig": true,
+    "build/": true,
+    "demo/": true,
+    "docs/": true,
+    "DOCUMENTATION.md": true,
+    "media/": true
+  }
+}
