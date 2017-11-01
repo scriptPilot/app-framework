@@ -1,5 +1,5 @@
 /**
- * Framework7 Vue 0.9.2
+ * Framework7 Vue 0.9.3
  * Build full featured iOS & Android apps using Framework7 & Vue
  * http://www.framework7.io/vue/
  * 
@@ -9,7 +9,7 @@
  * 
  * Licensed under MIT
  * 
- * Released on: September 4, 2017
+ * Released on: September 7, 2017
  */
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :

@@ -1,5 +1,5 @@
 /**
- * Framework7 1.6.0
+ * Framework7 1.6.5
  * Full featured mobile HTML framework for building iOS & Android apps
  * 
  * iOS Theme
@@ -12,7 +12,7 @@
  * 
  * Licensed under MIT
  * 
- * Released on: May 22, 2017
+ * Released on: November 1, 2017
  */
 html,
 body,
@@ -658,7 +658,7 @@ p {
     width: 5%;
   }
   .row .tablet-auto:nth-last-child(1),
-  .row .tablet-auto:nth-last-child(1) ~ .col-auto {
+  .row .tablet-auto:nth-last-child(1) ~ .tablet-auto {
     width: 100%;
     width: -webkit-calc((100% - 15px*0) / 1);
     width: calc((100% - 15px*0) / 1);
@@ -668,7 +668,7 @@ p {
     width: 100%;
   }
   .row .tablet-auto:nth-last-child(2),
-  .row .tablet-auto:nth-last-child(2) ~ .col-auto {
+  .row .tablet-auto:nth-last-child(2) ~ .tablet-auto {
     width: 50%;
     width: -webkit-calc((100% - 15px*1) / 2);
     width: calc((100% - 15px*1) / 2);
@@ -678,7 +678,7 @@ p {
     width: 50%;
   }
   .row .tablet-auto:nth-last-child(3),
-  .row .tablet-auto:nth-last-child(3) ~ .col-auto {
+  .row .tablet-auto:nth-last-child(3) ~ .tablet-auto {
     width: 33.33333333%;
     width: -webkit-calc((100% - 15px*2) / 3);
     width: calc((100% - 15px*2) / 3);
@@ -688,7 +688,7 @@ p {
     width: 33.33333333%;
   }
   .row .tablet-auto:nth-last-child(4),
-  .row .tablet-auto:nth-last-child(4) ~ .col-auto {
+  .row .tablet-auto:nth-last-child(4) ~ .tablet-auto {
     width: 25%;
     width: -webkit-calc((100% - 15px*3) / 4);
     width: calc((100% - 15px*3) / 4);
@@ -698,7 +698,7 @@ p {
     width: 25%;
   }
   .row .tablet-auto:nth-last-child(5),
-  .row .tablet-auto:nth-last-child(5) ~ .col-auto {
+  .row .tablet-auto:nth-last-child(5) ~ .tablet-auto {
     width: 20%;
     width: -webkit-calc((100% - 15px*4) / 5);
     width: calc((100% - 15px*4) / 5);
@@ -708,7 +708,7 @@ p {
     width: 20%;
   }
   .row .tablet-auto:nth-last-child(6),
-  .row .tablet-auto:nth-last-child(6) ~ .col-auto {
+  .row .tablet-auto:nth-last-child(6) ~ .tablet-auto {
     width: 16.66666667%;
     width: -webkit-calc((100% - 15px*5) / 6);
     width: calc((100% - 15px*5) / 6);
@@ -718,7 +718,7 @@ p {
     width: 16.66666667%;
   }
   .row .tablet-auto:nth-last-child(7),
-  .row .tablet-auto:nth-last-child(7) ~ .col-auto {
+  .row .tablet-auto:nth-last-child(7) ~ .tablet-auto {
     width: 14.28571429%;
     width: -webkit-calc((100% - 15px*6) / 7);
     width: calc((100% - 15px*6) / 7);
@@ -728,7 +728,7 @@ p {
     width: 14.28571429%;
   }
   .row .tablet-auto:nth-last-child(8),
-  .row .tablet-auto:nth-last-child(8) ~ .col-auto {
+  .row .tablet-auto:nth-last-child(8) ~ .tablet-auto {
     width: 12.5%;
     width: -webkit-calc((100% - 15px*7) / 8);
     width: calc((100% - 15px*7) / 8);
@@ -738,7 +738,7 @@ p {
     width: 12.5%;
   }
   .row .tablet-auto:nth-last-child(9),
-  .row .tablet-auto:nth-last-child(9) ~ .col-auto {
+  .row .tablet-auto:nth-last-child(9) ~ .tablet-auto {
     width: 11.11111111%;
     width: -webkit-calc((100% - 15px*8) / 9);
     width: calc((100% - 15px*8) / 9);
@@ -748,7 +748,7 @@ p {
     width: 11.11111111%;
   }
   .row .tablet-auto:nth-last-child(10),
-  .row .tablet-auto:nth-last-child(10) ~ .col-auto {
+  .row .tablet-auto:nth-last-child(10) ~ .tablet-auto {
     width: 10%;
     width: -webkit-calc((100% - 15px*9) / 10);
     width: calc((100% - 15px*9) / 10);
@@ -758,7 +758,7 @@ p {
     width: 10%;
   }
   .row .tablet-auto:nth-last-child(11),
-  .row .tablet-auto:nth-last-child(11) ~ .col-auto {
+  .row .tablet-auto:nth-last-child(11) ~ .tablet-auto {
     width: 9.09090909%;
     width: -webkit-calc((100% - 15px*10) / 11);
     width: calc((100% - 15px*10) / 11);
@@ -768,7 +768,7 @@ p {
     width: 9.09090909%;
   }
   .row .tablet-auto:nth-last-child(12),
-  .row .tablet-auto:nth-last-child(12) ~ .col-auto {
+  .row .tablet-auto:nth-last-child(12) ~ .tablet-auto {
     width: 8.33333333%;
     width: -webkit-calc((100% - 15px*11) / 12);
     width: calc((100% - 15px*11) / 12);
@@ -778,7 +778,7 @@ p {
     width: 8.33333333%;
   }
   .row .tablet-auto:nth-last-child(13),
-  .row .tablet-auto:nth-last-child(13) ~ .col-auto {
+  .row .tablet-auto:nth-last-child(13) ~ .tablet-auto {
     width: 7.69230769%;
     width: -webkit-calc((100% - 15px*12) / 13);
     width: calc((100% - 15px*12) / 13);
@@ -788,7 +788,7 @@ p {
     width: 7.69230769%;
   }
   .row .tablet-auto:nth-last-child(14),
-  .row .tablet-auto:nth-last-child(14) ~ .col-auto {
+  .row .tablet-auto:nth-last-child(14) ~ .tablet-auto {
     width: 7.14285714%;
     width: -webkit-calc((100% - 15px*13) / 14);
     width: calc((100% - 15px*13) / 14);
@@ -798,7 +798,7 @@ p {
     width: 7.14285714%;
   }
   .row .tablet-auto:nth-last-child(15),
-  .row .tablet-auto:nth-last-child(15) ~ .col-auto {
+  .row .tablet-auto:nth-last-child(15) ~ .tablet-auto {
     width: 6.66666667%;
     width: -webkit-calc((100% - 15px*14) / 15);
     width: calc((100% - 15px*14) / 15);
@@ -808,7 +808,7 @@ p {
     width: 6.66666667%;
   }
   .row .tablet-auto:nth-last-child(16),
-  .row .tablet-auto:nth-last-child(16) ~ .col-auto {
+  .row .tablet-auto:nth-last-child(16) ~ .tablet-auto {
     width: 6.25%;
     width: -webkit-calc((100% - 15px*15) / 16);
     width: calc((100% - 15px*15) / 16);
@@ -818,7 +818,7 @@ p {
     width: 6.25%;
   }
   .row .tablet-auto:nth-last-child(17),
-  .row .tablet-auto:nth-last-child(17) ~ .col-auto {
+  .row .tablet-auto:nth-last-child(17) ~ .tablet-auto {
     width: 5.88235294%;
     width: -webkit-calc((100% - 15px*16) / 17);
     width: calc((100% - 15px*16) / 17);
@@ -828,7 +828,7 @@ p {
     width: 5.88235294%;
   }
   .row .tablet-auto:nth-last-child(18),
-  .row .tablet-auto:nth-last-child(18) ~ .col-auto {
+  .row .tablet-auto:nth-last-child(18) ~ .tablet-auto {
     width: 5.55555556%;
     width: -webkit-calc((100% - 15px*17) / 18);
     width: calc((100% - 15px*17) / 18);
@@ -838,7 +838,7 @@ p {
     width: 5.55555556%;
   }
   .row .tablet-auto:nth-last-child(19),
-  .row .tablet-auto:nth-last-child(19) ~ .col-auto {
+  .row .tablet-auto:nth-last-child(19) ~ .tablet-auto {
     width: 5.26315789%;
     width: -webkit-calc((100% - 15px*18) / 19);
     width: calc((100% - 15px*18) / 19);
@@ -848,7 +848,7 @@ p {
     width: 5.26315789%;
   }
   .row .tablet-auto:nth-last-child(20),
-  .row .tablet-auto:nth-last-child(20) ~ .col-auto {
+  .row .tablet-auto:nth-last-child(20) ~ .tablet-auto {
     width: 5%;
     width: -webkit-calc((100% - 15px*19) / 20);
     width: calc((100% - 15px*19) / 20);
@@ -858,7 +858,7 @@ p {
     width: 5%;
   }
   .row .tablet-auto:nth-last-child(21),
-  .row .tablet-auto:nth-last-child(21) ~ .col-auto {
+  .row .tablet-auto:nth-last-child(21) ~ .tablet-auto {
     width: 4.76190476%;
     width: -webkit-calc((100% - 15px*20) / 21);
     width: calc((100% - 15px*20) / 21);
@@ -907,19 +907,27 @@ p {
   display: none;
 }
 .page-on-left {
-  opacity: 0.9;
   -webkit-transform: translate3d(-20%, 0, 0);
   transform: translate3d(-20%, 0, 0);
 }
+.page-on-left .swipeback-page-opacity {
+  opacity: 1;
+}
+.page-on-left:after {
+  opacity: 1;
+}
 .page-on-center .swipeback-page-shadow {
   opacity: 1;
+}
+.page-on-center .swipeback-page-opacity {
+  opacity: 0 !important;
 }
 .page-on-right {
   -webkit-transform: translate3d(100%, 0, 0);
   transform: translate3d(100%, 0, 0);
 }
 .page-on-right .swipeback-page-shadow {
-  opacity: 0;
+  opacity: 0 !important;
 }
 .page-content {
   overflow: auto;
@@ -939,14 +947,30 @@ p {
   background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0.01) 50%, rgba(0, 0, 0, 0.2) 100%);
   z-index: -1;
   content: '';
+  will-change: opacity;
+  contain: strict;
 }
 html.android .swipeback-page-shadow {
   display: none;
   -webkit-animation: none;
   animation: none;
 }
+.swipeback-page-opacity {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: 100%;
+  content: '';
+  opacity: 0;
+  z-index: 10000;
+  will-change: opacity;
+  contain: strict;
+}
 .page-transitioning,
-.page-transitioning .swipeback-page-shadow {
+.page-transitioning .swipeback-page-shadow,
+.page-transitioning .swipeback-page-opacity {
   -webkit-transition-duration: 400ms;
   transition-duration: 400ms;
 }
@@ -961,6 +985,8 @@ html.android .swipeback-page-shadow {
   background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0.01) 50%, rgba(0, 0, 0, 0.2) 100%);
   z-index: -1;
   content: '';
+  will-change: opacity;
+  contain: strict;
 }
 html.android .page-from-right-to-center:before,
 html.android .page-from-center-to-right:before {
@@ -1052,17 +1078,45 @@ html.android .page-from-center-to-right:before {
   -webkit-animation: pageFromCenterToLeft 400ms forwards;
   animation: pageFromCenterToLeft 400ms forwards;
 }
+.page-from-center-to-left:after {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: 100%;
+  content: '';
+  opacity: 0;
+  z-index: 10000;
+  will-change: opacity;
+  contain: strict;
+  -webkit-animation: pageFromCenterToLeftOpacity 400ms forwards;
+  animation: pageFromCenterToLeftOpacity 400ms forwards;
+}
 .page-from-left-to-center {
   -webkit-animation: pageFromLeftToCenter 400ms forwards;
   animation: pageFromLeftToCenter 400ms forwards;
 }
+.page-from-left-to-center:after {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: 100%;
+  content: '';
+  opacity: 0;
+  z-index: 10000;
+  will-change: opacity;
+  contain: strict;
+  -webkit-animation: pageFromLeftToCenterOpacity 400ms forwards;
+  animation: pageFromLeftToCenterOpacity 400ms forwards;
+}
 @-webkit-keyframes pageFromCenterToLeft {
   from {
-    opacity: 1;
     -webkit-transform: translate3d(0, 0, 0);
   }
   to {
-    opacity: 0.9;
     -webkit-transform: translate3d(-20%, 0, 0);
   }
 }
@@ -1071,17 +1125,14 @@ html.android .page-from-center-to-right:before {
     transform: translate3d(0, 0, 0);
   }
   to {
-    opacity: 0.9;
     transform: translate3d(-20%, 0, 0);
   }
 }
 @-webkit-keyframes pageFromLeftToCenter {
   from {
-    opacity: 0.9;
     -webkit-transform: translate3d(-20%, 0, 0);
   }
   to {
-    opacity: 1;
     -webkit-transform: translate3d(0, 0, 0);
   }
 }
@@ -1090,8 +1141,39 @@ html.android .page-from-center-to-right:before {
     transform: translate3d(-20%, 0, 0);
   }
   to {
-    opacity: 1;
     transform: translate3d(0, 0, 0);
+  }
+}
+@-webkit-keyframes pageFromCenterToLeftOpacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes pageFromCenterToLeftOpacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes pageFromLeftToCenterOpacity {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes pageFromLeftToCenterOpacity {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
   }
 }
 /* === Toolbars === */
@@ -7977,6 +8059,10 @@ html:not(.ios):not(.android) .data-table tbody tr:hover {
 .data-table td.checkbox-cell + td,
 .data-table th.checkbox-cell + th,
 .data-table td.checkbox-cell + th {
+  padding-left: 8px;
+}
+.data-table th.checkbox-cell label + span,
+.data-table td.checkbox-cell label + span {
   padding-left: 8px;
 }
 .data-table th.actions-cell,

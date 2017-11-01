@@ -2,13 +2,18 @@
 
 > This page is part of the [App Framework Documentation](DOCUMENTATION.md)
 
-## Version 1.18.1
+## Version 1.18.2
 
 Released on 2017-11-01
 
 ### New features
 
 - [x] [#707 - Make .npmignore and .gitignore configurable](https://github.com/scriptPilot/app-framework/issues/707) ([read the docs](https://github.com/scriptPilot/app-framework/blob/master/docs/ignoreFiles.md))
+
+### Improvements
+
+- Updated Framework7
+- Updated Framework7-Vue
 
 ## Version 1.17.1
 
