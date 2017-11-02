@@ -1,4 +1,4 @@
-// Purpose: Update .gitignore and .npmignore files bases on the scripts and app configuration
+// Purpose: Update .eslintrc file according the app config file
 
 // Load modules
 const path = require('../path')
