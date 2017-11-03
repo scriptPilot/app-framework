@@ -1,4 +1,4 @@
-# Configure .editorconfig file
+# Configure .npmrc file
 
 > This page is part of the [App Framework Documentation](../DOCUMENTATION.md)
 
