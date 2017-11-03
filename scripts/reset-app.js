@@ -44,7 +44,7 @@ let copyIconFile = function (callback) {
 }
 let createConfigFile = function (callback) {
   alert('Create default configuration file.')
-  let res = jsonScheme.create(abs(__dirname, '../config-scheme.json'), abs(dest, 'config.json'))
+  let res = jsonScheme.create(abs(__dirname, './scheme.app.json'), abs(dest, 'config.json'))
   if (!Array.isArray(res)) {
     env.cfg = fs.readJsonSync(abs(dest, 'config.json'))
     alert('Default configuration file created.')

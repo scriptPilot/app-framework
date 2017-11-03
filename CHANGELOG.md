@@ -2,6 +2,12 @@
 
 > This page is part of the [App Framework Documentation](DOCUMENTATION.md)
 
+## Version 1.19.0
+
+### Improvements
+
+- Optimized script handling
+
 ## Version 1.18.2
 
 Released on 2017-11-01
