@@ -2,10 +2,11 @@
 
 > This page is part of the [App Framework Documentation](DOCUMENTATION.md)
 
-## Version 1.19.0
+## Next version
 
 ### Improvements
 
+- - [x] [#614 - Add build/ to .gitignore](https://github.com/scriptPilot/app-framework/issues/614)
 - Optimized script handling
 
 ## Version 1.18.2
