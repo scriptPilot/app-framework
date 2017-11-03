@@ -11,7 +11,10 @@
     "database-backup.json": true,
     "ftp-config.json": true,
     ".eslintrc": true,
-    ".editorconfig": true
+    ".editorconfig": true,
+    ".npmrc": true,
+    ".gitignore": true,
+    ".npmignore": true
   },
   "npmignore": {
     "_SYNCAPP/": true,
@@ -26,6 +29,9 @@
     "ftp-config.json": true,
     ".eslintrc": true,
     ".editorconfig": true,
+    ".npmrc": true,
+    ".gitignore": true,
+    ".npmignore": true,
     "build/": true,
     "demo/": true,
     "docs/": true,

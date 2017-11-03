@@ -7,6 +7,9 @@
 .enable-dev-mode
 .eslintrc
 .git/
+.gitignore
+.npmignore
+.npmrc
 _SYNCAPP/
 database-backup.json
 ftp-config.json

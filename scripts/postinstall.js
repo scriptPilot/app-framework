@@ -162,7 +162,7 @@ completePackageJson(() => {
               setupAppFolder(function () {
                 setupProjectFolder(function () {
                   updateScriptsAndVersion(function () {
-                    cmd(__dirname, 'node applyConfiguration', function () {
+                    cmd(abs(env.proj), 'npm run update', () => {
                       // Fix configuration
                       let configFix = jsonScheme.fix(abs(__dirname, '../config-scheme.json'), abs(env.app, 'config.json'))
                       if (Array.isArray(configFix)) {

@@ -38,11 +38,9 @@ const errorAlert = `${env.arg.fix !== true ? 'Code unconformities found.' : 'Som
                    env.arg.fix !== true ? 'You can run "npm run fix" first for automatic fix.' : ''}`
 
 // Do the fix
-cmd(__dirname, 'node applyConfiguration', () => {
-  cmd([env.proj], params, () => {
-    fs.removeSync(abs(env.proj, logFile))
-    alert(`Code ${env.arg.fix === true ? 'fix' : 'check'} done without findings.`)
-  }, () => {
-    alert(errorAlert, 'error')
-  })
+cmd([env.proj], params, () => {
+  fs.removeSync(abs(env.proj, logFile))
+  alert(`Code ${env.arg.fix === true ? 'fix' : 'check'} done without findings.`)
+}, () => {
+  alert(errorAlert, 'error')
 })

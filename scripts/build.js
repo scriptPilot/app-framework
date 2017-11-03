@@ -278,7 +278,6 @@ function updatePreloader (callback) {
 fixCode(function () {
   cmd(__dirname, 'node checkLanguageFiles', function () {
     cmd(__dirname, 'node update-routes', function () {
-      cmd(__dirname, 'node applyConfiguration', function () {
         if (mode !== 'dev') {
           // Update version in package.json
           let pkg = fs.readJsonSync(abs(env.proj, 'package.json'))
@@ -335,7 +334,6 @@ fixCode(function () {
               })
             })
           })
-        })
       })
     })
   })
