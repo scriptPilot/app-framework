@@ -11,6 +11,7 @@
 .npmignore
 .npmrc
 _SYNCAPP/
+build/
 database-backup.json
 ftp-config.json
 node_modules/

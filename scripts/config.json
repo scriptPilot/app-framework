@@ -34,7 +34,6 @@
     ".npmrc": true,
     ".gitignore": true,
     ".npmignore": true,
-    "build/": true,
     "demo/": true,
     "docs/": true,
     "DOCUMENTATION.md": true,
