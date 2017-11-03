@@ -72,8 +72,6 @@
     "extends": "standard",
     "rules": {}
   },
-  "fixCodeOnTest": true,
-  "fixCodeOnBuild": true,
   "devServerPort": "8080",
   "gitignore": {
     "code-unconformities": false

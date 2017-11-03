@@ -2,6 +2,7 @@
   "gitignore": {
     "_SYNCAPP/": true,
     ".git/": true,
+    "build/": true,
     "node_modules/": true,
     "snapshots/": true,
     ".DS_Store": true,
@@ -19,6 +20,7 @@
   "npmignore": {
     "_SYNCAPP/": true,
     ".git/": true,
+    "build/": true,
     "node_modules/": true,
     "snapshots/": true,
     ".DS_Store": true,
