@@ -2,6 +2,12 @@
 
 > This page is part of the [App Framework Documentation](DOCUMENTATION.md)
 
+## Version 1.19.2
+
+Released 2017-01-03
+
+- [x] Rollback to version 1.18.2
+
 ## Version 1.18.2
 
 Released on 2017-11-01
@@ -12,8 +18,8 @@ Released on 2017-11-01
 
 ### Improvements
 
-- Updated Framework7
-- Updated Framework7-Vue
+- [x] Updated Framework7
+- [x] Updated Framework7-Vue
 
 ## Version 1.17.1
 
