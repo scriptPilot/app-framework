@@ -4,9 +4,13 @@
 
 ## Next version
 
+### New features
+
+- [x] [#714 - Make .npmrc file configurable](https://github.com/scriptPilot/app-framework/issues/714) ([read the docs](https://github.com/scriptPilot/app-framework/blob/master/docs/npmrcFile.md))
+
 ### Improvements
 
-- - [x] [#614 - Add build/ to .gitignore](https://github.com/scriptPilot/app-framework/issues/614)
+- [x] [#614 - Add build/ to .gitignore](https://github.com/scriptPilot/app-framework/issues/614)
 - Optimized script handling
 
 ## Version 1.18.2
