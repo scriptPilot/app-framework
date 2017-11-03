@@ -65,9 +65,7 @@ editorConfig | *object* | {"root":"true","[*]":null,"indent_style":"space","inde
 eslint | *object* |
 &nbsp;&nbsp;&nbsp;extends | airbnb, standard | airbnb
 &nbsp;&nbsp;&nbsp;rules | *object* | {"semi":["error","never"]}
+fixCodeOnTest | *boolean* | true
+fixCodeOnBuild | *boolean* | true
 devServerPort | /^[0-9]{4}$/ | 8080
-gitignore | *object* | {}
-npmignore | *object* | {}
-npmrc | *object* | {"loglevel":"silent"}
-debug | *boolean* | false
 <!-- /config-options -->

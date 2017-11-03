@@ -1,8 +1,0 @@
-{
-  "gitignore": {
-    "type": "object"
-  },
-  "npmignore": {
-    "type": "object"
-  }
-}

@@ -21,6 +21,17 @@ let devMiddleware = require('webpack-dev-middleware')
 let hotMiddleware = require('webpack-hot-middleware')
 let opn = require('opn')
 
+// Step: Fix code
+let fixCode = function (callback) {
+  if (env.cfg.fixCodeOnTest === true) {
+    cmd(__dirname, 'node code-check --fix', function () {
+      callback()
+    })
+  } else {
+    callback()
+  }
+}
+
 // Step: Start server
 let startServer = function (callback) {
   alert('Development server start ongoing - please wait ...')
@@ -79,17 +90,20 @@ function checkFrameworkUpdates (callback) {
 }
 
 alert('Development server preparation ongoing - please wait ...')
-
-checkFrameworkUpdates(function () {
-  cmd(__dirname, 'node addLoginPopup', function () {
-    cmd(__dirname, 'node checkLanguageFiles', function () {
-      cmd(__dirname, 'node update-routes', function () {
-        cmd(__dirname, 'node create-icons', function () {
-          cmd(__dirname, 'node firebase --database --storage --version dev', function () {
-            startServer(function () {
-              let uri = 'http://localhost:' + env.cfg.devServerPort
-              opn(uri)
-              alert('Development server started at ' + uri + '.\n\nTo be stopped with "CTRL + C".')
+fixCode(function () {
+  checkFrameworkUpdates(function () {
+    cmd(__dirname, 'node addLoginPopup', function () {
+      cmd(__dirname, 'node checkLanguageFiles', function () {
+        cmd(__dirname, 'node update-routes', function () {
+          cmd(__dirname, 'node applyConfiguration', function () {
+            cmd(__dirname, 'node create-icons', function () {
+              cmd(__dirname, 'node firebase --database --storage --version dev', function () {
+                startServer(function () {
+                  let uri = 'http://localhost:' + env.cfg.devServerPort
+                  opn(uri)
+                  alert('Development server started at ' + uri + '.\n\nTo be stopped with "CTRL + C".')
+                })
+              })
             })
           })
         })

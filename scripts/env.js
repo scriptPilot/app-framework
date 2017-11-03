@@ -55,7 +55,7 @@ if (!installed && !found(proj, '.enable-dev-mode')) {
 // Fix configuration file
 if (found(app, 'config.json')) {
   upgradeConfig(app)
-  let configFix = jsonScheme.fix(abs(__dirname, './scheme.app.json'), abs(app, 'config.json'))
+  let configFix = jsonScheme.fix(abs(__dirname, '../config-scheme.json'), abs(app, 'config.json'))
   if (Array.isArray(configFix)) {
     alert('Failed to fix config file.\nDetails:\n- ' + configFix.join('\n- '), 'issue', 'issue')
   }

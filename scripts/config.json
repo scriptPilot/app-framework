@@ -2,7 +2,6 @@
   "gitignore": {
     "_SYNCAPP/": true,
     ".git/": true,
-    "build/": true,
     "node_modules/": true,
     "snapshots/": true,
     ".DS_Store": true,
@@ -12,15 +11,11 @@
     "database-backup.json": true,
     "ftp-config.json": true,
     ".eslintrc": true,
-    ".editorconfig": true,
-    ".npmrc": true,
-    ".gitignore": true,
-    ".npmignore": true
+    ".editorconfig": true
   },
   "npmignore": {
     "_SYNCAPP/": true,
     ".git/": true,
-    "build/": true,
     "node_modules/": true,
     "snapshots/": true,
     ".DS_Store": true,
@@ -31,9 +26,7 @@
     "ftp-config.json": true,
     ".eslintrc": true,
     ".editorconfig": true,
-    ".npmrc": true,
-    ".gitignore": true,
-    ".npmignore": true,
+    "build/": true,
     "demo/": true,
     "docs/": true,
     "DOCUMENTATION.md": true,

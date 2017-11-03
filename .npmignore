@@ -7,9 +7,6 @@
 .enable-dev-mode
 .eslintrc
 .git/
-.gitignore
-.npmignore
-.npmrc
 DOCUMENTATION.md
 _SYNCAPP/
 build/
