@@ -75,6 +75,12 @@
   "fixCodeOnTest": true,
   "fixCodeOnBuild": true,
   "devServerPort": "8080",
-  "gitignore": {},
-  "npmignore": {}
+  "gitignore": {
+    "code-unconformities": false
+  },
+  "npmignore": {},
+  "npmrc": {
+    "loglevel": "silent"
+  },
+  "debug": false
 }

@@ -28,7 +28,7 @@ env.path = {
   scripts: (...args) => path.resolve(__dirname, '', ...args),
   npm: (...args) => path.resolve(__dirname, env.isInstalled ? '../../' : '../node_modules/', ...args),
   bin: (...args) => path.resolve(__dirname, env.isInstalled ? '../../.bin/' : '../node_modules/.bin', ...args),
-  cache: (...args) => path.resolve(__dirname, env.isInstalled ? '../../.app-framework-cache/' : '../node_modules/.app-framework-cache/', ...args),
+  cache: (...args) => path.resolve(__dirname, env.isInstalled ? '../../.app-framework-cache/' : '../node_modules/.app-framework-cache/', ...args)
 }
 
 // Load configuration files
@@ -36,7 +36,7 @@ env.cfg = {
   proj: fs.existsSync(env.path.proj('package.json')) ? fs.readJsonSync(env.path.proj('package.json')) : {},
   app: fs.existsSync(env.path.app('config.json')) ? fs.readJsonSync(env.path.app('config.json')) : {},
   pkg: fs.existsSync(env.path.pkg('package.json')) ? fs.readJsonSync(env.path.pkg('package.json')) : {},
-  scripts: fs.existsSync(env.path.scripts('config.json')) ? fs.readJsonSync(env.path.scripts('config.json')) : {},
+  scripts: fs.existsSync(env.path.scripts('config.json')) ? fs.readJsonSync(env.path.scripts('config.json')) : {}
 }
 
 // Function to log messages to the console and optionally exit the script
@@ -88,7 +88,7 @@ env.log = {
   error: (...messages) => log(...messages, 'error'),
   issue: (...messages) => log(...messages, 'issue'),
   exit: (...messages) => log(...messages, 'exit'),
-  debug: (...messages) => log(...messages, 'debug'),
+  debug: (...messages) => log(...messages, 'debug')
 }
 
 // Export env object

@@ -3,7 +3,6 @@
 // Load modules
 const env = require('./env2')
 const fs = require('fs-extra')
-const _ = require('lodash')
 
 // Create file content
 let content = ''

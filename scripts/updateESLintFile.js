@@ -18,7 +18,7 @@ eslintConfig.plugins = ['vue']
 // Add Node and browser environments
 eslintConfig.env = {
   browser: true,
-  node: true,
+  node: true
 }
 
 // Create/update .eslintrc file
