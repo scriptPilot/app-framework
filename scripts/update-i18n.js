@@ -43,11 +43,20 @@ function scanPages() {
   alert('Scan project pages in progress ...')
   return new Promise((resolve, reject) => {
     let pagesFolder = path.resolve(env.app, 'pages')
+    let componentsFolder = path.resolve(env.app, 'components')
+    let appFile = path.resolve(env.app, 'app.vue')
     const regex = /\$lang\(['''|'"'](.*?)['''|'"'](?:[ ]*,?[ ]*\{.*\})?\)/g;
-    rec(pagesFolder, function (err, pages) {
-      if (err) {
-        reject('Failed to read pages folder.')
-      } else {
+    let pathKeys = []
+    let paths = [pagesFolder, componentsFolder]
+    let promiseTab = []
+    paths.forEach(p => {
+      if (found(p)) {
+        promiseTab.push(rec(p))
+      }
+    })
+    Promise.all(promiseTab).then(res => {
+      res.push([appFile])
+      res.map(pages => {
         let keys = []
         for (let p = 0; p < pages.length; p++) {
           let str = fs.readFileSync(pages[p], 'utf8')
@@ -59,8 +68,11 @@ function scanPages() {
             keys.push(m[1])
           }
         }
-        resolve(keys)
-      }
+        pathKeys = pathKeys.concat(keys)
+      })
+      resolve(pathKeys)
+    }, err => {
+      reject('Failed to read pages folder.')
     })
   })
 }
@@ -98,7 +110,7 @@ function diffKeys(storedKeys, newKeys, newKey = true) {
  * @param {array} diffKeysToDelete
  * @param {Object} params
  */
-function saveKeys(storedKeys, diffKeysToSave,diffKeysToDelete, params) {
+function saveKeys(storedKeys, diffKeysToSave, diffKeysToDelete, params) {
   let lang = params.lang || env.cfg.defaultLanguage
   let prefix = params.prefix || '__'
   return new Promise((resolve, reject) => {
@@ -136,7 +148,7 @@ loadI18nFile(lang).then(storedKeys => {
       diffKeys(storedKeys, newKeys, false).then(diffKeysToDelete => {
         alert(`${diffKeysToDelete.length} new keys to delete`)
         //Step 5 : Save keys in [locale].json file
-        saveKeys(storedKeys, diffKeysToSave,diffKeysToDelete, { lang, prefix }).then(saved => {
+        saveKeys(storedKeys, diffKeysToSave, diffKeysToDelete, { lang, prefix }).then(saved => {
           alert(`I18n Keys saved in ${lang}.json`)
         }, err => {
           alert(err, 'error')
