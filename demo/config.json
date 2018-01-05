@@ -42,6 +42,7 @@
     "databaseURL": "https://dev-app-framework.firebaseio.com",
     "storageBucket": "dev-app-framework.appspot.com",
     "projectId": "app-framework-9045a",
+    "enableFirestore": false,
     "allowEmailLogin": true,
     "allowEmailRegistration": false
   },
