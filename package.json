@@ -61,7 +61,7 @@
     "extract-text-webpack-plugin": "^1.0.1",
     "extract-zip": "^1.6.0",
     "file-loader": "^0.9.0",
-    "firebase": "^3.6.6",
+    "firebase": "^4.8.1",
     "firebase-tools": "^3.2.3",
     "font-awesome": "^4.7.0",
     "framework7-icons": "^0.8.9",

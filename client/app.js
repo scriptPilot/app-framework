@@ -249,6 +249,7 @@ mixins.manageFirebase = {
       let firebase = require('firebase/app')
       if (process.env.USE_FIREBASE_AUTH === 'true') require('firebase/auth')
       if (process.env.USE_FIREBASE_DATABASE === 'true') require('firebase/database')
+      if (process.env.USE_FIREBASE_FIRESTORE === 'true') require('firebase/firestore')
       if (process.env.USE_FIREBASE_STORAGE === 'true') require('firebase/storage')
       // Initialize Firebase
       window.firebase = firebase.initializeApp(this.config[process.env.FIREBASE_CONFIG])

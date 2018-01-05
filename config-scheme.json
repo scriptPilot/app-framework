@@ -115,6 +115,10 @@
       "projectId": {
         "type": "string"
       },
+      "enableFirestore": {
+        "type": "boolean",
+        "default": false
+      },
       "allowEmailLogin": {
         "type": "boolean",
         "default": false
