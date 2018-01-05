@@ -31,6 +31,7 @@
     "databaseURL": "https://app-framework-9045a.firebaseio.com",
     "storageBucket": "app-framework-9045a.appspot.com",
     "projectId": "app-framework-9045a",
+    "enableFirestore": false,
     "allowEmailLogin": true,
     "allowEmailRegistration": true
   },

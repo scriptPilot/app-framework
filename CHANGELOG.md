@@ -4,6 +4,12 @@
 
 ## Version 1.19.2
 
+Release 2018-01-05
+
+- [x] Firebase updated from v3.6.6 to v4.8.1: now include Firestore (Beta)
+
+## Version 1.19.2
+
 Released 2017-01-03
 
 - [x] Rollback to version 1.18.2
