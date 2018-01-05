@@ -20,7 +20,8 @@
   1. Item must contain exact one property of type, allow, regexp or props
   2. Props must contain a scheme object itself
   3. Default is optional, must be valid itself and is allowed together with type, allow and regexp
-  4. Other props are not allowed
+  4. Default is required for allow and regexp
+  5. Other props are not allowed
 
 */
 

@@ -51,3 +51,24 @@ If you set `deployDevRulesOnTesting: true`, on each test command (`npm run dev`,
 It is quite easy to sign out a user with App Framework from Firebase:
 
 `<f7-button @click="$root.$signOut()">Sign out</f7-button>`
+
+## Example
+
+Common task: Keep some local data in sync with Firebase
+
+```
+<template>
+  <f7-page>
+    <f7-block>{{$db('someLocalData')}}</f7-block>
+  </f7-page>
+</template>
+<script>
+  export default {
+    created() {
+      this.$fireDB('someDataAtFirebase').on('value', (snap) => {
+        this.$db('someLocalData', snap.val())
+      })
+    }
+  }
+</script>
+```

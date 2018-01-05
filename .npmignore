@@ -1,50 +1,19 @@
-# This file is updated automatically - Please do not change!
+# This file is updated automatically, please add or remove files in the configuration file.
 
-# Exclude Allway Sync folder
-_SYNCAPP/
-
-# Exclude Git folder
-.git/
-
-# Exclude node modules (with cache)
-node_modules/
-
-# Exclude project snapshots
-snapshots/
-
-# Exclude macOS system files
-.DS_Store
-
-# Exclude development mode enabling file
-.enable-dev-mode
-
-# Exclude log files
 *.log*
-
-# Exclude zip files (deprecated)
 *.zip
-
-# Exclude database backups (deprecated)
-database-backup.json
-
-# Exclude FTP config file
-ftp-config.json
-
-# Exclude ESLint configuration file
+.DS_Store
+.editorconfig
+.enable-dev-mode
 .eslintrc
-
-# Exclude Build folder
-build/
-
-# Exclude Demo folder
-demo/
-
-# Exclude Documentation folder
-docs/
-
-# Exclude Documentation file
+.git/
 DOCUMENTATION.md
-
-# Exclude media folder
+_SYNCAPP/
+build/
+database-backup.json
+demo/
+docs/
+ftp-config.json
 media/
-
+node_modules/
+snapshots/

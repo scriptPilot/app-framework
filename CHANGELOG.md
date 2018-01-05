@@ -2,15 +2,41 @@
 
 > This page is part of the [App Framework Documentation](DOCUMENTATION.md)
 
-## Next version
+## Version 1.19.2
+
+Released 2017-01-03
+
+- [x] Rollback to version 1.18.2
+
+## Version 1.18.2
+
+Released on 2017-11-01
+
+### New features
+
+- [x] [#707 - Make .npmignore and .gitignore configurable](https://github.com/scriptPilot/app-framework/issues/707) ([read the docs](https://github.com/scriptPilot/app-framework/blob/master/docs/ignoreFiles.md))
+
+### Improvements
+
+- [x] Updated Framework7
+- [x] Updated Framework7-Vue
+
+## Version 1.17.1
+
+Released on 2017-10-31
 
 ### New features
 
 - [x] [#639 - Add .editorconfig file](https://github.com/scriptPilot/app-framework/issues/639) ([read the docs](https://github.com/scriptPilot/app-framework/blob/master/docs/software.md))
 
+### Bug-fixes
+
+- [x] [#703 - Project folder setup failed.](https://github.com/scriptPilot/app-framework/issues/703)
+
 ### Improvements
 
 - [x] [#696 - Update Vue.js](https://github.com/scriptPilot/app-framework/issues/696)
+- [x] [#700 - Make own Vue components available on all pages](https://github.com/scriptPilot/app-framework/issues/700) ([read the docs](https://github.com/scriptPilot/app-framework/blob/master/docs/extend-vue-root-object.md))
 
 ## Version 1.16.18
 

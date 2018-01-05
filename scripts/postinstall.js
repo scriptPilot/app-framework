@@ -25,16 +25,6 @@ let fs = require('fs-extra')
 let abs = require('path').resolve
 const path = require('path')
 
-// Step: Prepare the project folder setup
-let prepareSetup = function (callback) {
-  if (env.installed) {
-    // Rename .npmignore to .gitignore
-    if (found(__dirname, '../.npmignore')) fs.renameSync(abs(__dirname, '../.npmignore'), abs(__dirname, '../.gitignore'))
-    if (found(__dirname, '../.npmignore')) fs.renameSync(abs(__dirname, '../.npmignore'), abs(__dirname, '../.gitignore'))
-  }
-  callback()
-}
-
 // Step: Prune node folder
 let pruneModules = function (callback) {
   alert('Node modules folder clean-up ongoing - please wait ...')
@@ -71,8 +61,6 @@ let setupProjectFolder = function (callback) {
       fs.copySync(abs(from, 'design'), abs(to, 'design'), {filter: f => /(design|\.pdf)$/.test(f)})
       // Update .babelrc
       fs.copySync(abs(from, '.babelrc'), abs(to, '.babelrc'))
-      // Update .gitignore
-      fs.copySync(abs(from, '.gitignore'), abs(to, '.gitignore'))
       // Alert
       alert('Project folder setup done.')
       // callback
@@ -171,20 +159,16 @@ completePackageJson(() => {
         cmd(__dirname, 'node modifications16plus', function () {
           pruneModules(function () {
             removeCache(function () {
-              prepareSetup(function () {
-                setupAppFolder(function () {
-                  setupProjectFolder(function () {
-                    updateScriptsAndVersion(function () {
-                      cmd(__dirname, 'node updateEditorConfigFile', function () {
-                        cmd(__dirname, 'node update-ignore-files', function () {
-                          // Fix configuration
-                          let configFix = jsonScheme.fix(abs(__dirname, '../config-scheme.json'), abs(env.app, 'config.json'))
-                          if (Array.isArray(configFix)) {
-                            alert('Failed to fix config file.\nDetails:\n- ' + configFix.join('\n- '), 'issue', 'error')
-                          }
-                          alert('App Framework installation done.\n\nPlease take a look at the change log:\nhttps://github.com/scriptPilot/app-framework/blob/master/CHANGELOG.md')
-                        })
-                      })
+              setupAppFolder(function () {
+                setupProjectFolder(function () {
+                  updateScriptsAndVersion(function () {
+                    cmd(__dirname, 'node applyConfiguration', function () {
+                      // Fix configuration
+                      let configFix = jsonScheme.fix(abs(__dirname, '../config-scheme.json'), abs(env.app, 'config.json'))
+                      if (Array.isArray(configFix)) {
+                        alert('Failed to fix config file.\nDetails:\n- ' + configFix.join('\n- '), 'issue', 'error')
+                      }
+                      alert('App Framework installation done.\n\nPlease take a look at the change log:\nhttps://github.com/scriptPilot/app-framework/blob/master/CHANGELOG.md')
                     })
                   })
                 })

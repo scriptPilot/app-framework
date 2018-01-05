@@ -37,26 +37,12 @@ const errorAlert = `${env.arg.fix !== true ? 'Code unconformities found.' : 'Som
                  `Please check "${logFile}" for detailed information.\n${
                    env.arg.fix !== true ? 'You can run "npm run fix" first for automatic fix.' : ''}`
 
-// Update eslint config file
-const eslintConfig = env.cfg.eslint
-if (eslintConfig.extends === 'airbnb') {
-  eslintConfig.extends = 'airbnb-base'
-}
-eslintConfig.plugins = ['vue']
-eslintConfig.env = {
-  browser: true,
-  node: true
-}
-try {
-  fs.writeJsonSync(abs(env.proj, '.eslintrc'), eslintConfig, { spaces: 2 })
-} catch (err) {
-  alert('Failed to update the ESLint configuration file.', 'issue')
-}
-
 // Do the fix
-cmd([env.proj], params, () => {
-  fs.removeSync(abs(env.proj, logFile))
-  alert(`Code ${env.arg.fix === true ? 'fix' : 'check'} done without findings.`)
-}, () => {
-  alert(errorAlert, 'error')
+cmd(__dirname, 'node applyConfiguration', () => {
+  cmd([env.proj], params, () => {
+    fs.removeSync(abs(env.proj, logFile))
+    alert(`Code ${env.arg.fix === true ? 'fix' : 'check'} done without findings.`)
+  }, () => {
+    alert(errorAlert, 'error')
+  })
 })
