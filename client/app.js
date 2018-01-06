@@ -102,6 +102,25 @@ let easierFirebase = {
     $fireDB () {
       return window.firebase && window.firebase.database ? (ref) => { return window.firebase.database().ref(ref) } : null
     },
+    // Firestore Database
+    $fireFS () {
+      return window.firebase && window.firebase.firestore ? (ref) => {
+        // No ref given, we return the whole firestore object
+        if (ref === undefined) return window.firebase.firestore()
+        // Else we count the slashes
+        for (var nbOfSlashes = -1, index = 0; index !== -1; nbOfSlashes++, index = ref.indexOf('/', index + 1));
+        // No slashes : we return a ref to a collection
+        if (nbOfSlashes === 0) return window.firebase.firestore().collection(ref)
+        // nbOfSlashes is odd : we return a ref to a document (& is the binary AND operator. Quite unusual)
+        else if (nbOfSlashes & 1) return window.firebase.firestore().doc(ref)
+        // nbOfSlashes is even : we return a ref to a subcollection in a document
+        else {
+          let elements = ref.split('/')
+          let subcollection = elements.pop()
+          return window.firebase.firestore().doc(elements.join('/')).collection(subcollection)
+        }
+      } : null
+    },
     // Cloud Storage
     $fireStore () {
       return window.firebase && window.firebase.storage ? (ref) => { return window.firebase.storage().ref(ref) } : null

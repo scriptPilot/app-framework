@@ -27,6 +27,11 @@ You can use Firebase in any Vue hook `created` or later:
 - `this.$fireAuth` - Shortlink to `window.firebase.auth`
 - `this.$user`- Null or object (uid, email, name, photo)
 - `this.$fireDB` - Shortlink to `window.firebase.database().ref`
+- `this.$fireFS`
+  - `this.$fireFS()` - return `window.firebase.firestore()`
+  - `this.$fireFS('xxx')` - return `window.firebase.firestore().collection('xxx')`
+  - `this.$fireFS('xxx/yyy')` (odd number of slashes) - return `window.firebase.firestore().doc('xxx/yyy')`
+  - `this.$fireFS('xxx/yyy/zzz')` (even number of slashes) - return `window.firebase.firestore().doc('xxx/yyy').collection('zzz')`
 - `this.$fireStore` - Shortlink to `window.firebase.storage().ref`
 
 To test your Firebase rules in development, you have the chance to configure a devFirebase project:
