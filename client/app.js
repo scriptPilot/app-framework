@@ -257,6 +257,7 @@ mixins.manageFirebase = {
   data: {
     user: null,
     db: null,
+    fs: null,
     store: null,
     timestamp: null
   },
@@ -294,6 +295,48 @@ mixins.manageFirebase = {
           return firebase.database().ref(path)
         }
         this.timestamp = firebase.database.ServerValue.TIMESTAMP
+      }
+      // Use firestore service
+      if (process.env.USE_FIREBASE_FIRESTORE === 'true') {
+        // We enable offline persistence if config says so
+        if (process.env.USE_FIREBASE_FIRESTORE_OFFLINE) {
+          firebase.firestore().enablePersistence()
+            .then(function () {
+            // Initialize Cloud Firestore through firebase
+              if (process.env.NODE_ENV === 'development') console.log('Firestore Offline Persistence enabled')
+            })
+            .catch(function (err) {
+              if (err.code === 'failed-precondition') {
+              // Multiple tabs open, persistence can only be enabled
+              // in one tab at a a time.
+              // ...
+                if (process.env.NODE_ENV === 'development') console.log('Firestore Offline Persistence failed precondition')
+              } else if (err.code === 'unimplemented') {
+              // The current browser does not support all of the
+              // features required to enable persistence
+              // ...
+                if (process.env.NODE_ENV === 'development') console.log('Firestore Offline Persistence unimplemented')
+              }
+            })
+        }
+        // We create handlers
+        this.fs = function (ref) {
+          // No ref given, we return the whole firestore object
+          if (ref === undefined) return firebase.firestore()
+          // Else we count the slashes
+          for (var nbOfSlashes = -1, index = 0; index !== -1; nbOfSlashes++, index = ref.indexOf('/', index + 1));
+          // No slashes : we return a ref to a collection
+          if (nbOfSlashes === 0) return firebase.firestore().collection(ref)
+          // nbOfSlashes is odd : we return a ref to a document (& is the binary AND operator. Quite unusual)
+          else if (nbOfSlashes & 1) return firebase.firestore().doc(ref)
+          // nbOfSlashes is even : we return a ref to a subcollection in a document
+          else {
+            let elements = ref.split('/')
+            let subcollection = elements.pop()
+            return firebase.firestore().doc(elements.join('/')).collection(subcollection)
+          }
+        }
+        this.timestampFS = firebase.firestore.FieldValue.serverTimestamp()
       }
       // Use storage service
       if (process.env.USE_FIREBASE_STORAGE === 'true') {

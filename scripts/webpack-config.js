@@ -176,6 +176,7 @@ let createConfiguration = function (mode) {
         USE_FIREBASE_AUTH: '"' + (firebaseConfig.authDomain !== '') + '"',
         USE_FIREBASE_DATABASE: '"' + (firebaseConfig.databaseURL !== '') + '"',
         USE_FIREBASE_FIRESTORE: '"' + (firebaseConfig.projectId !== '' && firebaseConfig.enableFirestore) + '"',
+        USE_FIREBASE_FIRESTORE_OFFLINE: '"' + firebaseConfig.enableFirestore + '"',
         USE_FIREBASE_STORAGE: '"' + (firebaseConfig.storageBucket !== '') + '"',
         RESET_LOCAL_STORAGE: '"' + env.cfg.resetLocalStorageOnVersionChange + '"',
         NODE_ENV: '"' + mode + '"',

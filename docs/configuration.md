@@ -43,6 +43,7 @@ firebase | *object* |
 &nbsp;&nbsp;&nbsp;storageBucket | *string* |
 &nbsp;&nbsp;&nbsp;projectId | *string* |
 &nbsp;&nbsp;&nbsp;enableFirestore | *boolean* | false
+&nbsp;&nbsp;&nbsp;enableFirestoreOffline | *boolean* | false
 &nbsp;&nbsp;&nbsp;allowEmailLogin | *boolean* | false
 &nbsp;&nbsp;&nbsp;allowEmailRegistration | *boolean* | false
 devFirebase | *object* |
@@ -53,6 +54,7 @@ devFirebase | *object* |
 &nbsp;&nbsp;&nbsp;storageBucket | *string* |
 &nbsp;&nbsp;&nbsp;projectId | *string* |
 &nbsp;&nbsp;&nbsp;enableFirestore | *boolean* | false
+&nbsp;&nbsp;&nbsp;enableFirestoreOffline | *boolean* | false
 &nbsp;&nbsp;&nbsp;allowEmailLogin | *boolean* | false
 &nbsp;&nbsp;&nbsp;allowEmailRegistration | *boolean* | false
 loginRequiredForAllPages | *boolean* | false
