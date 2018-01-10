@@ -12,7 +12,7 @@ Released on 2018-01-10
 
 ### Bug-fixes
 
-- [x] [#743 - Update framework7-vue to v0.9.4](https://github.com/scriptPilot/app-framework/issues/743)
+- [x] [#743 - Update framework7-vue to v0.9.4 to fix popup issue](https://github.com/scriptPilot/app-framework/issues/743)
 - [x] [#762 - Error "Cannot find Framework7-Vue folder"](https://github.com/scriptPilot/app-framework/issues/762)
 
 ## Version 1.19.2
