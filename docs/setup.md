@@ -24,7 +24,7 @@ You can run `npm run dev` to see if your new app opens in the browser.
 
 If there is a newer version of App Framework available at the [npm repository](https://www.npmjs.com/package/app-framework), there will be an alert at the development server.
 
-You have to update App Framework per application project by running `npm update --save-dev app-framework`.
+You have to update App Framework per application project by running `npm update`.
 
 ## Notes
 
