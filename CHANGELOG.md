@@ -2,6 +2,12 @@
 
 > This page is part of the [App Framework Documentation](DOCUMENTATION.md)
 
+## Next version
+
+### Bug-fixes
+
+- [x] [#762 - Error "Cannot find Framework7-Vue folder"](https://github.com/scriptPilot/app-framework/issues/762)
+
 ## Version 1.19.2
 
 Released 2017-01-03
