@@ -233,5 +233,9 @@
   },
   "npmignore": {
     "type": "object"
+  },
+  "debug": {
+    "type": "boolean",
+    "default": false
   }
 }

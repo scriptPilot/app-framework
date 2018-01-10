@@ -68,4 +68,7 @@ eslint | *object* |
 fixCodeOnTest | *boolean* | true
 fixCodeOnBuild | *boolean* | true
 devServerPort | /^[0-9]{4}$/ | 8080
+gitignore | *object* | {}
+npmignore | *object* | {}
+debug | *boolean* | false
 <!-- /config-options -->

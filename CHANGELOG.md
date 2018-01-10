@@ -4,6 +4,10 @@
 
 ## Next version
 
+### New features
+
+- [x] [#763 - Allow debug mode for App Framework](https://github.com/scriptPilot/app-framework/issues/763)
+
 ### Bug-fixes
 
 - [x] [#743 - Update framework7-vue to v0.9.4](https://github.com/scriptPilot/app-framework/issues/743)
