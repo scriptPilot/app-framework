@@ -24,7 +24,7 @@ If you want to change the theme during runtime, you need to use `ios-material` o
 
 You will reduce the build size if you configure either `ios` or `material`.
 
-Find more information about all theme color and layout options [here](http://framework7.io/docs/color-themes.html).
+Find more information about all theme color and layout options [here](http://v1.framework7.io/docs/color-themes.html).
 
 ## Runtime modification
 
