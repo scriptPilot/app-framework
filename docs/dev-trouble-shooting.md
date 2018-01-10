@@ -14,3 +14,7 @@ The following points should be checked for trouble shooting:
 - Values from `window.localStorage` are parsed with `JSON.parse()` before usage
 
 Let us know if you have points to add.
+
+## Debug mode
+
+Debug mode could be enabled with `debug: true` in the app config file. In code, whenever `env.debug(...)` is called, the input will be logged to debug.log file in the project file.
