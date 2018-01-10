@@ -4,7 +4,7 @@
 
 <br />
 
-If available, you should prefer npm modules to keep your project folder lightweigt.
+If available, you should prefer npm modules to keep your project folder lightweight.
 
 ## NPM module
 
@@ -55,4 +55,4 @@ Example: *vendor/underscore.js*
 </script>
 ```
 
-Because all scripts or compressed during the build process, you can prefer development versions.
+Because all scripts are compressed during the build process, you can prefer development versions.
