@@ -6,7 +6,7 @@
 
 App Framework completes and checks the *app/routes.json* file automatically on any test or build command for you. To disable the completion, set `completeRoutesFile: false` in the configuration file.
 
-App Framework supports all possibilities for nested routing, described [for Framework7-Vue](http://framework7.io/vue/navigation-router.html).
+App Framework supports all possibilities for nested routing, described [for Framework7-Vue](http://v1.framework7.io/vue/navigation-router.html).
 
 You have to take care for the following rules when you name your *pages/ ... .vue* files:
 

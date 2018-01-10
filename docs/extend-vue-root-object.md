@@ -77,7 +77,7 @@ As you can see, all the Framework7 elements are available for your own component
 
 ## Overwrite Framework7 options
 
-In this file you can modify the [Framework7 initialization parameters](http://framework7.io/docs/init-app.html) as well. As an example, we overwrite the `preroute()` function.
+In this file you can modify the [Framework7 initialization parameters](http://v1.framework7.io/docs/init-app.html) as well. As an example, we overwrite the `preroute()` function.
 
 ```
 module.exports = (vue) => {

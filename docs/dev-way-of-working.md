@@ -53,6 +53,6 @@ For each release, please follow these steps:
    - to Google Play Store, update all information before commit ([read documentation](deploy.md))
    - to Apple App Store, update all information before commit ([read documentation](deploy.md))
 5. Update external documentation
-   - [Framework7-Vue: Overview](https://framework7.io/vue/)
-   - [Framework7-Vue: Starter App Templates](https://framework7.io/vue/templates.html)
+   - [Framework7-Vue: Overview](https://v1.framework7.io/vue/)
+   - [Framework7-Vue: Starter App Templates](https://v1.framework7.io/vue/templates.html)
 6. Promote new version
