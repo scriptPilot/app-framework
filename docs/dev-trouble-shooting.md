@@ -17,4 +17,4 @@ Let us know if you have points to add.
 
 ## Debug mode
 
-Debug mode could be enabled with `debug: true` in the app config file. In code, whenever `env.debug(...)` is called, the input will be logged to debug.log file in the project file.
+Debug mode could be enabled with `debug: true` in the app config file. In code, whenever `env.debug(...)` is called, the input will be logged to debug.log file in the project folder.
