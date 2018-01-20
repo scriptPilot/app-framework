@@ -394,7 +394,7 @@ mixins.checkNPMupdates = {
             if (parseInt(currentVersion[0]) < parseInt(npmVersion[0]) ||
                 parseInt(currentVersion[1]) < parseInt(npmVersion[1]) ||
                 parseInt(currentVersion[2]) < parseInt(npmVersion[2])) {
-              window.f7.alert('Please update App Framework to the latest version <b>' + npm.latest + '</b>.<br /><br />You have installed version ' + this.frameworkVersion + '.<br /><br />The CLI commands are "CTRL + C" to stop the development server and "npm update --save-dev app-framework" to update App Framework.', 'App Framework')
+              window.f7.alert('Please update App Framework to the latest version <b>' + npm.latest + '</b>.<br /><br />You have installed version ' + this.frameworkVersion + '.<br /><br />The CLI commands are "CTRL + C" to stop the development server and "npm update" to update App Framework.', 'App Framework')
             }
           } else {
             window.f7.alert('Failed to get parse NPM version. Please open an incident on GitHub.', 'App Framework')
