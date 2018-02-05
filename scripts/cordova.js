@@ -62,10 +62,13 @@ let wwwFolder = abs(binDir, 'www')
 // Define steps
 let deleteFiles = function (files, callback) {
   if (Array.isArray(files) && files.length > 0) {
-    fs.remove(abs(binDir, files.shift()), function (err) {
+    const fileToDelete = files.shift()
+    fs.remove(abs(binDir, fileToDelete), function (err) {
       if (err) {
+        env.debug(`Failed to delete file "${fileToDelete}"`)
         alert('Failed to remove files in Cordova folder.', 'issue')
       } else {
+        env.debug(`Deleted file "${fileToDelete}"`)
         deleteFiles(files, callback)
       }
     })

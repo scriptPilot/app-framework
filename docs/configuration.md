@@ -42,8 +42,6 @@ firebase | *object* |
 &nbsp;&nbsp;&nbsp;databaseURL | *string* |
 &nbsp;&nbsp;&nbsp;storageBucket | *string* |
 &nbsp;&nbsp;&nbsp;projectId | *string* |
-&nbsp;&nbsp;&nbsp;enableFirestore | *boolean* | false
-&nbsp;&nbsp;&nbsp;enableFirestoreOffline | *boolean* | false
 &nbsp;&nbsp;&nbsp;allowEmailLogin | *boolean* | false
 &nbsp;&nbsp;&nbsp;allowEmailRegistration | *boolean* | false
 devFirebase | *object* |
@@ -53,8 +51,6 @@ devFirebase | *object* |
 &nbsp;&nbsp;&nbsp;databaseURL | *string* |
 &nbsp;&nbsp;&nbsp;storageBucket | *string* |
 &nbsp;&nbsp;&nbsp;projectId | *string* |
-&nbsp;&nbsp;&nbsp;enableFirestore | *boolean* | false
-&nbsp;&nbsp;&nbsp;enableFirestoreOffline | *boolean* | false
 &nbsp;&nbsp;&nbsp;allowEmailLogin | *boolean* | false
 &nbsp;&nbsp;&nbsp;allowEmailRegistration | *boolean* | false
 loginRequiredForAllPages | *boolean* | false
@@ -74,4 +70,5 @@ fixCodeOnBuild | *boolean* | true
 devServerPort | /^[0-9]{4}$/ | 8080
 gitignore | *object* | {}
 npmignore | *object* | {}
+debug | *boolean* | false
 <!-- /config-options -->

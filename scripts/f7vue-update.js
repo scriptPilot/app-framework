@@ -17,7 +17,9 @@ if (env.installed === true) {
 }
 
 // Check Framework7-Vue source folder
-let source = abs(__dirname, '../../Framework7-Vue')
+const sourceA = abs(__dirname, '../../Framework7-Vue')
+const sourceB = abs(__dirname, '../../framework7-vue')
+let source = found(sourceA) ? sourceA : sourceB
 if (!found(source)) {
   alert('Cannot find Framework7-Vue folder.', 'error')
 }

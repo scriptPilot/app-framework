@@ -121,6 +121,17 @@ let ignored = function (path) {
   return isIgnored
 }
 
+// Debug function
+const debug = (input) => {
+  if (cfg.debug === true) {
+    const inputString = typeof input === 'string' ? input : JSON.stringify(input)
+    const debugFile = abs(proj, 'debug.log')
+    let debugFileContent = found(debugFile) ? fs.readFileSync(debugFile, 'utf-8') : ''
+    debugFileContent = debugFileContent + inputString + '\n'
+    fs.writeFileSync(debugFile, debugFileContent)
+  }
+}
+
 module.exports = {
   framework: framework,
   arg: arg,
@@ -131,5 +142,6 @@ module.exports = {
   pkg: pkg,
   cfg: cfg,
   os: os,
-  ignored: ignored
+  ignored: ignored,
+  debug: debug
 }

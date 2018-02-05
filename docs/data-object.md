@@ -22,6 +22,18 @@ The data object will be restored on each application reload and is accessible in
 - Template: `<f7-button @click="$db('main.sub', null)">Remove data</f7-button>`
 - Script: `this.$db('main.sub', null)`
 
+**Notes**
+
+`main.sub` mean the paths within the data object. With a point, you can realize nested objects. Example:
+
+```
+{
+  "main": {
+    "sub": "value"
+  }
+}
+```
+
 ## With App Framework v1.12 or later
 
 **Save data**

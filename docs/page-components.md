@@ -4,7 +4,7 @@
 
 <br />
 
-The structure of each page component is defined in a Framework7-Vue component, so you should be familar with [Vue.js single file components](https://vuejs.org/v2/guide/single-file-components.html) as well as [Framework7-Vue](http://framework7.io/vue/).
+The structure of each page component is defined in a Framework7-Vue component, so you should be familar with [Vue.js single file components](https://vuejs.org/v2/guide/single-file-components.html) as well as [Framework7-Vue](http://v1.framework7.io/vue/).
 
 ## File naming
 
@@ -25,7 +25,7 @@ A basic page component could look like this *app/pages/home.vue* file:
 </template>
 ```
 
-Please read the [Framework7-Vue documentation](http://framework7.io/vue/page.html) for page component structure details.
+Please read the [Framework7-Vue documentation](http://v1.framework7.io/vue/page.html) for page component structure details.
 
 To add CSS, you use the *style* block:
 
