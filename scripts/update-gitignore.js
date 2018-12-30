@@ -13,6 +13,7 @@ const toBeIgnored = [
   '# Generated Files',
   '.cache/',
   '.git/',
+  'build',
   'node_modules/',
   '.eslintrc.json',
   '.gitignore',
