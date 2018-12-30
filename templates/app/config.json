@@ -1,0 +1,27 @@
+{
+  "meta": {
+    "name": "My App",
+    "shortName": "My App",
+    "decription": "Description of your new application.",
+    "language": "en"
+  },
+  "frontend": {
+    "android": {
+      "themeColor": "#2196f3",
+      "backgroundColor": "#ffffff",
+      "relatedPlayStoreApplicationID": "de.scriptpilot.appframework"
+    },
+    "ios": {
+      "relatedITunesApplicationID": "1203927581"
+    }
+  },
+  "backend": {
+
+  },
+  "development": {
+
+  },
+  "production": {
+
+  }
+}

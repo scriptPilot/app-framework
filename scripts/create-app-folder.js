@@ -6,10 +6,10 @@ const sourceFolder = path.framework('templates/app');
 const destFolder = path.app();
 
 if (path.project() === path.framework()) {
-  log.info('App folder creation skipped.');
+  log.info('Skipped the app folder creation.');
 } else if (fs.pathExistsSync(destFolder)) {
-  log.info('App folder already exists.');
+  log.info('Found app folder.');
 } else {
   fs.copySync(sourceFolder, destFolder);
-  log.success('App folder created.');
+  log.success('Created app folder.');
 }

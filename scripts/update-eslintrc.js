@@ -10,4 +10,4 @@ const config = {
   ],
 };
 fs.writeJsonSync(file, config, { spaces: 2 });
-log.success('.eslintrc.json file updated.');
+log.success('Updated the ESLint config file.');
