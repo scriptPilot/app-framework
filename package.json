@@ -16,6 +16,7 @@
     "@capacitor/cli": "^1.0.0-beta.13",
     "@capacitor/core": "^1.0.0-beta.13",
     "@capacitor/ios": "^1.0.0-beta.13",
+    "@vue/component-compiler-utils": "^2.3.1",
     "cli-color": "^1.4.0",
     "eslint": "^5.11.1",
     "eslint-config-airbnb-base": "^13.1.0",
@@ -26,11 +27,10 @@
     "fs-extra": "^7.0.1",
     "jimp": "^0.6.0",
     "opn": "^5.4.0",
+    "parcel-bundler": "^1.11.0",
+    "parcel-plugin-sw-cache": "^0.2.6",
     "shelljs": "^0.8.3",
-    "vue": "^2.5.21"
-  },
-  "devDependencies": {
-    "@vue/component-compiler-utils": "^2.3.1",
+    "vue": "^2.5.21",
     "vue-template-compiler": "^2.5.21"
   }
 }
