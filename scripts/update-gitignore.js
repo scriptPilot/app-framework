@@ -15,6 +15,7 @@ const toBeIgnored = [
   '.git/',
   'build',
   'node_modules/',
+  '*.tgz',
   '.eslintrc.json',
   '.gitignore',
 ];
