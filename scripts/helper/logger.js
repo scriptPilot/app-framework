@@ -2,7 +2,8 @@ const clc = require('cli-color');
 const fs = require('fs-extra');
 const path = require('./path');
 
-const level = fs.readJsonSync(path.app('config.json')).development.logLevel;
+const configFile = path.app('config.json')
+const level = fs.pathExistsSync(configFile) ? fs.readJsonSync(configFile).development.logLevel : 'debug';
 
 module.exports = {
   debug(msg) {
