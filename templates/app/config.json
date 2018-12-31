@@ -19,6 +19,7 @@
 
   },
   "development": {
+    "logLevel": "debug"
   },
   "production": {
 

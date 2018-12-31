@@ -1,8 +1,19 @@
 const clc = require('cli-color');
+const fs = require('fs-extra');
+const path = require('./path');
+
+const level = fs.readJsonSync(path.app('config.json')).development.logLevel;
 
 module.exports = {
+  debug(msg) {
+    if (level === 'debug') {
+      console.log(clc.bold.cyan('[DEBUG]'), clc.bold(msg)); // eslint-disable-line no-console
+    }
+  },
   info(msg) {
-    console.log(clc.bold.blue('[INFO]'), clc.bold(msg)); // eslint-disable-line no-console
+    if (level === 'debug' || level === 'info') {
+      console.log(clc.bold.blue('[INFO]'), clc.bold(msg)); // eslint-disable-line no-console
+    }
   },
   success(msg) {
     console.log(clc.bold.green('[SUCCESS]'), clc.bold(msg)); // eslint-disable-line no-console
