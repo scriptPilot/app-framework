@@ -1,0 +1,25 @@
+<template>
+  <div data-page="swiper-3d-cube" class="page kitchen-sink-ios">
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="left sliding"><a class="back link" href="#"><i class="icon icon-back"></i><span>Back</span></a></div>
+        <div class="center sliding">3D Cube</div>
+      </div>
+    </div>
+    <div class="page-content">
+      <div data-effect="cube" class="swiper-container swiper-init ks-demo-slider ks-cube-slider">
+        <div class="swiper-wrapper">
+          <div style="background-image:url(http://lorempixel.com/800/800/people/1)" class="swiper-slide">Slide 1</div>
+          <div style="background-image:url(http://lorempixel.com/800/800/people/2)" class="swiper-slide">Slide 2</div>
+          <div style="background-image:url(http://lorempixel.com/800/800/people/3)" class="swiper-slide">Slide 3</div>
+          <div style="background-image:url(http://lorempixel.com/800/800/people/4)" class="swiper-slide">Slide 4</div>
+          <div style="background-image:url(http://lorempixel.com/800/800/people/5)" class="swiper-slide">Slide 5</div>
+          <div style="background-image:url(http://lorempixel.com/800/800/people/6)" class="swiper-slide">Slide 6</div>
+          <div style="background-image:url(http://lorempixel.com/800/800/people/7)" class="swiper-slide">Slide 7</div>
+          <div style="background-image:url(http://lorempixel.com/800/800/people/8)" class="swiper-slide">Slide 8</div>
+          <div style="background-image:url(http://lorempixel.com/800/800/people/9)" class="swiper-slide">Slide 9</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

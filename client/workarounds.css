@@ -1,0 +1,10 @@
+/* Smart select option images shown to big */
+.smart-select-page .item-media img {
+  max-width: 29px;
+  max-height: 29px;
+}
+
+/* Switch in item-after to low */
+.item-after .label-switch {
+  margin-top: -3px;
+}

@@ -1,0 +1,14 @@
+# This file is updated automatically, please add or remove files in the configuration file.
+
+*.log*
+*.zip
+.DS_Store
+.editorconfig
+.enable-dev-mode
+.eslintrc
+.git/
+_SYNCAPP/
+database-backup.json
+ftp-config.json
+node_modules/
+snapshots/

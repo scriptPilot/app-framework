@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <%= htmlWebpackPlugin.options.iconTags %>
+  </head>
+  <body style="background: <%= htmlWebpackPlugin.options.iconBackgroundColor %>">
+
+    <!-- Noscript -->
+    <noscript>Please activate JavaScript!</noscript>
+
+    <!-- Loading overlay -->
+    <div id="loadingOverlay" style="display: none">
+      <div class="inner">
+        <div class="icon"><img src="android-chrome-192x192.png" /></div>
+        <div class="title"><%= htmlWebpackPlugin.options.title %></div>
+        <div class="progressBar">
+          <div class="progressBarInner"></div>
+        </div>
+        <div class="spinner"></div>
+      </div>
+    </div>
+
+    <!-- Error overlay -->
+    <div id="errorOverlay" style="display: none">
+      <div class="inner">
+        <div class="icon"><img src="android-chrome-192x192.png" /></div>
+        <div class="title"><%= htmlWebpackPlugin.options.title %></div>
+        <div class="error">App initialization error</div>
+      </div>
+    </div>
+
+    <!-- Hidden overlay -->
+    <div id="hiddenOverlay" style="visibility: hidden"></div>
+
+    <!-- Application frame -->
+    <div id="frame" style="display: none">
+      <div id="app"></div>
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,23 @@
+<template>
+  <div data-page="deep-navbar-2" class="page kitchen-sink-ios">
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="left sliding"><a class="back link" href="#">Deep Navbar</a></div>
+        <div class="center sliding">Deep 2</div>
+      </div>
+    </div>
+    <div class="page-content">
+      <div class="content-block">
+        <p><a href="/f7ios/bars-deep-navbar-3/" class="button">Go to page 3</a></p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet rhoncus odio. Suspendisse vel lectus neque. Mauris tincidunt dolor a felis vulputate, at accumsan risus convallis. Sed pulvinar malesuada enim, a consequat felis lobortis
+          a. Morbi faucibus felis in libero lacinia blandit. Pellentesque vitae volutpat metus. In venenatis mauris massa, sed hendrerit augue pulvinar nec. Sed justo magna, lacinia vel tincidunt sed, tristique sit amet est. Nam iaculis dictum laoreet.
+          Donec sed risus sed mauris ultricies aliquam sit amet in enim. Nullam tellus est, imperdiet et adipiscing consequat, consectetur vel nibh. Cras massa nibh, volutpat sit amet velit vel, suscipit tincidunt enim. Curabitur luctus elit id pharetra
+          bibendum. Nulla ut dui eget nulla hendrerit commodo. Pellentesque placerat mi eget dolor rutrum, consectetur mattis mi tincidunt.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet rhoncus odio. Suspendisse vel lectus neque. Mauris tincidunt dolor a felis vulputate, at accumsan risus convallis. Sed pulvinar malesuada enim, a consequat felis lobortis
+          a. Morbi faucibus felis in libero lacinia blandit. Pellentesque vitae volutpat metus. In venenatis mauris massa, sed hendrerit augue pulvinar nec. Sed justo magna, lacinia vel tincidunt sed, tristique sit amet est. Nam iaculis dictum laoreet.
+          Donec sed risus sed mauris ultricies aliquam sit amet in enim. Nullam tellus est, imperdiet et adipiscing consequat, consectetur vel nibh. Cras massa nibh, volutpat sit amet velit vel, suscipit tincidunt enim. Curabitur luctus elit id pharetra
+          bibendum. Nulla ut dui eget nulla hendrerit commodo. Pellentesque placerat mi eget dolor rutrum, consectetur mattis mi tincidunt.</p>
+      </div>
+    </div>
+  </div>
+</template>

@@ -1,0 +1,735 @@
+[
+  {
+    "path": "/f7ios/about/",
+    "component": "f7ios/about.vue"
+  },
+  {
+    "path": "/f7ios/accordion/",
+    "component": "f7ios/accordion.vue"
+  },
+  {
+    "path": "/f7ios/animation/",
+    "component": "f7ios/animation.vue"
+  },
+  {
+    "path": "/f7ios/autocomplete/",
+    "component": "f7ios/autocomplete.vue"
+  },
+  {
+    "path": "/f7ios/bars-deep-navbar-2/",
+    "component": "f7ios/bars-deep-navbar-2.vue"
+  },
+  {
+    "path": "/f7ios/bars-deep-navbar-3/",
+    "component": "f7ios/bars-deep-navbar-3.vue"
+  },
+  {
+    "path": "/f7ios/bars-deep-navbar/",
+    "component": "f7ios/bars-deep-navbar.vue"
+  },
+  {
+    "path": "/f7ios/bars-hide-on-scroll/",
+    "component": "f7ios/bars-hide-on-scroll.vue"
+  },
+  {
+    "path": "/f7ios/bars-hide/",
+    "component": "f7ios/bars-hide.vue"
+  },
+  {
+    "path": "/f7ios/bars-no-navbar-toolbar/",
+    "component": "f7ios/bars-no-navbar-toolbar.vue"
+  },
+  {
+    "path": "/f7ios/bars-no-navbar/",
+    "component": "f7ios/bars-no-navbar.vue"
+  },
+  {
+    "path": "/f7ios/bars-no-toolbar/",
+    "component": "f7ios/bars-no-toolbar.vue"
+  },
+  {
+    "path": "/f7ios/bars-sub-navbar/",
+    "component": "f7ios/bars-sub-navbar.vue"
+  },
+  {
+    "path": "/f7ios/bars-tabbar-labels/",
+    "component": "f7ios/bars-tabbar-labels.vue"
+  },
+  {
+    "path": "/f7ios/bars-tabbar/",
+    "component": "f7ios/bars-tabbar.vue"
+  },
+  {
+    "path": "/f7ios/bars/",
+    "component": "f7ios/bars.vue"
+  },
+  {
+    "path": "/f7ios/calendar/",
+    "component": "f7ios/calendar.vue"
+  },
+  {
+    "path": "/f7ios/cards/",
+    "component": "f7ios/cards.vue"
+  },
+  {
+    "path": "/f7ios/chips/",
+    "component": "f7ios/chips.vue"
+  },
+  {
+    "path": "/f7ios/color-themes/",
+    "component": "f7ios/color-themes.vue"
+  },
+  {
+    "path": "/f7ios/contacts/",
+    "component": "f7ios/contacts.vue"
+  },
+  {
+    "path": "/f7ios/core-features/",
+    "component": "f7ios/core-features.vue"
+  },
+  {
+    "path": "/f7ios/data-table/",
+    "component": "f7ios/data-table.vue"
+  },
+  {
+    "path": "/f7ios/floating-button-dial/",
+    "component": "f7ios/floating-button-dial.vue"
+  },
+  {
+    "path": "/f7ios/floating-button-static/",
+    "component": "f7ios/floating-button-static.vue"
+  },
+  {
+    "path": "/f7ios/floating-button/",
+    "component": "f7ios/floating-button.vue"
+  },
+  {
+    "path": "/f7ios/forms-buttons/",
+    "component": "f7ios/forms-buttons.vue"
+  },
+  {
+    "path": "/f7ios/forms-checkboxes/",
+    "component": "f7ios/forms-checkboxes.vue"
+  },
+  {
+    "path": "/f7ios/forms-elements/",
+    "component": "f7ios/forms-elements.vue"
+  },
+  {
+    "path": "/f7ios/forms-selects/",
+    "component": "f7ios/forms-selects.vue"
+  },
+  {
+    "path": "/f7ios/forms-storage/",
+    "component": "f7ios/forms-storage.vue"
+  },
+  {
+    "path": "/f7ios/forms/",
+    "component": "f7ios/forms.vue"
+  },
+  {
+    "path": "/f7ios/grid/",
+    "component": "f7ios/grid.vue"
+  },
+  {
+    "path": "/f7ios/icons/",
+    "component": "f7ios/icons.vue"
+  },
+  {
+    "path": "/f7ios/index/",
+    "component": "f7ios/index.vue"
+  },
+  {
+    "path": "/f7ios/infinite-scroll/",
+    "component": "f7ios/infinite-scroll.vue"
+  },
+  {
+    "path": "/f7ios/lazy-load/",
+    "component": "f7ios/lazy-load.vue"
+  },
+  {
+    "path": "/f7ios/list-view/",
+    "component": "f7ios/list-view.vue"
+  },
+  {
+    "path": "/f7ios/login-screen-embedded/",
+    "component": "f7ios/login-screen-embedded.vue"
+  },
+  {
+    "path": "/f7ios/login-screen/",
+    "component": "f7ios/login-screen.vue"
+  },
+  {
+    "path": "/f7ios/media-lists/",
+    "component": "f7ios/media-lists.vue"
+  },
+  {
+    "path": "/f7ios/messages/",
+    "component": "f7ios/messages.vue"
+  },
+  {
+    "path": "/f7ios/modals/",
+    "component": "f7ios/modals.vue"
+  },
+  {
+    "path": "/f7ios/notifications/",
+    "component": "f7ios/notifications.vue"
+  },
+  {
+    "path": "/f7ios/panel-right2/",
+    "component": "f7ios/panel-right2.vue"
+  },
+  {
+    "path": "/f7ios/panel-right3/",
+    "component": "f7ios/panel-right3.vue"
+  },
+  {
+    "path": "/f7ios/panels/",
+    "component": "f7ios/panels.vue"
+  },
+  {
+    "path": "/f7ios/photo-browser/",
+    "component": "f7ios/photo-browser.vue"
+  },
+  {
+    "path": "/f7ios/picker/",
+    "component": "f7ios/picker.vue"
+  },
+  {
+    "path": "/f7ios/popover/",
+    "component": "f7ios/popover.vue"
+  },
+  {
+    "path": "/f7ios/preloader/",
+    "component": "f7ios/preloader.vue"
+  },
+  {
+    "path": "/f7ios/progressbar/",
+    "component": "f7ios/progressbar.vue"
+  },
+  {
+    "path": "/f7ios/pull-to-refresh/",
+    "component": "f7ios/pull-to-refresh.vue"
+  },
+  {
+    "path": "/f7ios/searchbar/",
+    "component": "f7ios/searchbar.vue"
+  },
+  {
+    "path": "/f7ios/sortable-list/",
+    "component": "f7ios/sortable-list.vue"
+  },
+  {
+    "path": "/f7ios/swipe-delete/",
+    "component": "f7ios/swipe-delete.vue"
+  },
+  {
+    "path": "/f7ios/swiper-3d-coverflow/",
+    "component": "f7ios/swiper-3d-coverflow.vue"
+  },
+  {
+    "path": "/f7ios/swiper-3d-cube/",
+    "component": "f7ios/swiper-3d-cube.vue"
+  },
+  {
+    "path": "/f7ios/swiper-3d-flip/",
+    "component": "f7ios/swiper-3d-flip.vue"
+  },
+  {
+    "path": "/f7ios/swiper-control/",
+    "component": "f7ios/swiper-control.vue"
+  },
+  {
+    "path": "/f7ios/swiper-custom/",
+    "component": "f7ios/swiper-custom.vue"
+  },
+  {
+    "path": "/f7ios/swiper-fade/",
+    "component": "f7ios/swiper-fade.vue"
+  },
+  {
+    "path": "/f7ios/swiper-gallery/",
+    "component": "f7ios/swiper-gallery.vue"
+  },
+  {
+    "path": "/f7ios/swiper-horizontal/",
+    "component": "f7ios/swiper-horizontal.vue"
+  },
+  {
+    "path": "/f7ios/swiper-lazy/",
+    "component": "f7ios/swiper-lazy.vue"
+  },
+  {
+    "path": "/f7ios/swiper-loop/",
+    "component": "f7ios/swiper-loop.vue"
+  },
+  {
+    "path": "/f7ios/swiper-multiple/",
+    "component": "f7ios/swiper-multiple.vue"
+  },
+  {
+    "path": "/f7ios/swiper-nested/",
+    "component": "f7ios/swiper-nested.vue"
+  },
+  {
+    "path": "/f7ios/swiper-pagination-fraction/",
+    "component": "f7ios/swiper-pagination-fraction.vue"
+  },
+  {
+    "path": "/f7ios/swiper-pagination-progress/",
+    "component": "f7ios/swiper-pagination-progress.vue"
+  },
+  {
+    "path": "/f7ios/swiper-parallax/",
+    "component": "f7ios/swiper-parallax.vue"
+  },
+  {
+    "path": "/f7ios/swiper-scrollbar/",
+    "component": "f7ios/swiper-scrollbar.vue"
+  },
+  {
+    "path": "/f7ios/swiper-space-between/",
+    "component": "f7ios/swiper-space-between.vue"
+  },
+  {
+    "path": "/f7ios/swiper-vertical/",
+    "component": "f7ios/swiper-vertical.vue"
+  },
+  {
+    "path": "/f7ios/swiper-zoom/",
+    "component": "f7ios/swiper-zoom.vue"
+  },
+  {
+    "path": "/f7ios/swiper/",
+    "component": "f7ios/swiper.vue"
+  },
+  {
+    "path": "/f7ios/tabs-animated/",
+    "component": "f7ios/tabs-animated.vue"
+  },
+  {
+    "path": "/f7ios/tabs-static/",
+    "component": "f7ios/tabs-static.vue"
+  },
+  {
+    "path": "/f7ios/tabs-swipeable/",
+    "component": "f7ios/tabs-swipeable.vue"
+  },
+  {
+    "path": "/f7ios/tabs/",
+    "component": "f7ios/tabs.vue"
+  },
+  {
+    "path": "/f7ios/timeline-horizontal-calendar/",
+    "component": "f7ios/timeline-horizontal-calendar.vue"
+  },
+  {
+    "path": "/f7ios/timeline-horizontal/",
+    "component": "f7ios/timeline-horizontal.vue"
+  },
+  {
+    "path": "/f7ios/timeline-vertical/",
+    "component": "f7ios/timeline-vertical.vue"
+  },
+  {
+    "path": "/f7ios/timeline/",
+    "component": "f7ios/timeline.vue"
+  },
+  {
+    "path": "/f7ios/transitions/",
+    "component": "f7ios/transitions.vue"
+  },
+  {
+    "path": "/f7ios/virtual-list/",
+    "component": "f7ios/virtual-list.vue"
+  },
+  {
+    "path": "/f7material/about/",
+    "component": "f7material/about.vue"
+  },
+  {
+    "path": "/f7material/accordion/",
+    "component": "f7material/accordion.vue"
+  },
+  {
+    "path": "/f7material/animation/",
+    "component": "f7material/animation.vue"
+  },
+  {
+    "path": "/f7material/autocomplete/",
+    "component": "f7material/autocomplete.vue"
+  },
+  {
+    "path": "/f7material/bars-deep-navbar-2/",
+    "component": "f7material/bars-deep-navbar-2.vue"
+  },
+  {
+    "path": "/f7material/bars-deep-navbar-3/",
+    "component": "f7material/bars-deep-navbar-3.vue"
+  },
+  {
+    "path": "/f7material/bars-deep-navbar/",
+    "component": "f7material/bars-deep-navbar.vue"
+  },
+  {
+    "path": "/f7material/bars-hide-on-scroll/",
+    "component": "f7material/bars-hide-on-scroll.vue"
+  },
+  {
+    "path": "/f7material/bars-hide/",
+    "component": "f7material/bars-hide.vue"
+  },
+  {
+    "path": "/f7material/bars-no-navbar-toolbar/",
+    "component": "f7material/bars-no-navbar-toolbar.vue"
+  },
+  {
+    "path": "/f7material/bars-no-navbar/",
+    "component": "f7material/bars-no-navbar.vue"
+  },
+  {
+    "path": "/f7material/bars-no-toolbar/",
+    "component": "f7material/bars-no-toolbar.vue"
+  },
+  {
+    "path": "/f7material/bars-sub-navbar-title/",
+    "component": "f7material/bars-sub-navbar-title.vue"
+  },
+  {
+    "path": "/f7material/bars-sub-navbar/",
+    "component": "f7material/bars-sub-navbar.vue"
+  },
+  {
+    "path": "/f7material/bars-tabbar-labels/",
+    "component": "f7material/bars-tabbar-labels.vue"
+  },
+  {
+    "path": "/f7material/bars-tabbar-scrollable/",
+    "component": "f7material/bars-tabbar-scrollable.vue"
+  },
+  {
+    "path": "/f7material/bars-tabbar/",
+    "component": "f7material/bars-tabbar.vue"
+  },
+  {
+    "path": "/f7material/bars-toolbar-bottom/",
+    "component": "f7material/bars-toolbar-bottom.vue"
+  },
+  {
+    "path": "/f7material/bars/",
+    "component": "f7material/bars.vue"
+  },
+  {
+    "path": "/f7material/calendar/",
+    "component": "f7material/calendar.vue"
+  },
+  {
+    "path": "/f7material/cards/",
+    "component": "f7material/cards.vue"
+  },
+  {
+    "path": "/f7material/chips/",
+    "component": "f7material/chips.vue"
+  },
+  {
+    "path": "/f7material/color-themes/",
+    "component": "f7material/color-themes.vue"
+  },
+  {
+    "path": "/f7material/contacts/",
+    "component": "f7material/contacts.vue"
+  },
+  {
+    "path": "/f7material/core-features/",
+    "component": "f7material/core-features.vue"
+  },
+  {
+    "path": "/f7material/data-table/",
+    "component": "f7material/data-table.vue"
+  },
+  {
+    "path": "/f7material/floating-button-dial/",
+    "component": "f7material/floating-button-dial.vue"
+  },
+  {
+    "path": "/f7material/floating-button-popover/",
+    "component": "f7material/floating-button-popover.vue"
+  },
+  {
+    "path": "/f7material/floating-button-static/",
+    "component": "f7material/floating-button-static.vue"
+  },
+  {
+    "path": "/f7material/floating-button/",
+    "component": "f7material/floating-button.vue"
+  },
+  {
+    "path": "/f7material/forms-buttons/",
+    "component": "f7material/forms-buttons.vue"
+  },
+  {
+    "path": "/f7material/forms-checkboxes/",
+    "component": "f7material/forms-checkboxes.vue"
+  },
+  {
+    "path": "/f7material/forms-elements/",
+    "component": "f7material/forms-elements.vue"
+  },
+  {
+    "path": "/f7material/forms-selects/",
+    "component": "f7material/forms-selects.vue"
+  },
+  {
+    "path": "/f7material/forms-storage/",
+    "component": "f7material/forms-storage.vue"
+  },
+  {
+    "path": "/f7material/forms/",
+    "component": "f7material/forms.vue"
+  },
+  {
+    "path": "/f7material/grid/",
+    "component": "f7material/grid.vue"
+  },
+  {
+    "path": "/f7material/icons/",
+    "component": "f7material/icons.vue"
+  },
+  {
+    "path": "/f7material/index/",
+    "component": "f7material/index.vue"
+  },
+  {
+    "path": "/f7material/infinite-scroll/",
+    "component": "f7material/infinite-scroll.vue"
+  },
+  {
+    "path": "/f7material/lazy-load/",
+    "component": "f7material/lazy-load.vue"
+  },
+  {
+    "path": "/f7material/list-view/",
+    "component": "f7material/list-view.vue"
+  },
+  {
+    "path": "/f7material/login-screen-embedded/",
+    "component": "f7material/login-screen-embedded.vue"
+  },
+  {
+    "path": "/f7material/login-screen/",
+    "component": "f7material/login-screen.vue"
+  },
+  {
+    "path": "/f7material/media-lists/",
+    "component": "f7material/media-lists.vue"
+  },
+  {
+    "path": "/f7material/messages/",
+    "component": "f7material/messages.vue"
+  },
+  {
+    "path": "/f7material/modals/",
+    "component": "f7material/modals.vue"
+  },
+  {
+    "path": "/f7material/notifications/",
+    "component": "f7material/notifications.vue"
+  },
+  {
+    "path": "/f7material/panel-right2/",
+    "component": "f7material/panel-right2.vue"
+  },
+  {
+    "path": "/f7material/panel-right3/",
+    "component": "f7material/panel-right3.vue"
+  },
+  {
+    "path": "/f7material/panels/",
+    "component": "f7material/panels.vue"
+  },
+  {
+    "path": "/f7material/photo-browser/",
+    "component": "f7material/photo-browser.vue"
+  },
+  {
+    "path": "/f7material/picker/",
+    "component": "f7material/picker.vue"
+  },
+  {
+    "path": "/f7material/popover/",
+    "component": "f7material/popover.vue"
+  },
+  {
+    "path": "/f7material/preloader/",
+    "component": "f7material/preloader.vue"
+  },
+  {
+    "path": "/f7material/progressbar/",
+    "component": "f7material/progressbar.vue"
+  },
+  {
+    "path": "/f7material/pull-to-refresh/",
+    "component": "f7material/pull-to-refresh.vue"
+  },
+  {
+    "path": "/f7material/searchbar/",
+    "component": "f7material/searchbar.vue"
+  },
+  {
+    "path": "/f7material/sortable-list/",
+    "component": "f7material/sortable-list.vue"
+  },
+  {
+    "path": "/f7material/swipe-delete/",
+    "component": "f7material/swipe-delete.vue"
+  },
+  {
+    "path": "/f7material/swiper-3d-coverflow/",
+    "component": "f7material/swiper-3d-coverflow.vue"
+  },
+  {
+    "path": "/f7material/swiper-3d-cube/",
+    "component": "f7material/swiper-3d-cube.vue"
+  },
+  {
+    "path": "/f7material/swiper-3d-flip/",
+    "component": "f7material/swiper-3d-flip.vue"
+  },
+  {
+    "path": "/f7material/swiper-control/",
+    "component": "f7material/swiper-control.vue"
+  },
+  {
+    "path": "/f7material/swiper-custom/",
+    "component": "f7material/swiper-custom.vue"
+  },
+  {
+    "path": "/f7material/swiper-fade/",
+    "component": "f7material/swiper-fade.vue"
+  },
+  {
+    "path": "/f7material/swiper-gallery/",
+    "component": "f7material/swiper-gallery.vue"
+  },
+  {
+    "path": "/f7material/swiper-horizontal/",
+    "component": "f7material/swiper-horizontal.vue"
+  },
+  {
+    "path": "/f7material/swiper-loop/",
+    "component": "f7material/swiper-loop.vue"
+  },
+  {
+    "path": "/f7material/swiper-multiple/",
+    "component": "f7material/swiper-multiple.vue"
+  },
+  {
+    "path": "/f7material/swiper-nested/",
+    "component": "f7material/swiper-nested.vue"
+  },
+  {
+    "path": "/f7material/swiper-pagination-fraction/",
+    "component": "f7material/swiper-pagination-fraction.vue"
+  },
+  {
+    "path": "/f7material/swiper-pagination-progress/",
+    "component": "f7material/swiper-pagination-progress.vue"
+  },
+  {
+    "path": "/f7material/swiper-parallax/",
+    "component": "f7material/swiper-parallax.vue"
+  },
+  {
+    "path": "/f7material/swiper-scrollbar/",
+    "component": "f7material/swiper-scrollbar.vue"
+  },
+  {
+    "path": "/f7material/swiper-space-between/",
+    "component": "f7material/swiper-space-between.vue"
+  },
+  {
+    "path": "/f7material/swiper-vertical/",
+    "component": "f7material/swiper-vertical.vue"
+  },
+  {
+    "path": "/f7material/swiper-zoom/",
+    "component": "f7material/swiper-zoom.vue"
+  },
+  {
+    "path": "/f7material/swiper/",
+    "component": "f7material/swiper.vue"
+  },
+  {
+    "path": "/f7material/tabs-animated/",
+    "component": "f7material/tabs-animated.vue"
+  },
+  {
+    "path": "/f7material/tabs-static/",
+    "component": "f7material/tabs-static.vue"
+  },
+  {
+    "path": "/f7material/tabs-swipeable/",
+    "component": "f7material/tabs-swipeable.vue"
+  },
+  {
+    "path": "/f7material/tabs/",
+    "component": "f7material/tabs.vue"
+  },
+  {
+    "path": "/f7material/timeline-horizontal-calendar/",
+    "component": "f7material/timeline-horizontal-calendar.vue"
+  },
+  {
+    "path": "/f7material/timeline-horizontal/",
+    "component": "f7material/timeline-horizontal.vue"
+  },
+  {
+    "path": "/f7material/timeline-vertical/",
+    "component": "f7material/timeline-vertical.vue"
+  },
+  {
+    "path": "/f7material/timeline/",
+    "component": "f7material/timeline.vue"
+  },
+  {
+    "path": "/f7material/virtual-list/",
+    "component": "f7material/virtual-list.vue"
+  },
+  {
+    "path": "/firebase-private/",
+    "component": "firebase-private.vue",
+    "login": true
+  },
+  {
+    "path": "/firebase-public/",
+    "component": "firebase-public.vue"
+  },
+  {
+    "path": "/flexible-routing/",
+    "component": "flexible-routing.vue"
+  },
+  {
+    "path": "/flexible-routing/blog/:blogId/post/:postId/",
+    "component": "flexible-routing.vue"
+  },
+  {
+    "path": "/home/",
+    "component": "home.vue"
+  },
+  {
+    "path": "/multiple-languages/",
+    "component": "multiple-languages.vue"
+  },
+  {
+    "path": "/panel-left/",
+    "component": "panel-left.vue"
+  },
+  {
+    "path": "/panel-right/",
+    "component": "panel-right.vue"
+  },
+  {
+    "path": "/state-restoration/",
+    "component": "state-restoration.vue"
+  }
+]

@@ -1,0 +1,307 @@
+.kitchen-sink-material .popover {
+  width: 200px;
+}
+.kitchen-sink-material .popover-music {
+  width: 240px;
+}
+.kitchen-sink-material .ks-grid div[class*="col-"] {
+  background: #fff;
+  text-align: center;
+  color: #000;
+  border: 1px solid #ddd;
+  padding: 5px;
+  margin-bottom: 15px;
+}
+.kitchen-sink-material .ks-preloaders {
+  text-align: center;
+}
+.kitchen-sink-material .ks-preloader-big {
+  width: 42px;
+  height: 42px;
+}
+.kitchen-sink-material .item-media img {
+  width: auto;
+  height: auto;
+  max-width: 40px;
+  border-radius: 50%;
+}
+.kitchen-sink-material .tabbar i.icon {
+  -webkit-transition: 200ms;
+  transition: 200ms;
+}
+.kitchen-sink-material .ks-demo-slider {
+  width: 100%;
+  height: 100%;
+}
+.kitchen-sink-material .ks-demo-slider .swiper-slide,
+.kitchen-sink-material .ks-carousel-slider .swiper-slide {
+  font-weight: 300;
+  font-size: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  background: #fff;
+}
+.kitchen-sink-material .ks-carousel-slider .swiper-slide {
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  background: #fff;
+}
+.kitchen-sink-material .ks-carousel-slider.ks-carousel-slider-auto .swiper-slide {
+  width: 85%;
+}
+.kitchen-sink-material .ks-carousel-slider.ks-carousel-slider-auto .swiper-slide:nth-child(2n) {
+  width: 70%;
+}
+.kitchen-sink-material .ks-carousel-slider.ks-carousel-slider-auto .swiper-slide:nth-child(3n) {
+  width: 30%;
+}
+.kitchen-sink-material.page[data-page="swiper-multiple"] .swiper-container {
+  margin: 0px 0 35px;
+  font-size: 18px;
+  height: 120px;
+}
+.kitchen-sink-material .ks-slider-custom {
+  height: 100%;
+}
+.kitchen-sink-material .ks-slider-custom .swiper-container {
+  background: #000;
+  height: 100%;
+}
+.kitchen-sink-material .ks-slider-custom .swiper-slide {
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: center;
+}
+.kitchen-sink-material .ks-slider-custom .swiper-pagination .swiper-pagination-bullet {
+  cursor: pointer;
+  width: 10px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0);
+  opacity: 1;
+  border-radius: 0;
+  -webkit-transition: 200ms;
+  -moz-transition: 200ms;
+  -ms-transition: 200ms;
+  -o-transition: 200ms;
+  transition: 200ms;
+  position: relative;
+  -webkit-transform: scale(0.9);
+  -moz-transform: scale(0.9);
+  transform: scale(0.9);
+  box-sizing: border-box;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+.kitchen-sink-material .ks-slider-custom .swiper-pagination .swiper-pagination-bullet-active {
+  z-index: 1;
+  border: 1px solid #007aff;
+  -webkit-transform: scale(1.4);
+  -moz-transform: scale(1.4);
+  transform: scale(1.4);
+}
+.kitchen-sink-material .ks-cube-slider {
+  width: 80%;
+  height: 70%;
+  top: 15%;
+}
+.kitchen-sink-material .ks-coverflow-slider {
+  height: 60%;
+  top: 20%;
+}
+.kitchen-sink-material .ks-coverflow-slider .swiper-slide {
+  width: 65%;
+}
+.kitchen-sink-material .ks-cube-slider .swiper-slide,
+.kitchen-sink-material .ks-coverflow-slider .swiper-slide {
+  background-size: cover;
+  color: #fff;
+  -webkit-backface-visibility: hidden;
+}
+.kitchen-sink-material .ks-fade-slider .swiper-slide {
+  background-size: cover;
+  background-position: center;
+}
+.kitchen-sink-material.page[data-page="swiper-gallery"] {
+  background: #000;
+}
+.kitchen-sink-material .ks-swiper-gallery-top {
+  height: 70%;
+}
+.kitchen-sink-material .ks-swiper-gallery-thumbs {
+  margin-top: 10px;
+  height: 20%;
+  height: -webkit-calc(30% - 20px);
+  height: -moz-calc(30% - 20px);
+  height: -ms-calc(30% - 20px);
+  height: calc(30% - 20px);
+}
+.kitchen-sink-material .ks-swiper-gallery-thumbs .swiper-slide {
+  width: 25%;
+}
+.kitchen-sink-material .ks-swiper-gallery-thumbs .swiper-slide-pic {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.35;
+  -webkit-transition: 300ms;
+}
+.kitchen-sink-material .ks-swiper-gallery-thumbs .swiper-slide-active .swiper-slide-pic {
+  opacity: 1;
+}
+.kitchen-sink-material .ks-swiper-gallery-top .swiper-slide,
+.kitchen-sink-material .ks-swiper-gallery-thumbs .swiper-slide,
+.kitchen-sink-material .ks-swiper-gallery-top .swiper-slide-pic,
+.kitchen-sink-material .ks-swiper-gallery-thumbs .swiper-slide-pic {
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: center;
+}
+.kitchen-sink-material .ks-parallax-slider {
+  height: 100%;
+}
+.kitchen-sink-material .ks-parallax-slider .swiper-parallax-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 130%;
+  height: 100%;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: center;
+}
+.kitchen-sink-material .ks-parallax-slider .swiper-slide {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 40px 60px;
+  color: #fff;
+}
+.kitchen-sink-material .ks-parallax-slider .swiper-slide-title {
+  font-size: 41px;
+  font-weight: 300;
+}
+.kitchen-sink-material .ks-parallax-slider .swiper-slide-subtitle {
+  font-size: 21px;
+}
+.kitchen-sink-material .ks-parallax-slider .swiper-slide-text {
+  font-size: 14px;
+  max-width: 400px;
+  line-height: 1.3;
+}
+.kitchen-sink-material.page[data-page="virtual-list"] .virtual-list li {
+  height: 73px;
+}
+.kitchen-sink-material #ks-picker-date-container .picker-item {
+  color: #999;
+}
+.kitchen-sink-material #ks-picker-date-container .picker-selected {
+  color: #000;
+}
+.kitchen-sink-material .layout-dark #ks-picker-date-container .picker-selected {
+  color: #fff;
+}
+.kitchen-sink-material @media (max-width: 767px) {
+  .kitchen-sink-material #ks-picker-date-container .picker-items {
+    font-size: 21px;
+  }
+  .kitchen-sink-material #ks-picker-date-container .picker-item {
+    height: 36px;
+    line-height: 36px;
+  }
+  .kitchen-sink-material #ks-picker-date-container .picker-item span {
+    padding: 0 6px;
+  }
+}
+.kitchen-sink-material img.ks-demo-lazy {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.kitchen-sink-material div.ks-demo-lazy {
+  background: #aaa;
+  -webkit-background-size: cover;
+  background-size: cover;
+  height: 300px;
+  height: 60vw;
+}
+.kitchen-sink-material .ks-layout-theme {
+  height: 44px;
+  cursor: pointer;
+}
+.kitchen-sink-material .ks-layout-theme.ks-layout-default {
+  background: #f3f3f3;
+}
+.kitchen-sink-material .ks-layout-theme.ks-layout-dark {
+  background: #000;
+}
+.kitchen-sink-material .ks-layout-theme.ks-layout-white {
+  background: #fff;
+}
+.kitchen-sink-material .ks-color-theme {
+  height: 44px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+.kitchen-sink-material .ks-card-header-pic .card-header {
+  height: 40vw;
+  background-size: cover;
+  background-position: center;
+}
+.kitchen-sink-material .ks-facebook-card .card-header {
+  display: block;
+  padding: 10px;
+}
+.kitchen-sink-material .ks-facebook-card .ks-facebook-avatar {
+  float: left;
+}
+.kitchen-sink-material .ks-facebook-card .ks-facebook-name {
+  margin-left: 44px;
+  font-size: 14px;
+  font-weight: 500;
+}
+.kitchen-sink-material .ks-facebook-card .ks-facebook-date {
+  margin-left: 44px;
+  font-size: 13px;
+  color: #8e8e93;
+}
+.kitchen-sink-material .ks-facebook-card .card-footer {
+  background: #fafafa;
+}
+.kitchen-sink-material .ks-facebook-card .card-footer a {
+  color: #81848b;
+  font-weight: 500;
+}
+.kitchen-sink-material .ks-facebook-card .card-content img {
+  display: block;
+}
+.kitchen-sink-material .ks-facebook-card .card-content-inner {
+  padding: 15px 10px;
+}
+.kitchen-sink-material form .material-icons {
+  color: #757575;
+}
+.kitchen-sink-material .ks-demo-icon {
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  color: #333;
+}
+.kitchen-sink-material .ks-demo-icon .icon-name {
+  margin-top: 5px;
+  font-size: 11px;
+  color: #666;
+}
+.kitchen-sink-material code {
+  background: #f3f3f3;
+  padding: 5px;
+}

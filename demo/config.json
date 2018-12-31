@@ -1,0 +1,81 @@
+{
+  "title": "App Framework",
+  "defaultLanguage": "en",
+  "defaultLanguageFallback": false,
+  "theme": "material-ios",
+  "color": "indigo",
+  "layout": "default",
+  "statusbarVisibility": false,
+  "statusbarTextColor": "white",
+  "statusbarBackgroundColor": "#3f51b5",
+  "iconBackgroundColor": "#ffffff",
+  "useIconFonts": {
+    "framework7": true,
+    "material": true,
+    "ion": false,
+    "fontawesome": false
+  },
+  "limitApplicationWidth": 320,
+  "limitApplicationHeight": 570,
+  "limitedSizeBodyBackgroundColor": "#333333",
+  "showPhoneFrameOnDesktop": true,
+  "phoneFrameBodyBackgroundColor": "#fafafa",
+  "framework7parameters": {},
+  "materialSubnavbarFix": true,
+  "restoreHistory": true,
+  "restoreComponentData": true,
+  "completeRoutesFile": true,
+  "firebase": {
+    "apiKey": "AIzaSyAvzTiqd9fKR-h47Uxl4iXwqSMU1VjGdII",
+    "authDomain": "app-framework-9045a.firebaseapp.com",
+    "databaseURL": "https://app-framework-9045a.firebaseio.com",
+    "storageBucket": "app-framework-9045a.appspot.com",
+    "projectId": "app-framework-9045a",
+    "allowEmailLogin": true,
+    "allowEmailRegistration": true
+  },
+  "devFirebase": {
+    "deployDevRulesOnTesting": false,
+    "apiKey": "AIzaSyBL0Xxsc-jFZ2BnmQV08T4O9B56HJVpwXk",
+    "authDomain": "dev-app-framework.firebaseapp.com",
+    "databaseURL": "https://dev-app-framework.firebaseio.com",
+    "storageBucket": "dev-app-framework.appspot.com",
+    "projectId": "app-framework-9045a",
+    "allowEmailLogin": true,
+    "allowEmailRegistration": false
+  },
+  "loginRequiredForAllPages": false,
+  "appStoreId": "de.scriptpilot.app-framework",
+  "playStoreId": "de.scriptpilot.appframework",
+  "useCordovaPlugins": [
+    "cordova-plugin-camera",
+    "cordova-plugin-file"
+  ],
+  "cordovaPreferences": {
+    "DisallowOverscroll": true
+  },
+  "resetLocalStorageOnVersionChange": false,
+  "preloadImages": true,
+  "buildSourcemaps": false,
+  "editorConfig": {
+    "root": "true",
+    "[*]": null,
+    "indent_style": "space",
+    "indent_size": 2,
+    "charset": "utf-8",
+    "trim_trailing_whitespace": "true",
+    "insert_final_newline": "true",
+    "end_of_line": "lf",
+    "max_line_length": "null"
+  },
+  "eslint": {
+    "extends": "standard",
+    "rules": {}
+  },
+  "fixCodeOnTest": true,
+  "fixCodeOnBuild": true,
+  "devServerPort": "8080",
+  "gitignore": {},
+  "npmignore": {},
+  "debug": false
+}
