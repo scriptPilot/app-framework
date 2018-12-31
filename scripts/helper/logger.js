@@ -12,7 +12,6 @@ module.exports = {
   },
   error(msg) {
     console.log(clc.bold.red('[ERROR]'), clc.bold(msg)); // eslint-disable-line no-console
-    process.exit(0);
   },
   reset() {
     process.stdout.write(clc.reset);

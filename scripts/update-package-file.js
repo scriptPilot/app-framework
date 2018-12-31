@@ -18,7 +18,7 @@ if (content.version === undefined) content.version = '1.0.0';
 const prefix = `node ${isInstalled ? 'node_modules/app-framework/' : ''}scripts/`;
 const scriptArr = [
   'postinstall',
-  'test-eslint',
+  'eslint',
   'dev',
   'build',
 ];

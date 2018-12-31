@@ -7,15 +7,11 @@
   "license": "MIT",
   "scripts": {
     "postinstall": "node scripts/postinstall",
-    "test-eslint": "node scripts/test-eslint",
+    "eslint": "node scripts/eslint",
     "dev": "node scripts/dev",
     "build": "node scripts/build"
   },
   "dependencies": {
-    "@capacitor/android": "^1.0.0-beta.13",
-    "@capacitor/cli": "^1.0.0-beta.13",
-    "@capacitor/core": "^1.0.0-beta.13",
-    "@capacitor/ios": "^1.0.0-beta.13",
     "cli-color": "^1.4.0",
     "eslint": "^5.11.1",
     "eslint-config-airbnb-base": "^13.1.0",
@@ -27,9 +23,5 @@
     "opn": "^5.4.0",
     "shelljs": "^0.8.3",
     "vue": "^2.5.21"
-  },
-  "devDependencies": {
-    "@vue/component-compiler-utils": "^2.3.1",
-    "vue-template-compiler": "^2.5.21"
   }
 }

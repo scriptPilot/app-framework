@@ -2,7 +2,7 @@
   "meta": {
     "name": "My App",
     "shortName": "My App",
-    "description": "Description of your new application.",
+    "decription": "Description of your new application.",
     "language": "en"
   },
   "frontend": {
@@ -19,6 +19,7 @@
 
   },
   "development": {
+
   },
   "production": {
 
