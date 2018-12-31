@@ -11,7 +11,7 @@ const config = fs.readJsonSync(path.app('config.json'));
 
 // Prepare index.html file
 const cachedIndexFile = path.cache('build-pwa/index.html');
-let indexFileContent = fs.readFileSync(path.framework('templates/index.html'), { encoding: 'utf8' });
+let indexFileContent = fs.readFileSync(path.templates('index.html'), { encoding: 'utf8' });
 indexFileContent = indexFileContent.replace(/\{name\}/g, config.meta.name);
 indexFileContent = indexFileContent.replace(/\{description\}/g, config.meta.description);
 indexFileContent = indexFileContent.replace(/\{language\}/g, config.meta.language);
@@ -22,7 +22,7 @@ log.success('Prepared index file.');
 
 // Prepare manifest file
 const cachedManifestFile = path.cache('build-pwa/manifest.webmanifest');
-const manifestFileContent = fs.readJsonSync(path.framework('templates/manifest.webmanifest'));
+const manifestFileContent = fs.readJsonSync(path.templates('manifest.webmanifest'));
 manifestFileContent.name = config.meta.name;
 manifestFileContent.short_name = config.meta.shortName;
 manifestFileContent.description = config.meta.description;
@@ -47,7 +47,7 @@ log.success('Prepared manifest file.');
 
 // Prepare main.js file
 const cachedMainFile = path.cache('build-pwa/main.js');
-let mainFileContent = fs.readFileSync(path.framework('templates/main.js'), { encoding: 'utf8' });
+let mainFileContent = fs.readFileSync(path.templates('main.js'), { encoding: 'utf8' });
 mainFileContent = mainFileContent.replace('./app/app.vue', path.relative(path.cache('build-pwa'), path.app('app.vue')));
 fs.writeFileSync(cachedMainFile, mainFileContent);
 log.success('Prepared main script file.');
