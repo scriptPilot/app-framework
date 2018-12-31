@@ -1,6 +1,6 @@
 # App Framework 3
 
-> App Framework 3 is under development. For production usage please use [App Framework 1](https://github.com/scriptPilot/app-framework). The status of the development can be seen in [this project](https://github.com/scriptPilot/app-framework/projects/16)
+> App Framework 3 is under development. For production usage please use [App Framework 1](https://github.com/scriptPilot/app-framework). The status of the development can be seen in [this project](https://github.com/scriptPilot/app-framework/projects/16).
 
 ## Get Started
 
