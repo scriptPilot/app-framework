@@ -2,6 +2,8 @@
 
 > App Framework 3 is under development. For production usage please use [App Framework 1](https://github.com/scriptPilot/app-framework). The status of the development can be seen in [this project](https://github.com/scriptPilot/app-framework/projects/16).
 
+You are invited to open any V3 related [question, bug or feature request](https://github.com/scriptPilot/app-framework/issues).
+
 ## Get Started
 
 1. Run `mkdir <app_name>` to create a new folder for the application
