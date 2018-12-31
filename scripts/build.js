@@ -5,9 +5,6 @@ const path = require('./helper/path');
 // Run tests
 shell.exec('node test-eslint', { cwd: path.scripts() });
 
-// Build Icons
-shell.exec('node build-icons', { cwd: path.scripts() });
-
 // Empty build folder
 fs.emptyDirSync(path.build());
 

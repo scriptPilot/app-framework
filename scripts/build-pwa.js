@@ -28,18 +28,7 @@ manifestFileContent.short_name = config.meta.shortName;
 manifestFileContent.description = config.meta.description;
 manifestFileContent.background_color = config.frontend.android.backgroundColor;
 manifestFileContent.theme_color = config.frontend.android.themeColor;
-manifestFileContent.icons = [
-  {
-    src: '../icons/icon-192px.png',
-    sizes: '192x192',
-    type: 'image/png',
-  },
-  {
-    src: '../icons/icon-512px.png',
-    sizes: '512x512',
-    type: 'image/png',
-  },
-];
+manifestFileContent.icons = [];
 const playStoreId = config.frontend.android.relatedPlayStoreApplicationID;
 manifestFileContent.related_applications[0].id = playStoreId;
 fs.writeJsonSync(cachedManifestFile, manifestFileContent, { spaces: 2 });

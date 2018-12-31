@@ -5,7 +5,18 @@
   "display": "standalone",
   "background_color" : "{androidBackgroundColor}",
   "theme_color": "{androidThemeColor}",
-  "icons": [],
+  "icons": [
+    {
+      "src": "../.cache/icons/icon-192px.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "../.cache/icons/icon-512px.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
   "scope": "/",
   "start_url": ".",
   "related_applications": [
