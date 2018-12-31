@@ -3,10 +3,20 @@ const fs = require('fs-extra');
 
 const isInstalled = fs.pathExistsSync(path.resolve(__dirname, '../../../../package.json'));
 
-path.framework = (...nav) => path.resolve(__dirname, '../../', ...nav);
-path.scripts = (...nav) => path.resolve(__dirname, '../', ...nav);
-path.cache = (...nav) => path.resolve(__dirname, '../../.cache', ...nav);
-path.project = (...nav) => path.resolve(__dirname, isInstalled ? '../../../../' : '../../', ...nav);
-path.app = (...nav) => path.resolve(__dirname, isInstalled ? '../../../../app' : '../../app', ...nav);
-
-module.exports = path;
+module.exports = {
+  framework(...nav) {
+    return path.resolve(__dirname, '../../', ...nav);
+  },
+  scripts(...nav) {
+    return path.resolve(__dirname, '../', ...nav);
+  },
+  cache(...nav) {
+    return path.resolve(__dirname, '../../.cache', ...nav);
+  },
+  project(...nav) {
+    return path.resolve(__dirname, isInstalled ? '../../../../' : '../../', ...nav);
+  },
+  app(...nav) {
+    return path.resolve(__dirname, isInstalled ? '../../../../app' : '../../app', ...nav);
+  },
+};

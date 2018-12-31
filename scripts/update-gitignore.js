@@ -19,4 +19,4 @@ const toBeIgnored = [
 ];
 
 fs.writeFileSync(file, toBeIgnored.join('\n'));
-log.success('Updated the Gitignore file.');
+log.success('.gitignore file updated.');

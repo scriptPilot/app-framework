@@ -3,13 +3,10 @@
   "description": "iOS and Android Apps with HTML & JavaScript - develop, build and deploy - free and open source!",
   "author": "scriptPilot <mail@scriptPilot.de> (https://github.com/scriptPilot)",
   "repository": "https://github.com/scriptPilot/app-framework.git",
-  "version": "3.0.15",
+  "version": "3.0.6",
   "license": "MIT",
   "scripts": {
-    "postinstall": "node scripts/postinstall",
-    "eslint": "node scripts/eslint",
-    "dev": "node scripts/dev",
-    "build": "node scripts/build"
+    "postinstall": "node scripts/postinstall"
   },
   "dependencies": {
     "cli-color": "^1.4.0",
@@ -17,11 +14,7 @@
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-vue": "^5.0.0",
-    "framework7": "^3.6.3",
-    "framework7-vue": "^3.6.3",
     "fs-extra": "^7.0.1",
-    "opn": "^5.4.0",
-    "shelljs": "^0.8.3",
-    "vue": "^2.5.21"
+    "shelljs": "^0.8.3"
   }
 }
