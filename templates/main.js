@@ -15,9 +15,9 @@ export default new Vue({
   render: c => c(App),
 });
 
-if ('serviceWorker' in navigator) {
+if (process.env.NODE_ENV !== 'development' && 'serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    const swPath = 'service-worker.js';
+    const swPath = 'sw.js';
     navigator.serviceWorker.register(swPath).then((registration) => {
       if (process.env.NODE_ENV === 'development') {
         // eslint-disable-next-line no-console

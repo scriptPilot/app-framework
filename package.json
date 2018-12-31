@@ -31,6 +31,7 @@
     "parcel-plugin-sw-cache": "^0.2.6",
     "shelljs": "^0.8.3",
     "vue": "^2.5.21",
+    "vue-hot-reload-api": "^2.3.1",
     "vue-template-compiler": "^2.5.21"
   }
 }
