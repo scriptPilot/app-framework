@@ -3,13 +3,13 @@
   "description": "iOS and Android Apps with HTML & JavaScript - develop, build and deploy - free and open source!",
   "author": "scriptPilot <mail@scriptPilot.de> (https://github.com/scriptPilot)",
   "repository": "https://github.com/scriptPilot/app-framework.git",
-  "version": "3.0.0-alpha.1",
+  "version": "3.0.0-alpha.2",
   "license": "MIT",
   "scripts": {
-    "postinstall": "node scripts/postinstall",
-    "test-eslint": "node scripts/test-eslint",
-    "dev": "node scripts/dev",
-    "build": "node scripts/build"
+    "postinstall": "node ./scripts/postinstall",
+    "test-eslint": "node ./scripts/test-eslint",
+    "dev": "node ./scripts/dev",
+    "build": "node ./scripts/build"
   },
   "dependencies": {
     "@capacitor/android": "^1.0.0-beta.13",
