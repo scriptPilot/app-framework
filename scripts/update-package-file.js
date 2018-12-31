@@ -15,7 +15,7 @@ if (content.name === undefined) content.name = path.basename(path.project());
 if (content.version === undefined) content.version = '1.0.0';
 
 // Update scripts
-const prefix = `node ${isInstalled ? 'node_modules/app-framework/' : ''}scripts/`;
+const prefix = `node ./${isInstalled ? 'node_modules/app-framework/' : ''}scripts/`;
 const scriptArr = [
   'postinstall',
   'test-eslint',
