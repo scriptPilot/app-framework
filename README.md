@@ -14,6 +14,9 @@ You are invited to open any V3 related [question, bug or feature request](https:
 
 ## CLI Commands
 
-- `npm run dev` to open application on development server
-- `npm run build` to build application to */build* folder
-- `npm update` to update App Framework and other dependencies
+- `npx app dev` to open application on development server
+- `npx app build` to build application to */build* folder
+
+## Update
+
+To update App Framework to latest development version, run `npm run update`.
