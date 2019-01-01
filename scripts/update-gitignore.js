@@ -18,6 +18,7 @@ const toBeIgnored = [
   '*.tgz',
   '.eslintrc.json',
   '.gitignore',
+  '.jestconfig.json',
 ];
 
 fs.writeFileSync(file, toBeIgnored.join('\n'));

@@ -16,7 +16,17 @@
     }
   },
   "backend": {
-
+  },
+  "test": {
+    "eslint": {
+      "runTest": true,
+      "keepReportWhenPassed": false,
+      "ownConfig": {}
+    },
+    "jest": {
+      "runTest": true,
+      "keepReportWhenPassed": false
+    }
   },
   "development": {
     "logLevel": "debug"
