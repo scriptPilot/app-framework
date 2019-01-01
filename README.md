@@ -14,6 +14,7 @@ You are invited to open any V3 related [question, bug or feature request](https:
 
 ## CLI Commands
 
+- `npx app test` to run all configured tests
 - `npx app dev` to open application on development server
 - `npx app build` to build application to */build* folder
 
