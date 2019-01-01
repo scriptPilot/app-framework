@@ -1,18 +1,26 @@
-const shell = require('shelljs');
-const fs = require('fs-extra');
+const path = require('path');
 const opn = require('opn');
-const path = require('./helper/path');
+const fs = require('fs-extra');
 const log = require('./helper/logger');
+const run = require('./helper/run');
 
-const fileName = 'ESLint.log.html';
-const logFile = path.project(fileName);
+const logFileName = 'ESLint.log.html';
+const logFile = path.project(logFileName);
 const cacheFile = path.cache('eslint/.eslintcache');
+const appConfigFile = path.app('config.json');
 
-const testResult = shell.exec(`npx eslint . --ext .js --ext .vue --fix --output-file "${logFile}" --format html --cache --cache-location "${cacheFile}"`);
-if (testResult.code === 0) {
-  log.success('Passed ESLint test.');
-  fs.removeSync(logFile);
-} else {
-  opn(logFile);
-  log.error(`Failed ESLint test. Please check the ${fileName} file.`);
-}
+const appConfig = fs.readJsonSync(appConfigFile);
+
+run.silent(`npx eslint . --ext .js --ext .vue --fix --output-file "${logFile}" --format html --cache --cache-location "${cacheFile}"`, (error) => {
+  if (error) {
+    opn(logFile, { wait: false });
+    log.error(`Failed ESLint test. Please open ${logFileName} for details.`);
+  } else {
+    if (appConfig.test.eslint.keepReportWhenPassed) {
+      opn(logFile, { wait: false });
+    } else {
+      fs.remove(logFile);
+    }
+    log.success('Passed ESLint test.');
+  }
+});
