@@ -19,4 +19,5 @@ You are invited to open any V3 related [question, bug or feature request](https:
 
 ## Update
 
-To update App Framework to latest development version, run `npm run update`.
+Updating does not work properly as necessary scripts are not completed.
+To test the newest development version, you should create a new app.
