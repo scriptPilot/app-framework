@@ -1,7 +1,7 @@
-const shell = require('shelljs');
 const fs = require('fs-extra');
 const path = require('./helper/path');
 const log = require('./helper/logger');
+const run = require('./helper/run');
 
 // Define cache folder for development build
 const cacheFolder = path.cache('buid-dev');
@@ -33,5 +33,5 @@ log.success('Prepared main script file.');
 
 // Build files
 const parcelCacheFolder = path.cache('parcel');
-log.warning('Building development files - this may take a while ...');
-shell.exec(`npx parcel "${cachedIndexFile}" --cache-dir "${parcelCacheFolder}" --out-dir "${cacheFolder}" --open`);
+log.info('Building development files - this may take a while ...');
+run.loud(`npx parcel "${cachedIndexFile}" --cache-dir "${parcelCacheFolder}" --out-dir "${cacheFolder}" --open`);
