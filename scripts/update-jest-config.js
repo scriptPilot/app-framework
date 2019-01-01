@@ -4,7 +4,7 @@ const path = require('./helper/path');
 
 const file = path.project('.jestconfig.json');
 const config = {
-  testMatch: ['**/*.spec.js'],
+  testMatch: ['**/*.spec.js', '!**/node_modules/**'],
   reporters: [
     'default',
     ['./node_modules/jest-html-reporter', {
