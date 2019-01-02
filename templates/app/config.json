@@ -3,6 +3,7 @@
     "name": "My App",
     "shortName": "My App",
     "description": "Description of your new application.",
+    "appID": "de.scriptpilot.appframework",
     "language": "en"
   },
   "frontend": {

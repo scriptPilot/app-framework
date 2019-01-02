@@ -11,4 +11,5 @@ module.exports = {
   script(scriptName, callback) {
     exec(`node ./scripts/${scriptName}.js`, { cwd: path.framework(), silent: false }, callback);
   },
+  exec(...args) { exec(...args); },
 };

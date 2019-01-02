@@ -75,6 +75,20 @@ run.loud(`npx parcel build "${cachedIndexFile}" --cache-dir "${parcelCacheFolder
     fs.writeFileSync(htaccessFile, htaccessFileContent);
     log.success('Created .htaccess file.');
 
+    // Update Capacitor configuration file
+    const capConfig = {
+      appId: config.meta.appID,
+      appName: config.meta.name,
+      bundledWebRuntime: false,
+      webDir: '../../build/pwa',
+    };
+    fs.writeJsonSync(path.cache('capacitor/capacitor.config.json'), capConfig, { spaces: 2 });
+
+    // Open PWA
+    run.exec('npx cap serve', { cwd: path.cache('capacitor') })
+
+    log.success('Completed PWA build.');
+
   // Build not ok
   } else {
     log.error('Failed to build PWA files.');
