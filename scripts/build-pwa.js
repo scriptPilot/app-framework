@@ -70,27 +70,21 @@ log.success('Created .htaccess file.');
 const parcelCacheFolder = path.cache('parcel');
 const buildFolder = path.build('pwa');
 log.warning('Building PWA files - this may take a while ...');
-run.loud(`npx parcel build "${cachedIndexFile}" --cache-dir "${parcelCacheFolder}" --out-dir "${buildFolder}" --no-source-maps`, (error) => {
-  // Build ok
-  if (!error) {
-    log.success('Built PWA files.');
+const pwaFilesBuild = run.loud(`npx parcel build "${cachedIndexFile}" --cache-dir "${parcelCacheFolder}" --out-dir "${buildFolder}" --no-source-maps`);
+if (pwaFilesBuild.code === 0) log.success('Built PWA files.');
+else log.error('Failed to build PWA files.');
 
-    // Update Capacitor configuration file
-    const capConfig = {
-      appId: config.meta.appID,
-      appName: config.meta.name,
-      bundledWebRuntime: false,
-      webDir: '../../build/pwa',
-    };
-    fs.writeJsonSync(path.cache('capacitor/capacitor.config.json'), capConfig, { spaces: 2 });
+// Update Capacitor configuration file
+const capConfig = {
+  appId: config.meta.appID,
+  appName: config.meta.name,
+  bundledWebRuntime: false,
+  webDir: '../../build/pwa',
+};
+const res = fs.writeJsonSync(path.cache('capacitor/capacitor.config.json'), capConfig, { spaces: 2 });
+log.success('Updated Capacitor configuration file.');
 
-    // Open PWA
-    run.custom('npx cap serve', { cwd: path.cache('capacitor') });
+// Open PWA
+run.custom('npx cap serve', { cwd: path.cache('capacitor') });
 
-    log.success('Completed PWA build.');
-
-  // Build not ok
-  } else {
-    log.error('Failed to build PWA files.');
-  }
-});
+log.success('Completed PWA build.');

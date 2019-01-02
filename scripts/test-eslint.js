@@ -12,16 +12,15 @@ const appConfigFile = path.app('config.json');
 const appConfig = fs.readJsonSync(appConfigFile);
 const configFile = path.project('.eslintrc.json');
 
-run.silent(`npx eslint "${path.project()}" --ignore-pattern "/node_modules/" --ignore-pattern "/build/" --ext .js --ext .vue --fix --config "${configFile}" --output-file "${logFile}" --format html --cache --cache-location "${cacheFile}"`, (error) => {
-  if (error) {
+const scriptResult = run.silent(`npx eslint "${path.project()}" --ignore-pattern "/node_modules/" --ignore-pattern "/build/" --ext .js --ext .vue --fix --config "${configFile}" --output-file "${logFile}" --format html --cache --cache-location "${cacheFile}"`);
+if (scriptResult.code === 0) {
+  if (appConfig.test.eslint.keepReportWhenPassed) {
     opn(logFile, { wait: false });
-    log.error(`Failed ESLint test. Please open ${logFileName} for details.`);
   } else {
-    if (appConfig.test.eslint.keepReportWhenPassed) {
-      opn(logFile, { wait: false });
-    } else {
-      fs.remove(logFile);
-    }
-    log.success('Passed ESLint test.');
+    fs.remove(logFile);
   }
-});
+  log.success('Passed ESLint test.');
+} else {
+  opn(logFile, { wait: false });
+  log.error(`Failed ESLint test. Please open ${logFileName} for details.`);
+}

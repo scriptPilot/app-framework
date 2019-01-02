@@ -13,10 +13,9 @@ const scripts = [
 
 const runNextScript = () => {
   if (scripts.length > 0) {
-    run.script(scripts.shift(), (error) => {
-      if (!error) runNextScript();
-      else log.error('Failed to complete postinstall routine.');
-    });
+    const scriptResult = run.script(scripts.shift());
+    if (scriptResult.code === 0) runNextScript();
+    else log.error('Failed to complete postinstall routine.');
   } else {
     log.success('Completed postinstall routine.');
   }

@@ -15,10 +15,9 @@ scripts.push('build-pwa');
 
 const runNextScript = () => {
   if (scripts.length > 0) {
-    run.script(scripts.shift(), (error) => {
-      if (!error) runNextScript();
-      else log.error('Failed to complete build routine.');
-    });
+    const scriptResult = run.script(scripts.shift());
+    if (scriptResult.code === 0) runNextScript();
+    else log.error('Failed to complete build routine.');
   } else {
     log.success('Completed build routine.');
   }

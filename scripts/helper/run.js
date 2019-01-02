@@ -2,14 +2,16 @@ const { exec } = require('shelljs');
 const path = require('./path');
 
 module.exports = {
-  silent(command, callback) {
-    exec(command, { cwd: path.project(), silent: true }, callback);
+  silent(command) {
+    return exec(command, { cwd: path.project(), silent: true });
   },
-  loud(command, callback) {
-    exec(command, { cwd: path.project(), silent: false }, callback);
+  loud(command) {
+    return exec(command, { cwd: path.project(), silent: false });
   },
   script(scriptName, callback) {
-    exec(`node ./scripts/${scriptName}.js`, { cwd: path.framework(), silent: false }, callback);
+    return exec(`node ./scripts/${scriptName}.js`, { cwd: path.framework(), silent: false });
   },
-  exec(...args) { exec(...args); },
+  custom(command, options) {
+    return exec(command, options);
+  },
 };

@@ -10,10 +10,9 @@ if (config.test.eslint.runOnTestCommand) tests.push(`node "${path.scripts('test-
 if (config.test.jest.runOnTestCommand) tests.push(`node "${path.scripts('test-jest.js')}"`);
 
 if (tests.length > 0) {
-  run.loud(tests.join(' && '), (err) => {
-    if (err) log.error('Failed one or more tests.');
-    else log.success('Passed all tests.');
-  });
+  const scriptResult = run.loud(tests.join(' && '));
+  if (scriptResult.code === 0) log.success('Passed all tests.');
+  else log.error('Failed one or more tests.');
 } else {
   log.info('No tests configured.');
 }
