@@ -1,6 +1,9 @@
 const merge = require('./merge');
 
 describe('scripts/helper/merge.js', () => {
+  test('should export a function', () => {
+    expect(typeof merge).toBe('function')
+  })
   test('should merge two objects', () => {
     expect(merge({ a: 1, b: 2 }, { c: 3, d: 4 })).toEqual({
       a: 1, b: 2, c: 3, d: 4,
