@@ -21,7 +21,7 @@
     "eslint": {
       "runOnTestCommand": true,
       "runBeforeBuild": true,
-      "keepReportWhenPassed": false,
+      "keepReportWhenPassed": true,
       "ownConfig": {}
     },
     "jest": {
