@@ -19,13 +19,15 @@
   },
   "test": {
     "eslint": {
-      "runTest": true,
+      "runOnTestCommand": true,
+      "runBeforeBuild": true,
       "keepReportWhenPassed": false,
       "ownConfig": {}
     },
     "jest": {
-      "runTest": true,
-      "keepReportWhenPassed": false
+      "runOnTestCommand": true,
+      "runBeforeBuild": true,
+      "keepReportWhenPassed": true
     }
   },
   "development": {
