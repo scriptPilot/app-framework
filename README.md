@@ -10,7 +10,7 @@ You are invited to open any V3 related [question, bug or feature request](https:
 2. Run `cd <app_name>` to open the newly created folder
 3. Run `echo {} > package.json` to create an empty package file
 4. Run `npm install --save app-framework@latest` to install latest development release
-5. Run `npm run dev` to open application on development server
+5. Run `npx app dev` to open application on development server
 
 ## CLI Commands
 
