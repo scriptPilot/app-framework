@@ -15,5 +15,5 @@ if (tests.length > 0) {
     else log.success('Passed all tests.');
   });
 } else {
-  log.info('No tests configured.')
+  log.info('No tests configured.');
 }
