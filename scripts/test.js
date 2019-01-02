@@ -9,7 +9,11 @@ const tests = [];
 if (config.test.eslint.runOnTestCommand) test.push(`node "${path.scripts('test-eslint.js')}"`);
 if (config.test.jest.runOnTestCommand) test.push(`node "${path.scripts('test-jest.js')}"`);
 
-run.loud(tests.join(' && '), (err) => {
-  if (err) log.error('Failed one or more tests.');
-  else log.success('Passed all tests.');
-});
+if (tests.length > 0) {
+  run.loud(tests.join(' && '), (err) => {
+    if (err) log.error('Failed one or more tests.');
+    else log.success('Passed all tests.');
+  });
+} else {
+  log.info('No tests configured.')
+}
