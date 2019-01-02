@@ -1,8 +1,6 @@
 # App Framework 3
 
-App Framework 3 is under development. **For production usage please use [App Framework 1](https://github.com/scriptPilot/app-framework)**. The status of the development can be seen in [this milestone](https://github.com/scriptPilot/app-framework/milestone/8).
-
-You are invited to open any V3 related [question, bug or feature request](https://github.com/scriptPilot/app-framework/issues).
+App Framework 3 is under development. **For production usage please use [App Framework 1](https://github.com/scriptPilot/app-framework)**. The status of the development can be seen in [this milestone](https://github.com/scriptPilot/app-framework/milestone/8). You are invited to open any V3 related [question, bug or feature request](https://github.com/scriptPilot/app-framework/issues).
 
 ## Get Started
 
