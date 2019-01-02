@@ -6,8 +6,8 @@ const path = require('./helper/path');
 const config = fs.readJsonSync(path.app('config.json'));
 
 const tests = [];
-if (config.test.eslint.runOnTestCommand) test.push(`node "${path.scripts('test-eslint.js')}"`);
-if (config.test.jest.runOnTestCommand) test.push(`node "${path.scripts('test-jest.js')}"`);
+if (config.test.eslint.runOnTestCommand) tests.push(`node "${path.scripts('test-eslint.js')}"`);
+if (config.test.jest.runOnTestCommand) tests.push(`node "${path.scripts('test-jest.js')}"`);
 
 if (tests.length > 0) {
   run.loud(tests.join(' && '), (err) => {
