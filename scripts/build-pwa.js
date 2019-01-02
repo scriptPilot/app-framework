@@ -1,6 +1,6 @@
-const shell = require('shelljs');
 const fs = require('fs-extra');
 const path = require('./helper/path');
+const run = require('./helper/run');
 const log = require('./helper/logger');
 
 // Empty cache folder
@@ -56,23 +56,27 @@ log.success('Prepared main script file.');
 const parcelCacheFolder = path.cache('parcel');
 const buildFolder = path.build('pwa');
 log.warning('Building PWA files - this may take a while ...');
-const build = shell.exec(`npx parcel build "${cachedIndexFile}" --cache-dir "${parcelCacheFolder}" --out-dir "${buildFolder}" --no-source-maps`);
-if (build.code === 0) {
-  log.success('Built PWA files.');
-} else {
-  log.error('Failed to build PWA files.');
-}
+run.loud(`npx parcel build "${cachedIndexFile}" --cache-dir "${parcelCacheFolder}" --out-dir "${buildFolder}" --no-source-maps`, (error) => {
+  // Build ok
+  if (!error) {
+    log.success('Built PWA files.');
 
-// Create robots.txt file
-const robotsFile = path.build('pwa/robots.txt');
-const robotsFileContent = 'User-Agent: *\nDisallow:';
-fs.writeFileSync(robotsFile, robotsFileContent);
-log.success('Created robots.txt file.');
+    // Create robots.txt file
+    const robotsFile = path.build('pwa/robots.txt');
+    const robotsFileContent = 'User-Agent: *\nDisallow:';
+    fs.writeFileSync(robotsFile, robotsFileContent);
+    log.success('Created robots.txt file.');
 
-// Create .htaccess file
-const htaccessFile = path.build('pwa/.htaccess');
-const htaccessFileContent = '<filesMatch "\\.(.+)\\.(.+)$">\n'
-                          + 'Header set Cache-Control "max-age=31536000, public"\n'
-                          + '</filesMatch>';
-fs.writeFileSync(htaccessFile, htaccessFileContent);
-log.success('Created .htaccess file.');
+    // Create .htaccess file
+    const htaccessFile = path.build('pwa/.htaccess');
+    const htaccessFileContent = '<filesMatch "\\.(.+)\\.(.+)$">\n'
+                              + 'Header set Cache-Control "max-age=31536000, public"\n'
+                              + '</filesMatch>';
+    fs.writeFileSync(htaccessFile, htaccessFileContent);
+    log.success('Created .htaccess file.');
+
+  // Build not ok
+  } else {
+    log.error('Failed to build PWA files.');
+  }
+});

@@ -1,7 +1,7 @@
 const path = require('path');
 const opn = require('opn');
 const fs = require('fs-extra');
-const { exec } = require('shelljs');
+const run = require('./helper/run');
 const log = require('./helper/logger');
 
 const logFileName = 'Jest.log.html';
@@ -10,10 +10,9 @@ const jestConfigFile = path.project('.jestconfig.json');
 const appConfigFile = path.app('config.json');
 
 const appConfig = fs.readJsonSync(appConfigFile);
-
-exec(`npx jest --config "${jestConfigFile}"`, { cwd: path.project(), silent: true }, (error, stdout) => {
+run.silent(`npx jest --config "${jestConfigFile}"`, (error, stdout) => {
   if (error && stdout.search(/No tests found/) !== -1) {
-    log.info('Skipped Jest tests, no specs found.')
+    log.info('Skipped Jest tests, no specs found.');
     fs.remove(logFile);
   } else if (error) {
     opn(logFile, { wait: false });

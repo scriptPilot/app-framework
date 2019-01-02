@@ -1,15 +1,27 @@
-const shell = require('shelljs');
 const fs = require('fs-extra');
+const run = require('./helper/run');
 const path = require('./helper/path');
+const log = require('./helper/logger');
 
-// Run tests
-shell.exec('node test-eslint', { cwd: path.scripts() });
+const config = fs.readJsonSync(path.app('config.json'));
 
-// Build Icons
-shell.exec('node build-icons', { cwd: path.scripts() });
+const scripts = [];
 
-// Empty build folder
-fs.emptyDirSync(path.build());
+if (config.test.eslint.runBeforeBuild) scripts.push('test-eslint');
+if (config.test.jest.runBeforeBuild) scripts.push('test-jest');
 
-// Build PWA
-shell.exec('node build-pwa', { cwd: path.scripts() });
+scripts.push('build-icons');
+scripts.push('build-pwa');
+
+const runNextScript = () => {
+  if (scripts.length > 0) {
+    run.script(scripts.shift(), (error) => {
+      if (!error) runNextScript();
+      else log.error('Failed to complete build routine.');
+    });
+  } else {
+    log.success('Completed build routine.');
+  }
+};
+
+runNextScript();

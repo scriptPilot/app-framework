@@ -1,9 +1,24 @@
-const shell = require('shelljs');
-const path = require('./helper/path');
+const run = require('./helper/run');
+const log = require('./helper/logger');
 
-shell.exec('node update-gitignore', { cwd: path.scripts() });
-shell.exec('node update-eslint-config', { cwd: path.scripts() });
-shell.exec('node update-package-config', { cwd: path.scripts() });
-shell.exec('node update-jest-config', { cwd: path.scripts() });
-shell.exec('node update-license-date', { cwd: path.scripts() });
-shell.exec('node create-app-folder', { cwd: path.scripts() });
+const scripts = [
+  'update-gitignore-config',
+  'update-eslint-config',
+  'update-package-config',
+  'update-jest-config',
+  'update-license-date',
+  'create-app-folder',
+];
+
+const runNextScript = () => {
+  if (scripts.length > 0) {
+    run.script(scripts.shift(), (error) => {
+      if (!error) runNextScript();
+      else log.error('Failed to complete postinstall routine.');
+    });
+  } else {
+    log.success('Completed postinstall routine.');
+  }
+};
+
+runNextScript();
