@@ -52,6 +52,20 @@ mainFileContent = mainFileContent.replace('./app/app.vue', path.relative(path.ca
 fs.writeFileSync(cachedMainFile, mainFileContent);
 log.success('Prepared main script file.');
 
+// Create robots.txt file
+const robotsFile = path.build('pwa/robots.txt');
+const robotsFileContent = 'User-Agent: *\nDisallow:';
+fs.writeFileSync(robotsFile, robotsFileContent);
+log.success('Created robots.txt file.');
+
+// Create .htaccess file
+const htaccessFile = path.build('pwa/.htaccess');
+const htaccessFileContent = '<filesMatch "\\.(.+)\\.(.+)$">\n'
+                          + 'Header set Cache-Control "max-age=31536000, public"\n'
+                          + '</filesMatch>';
+fs.writeFileSync(htaccessFile, htaccessFileContent);
+log.success('Created .htaccess file.');
+
 // Build files
 const parcelCacheFolder = path.cache('parcel');
 const buildFolder = path.build('pwa');
@@ -60,20 +74,6 @@ run.loud(`npx parcel build "${cachedIndexFile}" --cache-dir "${parcelCacheFolder
   // Build ok
   if (!error) {
     log.success('Built PWA files.');
-
-    // Create robots.txt file
-    const robotsFile = path.build('pwa/robots.txt');
-    const robotsFileContent = 'User-Agent: *\nDisallow:';
-    fs.writeFileSync(robotsFile, robotsFileContent);
-    log.success('Created robots.txt file.');
-
-    // Create .htaccess file
-    const htaccessFile = path.build('pwa/.htaccess');
-    const htaccessFileContent = '<filesMatch "\\.(.+)\\.(.+)$">\n'
-                              + 'Header set Cache-Control "max-age=31536000, public"\n'
-                              + '</filesMatch>';
-    fs.writeFileSync(htaccessFile, htaccessFileContent);
-    log.success('Created .htaccess file.');
 
     // Update Capacitor configuration file
     const capConfig = {
@@ -85,7 +85,7 @@ run.loud(`npx parcel build "${cachedIndexFile}" --cache-dir "${parcelCacheFolder
     fs.writeJsonSync(path.cache('capacitor/capacitor.config.json'), capConfig, { spaces: 2 });
 
     // Open PWA
-    run.exec('npx cap serve', { cwd: path.cache('capacitor') });
+    run.custom('npx cap serve', { cwd: path.cache('capacitor') });
 
     log.success('Completed PWA build.');
 
