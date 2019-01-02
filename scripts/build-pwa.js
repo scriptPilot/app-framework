@@ -85,7 +85,7 @@ run.loud(`npx parcel build "${cachedIndexFile}" --cache-dir "${parcelCacheFolder
     fs.writeJsonSync(path.cache('capacitor/capacitor.config.json'), capConfig, { spaces: 2 });
 
     // Open PWA
-    run.exec('npx cap serve', { cwd: path.cache('capacitor') })
+    run.exec('npx cap serve', { cwd: path.cache('capacitor') });
 
     log.success('Completed PWA build.');
 
