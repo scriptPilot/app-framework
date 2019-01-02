@@ -33,5 +33,5 @@ log.success('Prepared main script file.');
 
 // Build files
 const parcelCacheFolder = path.cache('parcel');
-log.info('Building development files - this may take a while ...');
+log.warning('Building development files - this may take a while ...');
 run.loud(`npx parcel "${cachedIndexFile}" --cache-dir "${parcelCacheFolder}" --out-dir "${cacheFolder}" --open`);
