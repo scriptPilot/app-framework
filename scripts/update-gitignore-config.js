@@ -16,6 +16,7 @@ const toBeIgnored = [
   'build',
   'node_modules/',
   '*.tgz',
+  '.editorconfig',
   '.eslintrc.json',
   '.gitignore',
   '.jestconfig.json',

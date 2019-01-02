@@ -32,7 +32,10 @@
     }
   },
   "development": {
-    "logLevel": "debug"
+    "logLevel": "debug",
+    "editorConfig": {
+      "ownConfig": []
+    }
   },
   "production": {
 
