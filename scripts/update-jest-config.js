@@ -3,7 +3,7 @@ const log = require('./helper/logger');
 const path = require('./helper/path');
 
 const config = {
-  testMatch: ['**/*.spec.js', '!**/node_modules/**'],
+  testMatch: ['**/*.spec.js', '!**/node_modules/**', '!**/build/**'],
   reporters: [
     'default',
     ['./node_modules/jest-html-reporter', {

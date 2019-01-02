@@ -12,7 +12,7 @@ const appConfigFile = path.app('config.json');
 const appConfig = fs.readJsonSync(appConfigFile);
 const configFile = path.project('.eslintrc.json');
 
-run.silent(`npx eslint "${path.project()}" --ignore-pattern "/node_modules/" --ext .js --ext .vue --fix --config "${configFile}" --output-file "${logFile}" --format html --cache --cache-location "${cacheFile}"`, (error) => {
+run.silent(`npx eslint "${path.project()}" --ignore-pattern "/node_modules/" --ignore-pattern "/build/" --ext .js --ext .vue --fix --config "${configFile}" --output-file "${logFile}" --format html --cache --cache-location "${cacheFile}"`, (error) => {
   if (error) {
     opn(logFile, { wait: false });
     log.error(`Failed ESLint test. Please open ${logFileName} for details.`);
