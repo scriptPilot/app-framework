@@ -14,6 +14,7 @@ scripts.push('build-icons');
 scripts.push('build-web');
 scripts.push('build-pwa');
 scripts.push('build-ios');
+scripts.push('build-android');
 
 const runNextScript = () => {
   if (scripts.length > 0) {
