@@ -37,7 +37,9 @@
       "ownConfig": []
     }
   },
-  "production": {
-
+  "build": {
+    "pwa": true,
+    "ios": false,
+    "android": false
   }
 }

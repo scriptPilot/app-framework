@@ -12,9 +12,15 @@ if (config.test.jest.runBeforeBuild) scripts.push('test-jest');
 
 scripts.push('build-icons');
 scripts.push('build-web');
-scripts.push('build-pwa');
-scripts.push('build-ios');
-scripts.push('build-android');
+
+if (config.build.pwa) scripts.push('build-pwa');
+if (config.build.ios) scripts.push('build-ios');
+if (config.build.android) scripts.push('build-android');
+
+if (!config.build.pwa && !config.build.ios && !config.build.android) {
+  log.warning('Build disabled in configuration for PWA, iOS and Android.');
+  process.exit(0);
+}
 
 const runNextScript = () => {
   if (scripts.length > 0) {
