@@ -57,12 +57,6 @@ try {
   log.error('Failed to add manifest tag to index.html file.');
 }
 
-// Install Capacitor
-if (run.script('install-capacitor').code !== 0) process.exit(1);
-
-// Update Capacitor configuration
-if (run.script('update-capacitor-config').code !== 0) process.exit(1);
-
 // Replace build files
 const buildFolder = path.project('pwa');
 try {
