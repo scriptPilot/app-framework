@@ -9,6 +9,7 @@ const defaultConfig = [
   'insert_final_newline = true',
   'indent_style = space',
   'indent_size = 2',
+  'max_line_length = 100',
 ];
 
 const userConfig = fs.readJsonSync(path.app('config.json')).development.editorConfig.ownConfig;
