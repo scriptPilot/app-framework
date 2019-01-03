@@ -17,7 +17,6 @@ scripts.push('build-ios');
 
 const runNextScript = () => {
   if (scripts.length > 0) {
-    log.debug('run next');
     const scriptResult = run.script(scripts.shift());
     if (scriptResult.code === 0) runNextScript();
     else log.error('Failed to complete build routine.');
