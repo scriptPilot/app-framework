@@ -10,7 +10,7 @@ if (fs.pathExistsSync(CorePath)) {
   log.info('Capacitor Core already installed.');
 } else {
   log.warning('Installing Capacitor Core - this may take a while ...');
-  const installScript = run.loud('npm install @capacitor/core');
+  const installScript = run.silent'npm install @capacitor/core');
   if (installScript.code === 0) log.success('Installed Capacitor Core.');
   else log.error('Failed to install Capacitor Core');
 }
@@ -21,7 +21,7 @@ if (fs.pathExistsSync(cliPath)) {
   log.info('Capacitor CLI already installed.');
 } else {
   log.warning('Installing Capacitor CLI - this may take a while ...');
-  const installScript = run.loud('npm install @capacitor/cli');
+  const installScript = run.silent'npm install @capacitor/cli');
   if (installScript.code === 0) log.success('Installed Capacitor CLI.');
   else log.error('Failed to install Capacitor CLI');
 }
