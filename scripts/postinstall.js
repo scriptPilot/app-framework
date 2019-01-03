@@ -9,6 +9,7 @@ const scripts = [
   'update-jest-config',
   'update-license-date',
   'create-app-folder',
+  'install-capacitor',
 ];
 
 const runNextScript = () => {

@@ -22,7 +22,7 @@ if (scriptResult.code === 0) {
 } else if (scriptResult.search(/No tests found/) !== -1) {
   log.info('Skipped Jest tests, no specs found.');
   fs.remove(logFile);
-} else if (error) {
+} else {
   opn(logFile, { wait: false });
   log.error(`Failed Jest tests. Please open ${logFileName} for details.`);
 }

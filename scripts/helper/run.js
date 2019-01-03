@@ -8,10 +8,7 @@ module.exports = {
   loud(command) {
     return exec(command, { cwd: path.project(), silent: false });
   },
-  script(scriptName, callback) {
+  script(scriptName) {
     return exec(`node ./scripts/${scriptName}.js`, { cwd: path.framework(), silent: false });
-  },
-  custom(command, options) {
-    return exec(command, options);
   },
 };

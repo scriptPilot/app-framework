@@ -13,13 +13,16 @@ const toBeIgnored = [
   '# Generated Files',
   '.cache/',
   '.git/',
-  'build',
+  'pwa',
+  'ios',
+  'android',
   'node_modules/',
   '*.tgz',
   '.editorconfig',
   '.eslintrc.json',
   '.gitignore',
   '.jestconfig.json',
+  'capacitor.config.json',
 ];
 
 fs.writeFileSync(file, toBeIgnored.join('\n'));
