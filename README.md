@@ -20,3 +20,20 @@ App Framework 3 is under development. **For production usage please use [App Fra
 
 Updating does not work properly as necessary scripts are not completed.
 To test the newest development version, you should create a new app.
+
+## Contribution
+
+### Setup
+
+1. Run `clone https://github.com/scriptPilot/app-framework` to clone this repository
+2. Run `cd app-framework` to open the repository folder
+3. Run `npm install` to install all dependencies
+4. Run `sudo npm link` to make CLI available in development mode
+
+### New Feature or Bugfix
+
+1. Create an [issue](https://github.com/scriptPilot/app-framework/issues) in GitHub
+2. Create a branch with name `issue-<number>`
+3. Develop and test your solution, update the documentation
+4. Commit your changes on the issue branch
+5. Create a pull request with note `closes issue <number>`
