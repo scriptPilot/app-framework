@@ -24,7 +24,7 @@ if (run.script('update-main-file').code !== 0) process.exit(1);
 // Build files
 const parcelCacheFolder = path.cache('parcel');
 log.warning('Building web files - this may take a while ...');
-const webFilesBuild = run.silent`
+const webFilesBuild = run.loud(`
     npx parcel build "${path.cache('index.html')}"
     --cache-dir "${parcelCacheFolder}"
     --out-dir "${cacheFolder}"

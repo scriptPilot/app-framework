@@ -12,7 +12,7 @@ const appConfigFile = path.app('config.json');
 const appConfig = fs.readJsonSync(appConfigFile);
 const configFile = path.project('.eslintrc.json');
 
-const scriptResult = run.silent`
+const scriptResult = run.loud(`
   npx eslint "${path.project()}"
   --ignore-pattern "/node_modules/"
   --ignore-pattern "/pwa/"
