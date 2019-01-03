@@ -23,14 +23,24 @@ To test the newest development version, you should create a new app.
 
 ## Contribution
 
-### Setup
+### Setup the Development Environment
+
+- [GitHub Desktop](https://desktop.github.com/) to manage GitHub repositories
+- [Atom](https://atom.io/) as a code editor
+  - Package `language-vue-component` for [Vue single file component](https://vuejs.org/v2/guide/single-file-components.html)
+  - Package `editorconfig` to have same file formatting settings
+- [Node.js](https://nodejs.org) as a local development server
+- [Google Chrome](https://www.google.de/chrome) as a web browser with integrated [development tools](https://developers.google.com/web/tools/chrome-devtools/)
+  - Extension [Vue.js devtools](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd) to debug the Vue components
+
+### Setup the Repository
 
 1. Run `clone https://github.com/scriptPilot/app-framework` to clone this repository
 2. Run `cd app-framework` to open the repository folder
 3. Run `npm install` to install all dependencies
 4. Run `sudo npm link` to make CLI available in development mode
 
-### New Feature or Bugfix
+### Development Workflow
 
 1. Create an [issue](https://github.com/scriptPilot/app-framework/issues) in GitHub
 2. Create a branch with name `issue-<number>`
