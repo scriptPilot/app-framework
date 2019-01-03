@@ -37,3 +37,5 @@ To test the newest development version, you should create a new app.
 3. Develop and test your solution, update the documentation
 4. Commit your changes on the issue branch
 5. Create a pull request with note `closes issue <number>`
+
+Please follow the [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript).
