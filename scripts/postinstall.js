@@ -2,13 +2,13 @@ const run = require('./helper/run');
 const log = require('./helper/logger');
 
 const scripts = [
+  'create-app-folder',
   'update-editor-config',
   'update-gitignore-config',
   'update-eslint-config',
   'update-package-config',
   'update-jest-config',
   'update-license-date',
-  'create-app-folder',
   'install-capacitor',
 ];
 
