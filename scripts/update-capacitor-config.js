@@ -8,7 +8,7 @@ const config = fs.readJsonSync(path.app('config.json'));
 // Create Capacitor config object
 const capConfig = {
   appId: config.meta.appID,
-  appName: config.meta.name,
+  appName: config.meta.shortName,
   bundledWebRuntime: false,
   webDir: path.cache('web'),
 };
