@@ -4,12 +4,6 @@ const log = require('./helper/logger');
 const path = require('./helper/path');
 const run = require('./helper/run');
 
-// Install Capacitor
-if (run.script('install-capacitor').code !== 0) process.exit(1);
-
-// Update Capacitor configuration
-if (run.script('update-capacitor-config').code !== 0) process.exit(1);
-
 // Add iOS project folder
 const iosProjectFolder = path.project('ios');
 if (fs.pathExistsSync(iosProjectFolder)) {
