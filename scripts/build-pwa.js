@@ -72,6 +72,3 @@ try {
 } catch (e) {
   log.error('Failed to copy PWA build files to folder /pwa');
 }
-
-// Open PWA
-run.loud(`cd "${path.cache()}" && npx cap serve`);
