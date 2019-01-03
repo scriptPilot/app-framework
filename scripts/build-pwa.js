@@ -1,7 +1,6 @@
 // Load modules
 const fs = require('fs-extra');
 const path = require('./helper/path');
-const run = require('./helper/run');
 const log = require('./helper/logger');
 
 // Define cache folder

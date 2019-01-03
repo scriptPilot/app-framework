@@ -26,8 +26,8 @@ if (config.test.jest.runBeforeBuild) scripts.push('test-jest');
 scripts.push('build-icons');
 scripts.push('build-web');
 if (config.build.ios || config.build.android) {
-  scripts.push('install-capacitor')
-  scripts.push('update-capacitor-config')
+  scripts.push('install-capacitor');
+  scripts.push('update-capacitor-config');
 }
 if (config.build.pwa) scripts.push('build-pwa');
 if (config.build.ios) scripts.push('build-ios');
@@ -43,4 +43,4 @@ const runNextScript = () => {
 };
 runNextScript();
 
-log.success('Completed the build routine.')
+log.success('Completed the build routine.');
