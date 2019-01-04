@@ -8,7 +8,12 @@ const level = fs.pathExistsSync(configFile) ? fs.readJsonSync(configFile).develo
 module.exports = {
   debug(msg) {
     if (level === 'debug') {
-      console.log(clc.bold.cyan('[DEBUG]'), clc.bold(msg)); // eslint-disable-line no-console
+      if (typeof msg === 'object' && msg !== null) {
+        console.log(clc.bold.cyan('[DEBUG]')); // eslint-disable-line no-console
+        console.dir(msg); // eslint-disable-line no-console
+      } else {
+        console.log(clc.bold.cyan('[DEBUG]'), clc.bold(msg)); // eslint-disable-line no-console
+      }
     }
   },
   info(msg) {
