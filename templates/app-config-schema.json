@@ -1,0 +1,141 @@
+{
+  "type": "object",
+  "properties": {
+    "meta": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "shortName": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "appID": {
+          "type": "string"
+        },
+        "language": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "pwa": {
+      "type": "object",
+      "properties": {
+        "buildOnBuildCommand": {
+          "type": "boolean"
+        },
+        "includeOfflineServiceWorker": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ios": {
+      "type": "object",
+      "properties": {
+        "buildOnBuildCommand": {
+          "type": "boolean"
+        },
+        "relatedITunesApplicationID": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "android": {
+      "type": "object",
+      "properties": {
+        "buildOnBuildCommand": {
+          "type": "boolean"
+        },
+        "themeColor": {
+          "type": "string"
+        },
+        "backgroundColor": {
+          "type": "string"
+        },
+        "relatedPlayStoreApplicationID": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "eslint": {
+      "type": "object",
+      "properties": {
+        "runOnDevCommand": {
+          "type": "boolean"
+        },
+        "runOnTestCommand": {
+          "type": "boolean"
+        },
+        "runOnBuildCommand": {
+          "type": "boolean"
+        },
+        "openReportWhenPassed": {
+          "type": "boolean"
+        },
+        "openReportWhenFailed": {
+          "type": "boolean"
+        },
+        "extendDefaultConfig": {
+          "type": "object"
+        }
+      },
+      "additionalProperties": false
+    },
+    "jest": {
+      "type": "object",
+      "properties": {
+        "runOnDevCommand": {
+          "type": "boolean"
+        },
+        "runOnTestCommand": {
+          "type": "boolean"
+        },
+        "runOnBuildCommand": {
+          "type": "boolean"
+        },
+        "openReportWhenPassed": {
+          "type": "boolean"
+        },
+        "openReportWhenFailed": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "editorconfig": {
+      "type": "object",
+      "properties": {
+        "addLinesToConfigFile": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "git": {
+      "type": "object",
+      "properties": {
+        "addLinesToIgnoreFile": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "debugMode": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false
+}

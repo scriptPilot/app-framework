@@ -17,6 +17,7 @@
     "@capacitor/core": "^1.0.0-beta.13",
     "@capacitor/ios": "^1.0.0-beta.13",
     "@vue/component-compiler-utils": "^2.4.0",
+    "ajv": "^6.6.2",
     "cli-color": "^1.4.0",
     "commander": "^2.19.0",
     "eslint": "^5.11.1",

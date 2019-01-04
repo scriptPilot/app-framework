@@ -7,59 +7,39 @@
     "language": "en"
   },
   "pwa": {
+    "buildOnBuildCommand": true,
     "includeOfflineServiceWorker": true
   },
   "ios": {
-
+    "buildOnBuildCommand": false,
+    "relatedITunesApplicationID": "1203927581"
   },
   "android": {
-
+    "buildOnBuildCommand": false,
+    "themeColor": "#2196f3",
+    "backgroundColor": "#ffffff",
+    "relatedPlayStoreApplicationID": "de.scriptpilot.appframework"
   },
   "eslint": {
-
+    "runOnDevCommand": false,
+    "runOnTestCommand": true,
+    "runOnBuildCommand": true,
+    "openReportWhenPassed": false,
+    "openReportWhenFailed": true,
+    "extendDefaultConfig": {}
   },
   "jest": {
-
+    "runOnDevCommand": false,
+    "runOnTestCommand": true,
+    "runOnBuildCommand": true,
+    "openReportWhenPassed": false,
+    "openReportWhenFailed": true
+  },
+  "editorconfig": {
+    "addLinesToConfigFile": []
   },
   "git": {
     "addLinesToIgnoreFile": []
   },
-  "debugMode": false,
-  "------------": "------------",
-  "frontend": {
-    "android": {
-      "themeColor": "#2196f3",
-      "backgroundColor": "#ffffff",
-      "relatedPlayStoreApplicationID": "de.scriptpilot.appframework"
-    },
-    "ios": {
-      "relatedITunesApplicationID": "1203927581"
-    }
-  },
-  "backend": {
-  },
-  "test": {
-    "eslint": {
-      "runOnTestCommand": true,
-      "runBeforeBuild": true,
-      "keepReportWhenPassed": true,
-      "ownConfig": {}
-    },
-    "jest": {
-      "runOnTestCommand": true,
-      "runBeforeBuild": true,
-      "keepReportWhenPassed": true
-    }
-  },
-  "development": {
-    "logLevel": "debug",
-    "editorConfig": {
-      "ownConfig": []
-    }
-  },
-  "build": {
-    "pwa": true,
-    "ios": false,
-    "android": false
-  }
+  "debugMode": false
 }
