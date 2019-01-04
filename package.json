@@ -3,7 +3,7 @@
   "description": "iOS and Android Apps with HTML & JavaScript - develop, build and deploy - free and open source!",
   "author": "scriptPilot <mail@scriptPilot.de> (https://github.com/scriptPilot)",
   "repository": "https://github.com/scriptPilot/app-framework.git",
-  "version": "3.0.0-alpha.25",
+  "version": "3.0.0-alpha.29",
   "license": "MIT",
   "bin": {
     "app": "./cli/app.js"
@@ -26,8 +26,8 @@
     "eslint-plugin-jest": "^22.1.2",
     "eslint-plugin-vue": "^5.1.0",
     "find": "^0.2.9",
-    "framework7": "^3.6.3",
-    "framework7-vue": "^3.6.3",
+    "framework7": "^3.6.5",
+    "framework7-vue": "^3.6.5",
     "fs-extra": "^7.0.1",
     "jest": "^23.6.0",
     "jest-html-reporter": "^2.4.2",
