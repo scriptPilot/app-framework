@@ -2,9 +2,9 @@
 
 // Import modules
 const program = require('commander');
-const fs = require('fs-extra')
-const log = require('../scripts/helper/logger')
-const path = require('../scripts/helper/path')
+const fs = require('fs-extra');
+const log = require('../scripts/helper/logger');
+const path = require('../scripts/helper/path');
 const { version } = require('../package.json');
 
 // Load app configuration
@@ -22,7 +22,7 @@ if (path.project() === path.framework() && config.developmentMode === false) {
     App Framework should be installed from NPMjs.com.
     To contribute to App Frameworkwork itself, please activate the development mode.
     Please check the documenttaion for the next steps.
-  `)
+  `);
 }
 
 // CLI definition
