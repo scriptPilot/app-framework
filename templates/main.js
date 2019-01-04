@@ -12,20 +12,3 @@ export default new Vue({
   el: '#app',
   render: c => c(App),
 });
-
-if (process.env.NODE_ENV !== 'development' && 'serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    const swPath = 'sw.js';
-    navigator.serviceWorker.register(swPath).then((registration) => {
-      if (process.env.NODE_ENV === 'development') {
-        // eslint-disable-next-line no-console
-        console.log('ServiceWorker registration successful with scope: ', registration.scope);
-      }
-    }, (err) => {
-      if (process.env.NODE_ENV === 'development') {
-        // eslint-disable-next-line no-console
-        console.log('ServiceWorker registration failed: ', err);
-      }
-    });
-  });
-}

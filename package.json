@@ -24,6 +24,7 @@
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jest": "^22.1.2",
     "eslint-plugin-vue": "^5.1.0",
+    "find": "^0.2.9",
     "framework7": "^3.6.3",
     "framework7-vue": "^3.6.3",
     "fs-extra": "^7.0.1",

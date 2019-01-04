@@ -32,3 +32,11 @@ const webFilesBuild = run.silent(`
 `.replace(/\n/g, ' '));
 if (webFilesBuild.code === 0) log.success('Built www files.');
 else log.error('Failed to build www files.');
+
+// Move service worker file in main cache folder
+try {
+  fs.moveSync(path.cache('web/sw.js'), path.cache('sw.js'), { overwrite: true });
+  log.success('Moved service worker to cache folder.');
+} catch (e) {
+  log.error('Failed to move service worker to cache folder.');
+}

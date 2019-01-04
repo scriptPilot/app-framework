@@ -41,5 +41,8 @@
     "pwa": true,
     "ios": false,
     "android": false
+  },
+  "pwa": {
+    "includeOfflineServiceWorker": true
   }
 }
