@@ -26,10 +26,10 @@ try {
 // Replace variables in index file
 const variables = {
   language: config.meta.language,
-  androidThemeColor: config.frontend.android.themeColor,
+  androidThemeColor: config.android.themeColor,
   description: config.meta.description,
   name: config.meta.name,
-  relatedITunesApplicationID: config.frontend.ios.relatedITunesApplicationID,
+  relatedITunesApplicationID: config.ios.relatedITunesApplicationID,
 };
 let indexFileContent = templateFileContent;
 Object.keys(variables).forEach((key) => {

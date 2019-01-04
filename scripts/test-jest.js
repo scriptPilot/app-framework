@@ -14,7 +14,7 @@ const appConfig = fs.readJsonSync(appConfigFile);
 const scriptResult = run.silent(`npx jest --config "${jestConfigFile}"`);
 if (scriptResult.code === 0) {
   log.success('Passed Jest tests.');
-  if (appConfig.test.jest.keepReportWhenPassed) {
+  if (appConfig.jest.openReportWhenPassed) {
     opn(logFile, { wait: false });
   } else {
     fs.remove(logFile);
@@ -23,6 +23,10 @@ if (scriptResult.code === 0) {
   log.info('Skipped Jest tests, no specs found.');
   fs.remove(logFile);
 } else {
-  opn(logFile, { wait: false });
+  if (appConfig.jest.openReportWhenFailed) {
+    opn(logFile, { wait: false });
+  } else {
+    fs.remove(logFile);
+  }
   log.error(`Failed Jest tests. Please open ${logFileName} for details.`);
 }

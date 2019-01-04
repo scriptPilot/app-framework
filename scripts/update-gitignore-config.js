@@ -38,12 +38,12 @@ const toBeIgnored = [
 ];
 
 // Merge with app configuration
-const gitignoreConfig = toBeIgnored.concat(config.git.addLinesToIgnoreFile)
+const gitignoreConfig = toBeIgnored.concat(config.git.addLinesToIgnoreFile);
 
 // Update .gitignore file
 try {
   fs.writeFileSync(file, gitignoreConfig.join('\n'));
   log.success('Updated the .gitignore file.');
 } catch (e) {
-  log.error('Failed to update the .gitignore file.')
+  log.error('Failed to update the .gitignore file.');
 }

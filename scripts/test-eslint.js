@@ -28,13 +28,17 @@ const scriptResult = run.silent(`
   --cache-location "${cacheFile}"
 `.replace(/\n/g, ' '));
 if (scriptResult.code === 0) {
-  if (appConfig.test.eslint.keepReportWhenPassed) {
+  if (appConfig.eslint.openReportWhenPassed) {
     opn(logFile, { wait: false });
   } else {
     fs.remove(logFile);
   }
   log.success('Passed ESLint test.');
 } else {
-  opn(logFile, { wait: false });
+  if (appConfig.eslint.openReportWhenFailed) {
+    opn(logFile, { wait: false });
+  } else {
+    fs.remove(logFile);
+  }
   log.error(`Failed ESLint test. Please open ${logFileName} for details.`);
 }

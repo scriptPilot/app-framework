@@ -28,9 +28,9 @@ const variables = {
   name: config.meta.name,
   shortName: config.meta.shortName,
   description: config.meta.description,
-  androidBackgroundColor: config.frontend.android.backgroundColor,
-  androidThemeColor: config.frontend.android.themeColor,
-  relatedPlayStoreApplicationID: config.frontend.android.relatedPlayStoreApplicationID,
+  androidBackgroundColor: config.android.backgroundColor,
+  androidThemeColor: config.android.themeColor,
+  relatedPlayStoreApplicationID: config.android.relatedPlayStoreApplicationID,
 };
 let manifestFileContent = templateFileContent;
 Object.keys(variables).forEach((key) => {
