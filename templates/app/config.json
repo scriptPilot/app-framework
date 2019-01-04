@@ -6,6 +6,26 @@
     "appID": "de.scriptpilot.appframework",
     "language": "en"
   },
+  "pwa": {
+    "includeOfflineServiceWorker": true
+  },
+  "ios": {
+
+  },
+  "android": {
+
+  },
+  "eslint": {
+
+  },
+  "jest": {
+
+  },
+  "git": {
+    "addLinesToIgnoreFile": []
+  },
+  "debugMode": false,
+  "------------": "------------",
   "frontend": {
     "android": {
       "themeColor": "#2196f3",
@@ -41,9 +61,5 @@
     "pwa": true,
     "ios": false,
     "android": false
-  },
-  "pwa": {
-    "includeOfflineServiceWorker": true
-  },
-  "debugMode": false
+  }
 }

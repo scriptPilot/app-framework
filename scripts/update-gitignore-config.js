@@ -1,7 +1,19 @@
+// Import modules
 const fs = require('fs-extra');
 const log = require('./helper/logger');
 const path = require('./helper/path');
 
+// Load app configuration
+const configFile = path.app('config.json');
+let config = {};
+try {
+  config = fs.readJsonSync(configFile);
+  log.success('Loaded app config file.');
+} catch (e) {
+  log.error('Failed to load app config file.');
+}
+
+// Default value
 const file = path.project('.gitignore');
 const toBeIgnored = [
   '# System Files',
@@ -25,5 +37,13 @@ const toBeIgnored = [
   'capacitor.config.json',
 ];
 
-fs.writeFileSync(file, toBeIgnored.join('\n'));
-log.success('Updated the Gitignore file.');
+// Merge with app configuration
+const gitignoreConfig = toBeIgnored.concat(config.git.addLinesToIgnoreFile)
+
+// Update .gitignore file
+try {
+  fs.writeFileSync(file, gitignoreConfig.join('\n'));
+  log.success('Updated the .gitignore file.');
+} catch (e) {
+  log.error('Failed to update the .gitignore file.')
+}
