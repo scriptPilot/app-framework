@@ -43,9 +43,9 @@ const indexFile = path.resolve(cacheFolder, 'index.html');
 let indexFileContent = '';
 try {
   indexFileContent = fs.readFileSync(indexFile, { encoding: 'utf-8' });
-  log.success('Read main.js template file.');
+  log.success('Read index.html template file.');
 } catch (e) {
-  log.error('Failed to read main.js template file.');
+  log.error('Failed to read index.html template file.');
 }
 const manifestTag = '<link rel="manifest" href="./manifest.webmanifest" />';
 const newIndexFileContent = indexFileContent.replace('</head>', `${manifestTag}</head>`);
