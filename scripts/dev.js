@@ -3,6 +3,20 @@ const log = require('./helper/logger');
 const path = require('./helper/path');
 const run = require('./helper/run');
 
+// Load app configuration
+let config = {};
+try {
+  config = fs.readJsonSync(path.app('config.json'));
+  log.success('Loaded app config file.');
+} catch (e) {
+  log.error('Failed to load app config file.');
+}
+
+// Run tests
+if (run.script('test-app-config').code !== 0) process.exit(1);
+if (config.eslint.runOnDevCommand && run.script('test-eslint').code !== 0) process.exit(1);
+if (config.jest.runOnDevCommand && run.script('test-jest').code !== 0) process.exit(1);
+
 // Define cache folder
 const cacheFolder = path.cache('dev');
 
