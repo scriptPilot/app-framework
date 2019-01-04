@@ -4,6 +4,16 @@ const log = require('./helper/logger');
 const path = require('./helper/path');
 const run = require('./helper/run');
 
+// Load app configuration
+const configFile = path.app('config.json');
+let config = {};
+try {
+  config = fs.readJsonSync(configFile);
+  log.success('Loaded app config file.');
+} catch (e) {
+  log.error('Failed to load app config file.');
+}
+
 // Add iOS project folder
 const iosProjectFolder = path.project('ios');
 if (fs.pathExistsSync(iosProjectFolder)) {
@@ -22,4 +32,4 @@ if (updateScript.code === 0) log.success('Updated the iOS project folder.');
 else log.error('Failed to update the iOS project folder.');
 
 // Open Xcode
-run.silent('npx cap open ios');
+if (config.ios.openXcodeAfterBuild) run.silent('npx cap open ios');

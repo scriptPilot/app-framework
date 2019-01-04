@@ -12,10 +12,12 @@
   },
   "ios": {
     "buildOnBuildCommand": false,
+    "openXcodeAfterBuild": true,
     "relatedITunesApplicationID": "1203927581"
   },
   "android": {
     "buildOnBuildCommand": false,
+    "openAndroidStudioAfterBuild": true,
     "themeColor": "#2196f3",
     "backgroundColor": "#ffffff",
     "relatedPlayStoreApplicationID": "de.scriptpilot.appframework"
