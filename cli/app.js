@@ -16,12 +16,12 @@ try {
   log.error('Failed to load app config file.');
 }
 
-// Check if App Framework is installed or if developmentMode is enabled
-if (path.project() === path.framework() && config.developmentMode === false) {
+// Check if App Framework was cloned and no .enableDevelopmentMode file exists
+if (path.project() === path.framework() && !fs.pathExistsSync(path.project('.enableDevelopmentMode'))) {
   log.error(`
-    App Framework should be installed from NPMjs.com.
+    App Framework should be installed as a Node package - not beeing cloned.
     To contribute to App Frameworkwork itself, please activate the development mode.
-    Please check the documenttaion for the next steps.
+    Please read the documentation for details.
   `);
 }
 

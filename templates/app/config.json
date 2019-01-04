@@ -43,6 +43,5 @@
   "git": {
     "addLinesToIgnoreFile": []
   },
-  "debugMode": false,
-  "developmentMode": false
+  "debugMode": false
 }

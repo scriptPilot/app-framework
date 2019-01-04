@@ -141,9 +141,6 @@
     },
     "debugMode": {
       "type": "boolean"
-    },
-    "developmentMode": {
-      "type": "boolean"
     }
   },
   "additionalProperties": false
