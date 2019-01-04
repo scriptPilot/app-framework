@@ -1,13 +1,16 @@
-const clc = require('cli-color');
+// Import modules
 const fs = require('fs-extra');
+const clc = require('cli-color');
 const path = require('./path');
 
+// Define debug mode
 const configFile = path.app('config.json');
-const level = fs.pathExistsSync(configFile) ? fs.readJsonSync(configFile).development.logLevel : 'debug';
+const debugMode = fs.pathExistsSync(configFile) ? fs.readJsonSync(configFile).debugMode : false;
 
+// Export logger functions
 module.exports = {
   debug(msg) {
-    if (level === 'debug') {
+    if (debugMode) {
       if (typeof msg === 'object' && msg !== null) {
         console.log(clc.bold.cyan('[DEBUG]')); // eslint-disable-line no-console
         console.dir(msg); // eslint-disable-line no-console
@@ -17,9 +20,7 @@ module.exports = {
     }
   },
   info(msg) {
-    if (level === 'debug' || level === 'info') {
-      console.log(clc.bold.blue('[INFO]'), clc.bold(msg)); // eslint-disable-line no-console
-    }
+    console.log(clc.bold.blue('[INFO]'), clc.bold(msg)); // eslint-disable-line no-console
   },
   success(msg) {
     console.log(clc.bold.green('[SUCCESS]'), clc.bold(msg)); // eslint-disable-line no-console
