@@ -5,11 +5,11 @@ const log = require('./logger');
 const path = require('./path');
 
 // Define debug mode
-let debugMode
+let debugMode;
 try {
-  debugMode = fs.readJsonSync(path.app('config.json')).debugMode
-} catch(e) {
-  debugMode = false
+  ({ debugMode } = fs.readJsonSync(path.app('config.json')));
+} catch (e) {
+  debugMode = false;
 }
 
 // Export functions

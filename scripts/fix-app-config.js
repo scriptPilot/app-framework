@@ -5,7 +5,7 @@ const log = require('./helper/logger');
 const path = require('./helper/path');
 
 // Cancel if app folder not exists
-if (!fs.pathExistsSync(path.app())) process.exit(0)
+if (!fs.pathExistsSync(path.app())) process.exit(0);
 
 // Load schema
 const schemaFile = path.templates('app-config-schema.json');
