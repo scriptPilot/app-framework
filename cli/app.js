@@ -22,4 +22,5 @@ program
   .command('test', 'run one or more tests')
   .command('dev', 'start development server')
   .command('build', 'build application')
+  .command('deploy', 'deploy application')
   .parse(process.argv);

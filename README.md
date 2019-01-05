@@ -15,6 +15,7 @@ App Framework 3 is under development. **For production usage please use [App Fra
 - `npx app test` to run all configured tests
 - `npx app dev` to open application on development server
 - `npx app build` to build application to */build* folder
+- `npx app deploy --ftp` to deploy the PWA to any FTP server
 
 ## Update
 

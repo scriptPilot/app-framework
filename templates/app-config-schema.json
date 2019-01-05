@@ -167,6 +167,28 @@
       },
       "additionalProperties": false
     },
+    "ftp": {
+      "type": "object",
+      "properties": {
+        "defaultHost": {
+          "type": "string",
+          "default": ""
+        },
+        "defaultPort": {
+          "type": "string",
+          "default": ""
+        },
+        "defaultUserName": {
+          "type": "string",
+          "default": ""
+        },
+        "defaultPathOnServer": {
+          "type": "string",
+          "default": ""
+        }
+      },
+      "additionalProperties": false
+    },
     "debugMode": {
       "type": "boolean",
       "default": false

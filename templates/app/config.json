@@ -43,5 +43,11 @@
   "git": {
     "addLinesToIgnoreFile": []
   },
+  "ftp": {
+    "defaultHost": "",
+    "defaultPort": "",
+    "defaultUserName": "",
+    "defaultPathOnServer": ""
+  },
   "debugMode": false
 }

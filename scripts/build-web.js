@@ -26,6 +26,7 @@ const parcelCacheFolder = path.cache('parcel');
 log.warning('Building web files - this may take a while ...');
 const webFilesBuild = run.silent(`
     npx parcel build "${path.cache('index.html')}"
+    --public-url .
     --cache-dir "${parcelCacheFolder}"
     --out-dir "${cacheFolder}"
     --no-source-maps
