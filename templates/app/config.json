@@ -1,9 +1,9 @@
 {
   "meta": {
-    "name": "My App",
-    "shortName": "My App",
-    "description": "Description of your new application.",
-    "appID": "de.scriptpilot.appframework",
+    "name": "Your Application Name",
+    "shortName": "App Name",
+    "description": "Description of your application.",
+    "appID": "",
     "language": "en"
   },
   "pwa": {
@@ -13,14 +13,14 @@
   "ios": {
     "buildOnBuildCommand": false,
     "openXcodeAfterBuild": true,
-    "relatedITunesApplicationID": "1203927581"
+    "relatedITunesApplicationID": ""
   },
   "android": {
     "buildOnBuildCommand": false,
     "openAndroidStudioAfterBuild": true,
     "themeColor": "#2196f3",
-    "backgroundColor": "#ffffff",
-    "relatedPlayStoreApplicationID": "de.scriptpilot.appframework"
+    "backgroundColor": "#2196f3",
+    "relatedPlayStoreApplicationID": ""
   },
   "eslint": {
     "runOnTestCommand": true,
@@ -34,7 +34,7 @@
     "runOnTestCommand": true,
     "runOnDevCommand": true,
     "runOnBuildCommand": true,
-    "openReportWhenPassed": true,
+    "openReportWhenPassed": false,
     "openReportWhenFailed": true
   },
   "editorconfig": {

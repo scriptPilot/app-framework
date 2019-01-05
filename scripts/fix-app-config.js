@@ -19,9 +19,8 @@ const configFile = path.app('config.json');
 let config = null;
 try {
   config = fs.readJsonSync(configFile);
-  log.success('Loaded app config file.');
 } catch (e) {
-  log.error('Failed to load app config file.');
+  config = {};
 }
 
 // Do fix
