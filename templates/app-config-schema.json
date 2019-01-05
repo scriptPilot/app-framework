@@ -5,19 +5,24 @@
       "type": "object",
       "properties": {
         "name": {
-          "type": "string"
+          "type": "string",
+          "default": "Your Application Name"
         },
         "shortName": {
-          "type": "string"
+          "type": "string",
+          "default": "App Name"
         },
         "description": {
-          "type": "string"
+          "type": "string",
+          "default": "Description of your application."
         },
         "appID": {
-          "type": "string"
+          "type": "string",
+          "default": ""
         },
         "language": {
-          "type": "string"
+          "type": "string",
+          "default": "en"
         }
       },
       "additionalProperties": false
@@ -26,10 +31,12 @@
       "type": "object",
       "properties": {
         "buildOnBuildCommand": {
-          "type": "boolean"
+          "type": "boolean",
+          "default": true
         },
         "includeOfflineServiceWorker": {
-          "type": "boolean"
+          "type": "boolean",
+          "default": true
         }
       },
       "additionalProperties": false
@@ -38,13 +45,16 @@
       "type": "object",
       "properties": {
         "buildOnBuildCommand": {
-          "type": "boolean"
+          "type": "boolean",
+          "default": false
         },
         "openXcodeAfterBuild": {
-          "type": "boolean"
+          "type": "boolean",
+          "default": true
         },
         "relatedITunesApplicationID": {
-          "type": "string"
+          "type": "string",
+          "default": ""
         }
       },
       "additionalProperties": false
@@ -53,19 +63,24 @@
       "type": "object",
       "properties": {
         "buildOnBuildCommand": {
-          "type": "boolean"
+          "type": "boolean",
+          "default": false
         },
         "openAndroidStudioAfterBuild": {
-          "type": "boolean"
+          "type": "boolean",
+          "default": true
         },
         "themeColor": {
-          "type": "string"
+          "type": "string",
+          "default": "#2196f3"
         },
         "backgroundColor": {
-          "type": "string"
+          "type": "string",
+          "default": "#2196f3"
         },
         "relatedPlayStoreApplicationID": {
-          "type": "string"
+          "type": "string",
+          "default": ""
         }
       },
       "additionalProperties": false
@@ -73,23 +88,29 @@
     "eslint": {
       "type": "object",
       "properties": {
-        "runOnDevCommand": {
-          "type": "boolean"
-        },
         "runOnTestCommand": {
-          "type": "boolean"
+          "type": "boolean",
+          "default": true
+        },
+        "runOnDevCommand": {
+          "type": "boolean",
+          "default": true
         },
         "runOnBuildCommand": {
-          "type": "boolean"
+          "type": "boolean",
+          "default": true
         },
         "openReportWhenPassed": {
-          "type": "boolean"
+          "type": "boolean",
+          "default": false
         },
         "openReportWhenFailed": {
-          "type": "boolean"
+          "type": "boolean",
+          "default": true
         },
         "extendDefaultConfig": {
-          "type": "object"
+          "type": "object",
+          "default": {}
         }
       },
       "additionalProperties": false
@@ -97,20 +118,25 @@
     "jest": {
       "type": "object",
       "properties": {
-        "runOnDevCommand": {
-          "type": "boolean"
-        },
         "runOnTestCommand": {
-          "type": "boolean"
+          "type": "boolean",
+          "default": true
+        },
+        "runOnDevCommand": {
+          "type": "boolean",
+          "default": true
         },
         "runOnBuildCommand": {
-          "type": "boolean"
+          "type": "boolean",
+          "default": true
         },
         "openReportWhenPassed": {
-          "type": "boolean"
+          "type": "boolean",
+          "default": false
         },
         "openReportWhenFailed": {
-          "type": "boolean"
+          "type": "boolean",
+          "default": true
         }
       },
       "additionalProperties": false
@@ -122,7 +148,8 @@
           "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "default": []
         }
       },
       "additionalProperties": false
@@ -134,13 +161,15 @@
           "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "default": []
         }
       },
       "additionalProperties": false
     },
     "debugMode": {
-      "type": "boolean"
+      "type": "boolean",
+      "default": false
     }
   },
   "additionalProperties": false
