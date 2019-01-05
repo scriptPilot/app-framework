@@ -13,12 +13,12 @@ const appConfig = fs.readJsonSync(appConfigFile);
 
 const scriptResult = run.silent(`npx jest --config "${jestConfigFile}"`);
 if (scriptResult.code === 0) {
-  log.success('Passed Jest tests.');
   if (appConfig.jest.openReportWhenPassed) {
     opn(logFile, { wait: false });
   } else {
     fs.remove(logFile);
   }
+  log.success('Passed Jest tests.');
 } else if (scriptResult.search(/No tests found/) !== -1) {
   log.info('Skipped Jest tests, no specs found.');
   fs.remove(logFile);

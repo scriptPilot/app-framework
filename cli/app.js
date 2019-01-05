@@ -7,15 +7,6 @@ const log = require('../scripts/helper/logger');
 const path = require('../scripts/helper/path');
 const { version } = require('../package.json');
 
-// Load app configuration
-const configFile = path.app('config.json');
-let config = {};
-try {
-  config = fs.readJsonSync(configFile);
-} catch (e) {
-  log.error('Failed to load app config file.');
-}
-
 // Check if App Framework was cloned and no .enableDevelopmentMode file exists
 if (path.project() === path.framework() && !fs.pathExistsSync(path.project('.enableDevelopmentMode'))) {
   log.error(`
