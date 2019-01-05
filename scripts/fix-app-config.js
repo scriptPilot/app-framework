@@ -1,6 +1,6 @@
 // Import modules
-const Ajv = require('ajv');
 const fs = require('fs-extra');
+const json = require('json-schema-fix');
 const log = require('./helper/logger');
 const path = require('./helper/path');
 
@@ -24,19 +24,17 @@ try {
   log.error('Failed to load app config file.');
 }
 
-// Do validation
-const validate = (new Ajv({ format: 'full' })).compile(schema);
-const valid = validate(config);
-if (valid) {
-  log.success('Passed app/config.json file validation.');
+// Do fix
+const fixedConfig = json.fix(schema, config);
+
+// Update config file
+if (JSON.stringify(fixedConfig) !== JSON.stringify(config)) {
+  try {
+    fs.outputJsonSync(configFile, fixedConfig, { spaces: 2 });
+    log.success('Fixed app configuration file.');
+  } catch (e) {
+    log.error('Failed to fix app configuration file.');
+  }
 } else {
-  const errorReport = [];
-  validate.errors.forEach((error) => {
-    errorReport.push(`
-      Message: ${error.message}
-      Data Path: root${error.dataPath}
-      Parameters: ${JSON.stringify(error.params)}
-    `);
-  });
-  log.error(`Failed app/config.json file validation.\n${errorReport.join('')}`);
+  log.info('Validated app configuration file.');
 }

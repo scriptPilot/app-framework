@@ -23,7 +23,7 @@ if (!config.pwa.buildOnBuildCommand
 
 // Define scripts to run
 const scripts = [];
-scripts.push('test-app-config');
+scripts.push('fix-app-config');
 if (config.eslint.runOnBuildCommand) scripts.push('test-eslint');
 if (config.jest.runOnBuildCommand) scripts.push('test-jest');
 scripts.push('build-icons');

@@ -13,7 +13,7 @@ try {
 }
 
 // Run tests
-if (run.script('test-app-config').code !== 0) process.exit(1);
+if (run.script('fix-app-config').code !== 0) process.exit(1);
 if (config.eslint.runOnDevCommand && run.script('test-eslint').code !== 0) process.exit(1);
 if (config.jest.runOnDevCommand && run.script('test-jest').code !== 0) process.exit(1);
 

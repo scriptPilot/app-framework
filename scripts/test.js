@@ -3,7 +3,7 @@ const run = require('./helper/run');
 const log = require('./helper/logger');
 const path = require('./helper/path');
 
-if (run.script('test-app-config').code !== 0) process.exit(1);
+if (run.script('fix-app-config').code !== 0) process.exit(1);
 
 const config = fs.readJsonSync(path.app('config.json'));
 
