@@ -4,8 +4,12 @@ const clc = require('cli-color');
 const path = require('./path');
 
 // Define debug mode
-const configFile = path.app('config.json');
-const debugMode = fs.pathExistsSync(configFile) ? fs.readJsonSync(configFile).debugMode : false;
+let debugMode
+try {
+  debugMode = fs.readJsonSync(path.app('config.json')).debugMode
+} catch(e) {
+  debugMode = false
+}
 
 // Export logger functions
 module.exports = {

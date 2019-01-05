@@ -2,6 +2,7 @@ const run = require('./helper/run');
 const log = require('./helper/logger');
 
 const scripts = [
+  'fix-app-config',
   'create-app-folder',
   'update-editor-config',
   'update-gitignore-config',
