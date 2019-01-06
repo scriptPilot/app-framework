@@ -1,8 +1,6 @@
 // Load modules
 const fs = require('fs-extra');
 const find = require('find');
-const express = require('express');
-const opn = require('opn');
 const path = require('./helper/path');
 const log = require('./helper/logger');
 const run = require('./helper/run');
@@ -142,9 +140,4 @@ try {
 }
 
 // Open PWA in browser
-if (config.pwa.openInBrowserAfterBuild) {
-  const app = express();
-  app.use('/', express.static(path.project('pwa')));
-  app.listen('1337', '127.0.0.1');
-  opn('http://127.0.0.1:1337');
-}
+// function moved to /build.js file to avoid blocking of other scripts

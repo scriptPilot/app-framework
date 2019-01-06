@@ -1,5 +1,7 @@
 // Import modules
 const fs = require('fs-extra');
+const express = require('express');
+const opn = require('opn');
 const run = require('./helper/run');
 const path = require('./helper/path');
 const log = require('./helper/logger');
@@ -47,3 +49,11 @@ const runNextScript = () => {
 runNextScript();
 
 log.success('Completed the build routine.');
+
+// Open PWA (later scripts are blocked because script will not exit)
+if (config.pwa.buildOnBuildCommand && config.pwa.openInBrowserAfterBuild) {
+  const app = express();
+  app.use('/', express.static(path.project('pwa')));
+  app.listen('1337', '127.0.0.1');
+  opn('http://127.0.0.1:1337');
+}
