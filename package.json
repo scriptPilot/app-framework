@@ -9,7 +9,8 @@
     "app": "./cli/app.js"
   },
   "scripts": {
-    "postinstall": "node ./scripts/postinstall"
+    "postinstall": "node ./scripts/postinstall",
+    "prepublish": "node ./scripts/prepublish"
   },
   "dependencies": {
     "@capacitor/android": "^1.0.0-beta.13",
