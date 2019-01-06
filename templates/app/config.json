@@ -52,7 +52,7 @@
     "defaultPathOnServer": ""
   },
   "firebase": {
-    "projectID": ""
+    "defaultProjectID": ""
   },
   "debugMode": false
 }

@@ -200,7 +200,7 @@
     "firebase": {
       "type": "object",
       "properties": {
-        "projectID": {
+        "defaultProjectID": {
           "type": "string",
           "default": ""
         }

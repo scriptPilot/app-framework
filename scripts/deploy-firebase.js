@@ -1,6 +1,7 @@
 // Import modules
 const { execSync } = require('child_process');
 const fs = require('fs-extra');
+const prompt = require('prompt');
 const path = require('./helper/path');
 const log = require('./helper/logger');
 
@@ -21,50 +22,61 @@ try {
   log.error('Failed to load app config file.');
 }
 
-// Check if Firebase project ID is set
-if (config.firebase.projectID === '') log.error('Please add the firebase project ID in the app configuration file.');
-
-
-// Update .firebaserc file
-const firebasercFile = path.project('.firebaserc');
-const firebasercConfig = {
-  projects: {
-    default: config.firebase.projectID,
+// Ask for FTP credentials
+log.warning('Please enter your Firebase project ID for the deployment.');
+log.warning('If a default value is shown, you can press enter to confirm.');
+const schema = {
+  properties: {
+    projectID: {
+      description: 'Firebase Project ID',
+      default: config.firebase.defaultProjectID,
+      required: true,
+    },
   },
 };
-try {
-  fs.outputJsonSync(firebasercFile, firebasercConfig, { spaces: 2 });
-  log.success('Updated the .firebaserc file.');
-} catch (e) {
-  log.error('Failed to update the .firebaserc file.');
-}
+prompt.start();
+prompt.get(schema, (error, promptedValues) => {
+  // Update .firebaserc file
+  const firebasercFile = path.project('.firebaserc');
+  const firebasercConfig = {
+    projects: {
+      default: promptedValues.projectID,
+    },
+  };
+  try {
+    fs.outputJsonSync(firebasercFile, firebasercConfig, { spaces: 2 });
+    log.success('Updated the .firebaserc file.');
+  } catch (e) {
+    log.error('Failed to update the .firebaserc file.');
+  }
 
-// Update firebase.json file
-const firebaseJsonFile = path.project('firebase.json');
-const firebaseJsonConfig = {
-  hosting: {
-    public: './pwa',
-    ignore: ['.htaccess'],
-    rewrites: [
-      {
-        source: '**',
-        destination: '/index.html',
-      },
-    ],
-  },
-};
-try {
-  fs.outputJsonSync(firebaseJsonFile, firebaseJsonConfig, { spaces: 2 });
-  log.success('Updated the firebase.json file.');
-} catch (e) {
-  log.error('Failed to update the firebase.json file.');
-}
+  // Update firebase.json file
+  const firebaseJsonFile = path.project('firebase.json');
+  const firebaseJsonConfig = {
+    hosting: {
+      public: './pwa',
+      ignore: ['.htaccess'],
+      rewrites: [
+        {
+          source: '**',
+          destination: '/index.html',
+        },
+      ],
+    },
+  };
+  try {
+    fs.outputJsonSync(firebaseJsonFile, firebaseJsonConfig, { spaces: 2 });
+    log.success('Updated the firebase.json file.');
+  } catch (e) {
+    log.error('Failed to update the firebase.json file.');
+  }
 
-// Login to Firebase
-execSync('npx firebase login', { cwd: path.project(), stdio: 'inherit' });
+  // Login to Firebase
+  execSync('npx firebase login', { cwd: path.project(), stdio: 'inherit' });
 
-// Use configured project (value in .firebaserc.json not considered properly)
-execSync(`npx firebase use "${config.firebase.projectID}"`, { cwd: path.project(), stdio: 'inherit' });
+  // Use configured project (value in .firebaserc.json not considered properly)
+  execSync(`npx firebase use "${promptedValues.projectID}"`, { cwd: path.project(), stdio: 'inherit' });
 
-// Do deployment
-execSync('npx firebase deploy --only hosting', { cwd: path.project(), stdio: 'inherit' });
+  // Do deployment
+  execSync('npx firebase deploy --only hosting', { cwd: path.project(), stdio: 'inherit' });
+});
