@@ -11,7 +11,6 @@ export default {
   data() {
     return {
       f7Params: {
-        theme: 'auto',
         routes,
       },
     };
