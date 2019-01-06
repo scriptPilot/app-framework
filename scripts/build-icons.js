@@ -26,9 +26,11 @@ const createIcon = (name, size, callback) => {
 };
 
 clearIconFolder(() => {
-  createIcon('icon-512px.png', 512, () => {
-    createIcon('icon-192px.png', 192, () => {
-      log.success('Icons updated.');
+  createIcon('pwa/icon-512px.png', 512, () => {
+    createIcon('pwa/icon-192px.png', 192, () => {
+      createIcon('pwa/apple-touch-icon.png', 180, () => {
+        log.success('Icons updated.');
+      });
     });
   });
 });

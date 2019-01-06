@@ -3,6 +3,7 @@ const fs = require('fs-extra');
 const find = require('find');
 const path = require('./helper/path');
 const log = require('./helper/logger');
+const run = require('./helper/run');
 
 // Load app configuration
 const configFile = path.app('config.json');
@@ -49,7 +50,18 @@ try {
   log.error('Failed to copy .htaccess file.');
 }
 
-// Add manifest tag to index.html file
+// Update manifest file in cache
+if (run.script('update-manifest-file').code !== 0) process.exit(1);
+
+// Copy manifest file to PWA cache folder
+try {
+  fs.copySync(path.cache('manifest.webmanifest'), path.cache('pwa/manifest.webmanifest'));
+  log.success('Copied manifest.webmanifest file to PWA cache.');
+} catch (e) {
+  log.error('Failed to copy manifest.webmanifest file to PWA cache.');
+}
+
+// Add additional tags to index.html file
 const indexFile = path.resolve(cacheFolder, 'index.html');
 let indexFileContent = '';
 try {
@@ -58,13 +70,16 @@ try {
 } catch (e) {
   log.error('Failed to read index.html template file.');
 }
-const manifestTag = '<link rel="manifest" href="./manifest.webmanifest" />';
-const newIndexFileContent = indexFileContent.replace('</head>', `${manifestTag}</head>`);
+const additionalTags = `
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png" />
+`;
+const newIndexFileContent = indexFileContent.replace('</head>', `${additionalTags}</head>`);
 try {
   fs.writeFileSync(indexFile, newIndexFileContent);
-  log.success('Added manifest tag to index.html file.');
+  log.success('Added additional tags to index.html file.');
 } catch (e) {
-  log.error('Failed to add manifest tag to index.html file.');
+  log.error('Failed to add additional tags to index.html file.');
 }
 
 // Add service worker
@@ -104,6 +119,14 @@ if (config.pwa.includeOfflineServiceWorker) {
   }
 } else {
   log.info('Skipped offline service worker creation according configuration.');
+}
+
+// Copy icon files
+try {
+  fs.copySync(path.cache('icons/pwa'), path.cache('pwa/icons'));
+  log.success('Copied icon files to PWA cache.');
+} catch (e) {
+  log.error('Failed to copy icon files to PWA cache.');
 }
 
 // Replace build files
