@@ -189,6 +189,16 @@
       },
       "additionalProperties": false
     },
+    "firebase": {
+      "type": "object",
+      "properties": {
+        "projectID": {
+          "type": "string",
+          "default": ""
+        }
+      },
+      "additionalProperties": false
+    },
     "debugMode": {
       "type": "boolean",
       "default": false

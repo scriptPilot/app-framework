@@ -24,6 +24,7 @@ const toBeIgnored = [
   '',
   '# Generated Files',
   '.cache/',
+  '.firebase/',
   '.git/',
   'pwa',
   'ios',
@@ -33,9 +34,11 @@ const toBeIgnored = [
   '.editorconfig',
   '.enableDevelopmentMode',
   '.eslintrc.json',
+  '.firebaserc',
   '.gitignore',
   '.jestconfig.json',
   'capacitor.config.json',
+  'firebase.json',
 ];
 
 // Merge with app configuration
