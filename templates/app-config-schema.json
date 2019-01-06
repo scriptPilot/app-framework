@@ -63,6 +63,18 @@
         "relatedITunesApplicationID": {
           "type": "string",
           "default": ""
+        },
+        "iconFile": {
+          "type": "string",
+          "default": "icon.png"
+        },
+        "splashScreenIconFile": {
+          "type": "string",
+          "default": "icon.png"
+        },
+        "splashScreenBackgroundColor": {
+          "type": "string",
+          "default": "#2196f3"
         }
       },
       "additionalProperties": false
