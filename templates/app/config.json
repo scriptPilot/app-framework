@@ -8,7 +8,9 @@
   },
   "pwa": {
     "buildOnBuildCommand": true,
-    "includeOfflineServiceWorker": true
+    "openInBrowserAfterBuild": true,
+    "includeOfflineServiceWorker": true,
+    "iconFile": "icon.png"
   },
   "ios": {
     "buildOnBuildCommand": false,
@@ -48,6 +50,9 @@
     "defaultPort": "",
     "defaultUserName": "",
     "defaultPathOnServer": ""
+  },
+  "firebase": {
+    "projectID": ""
   },
   "debugMode": false
 }
