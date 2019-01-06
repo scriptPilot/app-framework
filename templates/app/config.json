@@ -15,7 +15,10 @@
   "ios": {
     "buildOnBuildCommand": false,
     "openXcodeAfterBuild": true,
-    "relatedITunesApplicationID": ""
+    "relatedITunesApplicationID": "",
+    "iconFile": "icon.png",
+    "splashScreenIconFile": "icon.png",
+    "splashScreenBackgroundColor": "#2196f3"
   },
   "android": {
     "buildOnBuildCommand": false,
