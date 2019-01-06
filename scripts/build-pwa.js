@@ -1,6 +1,8 @@
 // Load modules
 const fs = require('fs-extra');
 const find = require('find');
+const express = require('express');
+const opn = require('opn');
 const path = require('./helper/path');
 const log = require('./helper/logger');
 const run = require('./helper/run');
@@ -137,4 +139,12 @@ try {
   log.success('Copied PWA build files to folder /pwa');
 } catch (e) {
   log.error('Failed to copy PWA build files to folder /pwa');
+}
+
+// Open PWA in browser
+if (config.pwa.openInBrowserAfterBuild) {
+  const app = express();
+  app.use('/', express.static(path.project('pwa')));
+  app.listen('1337', '127.0.0.1');
+  opn('http://127.0.0.1:1337');
 }

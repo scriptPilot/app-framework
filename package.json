@@ -25,6 +25,7 @@
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jest": "^22.1.2",
     "eslint-plugin-vue": "^5.1.0",
+    "express": "^4.16.4",
     "find": "^0.2.9",
     "firebase-tools": "^6.2.2",
     "framework7": "^3.6.5",
