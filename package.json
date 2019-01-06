@@ -3,14 +3,14 @@
   "description": "iOS and Android Apps with HTML & JavaScript - develop, build and deploy - free and open source!",
   "author": "scriptPilot <mail@scriptPilot.de> (https://github.com/scriptPilot)",
   "repository": "https://github.com/scriptPilot/app-framework.git",
-  "version": "3.0.0-alpha.34",
+  "version": "3.0.0-alpha.35",
   "license": "MIT",
   "bin": {
     "app": "./cli/app.js"
   },
   "scripts": {
     "postinstall": "node ./scripts/postinstall",
-    "prepublish": "node ./scripts/prepublish"
+    "prepublishOnly": "node ./scripts/prepublishOnly"
   },
   "dependencies": {
     "@capacitor/android": "^1.0.0-beta.13",
