@@ -13,9 +13,9 @@ try {
   log.error('Failed to read main.js template file.');
 }
 
-// Replace path to app component
-const relativeAppComponentPath = path.relative(path.cache(), path.app('app.vue'));
-const mainFileContent = templateFileContent.replace('./app/app.vue', relativeAppComponentPath);
+// Replace paths
+const relativeAppFolderPath = path.relative(path.cache(), path.app());
+const mainFileContent = templateFileContent.replace('./app/', `${relativeAppFolderPath}/`);
 
 // Update main.js file
 const mainFile = path.cache('main.js');
