@@ -41,6 +41,10 @@
         "includeOfflineServiceWorker": {
           "type": "boolean",
           "default": true
+        },
+        "iconFile": {
+          "type": "string",
+          "default": "icon.png"
         }
       },
       "additionalProperties": false
