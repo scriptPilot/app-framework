@@ -6,7 +6,6 @@ const scripts = [
   'create-app-folder',
   'update-editor-config',
   'update-gitignore-config',
-  'update-eslint-config',
   'update-package-config',
   'update-jest-config',
   'update-license-date',
