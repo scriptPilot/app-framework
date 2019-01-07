@@ -15,7 +15,7 @@ try {
 
 // Replace paths
 const relativeAppFolderPath = path.relative(path.cache(), path.app());
-const mainFileContent = templateFileContent.replace('./app/', `${relativeAppFolderPath}/`);
+const mainFileContent = templateFileContent.replace(/\.\/app\//g, `${relativeAppFolderPath}/`);
 
 // Update main.js file
 const mainFile = path.cache('main.js');

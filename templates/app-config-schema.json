@@ -27,6 +27,20 @@
       },
       "additionalProperties": false
     },
+    "iconFonts": {
+      "type": "object",
+      "properties": {
+        "useFramework7Icons": {
+          "type": "boolean",
+          "default": false
+        },
+        "useMaterialDesignIcons": {
+          "type": "boolean",
+          "default": false
+        }
+      },
+      "additionalProperties": false
+    },
     "pwa": {
       "type": "object",
       "properties": {

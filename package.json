@@ -3,7 +3,7 @@
   "description": "iOS and Android Apps with HTML & JavaScript - develop, build and deploy - free and open source!",
   "author": "scriptPilot <mail@scriptPilot.de> (https://github.com/scriptPilot)",
   "repository": "https://github.com/scriptPilot/app-framework.git",
-  "version": "3.0.0-alpha.41",
+  "version": "3.0.0-alpha.45",
   "license": "MIT",
   "bin": {
     "app": "./cli/app.js"
@@ -29,6 +29,7 @@
     "find": "^0.2.9",
     "firebase-tools": "^6.2.2",
     "framework7": "^3.6.5",
+    "framework7-icons": "^2.1.1",
     "framework7-vue": "^3.6.5",
     "fs-extra": "^7.0.1",
     "ftp-deploy": "^2.3.0",
@@ -36,6 +37,7 @@
     "jest-html-reporter": "^2.4.2",
     "jimp": "^0.6.0",
     "json-schema-fix": "^1.0.5",
+    "material-icons": "^0.3.0",
     "opn": "^5.4.0",
     "parcel-bundler": "^1.11.0",
     "parcel-plugin-sw-cache": "^0.2.6",

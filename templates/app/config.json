@@ -6,6 +6,10 @@
     "appID": "",
     "language": "en"
   },
+  "iconFonts": {
+    "useFramework7Icons": false,
+    "useMaterialDesignIcons": false
+  },
   "pwa": {
     "buildOnBuildCommand": true,
     "openInBrowserAfterBuild": true,
