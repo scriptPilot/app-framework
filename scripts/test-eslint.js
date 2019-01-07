@@ -12,6 +12,8 @@ const appConfigFile = path.app('config.json');
 const appConfig = fs.readJsonSync(appConfigFile);
 const configFile = path.project('.eslintrc.json');
 
+if (run.script('update-eslint-config').code !== 0) process.exit(1);
+
 const scriptResult = run.silent(`
   npx eslint "${path.project()}"
   --ignore-pattern "/node_modules/"
