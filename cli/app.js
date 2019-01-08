@@ -20,7 +20,7 @@ if (path.project() === path.framework() && !fs.pathExistsSync(path.project('.ena
 
 // Define program
 program
-  .version(version, '-v --version')
+  .version(version, '-v --version');
 program
   .command('test [name]')
   .description('run tests according configuration')
