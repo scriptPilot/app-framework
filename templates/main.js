@@ -6,7 +6,6 @@ import App from './app/app.vue';
 
 import 'framework7-icons';
 import 'material-icons/iconfont/material-icons.css';
-import './app/app.css';
 
 Vue.config.productionTip = false;
 
