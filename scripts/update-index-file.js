@@ -25,6 +25,7 @@ const indexFileContent = `
   <meta name="theme-color" content="${config.android.themeColor}" />
   <meta http-equiv="Content-Security-Policy" content="default-src * 'self' 'unsafe-inline' 'unsafe-eval' data: gap:" />
   <meta name="description" content="${config.meta.description}" />
+  <link rel="shortcut icon" type="image/x-icon" href="./icons/favicon.ico" />
   <meta name="apple-itunes-app" content="app-id=${config.ios.relatedITunesApplicationID}" />
   <title>${config.meta.name}</title>
 </head>

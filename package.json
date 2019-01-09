@@ -41,6 +41,7 @@
     "opn": "^5.4.0",
     "parcel-bundler": "^1.11.0",
     "parcel-plugin-sw-cache": "^0.2.6",
+    "png-to-ico": "^2.0.1",
     "prompt": "^1.0.0",
     "shelljs": "^0.8.3",
     "vue": "^2.5.21",

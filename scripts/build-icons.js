@@ -1,6 +1,7 @@
 // Import modules
 const fs = require('fs-extra');
 const jimp = require('jimp');
+const pngToIco = require('png-to-ico');
 const path = require('./helper/path');
 const log = require('./helper/logger');
 
@@ -16,11 +17,21 @@ try {
 
 // Build icons
 const buildIcons = async () => {
+  // Empty cache folder
+  fs.emptyDirSync(path.cache('icons'));
+  // Build favicon (not in PWA to use hash and better update of changed icons
+  // and favicon on dev server)
+  await pngToIco(path.app(config.pwa.iconFile))
+    .then((icoFile) => {
+      fs.outputFileSync(path.cache('icons/favicon.ico'), icoFile);
+      log.success('Created the favicon file.');
+    })
+    .catch(() => {
+      log.error('Failed to cretate the favicon file.');
+    });
   // Build PWA icons
   if (config.pwa.buildOnBuildCommand) {
     try {
-      // Empty cache folder
-      fs.emptyDirSync(path.cache('icons/pwa'));
       // Create PWA icons
       let image;
       image = await jimp.read(path.app(config.pwa.iconFile));
