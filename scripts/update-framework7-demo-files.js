@@ -1,33 +1,33 @@
 // Import modules
-const path = require('path');
-const { execSync } = require('child_process');
 const fs = require('fs-extra'); // eslint-disable-line import/no-extraneous-dependencies
+const path = require('./helper/path');
+const log = require('./helper/logger');
+const run = require('./helper/run');
 
 // Define folders
 const sourceFolder = path.resolve(__dirname, '../../framework7/kitchen-sink/vue/');
-const destFolder = path.resolve(__dirname, '../app/');
 
 // Check folders
 if (!fs.pathExistsSync(sourceFolder)) throw new Error(`Source folder ${sourceFolder} not found.`);
-if (!fs.pathExistsSync(destFolder)) throw new Error(`Destination folder ${destFolder} not found.`);
+if (!fs.pathExistsSync(path.app())) throw new Error(`Destination folder ${path.app()} not found.`);
 
 // Reset destination folder
-fs.removeSync(path.resolve(destFolder, 'pages'));
-fs.removeSync(path.resolve(destFolder, 'images'));
+fs.removeSync(path.app('pages'));
+fs.removeSync(path.app('images'));
 
 // Copy files
-fs.copySync(path.resolve(sourceFolder, 'src/pages'), path.resolve(destFolder, 'pages'));
-fs.copySync(path.resolve(sourceFolder, 'img'), path.resolve(destFolder, 'images'));
-fs.copySync(path.resolve(sourceFolder, 'src/routes.js'), path.resolve(destFolder, 'routes.js'));
+fs.copySync(path.resolve(sourceFolder, 'src/pages'), path.app('pages'));
+fs.copySync(path.resolve(sourceFolder, 'img'), path.app('images'));
+fs.copySync(path.resolve(sourceFolder, 'src/routes.js'), path.app('routes.js'));
 
 // Apply ESLint rules to harmonize files
-execSync('npx app test --eslint');
+run.script('test-eslint');
 
 // Modify imported vue files
 let content;
-fs.readdirSync(path.resolve(destFolder, 'pages')).forEach((file) => {
+fs.readdirSync(path.app('pages')).forEach((file) => {
   // Read file
-  content = fs.readFileSync(path.resolve(destFolder, 'pages', file), { encoding: 'utf-8' });
+  content = fs.readFileSync(path.app('pages', file), { encoding: 'utf-8' });
   // Remove code for import and export of components (bundle is used)
   content = content.replace(/import \{[\s\S.]+\} from 'framework7-vue';\n\n?/, '');
   content = content.replace(/components: \{[a-zA-Z0-9,\n ]+},\n/, '');
@@ -43,7 +43,7 @@ fs.readdirSync(path.resolve(destFolder, 'pages')).forEach((file) => {
   content = content.replace('link="./index.html?theme=ios">', 'link="./index.html?theme=ios" v-if="$f7.theme===\'md\'">');
   content = content.replace('link="./index.html?theme=md">', 'link="./index.html?theme=md" v-if="$f7.theme===\'ios\'">');
   // Update file
-  fs.writeFileSync(path.resolve(destFolder, 'pages', file), content);
+  fs.writeFileSync(path.app('pages', file), content);
 });
 
 // Modify CSS
@@ -54,12 +54,10 @@ css = css.replace(/\.material-icons {[\s\S]+?}\n\n?/g, '');
 css = css.replace(/\.f7-icons {[\s\S]+?}\n\n?/g, '');
 // Correct image paths
 css = css.replace(/\.\.\/img/g, './images');
-// Workaround for missing icon in F7 repo
-css = css.replace(/vi-icon\.png/, 'f7-icon.png');
 
 // Copy and modify app component / include css
 let app = fs.readFileSync(path.resolve(sourceFolder, 'src/app.vue'), { encoding: 'utf-8' });
-const appConfig = fs.readJsonSync(path.resolve(destFolder, 'config.json'));
+const appConfig = fs.readJsonSync(path.app('config.json'));
 // Replace app ID
 app = app.replace(/id: '(.+)'/, `id: '${appConfig.meta.appID}'`);
 // Remove code for import and export of components (bundle is used)
@@ -67,24 +65,19 @@ app = app.replace(/import \{[\s\S.]+\} from 'framework7-vue';\n\n?/, '');
 app = app.replace(/components: \{[a-zA-Z0-9,\n ]+},\n/, '');
 app = app.replace(/export default \{[\n ]+\};\n/, '');
 app = app.replace(/<script>[\n ]+<\/script>\n/, '');
-// Workaround to avoid ESLint error
-app = app.replace(
-  'theme = document.location.search.split(\'theme=\')[1].split(\'&\')[0];',
-  '[theme] = document.location.search.split(\'theme=\')[1].split(\'&\');',
-);
 // Add CSS
 app = `${app}<style>\n${css}</style>\n`;
 // Update file
-fs.writeFileSync(path.resolve(destFolder, 'app.vue'), app);
+fs.writeFileSync(path.app('app.vue'), app);
 
 // Copy app.vue template
-const currentAppComponent = fs.readFileSync(path.resolve(destFolder, 'app.vue'), { encoding: 'utf-8' });
+const currentAppComponent = fs.readFileSync(path.app('app.vue'), { encoding: 'utf-8' });
 const f7AppComponent = fs.readFileSync(path.resolve(sourceFolder, 'src/app.vue'), { encoding: 'utf-8' });
 const newAppComponent = currentAppComponent.replace(/<template>[\s\S]+<\/template>/, f7AppComponent.match(/<template>[\s\S]+<\/template>/));
-fs.writeFileSync(path.resolve(destFolder, 'app.vue'), newAppComponent);
+fs.writeFileSync(path.app('app.vue'), newAppComponent);
 
 // Apply ESLint rules to harmonize files
-execSync('npx app test --eslint');
+run.script('test-eslint');
 
 // Log success
-process.stdout.write('\nCompleted Framework7 demo files update.\n\n');
+log.success('Completed Framework7 demo files update.');

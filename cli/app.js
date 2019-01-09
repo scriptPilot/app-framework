@@ -18,7 +18,7 @@ if (path.project() === path.framework() && !fs.pathExistsSync(path.project('.ena
   `);
 }
 
-// Define program
+// Define default programs
 program
   .version(version, '-v --version');
 program
@@ -58,8 +58,17 @@ program
     } else {
       log.error('Allowed targets are "ftp" and "firebase" only.');
     }
-    console.log('DEPLOY', target);
   });
+
+// Define development programs
+if (path.framework() === path.project()) {
+  program
+    .command('update-f7')
+    .description('update Framework7 demo files')
+    .action(() => {
+      run.script('update-framework7-demo-files');
+    });
+}
 
 // Parse program
 program.parse(process.argv);
