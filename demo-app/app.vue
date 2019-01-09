@@ -44,10 +44,6 @@ export default {
   background: url(./images/f7-icon.png) no-repeat center;
   background-size: cover;
 }
-.icon-vi {
-  background: url(./images/f7-icon.png) no-repeat center;
-  background-size: cover;
-}
 
 .ios .demo-list-icon, .ios .icon-f7, .ios .icon-vi {
   width: 29px;

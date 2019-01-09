@@ -86,7 +86,7 @@
 /* eslint-disable */
 export default {
     methods: {
-    onPageInit(e) {
+    onPageInit() {
       const self = this;
       const today = new Date();
       const app = self.$f7;
@@ -253,7 +253,7 @@ export default {
           },
         ],
         on: {
-          change(picker, values, displayValues) {
+          change(picker, values) {
             const daysInMonth = new Date(picker.value[2], picker.value[0] * 1 + 1, 0).getDate();
             if (values[1] > daysInMonth) {
               picker.cols[1].setValue(daysInMonth);

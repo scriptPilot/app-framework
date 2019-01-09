@@ -80,8 +80,7 @@ export default {
   },
   methods: {
     onPriceChange(values) {
-      this.priceMin = values[0];
-      this.priceMax = values[1];
+      [this.priceMin, this.priceMax] = values;
     },
   },
 };

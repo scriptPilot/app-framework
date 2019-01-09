@@ -199,7 +199,7 @@ export default {
     onPageInit() {
       const self = this;
       const app = self.$f7;
-      const fruits = self.fruits;
+      const { fruits } = self;
       const $ = self.$$;
 
       // Simple Dropdown
@@ -404,7 +404,7 @@ export default {
         },
         on: {
           change(value) {
-            console.log(value);
+            app.dialog.alert(value);
             // Add item text value to item-after
             $('#autocomplete-standalone').find('.item-after').text(value[0]);
             // Add item value to input value
@@ -548,7 +548,7 @@ export default {
         customSearch: true,
         on: {
           search(sb, query) {
-            console.log(query);
+            app.dialog.alert(query);
           },
         },
       });
