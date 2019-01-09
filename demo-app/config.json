@@ -8,7 +8,7 @@
   },
   "iconFonts": {
     "useFramework7Icons": true,
-    "useMaterialDesignIcons": false
+    "useMaterialDesignIcons": true
   },
   "pwa": {
     "buildOnBuildCommand": true,

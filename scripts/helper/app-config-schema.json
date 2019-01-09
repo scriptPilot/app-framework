@@ -32,11 +32,11 @@
       "properties": {
         "useFramework7Icons": {
           "type": "boolean",
-          "default": false
+          "default": true
         },
         "useMaterialDesignIcons": {
           "type": "boolean",
-          "default": false
+          "default": true
         }
       },
       "additionalProperties": false
