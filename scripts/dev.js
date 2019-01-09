@@ -17,6 +17,9 @@ if (run.script('fix-app-config').code !== 0) process.exit(1);
 if (config.eslint.runOnDevCommand && run.script('test-eslint').code !== 0) process.exit(1);
 if (config.jest.runOnDevCommand && run.script('test-jest').code !== 0) process.exit(1);
 
+// Build icons
+if (run.script('build-icons').code !== 0) process.exit(1);
+
 // Define cache folder
 const cacheFolder = path.cache('dev');
 
