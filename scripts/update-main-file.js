@@ -14,8 +14,8 @@ try {
 }
 
 // Replace paths
-const relativeAppFolderPath = path.relative(path.cache(), path.app());
-const mainFileContent = templateFileContent.replace(/\.\/app\//g, `${relativeAppFolderPath}/`);
+const relativeAppFolderPath = path.relative(path.cache(), path.app('app.vue'));
+const mainFileContent = templateFileContent.replace(/\.\/app\/app.vue/g, `${relativeAppFolderPath.replace(/\\/g, '\\\\')}`);
 
 // Update main.js file
 const mainFile = path.cache('main.js');
