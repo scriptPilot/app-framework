@@ -7,7 +7,6 @@ const isInstalled = fs.pathExistsSync(path.resolve(__dirname, '../../../../packa
 path.framework = (...nav) => path.resolve(__dirname, '../../', ...nav);
 path.cache = (...nav) => path.resolve(__dirname, '../../.cache', ...nav);
 path.scripts = (...nav) => path.resolve(__dirname, '../', ...nav);
-path.templates = (...nav) => path.resolve(__dirname, '../../templates', ...nav);
 
 // Project related shortcuts
 path.project = (...nav) => path.resolve(__dirname, isInstalled ? '../../../../' : '../../', ...nav);

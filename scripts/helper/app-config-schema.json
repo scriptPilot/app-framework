@@ -6,7 +6,7 @@
       "properties": {
         "name": {
           "type": "string",
-          "default": "Your Application Name"
+          "default": "Application Name"
         },
         "shortName": {
           "type": "string",
@@ -14,7 +14,7 @@
         },
         "description": {
           "type": "string",
-          "default": "Description of your application."
+          "default": "Description of the application."
         },
         "appID": {
           "type": "string",

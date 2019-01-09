@@ -13,35 +13,40 @@ try {
   log.error('Failed to load app config file.');
 }
 
-// Read manifest file template
-const templateFile = path.templates('manifest.webmanifest');
-let templateFileContent = '';
-try {
-  templateFileContent = fs.readFileSync(templateFile, { encoding: 'utf-8' });
-  log.success('Read manifest.webmanifest template file.');
-} catch (e) {
-  log.error('Failed to read manifest.webmanifest template file.');
-}
-
-// Replace variables in manifest file
-const variables = {
+// Define manifest
+const manifest = {
   name: config.meta.name,
-  shortName: config.meta.shortName,
+  short_name: config.meta.shortName,
   description: config.meta.description,
-  androidBackgroundColor: config.android.backgroundColor,
-  androidThemeColor: config.android.themeColor,
-  relatedPlayStoreApplicationID: config.android.relatedPlayStoreApplicationID,
+  display: 'standalone',
+  background_color: config.android.backgroundColor,
+  theme_color: config.android.themeColor,
+  icons: [
+    {
+      src: './icons/icon-192px.png',
+      sizes: '192x192',
+      type: 'image/png',
+    },
+    {
+      src: './icons/icon-512px.png',
+      sizes: '512x512',
+      type: 'image/png',
+    },
+  ],
+  scope: '/',
+  start_url: '.',
+  related_applications: [
+    {
+      platform: 'play',
+      id: config.android.relatedPlayStoreApplicationID,
+    },
+  ],
+  prefer_related_applications: true,
 };
-let manifestFileContent = templateFileContent;
-Object.keys(variables).forEach((key) => {
-  const re = new RegExp(`\\{${key}\\}`, 'g');
-  manifestFileContent = manifestFileContent.replace(re, variables[key]);
-});
 
 // Update manifest file
-const manifestFile = path.cache('manifest.webmanifest');
 try {
-  fs.writeFileSync(manifestFile, manifestFileContent);
+  fs.outputJsonSync(path.cache('manifest.webmanifest'), manifest);
   log.success('Updated manifest.webmanifest file.');
 } catch (e) {
   log.error('Failed to update manifest.webmanifest file.');

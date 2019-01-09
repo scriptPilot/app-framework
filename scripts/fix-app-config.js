@@ -8,7 +8,7 @@ const path = require('./helper/path');
 if (!fs.pathExistsSync(path.app())) process.exit(0);
 
 // Load schema
-const schemaFile = path.templates('app-config-schema.json');
+const schemaFile = path.scripts('helper/app-config-schema.json');
 let schema = null;
 try {
   schema = fs.readJsonSync(schemaFile);

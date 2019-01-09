@@ -13,35 +13,32 @@ try {
   log.error('Failed to load app config file.');
 }
 
-// Read index file template
-const templateFile = path.templates('index.html');
-let templateFileContent = '';
-try {
-  templateFileContent = fs.readFileSync(templateFile, { encoding: 'utf-8' });
-  log.success('Read index.html template file.');
-} catch (e) {
-  log.error('Failed to read index.html template file.');
-}
-
-// Replace variables in index file
-const variables = {
-  language: config.meta.language,
-  androidThemeColor: config.android.themeColor,
-  description: config.meta.description,
-  name: config.meta.name,
-  relatedITunesApplicationID: config.ios.relatedITunesApplicationID,
-};
-let indexFileContent = templateFileContent;
-Object.keys(variables).forEach((key) => {
-  const re = new RegExp(`\\{${key}\\}`, 'g');
-  indexFileContent = indexFileContent.replace(re, variables[key]);
-});
+// Create index.html file content
+const indexFileContent = `
+<!DOCTYPE html>
+<html lang="${config.meta.language}">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="theme-color" content="${config.android.themeColor}" />
+  <meta http-equiv="Content-Security-Policy" content="default-src * 'self' 'unsafe-inline' 'unsafe-eval' data: gap:" />
+  <meta name="description" content="${config.meta.description}" />
+  <meta name="apple-itunes-app" content="app-id=${config.ios.relatedITunesApplicationID}" />
+  <title>${config.meta.name}</title>
+</head>
+<body>
+  <div id="app"></div>
+  <script src="./main.js"></script>
+  <noscript>This application needs enabled JavaScript.</noscript>
+</body>
+`;
 
 // Update index.html file
-const indexFile = path.cache('index.html');
 try {
-  fs.writeFileSync(indexFile, indexFileContent);
-  log.success('Updated index.html file.');
+  fs.outputFileSync(path.cache('index.html'), indexFileContent.trim());
+  log.success('Created index.html file.');
 } catch (e) {
-  log.error('Failed to update index.html file.');
+  log.error('Failed to create index.html file.');
 }

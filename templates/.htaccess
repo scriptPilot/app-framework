@@ -1,3 +1,0 @@
-<filesMatch "\\.(.+)\\.(.+)$">
-  Header set Cache-Control "max-age=31536000, public"
-</filesMatch>

@@ -3,24 +3,38 @@ const fs = require('fs-extra');
 const log = require('./helper/logger');
 const path = require('./helper/path');
 
-// Read main file template
-const templateFile = path.templates('main.js');
-let templateFileContent = '';
-try {
-  templateFileContent = fs.readFileSync(templateFile, { encoding: 'utf-8' });
-  log.success('Read main.js template file.');
-} catch (e) {
-  log.error('Failed to read main.js template file.');
-}
+// Define variables
+const relAppPath = path.relative(path.cache(), path.app());
 
-// Replace paths
-const relativeAppFolderPath = path.relative(path.cache(), path.app('app.vue'));
-const mainFileContent = templateFileContent.replace(/\.\/app\/app.vue/g, `${relativeAppFolderPath.replace(/\\/g, '\\\\')}`);
+// Create main file content
+const mainFileContent = `
+import Vue from 'vue';
+import Framework7 from 'framework7/framework7.esm.bundle';
+import 'framework7/css/framework7.css';
+import Framework7Vue from 'framework7-vue/framework7-vue.esm.bundle';
+import { Plugins } from '@capacitor/core';
+import App from '${relAppPath}/app.vue';
+import 'framework7-icons';
+import 'material-icons/iconfont/material-icons.css';
+
+Vue.config.productionTip = false;
+
+Framework7.use(Framework7Vue);
+
+export default new Vue({
+  el: '#app',
+  render: c => c(App),
+  mounted() {
+    this.$f7ready(() => {
+      Plugins.SplashScreen.hide().catch(() => {});
+    });
+  },
+});
+`;
 
 // Update main.js file
-const mainFile = path.cache('main.js');
 try {
-  fs.writeFileSync(mainFile, mainFileContent);
+  fs.outputFileSync(path.cache('main.js'), mainFileContent.trim());
   log.success('Updated main.js file.');
 } catch (e) {
   log.error('Failed to update main.js file.');

@@ -34,20 +34,29 @@ try {
   log.error('Failed to copy web build files.');
 }
 
-// Copy robots.txt file
+// Create robots.txt file
+const robotsContent = `
+User-Agent: *
+Disallow:
+`;
 try {
-  fs.copySync(path.templates('robots.txt'), path.resolve(cacheFolder, 'robots.txt'));
-  log.success('Copied robots.txt file.');
+  fs.outputFileSync(path.resolve(cacheFolder, 'robots.txt'), robotsContent.trim());
+  log.success('Created robots.txt file.');
 } catch (e) {
-  log.error('Failed to copy robots.txt file.');
+  log.error('Failed to create robots.txt file.');
 }
 
-// Copy .htaccess file
+// Create .htaccess file
+const htaccessContent = `
+<filesMatch "\\.(.+)\\.(.+)$">
+  Header set Cache-Control "max-age=31536000, public"
+</filesMatch>
+`;
 try {
-  fs.copySync(path.templates('.htaccess'), path.resolve(cacheFolder, '.htaccess'));
-  log.success('Copied .htaccess file.');
+  fs.outputFileSync(path.resolve(cacheFolder, '.htaccess'), htaccessContent.trim());
+  log.success('Created .htaccess file.');
 } catch (e) {
-  log.error('Failed to copy .htaccess file.');
+  log.error('Failed to create .htaccess file.');
 }
 
 // Update manifest file in cache
