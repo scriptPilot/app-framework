@@ -11,6 +11,6 @@ path.templates = (...nav) => path.resolve(__dirname, '../../templates', ...nav);
 
 // Project related shortcuts
 path.project = (...nav) => path.resolve(__dirname, isInstalled ? '../../../../' : '../../', ...nav);
-path.app = (...nav) => path.resolve(__dirname, isInstalled ? '../../../../app' : '../../templates/app', ...nav);
+path.app = (...nav) => path.resolve(__dirname, isInstalled ? '../../../../app' : '../../demo-app', ...nav);
 
 module.exports = path;

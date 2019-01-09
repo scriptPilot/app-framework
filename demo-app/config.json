@@ -1,0 +1,69 @@
+{
+  "meta": {
+    "name": "App Framework Demo App",
+    "shortName": "Demo App",
+    "description": "",
+    "appID": "de.scriptpilot.appframework",
+    "language": "en"
+  },
+  "iconFonts": {
+    "useFramework7Icons": true,
+    "useMaterialDesignIcons": false
+  },
+  "pwa": {
+    "buildOnBuildCommand": true,
+    "openInBrowserAfterBuild": true,
+    "includeOfflineServiceWorker": true,
+    "iconFile": "icon.android.png"
+  },
+  "ios": {
+    "buildOnBuildCommand": true,
+    "openXcodeAfterBuild": true,
+    "relatedITunesApplicationID": "1203927581",
+    "iconFile": "icon.ios.png",
+    "splashScreenIconFile": "icon.ios.png",
+    "splashScreenBackgroundColor": "#f7f7f8"
+  },
+  "android": {
+    "buildOnBuildCommand": false,
+    "openAndroidStudioAfterBuild": true,
+    "themeColor": "#2196f3",
+    "backgroundColor": "#2196f3",
+    "relatedPlayStoreApplicationID": "de.scriptpilot.appframework"
+  },
+  "eslint": {
+    "runOnTestCommand": true,
+    "runOnDevCommand": true,
+    "runOnBuildCommand": true,
+    "openReportWhenPassed": false,
+    "openReportWhenFailed": true,
+    "extendDefaultConfig": {
+      "rules": {
+        "max-len": 0
+      }
+    }
+  },
+  "jest": {
+    "runOnTestCommand": true,
+    "runOnDevCommand": true,
+    "runOnBuildCommand": true,
+    "openReportWhenPassed": false,
+    "openReportWhenFailed": true
+  },
+  "editorconfig": {
+    "addLinesToConfigFile": []
+  },
+  "git": {
+    "addLinesToIgnoreFile": []
+  },
+  "ftp": {
+    "defaultHost": "",
+    "defaultPort": "",
+    "defaultUserName": "",
+    "defaultPathOnServer": ""
+  },
+  "firebase": {
+    "defaultProjectID": ""
+  },
+  "debugMode": false
+}
