@@ -11,6 +11,11 @@ const capConfig = {
   appName: config.meta.shortName,
   bundledWebRuntime: false,
   webDir: path.cache('web'),
+  plugins: {
+    SplashScreen: {
+      launchAutoHide: false,
+    },
+  },
 };
 
 // Update Capacitor config file
