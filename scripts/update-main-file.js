@@ -5,6 +5,8 @@ const path = require('./helper/path');
 
 // Define variables
 const relAppPath = path.relative(path.cache(), path.app());
+const importAppCSSFile = fs.pathExistsSync(path.app('app.css'))
+  ? `import "${relAppPath}/app.css";` : '';
 
 // Create main file content
 const mainFileContent = `
@@ -16,6 +18,7 @@ import { Plugins } from '@capacitor/core';
 import App from '${relAppPath}/app.vue';
 import 'framework7-icons';
 import 'material-icons/iconfont/material-icons.css';
+${importAppCSSFile}
 
 Vue.config.productionTip = false;
 
