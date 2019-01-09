@@ -5,12 +5,15 @@ const path = require('./helper/path');
 
 // Define variables
 const relAppPath = path.relative(path.cache(), path.app());
+const importVue = fs.pathExistsSync(path.app('vue.js'))
+  ? `import VueDefault from 'vue'; import customizeVue from '${relAppPath}/vue.js'; const Vue = customizeVue(VueDefault);`
+  : 'import Vue from \'vue\'';
 const importAppCSSFile = fs.pathExistsSync(path.app('app.css'))
   ? `import "${relAppPath}/app.css";` : '';
 
 // Create main file content
 const mainFileContent = `
-import Vue from 'vue';
+${importVue}
 import Framework7 from 'framework7/framework7.esm.bundle';
 import 'framework7/css/framework7.css';
 import Framework7Vue from 'framework7-vue/framework7-vue.esm.bundle';
