@@ -80,7 +80,7 @@ try {
 
 // Copy icon file
 try {
-  fs.copySync(path.scripts('helper/icon.png'), path.app('icon.png'));
+  fs.copySync(path.framework('design/icon.default.png'), path.app('icon.png'));
   log.success('Created icon.png file.');
 } catch (e) {
   log.error('Failed to create icon.png file.');

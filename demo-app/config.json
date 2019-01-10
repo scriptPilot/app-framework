@@ -3,7 +3,7 @@
     "name": "App Framework Demo App",
     "shortName": "Demo App",
     "description": "",
-    "appID": "de.scriptpilot.appframework",
+    "appID": "de.scriptpilot.app-framework",
     "language": "en"
   },
   "iconFonts": {

@@ -4,20 +4,23 @@
       <f7-nav-left>
         <f7-link panel-open="left" icon-ios="f7:menu" icon-md="material:menu"></f7-link>
       </f7-nav-left>
-      <f7-nav-title>Framework7 Vue</f7-nav-title>
+      <f7-nav-title>App Framework</f7-nav-title>
       <f7-nav-right>
         <f7-link class="searchbar-enable" data-searchbar=".searchbar-components" icon-ios="f7:search_strong" icon-md="material:search"></f7-link>
       </f7-nav-right>
       <f7-searchbar class="searchbar-components" search-container=".components-list" search-in="a" expandable></f7-searchbar>
     </f7-navbar>
+      <f7-list class="searchbar-hide-on-search">
+        <f7-list-item title="App Framework @ GitHub" external link="https://github.com/scriptPilot/app-framework#app-framework------">
+          <f7-icon slot="media" f7="logo_github"></f7-icon>
+        </f7-list-item>
+      </f7-list>
+      <f7-block inset>
+        <p>This application is made with App Framework and powered by the beautiful Framework7, the powerful Vue, the native bridge Capacitor and bundled with Parcel. Use App Framework to realize your own amazing app - free and open source.</p>
+      </f7-block>
 
-    <f7-list class="searchbar-hide-on-search">
-      <f7-list-item title="About Framework7" link="/about/">
-        <f7-icon slot="media" icon="icon-f7"></f7-icon>
-      </f7-list-item>
-    </f7-list>
 
-    <f7-block-title class="searchbar-found">Components</f7-block-title>
+    <f7-block-title class="searchbar-found">Framework7 UI Components</f7-block-title>
     <f7-list class="components-list searchbar-found">
       <f7-list-item link="/accordion/" title="Accordion">
         <f7-icon slot="media" icon="icon-f7"></f7-icon>
@@ -191,17 +194,13 @@
     <f7-list class="searchbar-not-found">
       <f7-list-item title="Nothing found"></f7-list-item>
     </f7-list>
-    <f7-block-title class="searchbar-hide-on-search">Themes</f7-block-title>
+    <f7-block-title class="searchbar-hide-on-search">Framework7 Themes</f7-block-title>
     <f7-list class="searchbar-hide-on-search">
       <f7-list-item title="iOS Theme" external link="./index.html?theme=ios" v-if="$f7.theme==='md'"></f7-list-item>
       <f7-list-item title="Material (MD) Theme" external link="./index.html?theme=md" v-if="$f7.theme==='ios'"></f7-list-item>
       <f7-list-item title="Color Themes" link="/color-themes/"></f7-list-item>
     </f7-list>
 
-    <f7-block-title class="searchbar-hide-on-search">Page Loaders & Router</f7-block-title>
-    <f7-list class="searchbar-hide-on-search">
-      <f7-list-item title="Routable Modals" link="/routable-modals/"></f7-list-item>
-      <f7-list-item title="Default Route (404)" link="/load-something-that-doesnt-exist/"></f7-list-item>
-    </f7-list>
+
   </f7-page>
 </template>
