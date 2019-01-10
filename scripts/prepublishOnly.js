@@ -47,4 +47,4 @@ const checkChangelog = () => {
 };
 checkChangelog();
 
-log.success('done');
+// NO MORE CODE IN THIS FILE AFTER checkChangelog() (will be called immediately)
