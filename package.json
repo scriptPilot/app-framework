@@ -10,7 +10,8 @@
   },
   "scripts": {
     "postinstall": "node ./scripts/postinstall",
-    "prepublishOnly": "node ./scripts/prepublishOnly"
+    "prepublishOnly": "node ./scripts/prepublishOnly",
+    "precommit": "node ./scripts/precommit"
   },
   "dependencies": {
     "@capacitor/android": "^1.0.0-beta.13",
