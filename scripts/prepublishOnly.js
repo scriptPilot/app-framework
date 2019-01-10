@@ -1,6 +1,5 @@
 // Import modules
 const fs = require('fs-extra');
-const { execSync } = require('child_process');
 const log = require('./helper/logger');
 const path = require('./helper/path');
 const run = require('./helper/run');
@@ -10,41 +9,20 @@ if (!fs.pathExistsSync(path.project('.enableDevelopmentMode'))) process.exit(0);
 
 // Run tests
 if (run.script('test').code !== 0) process.exit(1);
-
-// Bump version
-execSync('npx bump --prompt --commit --all', { stdio: 'inherit' });
-
 // Check changelog update
-const checkChangelog = () => {
-  try {
-    const { version } = fs.readJsonSync(path.framework('package.json'));
-    const changelogFile = path.framework('CHANGELOG.md');
-    const changelogFileContent = fs.readFileSync(changelogFile, { encoding: 'utf-8' });
-    const searchRegExp = new RegExp(`\\n### App Framework v${version}`, 'g');
-    const searchRes = changelogFileContent.match(searchRegExp);
-    if (searchRes === null) {
-      log.warning(`
-        No changelog entry found for version ${version}.
-        Please correct the CHANGELOG.md file and press any key.
-      `);
-      process.stdin.once('data', () => {
-        checkChangelog();
-      });
-    } else if (searchRes.length === 1) {
-      log.success(`Changelog entry found for version ${version}.`);
-    } else {
-      log.warning(`
-        ${searchRes.length} changelog entries found for version ${version}.
-        Please correct the CHANGELOG.md file and press any key.
-      `);
-      process.stdin.once('data', () => {
-        checkChangelog();
-      });
-    }
-  } catch (e) {
-    log.error('Failed to check the changelog.');
+try {
+  const { version } = fs.readJsonSync(path.framework('package.json'));
+  const changelogFile = path.framework('CHANGELOG.md');
+  const changelogFileContent = fs.readFileSync(changelogFile, { encoding: 'utf-8' });
+  const searchRegExp = new RegExp(`\\n### App Framework v${version}`, 'g');
+  const searchRes = changelogFileContent.match(searchRegExp);
+  if (searchRes === null) {
+    log.error(`No changelog entry found for version ${version}.`);
+  } else if (searchRes.length === 1) {
+    log.success(`Changelog entry found for version ${version}.`);
+  } else {
+    log.error(`${searchRes.length} changelog entries found for version ${version}.`);
   }
-};
-checkChangelog();
-
-log.success('done');
+} catch (e) {
+  log.error('Failed to check the changelog.');
+}

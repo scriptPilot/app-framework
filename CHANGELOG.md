@@ -2,7 +2,7 @@
 
 ## App Framework v3
 
-### App Framework v3.0.0-alpha.50
+### App Framework v3.0.0-alpha.47
 
 Current development version. Please check the [milestone](https://github.com/scriptPilot/app-framework/milestone/8) for details.
 
