@@ -18,7 +18,7 @@ if (gitStatus.stdout !== '') {
 }
 
 // Bump version
-execSync('npx bump --prompt --commit --all --lock', { stdio: 'inherit' });
+execSync('npx bump --prompt --lock', { stdio: 'inherit' });
 
 // Check changelog update
 const checkChangelog = () => {
@@ -38,6 +38,7 @@ const checkChangelog = () => {
       });
     } else if (searchRes.length === 1) {
       log.success(`Changelog entry found for version ${version}.`);
+      execSync(`git add --all && git commit -m "released v${version}"`)
       process.exit(0);
     } else {
       log.warning(`
@@ -54,4 +55,4 @@ const checkChangelog = () => {
 };
 checkChangelog();
 
-// NO MORE CODE IN THIS FILE AFTER checkChangelog() (will be called immediately)
+// NO MORE CODE IN THIS FILE AFTER checkChangelog() - will be called immediately
