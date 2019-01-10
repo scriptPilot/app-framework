@@ -2,6 +2,12 @@
 
 > This page is part of the [App Framework Documentation](DOCUMENTATION.md)
 
+## Version 1.20.1
+
+### Bug-fixes
+
+- [x] [#852 - Error message in update check](https://github.com/scriptPilot/app-framework/issues/852)
+
 ## Version 1.20.0
 
 Released on 2018-01-10
