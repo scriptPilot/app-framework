@@ -388,7 +388,7 @@ mixins.checkNPMupdates = {
         if (npm !== undefined && npm.latest !== undefined) {
           if (npm.latest === 'unknown') {
             window.f7.alert('Failed to get latest NPM version. Please open an incident on GitHub.', 'App Framework')
-          } else if (/^[0-9]+\.[0-9]+\.[0-9]+$/.test(npm.latest)) {
+          } else if (/^[0-9]+\.[0-9]+\.[0-9]+(-.+)?$/.test(npm.latest)) {
             let currentVersion = this.frameworkVersion.split('.')
             let npmVersion = npm.latest.split('.')
             if (parseInt(currentVersion[0]) < parseInt(npmVersion[0]) ||

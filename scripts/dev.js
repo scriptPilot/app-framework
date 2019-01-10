@@ -76,7 +76,7 @@ function checkFrameworkUpdates (callback) {
       alert('Failed to create latest npm version file.', 'issue')
     }
   }
-  packageJson('app-framework').then(function (packageInfo) {
+  packageJson('app-framework', { version: '1' }).then(function (packageInfo) {
     try {
       fs.writeJsonSync(abs(env.cache, 'latest-npm-version.json'), {latest: packageInfo.version !== undefined ? packageInfo.version : 'unknown'})
       alert('Latest App Framework version checked.')
