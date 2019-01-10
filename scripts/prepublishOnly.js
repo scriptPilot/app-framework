@@ -38,7 +38,7 @@ const checkChangelog = () => {
       });
     } else if (searchRes.length === 1) {
       log.success(`Changelog entry found for version ${version}.`);
-      execSync(`git add --all && git commit -m "released v${version}"`)
+      execSync(`git add --all && git commit -m "released v${version}"`);
       process.exit(0);
     } else {
       log.warning(`
