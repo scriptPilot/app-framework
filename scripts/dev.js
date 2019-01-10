@@ -45,4 +45,5 @@ run.silent(`
   --cache-dir "${parcelCacheFolder}"
   --out-dir "${cacheFolder}"
   --open
+  --port ${config.devServer.port}
 `.replace(/\n/g, ' '));

@@ -10,6 +10,9 @@
     "useFramework7Icons": true,
     "useMaterialDesignIcons": true
   },
+  "devServer": {
+    "port": 1234
+  },
   "pwa": {
     "buildOnBuildCommand": true,
     "openInBrowserAfterBuild": true,

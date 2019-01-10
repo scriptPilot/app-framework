@@ -41,6 +41,16 @@
       },
       "additionalProperties": false
     },
+    "devServer": {
+      "type": "object",
+      "properties": {
+        "port": {
+          "type": "number",
+          "default": 1234
+        }
+      },
+      "additionalProperties": false
+    },
     "pwa": {
       "type": "object",
       "properties": {
