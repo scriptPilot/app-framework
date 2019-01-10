@@ -52,3 +52,10 @@ Run `npm update` to update to latest development version.
 5. Create a pull request with note `closes issue <number>`
 
 Please follow the [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript).
+
+### Release Workflow
+
+1. Commit all changes
+2. Update the changelog file for the next version
+3. Run `npm publish` to start the publishing process
+  -
