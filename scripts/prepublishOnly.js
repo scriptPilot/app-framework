@@ -18,7 +18,7 @@ if (gitStatus.stdout !== '') {
 }
 
 // Bump version
-execSync('npx bump --prompt --lock', { stdio: 'inherit' });
+execSync('npx bump --prompt --commit --all --lock', { stdio: 'inherit' });
 
 // Check changelog update
 const checkChangelog = () => {
