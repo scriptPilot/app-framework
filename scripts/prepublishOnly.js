@@ -32,6 +32,7 @@ const checkChangelog = () => {
       });
     } else if (searchRes.length === 1) {
       log.success(`Changelog entry found for version ${version}.`);
+      process.exit(0);
     } else {
       log.warning(`
         ${searchRes.length} changelog entries found for version ${version}.
