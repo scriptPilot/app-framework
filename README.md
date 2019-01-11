@@ -52,6 +52,34 @@ The Apple App Store app may be outdated because Apple blocks demo apps from thei
 
 ## Documentation
 
+- Setup your development environment
+- Start a new app project with App Framework
+- Develop your app
+  - modify the application
+  - use CSS Stylesheets
+  - use images
+  - use hardware API plugins
+  - use custom Vue components
+- Test your application
+- Deploy your application
+  - to the [Apple App Store]()
+  - to the [Google Play Store]()
+  - to [Google Firebase]()
+  - to any [FTP Server]()
+
+
+### Setup your development environment
+
+### Start a new project with App Framework
+
+### Develop your application
+
+## Test your application
+
+## Deploy your application
+
+## Documentation
+
 **Quick Start** for the hurried
 
 1. Run `mkdir my-app` to create a new project folder
