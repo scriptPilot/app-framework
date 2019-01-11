@@ -38,11 +38,11 @@
 
 ## Demo App
 
-[![Download on the App Store Play](media/download-app-store.png)](https://itunes.apple.com/us/app/app-framework-demo/id1203927581?mt=8')
+[![Download on the App Store Play](media/download-icon-app-store.png)](https://itunes.apple.com/us/app/app-framework-demo/id1203927581?mt=8')
 &nbsp;&nbsp;&nbsp;
-[![Get it on Google Play](media/download-play-store.png)](https://play.google.com/store/apps/details?id=de.scriptpilot.appframework)
+[![Get it on Google Play](media/download-icon-play-store.png)](https://play.google.com/store/apps/details?id=de.scriptpilot.appframework)
 &nbsp;&nbsp;&nbsp;
-[![Open as Web App](media/download-firebase.png)](https://demo.app-framework.com)
+[![Open as Web App](media/download-icon-firebase.png)](https://demo.app-framework.com)
 
 ![Screenshots](media/demo-app-screenshots.png)
 
