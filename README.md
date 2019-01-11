@@ -67,7 +67,7 @@ The Apple App Store app may be outdated because Apple blocks demo apps from thei
   - Modify the app component
   - Modify page components and the routing
   - Use CSS style sheets
-  - Use image and pdf files
+  - [Use image files](./docs/development-images.md)
   - Use Node packages
   - Use hardware APIs
 - Test your application
