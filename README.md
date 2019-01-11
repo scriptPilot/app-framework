@@ -1,61 +1,77 @@
-# App Framework 3
+# App Framework
 
-App Framework 3 is under development. **For production usage please use [App Framework 1](https://github.com/scriptPilot/app-framework)**. The status of the development can be seen in [this milestone](https://github.com/scriptPilot/app-framework/milestone/8). You are invited to open any V3 related [question, bug or feature request](https://github.com/scriptPilot/app-framework/issues).
+> This version 3 is still under development. You may use [version 1](https://github.com/scriptPilot/app-framework/tree/v1) instead.
 
-## Get Started
+**iOS and Android Apps with HTML & JavaScript. App Framework combines great pieces of open source code to support your whole workflow with useful scripts and your App with powerful plugins. With App Framework, you can spend your time for your next amazing App and not for the tricky stuff around - free and open source!**
 
-1. Run `mkdir <app_name>` to create a new folder for the application
-2. Run `cd <app_name>` to open the newly created folder
-3. Run `echo {} > package.json` to create an empty package file
-4. Run `npm install --save app-framework@latest` to install latest development release
-5. Run `npx app dev` to open application on development server
+![](media/process.png)
 
-## CLI Commands
+## Features
 
-- `npx app test` to run all configured tests
-  - `npx app test eslint` to run ESLint test
-  - `npx app test jest` to run Jest tests
-- `npx app dev` to open application on development server
-- `npx app build` to build application according configuration
-- `npx app deploy ftp` to deploy the PWA to any FTP server
-- `npx app deploy firebase` to deploy the PWA to any FTP server
+**Core**
 
-## Update
+- [x] **Beautiful User Interface** with native iOS and Material Design elements and transitions, based on [Framework7](https://framework7.io/)
+- [x] **Flexible Routing** for pages, tabs, modals and panels with dynamic routing support, realized with [Framework7-Vue](https://framework7.io/vue/navigation-router.html)
+- [ ] **Multi-language Support** with language files and automatic completeness checks according the default language
+- [x] **Offline Capability** to use the app even without any network connection
+- [x] **One Code Base** for all devices with HTML, CSS and JavaScript, realized with [Capacitor](https://capacitor.ionicframework.com/), supporting [ES2015](https://babeljs.io/learn-es2015/)
+- [x] **Single File Components** for powerful but easy to maintain apps, made with [Vue.js](https://vuejs.org/) and [Framework7-Vue](http://framework7.io/vue/)
+- [x] **Project Folder Creation**, lightweight and well-organized, ready to publish on [GitHub](https://github.com/about)
 
-Run `npm update` to update to latest development version.
+**Scripts**
 
-## Contribution
+- [x] **Live Development Server** with hot module replacement, powered by [Parcel](https://parceljs.org/)
+- [x] **Test on your own Device** or in any iOS or Android emulator, supported by [Capacitor](https://capacitor.ionicframework.com/), [Xcode](https://developer.apple.com/xcode/) and [Android Studio](https://developer.android.com/studio)
+- [x] **Test Framework** for code correctness and standard conformity with [ESLint](http://eslint.org/) and for unit tests with [Jest](https://facebook.github.io/jest/)
+- [x] **Optimized Build Process** for good scores at [Google Lighthouse](https://developers.google.com/web/tools/lighthouse/), realized with [Parcel](https://parceljs.org/)
+- [ ] **Icon Generation** for favicons, touch icons and splash screens, out of a single image file with [Jimp](https://github.com/oliver-moran/jimp)
+- [x] **Easy Deployment** without downtime to [Apple App Store](https://developer.apple.com/xcode/), [Google Play Store](https://developer.android.com/studio), [Firebase Hosting](https://firebase.google.com/products/hosting/) or any FTP server
 
-### Setup the Development Environment
+**Plugins**
 
-- [GitHub Desktop](https://desktop.github.com/) to manage GitHub repositories
-- [Atom](https://atom.io/) as a code editor
-  - Package `language-vue-component` for [Vue single file component](https://vuejs.org/v2/guide/single-file-components.html)
-  - Package `editorconfig` to have same file formatting settings
-- [Node.js](https://nodejs.org) as a local development server
-- [Google Chrome](https://www.google.de/chrome) as a web browser with integrated [development tools](https://developers.google.com/web/tools/chrome-devtools/)
-  - Extension [Vue.js devtools](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd) to debug the Vue components
+- [x] **Native Hardware API Plugins** for iOS and Android devices, realized with [Capacitor](https://capacitor.ionicframework.com/)
+- [ ] **Comprehensive Icon Fonts** like [FontAwesome](http://fontawesome.io/), [Framework7 Icons](http://framework7.io/icons/), [Ion](http://ionicons.com/) and [Material Design Icons](https://material.io/icons/) out of the box
+- [ ] **Phone Frame** around your application on big screens, so you can offer desktop access with charm
+- [ ] **State Restoration** for the history per view, tabs, scroll positions, focus, panels, modals and form inputs
+- [ ] **Global Data Object** to save user data across several application restarts easily
+- [ ] **Vuex Integration** to use the official Vue.js [state management library](https://vuex.vuejs.org/en/intro.html)
+- [ ] **Preloading** for images, fonts and JavaScript files
+- [ ] **Firebase Integration** for several services like [Authentication](https://firebase.google.com/products/auth/), [Realtime Database](https://firebase.google.com/products/realtime-database/), [Firestore](https://firebase.google.com/products/firestore/) and [Cloud Storage](https://firebase.google.com/products/storage/)
 
-### Setup the Repository
+## Demo App
 
-1. Run `clone https://github.com/scriptPilot/app-framework` to clone this repository
-2. Run `cd app-framework` to open the repository folder
-3. Run `npm install` to install all dependencies
-4. Run `sudo npm link` to make CLI available in development mode
+The Apple App Store app may be outdated because Apple blocks demo apps from their store now.
 
-### Development Workflow
+[![Download on the App Store Play](media/download-icon-app-store.png)](https://itunes.apple.com/us/app/app-framework-demo/id1203927581?mt=8')
+&nbsp;&nbsp;&nbsp;
+[![Get it on Google Play](media/download-icon-play-store.png)](https://play.google.com/store/apps/details?id=de.scriptpilot.appframework)
+&nbsp;&nbsp;&nbsp;
+[![Open as Web App](media/download-icon-firebase.png)](https://demo.app-framework.com)
 
-1. Create an [issue](https://github.com/scriptPilot/app-framework/issues) in GitHub
-2. Create a branch with name `issue-<number>`
-3. Develop and test your solution, update the documentation
-4. Commit your changes on the issue branch
-5. Create a pull request with note `closes issue <number>`
+![Screenshots](media/demo-app-screenshots.png)
 
-Please follow the [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript).
+## Documentation
 
-### Release Workflow
+**Quick Start** for the hurried
 
-1. Commit all changes
-2. Update the changelog file for the next version
-3. Run `npm publish` to start the publishing process
-  -
+1. Run `mkdir my-app` to create a new project folder
+2. Run `cd my-app` to open the project folder
+3. Run `npm install app-framework` for installation
+4. Run `npx app dev` to start the local development server
+
+**Tutorial** for the beginners
+
+- Setup: Node JS - Atom Code Editor - GitHub Repository - App Framework
+- Development: Design - Views - Logic - Data Management - Firebase Integration - Hardware APIs
+- Testing: Development Server - iOS Emulator - Android Emulator - Code Check - Unit Tests
+- Deployment: Build - FTP Server - Firebase Hosting - Apple App Store - Android Play Store
+
+**Reference** for the experts
+
+- CLI Commands
+- Configuration Options
+
+**Guidelines** for the contributors
+
+- Workflow
+- Architecture

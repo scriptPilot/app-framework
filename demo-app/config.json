@@ -28,7 +28,7 @@
     "splashScreenBackgroundColor": "#f7f7f8"
   },
   "android": {
-    "buildOnBuildCommand": false,
+    "buildOnBuildCommand": true,
     "openAndroidStudioAfterBuild": true,
     "themeColor": "#2196f3",
     "backgroundColor": "#2196f3",
