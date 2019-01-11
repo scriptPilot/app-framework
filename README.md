@@ -53,7 +53,7 @@ The Apple App Store app may be outdated because Apple blocks demo apps from thei
 ## Documentation
 
 - Setup your development environment
-- Start a new app project with App Framework
+- Start your new app project with App Framework
 - Develop your application
   - Use CSS style sheets
   - Use image files
