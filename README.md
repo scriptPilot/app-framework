@@ -54,52 +54,9 @@ The Apple App Store app may be outdated because Apple blocks demo apps from thei
 
 - Setup your development environment
 - Start a new app project with App Framework
-- Develop your app
-  - modify the application
-  - use CSS Stylesheets
-  - use images
-  - use hardware API plugins
-  - use custom Vue components
+- Develop your application
+  - Use CSS style sheets
+  - Use image files
+  - Use hardware API plugins
 - Test your application
 - Deploy your application
-  - to the [Apple App Store]()
-  - to the [Google Play Store]()
-  - to [Google Firebase]()
-  - to any [FTP Server]()
-
-
-### Setup your development environment
-
-### Start a new project with App Framework
-
-### Develop your application
-
-## Test your application
-
-## Deploy your application
-
-## Documentation
-
-**Quick Start** for the hurried
-
-1. Run `mkdir my-app` to create a new project folder
-2. Run `cd my-app` to open the project folder
-3. Run `npm install app-framework` for installation
-4. Run `npx app dev` to start the local development server
-
-**Tutorial** for the beginners
-
-- Setup: Node JS - Atom Code Editor - GitHub Repository - App Framework
-- Development: Design - Views - Logic - Data Management - Firebase Integration - Hardware APIs
-- Testing: Development Server - iOS Emulator - Android Emulator - Code Check - Unit Tests
-- Deployment: Build - FTP Server - Firebase Hosting - Apple App Store - Android Play Store
-
-**Reference** for the experts
-
-- CLI Commands
-- Configuration Options
-
-**Guidelines** for the contributors
-
-- Workflow
-- Architecture
