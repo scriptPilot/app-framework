@@ -56,8 +56,9 @@ The Apple App Store app may be outdated because Apple blocks demo apps from thei
 
 1. Run `mkdir my-app` to create a new project folder
 2. Run `cd my-app` to open the project folder
-3. Run `npm install app-framework` for installation
-4. Run `npx app dev` to start the local development server
+3. Run `echo {} > package.json` to create an empty json file
+4. Run `npm install app-framework` for installation
+5. Run `npx app dev` to start the local development server
 
 ### Workflow
 
