@@ -6,8 +6,9 @@ const path = require('./helper/path');
 const config = fs.readJsonSync(path.app('config.json'));
 
 // Create Capacitor config object
+// Use pseudo app id to avoid errors due to invalid iOS app id
 const capConfig = {
-  appId: config.meta.appID,
+  appId: 'com.example.app',
   appName: config.meta.shortName,
   bundledWebRuntime: false,
   webDir: path.cache('web'),
