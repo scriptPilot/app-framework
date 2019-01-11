@@ -12,7 +12,7 @@ To use images in your application, you have to save them first in the `app/image
 <template>
   <f7-page>
     <f7-block>
-      <img src="../images/yourImage.jpg" />
+      <img src="../images/yourImage.jpg" width="100%" />
     </f7-block>
   </f7-page>
 </template>
@@ -32,8 +32,8 @@ The following example shows *imageA.png* initially and after five seconds *image
 <template>
   <f7-page>
     <f7-block>
-      <img src="../images/imagesA.png" v-if="image==='imageA'" />
-      <img src="../images/imagesB.png" v-else />
+      <img src="../images/imagesA.png" width="100%" v-if="image==='imageA'" />
+      <img src="../images/imagesB.png" width="100%" v-else />
     </f7-block>
   </f7-page>
 </template>
@@ -59,7 +59,7 @@ Another solution is, that you require all images in the script:
 <template>
   <f7-page>
     <f7-block>
-      <img :src="image" />
+      <img :src="image" width="100%" />
     </f7-block>
   </f7-page>
 </template>
