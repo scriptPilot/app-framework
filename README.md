@@ -57,13 +57,21 @@ The Apple App Store app may be outdated because Apple blocks demo apps from thei
 ### Workflow
 
 - Setup your development environment
-- Start your new app project with App Framework
+- Start and configure your app project
 - Develop your application
-  - Use CSS style sheets
-  - Use image files
-  - Use hardware API plugins
+  - App component
+  - Page components and routing
+  - CSS style sheets
+  - Image files
+  - PDF files
+  - Node packages
+  - Hardware API
 - Test your application
 - Deploy your application
+  - to any FTP server
+  - to Firebase Hosting
+  - to the Apple App Store
+  - to the Android Play Store
 
 ### CLI Reference
 
