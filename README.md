@@ -54,18 +54,22 @@ The Apple App Store app may be outdated because Apple blocks demo apps from thei
 
 ### Quick Start
 
+1. Run `mkdir my-app` to create a new project folder
+2. Run `cd my-app` to open the project folder
+3. Run `npm install app-framework` for installation
+4. Run `npx app dev` to start the local development server
+
 ### Workflow
 
 - Setup your development environment
 - Start and configure your app project
 - Develop your application
-  - App component
-  - Page components and routing
-  - CSS style sheets
-  - Image files
-  - PDF files
-  - Node packages
-  - Hardware API
+  - Modify the app component
+  - Modify page components and the routing
+  - Use CSS style sheets
+  - Use image and pdf files
+  - Use Node packages
+  - Use hardware APIs
 - Test your application
 - Deploy your application
   - to any FTP server
