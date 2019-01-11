@@ -38,6 +38,8 @@
 
 ## Demo App
 
+Apple App Store app may be outdated because they block "demo" app from their store.
+
 [![Download on the App Store Play](media/download-icon-app-store.png)](https://itunes.apple.com/us/app/app-framework-demo/id1203927581?mt=8')
 &nbsp;&nbsp;&nbsp;
 [![Get it on Google Play](media/download-icon-play-store.png)](https://play.google.com/store/apps/details?id=de.scriptpilot.appframework)
