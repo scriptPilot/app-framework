@@ -69,5 +69,5 @@
 
 **Guidelines** for the contributors
 
-- Architecture
 - Workflow
+- Architecture
