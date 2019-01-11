@@ -44,7 +44,7 @@
 &nbsp;&nbsp;&nbsp;
 [![Open as Web App](media/download-firebase.png)](https://demo.app-framework.com)
 
-![Screenshots](media/screenshots.png)
+![Screenshots](media/demo-app-screenshots.png)
 
 ## Documentation
 
