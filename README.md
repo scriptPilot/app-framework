@@ -52,6 +52,10 @@ The Apple App Store app may be outdated because Apple blocks demo apps from thei
 
 ## Documentation
 
+### Quick Start
+
+### Workflow
+
 - Setup your development environment
 - Start your new app project with App Framework
 - Develop your application
@@ -60,3 +64,13 @@ The Apple App Store app may be outdated because Apple blocks demo apps from thei
   - Use hardware API plugins
 - Test your application
 - Deploy your application
+
+### CLI Reference
+
+Run `npx app test` to run all configured tests
+Run `npx app test` eslint to run ESLint test
+Run `npx app test` jest to run Jest tests
+Run `npx app dev` to open application on development server
+Run `npx app build` to build application according configuration
+Run `npx app deploy ftp` to deploy the PWA to any FTP server
+Run `npx app deploy firebase` to deploy the PWA to any FTP server
