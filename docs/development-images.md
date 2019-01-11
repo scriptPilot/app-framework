@@ -12,7 +12,7 @@ To use images in your application, you have to save them first in the `app/image
 <template>
   <f7-page>
     <f7-block>
-      <img src="../images/yourImage.jpg" width="100%" />
+      <img src="../images/image.jpg" width="100%" />
     </f7-block>
   </f7-page>
 </template>
@@ -32,8 +32,8 @@ The following example shows *imageA.png* initially and after five seconds *image
 <template>
   <f7-page>
     <f7-block>
-      <img src="../images/imagesA.png" width="100%" v-if="image==='imageA'" />
-      <img src="../images/imagesB.png" width="100%" v-else />
+      <img src="../images/imageA.jpg" width="100%" v-if="image==='imageA'" />
+      <img src="../images/imageB.jpg" width="100%" v-else />
     </f7-block>
   </f7-page>
 </template>
@@ -47,13 +47,13 @@ The following example shows *imageA.png* initially and after five seconds *image
     mounted: function () {
       setTimeout(() => {
         this.image = 'imageB'
-      }, 5000)
+      }, 3000)
     }
   }
 </script>
 ```
 
-Another solution is, that you require all images in the script:
+Another solution is, that you import all images in the script:
 
 ```
 <template>
@@ -64,16 +64,18 @@ Another solution is, that you require all images in the script:
   </f7-page>
 </template>
 <script>
+  import imageA from '../images/imageA.jpg'
+  import imageB from '../images/imageB.jpg'
   export default {
     data: function () {
       return {
-        image: require('../images/imageA.png')
+        image: imageA
       }
     },
     mounted: function () {
       setTimeout(() => {
-        this.image = require('../images/imageB.png')
-      }, 5000)
+        this.image = imageB
+      }, 3000)
     }
   }
 </script>
