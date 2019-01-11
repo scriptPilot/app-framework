@@ -1,6 +1,6 @@
 # Use image files
 
-> This page is part of the [App Framework Documentation](../#documentation)
+> This page is part of the [App Framework Documentation](../README.md#documentation)
 
 <br />
 
