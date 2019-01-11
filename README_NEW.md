@@ -38,7 +38,7 @@
 
 ## Demo App
 
-Apple App Store app may be outdated because they block "demo" app from their store.
+Apple App Store app may be outdated because they block "demo" apps from their store.
 
 [![Download on the App Store Play](media/download-icon-app-store.png)](https://itunes.apple.com/us/app/app-framework-demo/id1203927581?mt=8')
 &nbsp;&nbsp;&nbsp;
