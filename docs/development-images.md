@@ -22,7 +22,7 @@ To remove images, you should remove the image tag first and delete the file afte
 
 ## Dynamic image usage
 
-During the build process, all *src* attributes are parsed by Webpack and mapped to the hashed image files. This does only work, if the *src* contains a string only - no variables.
+During the build process, all *src* attributes are parsed by Parcel and mapped to the hashed image files. This does only work, if the *src* contains a string only - no variables.
 
 So, for dynamic images, you should use single *img* elements and display them or not.
 
@@ -78,13 +78,3 @@ Another solution is, that you require all images in the script:
   }
 </script>
 ```
-
-## Image preloading
-
-App Framework provides image preloading by default. This means, all files in the folder `app/images` are loaded while the preloading page is shown and before the application is initialized.
-
-This could increase the initial loading time, but will improve the behavior of your application because all images are immediately visible.
-
-To disable image preloading, set `preloadImages: false` in the configuration file. To use the updated setting, you have to restart the development server.
-
-To update the preloader after adding new images to your application, you have to restart the development server as well.
