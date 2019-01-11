@@ -53,7 +53,7 @@
 1. Run `mkdir my-app` to create a new project folder
 2. Run `cd my-app` to open the project folder
 3. Run `npm install app-framework` for installation
-4. Run `npm start` to start the local development server
+4. Run `npx app dev` to start the local development server
 
 **Tutorial** for the beginners
 
@@ -64,10 +64,10 @@
 
 **Reference** for the experts
 
-- [ ] CLI Commands
-- [ ] Configuration Options
+- CLI Commands
+- Configuration Options
 
 **Guidelines** for the contributors
 
-- [ ] Architecture
-- [ ] Workflow
+- Architecture
+- Workflow
