@@ -99,6 +99,10 @@
         "splashScreenBackgroundColor": {
           "type": "string",
           "default": "#2196f3"
+        },
+        "statusBarColor": {
+          "type": "string",
+          "default": "default"
         }
       },
       "additionalProperties": false
