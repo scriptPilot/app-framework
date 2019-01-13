@@ -47,6 +47,7 @@ const schema = {
     },
     password: {
       description: 'FTP Password',
+      default: config.ftp.defaultPassword,
       hidden: true,
       replace: '*',
       required: true,
