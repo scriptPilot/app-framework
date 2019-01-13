@@ -229,6 +229,10 @@
         "defaultPathOnServer": {
           "type": "string",
           "default": ""
+        },
+        "defaultPassword": {
+          "type": "string",
+          "default": ""
         }
       },
       "additionalProperties": false
