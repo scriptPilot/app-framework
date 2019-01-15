@@ -8,7 +8,7 @@
 
 ## Features
 
-**Core**
+### Core
 
 - [x] **Beautiful User Interface** with native iOS and Material Design elements and transitions, based on [Framework7](https://framework7.io/)
 - [x] **Flexible Routing** for pages, tabs, modals and panels with dynamic routing support, realized with [Framework7-Vue](https://framework7.io/vue/navigation-router.html)
@@ -18,7 +18,7 @@
 - [x] **Single File Components** for powerful but easy to maintain apps, made with [Vue.js](https://vuejs.org/) and [Framework7-Vue](http://framework7.io/vue/)
 - [x] **Project Folder Creation**, lightweight and well-organized, ready to publish on [GitHub](https://github.com/about)
 
-**Scripts**
+### Scripts
 
 - [x] **Live Development Server** with hot module replacement, powered by [Parcel](https://parceljs.org/)
 - [x] **Test on your own Device** or in any iOS or Android emulator, supported by [Capacitor](https://capacitor.ionicframework.com/), [Xcode](https://developer.apple.com/xcode/) and [Android Studio](https://developer.android.com/studio)
@@ -27,7 +27,7 @@
 - [ ] **Icon Generation** for favicons, touch icons and splash screens, out of a single image file with [Jimp](https://github.com/oliver-moran/jimp)
 - [x] **Easy Deployment** without downtime to [Apple App Store](https://developer.apple.com/xcode/), [Google Play Store](https://developer.android.com/studio), [Firebase Hosting](https://firebase.google.com/products/hosting/) or any FTP server
 
-**Plugins**
+### Plugins
 
 - [x] **Native Hardware API Plugins** for iOS and Android devices, realized with [Capacitor](https://capacitor.ionicframework.com/)
 - [ ] **Comprehensive Icon Fonts** like [FontAwesome](http://fontawesome.io/), [Framework7 Icons](http://framework7.io/icons/), [Ion](http://ionicons.com/) and [Material Design Icons](https://material.io/icons/) out of the box
