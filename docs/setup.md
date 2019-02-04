@@ -15,6 +15,7 @@ Creating a new application project *my-app* is easily done in the following four
    - install App Framework and its dependencies
    - create the project folder structure
    - complete the *package.json* file
+5. Run  `git init` to create a repository for your app. A default `.gitignore` file has been added with App Framework. 
 
 After the installation process finished, you should see [this folder structure](folder-structure.md).
 
