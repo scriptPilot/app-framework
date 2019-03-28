@@ -64,6 +64,8 @@ Backup your project:
 
 ## Demo App
 
+| Unfortunately, Apple removed all demo apps from their store as demos are not acceoted anymore.
+
 [![Download on the App Store Play](media/app-store-download.png)](https://itunes.apple.com/us/app/app-framework-demo/id1203927581?mt=8')
 &nbsp;&nbsp;&nbsp;
 [![Get it on Google Play](media/google-play-download.png)](https://play.google.com/store/apps/details?id=de.scriptpilot.appframework)
