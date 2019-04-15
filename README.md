@@ -12,7 +12,7 @@
 
 - [x] **Beautiful User Interface** with native iOS and Material Design elements and transitions, based on [Framework7](https://framework7.io/)
 - [x] **Flexible Routing** for pages, tabs, modals and panels with dynamic routing support, realized with [Framework7-Vue](https://framework7.io/vue/navigation-router.html)
-- [ ] **Multi-language Support** with language files and automatic completeness checks according the default language
+- [ ] **Multi-language Support** with language files and automatic completeness check according the default language
 - [x] **Offline Capability** to use the app even without any network connection
 - [x] **One Code Base** for all devices with HTML, CSS and JavaScript, realized with [Capacitor](https://capacitor.ionicframework.com/), supporting [ES2015](https://babeljs.io/learn-es2015/)
 - [x] **Single File Components** for powerful but easy to maintain apps, made with [Vue.js](https://vuejs.org/) and [Framework7-Vue](http://framework7.io/vue/)
