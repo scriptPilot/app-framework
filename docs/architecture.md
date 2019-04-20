@@ -8,23 +8,25 @@
 
 ```
 ├── .git/                    # Git managed folder (do not modify)
-├── .cache/                  # Cache folder (do not modify)
 ├── app/                     # App files
 |   ├── components/            - Custom Vue components (optional)
 |   ├── lang/                  - Language files (optional)
 |   ├── pages/                 - Framework7-Vue single file components (optional)
 |   ├── app.vue                - App component (entry point of any application)
+|   ├── config.json            - App configuration file
 |   └── routes.json            - Framework7-Vue routes file (optional)
 ├── build/                   # Latest build files (do not modify)
+├── cache/                   # Cache folder (do not modify)
 ├── docs/                    # Documentation files
 |   └── images/                - Documentation image files
 ├── framework/               # App Framework core files
 |   ├── mixins/                - Vue mixins
 |   ├── scripts/               - Scipts (composed by the CLI)
-|   ├── app.mustache           - app.js mustache template
+|   ├── app.mustache.j         - app.js mustache template
 |   ├── cli.js                 - CLI program
 |   ├── configSchema.json      - App config schema
-|   └── index.mustache         - index.html mustache template
+|   └── index.mustache.html    - index.html mustache template
+├── node_modules/            # Node modules folder (do not modify)
 ├── .eslintrc.json           # ESLint default configuration
 ├── .gitignore               # Gitignore config file
 ├── CHANGELOG.md             # Release changelog
@@ -33,4 +35,6 @@
 └── README.md                # Documentation entry page
 ```
 
-All other folder and files are temporary and/or system files and not mentioned to be published.
+## Guidelines
+
+-

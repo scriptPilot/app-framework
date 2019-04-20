@@ -1,0 +1,32 @@
+{
+  "name": "app-framework",
+  "description": "iOS and Android Apps with HTML & JavaScript - develop, build and deploy - free and open source!",
+  "author": "scriptPilot <mail@scriptPilot.de> (https://github.com/scriptPilot)",
+  "repository": "https://github.com/scriptPilot/app-framework.git",
+  "version": "4.0.0-alpha.0",
+  "license": "MIT",
+  "bin": {
+    "app": "./framework/cli.js"
+  },
+  "dependencies": {
+    "@vue/component-compiler-utils": "^3.0.0",
+    "bootstrap": "^4.3.1",
+    "bootstrap-vue": "^2.0.0-rc.18",
+    "commander": "^2.20.0",
+    "concurrently": "^4.1.0",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-vue": "^5.2.2",
+    "framework7": "^4.3.0",
+    "framework7-vue": "^4.3.0",
+    "fs-extra": "^7.0.1",
+    "mustache": "^3.0.1",
+    "parcel-bundler": "^1.12.3",
+    "shelljs": "^0.8.3",
+    "vue": "^2.6.10",
+    "vue-hot-reload-api": "^2.3.3",
+    "vue-material": "^1.0.0-beta-10.2",
+    "vue-template-compiler": "^2.6.10"
+  }
+}

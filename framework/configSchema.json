@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "meta": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "frontend": {
+      "type": "string",
+      "pattern": "^(framework7|bootstrap|material)$",
+      "default": "framework7"
+    }
+  },
+  "additionalProperties": false
+}

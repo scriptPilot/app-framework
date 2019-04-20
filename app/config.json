@@ -1,1 +1,6 @@
-{}
+{
+  "meta": {
+    "name": "App"
+  },
+  "frontend": "framework7"
+}

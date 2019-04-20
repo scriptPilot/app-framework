@@ -1,0 +1,16 @@
+{
+  "extends": [
+    "airbnb-base",
+    "plugin:vue/recommended"
+  ],
+  "rules": {
+    "vue/html-self-closing": [
+      "error",
+      {
+        "html": {
+          "component": "never"
+        }
+      }
+    ]
+  }
+}
