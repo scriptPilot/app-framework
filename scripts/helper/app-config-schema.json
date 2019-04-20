@@ -20,9 +20,17 @@
           "type": "string",
           "default": ""
         },
-        "language": {
+        "languages": {
+          "type": "array",
+          "default": ["en"]
+        },
+        "defaultLanguage": {
           "type": "string",
           "default": "en"
+        },
+        "defaultLanguageFallback": {
+          "type": "boolean",
+          "default": false
         }
       },
       "additionalProperties": false
@@ -114,6 +122,10 @@
           "type": "boolean",
           "default": true
         },
+        "relatedPlayStoreApplicationID": {
+          "type": "string",
+          "default": ""
+        },
         "themeColor": {
           "type": "string",
           "default": "#2196f3"
@@ -122,9 +134,17 @@
           "type": "string",
           "default": "#2196f3"
         },
-        "relatedPlayStoreApplicationID": {
+        "iconFile": {
           "type": "string",
-          "default": ""
+          "default": "icon.png"
+        },
+        "splashScreenIconFile": {
+          "type": "string",
+          "default": "icon.png"
+        },
+        "splashScreenBackgroundColor": {
+          "type": "string",
+          "default": "#2196f3"
         }
       },
       "additionalProperties": false

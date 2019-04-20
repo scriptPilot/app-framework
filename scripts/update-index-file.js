@@ -16,7 +16,7 @@ try {
 // Create index.html file content
 const indexFileContent = `
 <!DOCTYPE html>
-<html lang="${config.meta.language}">
+<html lang="${config.meta.defaultLanguage}">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover" />

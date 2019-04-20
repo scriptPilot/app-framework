@@ -4,7 +4,12 @@
     "shortName": "Demo App",
     "description": "",
     "appID": "de.scriptpilot.app-framework",
-    "language": "en"
+    "languages": [
+      "en",
+      "de"
+    ],
+    "defaultLanguage": "en",
+    "defaultLanguageFallback": false
   },
   "iconFonts": {
     "useFramework7Icons": true,
@@ -20,7 +25,7 @@
     "iconFile": "icon.android.png"
   },
   "ios": {
-    "buildOnBuildCommand": true,
+    "buildOnBuildCommand": false,
     "openXcodeAfterBuild": true,
     "relatedITunesApplicationID": "1203927581",
     "iconFile": "icon.ios.png",
@@ -30,9 +35,12 @@
   "android": {
     "buildOnBuildCommand": true,
     "openAndroidStudioAfterBuild": true,
+    "relatedPlayStoreApplicationID": "de.scriptpilot.appframework",
     "themeColor": "#2196f3",
     "backgroundColor": "#2196f3",
-    "relatedPlayStoreApplicationID": "de.scriptpilot.appframework"
+    "iconFile": "icon.android.png",
+    "splashScreenIconFile": "icon.android.png",
+    "splashScreenBackgroundColor": "#f7f7f8"
   },
   "eslint": {
     "runOnTestCommand": true,
