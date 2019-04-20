@@ -9,11 +9,11 @@
 ```
 ├── .git/                    # Git managed folder (do not modify)
 ├── app/                     # App files
-|   ├── components/          # App components (optional)
-|   ├── lang/                # App language files (optional)
-|   ├── pages/               # Framework7-Vue single file components (optional)
-|   ├── app.vue              # App component file
-|   └── routes.json          # Framework7-Vue routes file (optional)
+|   ├── components/            - Custom Vue components (optional)
+|   ├── lang/                  - Language files (optional)
+|   ├── pages/                 - Framework7-Vue single file components (optional)
+|   ├── app.vue                - App component (entry point of any application)
+|   └── routes.json            - Framework7-Vue routes file (optional)
 ├── build/                   # Latest build files (do not modify)
 ├── cache/                   # Cache folder (do not modify)
 ├── docs/                    # Documentation files
