@@ -2,4 +2,4 @@
 
 ## Build Flow
 
-!(Build Flow)[./images/buildFlow.png]
+![Build Flow](./images/buildFlow.png)
