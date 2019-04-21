@@ -5,15 +5,16 @@
   </f7-app>
 </template>
 <script>
-import routes from './routes'
-  export default {
-    data() {
-      return {
-        f7Params: {
-          routes,
-          theme: 'ios'
-        }
-      }
-    }
-  }
+import routes from './routes';
+
+export default {
+  data() {
+    return {
+      f7Params: {
+        routes,
+        theme: 'ios',
+      },
+    };
+  },
+};
 </script>

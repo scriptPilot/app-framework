@@ -2,5 +2,9 @@
   "meta": {
     "name": "App"
   },
-  "frontend": "framework7"
+  "frontend": "framework7",
+  "iconFonts": {
+    "useFramework7Icons": true,
+    "useMaterialDesignIcons": false
+  }
 }

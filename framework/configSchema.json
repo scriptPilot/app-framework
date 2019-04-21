@@ -12,8 +12,22 @@
     },
     "frontend": {
       "type": "string",
-      "pattern": "^(framework7|bootstrap|material)$",
+      "pattern": "^(|framework7|bootstrap|material)$",
       "default": "framework7"
+    },
+    "iconFonts": {
+      "type": "object",
+      "properties": {
+        "useFramework7Icons": {
+          "type": "boolean",
+          "default": false
+        },
+        "useMaterialDesignIcons": {
+          "type": "boolean",
+          "default": false
+        }
+      },
+      "additionalProperties": false
     }
   },
   "additionalProperties": false

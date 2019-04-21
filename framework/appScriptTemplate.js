@@ -14,10 +14,18 @@ import BootstrapVue from 'bootstrap-vue';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 /* /frontendBootstrap */
+/* #iconsFramework7 */
+import 'framework7-icons';
+/* /iconsFramework7 */
+/* #iconsMaterial */
+import 'material-icons/css/material-icons.min.css';
+/* /iconsMaterial */
+import mixinElectron from './mixins/electron';
 import app from '../app/app.vue';
 
 Vue.config.devtools = false;
 Vue.config.productionTip = false;
+
 /* #frontendFramework7 */
 Framework7.use(Framework7Vue);
 /* /frontendFramework7 */
@@ -27,6 +35,7 @@ Vue.use(VueMaterial);
 /* #frontendBootstrap */
 Vue.use(BootstrapVue);
 /* /frontendBootstrap */
+Vue.mixin(mixinElectron);
 
 new Vue({ // eslint-disable-line no-new
   el: '#app',
