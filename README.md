@@ -25,7 +25,7 @@ A combination of great pieces of open source code to let you develop, build and 
 
 1. Run `npx app-framework` to open a wizard which will guide you to your new application project.
 2. Run `npx app dev` to open a development server in the Web Browser.
-3. Run `npx app build` to build your application as progressive web application.
+3. Run `npx app build` to build your application as [Progressive Web App](https://developers.google.com/web/progressive-web-apps/).
 
 &nbsp;
 
