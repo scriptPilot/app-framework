@@ -39,6 +39,7 @@ Preparation
 
 Development
 
+- [Use CSS Styles]() 
 - [Use Images]()
 - [Use Icon Fonts]()
 - [Use Hardware API Plugins]()
@@ -47,7 +48,6 @@ Development
 - [Use local Data Storage]()
 - [Use Firebase as Backend Provider]()
 - [Sign in with Google]()
-- ...
   
 Deployment
 
