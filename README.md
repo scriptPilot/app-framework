@@ -17,6 +17,7 @@ A combination of great pieces of open source code to let you develop, build and 
 - [ ] **One Code Base** - with HTML, CSS and JavaScript with ES6 support.
 - [ ] **Local Development Server** - with live reload, perfectly to use together with [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools/).
 - [ ] **Native Build** - as [PWA](https://developers.google.com/web/progressive-web-apps/), mobile App (iOS or Android) or desktop App (macOS, Windows or Linux).
+- [ ] **Icon Generation** - for favicon, touch icons and splash screens, out of a single image file with [Jimp](https://github.com/oliver-moran/jimp).
 - [ ] **Easy Deployment** - without downtime, to the Apple App Store, Google Play Store, [Firebase](https://firebase.google.com/products/hosting/) or any FTP server.
 
 &nbsp;
