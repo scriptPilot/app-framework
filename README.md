@@ -33,12 +33,15 @@ Preparation
 
 - [Setup your Development Environment]()
 - [Create your new Application Project]()
+- [Configure your Application]()
 
 Development
 
 - [Use Images]()
 - [Use Node Modules]()
 - [Use Language Files]()
+- [Use Hardware API Plugins]()
+- ...
   
 Deployment
 
