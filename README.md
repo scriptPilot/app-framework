@@ -4,8 +4,6 @@
 
 ![Process](./docs/images/processSmall.png)
 
-&nbsp;
-
 ## Features
 
 - [ ] **Powerful JavaScript Framework** - Based on [Vue.js](https://vuejs.org/) or [React](https://reactjs.org/)
