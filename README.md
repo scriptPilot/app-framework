@@ -2,7 +2,11 @@
 
 A combination of great pieces of open source code to let you develop, build and deploy a new application in minutes. With App Framework, you can spend your time for what makes your application unique, not the tricky stuff around!
 
-![Process](./docs/images/processSmall.png)
+&nbsp;
+
+![Process](./docs/images/process.png)
+
+&nbsp;
 
 ## Features
 
@@ -12,26 +16,41 @@ A combination of great pieces of open source code to let you develop, build and 
 - [ ] **Hardware APIs** - provided by [Capacitor](https://capacitor.ionicframework.com/) and [Cordova](https://cordova.apache.org/).
 - [ ] **One Code Base** - with HTML, CSS and JavaScript with ES6 support.
 - [ ] **Local Development Server** - with live reload, perfectly to use together with [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools/).
-- [ ] **Native Build** - as [PWA](https://developers.google.com/web/progressive-web-apps/), as mobile App (iOS or Android) or desktop App (macOS, Windows or Linux).
+- [ ] **Native Build** - as [PWA](https://developers.google.com/web/progressive-web-apps/), mobile App (iOS or Android) or desktop App (macOS, Windows or Linux).
 - [ ] **Easy Deployment** - without downtime, to the Apple App Store, Google Play Store, [Firebase](https://firebase.google.com/products/hosting/) or any FTP server.
+
+&nbsp;
 
 ## Quick Start
 
 Run `npx app-framework` to open a wizard which will guide you to your new application project.
 
+&nbsp;
+
 ## Documentation
 
-- Prepare
-  - [Setup your Development Environment]()
-  - [Create your new Application Project]()
-- Develop
-  - [Use Images]()
-  - ...
-- Build & Deploy
-  - [Deploy your Application to an FTP Server]()
-  - [Deploy your Application to Google Firebase]()
-  - [Deploy your Application to the Apple App Store]()
-  - [Deploy your Application to the Google Play Store]()
-  - [Build your Application for macOS]()
-  - [Build your Application for Windows]()
-  - [Build your Application for Linux]()
+Preparation
+
+- [Setup your Development Environment]()
+- [Create your new Application Project]()
+
+Development
+
+- [Use Images]()
+- [Use Node Modules]()
+- [Use Language Files]()
+  
+Deployment
+
+- [Deploy your Application to an FTP Server]()
+- [Deploy your Application to Google Firebase]()
+- [Deploy your Application to the Apple App Store]()
+- [Deploy your Application to the Google Play Store]()
+- [Build your Application for macOS]()
+- [Build your Application for Windows]()
+- [Build your Application for Linux]()
+
+Contribution
+
+- [App Framework Architecture]()
+- [Contribute to App Framework]()
