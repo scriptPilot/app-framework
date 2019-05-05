@@ -15,20 +15,16 @@ A combination of great pieces of open source code to let you develop, build and 
 - [ ] **Native Build** - as [PWA](https://developers.google.com/web/progressive-web-apps/), mobile App (iOS or Android) or desktop App (macOS, Windows or Linux).
 - [ ] **Easy Deployment** - without downtime, to the Apple App Store, Google Play Store, [Firebase](https://firebase.google.com/products/hosting/) or any FTP server.
 
-&nbsp;
-
 ## Quick Start
 
 Run `npx app-framework` to open a wizard which will guide you to your new application project.
-
-&nbsp;
 
 ## Documentation
 
 Prepare
 - [Setup your Development Environment]()
 - [Create your new Application Project]()
-  
+
 Develop
 - [Use Images]()
 - ...
