@@ -1,6 +1,6 @@
 # App Framework
 
-A combination of great pieces of open source code to let you develop, build and deploy a new application in minutes. With App Framework, you can spend your time for what makes your application unique, not the tricky stuff around!
+A combination of great pieces of open source code to let you develop, build and deploy a new application in minutes. With App Framework, you can spend your time for what makes your application unique, not the tricky generic stuff!
 
 ![Process](./docs/images/processSmall.png)
 
