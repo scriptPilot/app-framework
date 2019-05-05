@@ -38,5 +38,8 @@
     "vue-hot-reload-api": "^2.3.3",
     "vue-material": "^1.0.0-beta-10.2",
     "vue-template-compiler": "^2.6.10"
+  },
+  "devDependencies": {
+    "prompts": "^2.0.4"
   }
 }
