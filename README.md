@@ -12,8 +12,18 @@ A combination of great pieces of open source code to let you develop, build and 
 - [ ] **Live Development** - in the Web Browser or an [Electron](https://electronjs.org/) shell
 - [ ] **One Code Base** - HTML, CSS and JavaScript with ES6 support
 
-## Documentation
-
-### Quick Start
+## Quick Start
 
 Run `npx app-framework` to open a wizard which will guide you to your new application project.
+
+## CLI Commands
+
+- Run **`npx app dev`** to start a development server in the web browser
+   - Run `npx app dev electron` to start a development server in an Electron shell
+- Run **`npx app build`** to build your application according your configuration
+  - Run `npx app build ios` to build and open an Xcode project
+  - Run `npx app build android` to build and open an Android Studio project
+  - Run `npx app build macos` to build and open an Xcode project
+  - Run `npx app build windows` to build and open an Xcode project
+  - Run `npx app build linux` to build and open an Xcode project
+- Run `npm update` to update App Framework to the latest version
