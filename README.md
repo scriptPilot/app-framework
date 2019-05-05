@@ -12,8 +12,8 @@ A combination of great pieces of open source code to let you develop, build and 
 - [ ] **Live Development** - in the Web Browser or an [Electron](https://electronjs.org/) shell
 - [ ] **One Code Base** - HTML, CSS and JavaScript with ES6 support
 
-## Functionality
+## Documentation
 
-App Framework is installed as a dependency to your project and does all the tricky stuff in the workflow. You maintain a clean App project folder which contains only the source code and assets which are unique to your App as well as the final build files. All other dependencies and temporary files are managed in the Framework.file.
+### Quick Start
 
-![Build Flow](./docs/images/buildFlow.png)
+Run `npx app-framework` to open a wizard which will guide you to your new application project.
