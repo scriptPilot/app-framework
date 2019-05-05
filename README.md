@@ -6,12 +6,12 @@ A combination of great pieces of open source code to let you develop, build and 
 
 ## Features
 
-- [ ] **Powerful JavaScript Framework** - Based on [Vue.js](https://vuejs.org/) or [React](https://reactjs.org/)
-- [ ] **Beautiful UX Framework** - Choose [Framework7](https://framework7.io/), [Bootstrap](https://getbootstrap.com/) or [Material Design](https://material.io/design/).
-- [ ] **Comprehensive Icon Fonts** like [FontAwesome](http://fontawesome.io/), [Framework7 Icons](http://framework7.io/icons/), [Ion](http://ionicons.com/) and [Material Design Icons](https://material.io/icons/) out of the box.
-- [ ] **Hardware APIs** - Provided by [Capacitor](https://capacitor.ionicframework.com/) and [Cordova](https://cordova.apache.org/).
-- [ ] **One Code Base** - With HTML, CSS and JavaScript with ES6 support.
-- [ ] **Live Development** - In the Web Browser or an [Electron](https://electronjs.org/) shell.
+- [ ] **Powerful JavaScript Framework** - based on [Vue.js](https://vuejs.org/) or [React](https://reactjs.org/)
+- [ ] **Beautiful UX Framework** - choose [Framework7](https://framework7.io/), [Bootstrap](https://getbootstrap.com/) or [Material Design](https://material.io/design/).
+- [ ] **Comprehensive Icon Fonts** - like [FontAwesome](http://fontawesome.io/), [Framework7 Icons](http://framework7.io/icons/), [Ion](http://ionicons.com/) and [Material Design Icons](https://material.io/icons/).
+- [ ] **Hardware APIs** - provided by [Capacitor](https://capacitor.ionicframework.com/) and [Cordova](https://cordova.apache.org/).
+- [ ] **One Code Base** - with HTML, CSS and JavaScript with ES6 support.
+- [ ] **Local Development Server** - with live reload, perfectly to use together with [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools/)
 - [ ] **Native Deployment** as [PWA](https://developers.google.com/web/progressive-web-apps/), as mobile App (iOS or Android) or desktop App (macOS, Windows or Linux).
 
 ## Quick Start
