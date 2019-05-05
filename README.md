@@ -35,3 +35,6 @@ Run `npx app-framework` to open a wizard which will guide you to your new applic
   - [Build your Application for macOS]()
   - [Build your Application for Windows]()
   - [Build your Application for Linux]()
+- Contribution
+  - [App Framework Architecture]()
+  - [Contribute to App Framework]()
