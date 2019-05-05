@@ -21,15 +21,18 @@ Run `npx app-framework` to open a wizard which will guide you to your new applic
 
 ## Documentation
 
-Prepare
+Preparation
+
 - [Setup your Development Environment]()
 - [Create your new Application Project]()
 
-Develop
+Development
+
 - [Use Images]()
 - ...
   
-Build & Deploy
+Deployment
+
 - [Deploy your Application to an FTP Server]()
 - [Deploy your Application to Google Firebase]()
 - [Deploy your Application to the Apple App Store]()
@@ -39,5 +42,6 @@ Build & Deploy
 - [Build your Application for Linux]()
 
 Contribution
+
 - [App Framework Architecture]()
 - [Contribute to App Framework]()
