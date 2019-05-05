@@ -40,9 +40,13 @@ Preparation
 Development
 
 - [Use Images]()
-- [Use Node Modules]()
-- [Use Language Files]()
+- [Use Icon Fonts]()
 - [Use Hardware API Plugins]()
+- [Use Language Files]()
+- [Use Node Modules]()
+- [Use local Data Storage]()
+- [Use Firebase as Backend Provider]()
+- [Sign in with Google]()
 - ...
   
 Deployment
