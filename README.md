@@ -1,7 +1,11 @@
 # App Framework v4
 
-## CLI Commands
+**App Framework combines great pieces of open source code to support your whole workflow with useful scripts and your App with powerful plugins. With App Framework, you can spend your time for your next amazing App and not for the tricky stuff around - free and open source!**
 
-- Run `npx app dev` to open the development build in a web browser.
-- Run `npx app dev-electron` to open the development build in an Electron app.
-- Run `npx app build` to build the web files.
+
+## Features
+
+- [ ] **Powerful JavaScript Framework** - [Vue.js](https://vuejs.org/) or [React](https://reactjs.org/)
+- [ ] **Beautiful UX Framework** - [Framework7](https://framework7.io/), [Bootstrap](https://getbootstrap.com/) or [Material Design](https://material.io/design/)
+- [ ] **Native API Plugins** - [Capacitor](https://capacitor.ionicframework.com/) and [Cordova](https://cordova.apache.org/)
+- [ ] **One Code Base** - HTML, CSS and JavaScript with ES6 support
