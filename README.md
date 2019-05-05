@@ -2,7 +2,11 @@
 
 A combination of great pieces of open source code to let you develop, build and deploy a new application in minutes. With App Framework, you can spend your time for what makes your application unique, not the tricky stuff around!
 
+&nbsp;
+
 ![Process](./docs/images/processSmall.png)
+
+&nbsp;
 
 ## Features
 
@@ -19,7 +23,9 @@ A combination of great pieces of open source code to let you develop, build and 
 
 ## Quick Start
 
-Run `npx app-framework` to open a wizard which will guide you to your new application project.<br />
+Run `npx app-framework` to open a wizard which will guide you to your new application project.
+
+&nbsp;
 
 ## Documentation
 
