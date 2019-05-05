@@ -20,10 +20,10 @@ Run `npx app-framework` to open a wizard which will guide you to your new applic
 
 ## Documentation
 
-- Preparation
+- Prepare
   - [Setup your Development Environment]()
   - [Create your new Application Project]()
-- Development
+- Develop
   - [Use Images]()
   - ...
 - Build & Deploy
