@@ -12,7 +12,7 @@ A combination of great pieces of open source code to let you develop, build and 
 - [ ] **Hardware APIs** - provided by [Capacitor](https://capacitor.ionicframework.com/) and [Cordova](https://cordova.apache.org/).
 - [ ] **One Code Base** - with HTML, CSS and JavaScript with ES6 support.
 - [ ] **Local Development Server** - with live reload, perfectly to use together with [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools/).
-- [ ] **Native Deployment** as [PWA](https://developers.google.com/web/progressive-web-apps/), as mobile App (iOS or Android) or desktop App (macOS, Windows or Linux).
+- [ ] **Native Deployment** - as [PWA](https://developers.google.com/web/progressive-web-apps/), as mobile App (iOS or Android) or desktop App (macOS, Windows or Linux).
 
 ## Quick Start
 
