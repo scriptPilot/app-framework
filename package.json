@@ -3,10 +3,14 @@
   "description": "iOS and Android Apps with HTML & JavaScript - develop, build and deploy - free and open source!",
   "author": "scriptPilot <mail@scriptPilot.de> (https://github.com/scriptPilot)",
   "repository": "https://github.com/scriptPilot/app-framework.git",
-  "version": "4.0.0-alpha.0",
+  "version": "4.0.4",
   "license": "MIT",
   "bin": {
-    "app": "./framework/cli.js"
+    "app-framework": "./cli/app-framework.js",
+    "app": "./cli/app.js"
+  },
+  "scripts": {
+    "postinstall": "node framework/scripts/postinstall"
   },
   "dependencies": {
     "@vue/component-compiler-utils": "^3.0.0",
@@ -27,6 +31,8 @@
     "material-icons": "^0.3.1",
     "mustache": "^3.0.1",
     "parcel-bundler": "^1.12.3",
+    "prompt-choices": "^5.0.0",
+    "prompt-list": "^3.2.0",
     "shelljs": "^0.8.3",
     "vue": "^2.6.10",
     "vue-hot-reload-api": "^2.3.3",
