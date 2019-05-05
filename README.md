@@ -21,9 +21,13 @@ Run `npx app-framework` to open a wizard which will guide you to your new applic
 - Run **`npx app dev`** to start a development server in the web browser
    - Run `npx app dev electron` to start a development server in an Electron shell
 - Run **`npx app build`** to build your application according your configuration
+  - Run `npx app build pwa` to build and open an Xcode project
   - Run `npx app build ios` to build and open an Xcode project
   - Run `npx app build android` to build and open an Android Studio project
   - Run `npx app build macos` to build and open an Xcode project
   - Run `npx app build windows` to build and open an Xcode project
   - Run `npx app build linux` to build and open an Xcode project
+- Run **`npx app deploy`** to deploy your application according your configuration
+  - Run `npx app deploy firebase` to deploy the latest build to any Firebase project
+  - Run `npx app deploy ftp` to deploy the latest build to any FTP server
 - Run `npm update` to update App Framework to the latest version
