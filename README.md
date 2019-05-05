@@ -4,7 +4,7 @@ A combination of great pieces of open source code to let you develop, build and 
 
 &nbsp;
 
-![Process](./docs/images/processSmall.png)
+![Process](./docs/images/process.png)
 
 &nbsp;
 
@@ -37,7 +37,8 @@ Preparation
 Development
 
 - [Use Images]()
-- ...
+- [Use Node Modules]()
+- [Use Language Files]()
   
 Deployment
 
