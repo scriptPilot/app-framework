@@ -21,9 +21,9 @@ const args = process.argv.slice(2);
 if (args[0] === 'fix') {
   runScript('fixCode');
 } else if (args[0] === 'dev' && args[1] === 'electron') {
-  runScript('buildDevElectron')
+  runScript('buildDevElectron');
 } else if (args[0] === 'dev') {
-  runScript('buildDev')
+  runScript('buildDev');
 } else {
   runScript('createNewProject');
 }

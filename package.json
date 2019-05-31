@@ -3,8 +3,11 @@
   "description": "Applications for any device with HTML, CSS and JavaScript - free and open source!",
   "author": "scriptPilot <mail@scriptPilot.de> (https://github.com/scriptPilot)",
   "repository": "https://github.com/scriptPilot/app-framework.git",
-  "version": "4.0.0-alpha.9",
+  "version": "4.0.0-alpha.10",
   "license": "MIT",
+  "scripts": {
+    "prepublish": "node scripts/fixCode"
+  },
   "bin": {
     "app": "./cli.js"
   },
