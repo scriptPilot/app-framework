@@ -24,6 +24,8 @@ if (args[0] === 'fix') {
   runScript('buildDevElectron');
 } else if (args[0] === 'dev') {
   runScript('buildDev');
+} else if (args[0] === 'build') {
+  runScript('buildWeb');
 } else {
   runScript('createNewProject');
 }
