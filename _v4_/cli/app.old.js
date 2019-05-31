@@ -2,19 +2,19 @@
 
 const program = require('commander');
 const { exec } = require('shelljs');
-const { resolve } = require('path')
-const List = require('prompt-list')
+const { resolve } = require('path');
+const List = require('prompt-list');
 
 function getJSFramework(cb) {
   const list = new List({
     message: 'Which JavaScript Framework do you want to use?',
     choices: [
       'Vue',
-      {name: 'React', disabled: 'Planned for the future'},
-      'No Framework'
-    ]
-  })
-  list.ask((JSFramework) => cb)
+      { name: 'React', disabled: 'Planned for the future' },
+      'No Framework',
+    ],
+  });
+  list.ask(JSFramework => cb);
 }
 
 program
@@ -24,10 +24,10 @@ program
       message: 'Which JavaScript Framework do you want to use?',
       choices: [
         'Vue',
-        {name: 'React', disabled: 'Planned for the future'},
-        'No Framework'
-      ]
-    })
+        { name: 'React', disabled: 'Planned for the future' },
+        'No Framework',
+      ],
+    });
     list.ask((JSFramework) => {
       const list = new List({
         message: 'Which UX Framework do you want to use?',
@@ -35,14 +35,14 @@ program
           'Framework7',
           'Material',
           'Bootstrap',
-          'No Framework'
-        ]
-      })
+          'No Framework',
+        ],
+      });
       list.ask((UXFramework) => {
-        console.log(JSFramework, UXFramework)
-      })
-    })
-  })
+        console.log(JSFramework, UXFramework);
+      });
+    });
+  });
 
 /*
 

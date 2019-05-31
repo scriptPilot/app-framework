@@ -1,0 +1,7 @@
+_v3_/
+_v4_/
+.git/
+build/
+cache/
+docs/
+node_modules/

@@ -12,5 +12,14 @@
         }
       }
     ]
-  }
+  },
+  "overrides": [
+    {
+      "files": ["templates/**"],
+      "rules": {
+        "import/no-unresolved": false,
+        "import/no-extraneous-dependencies": false
+      }
+    }
+  ]
 }

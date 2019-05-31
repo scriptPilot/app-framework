@@ -1,0 +1,11 @@
+# Exclude build folder
+build/
+
+# Exclude modules folder
+node_modules/
+
+# Exclude log files
+*.log*
+
+# Exclude temporary system files
+.DS_Store
