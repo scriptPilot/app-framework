@@ -5,5 +5,5 @@ const indexFile = resolve(process.cwd(), 'app/index.html');
 const cacheFolder = resolve(__dirname, '../cache/parcel');
 const buildFolder = resolve(__dirname, '../cache/dev');
 
-console.log('Start development build ...');
+process.stdout.write('Starting development build process ...\n');
 execSync(`npx parcel "${indexFile}" --cache-dir "${cacheFolder}" --out-dir "${buildFolder}"`, { stdio: 'inherit' });

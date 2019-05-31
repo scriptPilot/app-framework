@@ -1,33 +1,29 @@
 #!/usr/bin/env node
 
 // Import modules
-const program = require('commander');
 const { resolve } = require('path');
-const { spawn } = require('child_process');
+const { execSync } = require('child_process');
 
-// Function to run script and exit CLI if script ends with error
+// Create shortcut function to run scripts and exit script on error
 function runScript(scriptName) {
-  const scriptPath = resolve(__dirname, 'scripts', scriptName);
-  const run = spawn('node', [scriptPath], { stdio: ['inherit', 'inherit', 'ignore'] });
-  run.on('close', (code) => {
-    if (code !== 0) {
-      process.stderr.write(`Failed to run script "${scriptName}".\n`);
-      process.exit(1);
-    }
-  });
+  const scriptFile = resolve(__dirname, 'scripts', scriptName);
+  try {
+    execSync(`node ${scriptFile}`, { stdio: 'inherit' });
+  } catch (e) {
+    process.exit(0);
+  }
 }
 
-// Define CLI program
-program
-  .action((...args) => {
-    if (args[0] === 'fix') {
-      runScript('fixCode');
-    } else if (args[0] === 'dev') {
-      runScript('buildDev');
-    } else {
-      runScript('createNewProject');
-    }
-  });
+// Get CLI arguments
+const args = process.argv.slice(2);
 
-program
-  .parse(process.argv);
+// Run scripts
+if (args[0] === 'fix') {
+  runScript('fixCode');
+} else if (args[0] === 'dev' && args[1] === 'electron') {
+  runScript('buildDevElectron')
+} else if (args[0] === 'dev') {
+  runScript('buildDev')
+} else {
+  runScript('createNewProject');
+}
