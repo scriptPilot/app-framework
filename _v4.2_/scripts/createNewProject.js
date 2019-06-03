@@ -29,21 +29,32 @@ async function createNewProject() {
         { title: 'Vue + Framework7', value: 'vue-framework7vue' },
         { title: 'Vue + Bootstrap', value: 'vue-bootstrapvue' },
         { title: 'Vue + Material', value: 'vue-materialvue' },
+        { title: 'Vue + SAP UI5', value: 'vue-ui5' },
       ],
       initial: 1,
     },
     {
       type: 'select',
       name: 'eslint',
-      message: 'Do you want to lint your code?',
+      message: 'How do you want to lint your code?',
       choices: [
-        { title: 'No', value: false },
         { title: 'ESLint recommend rules', value: 'recommend' },
         { title: 'ESLint + Airbnb JavaScript Style Guide', value: 'airbnb' },
         { title: 'ESLint + JavaScript Standard Style', value: 'standard' },
       ],
-      initial: 2,
+      initial: 1,
     },
+    {
+      type: 'multiselect',
+      name: 'iconFonts',
+      message: 'Which icon fonts do you want to use?',
+      choices: [
+        { title: 'Font Awesome', value: 'fontAwesome' },
+        { title: 'Framework7 Icons', value: 'framework7' },
+        { title: 'Ion Icons', value: 'ion' },
+        { title: 'Material Design Icons', value: 'material' }
+      ]
+    }
   ]);
 
   // Check if project folder is available
@@ -90,8 +101,37 @@ async function createNewProject() {
     res.push('bootstrap');
   } else if (options.template === 'vue-materialvue') {
     res.push('vue-material');
+  } else if (options.template === 'vue-ui5') {
+    res.push('@ui5/webcomponents');
   }
   execSync(`npm install --save ${res.join(' ')}`, { stdio: 'inherit' });
+
+  // Install icon fonts
+  const iconTags = []
+  const iconPackages = []
+  options.iconFonts.forEach(font => {
+    if (font === 'fontAwesome') {
+      iconTags.push('import \'@fortawesome/fontawesome-free/css/all.css\';')
+      iconPackages.push('@fortawesome/fontawesome-free')
+    } else if (font === 'framework7') {
+      iconTags.push('import \'framework7-icons\';')
+      iconPackages.push('framework7-icons')
+    } else if (font === 'ion') {
+      iconTags.push('import \'ionicons/dist/css/ionicons.min.css\';')
+      iconPackages.push('ionicons')
+    } else if (font === 'material') {
+      iconTags.push('import \'material-icons/iconfont/material-icons.css\';')
+      iconPackages.push('material-icons')
+    }
+  })
+  if (iconTags.length > 0) {
+    const appScriptFile = resolve(projectFolder, 'app/app.js')
+    const appScriptFileContent = fs.readFileSync(appScriptFile, 'utf8') + '\n' + iconTags.join('\n') + '\n'
+    fs.writeFileSync(appScriptFile, appScriptFileContent)
+  }
+  if (iconPackages.length > 0) {
+    execSync(`npm install --save ${iconPackages.join(' ')}`, { stdio: 'inherit' });
+  }
 
   // Copy .gitignore file
   fs.copySync(resolve(__dirname, '../templates/gitignore.txt'), resolve('.gitignore'));
@@ -153,7 +193,7 @@ async function createNewProject() {
     execSync(`npm install --save-dev ${uniquePackages.join(' ')}`, { stdio: 'inherit' });
   }
 
-  // Run ESLint fix once to updat code style
+  // Run ESLint fix once to update code style (and reorder additional import tags)
   execSync('npx eslint --fix --ext .js,.vue app', { stdio: 'inherit' });
 
   // Success log

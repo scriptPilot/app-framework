@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>Hello World at {{ time }}!</p>
+    <p>Hello World at {{ time }}</p>
   </div>
 </template>
 <script>
