@@ -25,7 +25,7 @@ We are happy about any reported bug in our [issue list](https://github.com/scrip
 The **cli.js** file:
 
 - is called on any `npx app ...` command by the end user
-- calls on or more script files
+- calls one or more script files
 
 The **scripts** files:
 
