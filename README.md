@@ -28,9 +28,9 @@ App Framework combines great pieces of open source code, to do all the tasks for
 - [ ] **Development Server** - with live reload in the web browser or an [Electron](https://electronjs.org/) shell.
 - [ ] **Automated Code Fix** - with [ESLint](https://eslint.org/) according the [Airbnb Style Guide](https://github.com/airbnb/javascript), [Standard JS](https://standardjs.com/) or your own rules.
 - [ ] **Asset Generation** - for icons, splash screens, the manifest, the robots file and service worker.
-- [ ] **Optimized Build Process** - to get excellent scores at Lighthouse and other audits.
-- [ ] **Multiple Build Targets** - as PWA, mobile (iOS, Android) or desktop application (macOS, Windows, Linux).
-- [ ] **Automated Deployment** - to any FTP server or Firebase.
+- [ ] **Optimized Build Process** - to get excellent scores at [Google Lighthouse](https://developers.google.com/web/tools/lighthouse/) and other audits.
+- [ ] **Multiple Build Targets** - as [PWA](https://developers.google.com/web/progressive-web-apps/), mobile (iOS, Android) or desktop application (macOS, Windows, Linux).
+- [ ] **Automated Deployment** - to any FTP server or [Firebase](https://firebase.google.com/).
 
 ## CLI Commands
 
