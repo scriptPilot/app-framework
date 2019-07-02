@@ -34,6 +34,7 @@ The **scripts** files:
 - log on any bigger successful step as "success"
 - log on any error with a meaningful message as "error"
 - log on any error with the original message as "debug"
+- exit further script execution on any error
 
 The **helpers** files:
 
