@@ -53,18 +53,18 @@ npx app start electron    # in an Electron shell
 
 ```
 npx app build             # as configured
-npx app build pwa         # as PWA only
-npx app build ios         # as Xcode project only
-npx app build android     # as Android Studio project only
-npx app build macos       # as macOS application only
-npx app build windows     # as Windows application only
-npx app build linux       # as Linux application only
+npx app build pwa         # as PWA
+npx app build ios         # as Xcode project
+npx app build android     # as Android Studio project
+npx app build macos       # as macOS application
+npx app build windows     # as Windows application
+npx app build linux       # as Linux application
 ```
 
 **Deploy** your application:
 
 ```
 npx app deploy            # as configured
-npx app deploy ftp        # to an FTP server only
-npx app deploy firebase   # to Firebase only
+npx app deploy ftp        # to an FTP server
+npx app deploy firebase   # to Firebase
 ```
