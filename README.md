@@ -2,8 +2,6 @@
 
 > App Framework v4 is still under development. The latest stable version is [App Framework v1](https://github.com/scriptPilot/app-framework/blob/v1/README.md).
 
-## About
-
 App Framework combines great pieces of open source code, to do all the tasks for you, which are required to create and build applications based on HTML, CSS and JavaScript for multiple platforms.
 
 &nbsp;
@@ -12,7 +10,7 @@ App Framework combines great pieces of open source code, to do all the tasks for
 
 &nbsp;
 
-## Purpose
+## Benefits
 
 - [ ] You can create new application projects in seconds.
 - [ ] You can use your favorite frameworks and libraries.
