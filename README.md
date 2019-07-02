@@ -2,6 +2,12 @@
 
 App Framework combines great pieces of open source code, to do all the tasks for you, which are required to create and build applications based on HTML, CSS and JavaScript to multiple platforms.
 
+&nbsp;
+
+![Development Process](docs/images/process.png)
+
+&nbsp;
+
 ## Why?
 
 - [ ] You can create new application projects in seconds.
