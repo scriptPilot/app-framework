@@ -16,6 +16,7 @@ App Framework combines great pieces of open source code, to do all the tasks for
 - [ ] You can use your favorite frameworks and libraries.
 - [ ] You never have to worry about build processes again.
 - [ ] You never have had such a tidy project folder before.
+- [ ] App Framework can be your sole development dependency.
 - [ ] App Framework is free and open source.
 
 ## Features
@@ -34,16 +35,10 @@ App Framework combines great pieces of open source code, to do all the tasks for
 
 ## CLI Commands
 
-**Install** App Framework globally (`sudo` may be required):
-
-```
-npm install -g app-framework
-```
-
 **Create** a new application project (run in an empty folder):
 
 ```
-npx app create
+npx app-framework
 ```
 
 **Start** the development server:

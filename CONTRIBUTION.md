@@ -15,6 +15,7 @@ We are happy about any reported bug in our [issue list](https://github.com/scrip
 
 - Name all folders and files in `lowerCamelCase`.
 - Fix all code according the [Airbnb Style Guide](https://github.com/airbnb/javascript).
+- Describe the purpose and comment well in all code files.
 - Write the documentation from "us" to "you".
 - Write all headlines in `Title Case`, all other text in correct orthography.
 - Indicate all user inputs as `code`, all folder and file paths *italic*.
