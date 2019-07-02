@@ -43,9 +43,9 @@ npx app-framework
 **Start** the development server:
 
 ```
-npx app dev               # as configured
-npx app dev web           # in the web browser
-npx app dev electron      # in an Electron shell
+npx app start             # as configured
+npx app start web         # in the web browser
+npx app start electron    # in an Electron shell
 ```
 
 **Build** your application:
