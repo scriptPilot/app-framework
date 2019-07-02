@@ -13,7 +13,7 @@ We are happy about any reported bug in our [issue list](https://github.com/scrip
 
 ## Coding & Documentation Rules
 
-- Name all files and folder in `lowerCamelCase`.
+- Name all folders and files in `lowerCamelCase`.
 - Fix all code according the [Airbnb Style Guide](https://github.com/airbnb/javascript).
 - Write the documentation from "us" to "you".
 - Write all headlines in `Title Case`, all other text in correct orthography.
