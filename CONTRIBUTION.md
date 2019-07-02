@@ -1,6 +1,6 @@
 # App Framework Contribution
 
-We are happy about any reported bug in our [issue list](issues).
+We are happy about any reported bug in our [issue list](https://github.com/scriptPilot/app-framework/issues).
 
 ## Development Workflow
 
@@ -13,11 +13,12 @@ We are happy about any reported bug in our [issue list](issues).
 
 ## Coding & Documentation Rules
 
-- All folders and files should be names in "lowerCamelCase".
-- All code should be fixed according the [Airbnb Style Guide](https://github.com/airbnb/javascript).-
-- All documentation should be written from "us" to "you".
-- All headlines should be written in "Title Case", all text in correct orthography.
-- All images should be created in [Draw.io](https://www.draw.io/) and saved as XML and PNG files.
+- Name all files and folder in `lowerCamelCase`.
+- Fix all code according the [Airbnb Style Guide](https://github.com/airbnb/javascript).
+- Write the documentation from "us" to "you".
+- Write all headlines in `Title Case`, all other text in correct orthography.
+- Indicate all user inputs as `code`, all folder and file paths *italic*.
+- Create all images with [Draw.io](https://www.draw.io/) and save them as XML and PNG files.
 
 ## Architecture
 
