@@ -34,7 +34,7 @@ App Framework combines great pieces of open source code, to do all the tasks for
 
 ## CLI Commands
 
-**Install** App Framework globally ("sudo" may be required):
+**Install** App Framework globally (`sudo` may be required):
 
 ```
 npm install -g app-framework
