@@ -1,3 +1,5 @@
+/* Purpose: Run CLI commands silent or loud, with shortcut to run scripts */
+
 // Import modules
 const { exec } = require('shelljs');
 const fs = require('fs-extra');
@@ -21,8 +23,9 @@ module.exports = {
     }
     const res = exec(command, { cwd: path.project(), silent: true });
     if (debugMode) {
-      log.debug(`Command: ${command}`);
-      log.debug(res.stdout);
+      log.debug(`Command "${command}" exit with code ${res.code}`);
+      if (res.stderr.length > 0) log.debug(`StdErr: ${res.stderr}`);
+      if (res.stdout.length > 0) log.debug(`StdOut: ${res.stdout}`);
     }
     return res;
   },
@@ -33,12 +36,15 @@ module.exports = {
     }
     const res = exec(command, { cwd: path.project(), silent: false });
     if (debugMode) {
-      log.debug(`Command: ${command}`);
-      log.debug(res.stdout);
+      log.debug(`Command "${command}" exit with code ${res.code}`);
+      if (res.stderr.length > 0) log.debug(`StdErr: ${res.stderr}`);
+      if (res.stdout.length > 0) log.debug(`StdOut: ${res.stdout}`);
     }
     return res;
   },
   script(scriptName) {
-    return exec(`node ./scripts/${scriptName}.js`, { cwd: path.framework(), silent: false });
+    const res = exec(`node ${scriptName}.js`, { cwd: path.scripts(), silent: false });
+    if (res.code !== 0) process.exit()
+    return res
   },
 };

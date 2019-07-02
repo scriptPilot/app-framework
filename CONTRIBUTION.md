@@ -33,6 +33,7 @@ The **scripts** files:
 - are called by the *cli.js* file only
 - log on any smaller successful step as "info"
 - log on any bigger successful step as "success"
+- log on not optional situations as "warning"
 - log on any error with a meaningful message as "error"
 - log on any error with the original message as "debug"
 - exit further script execution on any error

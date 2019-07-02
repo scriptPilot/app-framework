@@ -1,3 +1,5 @@
+/* Purpose: Provide logger functionality */
+
 // Import modules
 const fs = require('fs-extra');
 const clc = require('cli-color');
@@ -16,10 +18,10 @@ module.exports = {
   debug(msg) {
     if (debugMode) {
       if (typeof msg === 'object' && msg !== null) {
-        console.log(clc.bold.cyan('[DEBUG]')); // eslint-disable-line no-console
+        console.log(clc.bold.cyan('  [DEBUG]')); // eslint-disable-line no-console
         console.dir(msg); // eslint-disable-line no-console
       } else {
-        console.log(clc.bold.cyan('[DEBUG]'), clc.bold(msg)); // eslint-disable-line no-console
+        console.log(clc.bold.cyan('  [DEBUG]'), clc.bold(msg)); // eslint-disable-line no-console
       }
     }
   },
