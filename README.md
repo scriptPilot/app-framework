@@ -34,10 +34,16 @@ App Framework combines great pieces of open source code, to do all the tasks for
 
 ## CLI Commands
 
-**Create** a new application project:
+**Install** App Framework globally ("sudo" may be required):
 
 ```
-npx app-framework
+npm install -g app-framework
+```
+
+**Create** a new application project (run in an empty folder):
+
+```
+npx app create
 ```
 
 **Start** the development server:
