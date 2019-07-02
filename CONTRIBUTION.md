@@ -44,7 +44,7 @@ The **helpers** files:
 The **templates** files:
 
 - are used by the *scripts/create.js* file
-- provide templates for application projects
+- provide templates for new application projects
 
 The **images** files:
 
