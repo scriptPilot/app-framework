@@ -6,7 +6,7 @@ App Framework combines great pieces of open source code, to do all the tasks for
 
 &nbsp;
 
-![Development Process](docs/images/process.png)
+![Development Process](images/process.png)
 
 &nbsp;
 
