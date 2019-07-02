@@ -25,6 +25,7 @@ App Framework combines great pieces of open source code, to do all the tasks for
 - [ ] **Beautiful UX Frameworks** - like Material Design, Bootstrap, SAP UI5, Framework7 or your favorite one.
 - [ ] **Comprehensive Icon Fonts** - use Material Design Icons, Framework7 iOS Icons, Font Awesome or any other.
 - [ ] **Native Hardware APIs** - supported by Capacitor and Cordova.
+- [ ] **Development Server** - with live reload in the web browser or an Electron shell.
 - [ ] **Automated Code Fix** - with ESLint according the Airbnb Style Guide, Standard JS or your own rules.
 - [ ] **Asset Generation** - for icons, splash screens, the manifest, the robots file and service worker.
 - [ ] **Optimized Build Process** - to get excellent scores at Lighthouse and other audits.
