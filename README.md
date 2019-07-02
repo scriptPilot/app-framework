@@ -21,12 +21,12 @@ App Framework combines great pieces of open source code, to do all the tasks for
 ## Features
 
 - [ ] **Project Folder Creation** - lightweight and well-organized.
-- [ ] **Powerful JavaScript Frameworks** - like Angular, React, Vue or your favorite one.
-- [ ] **Beautiful UX Frameworks** - like Material Design, Bootstrap, SAP UI5, Framework7 or your favorite one.
-- [ ] **Comprehensive Icon Fonts** - use Material Design Icons, Framework7 iOS Icons, Font Awesome or any other.
-- [ ] **Native Hardware APIs** - supported by Capacitor and Cordova.
-- [ ] **Development Server** - with live reload in the web browser or an Electron shell.
-- [ ] **Automated Code Fix** - with ESLint according the Airbnb Style Guide, Standard JS or your own rules.
+- [ ] **Powerful JavaScript Frameworks** - like [Angular](https://angular.io/), [React](https://reactjs.org/), [Vue.js](https://vuejs.org/) or your favorite one.
+- [ ] **Beautiful UX Frameworks** - like [Material Design](https://material.io/), [Bootstrap](https://getbootstrap.com/), [SAP UI5](https://sap.github.io/ui5-webcomponents/), [Framework7](https://framework7.io/) or your favorite one.
+- [ ] **Comprehensive Icon Fonts** - use [Material Design Icons](https://material.io/tools/icons/?style=baseline), [Framework7 iOS Icons](https://framework7.io/icons/), [Font Awesome](https://fontawesome.com/) or any other.
+- [ ] **Native Hardware APIs** - supported by [Capacitor](https://capacitor.ionicframework.com/) and [Cordova](https://cordova.apache.org/).
+- [ ] **Development Server** - with live reload in the web browser or an [Electron](https://electronjs.org/) shell.
+- [ ] **Automated Code Fix** - with [ESLint](https://eslint.org/) according the [Airbnb Style Guide](https://github.com/airbnb/javascript), [Standard JS](https://standardjs.com/) or your own rules.
 - [ ] **Asset Generation** - for icons, splash screens, the manifest, the robots file and service worker.
 - [ ] **Optimized Build Process** - to get excellent scores at Lighthouse and other audits.
 - [ ] **Multiple Build Targets** - as PWA, mobile (iOS, Android) or desktop application (macOS, Windows, Linux).
