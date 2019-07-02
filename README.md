@@ -29,6 +29,7 @@ App Framework combines great pieces of open source code, to do all the tasks for
 - [ ] **Asset Generation** - for icons, splash screens, the manifest, the robots file and service worker.
 - [ ] **Optimized Build Process** - to get excellent scores at Lighthouse and other audits.
 - [ ] **Multiple Build Targets** - as PWA, mobile (iOS, Android) or desktop application (macOS, Windows, Linux).
+- [ ] **Automated Deployment** - to any FTP server or Firebase.
 
 ## CLI Commands
 
