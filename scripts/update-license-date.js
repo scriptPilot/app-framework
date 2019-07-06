@@ -1,8 +1,14 @@
-const fs = require('fs-extra');
-const log = require('./helper/logger');
-const path = require('./helper/path');
+/* Purpose: Update the dates in the licence file */
 
+// Import modules
+const fs = require('fs-extra');
+const log = require('../helpers/log');
+const path = require('../helpers/path');
+
+// Define license file path
 const file = path.project('LICENSE');
+
+// Update the date if the license file is found
 if (fs.pathExistsSync(file)) {
   const year = (new Date()).getFullYear();
   const oldFileContent = fs.readFileSync(file, { encoding: 'utf-8' });
@@ -13,4 +19,6 @@ if (fs.pathExistsSync(file)) {
   } else {
     log.info('LICENSE file date is up to date.');
   }
+} else {
+  log.warning('LICENSE file not found.');
 }

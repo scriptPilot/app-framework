@@ -3,7 +3,7 @@
 // Import modules
 const { exec } = require('shelljs');
 const fs = require('fs-extra');
-const log = require('./logger');
+const log = require('./log');
 const path = require('./path');
 
 // Define debug mode
@@ -43,8 +43,10 @@ module.exports = {
     return res;
   },
   script(scriptName) {
-    const res = exec(`node ${scriptName}.js`, { cwd: path.scripts(), silent: false });
-    if (res.code !== 0) process.exit()
-    return res
+    const scriptFile = path.scripts(`${scriptName}.js`);
+    // Changing the cwd will result in error on app path detection
+    const res = exec(`node ${scriptFile}`, { silent: false });
+    if (res.code !== 0) process.exit();
+    return res;
   },
 };

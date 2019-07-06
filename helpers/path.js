@@ -1,4 +1,4 @@
-/* Purpose: Extend native Node paths functions with shortcuts to often used folders */
+/* Purpose: Extend native Node paths functions with shortcut functions to often used folders */
 
 // Import modules
 const path = require('path');
@@ -7,6 +7,7 @@ const path = require('path');
 path.framework = (...nav) => path.resolve(__dirname, '../', ...nav);
 path.cache = (...nav) => path.resolve(__dirname, '../cache', ...nav);
 path.scripts = (...nav) => path.resolve(__dirname, '../scripts', ...nav);
+path.templates = (...nav) => path.resolve(__dirname, '../templates', ...nav);
 
 // Project related shortcuts
 path.project = (...nav) => path.resolve(process.cwd(), ...nav);

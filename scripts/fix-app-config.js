@@ -1,18 +1,20 @@
+/* Purpose: Create/update/fix app config file according schema */
+
 // Import modules
 const fs = require('fs-extra');
 const json = require('json-schema-fix');
-const log = require('./helper/logger');
-const path = require('./helper/path');
+const log = require('../helpers/log');
+const path = require('../helpers/path');
 
 // Cancel if app folder not exists
 if (!fs.pathExistsSync(path.app())) process.exit(0);
 
 // Load schema
-const schemaFile = path.scripts('helper/app-config-schema.json');
+const schemaFile = path.templates('app-config-schema.json');
 let schema = null;
 try {
   schema = fs.readJsonSync(schemaFile);
-  log.success('Loaded app config schema.');
+  log.info('Loaded app config schema.');
 } catch (e) {
   log.error('Failed to load app config schema.');
 }

@@ -13,10 +13,10 @@ try {
   debugMode = false;
 }
 
-// Export logger functions
-module.exports = {
-  debug(msg) {
-    if (debugMode) {
+// Define logger functions
+const logger = {
+  debug(msg, force = false) {
+    if (debugMode || force) {
       if (typeof msg === 'object' && msg !== null) {
         console.log(clc.bold.cyan('  [DEBUG]')); // eslint-disable-line no-console
         console.dir(msg); // eslint-disable-line no-console
@@ -34,11 +34,20 @@ module.exports = {
   warning(msg) {
     console.log(clc.bold.yellow('[WARNING]'), clc.bold(msg)); // eslint-disable-line no-console
   },
-  error(msg) {
+  error(msg, err = null) {
     console.log(clc.bold.red('  [ERROR]'), clc.bold(msg)); // eslint-disable-line no-console
+    if (err) this.debug(err, true);
     process.exit(1);
   },
   reset() {
     process.stdout.write(clc.reset);
   },
 };
+
+// Handle all unhandled exceptions
+process.on('uncaughtException', (err) => {
+  logger.error('Unexpected Error', err);
+});
+
+// Export logger functions
+module.exports = logger;

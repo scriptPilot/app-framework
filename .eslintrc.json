@@ -1,7 +1,8 @@
 {
   "extends": [
     "airbnb-base",
-    "plugin:vue/recommended"
+    "plugin:vue/recommended",
+    "plugin:jest/recommended"
   ],
   "rules": {
     "vue/html-self-closing": [
@@ -17,8 +18,8 @@
     {
       "files": ["templates/**"],
       "rules": {
-        "import/no-unresolved": false,
-        "import/no-extraneous-dependencies": false
+        "import/no-unresolved": 0,
+        "import/no-extraneous-dependencies": 0
       }
     }
   ]

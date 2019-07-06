@@ -1,1 +1,75 @@
-{ "debugMode": false }
+{
+  "meta": {
+    "name": "Application Name",
+    "shortName": "App Name",
+    "description": "Description of the application.",
+    "appID": "",
+    "languages": [
+      "en"
+    ],
+    "defaultLanguage": "en",
+    "defaultLanguageFallback": false
+  },
+  "iconFonts": {
+    "useFramework7Icons": true,
+    "useMaterialDesignIcons": true
+  },
+  "devServer": {
+    "port": 1234
+  },
+  "pwa": {
+    "buildOnBuildCommand": true,
+    "openInBrowserAfterBuild": true,
+    "includeOfflineServiceWorker": true,
+    "iconFile": "icon.png"
+  },
+  "ios": {
+    "buildOnBuildCommand": false,
+    "openXcodeAfterBuild": true,
+    "relatedITunesApplicationID": "",
+    "iconFile": "icon.png",
+    "splashScreenIconFile": "icon.png",
+    "splashScreenBackgroundColor": "#2196f3"
+  },
+  "android": {
+    "buildOnBuildCommand": false,
+    "openAndroidStudioAfterBuild": true,
+    "relatedPlayStoreApplicationID": "",
+    "themeColor": "#2196f3",
+    "backgroundColor": "#2196f3",
+    "iconFile": "icon.png",
+    "splashScreenIconFile": "icon.png",
+    "splashScreenBackgroundColor": "#2196f3"
+  },
+  "eslint": {
+    "runOnTestCommand": true,
+    "runOnDevCommand": true,
+    "runOnBuildCommand": true,
+    "openReportWhenPassed": false,
+    "openReportWhenFailed": true,
+    "extendDefaultConfig": {}
+  },
+  "jest": {
+    "runOnTestCommand": true,
+    "runOnDevCommand": true,
+    "runOnBuildCommand": true,
+    "openReportWhenPassed": false,
+    "openReportWhenFailed": true
+  },
+  "editorconfig": {
+    "addLinesToConfigFile": []
+  },
+  "git": {
+    "addLinesToIgnoreFile": []
+  },
+  "ftp": {
+    "defaultHost": "",
+    "defaultPort": "",
+    "defaultUserName": "",
+    "defaultPathOnServer": ""
+  },
+  "firebase": {
+    "defaultProjectID": ""
+  },
+  "debugMode": false
+}
