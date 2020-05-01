@@ -1,4 +1,4 @@
-# App Framework
+# App Framework v3
 
 > App Framework v3 was never completed. The latest stable version is [App Framework v1](https://github.com/scriptPilot/app-framework/tree/master).
 
