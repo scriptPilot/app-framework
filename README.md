@@ -1,6 +1,6 @@
 # App Framework
 
-> Version 3 was never completed. The latest stable version is [App Framework v1](https://github.com/scriptPilot/app-framework/tree/master) with focus on [Framework7](https://framework7.io/).
+> Version 3 was never completed. The latest stable version is [App Framework v1](https://github.com/scriptPilot/app-framework/tree/master).
 
 **iOS and Android Apps with HTML & JavaScript. App Framework combines great pieces of open source code to support your whole workflow with useful scripts and your App with powerful plugins. With App Framework, you can spend your time for your next amazing App and not for the tricky stuff around - free and open source!**
 
