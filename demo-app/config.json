@@ -30,7 +30,8 @@
     "relatedITunesApplicationID": "1203927581",
     "iconFile": "icon.ios.png",
     "splashScreenIconFile": "icon.ios.png",
-    "splashScreenBackgroundColor": "#f7f7f8"
+    "splashScreenBackgroundColor": "#f7f7f8",
+    "statusBarColor": "default"
   },
   "android": {
     "buildOnBuildCommand": true,
