@@ -71,7 +71,8 @@
     "defaultHost": "",
     "defaultPort": "",
     "defaultUserName": "",
-    "defaultPathOnServer": ""
+    "defaultPathOnServer": "",
+    "defaultPassword": ""
   },
   "firebase": {
     "defaultProjectID": ""
